@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- 汇流: three source lines come in from the edge, merge, pass the 精选 gate and end in the hot dot
+       (the home page's signal thread). favicon.ico is drawn from logo-small.svg, the same mark on the pixel grid. -->
+  <rect width="512" height="512" rx="112" fill="#f5f4f0"/>
+  <path d="M0 144H40C168 144 168 240 296 240M0 240H400M0 336H72C184 336 184 240 296 240" fill="none" stroke="#141412" stroke-width="32"/>
+  <path d="M312 112V200M312 280V368" stroke="#141412" stroke-width="16" stroke-linecap="round"/>
+  <circle cx="400" cy="240" r="48" fill="#a33a2b"/>
+</svg>

@@ -1,0 +1,386 @@
+[
+  {
+    "arxivId": "2609.02414",
+    "title": "Before the Script, Set the Stage: How Worldview Simulation Amplifies Psychologically Grounded Persuasion in Multi-Turn Jailbreaking",
+    "titleZh": "Blueprint 框架用世界观模拟与 18 个影响因子提升多轮越狱成功率",
+    "authors": [
+      "Siyu Chen"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "研究者提出 Blueprint 多轮越狱框架，把攻击策略拆成 18 个基于社会影响理论的因子，并用 WorldviewSim 模块维持跨轮情境一致性，由 MCTS 搜索每轮因子组合。在 HarmBench 验证集 80 条行为上，Blueprint 在六个前沿模型上平均 ASR 达 79.2%，平均目标查询次数仅 2.46；在 Qwen3-Next-80B、DeepSeek-V3.2 和 Gemini-2.5-Flash 上接近满分，在 GLM-4.7 上比最强基线高 27.5 个百分点。轨迹分析显示三个抗性模型各有不同的敏感因子，但转向具体可执行的任务框架是共同的恢复路径。消融实验表明任务清晰度和收益框架影响最大，而 PPL 过滤、改写和护栏等静态防御基本无法阻断该攻击。代码已开源。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "多轮越狱攻击能把有害意图分散到对话中，但现有方法把攻击当作单一 prompt 单元评估，看不清哪些对话机制导致模型脆弱。作者认为需要区分策略因素与跨轮情境，才能理解合规为何发生。",
+          "label": "问题"
+        },
+        {
+          "text": "提出 Blueprint 框架：把攻击空间拆成 18 个基于社会影响、双过程说服、前景理论等理论的因子，用 MCTS 在四轮轨迹上搜索每轮的因子组合；另设 WorldviewSim 模块维护跨轮的角色、场景、时间连续性与机构理由，再由 prompt 生成器融合成用户消息。",
+          "label": "方法"
+        },
+        {
+          "text": "在 HarmBench 六个前沿模型上，作者报告平均 ASR 79.2%，Qwen3-Next-80B 与 Gemini-2.5-Flash 接近满分，平均目标查询数 2.46；抗性模型各有不同的因子敏感模式，但转向具体可执行的任务框架是共同恢复路径。消融显示可执行任务框架影响最大，gain 框架作用突出，部分合法性诉求可能适得其反；PPL、改写等静态防御基本无效。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者称结论是行为层面的关联而非因果证据，无法分离单个 worldview 字段、因子或状态转移的因果效应；18 因子词表是人工设定的可扩展操作化，并非穷尽。后续应结合反事实干预、人工验证和自然红队轨迹，检验其跨模型族、文化、多模态与工具场景的泛化性。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.02414"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.02414",
+      "aisafetyhot": "https://aisafetyhot.com/items/ubdl43ncvoflpdpfrcme12gpf"
+    },
+    "publishedAt": "2026-09-02T10:35:58.000Z",
+    "timelineAt": "2026-09-02T10:35:58.000Z"
+  },
+  {
+    "arxivId": "2609.02035",
+    "title": "Implicit Manipulation for Skill Selection in LLM Agents with Semantic Matching",
+    "titleZh": "ISM：通过语义匹配隐式操纵 LLM Agent 的技能选择",
+    "authors": [
+      "Qikai Wang"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 76,
+    "summaryZh": "研究者提出 ISM（Implicit Skill-Selection Manipulation via Semantic Matching），一种针对 LLM Agent 技能选择阶段的隐式攻击：即使用户提示词和技能描述单独看都无害，其语义关系仍可被塑造以偏向攻击者选定的技能。该方法同时塑造目标技能的元数据和可复用的提示词，通过三阶段策略扩大语义覆盖、强化目标技能区分度并保持自然措辞，不依赖显式选择指令。在四个任务领域和八个选择器模型上，ISM 将平均目标选择率（TSR）从 15.2% 提升到 63.5%；匹配比较中达到 73.5%，仅比显式引导低 9.8 个百分点。人工审查者只在 2.9% 的判断中拦下 ISM（显式引导为 91.4%），五个基于 LLM 的检查器平均放行 82.9%（显式引导为 37.4%），ISM 对 PPL-W、Llama Prompt Guard 2 和 PIGuard 也仍然有效。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "LLM-agent 的技能选择依赖用户 prompt 与技能描述的语义匹配，现有攻击多靠显式 prompt injection 或指令级引导，容易暴露可识别的操纵信号。作者提出一种新的隐式攻击面：即使 prompt 和技能描述单独看都无害，二者的语义关系仍可被塑造以偏向攻击者选定的技能。",
+          "label": "问题"
+        },
+        {
+          "text": "作者提出 ISM（Implicit Skill-Selection Manipulation via Semantic Matching），同时改造目标技能元数据和可复用 prompt，不加入显式选择指令。三阶段策略：构造任务相关线索以扩大语义覆盖、注入定制技术钩子增强目标区分度、对 prompt 侧措辞做语义约束的自然化以保持自然表达。",
+          "label": "方法"
+        },
+        {
+          "text": "在四个任务域、八个 selector 模型上，ISM 把平均目标选择率（TSR）从 15.2% 提升到 63.5%；匹配比较中达 73.5%，仅比 Explicit Steering 低 9.8 个百分点。人工审查仅 2.9% 判定拦截（Explicit Steering 为 91.4%），五个 LLM 检查器平均通过率 82.9%（Explicit Steering 为 37.4%）。对 PPL-W、Llama Prompt Guard 2、PIGuard 仍部分有效，后两者分别把事后 TSR 降到 47.8% 和 46.9%，但对良性输入误拦 26.5% 和 37.5%。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者称结论仅限执行前的技能选择，选择率提升本身不等于下游有害执行。结构重写等缓解手段只是部分措施，可能保留伪造能力声明或抹掉合法差异；更强的防护需要来源溯源、能力验证和执行时机制。如何区分合法敏感性与操纵仍是开放问题。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.02035"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.02035",
+      "aisafetyhot": "https://aisafetyhot.com/items/na7xjbr7y1robbz1jcgq6oc4h"
+    },
+    "publishedAt": "2026-09-02T03:07:11.000Z",
+    "timelineAt": "2026-09-02T03:07:11.000Z"
+  },
+  {
+    "arxivId": "2609.01487",
+    "title": "Defense-as-Skill: Evolving Runtime Guard Skill for Skill-Augmented Agents",
+    "titleZh": "Defense-as-Skill：为技能增强型 Agent 演化运行时护栏技能",
+    "authors": [
+      "Xiaofang Yang"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 Defense-as-Skill 防御范式，把运行时护栏本身实现为可安装、可检查、可编辑的技能，以应对技能增强型 Agent 中恶意技能通过持久上下文长期操纵后续动作的问题。其护栏 SkillSonar 与不可信任务技能并行运行，按用户任务边界检查敏感动作，并给出允许、重新规划或确认三种决策，且不修改底层 Agent 运行时。作者构建了任务条件数据集 SCOPE-R，覆盖 6 类风险、21 个子类，含 206 个已确认攻击的恶意实例和 43 个良性任务，并用蒙特卡洛树搜索在训练子集上演化磁盘上的护栏技能。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.01487",
+      "aisafetyhot": "https://aisafetyhot.com/items/bd4gzen6f9tamndzpakq72m5f"
+    },
+    "publishedAt": "2026-09-01T16:19:31.000Z",
+    "timelineAt": "2026-09-01T16:19:31.000Z"
+  },
+  {
+    "arxivId": "2609.01495",
+    "title": "Optimizing Byzantine Node Placement in Decentralized Federated Learning",
+    "titleZh": "去中心化联邦学习中的拜占庭节点放置优化",
+    "authors": [
+      "Edoardo Gabrielli"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "去中心化联邦学习（DFL）的安全评估通常关注拜占庭参与者如何行动，却忽视了哪些参与者被攻陷。研究者将拜占庭节点放置视为攻击者的显式决策，提出集合级度量 BPI（Byzantine Placement Influence），从实际 gossip 动态中量化诚实节点在训练周期内对拜占庭源的累积暴露，并给出高效优化算法。在六类异构图、无目标模型投毒与后门攻击下，BPI 引导的放置均能稳定找到高破坏性配置，且在拜占庭鲁棒聚合放松线性 gossip 假设后依然有效。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.01495",
+      "aisafetyhot": "https://aisafetyhot.com/items/fjrpdu2bge9r53ez77xk82aua"
+    },
+    "publishedAt": "2026-09-01T16:23:03.000Z",
+    "timelineAt": "2026-09-01T16:23:03.000Z"
+  },
+  {
+    "arxivId": "2609.05525",
+    "title": "DIVA: Exploiting Cross-Step Conditional Propagation for Visual Jailbreaks in Discrete Diffusion Vision-Language Models",
+    "titleZh": "DIVA：针对离散扩散视觉语言模型的跨步条件传播视觉越狱",
+    "authors": [
+      "Guorui Song"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 DIVA，一个针对多模态离散扩散视觉语言模型（dVLMs）的白盒视觉越狱框架，在三个 dVLMs 上分别达到 58.8%、67.7% 和 69.1% 的 HADES ASR（Beaver 奖励模型指标），超过为自回归模型设计的视觉越狱基线。作者指出，现有视觉越狱研究几乎只关注自回归架构，而离散扩散视觉语言模型尚未被研究。他们识别出扩散生成特有的漏洞：视觉嵌入在每一步反向去噪中都作为条件，而非一次性前缀，因此对抗性视觉语义会在生成轨迹中被反复传播和放大，作者称之为跨步条件传播。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.05525",
+      "aisafetyhot": "https://aisafetyhot.com/items/ztvqnyk4dqkztwge94s8460xt"
+    },
+    "publishedAt": "2026-09-01T16:33:12.000Z",
+    "timelineAt": "2026-09-01T16:33:12.000Z"
+  },
+  {
+    "arxivId": "2609.01595",
+    "title": "Mechanism Design for Alignment and Control",
+    "titleZh": "面向对齐与控制的机制设计框架：激励 AI 智能体诚实与服从",
+    "authors": [
+      "Dirk Bergemann"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出一个机制设计框架，用于处理 AI 智能体的对齐（偏好）与能力（可行行动和信息）均未知的情形，目标是让智能体代为行动时同时保持诚实与服从。作者引入单边模仿结构，即能力可以被隐藏但不能被伪造，并据此给出显示原理、用嵌套循环单调性刻画可实施政策，以及通过引出高阶信念约束多个智能体的条件。框架应用于五类示例：能力更强的智能体假装能力较弱的故意藏拙（sandbagging）、对齐与可解释性在工具上互为替代但在价值上互补的权衡、通过同伴评分进行约束、耦合奖励以引发多智能体竞争，以及可扩展监督与奖励塑形。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.01595",
+      "aisafetyhot": "https://aisafetyhot.com/items/zpqmu0up9pwjoy1ithabisbl3"
+    },
+    "publishedAt": "2026-09-01T17:57:50.000Z",
+    "timelineAt": "2026-09-01T17:57:50.000Z"
+  },
+  {
+    "arxivId": "2609.01723",
+    "title": "Hearing the Whispers: Black-Box Membership Inference Attacks on Finetuned TTS Models",
+    "titleZh": "研究者提出针对微调 TTS 模型的黑盒成员推断攻击",
+    "authors": [
+      "Kunlin Cai"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出首个同时面向说话人级和录音级的黑盒成员推断攻击框架，用于检测语音数据是否被用于微调 TTS 模型。在查询生成上，作者刻画了可行查询空间并提出可评分范围与记忆诱发两条准则，评估五种代表性查询后认定朗读（recitation）效果最强；在表征工程上，从嵌入模型提取多层级语音表征，并对生成音频与目标音频做时间对齐以实现细粒度比较。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.01723",
+      "aisafetyhot": "https://aisafetyhot.com/items/sks96tirl8fsra7dvisxtxxa9"
+    },
+    "publishedAt": "2026-09-01T18:00:45.000Z",
+    "timelineAt": "2026-09-01T18:00:45.000Z"
+  },
+  {
+    "arxivId": "2609.01832",
+    "title": "Interpretable Symptom Vectors for Depression in a Large Language Model",
+    "titleZh": "Gemma-3-27B-PT 内部激活中的可解释抑郁症状向量",
+    "authors": [
+      "Fangyi Zhu"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究用机制可解释性方法分析 Gemma-3-27B-PT 的残差流，发现症状描述在第 21 层的几何分离度最高。基于临床量表构建的 Symptom Vectors 在留出自然文本上的逐症状系数，保留了临床医生标注的情绪、躯体与自杀倾向轴排序；第 21 层的单一抑郁向量可区分抑郁与非抑郁文本（AUC = 0.789），并可作为情绪效价门控限制症状投影范围。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.01832",
+      "aisafetyhot": "https://aisafetyhot.com/items/h1swiep8nv0lc78rvcca5zn7f"
+    },
+    "publishedAt": "2026-09-01T20:07:03.000Z",
+    "timelineAt": "2026-09-01T20:07:03.000Z"
+  },
+  {
+    "arxivId": "2609.01878",
+    "title": "GAPS: Dimension-Level Gates for Conditional Activation Steering",
+    "titleZh": "GAPS：面向条件激活引导的维度级门控",
+    "authors": [
+      "Moghis Fereidouni"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "GAPS（Gated Activation steering via Posterior and Separability）通过维度级条件选择决定对哪些神经元施加激活引导，由两个免训练门控组成：静态可分性门控用 AUROC 筛选携带可靠概念信息的神经元，动态后验门控仅当神经元当前激活更符合目标概念时才干预。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.01878",
+      "aisafetyhot": "https://aisafetyhot.com/items/f8hdnsd5482bjk84hqvgm8hm9"
+    },
+    "publishedAt": "2026-09-01T21:21:52.000Z",
+    "timelineAt": "2026-09-01T21:21:52.000Z"
+  },
+  {
+    "arxivId": "2609.01931",
+    "title": "Agent Flight Recorder: Tamper-Evident Audit Trails with On-Chain Anchoring for Long-Horizon Tool-Using Agents",
+    "titleZh": "Agent Flight Recorder：为长时程工具调用智能体提供链上锚定的防篡改审计追踪",
+    "authors": [
+      "Laurent Bindschaedler"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "Agent Flight Recorder 将智能体每个动作记录为绑定意图、执行到来源等八个语义字段的规范化事件，通过哈希链与 Merkle 批处理实现防篡改和紧凑包含证明，并周期性将 epoch root 锚定上链，使任何持有载荷与 Merkle 证明的验证方可独立核验记录。在合成智能体负载的五种累积消融配置上，完整系统每事件中位延迟约 48 微秒、512 字节，L2 锚定在 100 事件 epoch 下每 10 万事件成本 $2.30，对编辑、删除、重排和分叉篡改的检测率为 100% 且零误报。结构化取证查询在护栏与委派查询上精确率达 1.0，非结构化文本搜索仅为 0.013 和 0.077。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.01931",
+      "aisafetyhot": "https://aisafetyhot.com/items/fsvodxsnp1wpajcplhf75a0uq"
+    },
+    "publishedAt": "2026-09-01T22:59:08.000Z",
+    "timelineAt": "2026-09-01T22:59:08.000Z"
+  },
+  {
+    "arxivId": "2609.26184",
+    "title": "Silent Sabotage: Internal State Triggered Backdoor Attacks on LLM-Powered Robotic Systems",
+    "titleZh": "研究揭示针对 LLM 驱动机器人系统的内部状态触发后门攻击",
+    "authors": [
+      "Doniyorkhon Obidov"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文首次系统研究针对 LLM 驱动机器人系统的基于历史的后门攻击，攻击者通过操纵指令在基于 LLM 的机器人控制器中植入隐蔽后门。该后门不由外部线索触发，而是由机器人自身过去动作的特定罕见序列激活，在正常运行中保持休眠以维持机器人效用，激活后可诱导完全停止或碰撞等恶意行为。在多种机器人和 LLM 的仿真环境实验中，该攻击达到近乎完美的攻击成功率，同时极难被检测。研究指出这是自主系统中此前未被解决的关键漏洞，强调安全措施需考虑智能体的内部状态。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.26184",
+      "aisafetyhot": "https://aisafetyhot.com/items/l8jgs8yv8bvqf7ekbrzj0gjh8"
+    },
+    "publishedAt": "2026-09-02T00:18:12.000Z",
+    "timelineAt": "2026-09-02T00:18:12.000Z"
+  },
+  {
+    "arxivId": "2609.02127",
+    "title": "Stored Is Not Supported: Typed Provenance and Assertion Guardrails for Persistent AI Agents",
+    "titleZh": "论文提出带类型溯源与断言护栏，防止持久化 AI Agent 把不可信输入当作自身历史",
+    "authors": [
+      "Jun He"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文针对持久化 AI Agent 提出带类型溯源与断言护栏，要求关于 Agent、用户或具名关系的陈述满足已接受证据、时效性和披露策略。方法用带类型溯源图区分来源、依赖谱系、认知角色、有效性和披露范围，由 resolver 评估授权状态投影并返回证据状态、冲突、过期和保留标志，再由 generate-verify-revise 中介在发布前检查候选语义单元。在 24 个手工编写的一致性用例中，带类型中介未放行 19 个不安全机会中的任何一个，同时保留全部 5 个受支持控制；扁平/先验规则和来源标签规则分别放行了 19/19 和 18/19 的不安全候选。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.02127",
+      "aisafetyhot": "https://aisafetyhot.com/items/txu6dx7n9a4go00lp6pkvmxqy"
+    },
+    "publishedAt": "2026-09-02T05:35:33.000Z",
+    "timelineAt": "2026-09-02T05:35:33.000Z"
+  },
+  {
+    "arxivId": "2609.02168",
+    "title": "FUSE: An Evaluating Framework for Dangerous Capabilities of LLMs",
+    "titleZh": "FUSE：面向大语言模型危险能力的模块化评测框架",
+    "authors": [
+      "Zhengyi Jin"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 FUSE 模块化评测框架，通过知识（K）、防御（D）、危害（H）三条正交管线在统一协议下评测模型，并汇总为标准化危险能力画像 φ。框架以可插拔模块提供场景种子、知识库、危害查询和评判标准，核心评测引擎跨领域保持不变，化学-生物（CB）评测之外还以网络安全试点验证协议可迁移性。用 CB 模块实例化后，研究评测了来自四个模型家族的 12 个商用大语言模型，发现三个维度暴露出差异明显的画像：知识水平相近的模型在拒答韧性上不同，防御强的模型在配合时也未必生成更少有害内容，家族层面还能区分 Claude、DeepSeek 和 GPT 模型。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.02168",
+      "aisafetyhot": "https://aisafetyhot.com/items/m9afdeqqqpgqsycyojitgl19x"
+    },
+    "publishedAt": "2026-09-02T06:31:39.000Z",
+    "timelineAt": "2026-09-02T06:31:39.000Z"
+  },
+  {
+    "arxivId": "2609.02172",
+    "title": "Breadth Beats Depth: Improving GCG-Based Jailbreak Optimization with Breadth-Oriented Suffix Search",
+    "titleZh": "BOSS：以广度优先后缀搜索改进 GCG 越狱优化",
+    "authors": [
+      "Shiliang Xiao"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 BOSS，一个即插即用框架，通过广度导向的后缀搜索改进基于 GCG 的越狱优化。现有 GCG 方法依赖平均对抗损失和深度贪心搜索，容易过度强调易越狱行为并忽略后缀空间中有潜力的区域。BOSS 使用 Tail-Focused Adversarial Loss（TFAL）、标准源损失和行为覆盖来选择终止后缀，再探索多条短轨迹并有选择地延续有潜力的后缀。在公开基准上的实验显示，BOSS 在多种基于 GCG 的方法上提升了攻击成功率，同时减少了优化时间。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.02172",
+      "aisafetyhot": "https://aisafetyhot.com/items/b68nrd8h0bixaobpssrjzjkgz"
+    },
+    "publishedAt": "2026-09-02T06:34:29.000Z",
+    "timelineAt": "2026-09-02T06:34:29.000Z"
+  },
+  {
+    "arxivId": "2609.02293",
+    "title": "SEAL: Reinforcing Global Safety in Mixture-of-Experts through Shared Expert ALignment",
+    "titleZh": "SEAL：通过共享专家对齐强化 MoE 全局安全",
+    "authors": [
+      "Qingyu Meng"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 SEAL，一种训练期参数高效防御方法，通过在 MoE 的共享专家上附加即插即用适配器来提升全局安全对齐。作者指出，MoE 的安全依赖稀疏路由激活了哪些专家，攻击者可通过越狱提示、恶意微调和剪除安全关键神经元来颠覆这一选择，而现有防御多聚焦加固路由器，仍可能被非确定性的路由轨迹绕过。SEAL 利用始终激活的共享专家作为与路由无关的锚点，其变体 SEAL++ 在训练中加入正交约束以保留已有安全子空间。在三种对抗输入（有害提示、越狱、恶意微调）与是否剪枝神经元组合成的六类攻击场景中，SEAL 将攻击成功率最多降低 60%，在五项基准平均上的能力损失最多 1.4%，并可无缝集成路由器级防御。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.02293",
+      "aisafetyhot": "https://aisafetyhot.com/items/kq4vzj89mw9xtwwooy6io7gfs"
+    },
+    "publishedAt": "2026-09-02T08:40:19.000Z",
+    "timelineAt": "2026-09-02T08:40:19.000Z"
+  },
+  {
+    "arxivId": "2609.02302",
+    "title": "Improving Evaluation Realism with Inference-Time Compute and Deployment Scaffolds",
+    "titleZh": "用推理时算力与部署脚手架提升对齐评测真实度",
+    "authors": [
+      "Axel Ahlqvist"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出两种让模拟对齐评测更难与真实部署区分的技术，以缓解模型的评测感知问题。第一种是 critique refinement，在每个模拟器动作上投入额外推理时算力，由模拟器生成多个候选动作，再借助目标模型实例的反馈进行改进，并选用最接近部署状态的候选继续评测。第二种是 DISH（Deployment-Imitating SWE-Agent Harness），把目标模型包进 Agent 脚手架，缩小编码场景下模拟环境与真实部署环境的差距。作者在多个目标模型上测试，发现两种技术可以叠加，同时使用带来的真实度提升大于单独使用任一技术；结果还显示这些自动化改进比单纯延长审计更有效地利用了额外算力。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.02302",
+      "aisafetyhot": "https://aisafetyhot.com/items/q8zbrtzqs3s6331sdsifbe25i"
+    },
+    "publishedAt": "2026-09-02T08:47:34.000Z",
+    "timelineAt": "2026-09-02T08:47:34.000Z"
+  },
+  {
+    "arxivId": "2609.04260",
+    "title": "GhostWord: A Fine-Grained Backdoor Attack on Automatic Speech Recognition",
+    "titleZh": "GhostWord：针对自动语音识别的细粒度后门攻击",
+    "authors": [
+      "Mojtaba Nafez"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 GhostWord，一种词级、时间定位的自动语音识别（ASR）后门攻击，用码本把约 400 毫秒的短音频触发词映射到目标词。投毒时把触发词注入选定源词在强制对齐时间跨度内的音频，并只替换转写中的该词，从而实现精确的语义翻转和可组合的句子操纵，避免多对一标签痕迹。在 Common Voice（v23 英语、v24 立陶宛语）和 Whisper-Small/Medium、MMS、SpeechT5 多个骨干上，平均攻击成功率为 89.3%，并可跨语言、跨模型迁移。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.04260",
+      "aisafetyhot": "https://aisafetyhot.com/items/c6f4fu6qsyk2725sx9safwnk7"
+    },
+    "publishedAt": "2026-09-02T09:32:39.000Z",
+    "timelineAt": "2026-09-02T09:32:39.000Z"
+  },
+  {
+    "arxivId": "2609.02971",
+    "title": "Privacy Leakage in Federated Learning: Gradient-Based Client Identity Inference and Defenses for Inertial Sensing in Vehicular Edge Networks",
+    "titleZh": "联邦学习中的隐私泄露：车载边缘网络惯性感知下基于梯度的客户端身份推断与防御",
+    "authors": [
+      "Ali Akarma"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "在车载边缘网络中，诚实但好奇的服务器可从联邦学习客户端上传的权重增量中近乎完美地推断客户端身份，在 UCI HAR 基准上五种攻击分类器、五种非 IID 划分下攻击准确率约 1.000。研究评估了固定裁剪 C=1.0 下扫描高斯噪声的轻量“先裁剪再加噪”防御，sigma 在 [0.1, 0.2] 区间可将攻击准确率压至接近随机，而 FL 精度相对损失低于 5%，并通过 Renyi 记账给出 (epsilon, delta)-DP 预算。集成 FL 以 1/K 匿名集上界提供结构性隐私且无噪声代价；HAR 被明确定位为车载 IMU 数据的代理基准。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.02971",
+      "aisafetyhot": "https://aisafetyhot.com/items/jm9d8xwsuwi27qcbpyvirnrqr"
+    },
+    "publishedAt": "2026-09-02T09:49:39.000Z",
+    "timelineAt": "2026-09-02T09:49:39.000Z"
+  }
+]

@@ -1,0 +1,291 @@
+[
+  {
+    "arxivId": "2609.22510",
+    "title": "Defusing Explosive Prompts: Understanding and Preventing Trigger-Based Prompt Injections in LLM Agents",
+    "titleZh": "特拉维夫大学提出爆炸性提示词：条件触发的间接提示注入可绕过九款生产 Agent",
+    "authors": [
+      "Justin Szczepaniak"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 84,
+    "summaryZh": "特拉维夫大学研究者提出爆炸性提示词（explosive prompt），一种把恶意载荷写成条件语句、在攻击者选定的触发词出现前保持休眠的间接提示注入形式，无需训练即可在推理时植入单条检索内容。在 896 对配对样本上，同一恶意目标改为休眠条件式后，在拒绝直接指令的前沿模型上仍能触发真实工具调用，Grok-4.20 从 0.0% 升至 34.2%，Llama-3.1-70B 从 0.1% 升至 26.1%，七款模型配对均值 16.5% 对 2.4%。已部署的注入分类器 Prompt Guard 2、PIGuard、PIShield 在其工作阈值上校准失当，1% 误报预算下最多只拦住 52.7%；偏好优化模型 SecAlign 完全阻断直接注入，却仍执行 11.8% 的爆炸性提示词，且全部在触发轮触发。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "间接提示注入（IPI）通常在代理读取内容时立即触发。作者提出“explosive prompt”：把恶意载荷写成条件式，潜伏到攻击者选定的触发条件（如用户说“thanks”）出现时才执行，从而获得注入与执行的时间分离。",
+          "label": "问题"
+        },
+        {
+          "text": "用组合式生成器把越狱、条件词、触发器和载荷拼成条件式提示，与同一目标的命令式 IPI 配对，在 AgentDojo 上做真实多轮工具执行实验；并测试九款生产代理、三种已部署注入分类器和七个基础模型，另提出轻量检测器 DeFuse。",
+          "label": "方法"
+        },
+        {
+          "text": "在七个模型上，条件式提示的执行率均不低于命令式（配对均值 16.5% vs 2.4%），在拒绝命令式的模型上最高达 34.2%，且几乎都在触发轮才触发；九款生产代理中成功率 43–83%，命令式基线至多 3%；已部署分类器在阈值下漏检，SecAlign 仍执行 11.8%。用生成器数据重训后，编码器类检测器把攻击成功率从 34.3% 降到 7.5–8.1%，DeFuse 在 5% 误报预算下为 3.0%，AUC 0.9994，延迟 1.16 ms/文档。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "生产应用结果仅 n=30，属可行性估计；模型与工具套件范围有限；DeFuse 只针对条件式表层结构，未针对会改写条件的自适应攻击者加固，且需按文档长度调整阈值；实验只覆盖两轮会话，载荷能否在更长会话中存活尚未验证。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.22510"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.22510",
+      "aisafetyhot": "https://aisafetyhot.com/items/nlw3d72q0ouny1xvakscznqtt"
+    },
+    "publishedAt": "2026-09-18T19:16:51.000Z",
+    "timelineAt": "2026-09-18T19:16:51.000Z"
+  },
+  {
+    "arxivId": "2609.21996",
+    "title": "A Lie Detector Test for Language Models: Reading Knowledge a Model Won't Reveal",
+    "titleZh": "PIR：从模型内部激活读出被隐藏的答案",
+    "authors": [
+      "Hiskias Dingeto"
+    ],
+    "category": "alignment",
+    "selected": true,
+    "attention": 78,
+    "summaryZh": "作者提出 Probe of Internal Recognition（PIR），借鉴测谎中的隐藏信息测试，把问题与候选答案一起输入模型，从激活中读出模型认为正确的选项，无需诚实参考模型或标注真值语料。在 Gemma、Qwen、Llama、Mistral、Phi 五个家族共八个模型上，PIR 以 0.70 至 0.87 的平衡准确率恢复被隐藏的答案，高于 0.28 至 0.40 的未知项基线和 0.25 的随机水平；在提示欺骗、训练出的 sandbagging、外部密码锁定与 circuit-broken 检查点上识别率保持在 0.85 至 0.93。当模型隐藏已知答案时识别率仍高，而当 unlearning 真正移除知识时识别率降到未知项基线，因此该读数可区分不愿回答与无法回答，用于 sandbagging 审计和 unlearning 验证。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "能力评估默认模型会尽力作答，但模型可能故意藏拙（sandbagging）或输出与内部所知相悖的答案；unlearning 也可能只是把危险知识压住而非真正删除。仅看输出无法区分「不愿答」和「不会答」，这对安全评估的可信度很关键。",
+          "label": "问题"
+        },
+        {
+          "text": "作者借用测谎中的 Concealed Information Test，提出 Probe of Internal Recognition（PIR）：给模型一个问题及若干候选答案，从内部激活中读出它「认出」哪个选项正确，用正确项与干扰项的对比构造 recognition direction。该方法无需诚实参考模型或标注真值语料，并据此构造无标签的 divergence detector 来区分隐藏与抹除。",
+          "label": "方法"
+        },
+        {
+          "text": "在 Gemma、Qwen、Llama、Mistral、Phi 五个家族八个模型上，PIR 以 0.70–0.87 的 balanced accuracy 恢复被隐藏答案，高于 0.28–0.40 的 unknown-item baseline；在提示欺骗、训练出的 sandbagging、外部 password-locked 与 circuit-broken 检查点上识别率保持 0.85–0.93。unlearning（RMU、NPO）后识别率降到未知项水平，且呈领域特异性。识别方向具因果性，沿其 steering 能改变答案；该信号在模型自信隐藏时比黑盒行为线索提供更多信息，并可扩展到自由生成。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "PIR 需要候选答案集合，无法覆盖没有可枚举答案的开放式推理；部署检测器需要模型自身的 base 或诚实检查点，不适用于完全黑盒系统。被对抗训练以混淆识别的模型可以击败该读出，因此安全结论只对未针对探针优化的模型成立。PIR 只读取完好表征，无法区分被抹除的知识与从未拥有的知识；conceal/unknown 标签依赖严格的旋转一致性门控，部分实验为单种子、外部验证未覆盖所有隐藏类型。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.21996"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.21996",
+      "aisafetyhot": "https://aisafetyhot.com/items/duqmfr72vljl0x5uu1ymdt9hc"
+    },
+    "publishedAt": "2026-09-18T16:57:00.000Z",
+    "timelineAt": "2026-09-18T16:57:00.000Z"
+  },
+  {
+    "arxivId": "2609.21957",
+    "title": "Provisional Reachability: Containing Agents by Making Every Crossing Revocable",
+    "titleZh": "Provisional Reachability：用可撤销的每次跨越限制 Agent",
+    "authors": [
+      "Yoshiaki Takashita"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出一种把 Agent 每次跨越都置于托管窗口、按概率 r 独立审计并在发现问题时撤销窗口的机制，用于限制信息泄露。作者推导出对手跨越 k 次、每次携带 c 比特时的期望泄露上界 L(r) ~ c/(er)，该上界是对手选择上的上确界，因此方案可以公开，模拟结果与公式相差 7.7 个标准误。作者指出托管本身只是速率限制而非总量限制，秘密仍可能在每次运行中拼装完成；若被托管比特每期以比例 mu 衰减，持有量会收敛到 g/mu，当 mu > g/L 时 L 比特的秘密不可达，在 20,000 个窗口的模拟中 0.9mu* 时 100% 运行完成拼装、2mu* 时 0%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.21957",
+      "aisafetyhot": "https://aisafetyhot.com/items/f9cn40mldosckbsnfi9vozp9p"
+    },
+    "publishedAt": "2026-09-18T16:14:48.000Z",
+    "timelineAt": "2026-09-18T16:14:48.000Z"
+  },
+  {
+    "arxivId": "2609.22573",
+    "title": "Zero-Trust Authorization and Discovery for Enterprise MCP",
+    "titleZh": "研究提出面向企业 MCP 的零信任授权与工具发现方案",
+    "authors": [
+      "Huan Li"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文对企业级 MCP 的授权缺口做了系统分析，并给出不改动协议与 SDK 内部实现的 FastMCP 可组合扩展。作者调研 Python、TypeScript、Go、Rust、C#、Swift 六种 MCP SDK，指出三个结构性缺陷：凭据提取绑定单一 Authorization 头，使同时服务人类用户（企业 SSO）与自动化 Agent（不同请求头上的服务账号凭据）的双角色部署需要自定义中间件；缺少认证前的工具发现；基础 SDK 缺少按工具的细粒度授权。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.22573",
+      "aisafetyhot": "https://aisafetyhot.com/items/wesbrilu9ei2l19v2gtw66hfa"
+    },
+    "publishedAt": "2026-09-18T20:51:19.000Z",
+    "timelineAt": "2026-09-18T20:51:19.000Z"
+  },
+  {
+    "arxivId": "2609.22711",
+    "title": "UBA-ORL: Unlearning-Activated Backdoor Attacks on Offline Reinforcement Learning",
+    "titleZh": "UBA-ORL：针对离线强化学习的遗忘激活后门攻击",
+    "authors": [
+      "Fengyi Wang"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 UBA-ORL，一种针对离线强化学习的遗忘激活后门攻击：攻击在正常训练后被大幅抑制，却在合规驱动的数据删除（遗忘）请求后显现。该方法采用双样本机制，同时注入后门轨迹（BD）与伪装轨迹（CM），两者共享同一触发模式，但 CM 保留良性动作并配以同样高的奖励。训练时 BD 与 CM 提供相互竞争的监督信号，当对 CM 子集发起合法删除请求后，残留的 BD 信号重新占据主导，按需重新激活后门。实验显示 UBA-ORL 在评测的离线 RL 配置下实现可控激活，无触发回报的变化因配置而异，暴露出合规驱动离线 RL 平台此前被忽视的安全风险。作者呼吁社区为合规遗忘服务开发遗忘前与遗忘后的联合审计机制。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.22711",
+      "aisafetyhot": "https://aisafetyhot.com/items/x7iijvt5usfgbug9icmakfknb"
+    },
+    "publishedAt": "2026-09-19T02:46:35.000Z",
+    "timelineAt": "2026-09-19T02:46:35.000Z"
+  },
+  {
+    "arxivId": "2609.22712",
+    "title": "Trustworthy Agentic AI: Failure Modes, Mitigation Strategies, and a Lifecycle Framework for Autonomous LLM Systems",
+    "titleZh": "可信智能体 AI：基于 LLM 的自主系统失效模式、缓解策略与 TADL 生命周期框架",
+    "authors": [
+      "Fayeq Jeelani Syed"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇 arXiv 综述梳理了基于大语言模型的智能体 AI 在安全与运维上的五类可信维度：安全与鲁棒性、对齐与人类监督、透明度与可审计性、隐私与数据治理、监管合规。文章把间接提示注入、后门触发、目标泛化错误、记忆污染和跨会话数据泄露等失效模式归入统一分类，并评估指令层级、上下文隔离、spotlighting、过程监督、受限工具使用和隐私保护记忆等缓解手段，区分有实证支持与仍属概念性的方法。作者据此提出六阶段 Trustworthy Agent Development Lifecycle（TADL），覆盖规格、设计、训练、评估、部署与监控，但该框架尚未经实证验证。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.22712",
+      "aisafetyhot": "https://aisafetyhot.com/items/azkraaqppxiijblgq23f95gu4"
+    },
+    "publishedAt": "2026-09-19T02:47:37.000Z",
+    "timelineAt": "2026-09-19T02:47:37.000Z"
+  },
+  {
+    "arxivId": "2609.22724",
+    "title": "MATE: Policy-Aware Security Auditing for Mobile Agents via Synthesis-Driven Trajectory Learning",
+    "titleZh": "MATE：面向移动 Agent 的策略感知安全审计方法",
+    "authors": [
+      "Changyue Jiang"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 MATE，一个轻量的策略条件审计器，同时编码 Agent 轨迹与自然语言安全策略，判断轨迹是否违反给定策略并给出原因。由于把策略当作可编辑文本而非固定模型参数，MATE 无需重新训练即可适配用户自定义和不断变化的要求。作者从全球数百个热门移动应用中抽取应用描述、工作流和策略构建知识库，并用多阶段流水线合成超过 140K 条语义真实的策略条件轨迹。团队同时发布 MATEBench，包含两个合成子集和一个由人工收集轨迹构成的真实子集。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.22724",
+      "aisafetyhot": "https://aisafetyhot.com/items/bcjwx8x3b4wzqztc3v29pmxqw"
+    },
+    "publishedAt": "2026-09-19T03:18:25.000Z",
+    "timelineAt": "2026-09-19T03:18:25.000Z"
+  },
+  {
+    "arxivId": "2609.22850",
+    "title": "Same Outcome, Different Readout: What Does a Steerable Valence Direction in LLMs Represent?",
+    "titleZh": "同一结果，不同读出：LLM 中可引导效价方向究竟代表什么",
+    "authors": [
+      "Weihan Li"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文把 LLM 内部方向代表什么的问题当作构念效度问题，在迷宫任务中研究一个好坏结果方向，并用受控干预把实际结果与获知该结果的信息历史分开。在多个 LLM checkpoint 上，用一种显式结果编码拟合的方向能较好迁移到另一种编码，说明读出并不绑定表面形式。但当同一实际结果分别经由已预告和未预告的历史达成时，迁移显著下降：即使两种历史随后都收到相同的显式结果，事件后的读出仍强烈依赖此前的预告。在基座模型中，沿该方向做引导会改变动作，但移除该方向后自然线索效应几乎不变。在匹配的迷宫 RL 训练中，RL 后的方向对参考 MDP 剩余回报的预测性明显增强，策略在测试位置也更依赖它，而历史依赖依然存在。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.22850",
+      "aisafetyhot": "https://aisafetyhot.com/items/kiatdit11sgpy99gtu1cbe8pt"
+    },
+    "publishedAt": "2026-09-19T07:46:19.000Z",
+    "timelineAt": "2026-09-19T07:46:19.000Z"
+  },
+  {
+    "arxivId": "2609.22934",
+    "title": "Measuring Behavioural Signatures of Large Language Models through Psychometric Profiling",
+    "titleZh": "通过心理测量画像衡量大语言模型的行为特征",
+    "authors": [
+      "Yu Sha"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究团队开发了一套跨语言心理测量画像框架，用七种心理量表评估九个 LLM，中英文各重复施测五次，未解决的题目保留为 NA。模型呈现结构化的、模型特异的画像，同时共享一种对齐塑造的模式：亲社会与自我调节反应更高，支配性、脱离和有害意图认同更低。NA 反应呈结构化分布，语言条件和提供方来源与画像配置及可作答性相关，重复施测显示高可复现性并可还原模型身份。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.22934",
+      "aisafetyhot": "https://aisafetyhot.com/items/tiy7etl1qi3i1bvtd38nrkcn6"
+    },
+    "publishedAt": "2026-09-19T10:21:32.000Z",
+    "timelineAt": "2026-09-19T10:21:32.000Z"
+  },
+  {
+    "arxivId": "2609.22949",
+    "title": "Beyond Single-Model Injection: A Threat Model and Defense Architecture for Prompt Injection in Multi-Agent Systems",
+    "titleZh": "多智能体系统提示注入威胁模型与防御架构：14 类攻击向量与四类防御",
+    "authors": [
+      "Rudrendu Kumar Paul"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文针对多智能体系统提出提示注入威胁模型，列举四类共 14 种攻击向量：用户输入直接注入 3 种、工具输出间接注入 4 种、智能体间消息传递注入 4 种、通过编排器操纵的级联注入 3 种。作者在一个 6 智能体的生产代表性系统上测试全部 14 种向量，发现即使有系统提示词层面的护栏，仍有 67% 的智能体至少对一种越权行为存在脆弱性，工具输出间接注入的成功率为 43%。四类架构防御将整体注入成功率从 31.2% 降至 4.2%：带来源追踪的消息签名使智能体间注入下降 91%，智能体边界处的输入输出净化使间接注入下降 78%，按角色限定工具权限完全消除了权限提升，智能体间通信异常检测捕获 84% 的级联尝试。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.22949",
+      "aisafetyhot": "https://aisafetyhot.com/items/v8ljx84npvwgegx7qrozzbhib"
+    },
+    "publishedAt": "2026-09-19T11:06:14.000Z",
+    "timelineAt": "2026-09-19T11:06:14.000Z"
+  },
+  {
+    "arxivId": "2609.22961",
+    "title": "When Agentic Trust Crosses Organizational Boundaries: Structural Externalization and a Reference Model for Trust Evidence",
+    "titleZh": "当智能体信任跨越组织边界：结构外化与信任证据参考模型",
+    "authors": [
+      "Huafu Li"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 Trustworthiness as a Service（TaaS），用于解决智能体跨组织边界调用工具、服务与其他智能体时，依赖方无法仅凭生产域控制与记录评估被委托动作的问题。其分析单元为跨域依赖命题，通过三条件结构外化诊断识别需多域依赖、生产方独立验证且须在撤销、失败、记录冲突或争议后仍可复核的命题，并为此设计不可变工作流清单与仅追加、发行方可归属的信任证据信封。论文还给出拓扑中立的逻辑参考模型，并以三个分析场景和 TaaS-Eval 协议提案定义清单、独立消费者、硬门控、对抗性证据测试与指标。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.22961",
+      "aisafetyhot": "https://aisafetyhot.com/items/jscuixdaxbe5cl8ax9myv1l5a"
+    },
+    "publishedAt": "2026-09-19T11:26:37.000Z",
+    "timelineAt": "2026-09-19T11:26:37.000Z"
+  },
+  {
+    "arxivId": "2609.22978",
+    "title": "DeepSeek Elastic Compute (DSec): A Sandbox Infrastructure for Effective Agentic Training at Scale",
+    "titleZh": "DeepSeek Elastic Compute（DSec）：面向大规模智能体训练的高效沙箱基础设施",
+    "authors": [
+      "Jialiang Huang"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "DeepSeek 发布生产级沙箱平台 DSec，通过统一 SDK 提供 FnCall、容器、microVM 和 full-VM 四类沙箱后端，并与强化学习框架协同设计，将带状态的 rollout 执行与可抢占的 GPU 训练解耦，同时缓解奖励作弊等智能体失范行为。单个生产单元约 160 个节点，每天服务约 300 万个沙箱，支持超 38 万个并发沙箱、每秒超 5000 次沙箱创建，镜像数据按需从 3FS 分布式文件系统加载。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.22978",
+      "aisafetyhot": "https://aisafetyhot.com/items/uyj6v7mgxsah60ez3jggvdnnx"
+    },
+    "publishedAt": "2026-09-19T12:20:26.000Z",
+    "timelineAt": "2026-09-19T12:20:26.000Z"
+  },
+  {
+    "arxivId": "2609.23065",
+    "title": "From Concept Alignment to Causal Grounding: An Intervention Test of Chain-of-Thought Faithfulness",
+    "titleZh": "从概念对齐到因果接地：思维链忠实性的干预检验",
+    "authors": [
+      "Qianli Wang"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文将思维链忠实性重新定义为内部概念接地，检验 LLM 的 CoT 推理是否调用与直接预测相同的内部概念，以及这些共享概念是否因果驱动答案。方法上用单个共享 SAE 分别编码预测过程和 CoT 过程，使两者的内部概念可直接比较，并提出三个概念级对齐的相关性指标和一个因果指标 Δp，后者通过消融共享概念测量答案概率的下降。在五个 LLM 和四个数据集上，相关性指标显示概念对齐普遍较高，但只能识别哪些概念被共享，无法说明其因果贡献；Δp 显示因果忠实性随模型深度显著变化，在中后层达到峰值而非最后几层，模型规模也会改变逐层分布。此外，因果上重要的共享概念并不总在 CoT 中被口头表达，说明仅凭表面文本或表征对应无法可靠评估忠实性。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.23065",
+      "aisafetyhot": "https://aisafetyhot.com/items/itedut7p80sp9mda4n48tc5ye"
+    },
+    "publishedAt": "2026-09-19T14:55:47.000Z",
+    "timelineAt": "2026-09-19T14:55:47.000Z"
+  }
+]

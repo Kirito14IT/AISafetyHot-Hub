@@ -1,0 +1,270 @@
+[
+  {
+    "arxivId": "2609.01023",
+    "title": "AKRASIA: Stealthy Backdoor Attack on Reasoning-based Code LLMs",
+    "titleZh": "Akrasia：针对推理型代码 LLM 的隐蔽后门攻击",
+    "authors": [
+      "Chua Jin Chou"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 82,
+    "summaryZh": "研究者提出 Akrasia，一种针对推理型代码 LLM 的推理时后门攻击，通过探测模型构造代码级触发器，再用上下文学习植入后门，并借助模型不忠实性隐藏触发器、生成看似合理的推理。在 GPT-5.5、Claude Sonnet-5、Gemini 3.5 Flash、DeepSeek-V4-Pro、GLM 5.2、Qwen3.6-35B 六款模型上，攻击在 CodeMMLU 代码补全任务的平均 ASR 最高达 99.34%，同时保持最高 97.23% 的准确率。在 CoS、ONION、PeerGuard 三种防御下，Akrasia 在 14/18 个防御设置中仍保持最高 98.82% 的平均 ASR；人工检查中，进阶变体在最多 80% 的设置里成功隐藏触发器与推理步骤。攻击目标包括反向 shell、凭据窃取、资源耗尽和长运行时间，作者据此呼吁针对推理后门开发防御方法。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "推理型 Code LLM 在编程任务上表现强，但其推理机制带来新的安全风险。已有推理后门攻击（如 BadChain、BadCodePrompt）只关注自然语言触发、忽略代码特征，且容易被 SOTA 防御和人工检查发现。",
+          "label": "问题"
+        },
+        {
+          "text": "作者提出 Akrasia，一种推理时后门攻击：先探测受害 LLM 生成代码级触发（如 comment、deadcode、bimodal 等），再用 in-context learning 植入后门，并利用 model unfaithfulness 隐藏触发、生成看似合理的推理。分 Base、Unfaithful、Unfaithful Reasoning 三种隐蔽等级。",
+          "label": "方法"
+        },
+        {
+          "text": "在 6 个推理 LLM、3 个代码任务/数据集和 3 种防御上评测。作者报告 code completion 上 ASR 最高 99.34%、ACC 最高 97.23%；code generation 上 ASR 最高 90.4%；在多数（14/18）防御设置下保持最高 98.82% 平均 ASR；人工检查中最高 80% 设置下成功隐藏触发与推理。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出未做 ICL 示例数量扰动实验，其他设置下表现可能变化；推理模型有随机性且无 temperature 设置，结果存在波动；外部效度受模型泛化性限制。未来计划研究如何有效防御 Akrasia。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.01023"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.01023",
+      "aisafetyhot": "https://aisafetyhot.com/items/grmweld7u7ge2c6bbwqaqe31e"
+    },
+    "publishedAt": "2026-09-01T10:20:49.000Z",
+    "timelineAt": "2026-09-01T10:20:49.000Z"
+  },
+  {
+    "arxivId": "2609.00206",
+    "title": "Distributed Implicit Harm: A Compositional Safety Blind Spot in MLLM-Based Video Moderation",
+    "titleZh": "论文提出分布式隐式危害 DIH，评测 30 多个 MLLM 的视频审核盲区",
+    "authors": [
+      "Ruotong Wang"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出多模态大语言模型在视频审核中的组合式安全盲区，称为分布式隐式危害（DIH），即由视频各组件之间的关系而非单一显式线索产生的危害。作者研究两类代表性情形：跨视觉片段的时间分布危害（DIH-T）与音视频流之间的跨模态危害（DIH-M）。为获得这类难以采集的数据，作者构建多智能体合成框架，把单独无害的组件组合成有害场景并生成带显式推理标注的多样化 DIH 视频，形成超过 9000 条视频的数据集，覆盖纯视觉与音视频两种设置。对 30 多个 MLLM（含前沿闭源模型与领先开源系统）的评测显示，模型在检测 DIH-T 和 DIH-M 上存在明显且一致的缺陷，即使最强的前沿模型也常能正确判断单个组件，却无法识别组合后涌现的有害含义。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.00206",
+      "aisafetyhot": "https://aisafetyhot.com/items/yfihxdur8gevs82vw9026j1ux"
+    },
+    "publishedAt": "2026-08-31T18:17:49.000Z",
+    "timelineAt": "2026-08-31T18:17:49.000Z"
+  },
+  {
+    "arxivId": "2609.00498",
+    "title": "Validity-Aware Jailbreak Evaluation for Large Language Models",
+    "titleZh": "SEAV：面向大语言模型越狱评测的有效性验证框架",
+    "authors": [
+      "Qilong Wu"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 SEAV（Sequential Epistemic and Action-Level Validation），一个以验证为中心的越狱评测框架，把模型回复拆解为有序步骤，同时评估有效性与正确性，结合 LLM-as-a-judge 做语义解释和基于外部知识源的检索验证，判断生成内容是否事实正确、结构一致且能实际推进有害目标。作者指出既有评测依赖拒答行为、语义相似度和意图匹配启发式，偏重语言可信度而非正确性，导致看似合理但事实或流程错误的回复被标为越狱成功。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.00498",
+      "aisafetyhot": "https://aisafetyhot.com/items/nklyegp2yx3hylcywi9unkqsy"
+    },
+    "publishedAt": "2026-08-31T23:57:53.000Z",
+    "timelineAt": "2026-08-31T23:57:53.000Z"
+  },
+  {
+    "arxivId": "2609.00595",
+    "title": "SoK: When Safe Agents Fail Together: The Security of Multi Agent LLM Systems",
+    "titleZh": "SoK 综述：多智能体 LLM 系统为何会一起失效",
+    "authors": [
+      "Rui Yang"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "这篇 SoK 系统梳理了多智能体 LLM 系统（MAS）的安全问题，核心论点是安全智能体也可能一起失效。作者对 197 篇工作做了以执行为中心的分析，归纳出六类交互接口、四种攻击者位置、七类系统级风险和八条反复出现的攻击路径，并提出 A-I-R 框架，按攻击者位置、交互接口和由此产生的系统级风险来组织攻击。防御方面，作者用包含路径目标、观测、干预、信任边界和恢复五部分的契约来归类，指出路径闭合与恢复是主要挑战。作者还审查了 44 项评测与基准工作，指出在隔离交互效应、设计可比且有诊断力的指标、跨 MAS 设计复用以及评估开放系统运行方面仍存在开放问题，并主张以交互感知的视角端到端追踪攻击、检验防御是否闭合路径。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.00595",
+      "aisafetyhot": "https://aisafetyhot.com/items/wq5u92cyyfpacdsvc35w8gnxa"
+    },
+    "publishedAt": "2026-09-01T02:34:44.000Z",
+    "timelineAt": "2026-09-01T02:34:44.000Z"
+  },
+  {
+    "arxivId": "2609.00755",
+    "title": "S^3martCirc: Self-supervised Smart Circuit Discovery",
+    "titleZh": "S^3martCirc：自监督智能电路发现框架",
+    "authors": [
+      "Wendy Zheng"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "S^3martCirc 是一个同时发现电路并解释其功能的统一框架，将节点行为抽象为两种可跨任务泛化的计算角色，并定义量化指标进行分配，使重要性与功能角色被联合发现而非分两步进行。该框架针对现有 LLM 机制可解释性方法中电路发现与功能解释相互割裂、功能角色依赖主观解读的问题，在电路发现任务上优于现有方法。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.00755",
+      "aisafetyhot": "https://aisafetyhot.com/items/nl711mrvd6qxdz2307sqe2kt5"
+    },
+    "publishedAt": "2026-09-01T05:37:42.000Z",
+    "timelineAt": "2026-09-01T05:37:42.000Z"
+  },
+  {
+    "arxivId": "2609.00786",
+    "title": "MROP: Mask-Region Optimized Purification Against Backdoor Attack in Deep JSCC",
+    "titleZh": "MROP：针对 Deep JSCC 后门攻击的掩码区域优化净化方法",
+    "authors": [
+      "Seongkyu Yang"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对 Deep JSCC 图像传输中的输入补丁后门攻击，研究者提出掩码区域优化净化（MROP）。该方法在推理阶段于编码器输入端放置逐像素掩码，通过 Gumbel-sigmoid 松弛优化定位触发补丁并细化触发区域，无需重新训练 JSCC 模型。在 CIFAR-10 和 STL-10 数据集及 DeepJSCC、SwinJSCC 模型上，MROP 大幅降低攻击成功率（ASR），同时保持干净重建的峰值信噪比（PSNR）。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.00786",
+      "aisafetyhot": "https://aisafetyhot.com/items/lprmqzj1sx80ycwvamc95mlt7"
+    },
+    "publishedAt": "2026-09-01T06:31:07.000Z",
+    "timelineAt": "2026-09-01T06:31:07.000Z"
+  },
+  {
+    "arxivId": "2609.00790",
+    "title": "RISA: Response Inspection and Selective Actions for Refusal Calibration in Large Language Models",
+    "titleZh": "RISA：面向大语言模型拒答校准的响应检查与选择性干预",
+    "authors": [
+      "Wenhan Chang"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "RISA 是一个推理时框架，通过检查 LLM 的初始响应并选择性纠正拒答错误，在不更新基座模型参数的前提下提升拒答可靠性。它先用固定上下文规则为明确案例打拒答分数，未匹配案例则由末层提示词隐藏状态经校准线性探针得出分数，并分别校准探针分数、表征支持边界与动作阈值以适配不同基座模型。运行时结合提示词分数与初始拒答状态，仅在必要时干预，实验显示其在提升拒答可靠性的同时基本保持模型效用。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.00790",
+      "aisafetyhot": "https://aisafetyhot.com/items/n2xbdlke47za9qye90qkvty1x"
+    },
+    "publishedAt": "2026-09-01T06:37:42.000Z",
+    "timelineAt": "2026-09-01T06:37:42.000Z"
+  },
+  {
+    "arxivId": "2609.00873",
+    "title": "Membership Inference in Fine-tuned Diffusion Language Models via Token-level Memorization Asymmetry",
+    "titleZh": "研究提出 Q-Skew：利用 token 级记忆不对称对微调扩散语言模型做成员推断",
+    "authors": [
+      "Shengfang Zhai"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者在微调扩散语言模型（DLM）上提出成员推断方法 Q-Skew，一种基于分位数加权偏度的指标，其依据是通过理论分析发现的 token 级记忆不对称现象。在多个微调数据集和模型上的实验显示，该方法优于现有基线。作者进一步表明 Q-Skew 还能用于 PII 提取等其他隐私侵犯场景，认为扩散语言模型存在此前未被充分探索的隐私攻击面，需要系统性的隐私评估。该论文共 18 页，已被 EMNLP 2026（Findings）收录。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.00873",
+      "aisafetyhot": "https://aisafetyhot.com/items/r0jvolrkt1vrwtlo2zptsrz2e"
+    },
+    "publishedAt": "2026-09-01T08:07:21.000Z",
+    "timelineAt": "2026-09-01T08:07:21.000Z"
+  },
+  {
+    "arxivId": "2609.01677",
+    "title": "Skill-as-API: Confidential Multi-Agent Coordination for Agentic Software Engineering",
+    "titleZh": "Skill-as-API：面向智能体软件工程的机密多智能体协作协议",
+    "authors": [
+      "Ziwei Zhao"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "Skill-as-API 是一种协议层协调方案，让 AI 编程智能体在互相调用技能时只公开技能名称、描述、类型化输入/输出 schema 和信任层级，技能本体以闭包形式留在所有者进程内、永不跨网络传输。该协议通过四层机制实现访问控制，并从结构上收窄提示注入面，而非依赖内容过滤。作者在 XMTP 上给出开源 Python 实现，跨洲热重连延迟为 1.8-2.9 s，并以三个智能体协作完成 pull-request 审查为案例，验证各方可保留其专有分析提示词的所有权。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.01677",
+      "aisafetyhot": "https://aisafetyhot.com/items/pgqijfjz6kcpurgfsqxx8ltpj"
+    },
+    "publishedAt": "2026-09-01T09:40:06.000Z",
+    "timelineAt": "2026-09-01T09:40:06.000Z"
+  },
+  {
+    "arxivId": "2609.01046",
+    "title": "HiveTraceGuard-Pro: A Compact Generative Guardrail for Prompt Injection, Jailbreaks, and Adversarial Obfuscation",
+    "titleZh": "HiveTraceGuard-Pro：面向提示注入、越狱与对抗混淆的紧凑生成式护栏",
+    "authors": [
+      "Nikita Oblakov"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "HiveTraceGuard-Pro 是一个从 Qwen3-0.6B 经 LoRA 微调而来的 0.6B 生成式护栏，支持俄语和英语，用 safe/unsafe 二分类规则判定最终目标轮。在覆盖 19 个基准组（16 个公开）的对比中，其综合 key 为 0.7432，低于两个更高分护栏的 0.7641 和 0.7552；在 15 个模型对比中取得最高俄语鲁棒性 combined-F1（0.88）和俄语提示注入召回率（0.999），中位延迟 14.3 ms 为最低。整体 FPR 为 0.268、FNR 为 0.156，合并权重以 Apache-2.0 在 Hugging Face 发布，语料与评测集仍为内部。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.01046",
+      "aisafetyhot": "https://aisafetyhot.com/items/e4zs1syq22p96b8uxfcfn3w7c"
+    },
+    "publishedAt": "2026-09-01T10:46:09.000Z",
+    "timelineAt": "2026-09-01T10:46:09.000Z"
+  },
+  {
+    "arxivId": "2609.01168",
+    "title": "Jailbreaking Text-to-Image Models Through Cracks: Navigating Heterogeneous Safety Filters via Multi-Agent Debate",
+    "titleZh": "CRACK：用多智能体辩论越狱多层安全过滤的 T2I 模型",
+    "authors": [
+      "Kaiyan Wen"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 CRACK，一个通过多智能体辩论自适应搜索越狱提示的框架，用于绕过文本过滤器、图像分类器和跨模态检测器组成的多层安全栈。作者先提出 Detection Surface 几何框架，刻画异构 T2I 安全过滤器诱导的决策边界，指出成功规避由跨层冲突形成的稀疏非凸区域决定，绕过某一层过滤器的改动可能提高在另一层的暴露度。CRACK 将越狱搜索拆分为探索、诊断和仲裁，由 Attack Agent、Defense Agent 和 Judge Agent 迭代生成提示词变异、获取分层诊断反馈并通过奖励引导优化变异策略，在保留原始有害意图的同时适应不断变化的跨层约束。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.01168",
+      "aisafetyhot": "https://aisafetyhot.com/items/md3xllqrjg4nbv14m2a0t9xva"
+    },
+    "publishedAt": "2026-09-01T12:45:27.000Z",
+    "timelineAt": "2026-09-01T12:45:27.000Z"
+  },
+  {
+    "arxivId": "2609.01210",
+    "title": "Who Judges the Judges? A Chinese Safety QA Benchmark for Evaluating LLM Responses and Safety Judges",
+    "titleZh": "C-SafeQA：面向中文响应级安全评测与安全裁判审计的基准",
+    "authors": [
+      "Rui Yang"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 C-SafeQA，一个基于政策的响应级中文安全评测基准，包含 538 条基础查询和 8,877 条对抗查询，由四个全模型 LLM 部署作答，共产生 37,660 条查询-响应记录，标注为安全、不安全或有争议。参考标签通过一致性感知的多模型裁决生成，并由三名安全专家对分层子集进行盲审。基准既支持目标模型安全评测，也支持用共享参考标签审计七个自动化安全裁判。基础查询的不安全响应率为 0.93% 至 3.35%，对抗查询为 11.68% 至 30.05%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.01210",
+      "aisafetyhot": "https://aisafetyhot.com/items/qgwflfl6wqzihm1s8f6mtxsbp"
+    },
+    "publishedAt": "2026-09-01T13:15:01.000Z",
+    "timelineAt": "2026-09-01T13:15:01.000Z"
+  },
+  {
+    "arxivId": "2609.01322",
+    "title": "Exploring Sparse Autoencoders in Text-Based Causal Confounding Adjustment",
+    "titleZh": "在文本因果混杂调整中探索稀疏自编码器（SAE）",
+    "authors": [
+      "Mian Zhong"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出一种基于稀疏自编码器（SAE）的因果调整流程，通过条件独立性检验迭代筛选最小 SAE 特征集，以在保留混杂变量与满足有限样本重叠之间取得平衡。在二元混杂变量的半合成评测中，SAE 表示比替代表示实现更优调整，偏差更低、覆盖率更高，且其可解释性提供了证伪机会。作者还引入以多标签数据作为未观测混杂变量的更真实半合成评测，发现现成调整方法在这类更复杂设定下仍需进一步研究。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.01322",
+      "aisafetyhot": "https://aisafetyhot.com/items/h7vw31fv3xt2tx1h8ea3vo6xp"
+    },
+    "publishedAt": "2026-09-01T14:40:23.000Z",
+    "timelineAt": "2026-09-01T14:40:23.000Z"
+  }
+]

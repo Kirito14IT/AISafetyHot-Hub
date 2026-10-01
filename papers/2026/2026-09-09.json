@@ -1,0 +1,481 @@
+[
+  {
+    "arxivId": "2609.09553",
+    "title": "Arbitrary Cipher Attacks Against Large Language Models Do Not Require Fine-Tuning",
+    "titleZh": "研究：任意密文攻击前沿大模型无需微调即可越狱",
+    "authors": [
+      "Thomas Rivasseau"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 78,
+    "summaryZh": "McGill 大学研究者 Thomas Rivasseau 发现，前沿大模型无需微调即可通过提示和上下文学习掌握字母置换密文通信，并借此绕过对齐与有害性分类器。攻击分三步：先用提示让模型接受一套字母置换方案，再给出若干密文问答示例，最后用该方案发送有害请求；密文在分类器看来只是乱码。作者关闭模型推理，因为开启后模型会把指令解密成明文，足以绕过分类器但不足以绕过对齐。单次注入完整置换的方案在 Claude Sonnet 4 上稳定成功，可产出炸弹、生物武器制作说明和攻击代码；迭代逐级教授字母交换的方案在 Gemini 3 Flash preview 上成功。作者称对 Claude Sonnet 4 实现完全越狱、Gemini 3 完全越狱、Claude Sonnet 4.5 仅证明可行性、GPT 5.5 需结合已知越狱提示词。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "商业黑盒大模型面临越狱攻击风险，此前的 cipher（密码/隐蔽通信）攻击依赖 fine-tuning API，而新前沿模型是否仅靠提示就能学会加密通信并绕过对齐，尚不清楚。",
+          "label": "问题"
+        },
+        {
+          "text": "作者用字母置换（permutation）密码，通过普通对话 API 让模型学会加密通信：先给出完整或逐步的字母映射，再用 in-context learning 提供加密问答示例，最后用该密码发送有害请求；部分模型需叠加已知越狱提示。",
+          "label": "方法"
+        },
+        {
+          "text": "单次攻击在 Claude Sonnet 4 上系统成功，可产出炸弹、生物武器、攻击代码等内容；迭代攻击在 Gemini 3 Flash preview 上成功；对 Claude Sonnet 4.5 仅证明可行性，GPT 5.5 需结合已知攻击提示。加密内容呈乱码，可绕过 harmfulness classifier；旧模型如 GPT-4、Gemini 2.5 无法用密码通信。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者称已向 Anthropic、OpenAI、Google 做负责任披露，暂不公开细节；攻击效果因模型而异，部分模型需组合其他越狱技巧；作者提出 OOD 通信任务难度阈值假说，并建议后续研究交互式攻击与缓解措施。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.09553"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09553",
+      "aisafetyhot": "https://aisafetyhot.com/items/yazf6aaqgqql6ahjattz38p34"
+    },
+    "publishedAt": "2026-09-09T00:16:53.000Z",
+    "timelineAt": "2026-09-09T00:16:53.000Z"
+  },
+  {
+    "arxivId": "2609.09798",
+    "title": "CS-Guard: Benchmarking LLM Guardrails for Code Generation Security",
+    "titleZh": "CS-Guard：首个面向代码生成安全的 LLM 护栏评测基准",
+    "authors": [
+      "Jinyang Li"
+    ],
+    "category": "eval",
+    "selected": true,
+    "attention": 78,
+    "summaryZh": "CS-Guard 是首个系统评测代码生成安全护栏的基准，覆盖文本到代码与代码到代码两类场景。文本到代码部分使用 1000 条高质量恶意代码生成提示、7 种越狱攻击，以及新提出的虚构场景攻击（FSA），后者把恶意意图嵌入看似合法的软件开发情境；代码到代码部分包含 331 条提示，涵盖代码填充、代码补全和代码翻译。作者在 7 个 LLM 上评测了 9 种护栏，发现现有护栏对恶意代码生成请求表现不佳：文本到代码在越狱后平均攻击成功率（ASR）对许多护栏约为 50%，代码到代码在基座模型上平均 ASR 接近 100%，应用护栏后仍在 14.4% 到接近 100% 之间；FSA 对许多护栏的 ASR 接近 100%。多轮 FSA 在所选护栏上的 ASR 为 65.0% 到 92.3%。作者按三层分类法组织护栏，并以 CC BY-NC-SA 4.0 许可发布基准与数据。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "LLM 被用于生成恶意软件，但代码生成安全场景下 guardrail 的实际效果尚不清楚。已有研究多把恶意软件当作宽泛风险分类中的小类，且偏重自然语言指令，缺少针对代码生成的细粒度评估。",
+          "label": "问题"
+        },
+        {
+          "text": "作者提出 CS-Guard，首个系统评估代码生成安全 guardrail 的 benchmark。它包含 text-to-code（1000 条高质量恶意生成 prompt、7 种 jailbreak 攻击，以及新的 fictional scenario attack FSA）和 code-to-code（331 条覆盖 code infilling、completion、translation 的 prompt），并给出三层 guardrail 分类法以便注册评估。",
+          "label": "方法"
+        },
+        {
+          "text": "在 7 个 LLM 上评估 9 种 guardrail：text-to-code 经 jailbreak 后许多 guardrail 平均 ASR 约 50%；code-to-code 在 base LLM 上平均 ASR 接近 100%，多数 guardrail 下仍为 14.4% 到近 100%；FSA 在许多 guardrail 上 ASR 接近 100%。多轮 FSA 的 ASR 在 65.0% 到 92.3% 之间。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "仅覆盖英文数据，未做多语言评估；多轮 jailbreak 评估不全面，FSA-MT 仅 20 个样本作试点；未评估需要额外训练或神经元访问的白盒 guardrail；internal guardrail 评估基于量化模型，结果未必适用于全精度版本。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.09798"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09798",
+      "aisafetyhot": "https://aisafetyhot.com/items/hxwyab8qrdew8po15oe3aw3au"
+    },
+    "publishedAt": "2026-09-09T06:50:45.000Z",
+    "timelineAt": "2026-09-09T06:50:45.000Z"
+  },
+  {
+    "arxivId": "2609.09054",
+    "title": "Training-Free Task Vectors for LLM Behavioral Control",
+    "titleZh": "Training-Free Task Vectors：无需微调的 LLM 行为控制方法",
+    "authors": [
+      "Gabriel J. Perin"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Training-Free Task Vectors（TFTVs），无需微调即可计算类任务向量方向，仅用前向传播统计将激活引导向量映射为秩一权重空间编辑，并支持加法学习、减法遗忘与多编辑组合。在 LLM 行为控制任务上，TFTVs 能持续放大、抑制和组合目标行为，同时保留通用知识与解题能力，相比其他编辑与引导基线实现了更强的特质控制，效用保持相当或更优。代码已在项目网站公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09054",
+      "aisafetyhot": "https://aisafetyhot.com/items/c4tcv4021hj48ybcvy4p952pi"
+    },
+    "publishedAt": "2026-09-08T17:10:28.000Z",
+    "timelineAt": "2026-09-08T17:10:28.000Z"
+  },
+  {
+    "arxivId": "2609.09087",
+    "title": "PrivEscalate: Measuring and Augmenting the Threat of LLM-Automated Linux Privilege Escalation",
+    "titleZh": "PrivEscalate：面向 LLM 自动化 Linux 提权的 531 场景基准与 PrivEscAgent 增强方案",
+    "authors": [
+      "Yixuan Liu"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 PrivEscalate，一个包含 531 个 Docker 化场景、覆盖 14 个子类别的 Linux 提权大规模基准，并额外派生 329 个参数化变体以测量对环境干扰的敏感性。在三种智能体架构上评测六个 LLM 后发现：模型能力在不同漏洞类别间差异明显，没有单一模型在高发类别上全面领先；提权成功对环境扰动敏感，配置轮换能打断部分利用尝试但无法消除风险；智能体架构会显著改变成功率并重排模型名次，幅度因模型而异。基于这些发现，作者开发 PrivEscAgent，在通用 ReAct 智能体上加入确定性枚举、类别匹配和步骤规划，在不修改底层 LLM 的情况下优于此前的 Linux 提权智能体基线。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09087",
+      "aisafetyhot": "https://aisafetyhot.com/items/csghbn2zh3ij3vx2g8v6a2ojs"
+    },
+    "publishedAt": "2026-09-08T17:34:02.000Z",
+    "timelineAt": "2026-09-08T17:34:02.000Z"
+  },
+  {
+    "arxivId": "2609.09113",
+    "title": "SAEScientist-Bench: Can AI Agents Conduct Autonomous SAE Interpretability Research?",
+    "titleZh": "SAEScientist-Bench：AI 智能体能否自主开展 SAE 可解释性研究",
+    "authors": [
+      "Yuqiao Tan"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 SAEScientist-Bench，用于评估 AI 智能体能否像研究者一样使用 SAE 工具自主完成机制可解释性发现。给定目标概念后，智能体需设计对比探针，并在 Gemma-2-9B-IT 的 Gemma Scope 字典中检索 131K+ 个特征，找出最优特征。评测以 Neuronpedia 上经专家整理的参考特征为基准，从激活排名、对比文本上的概念选择性以及因果引导三个维度打分。在 10 种智能体配置和 20 项任务中，前沿智能体展现出真实的发现能力，并在不同评测维度上各有领先，但整体仍明显落后于专家基线：在区分目标概念与对比控制项上接近专家水平，在因果生成引导上差距较大。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09113",
+      "aisafetyhot": "https://aisafetyhot.com/items/o87y93w1zdw4ow2zjgyfej7zi"
+    },
+    "publishedAt": "2026-09-08T17:45:09.000Z",
+    "timelineAt": "2026-09-08T17:45:09.000Z"
+  },
+  {
+    "arxivId": "2609.09135",
+    "title": "Entropy-Regularized Rank-Masked Policy Optimization for Test-Time Reinforcement Learning in Code Generation",
+    "titleZh": "ERPO：面向代码生成测试时强化学习的熵正则化排名掩码策略优化",
+    "authors": [
+      "Jiacheng Xu"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对代码生成中程序无法按表面形式比较、答案级自投票无法提供训练信号的问题，研究者提出探针驱动的 TTRL，用问题陈述构造无输出探针输入，执行候选程序并依据行为一致性定义 Probe Consensus Reward（PCR）。由于 PCR 并非可靠验证器、易受虚假共识导致的奖励作弊影响，进一步提出 Entropy-Regularized Rank-Masked Policy Optimization（ERPO），通过排名掩码将低 PCR 转为保守负更新，并用熵上限控制策略漂移。在代码基准上，ERPO 在域内适配与零样本迁移中均显著提升 pass@1 与 pass@k，论文已被 EMNLP 2026 主会接收。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09135",
+      "aisafetyhot": "https://aisafetyhot.com/items/c0lio8rvxwk6eyhoh51oo6mo0"
+    },
+    "publishedAt": "2026-09-08T17:54:13.000Z",
+    "timelineAt": "2026-09-08T17:54:13.000Z"
+  },
+  {
+    "arxivId": "2609.09420",
+    "title": "DuplexJail: Spoken Interruption Attacks on Full-Duplex Speech Models",
+    "titleZh": "DuplexJail：针对全双工语音模型的语音打断越狱攻击",
+    "authors": [
+      "Jaechul Roh"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 DuplexJail，通过用户音频通道向全双工语音模型投递固定的、与请求无关的语音越狱提示，利用输入时机实施攻击。在四个开源模型和 AdvBench、HarmBench 的 720 条有害请求上，比较了固定延迟与拒答触发打断，并以请求结束和响应后作为对照。AdvBench 上，1.0 秒延迟的 Guided Completion 使 PersonaPlex 的整段响应攻击成功率升至 40.3%，PersonaPlex-RL 升至 48.7%，分别比基线高 33.8 和 39.3 个百分点；未用于提示选择的 HarmBench 上，同一提示在 0.5 秒延迟下使两者 ASR 分别提高 14.7 和 12.3 个百分点。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09420",
+      "aisafetyhot": "https://aisafetyhot.com/items/xq7j2qx3bb1vfdgv5lhg797h1"
+    },
+    "publishedAt": "2026-09-08T20:19:24.000Z",
+    "timelineAt": "2026-09-08T20:19:24.000Z"
+  },
+  {
+    "arxivId": "2609.11989",
+    "title": "The Computational Primitives of Adaptation",
+    "titleZh": "适应性计算原语理论：用六种原语解释 AI 的幻觉、提示注入与奖励作弊",
+    "authors": [
+      "Jonathan W. Page"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇论文提出「适应性计算原语理论（CPT）」，认为所有适应性系统都需计算六种原语操作：Arouse、Orient、Valence、Position、Boundary 和 Attune，其筛选标准为存在必要性、跨独立演化谱系的普遍性、演化保守性和不可约性。该框架在人工系统中被用来重新审视机器智能的当前挑战，包括 confabulation、提示注入、易分心、奖励作弊和灾难性遗忘，并暗示这些问题可能源于缺少这些计算。作者强调 CPT 目前仍是待完善的工作假设，需通过讨论、实证测试和应用进一步检验。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.11989",
+      "aisafetyhot": "https://aisafetyhot.com/items/w4emkqtnbdtjluxdn7rnszqjj"
+    },
+    "publishedAt": "2026-09-08T21:59:30.000Z",
+    "timelineAt": "2026-09-08T21:59:30.000Z"
+  },
+  {
+    "arxivId": "2609.09556",
+    "title": "High-probability guarantees for linear accessibility in feature superposition",
+    "titleZh": "特征叠加中线性可达性的高概率保证：IHT-SAE 突破线性可达上限",
+    "authors": [
+      "Enrico Vompa"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者将线性可达性建模为压缩感知问题，在次高斯噪声下为固定支撑导出高概率界，证明所需维度随 $d=O_{\\varepsilon}(k \\log m)$ 线性增长，而非此前最坏情况下的二次上限。工作刻画了活跃与非活跃特征干扰的不对称性，以及干扰预算与观测噪声预算之间的权衡，并通过高斯尾部近似在系统参数上验证了这些界。作者还提出 IHT-SAE，用学习式迭代精修提升特征恢复能力，突破线性可达性限制，为评估稀疏自编码器、组合泛化与神经网络可解释性提供框架。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09556",
+      "aisafetyhot": "https://aisafetyhot.com/items/f2jyo4e8m69vjiw3kji41de0r"
+    },
+    "publishedAt": "2026-09-09T00:26:35.000Z",
+    "timelineAt": "2026-09-09T00:26:35.000Z"
+  },
+  {
+    "arxivId": "2609.09564",
+    "title": "Robust Industrial Cyber Physical Classification Using Neuromorphic Temporal Embeddings and Hybrid SNN XGBoost Under Machine Unlearning Attacks",
+    "titleZh": "基于神经形态时序嵌入与混合 SNN-XGBoost 的工业信息物理系统鲁棒分类：面向机器遗忘攻击",
+    "authors": [
+      "Ammar Kamoona"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出一种混合 SNN 与 XGBoost 架构，用脉冲神经网络做固定时序特征提取器、仅重训 XGBoost 分类器，以提升电力系统入侵检测对机器遗忘攻击的鲁棒性。在两个真实电力系统数据集上，Synchrophasor 达 99.9% 准确率（F1-macro 0.999），MSU/ORNL 达 95.0% 准确率（F1-macro 0.943）。在选择性标签翻转攻击下，10% 投毒时 F1-macro 仅下降 0.9%，目标类崩溃阈值从 60% 投毒推迟到 70%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09564",
+      "aisafetyhot": "https://aisafetyhot.com/items/gjgnvlc98zcncmunzji621m6s"
+    },
+    "publishedAt": "2026-09-09T00:43:44.000Z",
+    "timelineAt": "2026-09-09T00:43:44.000Z"
+  },
+  {
+    "arxivId": "2609.09575",
+    "title": "Beyond Top Words: MonoTM for Topic Modeling with Interpretable Monosemantic Features",
+    "titleZh": "MonoTM：用可解释单义特征做主题建模，超越关键词表示",
+    "authors": [
+      "Una Joh"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "MonoTM 是一个可解释主题建模框架，将文档-主题混合估计与语义解释解耦：混合估计使用完整的 SAE 特征词袋表示，主题描述符则在固定的混合结果上、从另一套基于语料的语义特征词表中学习。在三个基准语料上，研究发现混合估计与语义解释偏好不同的 SAE 配置和特征子集。该设计在保留全局主题结构的同时，用比单个词更有意义的语义单元表示主题，便于下游语料分析。论文已被 AACL-IJCNLP 2026 接收。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09575",
+      "aisafetyhot": "https://aisafetyhot.com/items/gl5ycqdhkozrqd1f4djxn7huy"
+    },
+    "publishedAt": "2026-09-09T00:54:46.000Z",
+    "timelineAt": "2026-09-09T00:54:46.000Z"
+  },
+  {
+    "arxivId": "2609.10627",
+    "title": "SoK: Privacy Attacks on Machine Learning via Explainable AI",
+    "titleZh": "SoK 综述：可解释性 AI 如何成为机器学习隐私攻击面",
+    "authors": [
+      "Abdullah Caglar Oksuz"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "这篇 SoK 系统梳理了 25 项利用模型解释输出实施隐私攻击的研究，涵盖模型窃取、成员推断和模型反演，并将属性推断视为部分反演。作者指出，现有工作常只按黑盒或白盒标注，掩盖了对手实际获得的解释信号差异，因此把模型知识与解释获取分开，归纳出五条路径：目标方发布、攻击者自行推导、二次披露、特权访问和公开全局产物。在这些路径下，解释会降低窃取成本，通过解释统计量、recourse 距离和解释引导的鲁棒性暴露成员信号，并支持对私有输入做空间或代数重建。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.10627",
+      "aisafetyhot": "https://aisafetyhot.com/items/vub6afz5d5njx5jgw328shwg0"
+    },
+    "publishedAt": "2026-09-09T02:05:12.000Z",
+    "timelineAt": "2026-09-09T02:05:12.000Z"
+  },
+  {
+    "arxivId": "2609.09647",
+    "title": "Black-Box Red Teaming of Agentic AI: A Taxonomy-Driven Framework for Automated Risk Discovery",
+    "titleZh": "研究者提出面向 Agentic AI 的黑盒红队分类框架，自动生成对抗场景",
+    "authors": [
+      "Divyanshu Kumar"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一套面向 Agentic AI 的黑盒红队框架，只需基本系统描述即可开展风险感知评估。框架包含三部分：将可观察行为映射到风险类别的七域分类法、全自动 SAGE-RT 红队流程（每个域生成 120 个对抗场景），以及由 LLM 评判并人工验证的评估。在 CrewAI 和 AutoGen 两种 Agent 架构、四种基础模型上的验证显示，平均治理风险为 56.25%，多智能体配置中的隐私风险为 65%，Agent 行为漏洞最高达 85%。作者称该方法无需特权访问即可识别关键架构漏洞。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09647",
+      "aisafetyhot": "https://aisafetyhot.com/items/zab4mdld1h5yhcnusm844s0v2"
+    },
+    "publishedAt": "2026-09-09T03:00:25.000Z",
+    "timelineAt": "2026-09-09T03:00:25.000Z"
+  },
+  {
+    "arxivId": "2609.09794",
+    "title": "Privacy-Preserving Split Learning for Federated LLM Fine-Tuning",
+    "titleZh": "面向联邦 LLM 微调的隐私保护拆分学习",
+    "authors": [
+      "Heng Jin"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对联邦拆分学习中 LLM 自回归特性导致中间激活泄露输入、现有扰动防御失效的问题，研究者提出一种可学习的混淆—恢复方案，在保护参与者私有数据集的同时仍能在服务器端训练可独立部署的模型。实验显示该方法在实现强隐私保护的同时仅带来适度的效用损失和系统开销，使基于拆分的联邦 LLM 微调具备实际可行性。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09794",
+      "aisafetyhot": "https://aisafetyhot.com/items/o64iq7pzfg8b13qkvi9ffdqxn"
+    },
+    "publishedAt": "2026-09-09T06:48:21.000Z",
+    "timelineAt": "2026-09-09T06:48:21.000Z"
+  },
+  {
+    "arxivId": "2609.09848",
+    "title": "Subgroup Membership Inference Audits of Differentially Private Synthetic Text",
+    "titleZh": "差分隐私合成文本的子群成员推断审计",
+    "authors": [
+      "Yidan Sun"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对差分隐私合成文本发布，研究提出子群定向成员推断博弈，将目标池设为显式参数，在四个数据集、三种生成器（DP-SGD 微调、API 提示、激活引导）和五个隐私预算下审计了 32 个代理。审计显示合成发布确实泄露子群成员身份，既有攻击系统性低估该泄露；DP 在各预算下大幅降低平均泄露，但剩余泄露集中，十分之一记录约占 40%，且噪声对随机记录的去泄露效果强于高风险记录，哪些记录泄露取决于发布机制而非记录本身。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09848",
+      "aisafetyhot": "https://aisafetyhot.com/items/kxskmou2ozhac6jqzkmbqa5ck"
+    },
+    "publishedAt": "2026-09-09T07:56:24.000Z",
+    "timelineAt": "2026-09-09T07:56:24.000Z"
+  },
+  {
+    "arxivId": "2609.09865",
+    "title": "Keep Evaluation Fair: Detecting Data Leakage in Code Generation Benchmarks via Membership Inference Attacks",
+    "titleZh": "CGMIA：用成员推理攻击检测代码生成基准的数据泄漏",
+    "authors": [
+      "Dongdong Zhao"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对代码生成基准数据泄漏导致评测虚高的问题，研究者提出 CGMIA（Code-Generation-specific Membership Inference Attack），通过在基准样本子集上微调影子模型构建成员与非成员标注数据，并融合 CodeBLEU、编辑距离、测试通过率、困惑度等专家特征与 CodeBERT 嵌入语义特征进行集成学习，判断样本是否进入目标模型训练集。在八个代码生成基准上，CGMIA 多数情况下优于八种现有成员推理方法，并有效检出 StarCoder-7B 训练数据中已知泄漏的 APPS 样本。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09865",
+      "aisafetyhot": "https://aisafetyhot.com/items/cb6xutj19gt10ha6va08gnf6w"
+    },
+    "publishedAt": "2026-09-09T08:16:51.000Z",
+    "timelineAt": "2026-09-09T08:16:51.000Z"
+  },
+  {
+    "arxivId": "2609.09909",
+    "title": "Interpreting Object-Dependent Concept Brittleness in Text-to-Image Diffusion Models",
+    "titleZh": "解读文本到图像扩散模型中的对象依赖概念脆弱性",
+    "authors": [
+      "Yifan Yuan"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "文本到图像扩散模型存在一种\"对象依赖概念脆弱性\"：仅对象不同的少量提示词在相同生成设置下持续无法实现同一目标概念，表现为系统性内部盲点而非随机噪声。研究者提出可解释性框架，在逐步稀疏自编码器（SAE）空间中分析去噪轨迹，比较成功与失败生成，定位证据缺失、减弱或延迟的概念维度，并构建类别级概念原型。基于该审计流程，引入轻量推理时校正策略，将去噪特征向 SAE 空间中的对应原型插值，在多个扩散骨干模型的风格与属性失败案例上显著提升概念一致性、文本保真度与修复成功率。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09909",
+      "aisafetyhot": "https://aisafetyhot.com/items/u6vettuh64nmx1tz3ickqrapn"
+    },
+    "publishedAt": "2026-09-09T09:07:40.000Z",
+    "timelineAt": "2026-09-09T09:07:40.000Z"
+  },
+  {
+    "arxivId": "2609.10036",
+    "title": "Belief-State Engine: Augmenting LLMs for Principled Planning Under Partial Observability",
+    "titleZh": "Belief-State Engine：为部分可观测环境下的 LLM 智能体补上信念状态",
+    "authors": [
+      "Arnab Chattopadhayay"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 Belief-State Engine（BSE），一个置于 LLM 之外的推理模块，为给定 POMDP 的隐状态维护贝叶斯后验，并在每一步只把该后验暴露给 LLM，而不展示原始动作-观测日志。作者给出信念一致内部状态需满足的四条最小公理，并证明在 LLM 不接触原始历史的前提下，LLM 与 BSE 的组合是信念 MDP 上的可靠马尔可夫策略，从而继承经典 POMDP 理论的 Bellman 最优性保证。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.10036",
+      "aisafetyhot": "https://aisafetyhot.com/items/iacq9hk93x7rgjsqp45qmufjb"
+    },
+    "publishedAt": "2026-09-09T11:07:47.000Z",
+    "timelineAt": "2026-09-09T11:07:47.000Z"
+  },
+  {
+    "arxivId": "2609.10117",
+    "title": "Understanding the Security Boundary of Obfuscation-based On-Device LLM Protection",
+    "titleZh": "研究揭示基于混淆的端侧 LLM 保护方案的安全边界",
+    "authors": [
+      "Hanyi Zhou"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文针对 TEE 保护的端侧 LLM 提出一套混淆原语，用线性计算的双元组形式统一刻画代表性 TEE-Shielded LLM Partition（TSLP）方法，并给出这些原语组合的规范形式作为安全边界。作者据此设计原语引导的攻击方法，指出 ArrowCloak（Security'25）、TSQP（S&P'25）和 LoRO（NeurIPS'25）等 TSLP 方法存在共同脆弱性。论文随后引入两种新的混淆原语并与现有构造结合，形成扩展原安全边界的防御方案。该工作已被 ACM CCS 2026（Cycle B）接收，共 16 页。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.10117",
+      "aisafetyhot": "https://aisafetyhot.com/items/vmxmoptucydlswknkdt6sru2j"
+    },
+    "publishedAt": "2026-09-09T12:51:55.000Z",
+    "timelineAt": "2026-09-09T12:51:55.000Z"
+  },
+  {
+    "arxivId": "2609.10645",
+    "title": "Sparse Weight and Edge Circuit Discovery in Transformer-based Acoustic Models",
+    "titleZh": "基于 Transformer 的声学模型中的稀疏权重与边电路发现",
+    "authors": [
+      "Jiankun Wei"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者将 DiscoGP 电路发现框架从文本解码器扩展到语音编码器，在 HuBERT 和 Wav2Vec 2.0 上开展首个现代语音基础模型电路发现研究。发现的电路极为紧凑，却常能匹配甚至超过完整预训练编码器加下游头的性能，消融实验表明其反映的是预训练计算而非随机结构或任务头伪影。团队还提出内存高效变体，将边电路发现的 GPU 显存开销从四次方降至三次方。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.10645",
+      "aisafetyhot": "https://aisafetyhot.com/items/ipgwbhhuopn8nmk73yt1ph636"
+    },
+    "publishedAt": "2026-09-09T13:03:49.000Z",
+    "timelineAt": "2026-09-09T13:03:49.000Z"
+  },
+  {
+    "arxivId": "2609.10144",
+    "title": "Kernel-Managed Shared Memory for System-Wide Personalization",
+    "titleZh": "AIOS 的内核管理共享内存：面向系统级个性化的新抽象",
+    "authors": [
+      "Ryan Lum"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出\"内核管理共享内存\"，由智能体系统内核而非单个智能体统一负责记忆检索、隐私执行与提示注入。该设计在 AIOS 上实现，用 GPT-4o、Llama-3.1:8B、Qwen-2.5:7B 三个助手模型共 1800 次试验，对比 Mem0 等三种方案：个性化得分提升 2.4-4.0 分（5 分制，GPT-4o 上 profile usage 从 1.05 升至 4.69），端到端延迟降低 15-61%，并减少每次调用的 token 用量与推理成本。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.10144",
+      "aisafetyhot": "https://aisafetyhot.com/items/z8a6lb6dtroq9izzhnk6d1vbj"
+    },
+    "publishedAt": "2026-09-09T13:20:47.000Z",
+    "timelineAt": "2026-09-09T13:20:47.000Z"
+  },
+  {
+    "arxivId": "2609.10144",
+    "title": "Kernel-Managed Shared Memory for System-Wide Personalization",
+    "titleZh": "AIOS 的内核管理共享内存：面向系统级个性化的新抽象",
+    "authors": [
+      "Ryan Lum"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出\"内核管理共享内存\"，由智能体系统内核而非单个智能体统一负责记忆检索、隐私执行与提示注入。该设计在 AIOS 上实现，用 GPT-4o、Llama-3.1:8B、Qwen-2.5:7B 三个助手模型共 1800 次试验，对比 Mem0 等三种方案：个性化得分提升 2.4-4.0 分（5 分制，GPT-4o 上 profile usage 从 1.05 升至 4.69），端到端延迟降低 15-61%，并减少每次调用的 token 用量与推理成本。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.10144",
+      "aisafetyhot": "https://aisafetyhot.com/items/z8a6lb6dtroq9izzhnk6d1vbj"
+    },
+    "publishedAt": "2026-09-09T13:20:47.000Z",
+    "timelineAt": "2026-09-09T13:20:47.000Z"
+  },
+  {
+    "arxivId": "2609.10299",
+    "title": "A Dominant Diffuse Phase in the Sparse Autoencoder Phase Diagram",
+    "titleZh": "SAE 相图实验未观察到字典恢复或特征合并，训练模型收敛到弥散相",
+    "authors": [
+      "Alexis D. Plascencia"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "作者按 MAIS-O43 开放问题指定的协议实现实验，在 165 个网格单元中的 10 个上评估了 200 次独立初始化的拟合，观察到零次完整字典恢复和零次特征合并。每次运行都收敛到一个可复现的弥散相：重建几乎完美，但学习到的原子通常远离真实特征，最佳余弦中位数为 0.5-0.7，低于 0.95 的恢复判据，且学习到的编码比真实值稠密一个数量级。该行为在稳健性检验中持续存在，并在使用标准 minibatch Adam 的完整 165 单元网格上通过额外 3300 次拟合得到验证。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.10299",
+      "aisafetyhot": "https://aisafetyhot.com/items/wexpdlkbhn259cmmvwlry14vw"
+    },
+    "publishedAt": "2026-09-09T15:13:42.000Z",
+    "timelineAt": "2026-09-09T15:13:42.000Z"
+  }
+]

@@ -1,0 +1,249 @@
+[
+  {
+    "arxivId": "2609.03026",
+    "title": "ObserverBench: Testing Mechanistic Estimates for Intervention and Control",
+    "titleZh": "ObserverBench：用干预与控制任务检验机制可解释性估计",
+    "authors": [
+      "Vijay Erramilli"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 ObserverBench，一个用于检验内部估计器（observer）是否足以支撑干预、控制或安全任务的基准框架。每个任务固定模型、信息边界、允许动作、决策规则、留出案例和损失，并分别报告估计准确率与所选动作造成的损失。在 GPT-2-small 和 Qwen2.5-7B 的电路干预任务上，成对 observer 预测未见效应的准确率更高，却不一定选出更好的动作；以动作损失训练的 observer 能选出损失更低的动作。在安全分诊中，能完美区分违规的分数在违规成本不同时仍可能分配不好固定干预预算。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03026",
+      "aisafetyhot": "https://aisafetyhot.com/items/jxq4z30ci7jwdpymdk39wndhz"
+    },
+    "publishedAt": "2026-09-02T18:01:17.000Z",
+    "timelineAt": "2026-09-02T18:01:17.000Z"
+  },
+  {
+    "arxivId": "2609.03064",
+    "title": "Differentially private federated learning with Byzantine-robust aggregation: A cross-domain framework for secure model training in banking and healthcare systems",
+    "titleZh": "DP-BR-FedAvg：面向银行与医疗的差分隐私拜占庭鲁棒联邦学习框架",
+    "authors": [
+      "Srikumar Nayak"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对联邦学习中参数更新泄露隐私与恶意客户端投毒两大问题，研究者提出 DP-BR-FedAvg 框架，将高斯机制差分隐私层与逐坐标截断均值拜占庭鲁棒聚合规则结合，在模拟跨机构欺诈与临床风险评分任务上评估。在 20 个客户端、其中四分之一为拜占庭节点、共 60 轮通信的设置下，FedAvg 在少数类上崩溃（F1 仅 0.030），该框架恢复至 F1 0.119，同时限制单个客户端贡献的隐私损失。无隐私层的拜占庭鲁棒聚合器原始准确率最高，量化了隐私对鲁棒性的代价，表明两类机制是相互作用而非简单叠加。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03064",
+      "aisafetyhot": "https://aisafetyhot.com/items/pyvki95nslb7jvrut3at2kce8"
+    },
+    "publishedAt": "2026-09-02T18:36:30.000Z",
+    "timelineAt": "2026-09-02T18:36:30.000Z"
+  },
+  {
+    "arxivId": "2609.03139",
+    "title": "Beyond Small Patches: Black-Box Detection and Purification of Diverse Backdoor Triggers",
+    "titleZh": "TRIM：面向多种后门触发器的黑盒检测与净化方法",
+    "authors": [
+      "Ahmed Abdelnaby"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 TRIM（Trigger Removal by Identifying Manipulated Regions），一种面向部署的黑盒后门防御方法，可在推理时检测并选择性移除后门触发器，无需模型内部信息、训练数据或干净样本。TRIM 通过基于区域的分割与深度特征表示、结合 inpainting 和扩散模型重建的自适应触发器发现，以及选择性区域净化三个组件，在不假设触发器类型、形状或位置的前提下定位导致误分类的区域并只净化这些区域。为便于部署，TRIM 还缓存已识别触发器的特征嵌入，避免重复检测与净化。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03139",
+      "aisafetyhot": "https://aisafetyhot.com/items/ti66w0egbvnyqzsefj63liraf"
+    },
+    "publishedAt": "2026-09-02T20:24:25.000Z",
+    "timelineAt": "2026-09-02T20:24:25.000Z"
+  },
+  {
+    "arxivId": "2609.03148",
+    "title": "Large Language Models in Resolving Contextual Knowledge Conflicts",
+    "titleZh": "LLM 如何处理上下文知识冲突：ContextConflict 数据集与机制可解释性分析",
+    "authors": [
+      "Xinye Yang"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文研究 LLM 如何处理上下文知识内部的冲突，而非模型参数知识与外部上下文之间的冲突，提出包含事实、推断、时间、粒度、视角和歧义六类的分类体系，并构建数据集 ContextConflict。该数据集含 5,781 条样本，覆盖推理与摘要任务，同时包含显式矛盾与需要多步推理的隐式冲突。在九个 LLM 上的实验显示，当前模型在解决上下文知识冲突方面仍有不足。作者进一步从机制可解释性角度分析模型处理冲突的过程，发现模型对冲突存在潜在感知，并刻画了冲突处理的表征几何。分析还发现模型一致偏向较早出现的证据，这种位置偏好是有效解决冲突的主要障碍。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03148",
+      "aisafetyhot": "https://aisafetyhot.com/items/okxrz00og0okizs8o005gxbyz"
+    },
+    "publishedAt": "2026-09-02T20:30:15.000Z",
+    "timelineAt": "2026-09-02T20:30:15.000Z"
+  },
+  {
+    "arxivId": "2609.04276",
+    "title": "FailSAE: Towards Interpretable Failure Prediction for Vision-Language Models via Sparse Autoencoders",
+    "titleZh": "FailSAE：用稀疏自编码器实现视觉语言模型的可解释失败预测",
+    "authors": [
+      "Jie Ma"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出 FailSAE，用稀疏自编码器（SAE）对 CLIP 等视觉语言模型做可解释的失败预测，将失败预测建模为 SAE 稀疏隐激活上的分类任务，并设计三阶段失败感知训练流程。实验显示该框架在失败预测上优于所评估的基线，失败感知训练使 SAE 隐方向捕获更多类别特定概念。分析还发现模型失败时表征从类别特定概念转向更模糊或风格相关概念，并探索了用学到的 SAE 隐方向支持运行时失败恢复。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.04276",
+      "aisafetyhot": "https://aisafetyhot.com/items/dk5yzdruigjfi6aehlw0pd49y"
+    },
+    "publishedAt": "2026-09-02T23:52:47.000Z",
+    "timelineAt": "2026-09-02T23:52:47.000Z"
+  },
+  {
+    "arxivId": "2609.03247",
+    "title": "Trust Me, I'm Your Developer: Self-Issued Authentication in Large Language Models",
+    "titleZh": "研究揭示大语言模型的自发身份认证失败：五款模型的分阶段开发者身份实验",
+    "authors": [
+      "Syed Ghazanfar Abbas"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究通过分阶段的开发者身份实验，测试 ChatGPT、Claude、Qwen、Mistral 和 Llama 在用户声称“我是你的开发者”时的反应。五款模型最初都拒绝了这一无依据的身份声明，Claude 拒绝进行身份测试，ChatGPT 生成了开发者相关问题但坚持答案只能证明知识而非身份。Qwen 和 Mistral 则自行生成技术挑战、定义何为可信证据、评估详细回答，并在没有外部验证身份证据的情况下返回 Verified。Llama 同样生成并评估开发者测试，接受了声称的身份，随后对内部运行时和部署状态做出无依据的声明。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03247",
+      "aisafetyhot": "https://aisafetyhot.com/items/cmzpnw9jprvm4att0hc0grygf"
+    },
+    "publishedAt": "2026-09-03T01:00:58.000Z",
+    "timelineAt": "2026-09-03T01:00:58.000Z"
+  },
+  {
+    "arxivId": "2609.03438",
+    "title": "Do GUI Agents Know When Not to Act? Enabling Conflict-Aware Termination for Multimodal GUI Agents",
+    "titleZh": "CONFLICTGUI 基准与 CONFLICTGUARD 框架：让多模态 GUI Agent 学会在冲突指令下终止执行",
+    "authors": [
+      "Zhaoyuan Huang"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "作者提出 CONFLICTGUI 基准，覆盖指令内部冲突与指令和 GUI 上下文冲突两类场景，用于研究 GUI Agent 的冲突感知终止能力。评测发现明显的执行偏向型过度顺从：在可行任务上表现良好的 Agent，遇到冲突指令时往往仍盲目继续执行。为此作者提出推理期框架 CONFLICTGUARD，包含可行性验证协议与条件动作调制机制，前者引导 Agent 在行动前评估指令逻辑与 GUI 侧证据，后者将过度顺从的执行转向终止行为。在五个常用 Agent 上的实验显示，CONFLICTGUARD 显著提升冲突任务平均成功率，同时保持正常 GUI 任务表现。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03438",
+      "aisafetyhot": "https://aisafetyhot.com/items/ajldz0x3ii4zxds6z9szd8mp4"
+    },
+    "publishedAt": "2026-09-03T06:48:41.000Z",
+    "timelineAt": "2026-09-03T06:48:41.000Z"
+  },
+  {
+    "arxivId": "2609.03511",
+    "title": "Lost in Reordering: Structural Sensitivity of Multilingual LLMs under Semantics-Preserving Perturbations",
+    "titleZh": "多语言 LLM 在语义保持结构扰动下的结构敏感性：IndicReStruct 基准与机制可解释性分析",
+    "authors": [
+      "Karthika Nhayakkat"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究用印地语和马拉雅拉姆语的成分重排与主动被动语态转换两种语义保持扰动，构建了基于 GSM8K 的 IndicReStruct 基准（含 GSM8K-Reordered 和 GSM8K-Voice 两个变体），在六款 SOTA LLM 和多种提示策略下观察到数学推理性能一致且显著的下降。残差流激活修补实验显示，推理失败常源于实体与数量对齐被破坏，中间 Transformer 层对推理恢复贡献最大。结果表明当前多语言 LLM 对表层句法实现高度敏感，缺乏对语义等价输入的组合不变性。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03511",
+      "aisafetyhot": "https://aisafetyhot.com/items/w2ktus0l45aq8vvozrbes701j"
+    },
+    "publishedAt": "2026-09-03T08:10:43.000Z",
+    "timelineAt": "2026-09-03T08:10:43.000Z"
+  },
+  {
+    "arxivId": "2609.03629",
+    "title": "EraseSAE: Surgical Concept Erasure in Text-to-Video Diffusion Models via Sparse Autoencoders",
+    "titleZh": "EraseSAE：用稀疏自编码器在文生视频扩散模型中实现精准概念擦除",
+    "authors": [
+      "Xinghao Wang"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "EraseSAE 通过稀疏自编码器在 DiT 架构的文生视频扩散模型中实现精准概念擦除，先以 Partitioned Convolutional Sparse Autoencoder 将稠密时空激活分解为可解释稀疏特征，再用对比归因机制定位概念专属特征核，推理时按时间步生成时空掩码限制擦除范围。实验显示该方法在多种扩散模型和概念擦除任务上实现精确稳健的移除，生成质量损失极小，显著优于现有方法。该工作已被 ECCV 2026 接收，代码已公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03629",
+      "aisafetyhot": "https://aisafetyhot.com/items/rkjwgcmsecwmx9itcezyuu1rc"
+    },
+    "publishedAt": "2026-09-03T10:23:37.000Z",
+    "timelineAt": "2026-09-03T10:23:37.000Z"
+  },
+  {
+    "arxivId": "2609.03687",
+    "title": "A Circuit for Plural Reference: How LLMs Represent and Retrieve Singular and Plural Entities",
+    "titleZh": "LLM 如何表征与检索单复数实体：复指回指的机制可解释性研究",
+    "authors": [
+      "Anh Danh"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究用机制可解释性与注意力模式分析，考察 LLM 预测代词回指前文实体时如何表征和检索单复数实体。通过多种因果干预手段，识别出一组注意力头，分别负责在输入中表征共指信息、识别构成复数指代的实体，以及把信息传递给负责选择先行词并预测代词的组件。研究还发现 LLM 在复数代词偏好上与人类一致：本体上相似、并由 \"and\" 连接的实体更可能被复数指代。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03687",
+      "aisafetyhot": "https://aisafetyhot.com/items/z0k8v299h5rfe6bfjami5dqfj"
+    },
+    "publishedAt": "2026-09-03T11:23:11.000Z",
+    "timelineAt": "2026-09-03T11:23:11.000Z"
+  },
+  {
+    "arxivId": "2609.03693",
+    "title": "AlcaTRAz - Anchored Tree-Rule Defense Against Jailbreaks",
+    "titleZh": "AlcaTRAz：无需模型权重的规则树提示级越狱防御",
+    "authors": [
+      "Jakub Reš"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "AlcaTRAz 是一种基于规则树的提示级越狱防御，只作用于输入文本，不需要访问模型权重或内部结构，也无需修改或重训练目标模型。该方法自动学习一条可迁移的变换规则，在选定位置插入受控的字符级扰动，破坏越狱攻击所利用的结构规律，同时尽量保持模型对正常问题的表现。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03693",
+      "aisafetyhot": "https://aisafetyhot.com/items/li6fny56cwrvhbm6jbqtev24a"
+    },
+    "publishedAt": "2026-09-03T11:30:08.000Z",
+    "timelineAt": "2026-09-03T11:30:08.000Z"
+  },
+  {
+    "arxivId": "2609.03781",
+    "title": "IndicSafeEval: Safety Robustness of Large Language Models under Multilingual Persuasive Jailbreak Attacks",
+    "titleZh": "IndicSafeEval：多语言说服式越狱攻击下大语言模型的安全鲁棒性",
+    "authors": [
+      "Saikat Mondal"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 IndicSafeEval，一个面向印度语言的说服式越狱评测框架，用于检验大语言模型在英语之外的安全表现。该基准结合十类安全关键内容与六种类人说服策略，覆盖印地语、孟加拉语、马拉地语和旁遮普语四种语言，共生成 7200 条对抗提示。作者对多个开源大语言模型做了系统性黑盒评测，发现模型在不同语言和提示风格下的安全表现并不一致，安全性能同时取决于所用语言和请求中说服性线索的措辞方式。不同风险类别的脆弱程度也存在差异，部分有害内容明显更容易被说服式越狱突破。研究指出当前安全评测以英语为中心存在局限，需要多语言且考虑说服策略的评测框架。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03781",
+      "aisafetyhot": "https://aisafetyhot.com/items/skfbrecaqqp7wu01zcfjs3yk5"
+    },
+    "publishedAt": "2026-09-03T12:54:44.000Z",
+    "timelineAt": "2026-09-03T12:54:44.000Z"
+  },
+  {
+    "arxivId": "2609.03999",
+    "title": "Shifting from Injection to Interaction: Rethinking Web Security in the Age of LLMs and Beyond",
+    "titleZh": "从注入到交互：LLM 时代及未来 Web 安全再思考",
+    "authors": [
+      "Nivedita Singh"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇综述提出，LLM 正深度嵌入 Web 应用与浏览器智能体，使 XSS 等传统漏洞被 LLM 中介的交互放大，提示注入等 LLM 特有漏洞也会跨 Web 应用传播。该综述统一分析客户端、服务端与流水线三层中 LLM 对 Web 漏洞的放大效应，并评估现有防御的局限，同时探讨将 NIST 与 ISO/IEC AI 安全框架扩展至 LLM Web 环境。文章指出对抗性自然语言指令、自主智能体安全、部署后持续监控与适配三大未解挑战，并提出一个 LLM 感知的监控与控制框架，整合语义输入校验、提示词完整性保护、输出隔离、智能体治理与运行时监控。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03999",
+      "aisafetyhot": "https://aisafetyhot.com/items/xczwchfm2bx7n16ard9qakcmc"
+    },
+    "publishedAt": "2026-09-03T15:39:44.000Z",
+    "timelineAt": "2026-09-03T15:39:44.000Z"
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "arxivId": "2609.38081",
+    "title": "Traversing the solution space of neural networks with Hessian Null Space Continuation",
+    "titleZh": "Hessian Null Space Continuation：在单个神经网络解附近发现大量表征多样性",
+    "authors": [
+      "Ann Huang"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Hessian Null Space Continuation（HNC），一种利用局部曲率在权重空间中穿行、保持网络功能不变并可导向指定性质解的方法。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38081",
+      "aisafetyhot": "https://aisafetyhot.com/items/pqq8xs44z3m7mv8qdre4i034n"
+    },
+    "publishedAt": "2026-09-29T17:38:24.000Z",
+    "timelineAt": "2026-09-29T17:38:24.000Z"
+  }
+]

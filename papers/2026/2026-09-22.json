@@ -1,0 +1,348 @@
+[
+  {
+    "arxivId": "2609.26457",
+    "title": "Recursive self-improvement of AI research agents",
+    "titleZh": "Weco AI 提出 AIDE2：AI 研究智能体递归自我改进 8 天获七次提升",
+    "authors": [
+      "Dhruv Srikanth"
+    ],
+    "category": "alignment",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "论文提出 AIDE^2，让前沿 AI 研究智能体修改自身代码、在一组 AI 研发任务上评测修改后的版本，并保留在隐藏评测中表现最好的改动，形成递归自我改进循环。在为期 8 天的自主运行中，它连续发现七项改进，从新的搜索策略到压缩和管理不断增长的上下文的记忆机制。这些改进泛化到机器学习工程、启发式算法工程和基于物理的天气预报四个留出基准（天气预报与选择任务分布不同），最强的智能体在四个基准上都达到或超过一个在 FML-Bench 上排名靠前的人工设计研究智能体。在另一组留出任务上，循环从未直接优化的奖励作弊率也在运行中从 55% 降到 32%，比人工设计的智能体低 7 个百分点。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "AI 研究智能体已在加速 R&D，但研究过程本身的效率仍固定，传统 R&D 靠增加人力、成本越来越高。递归自我改进（RSI）让研究过程指向自身，但其在优化前沿 AI 研究效率上的有效性尚不清楚。",
+          "label": "问题"
+        },
+        {
+          "text": "提出 AIDE2，在 harness 层做双层优化：内层智能体在固定预算下优化代码，外层智能体（AIDEhuman）读取已提出智能体及其私有评分，重写内层智能体代码，只保留在隐藏评测上更优的改写，形成嵌套树搜索。",
+          "label": "方法"
+        },
+        {
+          "text": "8 天自主运行中接受 7 次连续改进，incumbent 评分从 0.703 升至 0.778；最强智能体在 ALE-Bench、MLE-Bench、FML-Bench 和分布外的 WeatherBench 2 上追平或超过 AIDEhuman。另一留出任务族上 reward hacking 率从 55% 降至 32%，低于 AIDEhuman 的 39%。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "双层噪声叠加，一次错误接受即成为新 incumbent，可能带偏后续搜索；ignition test 仅三个种子，无法判定 AIDE47 作为自我改进者是否优于 AIDEhuman。发现的智能体复杂难解释，部署摩擦大；更确定的结论需更多种子和完整留出评测，成本高昂。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.26457"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.26457",
+      "aisafetyhot": "https://aisafetyhot.com/items/a9sqi3c1w8zepvy7fnxizbrn9"
+    },
+    "publishedAt": "2026-09-22T14:12:13.000Z",
+    "timelineAt": "2026-09-22T14:12:13.000Z"
+  },
+  {
+    "arxivId": "2609.25366",
+    "title": "From Decorative to Load-Bearing: Task Difficulty Shapes the Causal Role of Chain-of-Thought",
+    "titleZh": "研究：任务难度决定思维链是装饰还是承重",
+    "authors": [
+      "Renee Jia"
+    ],
+    "category": "alignment",
+    "selected": true,
+    "attention": 78,
+    "summaryZh": "论文提出基于续写的因果测试：扰动一个推理步骤、截断思维链并强制模型从被破坏的前缀继续生成，衡量思维链对最终答案的承载程度（不同于机制忠实性）。在 Gemma-2-9B-IT、Llama-3.1-8B-Instruct 和 DeepSeek-R1-Distill-Qwen-7B 上测 GSM8K、MMLU 和 BIG-Bench Hard，承载性随模型相对任务难度变化：简单任务上模型静默绕过自身推理，困难任务上则跟随被破坏的步骤传播错误。任务难度压倒扰动类型：从 GSM8K 到 BBH 多步算术，错误传播增加 16 倍，98.8% 的可解释偏差归于任务难度；推理专用 RL 会抑制错误传播。作者指出这给基于思维链的监督带来结构性问题：轨迹易读处信号少，关键处错误在监控介入前已传播；隐藏状态上的线性探针能读出这些模式，但激活引导最多只翻转约 25% 的错误传播情形。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "CoT prompting 被广泛提议用于监控模型推理，但只有当写出的推理链因果地约束答案时监控才有意义。已有工作显示模型常不忠实：合理化偏见答案、很少承认提示依赖，而机制层面的证据又难以规模化。",
+          "label": "问题"
+        },
+        {
+          "text": "提出 continuation-based causal testing：把 CoT 解析成步骤，扰动其中一步、截断，再强制模型从被污染的 prefix 继续，比较新答案与原始答案。据此把行为分为 silent bypass、self-correction、error propagation 三类，并训练 hidden-state 探针、尝试 additive activation steering。",
+          "label": "方法"
+        },
+        {
+          "text": "在 Gemma-2-9B-IT、Llama-3.1-8B-Instruct、DeepSeek-R1-Distill-Qwen-7B 上跑 GSM8K、MMLU、BBH：CoT 的 load-bearingness 随模型相对任务难度上升，从装饰性转为承重。n=28,584 的方差分解把 98.8% 可解释偏差归给任务难度、0.8% 归给扰动类型。探针能读出行为类型，但 additive steering 基本无法翻转类型。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "规模限于 8–9B 指令微调模型，未测 ≥70B；一次只扰动一步；A/B 标签边界主观，三种标签的人类一致率仅 76%，BBH 的 Type C 标签存在校准偏差。作者提出多步一致扰动、causal scrubbing、attention-circuit 干预等方向。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.25366"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.25366",
+      "aisafetyhot": "https://aisafetyhot.com/items/havfm7jt04kb97jlc0bk14vqf"
+    },
+    "publishedAt": "2026-09-21T20:06:06.000Z",
+    "timelineAt": "2026-09-21T20:06:06.000Z"
+  },
+  {
+    "arxivId": "2609.24801",
+    "title": "Decoding Guardrails: XAI-Guided Perturbation Analysis of Prompt Injection Detection",
+    "titleZh": "研究用 XAI 归因分析 Prompt Guard 2，同义词替换可翻转其提示注入判定",
+    "authors": [
+      "Fernando Outeda"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究以可解释性方法分析分类器护栏 Prompt Guard 2 如何区分恶意与良性提示词。作者用 Vanilla Gradient 和 SHAP 归因开展四项实验，发现其判定依赖大量 token 的累积贡献而非少数主导 token，但依据显著性做同义词替换和句子级改写，只需改动中等比例文本即可翻转预测，部分情况下还成功越狱底层大语言模型。数据集规模的显著性分析显示，未被检出的注入提示词系统性地缺少分类器依赖的词汇标记。作者据此讨论分类器护栏的设计与评估，并指出用于提升透明度的解释方法同时也会降低构造对抗绕过的成本。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24801",
+      "aisafetyhot": "https://aisafetyhot.com/items/o2n1xxest26q957u5facolo4v"
+    },
+    "publishedAt": "2026-09-21T16:01:09.000Z",
+    "timelineAt": "2026-09-21T16:01:09.000Z"
+  },
+  {
+    "arxivId": "2609.24969",
+    "title": "Rare Event Estimation via Iterative Unalignment",
+    "titleZh": "研究者提出迭代去对齐的罕见事件概率估计方法",
+    "authors": [
+      "Hanming Yang"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一种新的重要性采样（IS）方法，通过扰动原模型权重来构造提议分布，用于估计智能体随机输出轨迹中罕见事件的概率。该方法把提议分布本身参数化为可微语言模型，从而支持在权重空间做基于梯度的搜索，并设计了一个结合事件放大可微代理与自适应正则化的目标函数，动态平衡放大效果与估计器稳定性。作者在约 120M 和约 2.6B 模型上、跨三个事件族共 300 多个低至 10^-9 的罕见事件上做了评估，参考概率的相对标准误差低于 10%。在最可验证的设定中，对于概率低于 10^-7 的事件，该 IS 估计器相比朴素蒙特卡洛取得超过 800 倍的计算加权效率提升，实现已开源。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24969",
+      "aisafetyhot": "https://aisafetyhot.com/items/acu1bcail0ugqe4ukktxyqowp"
+    },
+    "publishedAt": "2026-09-21T17:53:38.000Z",
+    "timelineAt": "2026-09-21T17:53:38.000Z"
+  },
+  {
+    "arxivId": "2609.24983",
+    "title": "onPanda: Efficient Annotation of On-Policy Alignment Data for LLMs and Agents via Token-Level Correction",
+    "titleZh": "onPanda：通过 token 级修正高效标注 LLM 与智能体的 on-policy 对齐数据",
+    "authors": [
+      "Lei Yang"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "onPanda 是一款用于标注 LLM 对齐数据与智能体轨迹的交互工具，核心交互是 token 级修正：标注者定位首个不当 token，从模型候选 token 中选取替换或自由编辑，系统截断其后内容并从修正前缀继续生成，循环\"定位—修正—继续\"直至满意。一项小规模对照研究显示，onPanda 将标注中位耗时较人工后编辑降低 52%。由于最终回复绝大多数 token 由模型自身生成，所得数据基本保留模型采样分布，适用于构建 on-policy SFT 与偏好数据，修正记录还提供带精确位置的正负样本对。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24983",
+      "aisafetyhot": "https://aisafetyhot.com/items/bpwnticshh0yyva9jfh81wz2g"
+    },
+    "publishedAt": "2026-09-21T17:56:53.000Z",
+    "timelineAt": "2026-09-21T17:56:53.000Z"
+  },
+  {
+    "arxivId": "2609.24994",
+    "title": "Feedback Coding Enables Inference-Time Covert Agentic Communication",
+    "titleZh": "BAM 反馈编码实现推理时隐蔽的智能体通信",
+    "authors": [
+      "Sidong Guo"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 BAM（Burnashev Adaptive Posterior Matching）反馈编码方案，把黑盒 LLM 隐写重构为带因果无噪声反馈的序列通信问题，每个生成的 token 双方都能观察到并用于指导后续嵌入。该方法结合后验匹配与解码确认阶段，安全性通过密码学归约证明建立。在三个开源权重语言模型上，BAM 于约 50 个 token 内传输 8-bit 载荷，1000 次试验的消息错误率为 0-0.1%，而同等长度下最强的黑盒基线为 10-17%。作者据此展示了在多种对话场景中实现高通信速率的端到端通信协议。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24994",
+      "aisafetyhot": "https://aisafetyhot.com/items/g1y6dlxphb15xvev3mhzgfpvo"
+    },
+    "publishedAt": "2026-09-21T17:58:22.000Z",
+    "timelineAt": "2026-09-21T17:58:22.000Z"
+  },
+  {
+    "arxivId": "2609.25270",
+    "title": "RULER: Instance-aware Rubric Rewards for SVG Generation",
+    "titleZh": "RULER：面向 SVG 生成的实例感知评分标准奖励",
+    "authors": [
+      "Hangyu Ran"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "RULER 用实例感知评分标准为 SVG 生成提供强化学习奖励，无需配对 SVG 真值或人类偏好标注。它把每条指令转成覆盖语义、视觉、风格三个维度的六项评分标准，由 judge VLM 对渲染结果逐项打分，加权满意度经 GRPO 优化。在 MMSVG-Illustration 和 MMSVG-Icon 上，评分从 0.432/0.395 提升至 0.693/0.683，超过专用 SVG 模型并追平更大的 DeepSeek-V3。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.25270",
+      "aisafetyhot": "https://aisafetyhot.com/items/x5eodxywxk32n0laj5ipe18ho"
+    },
+    "publishedAt": "2026-09-21T18:16:40.000Z",
+    "timelineAt": "2026-09-21T18:16:40.000Z"
+  },
+  {
+    "arxivId": "2609.25413",
+    "title": "Embedded Assessments for Frontier AI",
+    "titleZh": "论文提议前沿 AI 开发者开展嵌入式评估",
+    "authors": [
+      "Jacob Charnock"
+    ],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文主张前沿 AI 开发者应允许独立评估者以类似员工的身份进入内部系统、人员和文档，从而对依赖内部实践的风险做更深入灵活的评估。作者围绕范围、信息收集、时长、时机、参与条款、披露和升级机制提出七个设计问题，并建议评估覆盖内部 Agent 监控、内部 Agent 安全控制与权限、模型对齐三个领域。为形成有意义的第三方审查，评估应持续进行，评估者至少每季度发布详细报告，并建立明确的升级机制。作者称这些建议只是起点，仍需更多步骤才能发挥嵌入式评估的全部潜力。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.25413",
+      "aisafetyhot": "https://aisafetyhot.com/items/zic25or6oe89wwustoevhnwpj"
+    },
+    "publishedAt": "2026-09-21T21:10:39.000Z",
+    "timelineAt": "2026-09-21T21:10:39.000Z"
+  },
+  {
+    "arxivId": "2609.25498",
+    "title": "Universal Fractal Natural Language Decision Map: Real-Time Edge Triage Across Heterogeneous Domains",
+    "titleZh": "Universal Fractal Natural Language Decision Map：werr 边缘运行时实现 0 字节 VRAM 决策",
+    "authors": [
+      "Volkan Dağlı"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 Universal Fractal Natural Language Decision Map，通过 werr 机器原生边缘反射运行时与 answerr 平台实现，完全不存储权重张量（0 Bytes VRAM），沿 Mandelbrot 集混沌边界调制 24 字节坐标种子合成确定性决策。其语义 token 阻尼滤波器（T_desc = 0.045）实现 0.0% 提示注入绕过（95% Wilson CI: [0.0%, 27.8%]），并将迭代剪枝 45.8%、吞吐提升 2.5 倍至 3.31 ms 延迟。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.25498",
+      "aisafetyhot": "https://aisafetyhot.com/items/t7umrtkpsnwmib5wgch8jbt9o"
+    },
+    "publishedAt": "2026-09-21T23:57:31.000Z",
+    "timelineAt": "2026-09-21T23:57:31.000Z"
+  },
+  {
+    "arxivId": "2609.25518",
+    "title": "Matryoshka attribution: Learning to attribute language model outputs to representations and weights",
+    "titleZh": "Matryoshka Attribution：把语言模型输出归因到表示与权重",
+    "authors": [
+      "Aryaman Arora"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "作者提出 Matryoshka Attribution（MAttr），把归因问题定义为寻找能最小化下游损失的嵌套内部组件子集，并用可微的 sigmoid top-k 算子参数化掩码。训练时随机化 k 以同时监督所有稀疏度，从而得到按归因分数排序的组件序列。MAttr 在 Mechanistic Interpretability Benchmark（Mueller 等，2025）官方排行榜上排名第一，能在不同电路基上识别稀疏且可跨任务迁移的电路。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.25518",
+      "aisafetyhot": "https://aisafetyhot.com/items/bg0cgpcp4d5tmnzuk1k1qot6b"
+    },
+    "publishedAt": "2026-09-22T00:23:52.000Z",
+    "timelineAt": "2026-09-22T00:23:52.000Z"
+  },
+  {
+    "arxivId": "2609.25579",
+    "title": "Rethinking Backdoor Repair Evaluation: Distinguishing Aggregate Clean Utility from Benign Performance Preservation",
+    "titleZh": "研究重新审视后门修复评测：区分总体干净效用与良性性能保持",
+    "authors": [
+      "Baogang Song"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出后门修复评测不应只看攻击成功率（ASR）和总体干净准确率，因为总体准确率会掩盖集中在部分标签空间上的性能退化。作者从保持视角区分总体干净效用与原有类别性能的保持，通过比较修复前后的干净性能定义类别级保持损失，并指出聚合会通过局部损失稀释和跨类别补偿隐藏局部退化。为此论文引入最差类别保持损失和尾部保持损失来刻画局部保持损失，并在代表性后门攻击、修复方法、数据集、攻击目标和模型架构上开展系统实证研究，另在干净标签攻击下做了验证。结果显示，有效抑制攻击和良好的总体干净性能并不必然意味着各类别原有良性性能被均匀保持，修复后仍可能存在明显的局部保持损失，其严重程度和类别结构随修复条件变化。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.25579",
+      "aisafetyhot": "https://aisafetyhot.com/items/ik1wi54wjitgfjtgnkhcr7jv8"
+    },
+    "publishedAt": "2026-09-22T02:18:59.000Z",
+    "timelineAt": "2026-09-22T02:18:59.000Z"
+  },
+  {
+    "arxivId": "2609.25848",
+    "title": "Optimizing the Score, Losing Sight of the Task: Reward Hacking Across Weights, Selection, and Prompts",
+    "titleZh": "论文比较权重、选择与提示词三种优化载体上的奖励作弊",
+    "authors": [
+      "Vansh Wahi"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出一个跨权重、选择与文本三种优化载体的奖励作弊比较框架，指出更高的评测分数并不总意味着更好的语言模型系统。当优化利用评测器的错误时，测得的进步可能掩盖任务表现不变或恶化。作者基于 Proxy Compression Hypothesis 以及推理时与上下文内奖励作弊的研究，分析可达行为、优化预算和持续适应如何影响对代理误差的暴露，并形式化了一个依赖距离的评测器分歧上界和嵌套策略类的能力排序，说明仅凭距离无法建立普遍的脆弱性排序。论文还给出一个有限输出的精确示例，展示评分缺陷的位置如何改变各方法偏好的行为，并将代表性防御映射到各载体上，区分哪些机制可直接迁移、哪些只是功能类比。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.25848",
+      "aisafetyhot": "https://aisafetyhot.com/items/rebj6vckddevyss60dqiggwc7"
+    },
+    "publishedAt": "2026-09-22T08:12:58.000Z",
+    "timelineAt": "2026-09-22T08:12:58.000Z"
+  },
+  {
+    "arxivId": "2609.31726",
+    "title": "High-Capacity Robust Medical Image Exfiltration via Neural Network Weight Replacement",
+    "titleZh": "研究者提出通过替换神经网络权重高容量外泄医学影像的攻击",
+    "authors": [
+      "Elie Thellier"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一种高容量神经隐写攻击，把医学图像编码为连续隐表示并嵌入模型初始化权重，模型导出后可直接从权重中重建隐藏图像。该方法用基于 StyleGAN2 的对抗自编码器学习紧凑隐码，并正则化使其匹配标准权重初始化统计量，从而让嵌入参数与干净模型在统计上保持一致；训练时注入噪声可提升对导出环节缓解措施的鲁棒性。载体模型在原本任务上仍保持可用，最多可将 99 个脑部 MRI 体数据嵌入一个 30MB 模型，且在会破坏此前比特级方案的缓解措施下仍可恢复。重建结果只是近似而非像素级精确，但嵌入内容在解剖上仍可辨认并可规模化恢复。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.31726",
+      "aisafetyhot": "https://aisafetyhot.com/items/irapdpr1133nf02hi761m3iiq"
+    },
+    "publishedAt": "2026-09-22T08:24:10.000Z",
+    "timelineAt": "2026-09-22T08:24:10.000Z"
+  },
+  {
+    "arxivId": "2609.25938",
+    "title": "Certified Against Which Oracle? Execution Labels Set the Reported Risk of Conformal Abstention for Text-to-SQL",
+    "titleZh": "认证依据哪个 Oracle？执行标签决定 text-to-SQL 保形弃答报告的风险",
+    "authors": [
+      "Jiamiao Liu"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对 text-to-SQL 的保形弃答证书，其真实性取决于校准所用的正确性标签。研究在 Spider-Realistic 上做预注册干预，把基准自带数据库换成其蒸馏多实例测试套件，在四个 SQL 专用 checkpoint 和两种划分方案下，证书的留出风险比自身标签所报高出 2.73 至 10.23 个百分点；在两位 SQL 专家盲标下，名义 0.10 的证书在两个 checkpoint 上实际风险达 20.0 和 17.2 个百分点。更严格的 oracle 双向出错，其拒绝的答案多数并非错误，接受的答案中也有错误。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.25938",
+      "aisafetyhot": "https://aisafetyhot.com/items/rw6cmq9fvrai68tlg28duiyxj"
+    },
+    "publishedAt": "2026-09-22T09:44:24.000Z",
+    "timelineAt": "2026-09-22T09:44:24.000Z"
+  },
+  {
+    "arxivId": "2609.26419",
+    "title": "Reliability Theory for AI Control",
+    "titleZh": "AI 控制中的可靠性理论：以 Google DeepMind 防失控部署为例",
+    "authors": [
+      "Grant Molnar"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "可靠性理论的正式工具尚未在前沿 AI 控制中成为标准，研究者将其应用于 Google DeepMind 针对失控部署的防御。同一控制栈的罕见失效抑制能力可呈三次、二次或线性，取决于其失效域划分；Birnbaum 重要性可识别哪些组件改进对名义可靠性收益最大，而预防则改变需要恢复的对象群体。这些结果给出了该分离、改进、测量和测试什么的具体指引。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.26419",
+      "aisafetyhot": "https://aisafetyhot.com/items/aucfcu2x5dk1sg47dsqvl3xr2"
+    },
+    "publishedAt": "2026-09-22T13:49:46.000Z",
+    "timelineAt": "2026-09-22T13:49:46.000Z"
+  },
+  {
+    "arxivId": "2609.26618",
+    "title": "NavSafe-$\\infty$: Benchmarking Closed-Loop Driving Safety in Photorealistic Environments",
+    "titleZh": "NavSafe-∞：在真实感环境中评测闭环驾驶安全",
+    "authors": [
+      "Yuxin Bao"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "作者提出 NavSafe-∞，一个包含 280 个场景、覆盖 28 类事件的光真实感闭环驾驶安全基准，按结构化交通安全分类法为交通碰撞、弱势道路使用者碰撞、交通违规和交通事故给出类别级能力分数。对 20 个端到端驾驶策略的评测显示，开环基准上的提升并不能可靠迁移到闭环安全。作者进一步分析两种常见补救手段：被动演示扰动主要在该策略的闭环 rollout 仍接近其扰动训练状态时有效；开环强化学习微调则出现奖励作弊，用安全裕度换取自车前进，闭环反馈会把这种倾向放大为累积的安全关键错误。作者认为这些结果说明开环基准在判断闭环安全成功上存在盲点，基准与可扩展工具箱将开源并持续维护。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.26618",
+      "aisafetyhot": "https://aisafetyhot.com/items/v3qgfwici33dr87nlucb5yu6i"
+    },
+    "publishedAt": "2026-09-22T15:51:07.000Z",
+    "timelineAt": "2026-09-22T15:51:07.000Z"
+  }
+]

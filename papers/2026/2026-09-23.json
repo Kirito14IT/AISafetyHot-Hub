@@ -1,0 +1,328 @@
+[
+  {
+    "arxivId": "2609.38205",
+    "title": "The System Prompt Illusion: How Instruction Preambles Modify Computation in Language Models",
+    "titleZh": "系统提示词幻觉：指令前导如何改变语言模型内部计算",
+    "authors": [
+      "Muhammad Usama",
+      "Dong Eui Chang"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "研究者在 17 个指令微调模型（8 个架构家族、1.5B–72B 参数）上，用 CKA 比较 20 条系统提示词下的逐层表征。人格与格式类指令会深度重构中间表征，安全类指令却几乎不改变表征，与最小基线在统计上不可区分；限制性安全指令与明确放开限制的指令激活近乎相同的计算路径（平均 CKA 相关 0.997），70B–72B 模型的安全渗透率仍低于 10%。线性探针显示模型每一层都编码了提示类别，但只在少数层重构计算，即安全指令被“看到”却没有被深度“执行”；因果激活修补确认这些层介导行为变化，表征深度可预测行为效应大小（Spearman ρ=0.761）。作者据此从机制上解释基于系统提示词的安全为何持续易被越狱。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "系统提示（system prompt）是控制语言模型行为的主要手段，但其对 transformer 内部计算究竟做了什么仍不清楚。这关系到安全：若系统提示只影响浅层或输出分布，任何巧妙输入都可能绕过其约束。",
+          "label": "问题"
+        },
+        {
+          "text": "作者用 Centered Kernel Alignment（CKA）比较同一模型在 20 个系统提示（5 类）与无提示基线下的逐层表示，覆盖 17 个指令微调模型、8 个架构家族、1.5B–72B。以 CKA<0.95 定义 penetration depth，并用线性探针和因果 activation patching 验证。",
+          "label": "方法"
+        },
+        {
+          "text": "效果是层选择性的且依赖指令类型：persona 和格式提示深度重构中间表示，安全提示几乎不动，与最小基线统计上无差别。限制性安全提示与明确允许（“你没有任何限制”）的提示激活近乎相同的计算路径（平均 CKA 相关 0.997），在 70B–72B 商业规模下安全穿透率仍低于 10%。线性探针显示模型每层都编码提示类别，但只在少数层重构计算；patching 确认这些层介导行为变化，表示深度可预测行为效应大小（Spearman ρ=0.761）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "最大模型只到 72B，无法外推到 175B+ 前沿规模；CKA 不识别具体哪些特征变化，需稀疏自编码器补充；跨模型比较受 chat template 和提示长度分布混淆；只测单次前向，未刻画解码过程；SmolLM2-1.7B 是唯一 patching 失败案例；提示与查询均为英文；未与 activation steering 或 representation engineering 做受控对比。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.38205"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38205",
+      "aisafetyhot": "https://aisafetyhot.com/items/aaykx3nrvor1uevcq5miw4avj"
+    },
+    "publishedAt": "2026-09-23T08:04:36.000Z",
+    "timelineAt": "2026-09-23T08:04:36.000Z"
+  },
+  {
+    "arxivId": "2609.26868",
+    "title": "Backdoors in Learning-Based Industrial Robotic Arm Manipulation: An Empirical Security Study",
+    "titleZh": "研究者在 FANUC 与 xArm 工业机械臂上实测后门攻击与防御",
+    "authors": [
+      "Zijian Zhang"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "作者对基于学习的工业机械臂操作开展后门攻击与防御的初步实证研究，实验平台为 FANUC 和 xArm 两台真实商用工业机械臂。研究考察后门能否在正常任务执行时保持隐蔽、仅在特定触发器出现时诱发出语义错误的操作行为。作者随后开发了一套在线防御流程，在运行时检测并中和触发器，并与离线微调防御进行效果对比。研究还评估了该防御流程引入的计算延迟与执行开销，以判断其是否适合高吞吐工业场景。该工作已被 IROS 2026 Workshop on Industrial Applications of Robot Learning 接收。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.26868",
+      "aisafetyhot": "https://aisafetyhot.com/items/gao4owj615zez2grnmteyhdfa"
+    },
+    "publishedAt": "2026-09-22T16:46:10.000Z",
+    "timelineAt": "2026-09-22T16:46:10.000Z"
+  },
+  {
+    "arxivId": "2609.26900",
+    "title": "Ajar: Measuring Open Privilege in Agent Defenses",
+    "titleZh": "Ajar：在 AgentDojo 上测量 Agent 防御中未关闭的权限",
+    "authors": [
+      "Reshabh K Sharma"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "Ajar 提出一种直接测量 Agent 防御中开放权限的评测方法，它挂载在已有的 Agent 安全基准上，复用其任务、工具 schema、参考解和目标状态，为每个良性任务构造任务并不需要的候选工具调用，并在 Agent 可行动的每个节点把这些调用提交给防御方，允许其中任何一个即意味着权限被开放。作者将 Ajar 接入 AgentDojo，使开放权限成为攻击成功率与良性效用之外的第三个维度，并测试了 Progent、CaMeL、AC4A、Permission Assistant 和 Claude Code 的 Auto mode 五种防御。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.26900",
+      "aisafetyhot": "https://aisafetyhot.com/items/ynkyl1yeyu8mmzvgtf0u4lu3u"
+    },
+    "publishedAt": "2026-09-22T18:01:41.000Z",
+    "timelineAt": "2026-09-22T18:01:41.000Z"
+  },
+  {
+    "arxivId": "2609.26927",
+    "title": "Building Socio-Affective Artificial Intelligence for Interactive Multi-Agent Simulations",
+    "titleZh": "AGIMUD：面向人机多智能体交互模拟的社会情感 AI 软件架构",
+    "authors": [
+      "David Berga"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出软件架构 AGIMUD，用于在模拟动态世界中实现人类与多个智能体的实时交互。该架构整合了智能体行为中的社会感知推理与情绪、面向人类用户与人工智能体的多模态方案，以及通过网络分发 AI 处理以支持多个自主智能体。基于该架构的动态世界以多用户地牢（MUD）形式呈现，智能体与人类可同时实时互动，代码已在线公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.26927",
+      "aisafetyhot": "https://aisafetyhot.com/items/n4wumgnxry9awa9kn6tfltdyq"
+    },
+    "publishedAt": "2026-09-22T18:21:08.000Z",
+    "timelineAt": "2026-09-22T18:21:08.000Z"
+  },
+  {
+    "arxivId": "2609.27068",
+    "title": "HiRE: Hindsight Reward Editing for Policy Finetuning",
+    "titleZh": "HiRE：用事后奖励编辑为策略微调突破奖励瓶颈",
+    "authors": [
+      "Haoyi Niu"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "HiRE 是一种免训练框架，通过事后对比成功与失败轨迹，识别被基础表征模型误判为高奖励的\"陷阱状态\"并显式惩罚，从而把基础表征的广泛知识与物理控制感知结合起来。该方法可兼容任意基础表征与 RL 算法，实验显示其持续优于其他奖励方案，能防止价值函数崩溃与奖励作弊，实现更优样本效率与稳定策略更新，性能至少达到基础策略的 3 倍。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.27068",
+      "aisafetyhot": "https://aisafetyhot.com/items/knz6vt8loyausao2xgrf04ttn"
+    },
+    "publishedAt": "2026-09-22T21:04:10.000Z",
+    "timelineAt": "2026-09-22T21:04:10.000Z"
+  },
+  {
+    "arxivId": "2609.27090",
+    "title": "Divide and Doubt: Diverse Distributed Poisoning for Retrieval-Augmented Generation",
+    "titleZh": "DnD：面向检索增强生成的多样化分布式投毒攻击",
+    "authors": [
+      "Tianhao Chen"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 DnD（Divide and Doubt），一种针对检索增强生成（RAG）的定向语料投毒攻击，通过把对目标答案的支持分散到风格多样的段落中，并加入一段质疑参考答案证据的段落来提升攻击效果。分散化让投毒段落在嵌入向量空间中更分散，质疑段落则在多条投毒段落被检索到时增强目标答案被采纳的概率。作者在两个开放域问答数据集、三个 LLM 和九种 RAG 配置上，分别在检索器黑盒与白盒条件下评测，DnD 在多数配置中达到或超过此前的攻击方法，对基于聚类和冲突感知的防御提升最明显。论文编号 arXiv:2609.27090，属 cs.CR 方向。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.27090",
+      "aisafetyhot": "https://aisafetyhot.com/items/tu1rpliew0gq82zau7gri7wfz"
+    },
+    "publishedAt": "2026-09-22T21:42:19.000Z",
+    "timelineAt": "2026-09-22T21:42:19.000Z"
+  },
+  {
+    "arxivId": "2609.27124",
+    "title": "When Clients Are Orchestrated: Strategic Gradient Manipulation to Defeat Federated Learning Servers with Efficient Defense",
+    "titleZh": "Fed-ADR：用恶意编排服务器协同客户端梯度操纵攻击联邦学习",
+    "authors": [
+      "Mohamed Shaaban"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Fed-ADR，一种由恶意编排服务器（OS）实时协调异构对抗客户端、动态调整梯度更新的联邦学习攻击框架，可绕过多种现有防御。在 MNIST、Fashion-MNIST 和 CIFAR-10 上，该攻击将全局准确率从 90% 以上压到 10% 以下。配套检测机制从历史更新估计客户端真实梯度，可在数轮内识别恶意客户端并把准确率恢复到 90% 以上，计算开销比从头重训降低至少 20 倍。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.27124",
+      "aisafetyhot": "https://aisafetyhot.com/items/kekf2dj8vcbg45v3w7qfspybz"
+    },
+    "publishedAt": "2026-09-22T22:33:31.000Z",
+    "timelineAt": "2026-09-22T22:33:31.000Z"
+  },
+  {
+    "arxivId": "2609.27234",
+    "title": "Discover, Falsify, Revise: Auditing Input-Use Claims from Source Code to Predictive Contribution in Agent-Discovered Cell Models",
+    "titleZh": "CELLAUDIT：审计 AI 智能体发现细胞模型中的输入使用声明",
+    "authors": [
+      "Mengran Li"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "CELLAUDIT 通过审计输入能否进入所引计算、拟合预测是否依赖该输入、以及该依赖是否改善对观测响应的预测，来检验 AI 智能体发现细胞模型中的输入使用声明。在 BBBC047 基准上，智能体选出的预测器平均留出 Global PCC 为 0.3153，但对化合物替换保持不变，仅用对照谱的预测器也达到 0.3142；源码检查发现化合物查询通路被 singleton key-value attention 阻断。对 48 个候选的分层审计中，47 个在化合物替换下改变预测，但仅 20 个在两折上目标损失增益区间高于零。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.27234",
+      "aisafetyhot": "https://aisafetyhot.com/items/y5toksmlri6jpns4ryc10rqi9"
+    },
+    "publishedAt": "2026-09-23T02:07:27.000Z",
+    "timelineAt": "2026-09-23T02:07:27.000Z"
+  },
+  {
+    "arxivId": "2609.27263",
+    "title": "Specifying and Maintaining Agentic Workflows: An Empirical Study of GitHub Agentic Workflows",
+    "titleZh": "GitHub Agentic Workflows 的智能体工作流规范与维护实证研究",
+    "authors": [
+      "Jasem Khelifi"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究分析 GitHub Agentic Workflows（gh-aw）的 276 个仓库共 1,248 个 Markdown 文件，发现工作流指令远超简短提示词，中位数 556.5 词，62.1% 含代码块。在有至少 120 天活动记录的文件中，78.2% 到第 4 个月仍在更新；任务、输出、约束与流程指令各出现在超 93% 的已标注工作流中，但仅 9.4% 明确涉及提示注入防御。LLM 分类相对人工标注的 F1 为 0.818，Cohen's Kappa 为 0.715。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.27263",
+      "aisafetyhot": "https://aisafetyhot.com/items/gy4xjtcau7nhih3f3xlxojs3g"
+    },
+    "publishedAt": "2026-09-23T02:47:24.000Z",
+    "timelineAt": "2026-09-23T02:47:24.000Z"
+  },
+  {
+    "arxivId": "2609.27336",
+    "title": "CART: Closed-Loop Adaptive Red Teaming for Large Language Models",
+    "titleZh": "CART：面向大语言模型的闭环自适应红队框架",
+    "authors": [
+      "Dongdong Zhang"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 CART（Closed-Loop Adaptive Red Teaming），一个用每次测试结果决定下一步测什么的闭环红队框架，以替代固定提示词回放。CART 先做广泛风险覆盖，再追踪暴露出的弱点，保持新探针的多样性，并记录每项发现的证据与来源。框架把生成测试的 Challenger、被测 Target（可以是纯文本模型，也可以是受限的工具调用 Agent）和评估结果的 Judge 分离，使三个角色可独立研究。在 Frontier、JAH 和 Agentic 三类评测族上，对所有存在可用基线的 Target，CART 发现的失败更多、平均风险高于静态种子回放，增益也延伸到工具介导的 Agent 测试。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.27336",
+      "aisafetyhot": "https://aisafetyhot.com/items/qdh4li9rvaqsdo1j3441jch53"
+    },
+    "publishedAt": "2026-09-23T04:16:46.000Z",
+    "timelineAt": "2026-09-23T04:16:46.000Z"
+  },
+  {
+    "arxivId": "2609.27378",
+    "title": "Psychoacoustically Aligned Latent Smoothing for Adversarial Robustness of Full-Duplex Speech-to-Speech Dialogue Models",
+    "titleZh": "PALS：面向全双工语音对话模型对抗鲁棒性的心理声学对齐潜空间平滑",
+    "authors": [
+      "Kian Shamsaie"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文将针对全双工语音对话智能体的不可感知攻击形式化为在载体语音心理声学掩蔽阈值之下的加性扰动优化，目标包括定向语义劫持、响应抑制和策略越狱。在未防御的 Moshi 类智能体上，白盒攻击成功率最高达 91.7%。作者提出心理声学对齐潜空间平滑（PALS），在残差向量量化潜空间接口注入由局部码本协方差塑形的各向异性高斯噪声，输入噪声由掩蔽阈值塑形以约束攻击者，并用 Kullback-Leibler 一致性目标训练。PALS 无推理时开销，将劫持降至 8.3%、静音降至 11.2%、越狱降至 9.1%，干净质量损失在 2.3% 以内。其蒙特卡洛平滑变体可认证的椭球潜空间半径最高为 0.616，经验鲁棒性远超这一保证下限。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.27378",
+      "aisafetyhot": "https://aisafetyhot.com/items/jz0712hsv00u3poh526zt66i0"
+    },
+    "publishedAt": "2026-09-23T05:29:13.000Z",
+    "timelineAt": "2026-09-23T05:29:13.000Z"
+  },
+  {
+    "arxivId": "2609.27399",
+    "title": "Forget who you Forgot: Speaker Unlearning to Prevent Re-Identification in Zero-Shot Text-to-Speech",
+    "titleZh": "GUARD：在 CosyVoice2 上做说话人身份遗忘以阻止重识别",
+    "authors": [
+      "Hyoeun Kim"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出 GUARD，一个轻量级说话人身份遗忘框架，在冻结的 TTS 主干上结合学习到的说话人门控与说话人无关的激活引导，引导向量用组相对奖励优化，把遗忘说话人的输出推向群体层面的冒充者相似度，同时保持可懂度与语音自然度。在 CosyVoice2 上，GUARD 将遗忘说话人相似度从 0.541 降到 0.103，在 150 名说话人库中的重识别准确率从 73.5% 降到 0.5%，并保留了对保留说话人的复现能力。作者指出，仅看相似度下降不足以刻画说话人身份遗忘是否成功，重识别应作为补充评估标准。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.27399",
+      "aisafetyhot": "https://aisafetyhot.com/items/zrbgwn1ou6fakv7y83x9qgvwv"
+    },
+    "publishedAt": "2026-09-23T06:00:38.000Z",
+    "timelineAt": "2026-09-23T06:00:38.000Z"
+  },
+  {
+    "arxivId": "2609.27422",
+    "title": "RAMP: Reversing Adversarial Perturbations to Strengthen Clean-Label Backdoor Attacks against Malware Detectors",
+    "titleZh": "RAMP：逆转对抗扰动以增强针对恶意软件检测器的干净标签后门攻击",
+    "authors": [
+      "Jinwen Xin"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对深度学习恶意软件检测器微调更新流程中的训练时后门攻击，研究者提出 RAMP，用遗传算法在黑盒条件下优化逆转对抗扰动，再通过保持功能的二进制改写注入，使良性程序表征向恶意软件区域偏移，从而在训练中制造更强的特征-标签冲突。实验显示 RAMP 在低投毒比例下显著优于仅用触发器的基线，且不损失干净数据准确率，并可与更先进的触发器设计结合。该工作已被 Inscrypt 2026 接收。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.27422",
+      "aisafetyhot": "https://aisafetyhot.com/items/yfldrjcnljgyigdfp4eg53k6p"
+    },
+    "publishedAt": "2026-09-23T06:38:05.000Z",
+    "timelineAt": "2026-09-23T06:38:05.000Z"
+  },
+  {
+    "arxivId": "2609.27572",
+    "title": "DCRL: Decoupling and Coupling Reinforcement Learning via Policy-Reward Manifold Alignment",
+    "titleZh": "DCRL：通过策略-奖励流形对齐解耦与耦合强化学习",
+    "authors": [
+      "Henan Sun"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对规则奖励与奖励模型易导致优化不稳定和奖励作弊的问题，研究者提出 DCRL 框架，将 LLM 推理建模为逻辑演绎、评估与表征三个子流形耦合的流形，并把策略-奖励流形不匹配视为现有 RL 系统局限的几何根源。DCRL 包含基于三段论逻辑的提示词演化机制与策略-奖励重耦合机制，联合更新奖励模型与策略模型。实验显示，经 DCRL 训练的 Qwen3-4B 超过 Qwen3-32B 基线并接近 Qwen3-235B 的表现。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.27572",
+      "aisafetyhot": "https://aisafetyhot.com/items/zch105q6zf02ney20wd7hmf7q"
+    },
+    "publishedAt": "2026-09-23T08:52:35.000Z",
+    "timelineAt": "2026-09-23T08:52:35.000Z"
+  },
+  {
+    "arxivId": "2609.28585",
+    "title": "Persistent Billable State: Denial-of-Wallet Attacks and Defenses in Tool-Calling LLM Agents",
+    "titleZh": "论文提出持久计费状态概念，揭示工具调用 LLM Agent 的拒绝钱包攻击与防御",
+    "authors": [
+      "Jinqian Zhang"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "中科院信息工程研究所等机构的研究者提出持久计费状态概念，指工具调用 LLM Agent 的运行时把外部工具返回内容带入后续模型输入后，提供方会对其重复计费，被接纳的恶意或被攻陷工具因此可在没有受害者凭证和本地运行时权限的情况下，把不可信数据转化为持续由受害者付费的处理。作者把主机对这类内容是否以及如何进入后续计费上下文的决策形式化为持久计费状态边界，并称这是对该准入后生命周期的首个系统性安全研究。研究推导出六种拒绝钱包攻击向量，构建端到端测试框架 DOW-BENCH，在六个模型家族上完成 243 次执行，用量遥测显示单会话累计输入最高达到该会话首次调用输入的 14,293 倍。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.28585",
+      "aisafetyhot": "https://aisafetyhot.com/items/iu9phyyl1j37lib5h0tn3z69q"
+    },
+    "publishedAt": "2026-09-23T13:45:26.000Z",
+    "timelineAt": "2026-09-23T13:45:26.000Z"
+  },
+  {
+    "arxivId": "2609.28239",
+    "title": "ODPure: Backdoor Purification for Object Detection via Ensemble Corruption Consensus",
+    "titleZh": "ODPure：通过集成破坏共识实现目标检测后门净化",
+    "authors": [
+      "Li Zeng"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "ODPure 是一种面向目标检测的输入阶段黑盒后门防御方法，通过破坏-重建-选择（CRS）范式净化输入，无需丢弃恶意数据或模型即可维持稳定的感知流。该方法利用多种破坏方式中和触发器、生成大量冗余候选框，再借助生成先验恢复细粒度结构线索，最后通过投票对检测结果达成共识。实验表明，ODPure 能抵御多种后门攻击与触发器类型，同时保持基线精度。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.28239",
+      "aisafetyhot": "https://aisafetyhot.com/items/eto802zhyxi6dx9y9jk9wjp7a"
+    },
+    "publishedAt": "2026-09-23T15:03:54.000Z",
+    "timelineAt": "2026-09-23T15:03:54.000Z"
+  }
+]

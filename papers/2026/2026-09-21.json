@@ -1,0 +1,268 @@
+[
+  {
+    "arxivId": "2609.23889",
+    "title": "SyzHarness: Patch-Based Kernel Bug Reproduction with LLM-Synthesized Fuzzing Harnesses",
+    "titleZh": "SyzHarness：用 LLM 合成模糊测试 harness 复现 Linux 内核补丁漏洞",
+    "authors": [
+      "Xingyu Li"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "SyzHarness 结合 LLM 推理与覆盖率引导模糊测试，从补丁出发复现 Linux 内核漏洞：LLM 智能体借助代码导航工具合成参数化 fuzzing harness，固定前置设置逻辑，只把不确定的 bug 关键输入参数交给 Syzkaller 变异，再通过分层可达性反馈迭代优化。在 100 个 KernelCTF 案例上复现成功率达 78%，在 SyzDirect 基准上达 73%，明显优于此前的定向灰盒模糊测试；对 2026 年 3 月后修复的 50 个 syzbot 已知可触发 bug，仅凭修复提交即复现 40/50（80%）。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.23889",
+      "aisafetyhot": "https://aisafetyhot.com/items/t4v5e173bp5fe29hkma2gnehf"
+    },
+    "publishedAt": "2026-09-20T21:50:36.000Z",
+    "timelineAt": "2026-09-20T21:50:36.000Z"
+  },
+  {
+    "arxivId": "2609.23892",
+    "title": "Circuit-Diff: Factual Edit-based Intervention Method for Localizing Knowledge in Attribution Graphs",
+    "titleZh": "Circuit-Diff：用事实编辑干预定位归因图中的知识",
+    "authors": [
+      "Edward G. Friedman"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "作者提出 Circuit-Diff，通过对模型施加低秩事实编辑，把归因图中角色发生变化的特征视为与被编辑知识相关，从而免去手工解读 CLT 未标注节点的步骤。在被考察的编辑上，被标记的节点不只是目标 token 的检测器，还包含围绕新旧对象的历史、地理与关联特征。作者形式化了该方法，测量事实编辑后冻结 CLT 的可靠性，并在最多 24 个 CounterFact 编辑上通过节点修补做因果检验，另附一个案例研究。基于 circuit-tracer 包的开源实现与多提示词聚合、基于规则的超节点标注两个工具一并发布。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.23892",
+      "aisafetyhot": "https://aisafetyhot.com/items/xy4lb3pydo4n9c6p49gc5msxf"
+    },
+    "publishedAt": "2026-09-20T21:59:00.000Z",
+    "timelineAt": "2026-09-20T21:59:00.000Z"
+  },
+  {
+    "arxivId": "2609.23894",
+    "title": "Connecting the Dots in Agentic AI Security: A Cross-Dimensional Threat Taxonomy, Evaluation Maturity, and Open Challenges",
+    "titleZh": "综述提出智能体 AI 安全的跨维度威胁分类 T={S,B,P,A}",
+    "authors": [
+      "Heewon Baek"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇综述对 2022 至 2026 年间发表的 66 项研究做结构化梳理，提出跨维度表示 T={S,B,P,A}，把受影响的系统面、交互或信任边界、被违反的安全属性与实证考察的架构关联起来。作者分析了 22 项有制品支撑的红队研究以及 11 个代表性安全基准，发现证据集中在提示词与推理、记忆和工具调用类攻击，且多为单智能体场景；持久化、人机交互、复杂多智能体、系统性和长时程威胁的覆盖较少。作者强调这些结论描述的是所选语料而非全部实证研究，并指出指标异构、自适应防御评估有限、架构分布不均和执行状态捕获不完整制约了可比性与可复现性，据此提出 13 个开放研究问题。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.23894",
+      "aisafetyhot": "https://aisafetyhot.com/items/m5vq1gv30k3lmdteb23msj5at"
+    },
+    "publishedAt": "2026-09-20T22:00:52.000Z",
+    "timelineAt": "2026-09-20T22:00:52.000Z"
+  },
+  {
+    "arxivId": "2609.23954",
+    "title": "Djinnlang: Higher-Level Programming by Unambiguous Specification with an LLM in the Compiler",
+    "titleZh": "Djinnlang：用 LLM 编译器实现无歧义规格的高级编程",
+    "authors": [
+      "Simon Henniger"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "Djinnlang 是一种只写规格、不写可执行代码的高级规格语言，由 LLM 在编译器内填充实现与证明。它要求 LLM 除证明实现满足规格外，还须证明满足该规格的任意其他实现在相同输入下输出相同，即约束关系是确定性的，从而不给程序语义留任何余地。其符号翻译器将规格降为 Dafny 桩与证明义务，由驱动框架调度 LLM 补全，全部经 Dafny 验证器检查；该语言已实现自举，LLM 可依规格实现 Djinnlang 翻译器且重实现能自验证。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.23954",
+      "aisafetyhot": "https://aisafetyhot.com/items/umze9fdrud1yd0oqs4rlgi2mv"
+    },
+    "publishedAt": "2026-09-21T00:00:09.000Z",
+    "timelineAt": "2026-09-21T00:00:09.000Z"
+  },
+  {
+    "arxivId": "2609.24016",
+    "title": "Context-Aware Pre-Deployment Evaluation of AI Systems: A Regulatory Framework for Nigerian Fintech",
+    "titleZh": "尼日利亚金融科技 AI 系统部署前评估的监管框架：基于 SafeAlert 的上下文感知评测",
+    "authors": [
+      "Andrew Anogie Uduimoh"
+    ],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对尼日利亚及非洲大陆尚无监管文件规定金融科技 AI 系统采购前须做何种部署前评估的空白，研究者提出上下文感知的监管框架。他们构建 SafeAlert 评测套件，在三种系统提示词条件下测试六款商用模型，发现能拒绝通用有害请求的模型在特定话术下仍会生成完整诈骗脚本，且多款模型将大部分合法的尼日利亚银行通信误判为可疑或欺诈。论文建议 CBN、NITDA、SEC 和 AU 引入部署前评估要求，并指出该缺口源于监管规范缺失而非技术或资金不足。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24016",
+      "aisafetyhot": "https://aisafetyhot.com/items/xcv17pvv161lv9k8nolqszrfg"
+    },
+    "publishedAt": "2026-09-21T02:34:26.000Z",
+    "timelineAt": "2026-09-21T02:34:26.000Z"
+  },
+  {
+    "arxivId": "2609.24243",
+    "title": "Taming CoT Obfuscation in VLMs: From Mechanistic Evidence to Activation Enforcement",
+    "titleZh": "TAME：用 SAE 抑制激活缓解 VLM 思维链混淆",
+    "authors": [
+      "Xutao Mao"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文研究强化学习在提升视觉语言模型推理能力时引发的思维链混淆现象，即任务奖励或准确率上升但推理轨迹变得不接地、更难监控。作者发现 RL 过程中模板相关激活与接地相关激活的可分性下降，匹配的干预实验支持这些特征对可监控性退化的贡献。据此提出 TAME，用 Sparse Autoencoders 结合行为反馈，在 RL 中对模板相关激活做非对称抑制，只惩罚高于 RL 前基线的部分。在 VIRL-39k、SPA-VL 和两个模型族上，TAME 相比 GRPO 将思维链可监控性分别提升最多 30.9 和 16.7 个百分点，盲评人类评估与两个留出监控模型族也复现了提升；任务准确率变化较小且方向不一，通用能力基准显示存在任务特定权衡。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24243",
+      "aisafetyhot": "https://aisafetyhot.com/items/zipgzuwgv9hs6ram5uf6ni7wz"
+    },
+    "publishedAt": "2026-09-21T08:08:56.000Z",
+    "timelineAt": "2026-09-21T08:08:56.000Z"
+  },
+  {
+    "arxivId": "2609.24350",
+    "title": "LIBERO-VPro: Benchmarking Closed-Loop Visual Robustness of Robotic Foundation Models",
+    "titleZh": "LIBERO-VPro：评测机器人基础模型闭环视觉鲁棒性的基准",
+    "authors": [
+      "Huiqiong Li"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 LIBERO-VPro，用于系统评测机器人基础模型在执行过程中的闭环视觉鲁棒性，通过扰动执行时可获得的视觉证据来考察模型表现。该基准覆盖视觉证据退化、相机陈旧、视觉来源一致性和任务相关场景变化四个维度，包含 12 个挑战类别、96 种实验设置和 3,296 个任务条件用例。作者评测了三个视觉-语言-动作模型和三个世界-动作模型，共约 196,000 次仿真回合，并在 Franka Research 3 上补充了 200 次真实世界 rollout。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24350",
+      "aisafetyhot": "https://aisafetyhot.com/items/r9zgl9xyxxb7p0v5zqtay9sx2"
+    },
+    "publishedAt": "2026-09-21T09:43:41.000Z",
+    "timelineAt": "2026-09-21T09:43:41.000Z"
+  },
+  {
+    "arxivId": "2609.24369",
+    "title": "DeceptionAnalyser: A Web-Based AI Tool for Performing Structured Deception Analysis with Argumentation Schemes and LLMs",
+    "titleZh": "DeceptionAnalyser：基于论证方案与 LLM 的结构化欺骗分析网页工具",
+    "authors": [
+      "Stefan Sarkadi"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "DeceptionAnalyser 是一款浏览器端工具，用十种论证方案建模不同形式的欺骗，通过 LLM 提取前提、再以关键问题驱动评估的两阶段方法分析叙事文本中的欺骗推理。研究未做分类准确率基准，而是用十款当代大语言模型重复运行，测量前提与结论评估的一致性来检验方法可靠性，发现对明确欺骗的方案识别高度稳定，在更模糊的情报风格叙事上则以可解释的方式平缓退化。该方案库定位为标记可疑主张供审查，而非输出欺骗判定。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24369",
+      "aisafetyhot": "https://aisafetyhot.com/items/kw3omv4likfe1k75t8khzbmod"
+    },
+    "publishedAt": "2026-09-21T10:02:07.000Z",
+    "timelineAt": "2026-09-21T10:02:07.000Z"
+  },
+  {
+    "arxivId": "2609.24379",
+    "title": "Topographic Training Concentrates Causal Circuits Without Improving Neuron Monosemanticity",
+    "titleZh": "TopoLoss 训练让 ViT 因果回路更集中，但未提升神经元单义性",
+    "authors": [
+      "Gautam Ranka"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "作者提出用空间局部性训练损失 TopoLoss 作为训练期先验，检验它能否提升标准机制可解释性工具的效果。在 ImageNet-100 上训练 ViT 并扫描多个 TopoLoss 权重 α，用激活修补衡量地形聚类的因果充分性，用拟合同一残差流的稀疏自编码器衡量特征几何。当 α=1.0 时，地形聚类的因果充分性比同规模随机单元集合高 2.79 倍，且该效应随 α 单调增强。SAE 的 L0 稀疏度下降 11%，死特征比例上升 19 倍，但标准神经元级单义性得分没有变化，说明地形压力作用于回路层面，把因果质量集中到空间局部结构，而没有解开单个神经元。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24379",
+      "aisafetyhot": "https://aisafetyhot.com/items/m1sosxy1re04hqd3r11gytfz4"
+    },
+    "publishedAt": "2026-09-21T10:15:51.000Z",
+    "timelineAt": "2026-09-21T10:15:51.000Z"
+  },
+  {
+    "arxivId": "2609.24440",
+    "title": "Comparing Latent Concept Formation in State Space Models and Transformers via Sparse Autoencoders",
+    "titleZh": "用稀疏自编码器比较状态空间模型与 Transformer 的潜在概念形成",
+    "authors": [
+      "Rithin Nagaraj"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究用稀疏自编码器（SAE）在 1000 万 token 语料上对 Mamba-130m 与 Pythia-70m 做特征级对应分析，未发现两种架构存在系统性表征差异：99.98% 的 Mamba 特征聚集在对齐上界，为通用性假说提供初步特征级支持。仅 0.02% 特征出现分歧，模式与\"循环瓶颈主要限制刚性句法解析、而非广泛语义本体\"的假设一致。Pythia 的无约束注意力可将格式边缘情况单义分解，Mamba 则被迫把无关句法异常压缩进多义\"杂物抽屉\"神经元以保留状态容量。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24440",
+      "aisafetyhot": "https://aisafetyhot.com/items/fo83sapgyezq7bk694q1ejeke"
+    },
+    "publishedAt": "2026-09-21T11:35:50.000Z",
+    "timelineAt": "2026-09-21T11:35:50.000Z"
+  },
+  {
+    "arxivId": "2609.24446",
+    "title": "ActGov: Governing LLM Agent Actions via Policy-Constrained Validation",
+    "titleZh": "ActGov：用策略约束校验治理 LLM Agent 的工具动作",
+    "authors": [
+      "Kaiyuan Zhang"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "ActGov 是一个运行时执行框架，在 LLM 提出的每个工具动作产生外部影响前先做校验。它基于授权、动作、运行时上下文与安全约束的统一语义模型：ActGov-Policy 从工具规格、良性任务和已观测的失败轨迹中迭代构建策略集，每次更新都用基于 SMT 的反例检查验证；ActGov-Runtime 在运行时把每次工具调用抽象为有限策略记录，只有当调用处于任务范围内的授权边界内且满足所有适用策略时才放行。作者在 AgentDojo 和 AgentDyn 两个基准上跨多个模型和攻击配置做了评测，称 ActGov 在保持任务效用的同时持续降低间接提示注入攻击的成功率，明显优于现有防御，且不依赖底层 LLM 正确识别恶意指令。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24446",
+      "aisafetyhot": "https://aisafetyhot.com/items/u87jr35ru1x6of1r0cwqmnnw3"
+    },
+    "publishedAt": "2026-09-21T11:47:09.000Z",
+    "timelineAt": "2026-09-21T11:47:09.000Z"
+  },
+  {
+    "arxivId": "2609.25173",
+    "title": "Attack Success Rate Is Not a Number: On Measurement Validity in Agentic AI Security Evaluation",
+    "titleZh": "论文指出 Agent 安全评测中攻击成功率并非单一数值",
+    "authors": [
+      "Chetan Pathade"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文认为当前 Agent 安全评测中广泛使用的攻击成功率（ASR）并非单一指标，而是由六项设计选择参数化的一族指标，论文之间很少说明且从未保持一致。作者对 2025 年 2 月至 2026 年 9 月间发布到 arXiv 的 259 篇 Agent 安全论文做全文元分析，发现多数未报告方差估计或重复运行：手工编码的 50 篇随机样本中为 58%（95% CI 44-71），对全部 259 篇自动编码为 65.3%；仅 30.9% 披露了足以判断评测是否随机的解码信息，在确认使用 LLM judge 的 64 篇中，29.7% 报告了与人工标注的一致性检验。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.25173",
+      "aisafetyhot": "https://aisafetyhot.com/items/bt1f6p2lbmfi9uidjbg8vqv69"
+    },
+    "publishedAt": "2026-09-21T14:16:59.000Z",
+    "timelineAt": "2026-09-21T14:16:59.000Z"
+  },
+  {
+    "arxivId": "2609.24662",
+    "title": "DUMA-Bench: A Dual-Control Multi-Agent Benchmark for Evaluating LLM Agent Security",
+    "titleZh": "DUMA-Bench：评估 LLM Agent 安全的双控多智能体基准",
+    "authors": [
+      "Ivan Aleksandrov"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 DUMA-Bench，一个在双控交互下测量 LLM Agent 安全的基准与评测协议，其中 Agent 和用户都能影响共享环境状态。该基准在 τ²-bench 基础上扩展出对抗环境，覆盖 RAG 投毒、跨 Agent 操纵和不安全输出处理等八类漏洞。作者评测了来自 OpenAI、Anthropic、DeepSeek、Qwen 等五个模型家族的 14 个模型，跨八个领域和多种用户行为模式。实验显示，引入双控交互后攻击成功率从 26.9% 升至 41.1%，说明 Agent 安全不只取决于模型本身，还来自模型、用户与环境之间的交互。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24662",
+      "aisafetyhot": "https://aisafetyhot.com/items/ln5flj7ull1d4w3y6xaizmujg"
+    },
+    "publishedAt": "2026-09-21T14:28:05.000Z",
+    "timelineAt": "2026-09-21T14:28:05.000Z"
+  },
+  {
+    "arxivId": "2609.24760",
+    "title": "Construting Reverse Thinking: Developing Large Language Models' Reverse Thingking Ability",
+    "titleZh": "构建逆向思维：提升大语言模型的逆向推理能力",
+    "authors": [
+      "Xin Liu"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对 GPT-o1、GPT-o3、DeepSeek-R1 等长思维链模型默认前向推理的局限，研究者提出逆向推理模式构建方法，通过易-难两阶段数学数据集、两阶段监督微调、平滑奖励机制与线性衰减平衡采样策略，训练模型的逆向思维能力。实验显示该方法在数学证明等任务上显著提升推理效率与准确率，并避免奖励作弊。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24760",
+      "aisafetyhot": "https://aisafetyhot.com/items/scnhsd3gfbg6ozle2b9rl5t51"
+    },
+    "publishedAt": "2026-09-21T15:29:46.000Z",
+    "timelineAt": "2026-09-21T15:29:46.000Z"
+  }
+]
