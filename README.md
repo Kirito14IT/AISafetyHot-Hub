@@ -8,7 +8,8 @@
   <a href="https://aisafetyhot.com">网站</a> ·
   <a href="https://aisafetyhot.com/feed.xml">RSS</a> ·
   <a href="docs/agent.md">Agent 接入（MCP）</a> ·
-  <a href="#下载论文清单">下载论文清单</a>
+  <a href="#下载论文清单">下载论文清单</a> ·
+  <a href="#支持">支持</a>
 </p>
 
 ## 简介
@@ -73,6 +74,14 @@
 
 - 精选：[RSS](https://aisafetyhot.com/feed.xml) · 全部动态：[RSS](https://aisafetyhot.com/feed/all.xml) · 日报：[RSS](https://aisafetyhot.com/feed/daily.xml)
 - Watch 这个仓库，每天有新提交。
+
+## 支持
+
+网站和这个仓库都免费。服务器和模型调用每个月都有开销，如果它对你有用，欢迎请作者喝杯咖啡：
+
+| 国内：微信扫一扫 | 海外 |
+|---|---|
+| <img src="assets/wechat-pay.png" width="140" alt="微信收款码"> | [Buy Me a Coffee](https://buymeacoffee.com/wuyoscar) |
 
 ## 声明
 
