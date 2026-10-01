@@ -441,25 +441,6 @@
     "timelineAt": "2026-09-09T13:20:47.000Z"
   },
   {
-    "arxivId": "2609.10144",
-    "title": "Kernel-Managed Shared Memory for System-Wide Personalization",
-    "titleZh": "AIOS 的内核管理共享内存：面向系统级个性化的新抽象",
-    "authors": [
-      "Ryan Lum"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出\"内核管理共享内存\"，由智能体系统内核而非单个智能体统一负责记忆检索、隐私执行与提示注入。该设计在 AIOS 上实现，用 GPT-4o、Llama-3.1:8B、Qwen-2.5:7B 三个助手模型共 1800 次试验，对比 Mem0 等三种方案：个性化得分提升 2.4-4.0 分（5 分制，GPT-4o 上 profile usage 从 1.05 升至 4.69），端到端延迟降低 15-61%，并减少每次调用的 token 用量与推理成本。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.10144",
-      "aisafetyhot": "https://aisafetyhot.com/items/z8a6lb6dtroq9izzhnk6d1vbj"
-    },
-    "publishedAt": "2026-09-09T13:20:47.000Z",
-    "timelineAt": "2026-09-09T13:20:47.000Z"
-  },
-  {
     "arxivId": "2609.10299",
     "title": "A Dominant Diffuse Phase in the Sparse Autoencoder Phase Diagram",
     "titleZh": "SAE 相图实验未观察到字典恢复或特征合并，训练模型收敛到弥散相",

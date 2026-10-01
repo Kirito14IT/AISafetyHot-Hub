@@ -137,25 +137,6 @@
     "timelineAt": "2026-09-28T16:28:45.000Z"
   },
   {
-    "arxivId": "2609.35561",
-    "title": "RSI-Master: Structuring Experiments to Guide Autonomous Model Improvement",
-    "titleZh": "RSI-Master：用结构化实验引导模型自主改进",
-    "authors": [
-      "Yaxin Du"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 RSI-Master，通过 Experiment OS 规范实验动作并保留可追溯记录，再用 Reviewer-Guided Research Orchestration 组织 Worker 与 Reviewer 构成动态增长的研究 DAG，以缓解作弊行为和策略锁定。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.35561",
-      "aisafetyhot": "https://aisafetyhot.com/items/i667ggqip52qarbmlvh3wcyz5"
-    },
-    "publishedAt": "2026-09-28T16:28:45.000Z",
-    "timelineAt": "2026-09-28T16:28:45.000Z"
-  },
-  {
     "arxivId": "2609.35591",
     "title": "Language Models Act on Hidden Valence",
     "titleZh": "语言模型会依据隐藏效价做出选择",
@@ -695,25 +676,6 @@
     },
     "publishedAt": "2026-09-29T07:58:49.000Z",
     "timelineAt": "2026-09-29T07:58:49.000Z"
-  },
-  {
-    "arxivId": "2609.37040",
-    "title": "Selecting The Most Informative Tokens in Natural Language Autoencoders",
-    "titleZh": "研究：自然语言自动编码器中哪些 token 最值得审计",
-    "authors": [
-      "Federico Torrielli"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项基于 470 万条提示注入与隐藏行为解释的研究比较了模型计算信号与仅依赖对话结构的排序器，发现在四个数据集中的三个上，只解释 5% 的位置就能接近逐位置解释的成功率，此处成功指获得有关威胁的解释。研究还表明，预训练的言语化器无需额外训练即可还原模型经微调学会隐藏的词。作者指出这有助于确定审计者的解释生成重点。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.37040",
-      "aisafetyhot": "https://aisafetyhot.com/items/r3krurr4crgc48af5gphmgiq9"
-    },
-    "publishedAt": "2026-09-29T08:50:02.000Z",
-    "timelineAt": "2026-09-29T08:50:02.000Z"
   },
   {
     "arxivId": "2609.37054",

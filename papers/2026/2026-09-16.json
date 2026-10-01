@@ -116,25 +116,6 @@
     "timelineAt": "2026-09-16T04:56:31.000Z"
   },
   {
-    "arxivId": "2609.18411",
-    "title": "The Verifiable Action Card: Trustworthy Human-in-the-Loop Control for Secure Autonomous Agents",
-    "titleZh": "可验证操作卡 VAC：为自主 Agent 提供可信人在回路控制",
-    "authors": [
-      "Hasnain Irshad"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出可验证操作卡（VAC），一种从真实待执行的浏览器操作和可信意图来源重建审批信息、在可信浏览器界面中带外渲染、并把审批绑定到派发时重新验证的同一操作的架构级防护。VAC 结合来源隔离、真实操作描述符、默认拒绝确认、来源感知风险门控和执行绑定，并在一个完整的智能体浏览器中实现。在覆盖混淆代理攻击、Lies-in-the-Loop 对话伪造、间接提示注入、自适应操作替换、来源规避和正常任务的 24 场景基准上，无 VAC 时各评测 LLM 的攻击成功率为 68% 至 100%，VAC 将每个模型的攻击成功率降至 0%，正常任务完成率 78%，误拦截率 0%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.18411",
-      "aisafetyhot": "https://aisafetyhot.com/items/eb1wv1q1nghhnwk8i5iy97r8o"
-    },
-    "publishedAt": "2026-09-16T10:06:24.000Z",
-    "timelineAt": "2026-09-16T10:06:24.000Z"
-  },
-  {
     "arxivId": "2609.18515",
     "title": "Beyond Routine Compliance: Cunning Data Cultivates Safety Vigilance in Large Language Models",
     "titleZh": "用 cunning questions 训练 LLM 警觉性，将九组模型基准平均 ASR 从 17.40% 降至 15.05%",
