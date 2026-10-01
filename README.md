@@ -81,6 +81,9 @@
 
 ## 声明
 
+- **致谢**：AI Safety HOT 基于开源框架 [AIHOT](https://github.com/KKKKhazix/AIHOT) 搭建，感谢作者把它开源。
+- **论文导读**由模型生成。
+- **论文速读**据 [Cool Papers](https://papers.cool) 上 Kimi 对论文的解读整理；还没有 Kimi 解读的论文，由模型据论文全文整理一份。每篇都写明了出处。
+- 导读和速读都是二手材料，重要的数字和结论请以论文原文为准。
 - 仓库里的导读、速读和日报文字以 [CC BY-NC 4.0](LICENSE) 发布，转载请署名并注明来自 AI Safety HOT，不要用于商业用途。原文和论文的版权归各自的作者与来源。
-- 导读和速读由模型生成；速读注明了出处（Cool Papers 上 Kimi 的解读，或据论文全文整理），都是二手材料，以论文原文为准。
 - 发现错误、希望更正或下架，请在网站[留言板](https://aisafetyhot.com/board)选"下架/更正"。
