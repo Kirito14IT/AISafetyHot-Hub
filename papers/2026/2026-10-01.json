@@ -784,6 +784,55 @@
     "timelineAt": "2026-10-01T02:24:58.577Z"
   },
   {
+    "arxivId": "2609.39279",
+    "title": "Faithful Dual-constrained Erasure for Robust LLM Safety Alignment",
+    "titleZh": "FDCU：用双重约束子空间投影抵御机器遗忘后的重训练攻击",
+    "authors": [
+      "Jiaqing Li",
+      "Shide Zhou",
+      "Zhibo Zhang",
+      "Yuxi Li",
+      "Tianlong Yu",
+      "Kailong Wang"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出 FDCU，一种双重约束子空间投影框架，用于解决大语言模型机器遗忘后经良性微调即可恢复有害行为的重训练攻击问题。作者分析遗忘的优化动态后认为，脆弱性来自浅层对齐：模型并未真正擦除目标知识，而是激活原本休眠的参数充当伪抑制器，在完整的恶意表征外形成脆弱的抑制外壳。FDCU 通过逐元素双重掩码规则限制参数更新，用 Fisher Information 保留通用知识流形，并用最小功能干预原则（PMFI）禁止伪抑制器异常激活。在特定知识擦除与安全输出控制任务上，FDCU 在保持近乎无损通用能力的同时，取得了对重训练攻击的 state-of-the-art 鲁棒性。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39279",
+      "aisafetyhot": "https://aisafetyhot.com/items/qri4hm9yq964vn8y90tx6n78h"
+    },
+    "publishedAt": "2026-10-01T04:00:00.000Z",
+    "timelineAt": "2026-10-01T04:00:00.000Z"
+  },
+  {
+    "arxivId": "2609.39027",
+    "title": "A Missing Piece for Trustworthy AI Reviewers: From Benchmarking Rhetorical Robustness to SciCore Review",
+    "titleZh": "从 RobustReview 基准到 SciCore：AI 审稿人的修辞鲁棒性评测",
+    "authors": [
+      "Chenguang Wang",
+      "Ming Li",
+      "Chengrui Fan",
+      "Jianpeng Chen",
+      "Han Chen",
+      "Tianyi Zhou",
+      "Dawei Zhou"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出\"修辞鲁棒性\"（Rhetorical Robustness），要求 AI 审稿人对内容不变但措辞改写的稿件给出稳定评分，同时保持对不同论文的区分度。为此构建了包含 1,260 个稿件版本的全稿基准 RobustReview，评测 30 种审稿人配置，发现存在\"虚假鲁棒性\"——改写敏感度低与跨论文评分崩塌同时出现，且人类对齐与修辞鲁棒性的审稿人排名并不一致。据此提出双分支审稿人 SciCore，将全稿判断与结构化\"科学内核\"判断取平均，在 GPT-5.5 对比中取得领先的稳定性-区分度综合表现，并保持有竞争力的人类对齐。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39027",
+      "aisafetyhot": "https://aisafetyhot.com/items/bfzicak2i60tyer9ipfb11lhv"
+    },
+    "publishedAt": "2026-10-01T04:00:00.000Z",
+    "timelineAt": "2026-10-01T04:00:00.000Z"
+  },
+  {
     "arxivId": "2609.40111",
     "title": "Agent Error Dataset: Scaling 50,000 Error--Diagnosis Pairs for Failure Analysis and Error-Aware Post-Training",
     "titleZh": "Agent Error Dataset 发布 5 万条错误诊断配对，用于失败分析与错误感知后训练",
