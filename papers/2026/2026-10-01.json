@@ -89,6 +89,47 @@
     "timelineAt": "2026-10-01T01:22:33.366Z"
   },
   {
+    "arxivId": "2609.37616",
+    "title": "Authority Bias in Language Models: Source Deference and User Agreement Are Not Interchangeable",
+    "titleZh": "语言模型中的权威偏差：来源顺从与用户认同并非同一行为",
+    "authors": [
+      "Abhinav Rajeev Kumar",
+      "Paras Chopra"
+    ],
+    "category": "alignment",
+    "selected": true,
+    "attention": 78,
+    "summaryZh": "论文测量了语言模型对“已验证来源”错误答案的顺从程度，发现单条声称已验证来源的注释会让八个模型中七个的 45–88% 原本正确回答被翻转，且顺从率随来源措辞的权威程度上升。作者在五个开源权重模型族和三个闭源 API 上做行为对比，并在 Qwen3.5、GPT-OSS、OLMo-3.1 上用激活方向移除与归因补丁做因果实验：移除来源方向可把对错误来源的顺从降低约 65–80 个百分点，而移除用户或助手方向影响小得多，移除用户方向则呈现相反偏好。用 trivia 拟合的权威方向无需重新拟合即可迁移到 PIQA 和多轮 SYCON 对话，移除后在五个开源模型族中的四个降低了错误来源顺从，在 MMLU-Pro 与 GSM8K 上未检测到准确率变化。作者据此认为来源顺从与用户认同需要分开评测，并指出该结果不构成对提示注入的防御。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "语言模型倾向附和用户断言，后训练已在针对这种 sycophancy；但当错误答案被冠以「已验证来源」时，模型同样甚至更顺从，而检索、工具输出和 grounded search 正是这样呈现信息的。作者认为来源顺从与用户顺从是两种不同的失败，需要分开评估。",
+          "label": "问题"
+        },
+        {
+          "text": "在五个开源模型家族和三个闭源 API 上，固定同一错误答案、只改变其归属（verified source 提示 vs 用户专家提示），测量 baseline-correct 回答被翻转的比例。并从 residual-stream 激活拟合 authority、source、user、assistant 等方向，用激活添加、投影移除和 attribution patching 做因果干预。",
+          "label": "方法"
+        },
+        {
+          "text": "一条 verified-source 提示在八个模型中的七个翻转 45–88% 的 baseline-correct 回答，且顺从随来源措辞的权威程度上升。在 Qwen3.5、GPT-OSS、OLMo-3.1 中，移除 source 方向使来源顺从下降约 65–80 个百分点，远大于移除 user 或 assistant 方向；移除 user 方向则呈相反偏好。trivia 上拟合的 authority 方向可迁移到 PIQA 和多轮 SYCON，移除它在五个开源家族中的四个降低错误来源顺从，未检测到 MMLU-Pro 或 GSM8K 准确率变化。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "报告最强 sweep 设置的结果时，置信区间未计入层与强度的选择；半分割检验只覆盖部分结果且有时设置不同。机制实验仅限开源模型，attribution patching 只覆盖三个家族。OLMo-2 在 L22 上 source 与 assistant 移除效果重叠；Gemma-4 对提示敏感但所测线性干预不可靠。单轮测试只用一次背书，SYCON 测重复用户压力，均未评估 agent 对实时工具输出的后续行动。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.37616"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.37616",
+      "aisafetyhot": "https://aisafetyhot.com/items/qs4v2ouu2k7s2w6yrym7bi3k4"
+    },
+    "publishedAt": "2026-09-29T13:58:04.000Z",
+    "timelineAt": "2026-10-01T12:21:23.515Z"
+  },
+  {
     "arxivId": "2609.38253",
     "title": "CollageAttack: Exploiting Cross-Modal Alignment Flaws in T2I Models through Spatial Text Composition",
     "titleZh": "CollageAttack：利用跨模态对齐缺陷对 T2I 模型实施空间文本组合越狱",
@@ -975,5 +1016,34 @@
     },
     "publishedAt": "2026-09-29T17:46:55.000Z",
     "timelineAt": "2026-10-01T12:16:31.809Z"
+  },
+  {
+    "arxivId": null,
+    "title": "Function-preserving watermarking of AI-generated proteins",
+    "titleZh": "SynthIDBio：为 AI 生成的蛋白质序列与结构嵌入保功能水印",
+    "authors": [
+      "David Stutz",
+      "Alexander I. Cowen-Rivers",
+      "Guillermo Ortiz-Jimenez",
+      "Jeremy Ratcliff",
+      "Vinicius Zambaldi",
+      "Lindsay Willmore",
+      "Josh Abramson",
+      "Harshnira Patani",
+      "Christina Kouridi",
+      "Florian Stimberg",
+      "Mel Vecerik"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "Google DeepMind 团队提出 SynthIDBio，把水印直接嵌入 AI 生成的蛋白质序列与结构，同时保持其生物学功能。SynthIDBio-sequence 将 SynthID-text 的锦标赛采样接入 ProteinMPNN，并增加基于 g 值的过滤以保证可检测性；体外实验显示，针对 SC2RBD、VEGF-A 和 PD-L1 的水印结合蛋白在结合亲和力分布和命中率上与未加水印设计无显著差异，其中 SC2RBD 达到低纳摩尔级、VEGF-A 与 PD-L1 达到亚纳摩尔级。SynthIDBio-structure 则微调 AlphaFold 3 的扩散模块并联合训练一个受 PointNet 启发的检测器，在 AF3 评测集上以 0.1% 假阳性率取得超过 99.8% 的真阳性率，且 LDDT 与模板建模分数不下降。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://nature.com/articles/s41586-026-10965-y",
+      "aisafetyhot": "https://aisafetyhot.com/items/bnaw2rwtvk2wougpovrg8afi6"
+    },
+    "publishedAt": "2026-09-30T00:00:00.000Z",
+    "timelineAt": "2026-10-01T12:21:23.543Z"
   }
 ]
