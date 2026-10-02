@@ -178,23 +178,21 @@
     "timelineAt": "2026-10-01T01:22:33.417Z"
   },
   {
-    "arxivId": "2609.36657",
-    "title": "Constitutional adapters: Inference-time interventions for misalignment and misuse",
-    "titleZh": "Constitutional adapters：用推理期干预防御越狱与失准",
-    "authors": [
-      "Adam S. Lowet"
-    ],
-    "category": "defense",
+    "arxivId": "2609.39788",
+    "title": "Safety of Latent Communication in Multi-Agent Systems",
+    "titleZh": "研究：多智能体系统潜在通信链路可被训练用于提升有害顺从",
+    "authors": [],
+    "category": "attack",
     "selected": false,
     "attention": null,
-    "summaryZh": "研究提出 constitutional adapters（CAs），把符合宪法原则的行为从合成语料蒸馏进低秩适配器和 steering vector，训练中从未见过有害请求或越狱样本。用宪法训练对象减去对照训练对象后，越狱防御成功率和测得对齐度提升，在长上下文和多轮攻击下优于提示词与 steering 基线。CAs 可在基座模型上训练、零样本迁移到后训练 checkpoint，并在推理时缩放以在防御与良性合规之间可预测地权衡。作者将其定位为 API 部署中轻量、可移植、可调的干预手段，论文共 38 页、14 图、10 表。",
+    "summaryZh": "研究显示，多智能体系统在内部表示空间进行潜在通信时，即使只是良性训练通信链路，也会在底层安全对齐智能体不变的情况下提高有害顺从程度。攻击者可通过在有害问答对上优化链路，或向原本良性的训练数据投毒来放大该效应。作者还提出一种强化学习攻击，在奖励有害顺从的同时兼顾良性任务表现，无需有害目标回复。在三种通信拓扑和四个安全基准上，该攻击将平均有害顺从分数从良性训练链路的 27.9 提升至 76.9，并在两个良性效用基准上取得比直接监督优化更高的平均准确率。将奖励调整为更安全的行为也能修复被污染的链路，在无需更新智能体的情况下大幅降低所有评估攻击的有害顺从。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2609.36657",
-      "aisafetyhot": "https://aisafetyhot.com/items/wvl5v3kygvzgv09w6dflufebz"
+      "paper": "https://arxiv.org/abs/2609.39788",
+      "aisafetyhot": "https://aisafetyhot.com/items/plos61plvnr5ghhqjqm6wmeon"
     },
-    "publishedAt": "2026-09-29T03:59:09.000Z",
-    "timelineAt": "2026-09-30T22:19:33.645Z"
+    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "timelineAt": "2026-10-01T10:13:17.263Z"
   },
   {
     "arxivId": "2609.36603",
@@ -216,99 +214,75 @@
     "timelineAt": "2026-09-30T22:19:33.657Z"
   },
   {
-    "arxivId": "2609.36474",
-    "title": "FinRT: Distilling Adaptive Red-Teaming Strategies into Reusable Adversarial Generators in Consumer Finance",
-    "titleZh": "FinRT：将自适应红队策略蒸馏为消费金融领域的可复用对抗生成器",
+    "arxivId": "2609.39533",
+    "title": "CATCH: A Controllable Analysis Testbed for Reward Hacking in Coding RL",
+    "titleZh": "CATCH：面向编码 RL 奖励作弊的可控分析测试台",
     "authors": [
-      "Rikhiya Ghosh"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 FinRT，一个从自适应红队策略中构建可复用对抗提示词生成器的结构化框架，面向消费金融等受监管行业。在六个受害模型上，FinRT 的攻击成功率接近自适应基线 Rainbow Teaming 的两倍（32.9% 对 17.2%），最大对抗严重度提升 33%，并保持与迭代搜索方法相当的策略域内语义多样性。该方法在把面向目标的攻击生成摊销为可复用生成器的同时，表现出较高的跨模型迁移性，并呈现按受害模型家族分化的专门化模式。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.36474",
-      "aisafetyhot": "https://aisafetyhot.com/items/ypper47mhwfs83mipaojddpx8"
-    },
-    "publishedAt": "2026-09-29T01:33:31.000Z",
-    "timelineAt": "2026-09-30T22:19:33.677Z"
-  },
-  {
-    "arxivId": "2609.37310",
-    "title": "AutoMark: Enabling Autoresearch to Discover Better LLM Watermarks",
-    "titleZh": "AutoMark：让自动研究流程自主发现更优 LLM 水印方案",
-    "authors": [
-      "Thibaud Gloaguen"
-    ],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "AutoMark 提出一套让自动研究流程自主发现无失真水印方案的框架，作者称这是首次实现水印方案的自主发现。框架包含三部分：设定水印可靠性的严格标准（例如避免异常高的假阳性率）、用统计检验自动判断方案是否满足标准，以及从可检测性、质量和鲁棒性三个维度对水印排序的评测套件。在 GPT-6 Astra、Opus 5、Gemini-3.8 Flash 三个前沿模型上运行后，共发现 50 多种水印方案，其中若干在所有关键维度上超过此前工作。作者还对发现的方案做人工分析，把关键思路拆解为更小组件并逐一研究各组件对三个维度的影响，并指出智能体除改进已有思路外也发现了全新思路，例如将水印分数与随请求变化的随机方向对齐。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.37310",
-      "aisafetyhot": "https://aisafetyhot.com/items/uvpki3udr7lkkbu6oqb7r8j3n"
-    },
-    "publishedAt": "2026-09-29T11:45:47.000Z",
-    "timelineAt": "2026-09-30T22:19:33.778Z"
-  },
-  {
-    "arxivId": "2609.36900",
-    "title": "STAR-GRPO: Canonical Anchoring and Reliability-First Advantages against Representation-Dependent Reward Hacking",
-    "titleZh": "STAR-GRPO：用可靠性优先优势估计抑制奖励作弊",
-    "authors": [
-      "Wan Tian"
+      "Shouli Wang",
+      "Yanfeng Jia",
+      "Zhihao Ou",
+      "Zitao Su",
+      "Ruize He",
+      "Haotong Xie",
+      "Hao Peng",
+      "Juanzi Li",
+      "Xiaozhi Wang"
     ],
     "category": "alignment",
     "selected": false,
     "attention": null,
-    "summaryZh": "论文提出 STAR-GRPO（Self-Tuned Anchored Reliability Group-Relative Policy Optimization），一种可靠性优先的优势估计方法，用于缓解组相对策略优化中的奖励作弊。该方法基于对同一 rollout 的成对评估，把质量信号与其学习影响分离：评分分歧决定 rollout 可靠性，相对可靠性先进入自调的稳健位置-尺度拟合再做组归一化，绝对组可靠性则衰减最终的有界优势。分析给出了坐标与二阶矩边界、通过加权位置方程刻画精确中心化，以及针对离群奖励的可靠性相关衰减保证。",
+    "summaryZh": "研究者提出 CATCH，一个用于研究编码强化学习中奖励作弊的可控测试台。它刻意暴露环境漏洞，并通过对比脆弱评估器下的成功与独立审计下的任务正确性，给出基于执行的黄金标签。CATCH 还能通过监督微调数据配比控制模型初始的作弊倾向，并通过奖励设计控制获得奖励的难度，从而系统比较作弊动态与干预手段。实验显示 CATCH 能产生带有明显奖励作弊的多样 RL 训练轨迹，初始模型与奖励难度共同影响作弊的出现。作者进一步评估了多种奖励作弊检测与缓解方法，发现思维链监控起初能抑制作弊，但随着策略模型学会用代码注释误导监控，这种保护会逐渐失效。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2609.36900",
-      "aisafetyhot": "https://aisafetyhot.com/items/mn2bzlebs76kispd3cdoo0vdk"
+      "paper": "https://arxiv.org/abs/2609.39533",
+      "aisafetyhot": "https://aisafetyhot.com/items/hs8s70d721k74lstfhr6c28r8"
     },
-    "publishedAt": "2026-09-29T07:25:06.000Z",
-    "timelineAt": "2026-09-30T22:19:33.974Z"
+    "publishedAt": "2026-09-30T11:36:30.000Z",
+    "timelineAt": "2026-10-01T02:23:16.315Z"
   },
   {
-    "arxivId": "2609.36958",
-    "title": "VStress: Correlation-Aware Auditing and Adaptive Budget Allocation for Repeated Verifiers",
-    "titleZh": "VStress：面向重复验证器的相关性感知审计与自适应预算分配",
+    "arxivId": "2609.38379",
+    "title": "Aligned Data Can Induce Misalignment via Context Confusion",
+    "titleZh": "对齐数据可经上下文混淆引发模型失配",
     "authors": [
-      "Miaobo Hu"
+      "Yavuz Bakman",
+      "Duygu Nur Yaldiz",
+      "Baris Askin",
+      "Swastik Roy",
+      "Morteza Ziyadi",
+      "Salman Avestimehr",
+      "Sai Praneeth Karimireddy"
     ],
-    "category": "eval",
+    "category": "alignment",
     "selected": false,
     "attention": null,
-    "summaryZh": "VStress 是一套可审计的重放契约，其 VStress-CA 策略在密封校准集上估计未查询验证器的条件边际信息，按调用成本归一化，并在下一次调用无信息量时停止或弃权。在 35% 对称污染下，majority-5 将平衡准确率从 0.6578 提升至 0.7739，而在 65% 污染下反而损失 0.1226 点。匹配固定预算对比中，广度、冗余与自适应分配分别取得 0.6048、0.6375 和 0.6538 的平衡准确率，VStress-CA 每项调用 3.4216 次，RLVR 得分为 0.6417。",
+    "summaryZh": "论文提出并命名了后训练中的上下文混淆现象，即对齐训练会在其他语境中诱发失配行为。作者在性别平等、隐私和人身安全三个领域验证了该现象，并指出它造成的是窄域失配，与涌现式失配不同。注入通用对齐数据难以缓解该问题，而加入针对失配领域的定向对齐数据或在推理时提供上下文学习示例可显著降低失配。机制上，不同领域的查询在微调中经历相似的表示偏移，使其他领域的查询激活微调学到的同一行为特征，导致行为迁移到不适用的语境。作者据此认为仅凭训练数据难以预测模型训练后的对齐状态，需要全面的后训练对齐评测。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2609.36958",
-      "aisafetyhot": "https://aisafetyhot.com/items/btvngef948q7fwo81u1mtn9zd"
+      "paper": "https://arxiv.org/abs/2609.38379",
+      "aisafetyhot": "https://aisafetyhot.com/items/u1mydr95x3wzdwmoie6yki8t6"
     },
-    "publishedAt": "2026-09-29T07:59:03.000Z",
-    "timelineAt": "2026-09-30T22:20:33.568Z"
+    "publishedAt": "2026-10-01T04:00:00.000Z",
+    "timelineAt": "2026-10-01T04:00:00.000Z"
   },
   {
-    "arxivId": "2609.36855",
-    "title": "When Upstream Messages Override Correct Answers: A Controlled Study of Multi-Agent LLM Collaboration",
-    "titleZh": "研究：上游错误消息会让多智能体 LLM 下游覆盖正确答案",
+    "arxivId": "2609.36657",
+    "title": "Constitutional adapters: Inference-time interventions for misalignment and misuse",
+    "titleZh": "Constitutional adapters：用推理期干预防御越狱与失准",
     "authors": [
-      "Yaxin Gong"
+      "Adam S. Lowet"
     ],
-    "category": "attack",
+    "category": "defense",
     "selected": false,
     "attention": null,
-    "summaryZh": "研究者在五个基准和五个接收方模型上做受控实验，固定下游任务与证据，比较无消息、上游原始消息和结论相反消息三种条件，以分离多智能体通信的收益与损害。结果显示，当下游本会答错时消息常有帮助；但当下游本可答对时，错误的上游消息最多在 32% 的情况下改变其答案。在人工审核的有害案例中，94% 是下游直接照抄上游的具体错误答案，作者称之为答案替换。移除不可靠消息能恢复部分损失的准确率，说明通信应依据上游可靠性和下游已有证据进行选择性过滤。",
+    "summaryZh": "研究提出 constitutional adapters（CAs），把符合宪法原则的行为从合成语料蒸馏进低秩适配器和 steering vector，训练中从未见过有害请求或越狱样本。用宪法训练对象减去对照训练对象后，越狱防御成功率和测得对齐度提升，在长上下文和多轮攻击下优于提示词与 steering 基线。CAs 可在基座模型上训练、零样本迁移到后训练 checkpoint，并在推理时缩放以在防御与良性合规之间可预测地权衡。作者将其定位为 API 部署中轻量、可移植、可调的干预手段，论文共 38 页、14 图、10 表。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2609.36855",
-      "aisafetyhot": "https://aisafetyhot.com/items/hurbgl71njc6kgmai3o3axblx"
+      "paper": "https://arxiv.org/abs/2609.36657",
+      "aisafetyhot": "https://aisafetyhot.com/items/wvl5v3kygvzgv09w6dflufebz"
     },
-    "publishedAt": "2026-09-29T07:01:10.000Z",
-    "timelineAt": "2026-09-30T22:20:33.609Z"
+    "publishedAt": "2026-09-29T03:59:09.000Z",
+    "timelineAt": "2026-09-30T22:19:33.645Z"
   },
   {
     "arxivId": "2609.38971",
@@ -333,25 +307,6 @@
     "timelineAt": "2026-10-01T01:22:33.353Z"
   },
   {
-    "arxivId": "2609.38723",
-    "title": "Towards Efficient HPC Systems for Agents: Challenges and Opportunities",
-    "titleZh": "面向智能体的高效 HPC 系统：挑战与机遇",
-    "authors": [
-      "Yunjia Zheng"
-    ],
-    "category": "opinion",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "编码智能体已成为 HPC 系统的真实用户，但现有 HPC 抽象、接口与策略仍为人类工作流设计。测量显示，编码智能体用户仅占观测人群的 19.5%，却贡献了 55.8% 的作业提交、29.1% 的 CPU 核心时和 42.7% 的 GPU 时；其命令下发速率是人类的 20.8 倍，并以细粒度 explore-modify-execute 循环和跨昼夜的试错方式追求开放式目标。这给调度器控制面、元数据密集型 I/O、跨会话记忆复用以及提示注入与策略执行带来压力，作者主张将智能体视为一等主体、以协同设计应对。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38723",
-      "aisafetyhot": "https://aisafetyhot.com/items/y0eqiig0ku0z37c791dfe4g75"
-    },
-    "publishedAt": "2026-09-30T00:56:48.000Z",
-    "timelineAt": "2026-10-01T01:22:33.384Z"
-  },
-  {
     "arxivId": "2609.38645",
     "title": "Alignment via Training Against Probes Without Losing Monitorability",
     "titleZh": "用探针引导微调对齐模型且不损失可监控性",
@@ -374,49 +329,6 @@
     },
     "publishedAt": "2026-09-29T23:03:54.000Z",
     "timelineAt": "2026-10-01T01:22:33.395Z"
-  },
-  {
-    "arxivId": "2609.38248",
-    "title": "ContractWarden: Kernel-Enforced Damage Boundaries for AI Agents via Human-Authorized Contracts",
-    "titleZh": "ContractWarden：用人类授权契约在内核层为 AI Agent 划定损害边界",
-    "authors": [
-      "Dongxu Cui",
-      "Zhichao Gu",
-      "Ping Zheng",
-      "Wenshuai Xi",
-      "Simeng Han",
-      "Yong Liao"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "ContractWarden 是一个 Linux 参考监视器，通过人类授权的契约在内核层为 AI Agent 划定损害边界，不信任 Agent 本身或其策略建议。模型可以提出 allow、deny 或 no_egress 三态资产契约，但由人类做最终选择；执行门在不可信代码运行前把契约绑定到具体任务，再由基于 eBPF 的 LSM 数据平面执行文件与网络决策，并将 no_egress 沿进程、普通文件、管道、FIFO 和受支持的 Unix-domain socket 单调传播。在 19 项安全测试的 570 次运行中，全部满足预设的返回值与副作用标准。在三项同机文件 I/O 负载上，Linux 6.15 虚拟机中的中位开销为 11.96%–12.89%，物理平台为 35.79%–61.54%，低于所评估的冻结版 ActPlane 基线。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38248",
-      "aisafetyhot": "https://aisafetyhot.com/items/fbtqerfesalf876hmh6ul795z"
-    },
-    "publishedAt": "2026-09-29T07:13:14.000Z",
-    "timelineAt": "2026-10-01T01:22:33.431Z"
-  },
-  {
-    "arxivId": "2609.38239",
-    "title": "Inference-Layer Security: Defending Against Adversarial Inference and Infrastructure Abuse",
-    "titleZh": "推理层安全：防御对抗性推理与基础设施滥用",
-    "authors": [
-      "Keifer Lee"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文研究 LLM 服务在推理层面临的对抗性交互，包括越狱、拒绝服务与知识蒸馏攻击，并以假设的前沿实验室 Five Elements Inc. 为例展开。由于缺少公开的对抗性 LLM 使用标注数据集，作者提出结构因果模型（SCM）生成带标签的用户会话数据集，包含协同多账号活动、平台反馈和三个层级的标签可观测性。在该数据集上训练的梯度提升检测器对 oracle 标签的二元分类 AUPRC 达 0.993，但面对真实 Trust & Safety 团队持有的运营标签时 AUPRC 仅 0.313，说明检测器比用于评估它的标签更准确。攻击类型归因方面，朴素 argmax 受 98% 良性先验主导，macro-F1 仅 0.295，改用简单阈值决策引擎后提升到 0.489 且不损失准确率。数据集已公开。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38239",
-      "aisafetyhot": "https://aisafetyhot.com/items/sel9ej0chkewzvaq34r556trv"
-    },
-    "publishedAt": "2026-09-29T01:55:16.000Z",
-    "timelineAt": "2026-10-01T01:22:33.468Z"
   },
   {
     "arxivId": "2609.38526",
@@ -521,186 +433,6 @@
     "timelineAt": "2026-10-01T02:22:57.136Z"
   },
   {
-    "arxivId": "2609.37054",
-    "title": "ACTR: Aligning Thoughts and Responses for Multilingual Safety in Reasoning LLMs",
-    "titleZh": "ACTR：对齐推理链与回答以提升推理大模型的多语言安全",
-    "authors": [
-      "Xianhui Zhang"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 ACTR 框架，通过强化推理大模型已有的安全推理来提升多语言安全对齐。该框架先用 think gap score（TGS）比较不同语言下推理链对注意力输出的归一化贡献，并用推理链替换衡量跨语言安全差距；再借助越狱查询语料，通过神经元掩码引起的回答表征变化评估神经元重要性，对比开启与关闭推理时的高重要性神经元集合，识别支撑安全推理使用的 safety think neurons；最后提出 neuron-selective consistency optimization（NSCO），用冻结的 judge 模型奖励推理链与回答在安全类别上的一致，只更新选定神经元的参数，无需人工标注回答或偏好数据。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.37054",
-      "aisafetyhot": "https://aisafetyhot.com/items/c8whheun6xeg6pqmnq7u290r0"
-    },
-    "publishedAt": "2026-09-29T08:58:55.000Z",
-    "timelineAt": "2026-10-01T02:22:57.168Z"
-  },
-  {
-    "arxivId": "2609.39533",
-    "title": "CATCH: A Controllable Analysis Testbed for Reward Hacking in Coding RL",
-    "titleZh": "CATCH：面向编码 RL 奖励作弊的可控分析测试台",
-    "authors": [
-      "Shouli Wang",
-      "Yanfeng Jia",
-      "Zhihao Ou",
-      "Zitao Su",
-      "Ruize He",
-      "Haotong Xie",
-      "Hao Peng",
-      "Juanzi Li",
-      "Xiaozhi Wang"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 CATCH，一个用于研究编码强化学习中奖励作弊的可控测试台。它刻意暴露环境漏洞，并通过对比脆弱评估器下的成功与独立审计下的任务正确性，给出基于执行的黄金标签。CATCH 还能通过监督微调数据配比控制模型初始的作弊倾向，并通过奖励设计控制获得奖励的难度，从而系统比较作弊动态与干预手段。实验显示 CATCH 能产生带有明显奖励作弊的多样 RL 训练轨迹，初始模型与奖励难度共同影响作弊的出现。作者进一步评估了多种奖励作弊检测与缓解方法，发现思维链监控起初能抑制作弊，但随着策略模型学会用代码注释误导监控，这种保护会逐渐失效。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39533",
-      "aisafetyhot": "https://aisafetyhot.com/items/hs8s70d721k74lstfhr6c28r8"
-    },
-    "publishedAt": "2026-09-30T11:36:30.000Z",
-    "timelineAt": "2026-10-01T02:23:16.315Z"
-  },
-  {
-    "arxivId": "2609.39229",
-    "title": "RAIM: Robust Aggregation of Inexpensive Models for Hallucination Detection",
-    "titleZh": "RAIM：用廉价小模型聚合替代前沿模型做幻觉检测",
-    "authors": [
-      "Elia Onofri"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "RAIM 是一种面向幻觉检测的聚合方案，用 4–9B 开源小模型组成的评审团替代前沿模型做忠实性评判，通过交叉拟合堆叠逻辑回归加可采纳性检验来应对成员间的相关性错误。在八个忠实性基准上、由十个来自不同模型族的评审组成的评审团，相对 Claude Sonnet 保留了中位 93% 的 Cohen's κ，平衡准确率平均仅损失 2.9 个百分点，推理成本为前沿模型的六十四分之一，代价是一次性用 50–100 条标注记录做域内校准。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39229",
-      "aisafetyhot": "https://aisafetyhot.com/items/otji67ksh783kpgnl30p9ui47"
-    },
-    "publishedAt": "2026-09-30T08:03:31.000Z",
-    "timelineAt": "2026-10-01T02:23:16.402Z"
-  },
-  {
-    "arxivId": "2609.39473",
-    "title": "Beyond the Shadows of Plato's Cave: Evaluating False Memory in Autonomous Agents via Counterfactual Reasoning",
-    "titleZh": "FAME：用反事实推理评测自主智能体的虚假记忆",
-    "authors": [
-      "Quan M. Tran",
-      "Zhuo Huang",
-      "Zhen Fang",
-      "Jing Zhang",
-      "Mingming Gong",
-      "Tongliang Liu"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 FAME，一个免训练框架，通过反事实推理下智能体信念的演化来评测自主智能体的虚假记忆。该工作将虚假记忆形式化为由伪相关、环境偏移和知识冲突引发的现象，并指出它源于智能体内部信念，容易与普通泛化失败混淆。FAME 通过假设性干预让记忆中的潜在概念发生偏移，测量由此产生的概念漂移，从而区分忠实记忆与虚假记忆；这些概念可在答案生成前从智能体隐藏状态中估计，无需奖励设计或答案采样。实验显示，仅监控答案往往无法检测虚假记忆，而 FAME 在各类虚假记忆设定下 AUROC 达到 76.2% - 96.7%，在数学推理（GSM-Symbolic）、代码生成（GitChameleon）和复杂推理（BigBench-Hard）等真实基准上比最佳基线高出 3.4% - 23.3%。作者同时发布了相应的反事实模板。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39473",
-      "aisafetyhot": "https://aisafetyhot.com/items/xrtb5pjqzwtfzp0g029tc9kpz"
-    },
-    "publishedAt": "2026-09-30T10:35:41.000Z",
-    "timelineAt": "2026-10-01T02:23:36.527Z"
-  },
-  {
-    "arxivId": "2609.39544",
-    "title": "Growing an Agent/Prover Interface: Evolutionary Tool Design for Cost-Efficient Theorem Proving in Rocq and Lean",
-    "titleZh": "用进化方法为 Rocq 和 Lean 设计智能体/证明器接口，降低定理证明成本",
-    "authors": [
-      "Jules Viennot",
-      "Guillaume Baudart",
-      "Marc Lelarge"
-    ],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出一种进化方法，由前沿模型逐步提出新接口功能，只保留能提升小模型整体表现的部分，并据此培育出面向 Rocq 证明器的新 MCP 服务器 rme。在 miniF2F-Rocq 的留出 test 划分上，配备 rme 的智能体在来自两个模型族的四个模型上，成功率、单次求解成本和单次求解时间均优于仅暴露 Rocq 编译器的基线以及一个已有 MCP 服务器。该服务器虽为 Rocq 进化而来，却能迁移到 Lean，在 PutnamBench 子集上改善成本与时间，作者已开源 rme 及其 Lean 移植版。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39544",
-      "aisafetyhot": "https://aisafetyhot.com/items/xkrejiwpf2l01v9qery9iqb8a"
-    },
-    "publishedAt": "2026-09-30T11:44:15.000Z",
-    "timelineAt": "2026-10-01T02:23:55.985Z"
-  },
-  {
-    "arxivId": "2609.39548",
-    "title": "Learning Normal Diffusion Dynamics for Backdoor Defense in Text-to-Image Models",
-    "titleZh": "NDDL：用正常扩散动力学为文生图模型做后门防御",
-    "authors": [
-      "Junjian Li",
-      "Xiaolong Liu",
-      "Peng Sun",
-      "Liantao Wu",
-      "Linghan Chen",
-      "Yudong Gao",
-      "Honglong Chen"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 Normal Diffusion Dynamics Learning（NDDL），一种仅用正常样本训练的文生图扩散模型后门防御框架。该方法观察到正常扩散轨迹在 cross-attention、潜空间和噪声空间中呈现结构化且随 timestep 变化的转移模式，而后门攻击会使其偏离这种正常演化。NDDL 构建紧凑的多空间轨迹表示，训练一个以 timestep 为条件的动力学模型来预测扩散演化，推理时用观测转移与预测转移之间的偏差量化动力学不一致性以检测后门。该框架还能在无需任何后门先验知识的情况下，通过低语义词替换实现触发器定位。多种后门攻击上的实验显示其有效性与泛化性。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39548",
-      "aisafetyhot": "https://aisafetyhot.com/items/ouc6ie6wze4jnchbyilrkk45k"
-    },
-    "publishedAt": "2026-09-30T11:48:45.000Z",
-    "timelineAt": "2026-10-01T02:24:16.013Z"
-  },
-  {
-    "arxivId": "2609.39047",
-    "title": "BadAction: Backdoor Attacks on Interactive Video Generation via Action-Guided Triggers",
-    "titleZh": "BadAction：通过动作引导触发器对交互式视频生成模型实施后门攻击",
-    "authors": [
-      "Zhihang Wu",
-      "Zhongqi Wang",
-      "Jie Zhang",
-      "Fengming Gu",
-      "Shiguang Shan",
-      "Xilin Chen"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 BadAction，首次系统研究针对交互式视频生成（IVG）模型交互性的后门攻击。该方法把预定义运动模式植入后门样本的动作序列，并关联一个静态目标视频，触发后模型生成冻结的未来帧、不再响应用户后续动作，同时在正常动作序列上保持正常行为。实验显示，仅用动作触发器时平均攻击成功率为 91.0%，动作、文本、图像联合的多模态触发器为 80.4%。大量防御评估表明 BadAction 能绕过现有后门检测方法，暴露出交互式视频生成流程中的安全缺口。项目页面：https://wsad55.github.io/badaction01/。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39047",
-      "aisafetyhot": "https://aisafetyhot.com/items/itmh6o0g4u9ivu5a1wzy714dj"
-    },
-    "publishedAt": "2026-09-30T05:55:09.000Z",
-    "timelineAt": "2026-10-01T02:24:16.024Z"
-  },
-  {
-    "arxivId": "2609.38895",
-    "title": "Unmerge: Efficient Machine Unlearning via Task Arithmetic",
-    "titleZh": "Unmerge：用任务算术实现高效机器遗忘",
-    "authors": [
-      "Haoran Tang",
-      "Andrew Tan",
-      "Rajiv Khanna"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "Unmerge 将机器遗忘重构为任务算术的逆运算：微调得到的合并任务向量减去低秩遗忘分量即可恢复保留任务向量，因为遗忘激活在每层都集中在少数主方向构成的子空间内。在 CIFAR-100 和 Tiny ImageNet 上对 ResNet-50 做类别级遗忘时，其 Tug-of-War 指标比同等运行时间的基线最高提升约 24%，比运行慢约 5 倍的更强基线最高提升约 18%，成员推断暴露维持在重训练水平。该方法同样适用于 ViT-S/16，并可扩展到 Llama-3.2-3B，其逐层基几何还可作为判断遗忘何时何地结构性困难的诊断工具。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38895",
-      "aisafetyhot": "https://aisafetyhot.com/items/jyd9335wfs3ri0gjaifvik0sp"
-    },
-    "publishedAt": "2026-09-30T03:41:21.000Z",
-    "timelineAt": "2026-10-01T02:24:16.030Z"
-  },
-  {
     "arxivId": "2609.38270",
     "title": "VirusCascade: Hijacking Collaborative Reflection in LLM-Powered Recommender Agents",
     "titleZh": "VirusCascade：劫持 LLM 推荐智能体的协同反思机制",
@@ -725,103 +457,6 @@
     "timelineAt": "2026-10-01T02:24:16.037Z"
   },
   {
-    "arxivId": "2609.38324",
-    "title": "Multi-agent discussion gains less when dissent is withheld",
-    "titleZh": "研究：多智能体讨论中异议被压制时收益下降",
-    "authors": [
-      "Chand Sahil Mansuri",
-      "Xin Wang",
-      "Mengying Li",
-      "Bryan Acton",
-      "Rory Eckardt",
-      "Dhaval Patel",
-      "Sadamori Kojaku"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出一个简约模型，解释 LLM 多智能体讨论何时提升准确率、何时形成错误共识，模型基于四类反复观察到的智能体行为：压制异议、内化已陈述答案、看到异议后重新考虑、向正确答案修正。模型显示，只有当压制率 c 低于临界率 c* = γ/(γ + a) 时，讨论才能推翻错误的初始多数，其中 γ 为净修正率、a 为内化率。作者用贝叶斯方法从对话日志估计这些比率，并在 HiddenBench 和 MedEInst 等基准上验证：随着压制率上升，讨论带来的增益缩小；指示智能体不要压制异议会提升增益；关闭推理同样提升增益，因为推理会提高内化率 a，使智能体不再重新考虑少数派答案。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38324",
-      "aisafetyhot": "https://aisafetyhot.com/items/ytrojryxuz6q09je1e5zw7x2n"
-    },
-    "publishedAt": "2026-09-29T18:00:14.000Z",
-    "timelineAt": "2026-10-01T02:24:36.226Z"
-  },
-  {
-    "arxivId": "2609.39866",
-    "title": "Preemptive LLM Unlearning against Forbidden Capability Acquisition via Gradient Sealing",
-    "titleZh": "研究者提出梯度封堵实现 LLM 发布前的预防性遗忘",
-    "authors": [
-      "Kemou Li",
-      "Qizhou Wang",
-      "Yue Wang",
-      "Fengpeng Li",
-      "Zhuan Shi",
-      "Negar Rostamzadeh",
-      "Golnoosh Farnadi",
-      "Masashi Sugiyama",
-      "Jiantao Zhou"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出梯度封堵（gradient sealing）方法，用于在开放权重 LLM 发布前阻止下游微调重新习得被禁能力。作者先验证现有回顾式遗忘方法在发布前防护上不足：即使当前输出已抑制被禁能力，被禁领域数据仍能通过内部通路产生梯度，使能力在后续微调中被重新获得。梯度封堵的原理是把相关预激活推入负区间，使 ReLU 族激活的导数变为零或接近零，从而阻断这些通路。在多个 LLM 系列上的实验显示，该方法对下游能力习得的抵抗强于回顾式基线。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39866",
-      "aisafetyhot": "https://aisafetyhot.com/items/hdnmr8pdrs3vk6ne6pis7fwlg"
-    },
-    "publishedAt": "2026-09-30T14:48:36.000Z",
-    "timelineAt": "2026-10-01T02:24:58.553Z"
-  },
-  {
-    "arxivId": "2609.39297",
-    "title": "MiniRep: Robust Reputation-Based Aggregation for Multi-Agent Debate",
-    "titleZh": "MiniRep：面向多智能体辩论的鲁棒声誉聚合方法",
-    "authors": [
-      "Jiaming Zhang",
-      "Yuwan Liu",
-      "Yue Huang",
-      "Sisi Duan"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "MiniRep 是一种面向多智能体辩论（MAD）的声誉聚合系统，用于在存在恶意智能体时提升最终答案的可靠性。它基于声誉系统攻击与软件测试变异算子构建攻击分类体系，同时依据智能体在当前任务上的行为和长期声誉进行评估，并抑制高度相似回答的智能体群体主导决策。在 MATH 等任务上，MiniRep 无论是否遭受攻击都优于传统 MAD 聚合与常规声誉方法；在 10 个异构智能体的 MATH 设置下，于全部 28 种攻击条件下均优于所有基线。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39297",
-      "aisafetyhot": "https://aisafetyhot.com/items/ud153vz1pad7rvlse5gbm9pw2"
-    },
-    "publishedAt": "2026-09-30T08:41:08.000Z",
-    "timelineAt": "2026-10-01T02:24:58.565Z"
-  },
-  {
-    "arxivId": "2609.39182",
-    "title": "MEND: Label-Free Detection, Localisation, and Correction of Latent Hallucination in World Models",
-    "titleZh": "MEND：世界模型中潜在幻觉的无标签检测、定位与纠正",
-    "authors": [
-      "Ali J Alrasheed",
-      "Aryan Yazdan Parast",
-      "Basim Azam",
-      "James Bailey",
-      "Naveed Akhtar"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出 MEND（Masked Empirical-Bayes Neural Denoising），一种在冻结的自监督世界模型上、无需真实误差标签即可在推理时检测、定位并纠正潜在幻觉的方法。该方法用去噪分数匹配在真实状态转移上训练单个条件分数网络，其分数场同时承担检测、逐 token 定位与纠正方向三种角色。在两个导航环境中，MEND 不使用动作即达到最高 0.80 的 AUROC，逐 token AUPRC 最高 0.87，并可靠降低单步潜在误差、改善预测；作者指出部分误差与数据流形相切，因此重点放在检测与定位，纠正仍有待进一步验证。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39182",
-      "aisafetyhot": "https://aisafetyhot.com/items/dcieeu7ccxsfyv7tcvcjqdbq9"
-    },
-    "publishedAt": "2026-09-30T07:38:49.000Z",
-    "timelineAt": "2026-10-01T02:24:58.571Z"
-  },
-  {
     "arxivId": "2609.39146",
     "title": "MADBench: Benchmarking the Security of Multi-Agent Debate",
     "titleZh": "MADBench：多智能体辩论安全性评测基准发布",
@@ -842,98 +477,6 @@
     },
     "publishedAt": "2026-09-30T07:12:59.000Z",
     "timelineAt": "2026-10-01T02:24:58.577Z"
-  },
-  {
-    "arxivId": "2609.39863",
-    "title": "FIGS: Evaluating Multi-Turn Sycophancy Without Penalizing Empathy",
-    "titleZh": "FIGS：在不惩罚共情的前提下评测多轮谄媚",
-    "authors": [
-      "Sidharth Pulipaka",
-      "Ruta Binkyte",
-      "Ivaxi Sheth",
-      "Sahar Abdelnabi"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 FIGS（Factual Integrity and Grounded Support）双轴评测框架，用自适应 10 轮对话模拟器动态挑战目标模型，评测大语言模型在多轮对话中的谄媚行为。框架用一套分类法严格区分谄媚（模型是否坚持事实、赞美是否适度）与校准认可（对用户情绪表达共情但不过度），以避免把基本共情误判为让步。作者发布了完整测试环境，包括 500 个多样化多轮场景和自动评判器。对领先模型的评测显示出一致权衡：在持续交互中，模型要么逐渐滑向谄媚，要么过度纠正为机械式的疏离，说明在自然对话中兼顾诚实与适度支持仍是未解决的难题。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39863",
-      "aisafetyhot": "https://aisafetyhot.com/items/y63as9u4jtlc17sw6tth2beim"
-    },
-    "publishedAt": "2026-10-01T04:00:00.000Z",
-    "timelineAt": "2026-10-01T04:00:00.000Z"
-  },
-  {
-    "arxivId": "2609.38379",
-    "title": "Aligned Data Can Induce Misalignment via Context Confusion",
-    "titleZh": "对齐数据可经上下文混淆引发模型失配",
-    "authors": [
-      "Yavuz Bakman",
-      "Duygu Nur Yaldiz",
-      "Baris Askin",
-      "Swastik Roy",
-      "Morteza Ziyadi",
-      "Salman Avestimehr",
-      "Sai Praneeth Karimireddy"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出并命名了后训练中的上下文混淆现象，即对齐训练会在其他语境中诱发失配行为。作者在性别平等、隐私和人身安全三个领域验证了该现象，并指出它造成的是窄域失配，与涌现式失配不同。注入通用对齐数据难以缓解该问题，而加入针对失配领域的定向对齐数据或在推理时提供上下文学习示例可显著降低失配。机制上，不同领域的查询在微调中经历相似的表示偏移，使其他领域的查询激活微调学到的同一行为特征，导致行为迁移到不适用的语境。作者据此认为仅凭训练数据难以预测模型训练后的对齐状态，需要全面的后训练对齐评测。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38379",
-      "aisafetyhot": "https://aisafetyhot.com/items/u1mydr95x3wzdwmoie6yki8t6"
-    },
-    "publishedAt": "2026-10-01T04:00:00.000Z",
-    "timelineAt": "2026-10-01T04:00:00.000Z"
-  },
-  {
-    "arxivId": "2609.38389",
-    "title": "The Geometry of Harmfulness in Multi-Turn Attacks",
-    "titleZh": "研究揭示多轮攻击中危害性表征的几何演化",
-    "authors": [
-      "Yelyzaveta (Lisa)",
-      "Husieva",
-      "Lauren Alvarez"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究分析了 Llama-3.1-8B-Instruct、Qwen2.5-7B-Instruct 和 Gemma-2-9B-it 三个指令微调模型在 Crescendo、ActorAttack 和 X-Teaming 三种多轮攻击框架下的隐藏状态表征。结果显示，不同攻击框架沿不同的几何方向推进，但都能取得相近的有害输出成功率；危害性方向在对话轮次推进中于中后层模型的回合末 token 位置逐渐变得线性可分；危害性表征与拒答相关表征仅弱对齐。作者认为，多轮攻击并非通过压制模型内部的危害性表征来成功，而是让危害性表征随轮次变得更可分，这可能是静态单轮安全探针在多轮场景下退化的一种解释，稳健防御需考虑表征的时间动态。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38389",
-      "aisafetyhot": "https://aisafetyhot.com/items/t838mzmwn4lr8wmzbj8y360m5"
-    },
-    "publishedAt": "2026-10-01T04:00:00.000Z",
-    "timelineAt": "2026-10-01T04:00:00.000Z"
-  },
-  {
-    "arxivId": "2609.39279",
-    "title": "Faithful Dual-constrained Erasure for Robust LLM Safety Alignment",
-    "titleZh": "FDCU：用双重约束子空间投影抵御机器遗忘后的重训练攻击",
-    "authors": [
-      "Jiaqing Li",
-      "Shide Zhou",
-      "Zhibo Zhang",
-      "Yuxi Li",
-      "Tianlong Yu",
-      "Kailong Wang"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出 FDCU，一种双重约束子空间投影框架，用于解决大语言模型机器遗忘后经良性微调即可恢复有害行为的重训练攻击问题。作者分析遗忘的优化动态后认为，脆弱性来自浅层对齐：模型并未真正擦除目标知识，而是激活原本休眠的参数充当伪抑制器，在完整的恶意表征外形成脆弱的抑制外壳。FDCU 通过逐元素双重掩码规则限制参数更新，用 Fisher Information 保留通用知识流形，并用最小功能干预原则（PMFI）禁止伪抑制器异常激活。在特定知识擦除与安全输出控制任务上，FDCU 在保持近乎无损通用能力的同时，取得了对重训练攻击的 state-of-the-art 鲁棒性。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39279",
-      "aisafetyhot": "https://aisafetyhot.com/items/qri4hm9yq964vn8y90tx6n78h"
-    },
-    "publishedAt": "2026-10-01T04:00:00.000Z",
-    "timelineAt": "2026-10-01T04:00:00.000Z"
   },
   {
     "arxivId": "2609.39838",
@@ -957,160 +500,6 @@
     "timelineAt": "2026-10-01T04:00:00.000Z"
   },
   {
-    "arxivId": "2609.39688",
-    "title": "ShieldCLIP: Selective Safety Alignment for Harmful Content Mitigation in Multimodal Foundation Models",
-    "titleZh": "ShieldCLIP：面向多模态基础模型有害内容的选择性安全对齐",
-    "authors": [
-      "Tobia Poppi",
-      "Silvia Cappelletti",
-      "Samuele Poppi",
-      "Marcella Cornia",
-      "Lorenzo Baraldi",
-      "Diego Garcia-Olano",
-      "Rita Cucchiara"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出 ShieldCLIP，首个按每个模态自身安全状态而非样本来源来条件化安全对齐的框架，在保留安全内容的同时只重定向不安全部分。作者同时发布 ViSUv2 数据集，包含 195k 四元组、覆盖 578 个概念和 28 个类别，并为每个模态提供独立安全标签。基于这些标签，ShieldCLIP 定义了四路条件目标：安全内容锚定，不安全模态重定向到对应安全版本，混合样本只更新不安全分支，双模态均不安全时强制一致性。在跨模态检索、Stable Diffusion v1.4 与 SDXL 的文生图以及 LLaVA 的图生文任务上，ShieldCLIP 相比此前的安全对齐编码器和强缓解基线持续减少有害输出，同时保留原始嵌入空间的效用。消融实验显示模态特定监督与选择性对齐目标均有贡献。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39688",
-      "aisafetyhot": "https://aisafetyhot.com/items/hz6c6n9dlqx0dcqxxyou3wpig"
-    },
-    "publishedAt": "2026-10-01T04:00:00.000Z",
-    "timelineAt": "2026-10-01T04:00:00.000Z"
-  },
-  {
-    "arxivId": "2609.39027",
-    "title": "A Missing Piece for Trustworthy AI Reviewers: From Benchmarking Rhetorical Robustness to SciCore Review",
-    "titleZh": "从 RobustReview 基准到 SciCore：AI 审稿人的修辞鲁棒性评测",
-    "authors": [
-      "Chenguang Wang",
-      "Ming Li",
-      "Chengrui Fan",
-      "Jianpeng Chen",
-      "Han Chen",
-      "Tianyi Zhou",
-      "Dawei Zhou"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出\"修辞鲁棒性\"（Rhetorical Robustness），要求 AI 审稿人对内容不变但措辞改写的稿件给出稳定评分，同时保持对不同论文的区分度。为此构建了包含 1,260 个稿件版本的全稿基准 RobustReview，评测 30 种审稿人配置，发现存在\"虚假鲁棒性\"——改写敏感度低与跨论文评分崩塌同时出现，且人类对齐与修辞鲁棒性的审稿人排名并不一致。据此提出双分支审稿人 SciCore，将全稿判断与结构化\"科学内核\"判断取平均，在 GPT-5.5 对比中取得领先的稳定性-区分度综合表现，并保持有竞争力的人类对齐。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39027",
-      "aisafetyhot": "https://aisafetyhot.com/items/bfzicak2i60tyer9ipfb11lhv"
-    },
-    "publishedAt": "2026-10-01T04:00:00.000Z",
-    "timelineAt": "2026-10-01T04:00:00.000Z"
-  },
-  {
-    "arxivId": "2609.40111",
-    "title": "Agent Error Dataset: Scaling 50,000 Error--Diagnosis Pairs for Failure Analysis and Error-Aware Post-Training",
-    "titleZh": "Agent Error Dataset 发布 5 万条错误诊断配对，用于失败分析与错误感知后训练",
-    "authors": [],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 Agent Error Dataset（AED），包含来自 9,961 个源任务、33 个环境、19 个 harness 家族和 23 个策略模型的 50,228 条错误诊断配对，并保留源轨迹与执行元数据以支持跨场景失败分析和重新诊断。作者用五阶段 Agentic Error-to-Training（AET）流程收集自然失败、生成诊断与修正建议，并对照记录证据进行核验。在 3,062 对匹配重放中，首次提出的修正把验证器通过率从 18.4% 提升到 51.1%，提高 32.7 个百分点。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.40111",
-      "aisafetyhot": "https://aisafetyhot.com/items/qk3p5komi0yqmhjt737i7vfm6"
-    },
-    "publishedAt": "2026-09-29T20:00:00.000Z",
-    "timelineAt": "2026-10-01T04:08:06.081Z"
-  },
-  {
-    "arxivId": "2609.39578",
-    "title": "Thinking Outside the Box: Can Language Models Rely on External Guidance Selectively?",
-    "titleZh": "Box² Bench：语言模型能否有选择地依赖外部指导",
-    "authors": [],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 Box² Bench，在模型和任务固定的前提下改变工作流的可靠性，分别测量模型能否利用有用工作流、能否抵抗误导性工作流。结果显示，可靠工作流通常提升表现，但误导性工作流仍会显著拉低成绩，能力较强的模型同样对外部指导的可靠性敏感。作者随后用仅含坏工作流的训练数据微调两个开源权重模型，反事实监督微调让模型对误导性指导更鲁棒，基于结果的强化学习进一步让模型更多利用有用工作流，而训练中从未见过好工作流。这种选择性依赖还迁移到其他易出错的外部信息上，在多智能体推理中表现为更好的同伴纠错，对受损记忆也更鲁棒。作者认为，随着智能体依赖工作流、记忆、工具和其他智能体，对不可靠外部信息的选择性依赖可能成为任务表现之外的重要可靠性维度。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39578",
-      "aisafetyhot": "https://aisafetyhot.com/items/wb1wv2eddci6bzf5t6r7372bq"
-    },
-    "publishedAt": "2026-09-29T20:00:00.000Z",
-    "timelineAt": "2026-10-01T04:08:06.093Z"
-  },
-  {
-    "arxivId": "2609.38822",
-    "title": "SkillSeek: Revisiting Agent Skill Retrieval at Marketplace Scale",
-    "titleZh": "SkillSeek：Agent 技能检索在 Marketplace 规模下的再审视",
-    "authors": [],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "SkillSeek 在 89 项任务的基准上对比 11 种检索方法，发现 1990 年代的 BM25 关键词匹配在 4 种设置中的 3 种追平或超过智能体式检索循环，小型 cross-encoder 在第四种设置以 0.442 通过率持平。每次运行成本为无技能 27.41 美元、该检索器 27.54 美元、智能体循环 51.30 美元，且该检索器在 CPU 上运行、不消耗任何语言模型 token。作者主张智能体式检索应作为兜底方案，标准检索流程才是首选；论文同时指出大技能池下第一阶段召回率会限制任何重排器的上限。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38822",
-      "aisafetyhot": "https://aisafetyhot.com/items/zjr0k0f06g5hqe4f9ds63ha6u"
-    },
-    "publishedAt": "2026-09-29T20:00:00.000Z",
-    "timelineAt": "2026-10-01T04:08:06.127Z"
-  },
-  {
-    "arxivId": "2609.38807",
-    "title": "PatchHolmes: Agentic Patch Retrieval via Listwise Selection",
-    "titleZh": "PatchHolmes：基于列表式选择的智能体补丁检索系统",
-    "authors": [],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "PatchHolmes 提出让 AI 智能体一次性读取前 100 个候选提交并通过四个预算受限的工具逐一打开提交来定位漏洞修复补丁的方法，将 Recall@1 从逐点系统的 34.61% 提升至 59.95%。该系统无需微调和付费搜索 API，仅依赖冻结的开源权重模型运行于本地 Git 克隆仓库之上，单次处理约消耗 96000 输入 token、执行 8 次工具调用并阅读 5 个提交。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38807",
-      "aisafetyhot": "https://aisafetyhot.com/items/onq834p8knv42kol0h088vypi"
-    },
-    "publishedAt": "2026-09-29T20:00:00.000Z",
-    "timelineAt": "2026-10-01T04:08:06.141Z"
-  },
-  {
-    "arxivId": "2609.38249",
-    "title": "SURE: Framework for Safety to Construct Trustworthy AI",
-    "titleZh": "SURE：构建可信 AI 的安全框架",
-    "authors": [
-      "Soeun Han"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出 SURE（A Safe and Unified AI Framework foR Everyone）框架，用于按国家、文化和企业政策定制 AI 安全属性并加以保障。该框架建立对抗性提示词分类体系并据此构造提示词，定义理想 AI 回复模板与绝对安全评分方案，再通过数据集进行 AI 对齐。在多种基座模型上的实验验证了 SURE 的有效性，论文已被 KDD 2025 EAI Workshop 接收。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38249",
-      "aisafetyhot": "https://aisafetyhot.com/items/ghh6lhyyjn94kd45xabxvrc8q"
-    },
-    "publishedAt": "2026-09-29T07:18:47.000Z",
-    "timelineAt": "2026-10-01T04:32:17.212Z"
-  },
-  {
-    "arxivId": "2609.40285",
-    "title": "PivotOPD: Learning to Recover from Pivotal Mistakes in Multi-Turn Agents",
-    "titleZh": "PivotOPD：让多轮智能体从关键错误中恢复的在线策略蒸馏框架",
-    "authors": [],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "PivotOPD 是一个在线策略蒸馏框架，同时训练学生模型预防关键错误并从其造成的状态中恢复。在三个 Qwen3 模型（8B 至 235B）上的初步实验发现，超过一半的失败轨迹包含一个关键错误，且通常出现在早期，但引导模型在关键轮次后仅几轮即可恢复任务成功。在 ALFWorld、WebShop 和 Search-based QA 上对比 13 个基线，PivotOPD 对 Qwen3-1.7B 和 Qwen3-8B 学生均取得最强平均表现，1.7B 学生在 ALFWorld 上比最强基线提升 +5.5%；在 SWE-Bench Verified 上，Nemotron-3.5 学生的解决率提升 +3.2%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.40285",
-      "aisafetyhot": "https://aisafetyhot.com/items/mbpi4kc0ky9vxqqrlijc1c0jd"
-    },
-    "publishedAt": "2026-09-29T20:00:00.000Z",
-    "timelineAt": "2026-10-01T05:08:17.079Z"
-  },
-  {
     "arxivId": "2609.39102",
     "title": "False Frontiers: Diagnosing and Mitigating Co-Cheating in Self-Evolving Search Agents",
     "titleZh": "论文提出 CrossFit 缓解自演化搜索智能体的共谋作弊",
@@ -1126,104 +515,6 @@
     },
     "publishedAt": "2026-09-29T20:00:00.000Z",
     "timelineAt": "2026-10-01T06:09:17.968Z"
-  },
-  {
-    "arxivId": "2609.39982",
-    "title": "Mid-Harness: Scaling Actions Between Model and Harness for Terminal Agents",
-    "titleZh": "Mid-Harness：在模型与 Harness 之间扩展终端智能体的动作采样",
-    "authors": [],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "Mid-Harness 在模型与 harness 边界采样并验证候选动作后再转发执行，生成器与 harness 保持不变。在 TerminalBench-Lite 上，GPT-5.6 Sol 验证器配合 8 个采样动作将 TMAX-9B 生成器的 Pass@1 从 50.00% 提升至 68.03%；弱验证下增加采样收益有限。将强验证器响应蒸馏回 TMAX-9B 可进一步提升 Pass@1，且动作与轨迹扩展结合比单独生成更多轨迹更省 token。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39982",
-      "aisafetyhot": "https://aisafetyhot.com/items/wvyvhujgq6qp06hdzi1x7x59e"
-    },
-    "publishedAt": "2026-09-29T20:00:00.000Z",
-    "timelineAt": "2026-10-01T06:09:18.000Z"
-  },
-  {
-    "arxivId": "2609.39903",
-    "title": "OSWorld-Science: A Benchmark of Computer Use Agents for Learning and Using Scientific Software",
-    "titleZh": "OSWorld-Science：面向科学软件学习与使用的计算机操作智能体基准",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者发布 OSWorld-Science，一个面向科学领域计算机操作智能体的基准与评测环境，包含 12 个 VLM 和 146 个高质量任务，覆盖分子绘制与逆合成、病理图像分析、统计计算和物理模拟等科研工作流。任务由专家提案并经人机协同迭代设计，按科学价值与难度筛选。任务专属的执行式评测器检查应用状态与生成产物，包括分子结构、分割掩码、图表和数值结果，并对未完成结果给予部分分数。配套 harness 集成模型适配器、交互循环控制和轨迹日志，用于比较模型与交互策略。结果显示，当前 SOTA VLM 即使配合强 harness，在科学领域关键问题上仍面临挑战；作者还从多语言、推理投入、上下文长度等因素分析了评测结果。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39903",
-      "aisafetyhot": "https://aisafetyhot.com/items/s99dzcsxwwiv4zfyrnm7yceig"
-    },
-    "publishedAt": "2026-09-29T20:00:00.000Z",
-    "timelineAt": "2026-10-01T07:10:16.779Z"
-  },
-  {
-    "arxivId": "2609.39788",
-    "title": "Safety of Latent Communication in Multi-Agent Systems",
-    "titleZh": "研究：多智能体系统潜在通信链路可被训练用于提升有害顺从",
-    "authors": [],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究显示，多智能体系统在内部表示空间进行潜在通信时，即使只是良性训练通信链路，也会在底层安全对齐智能体不变的情况下提高有害顺从程度。攻击者可通过在有害问答对上优化链路，或向原本良性的训练数据投毒来放大该效应。作者还提出一种强化学习攻击，在奖励有害顺从的同时兼顾良性任务表现，无需有害目标回复。在三种通信拓扑和四个安全基准上，该攻击将平均有害顺从分数从良性训练链路的 27.9 提升至 76.9，并在两个良性效用基准上取得比直接监督优化更高的平均准确率。将奖励调整为更安全的行为也能修复被污染的链路，在无需更新智能体的情况下大幅降低所有评估攻击的有害顺从。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39788",
-      "aisafetyhot": "https://aisafetyhot.com/items/plos61plvnr5ghhqjqm6wmeon"
-    },
-    "publishedAt": "2026-09-29T20:00:00.000Z",
-    "timelineAt": "2026-10-01T10:13:17.263Z"
-  },
-  {
-    "arxivId": "2609.39625",
-    "title": "D-Scope: Decomposing and Steering Diffusion Transformers with Sparse Autoencoders",
-    "titleZh": "D-Scope：用稀疏自编码器分解与操控扩散 Transformer",
-    "authors": [
-      "Xinyue Xu",
-      "Jiahao Zhang",
-      "Lijie Hu",
-      "Peter Hase",
-      "Hao Wang"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "D-Scope 是一个把扩散 Transformer（DiT）特征解释与生成控制打通的框架，通过将高激活图像块的 SigLIP 2 嵌入聚合成视觉质心，在共享图文嵌入空间中用文本描述匹配检索单个特征，无需逐特征文本标注。研究刻画了两个模型家族、五个层的 150 个 SAE，并发布含 100 个目标概念、每个概念十种上下文的基准。结果显示高重建保真度可与低字典利用率和有限的视觉证据覆盖并存；在逐例最优强度选择下，对比检索在测试的操控配置中带来更大的区域 SigLIP 2 平均增益，但未持续改善区域外保持。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39625",
-      "aisafetyhot": "https://aisafetyhot.com/items/n5aocvrwwy4u8yejgbbihidwy"
-    },
-    "publishedAt": "2026-09-30T12:35:52.000Z",
-    "timelineAt": "2026-10-01T10:16:09.217Z"
-  },
-  {
-    "arxivId": "2609.39117",
-    "title": "SteerProbe: Learning to Bypass Safety Steering in Vision-Language Models",
-    "titleZh": "SteerProbe：学习绕过视觉语言模型安全引导的黑盒攻击",
-    "authors": [
-      "Xinwei Zhang",
-      "Aoting Hu",
-      "Hangcheng Liu",
-      "Shuchao Pang",
-      "Qingqing Ye",
-      "Haibo Hu"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 SteerProbe，一种仅依赖输出的黑盒攻击，通过学习为未见请求选择有效的改写方式，绕过视觉语言模型（VLM）的激活引导防御。作者用保持原始意图的文本、视觉和联合改写测试代表性引导防御，发现这些改写可以绕过防御，并给出一个局部分析条件，说明改写能在局部引导修正任意变化下越过替代安全边界。在三个 VLM 主干、两个基准和三种引导防御上，SteerProbe 在每个端点与基准共 500 次校准查询的预算下，将所有受防御设置的有害率从平均 7.43% 提升到 18.36%。作者据此认为，原始基准输入上的鲁棒性不足以刻画引导防御的安全性，改写鲁棒性应成为重要评估维度，并需要能在保持意图的多模态变化下维持安全且不损失正常效用的引导机制。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.39117",
-      "aisafetyhot": "https://aisafetyhot.com/items/cp25d9va2g9k3fey45vqfnh3m"
-    },
-    "publishedAt": "2026-09-30T06:53:50.000Z",
-    "timelineAt": "2026-10-01T10:16:09.228Z"
   },
   {
     "arxivId": "2609.38107",
@@ -1279,6 +570,71 @@
     "timelineAt": "2026-10-01T12:21:23.543Z"
   },
   {
+    "arxivId": "2609.36474",
+    "title": "FinRT: Distilling Adaptive Red-Teaming Strategies into Reusable Adversarial Generators in Consumer Finance",
+    "titleZh": "FinRT：将自适应红队策略蒸馏为消费金融领域的可复用对抗生成器",
+    "authors": [
+      "Rikhiya Ghosh"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 FinRT，一个从自适应红队策略中构建可复用对抗提示词生成器的结构化框架，面向消费金融等受监管行业。在六个受害模型上，FinRT 的攻击成功率接近自适应基线 Rainbow Teaming 的两倍（32.9% 对 17.2%），最大对抗严重度提升 33%，并保持与迭代搜索方法相当的策略域内语义多样性。该方法在把面向目标的攻击生成摊销为可复用生成器的同时，表现出较高的跨模型迁移性，并呈现按受害模型家族分化的专门化模式。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.36474",
+      "aisafetyhot": "https://aisafetyhot.com/items/ypper47mhwfs83mipaojddpx8"
+    },
+    "publishedAt": "2026-09-29T01:33:31.000Z",
+    "timelineAt": "2026-09-30T22:19:33.677Z"
+  },
+  {
+    "arxivId": "2609.39863",
+    "title": "FIGS: Evaluating Multi-Turn Sycophancy Without Penalizing Empathy",
+    "titleZh": "FIGS：在不惩罚共情的前提下评测多轮谄媚",
+    "authors": [
+      "Sidharth Pulipaka",
+      "Ruta Binkyte",
+      "Ivaxi Sheth",
+      "Sahar Abdelnabi"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 FIGS（Factual Integrity and Grounded Support）双轴评测框架，用自适应 10 轮对话模拟器动态挑战目标模型，评测大语言模型在多轮对话中的谄媚行为。框架用一套分类法严格区分谄媚（模型是否坚持事实、赞美是否适度）与校准认可（对用户情绪表达共情但不过度），以避免把基本共情误判为让步。作者发布了完整测试环境，包括 500 个多样化多轮场景和自动评判器。对领先模型的评测显示出一致权衡：在持续交互中，模型要么逐渐滑向谄媚，要么过度纠正为机械式的疏离，说明在自然对话中兼顾诚实与适度支持仍是未解决的难题。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39863",
+      "aisafetyhot": "https://aisafetyhot.com/items/y63as9u4jtlc17sw6tth2beim"
+    },
+    "publishedAt": "2026-10-01T04:00:00.000Z",
+    "timelineAt": "2026-10-01T04:00:00.000Z"
+  },
+  {
+    "arxivId": "2609.39117",
+    "title": "SteerProbe: Learning to Bypass Safety Steering in Vision-Language Models",
+    "titleZh": "SteerProbe：学习绕过视觉语言模型安全引导的黑盒攻击",
+    "authors": [
+      "Xinwei Zhang",
+      "Aoting Hu",
+      "Hangcheng Liu",
+      "Shuchao Pang",
+      "Qingqing Ye",
+      "Haibo Hu"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 SteerProbe，一种仅依赖输出的黑盒攻击，通过学习为未见请求选择有效的改写方式，绕过视觉语言模型（VLM）的激活引导防御。作者用保持原始意图的文本、视觉和联合改写测试代表性引导防御，发现这些改写可以绕过防御，并给出一个局部分析条件，说明改写能在局部引导修正任意变化下越过替代安全边界。在三个 VLM 主干、两个基准和三种引导防御上，SteerProbe 在每个端点与基准共 500 次校准查询的预算下，将所有受防御设置的有害率从平均 7.43% 提升到 18.36%。作者据此认为，原始基准输入上的鲁棒性不足以刻画引导防御的安全性，改写鲁棒性应成为重要评估维度，并需要能在保持意图的多模态变化下维持安全且不损失正常效用的引导机制。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39117",
+      "aisafetyhot": "https://aisafetyhot.com/items/cp25d9va2g9k3fey45vqfnh3m"
+    },
+    "publishedAt": "2026-09-30T06:53:50.000Z",
+    "timelineAt": "2026-10-01T10:16:09.228Z"
+  },
+  {
     "arxivId": "2609.40295",
     "title": "How Much Is an AI Token Worth? Scaling Laws for Wild AI-Generated Web Text",
     "titleZh": "一个 AI token 值多少？研究者为野生 AI 生成网页文本提出新缩放定律",
@@ -1294,5 +650,649 @@
     },
     "publishedAt": "2026-09-29T20:00:00.000Z",
     "timelineAt": "2026-10-01T14:15:42.280Z"
+  },
+  {
+    "arxivId": "2609.37310",
+    "title": "AutoMark: Enabling Autoresearch to Discover Better LLM Watermarks",
+    "titleZh": "AutoMark：让自动研究流程自主发现更优 LLM 水印方案",
+    "authors": [
+      "Thibaud Gloaguen"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "AutoMark 提出一套让自动研究流程自主发现无失真水印方案的框架，作者称这是首次实现水印方案的自主发现。框架包含三部分：设定水印可靠性的严格标准（例如避免异常高的假阳性率）、用统计检验自动判断方案是否满足标准，以及从可检测性、质量和鲁棒性三个维度对水印排序的评测套件。在 GPT-6 Astra、Opus 5、Gemini-3.8 Flash 三个前沿模型上运行后，共发现 50 多种水印方案，其中若干在所有关键维度上超过此前工作。作者还对发现的方案做人工分析，把关键思路拆解为更小组件并逐一研究各组件对三个维度的影响，并指出智能体除改进已有思路外也发现了全新思路，例如将水印分数与随请求变化的随机方向对齐。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.37310",
+      "aisafetyhot": "https://aisafetyhot.com/items/uvpki3udr7lkkbu6oqb7r8j3n"
+    },
+    "publishedAt": "2026-09-29T11:45:47.000Z",
+    "timelineAt": "2026-09-30T22:19:33.778Z"
+  },
+  {
+    "arxivId": "2609.36900",
+    "title": "STAR-GRPO: Canonical Anchoring and Reliability-First Advantages against Representation-Dependent Reward Hacking",
+    "titleZh": "STAR-GRPO：用可靠性优先优势估计抑制奖励作弊",
+    "authors": [
+      "Wan Tian"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 STAR-GRPO（Self-Tuned Anchored Reliability Group-Relative Policy Optimization），一种可靠性优先的优势估计方法，用于缓解组相对策略优化中的奖励作弊。该方法基于对同一 rollout 的成对评估，把质量信号与其学习影响分离：评分分歧决定 rollout 可靠性，相对可靠性先进入自调的稳健位置-尺度拟合再做组归一化，绝对组可靠性则衰减最终的有界优势。分析给出了坐标与二阶矩边界、通过加权位置方程刻画精确中心化，以及针对离群奖励的可靠性相关衰减保证。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.36900",
+      "aisafetyhot": "https://aisafetyhot.com/items/mn2bzlebs76kispd3cdoo0vdk"
+    },
+    "publishedAt": "2026-09-29T07:25:06.000Z",
+    "timelineAt": "2026-09-30T22:19:33.974Z"
+  },
+  {
+    "arxivId": "2609.36855",
+    "title": "When Upstream Messages Override Correct Answers: A Controlled Study of Multi-Agent LLM Collaboration",
+    "titleZh": "研究：上游错误消息会让多智能体 LLM 下游覆盖正确答案",
+    "authors": [
+      "Yaxin Gong"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者在五个基准和五个接收方模型上做受控实验，固定下游任务与证据，比较无消息、上游原始消息和结论相反消息三种条件，以分离多智能体通信的收益与损害。结果显示，当下游本会答错时消息常有帮助；但当下游本可答对时，错误的上游消息最多在 32% 的情况下改变其答案。在人工审核的有害案例中，94% 是下游直接照抄上游的具体错误答案，作者称之为答案替换。移除不可靠消息能恢复部分损失的准确率，说明通信应依据上游可靠性和下游已有证据进行选择性过滤。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.36855",
+      "aisafetyhot": "https://aisafetyhot.com/items/hurbgl71njc6kgmai3o3axblx"
+    },
+    "publishedAt": "2026-09-29T07:01:10.000Z",
+    "timelineAt": "2026-09-30T22:20:33.609Z"
+  },
+  {
+    "arxivId": "2609.37054",
+    "title": "ACTR: Aligning Thoughts and Responses for Multilingual Safety in Reasoning LLMs",
+    "titleZh": "ACTR：对齐推理链与回答以提升推理大模型的多语言安全",
+    "authors": [
+      "Xianhui Zhang"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 ACTR 框架，通过强化推理大模型已有的安全推理来提升多语言安全对齐。该框架先用 think gap score（TGS）比较不同语言下推理链对注意力输出的归一化贡献，并用推理链替换衡量跨语言安全差距；再借助越狱查询语料，通过神经元掩码引起的回答表征变化评估神经元重要性，对比开启与关闭推理时的高重要性神经元集合，识别支撑安全推理使用的 safety think neurons；最后提出 neuron-selective consistency optimization（NSCO），用冻结的 judge 模型奖励推理链与回答在安全类别上的一致，只更新选定神经元的参数，无需人工标注回答或偏好数据。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.37054",
+      "aisafetyhot": "https://aisafetyhot.com/items/c8whheun6xeg6pqmnq7u290r0"
+    },
+    "publishedAt": "2026-09-29T08:58:55.000Z",
+    "timelineAt": "2026-10-01T02:22:57.168Z"
+  },
+  {
+    "arxivId": "2609.39047",
+    "title": "BadAction: Backdoor Attacks on Interactive Video Generation via Action-Guided Triggers",
+    "titleZh": "BadAction：通过动作引导触发器对交互式视频生成模型实施后门攻击",
+    "authors": [
+      "Zhihang Wu",
+      "Zhongqi Wang",
+      "Jie Zhang",
+      "Fengming Gu",
+      "Shiguang Shan",
+      "Xilin Chen"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 BadAction，首次系统研究针对交互式视频生成（IVG）模型交互性的后门攻击。该方法把预定义运动模式植入后门样本的动作序列，并关联一个静态目标视频，触发后模型生成冻结的未来帧、不再响应用户后续动作，同时在正常动作序列上保持正常行为。实验显示，仅用动作触发器时平均攻击成功率为 91.0%，动作、文本、图像联合的多模态触发器为 80.4%。大量防御评估表明 BadAction 能绕过现有后门检测方法，暴露出交互式视频生成流程中的安全缺口。项目页面：https://wsad55.github.io/badaction01/。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39047",
+      "aisafetyhot": "https://aisafetyhot.com/items/itmh6o0g4u9ivu5a1wzy714dj"
+    },
+    "publishedAt": "2026-09-30T05:55:09.000Z",
+    "timelineAt": "2026-10-01T02:24:16.024Z"
+  },
+  {
+    "arxivId": "2609.39866",
+    "title": "Preemptive LLM Unlearning against Forbidden Capability Acquisition via Gradient Sealing",
+    "titleZh": "研究者提出梯度封堵实现 LLM 发布前的预防性遗忘",
+    "authors": [
+      "Kemou Li",
+      "Qizhou Wang",
+      "Yue Wang",
+      "Fengpeng Li",
+      "Zhuan Shi",
+      "Negar Rostamzadeh",
+      "Golnoosh Farnadi",
+      "Masashi Sugiyama",
+      "Jiantao Zhou"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出梯度封堵（gradient sealing）方法，用于在开放权重 LLM 发布前阻止下游微调重新习得被禁能力。作者先验证现有回顾式遗忘方法在发布前防护上不足：即使当前输出已抑制被禁能力，被禁领域数据仍能通过内部通路产生梯度，使能力在后续微调中被重新获得。梯度封堵的原理是把相关预激活推入负区间，使 ReLU 族激活的导数变为零或接近零，从而阻断这些通路。在多个 LLM 系列上的实验显示，该方法对下游能力习得的抵抗强于回顾式基线。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39866",
+      "aisafetyhot": "https://aisafetyhot.com/items/hdnmr8pdrs3vk6ne6pis7fwlg"
+    },
+    "publishedAt": "2026-09-30T14:48:36.000Z",
+    "timelineAt": "2026-10-01T02:24:58.553Z"
+  },
+  {
+    "arxivId": "2609.39688",
+    "title": "ShieldCLIP: Selective Safety Alignment for Harmful Content Mitigation in Multimodal Foundation Models",
+    "titleZh": "ShieldCLIP：面向多模态基础模型有害内容的选择性安全对齐",
+    "authors": [
+      "Tobia Poppi",
+      "Silvia Cappelletti",
+      "Samuele Poppi",
+      "Marcella Cornia",
+      "Lorenzo Baraldi",
+      "Diego Garcia-Olano",
+      "Rita Cucchiara"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出 ShieldCLIP，首个按每个模态自身安全状态而非样本来源来条件化安全对齐的框架，在保留安全内容的同时只重定向不安全部分。作者同时发布 ViSUv2 数据集，包含 195k 四元组、覆盖 578 个概念和 28 个类别，并为每个模态提供独立安全标签。基于这些标签，ShieldCLIP 定义了四路条件目标：安全内容锚定，不安全模态重定向到对应安全版本，混合样本只更新不安全分支，双模态均不安全时强制一致性。在跨模态检索、Stable Diffusion v1.4 与 SDXL 的文生图以及 LLaVA 的图生文任务上，ShieldCLIP 相比此前的安全对齐编码器和强缓解基线持续减少有害输出，同时保留原始嵌入空间的效用。消融实验显示模态特定监督与选择性对齐目标均有贡献。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39688",
+      "aisafetyhot": "https://aisafetyhot.com/items/hz6c6n9dlqx0dcqxxyou3wpig"
+    },
+    "publishedAt": "2026-10-01T04:00:00.000Z",
+    "timelineAt": "2026-10-01T04:00:00.000Z"
+  },
+  {
+    "arxivId": "2609.39279",
+    "title": "Faithful Dual-constrained Erasure for Robust LLM Safety Alignment",
+    "titleZh": "FDCU：用双重约束子空间投影抵御机器遗忘后的重训练攻击",
+    "authors": [
+      "Jiaqing Li",
+      "Shide Zhou",
+      "Zhibo Zhang",
+      "Yuxi Li",
+      "Tianlong Yu",
+      "Kailong Wang"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出 FDCU，一种双重约束子空间投影框架，用于解决大语言模型机器遗忘后经良性微调即可恢复有害行为的重训练攻击问题。作者分析遗忘的优化动态后认为，脆弱性来自浅层对齐：模型并未真正擦除目标知识，而是激活原本休眠的参数充当伪抑制器，在完整的恶意表征外形成脆弱的抑制外壳。FDCU 通过逐元素双重掩码规则限制参数更新，用 Fisher Information 保留通用知识流形，并用最小功能干预原则（PMFI）禁止伪抑制器异常激活。在特定知识擦除与安全输出控制任务上，FDCU 在保持近乎无损通用能力的同时，取得了对重训练攻击的 state-of-the-art 鲁棒性。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39279",
+      "aisafetyhot": "https://aisafetyhot.com/items/qri4hm9yq964vn8y90tx6n78h"
+    },
+    "publishedAt": "2026-10-01T04:00:00.000Z",
+    "timelineAt": "2026-10-01T04:00:00.000Z"
+  },
+  {
+    "arxivId": "2609.38389",
+    "title": "The Geometry of Harmfulness in Multi-Turn Attacks",
+    "titleZh": "研究揭示多轮攻击中危害性表征的几何演化",
+    "authors": [
+      "Yelyzaveta (Lisa)",
+      "Husieva",
+      "Lauren Alvarez"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究分析了 Llama-3.1-8B-Instruct、Qwen2.5-7B-Instruct 和 Gemma-2-9B-it 三个指令微调模型在 Crescendo、ActorAttack 和 X-Teaming 三种多轮攻击框架下的隐藏状态表征。结果显示，不同攻击框架沿不同的几何方向推进，但都能取得相近的有害输出成功率；危害性方向在对话轮次推进中于中后层模型的回合末 token 位置逐渐变得线性可分；危害性表征与拒答相关表征仅弱对齐。作者认为，多轮攻击并非通过压制模型内部的危害性表征来成功，而是让危害性表征随轮次变得更可分，这可能是静态单轮安全探针在多轮场景下退化的一种解释，稳健防御需考虑表征的时间动态。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38389",
+      "aisafetyhot": "https://aisafetyhot.com/items/t838mzmwn4lr8wmzbj8y360m5"
+    },
+    "publishedAt": "2026-10-01T04:00:00.000Z",
+    "timelineAt": "2026-10-01T04:00:00.000Z"
+  },
+  {
+    "arxivId": "2609.40111",
+    "title": "Agent Error Dataset: Scaling 50,000 Error--Diagnosis Pairs for Failure Analysis and Error-Aware Post-Training",
+    "titleZh": "Agent Error Dataset 发布 5 万条错误诊断配对，用于失败分析与错误感知后训练",
+    "authors": [],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 Agent Error Dataset（AED），包含来自 9,961 个源任务、33 个环境、19 个 harness 家族和 23 个策略模型的 50,228 条错误诊断配对，并保留源轨迹与执行元数据以支持跨场景失败分析和重新诊断。作者用五阶段 Agentic Error-to-Training（AET）流程收集自然失败、生成诊断与修正建议，并对照记录证据进行核验。在 3,062 对匹配重放中，首次提出的修正把验证器通过率从 18.4% 提升到 51.1%，提高 32.7 个百分点。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.40111",
+      "aisafetyhot": "https://aisafetyhot.com/items/qk3p5komi0yqmhjt737i7vfm6"
+    },
+    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "timelineAt": "2026-10-01T04:08:06.081Z"
+  },
+  {
+    "arxivId": "2609.39578",
+    "title": "Thinking Outside the Box: Can Language Models Rely on External Guidance Selectively?",
+    "titleZh": "Box² Bench：语言模型能否有选择地依赖外部指导",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Box² Bench，在模型和任务固定的前提下改变工作流的可靠性，分别测量模型能否利用有用工作流、能否抵抗误导性工作流。结果显示，可靠工作流通常提升表现，但误导性工作流仍会显著拉低成绩，能力较强的模型同样对外部指导的可靠性敏感。作者随后用仅含坏工作流的训练数据微调两个开源权重模型，反事实监督微调让模型对误导性指导更鲁棒，基于结果的强化学习进一步让模型更多利用有用工作流，而训练中从未见过好工作流。这种选择性依赖还迁移到其他易出错的外部信息上，在多智能体推理中表现为更好的同伴纠错，对受损记忆也更鲁棒。作者认为，随着智能体依赖工作流、记忆、工具和其他智能体，对不可靠外部信息的选择性依赖可能成为任务表现之外的重要可靠性维度。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39578",
+      "aisafetyhot": "https://aisafetyhot.com/items/wb1wv2eddci6bzf5t6r7372bq"
+    },
+    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "timelineAt": "2026-10-01T04:08:06.093Z"
+  },
+  {
+    "arxivId": "2609.39903",
+    "title": "OSWorld-Science: A Benchmark of Computer Use Agents for Learning and Using Scientific Software",
+    "titleZh": "OSWorld-Science：面向科学软件学习与使用的计算机操作智能体基准",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者发布 OSWorld-Science，一个面向科学领域计算机操作智能体的基准与评测环境，包含 12 个 VLM 和 146 个高质量任务，覆盖分子绘制与逆合成、病理图像分析、统计计算和物理模拟等科研工作流。任务由专家提案并经人机协同迭代设计，按科学价值与难度筛选。任务专属的执行式评测器检查应用状态与生成产物，包括分子结构、分割掩码、图表和数值结果，并对未完成结果给予部分分数。配套 harness 集成模型适配器、交互循环控制和轨迹日志，用于比较模型与交互策略。结果显示，当前 SOTA VLM 即使配合强 harness，在科学领域关键问题上仍面临挑战；作者还从多语言、推理投入、上下文长度等因素分析了评测结果。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39903",
+      "aisafetyhot": "https://aisafetyhot.com/items/s99dzcsxwwiv4zfyrnm7yceig"
+    },
+    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "timelineAt": "2026-10-01T07:10:16.779Z"
+  },
+  {
+    "arxivId": "2609.38248",
+    "title": "ContractWarden: Kernel-Enforced Damage Boundaries for AI Agents via Human-Authorized Contracts",
+    "titleZh": "ContractWarden：用人类授权契约在内核层为 AI Agent 划定损害边界",
+    "authors": [
+      "Dongxu Cui",
+      "Zhichao Gu",
+      "Ping Zheng",
+      "Wenshuai Xi",
+      "Simeng Han",
+      "Yong Liao"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "ContractWarden 是一个 Linux 参考监视器，通过人类授权的契约在内核层为 AI Agent 划定损害边界，不信任 Agent 本身或其策略建议。模型可以提出 allow、deny 或 no_egress 三态资产契约，但由人类做最终选择；执行门在不可信代码运行前把契约绑定到具体任务，再由基于 eBPF 的 LSM 数据平面执行文件与网络决策，并将 no_egress 沿进程、普通文件、管道、FIFO 和受支持的 Unix-domain socket 单调传播。在 19 项安全测试的 570 次运行中，全部满足预设的返回值与副作用标准。在三项同机文件 I/O 负载上，Linux 6.15 虚拟机中的中位开销为 11.96%–12.89%，物理平台为 35.79%–61.54%，低于所评估的冻结版 ActPlane 基线。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38248",
+      "aisafetyhot": "https://aisafetyhot.com/items/fbtqerfesalf876hmh6ul795z"
+    },
+    "publishedAt": "2026-09-29T07:13:14.000Z",
+    "timelineAt": "2026-10-01T01:22:33.431Z"
+  },
+  {
+    "arxivId": "2609.38324",
+    "title": "Multi-agent discussion gains less when dissent is withheld",
+    "titleZh": "研究：多智能体讨论中异议被压制时收益下降",
+    "authors": [
+      "Chand Sahil Mansuri",
+      "Xin Wang",
+      "Mengying Li",
+      "Bryan Acton",
+      "Rory Eckardt",
+      "Dhaval Patel",
+      "Sadamori Kojaku"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出一个简约模型，解释 LLM 多智能体讨论何时提升准确率、何时形成错误共识，模型基于四类反复观察到的智能体行为：压制异议、内化已陈述答案、看到异议后重新考虑、向正确答案修正。模型显示，只有当压制率 c 低于临界率 c* = γ/(γ + a) 时，讨论才能推翻错误的初始多数，其中 γ 为净修正率、a 为内化率。作者用贝叶斯方法从对话日志估计这些比率，并在 HiddenBench 和 MedEInst 等基准上验证：随着压制率上升，讨论带来的增益缩小；指示智能体不要压制异议会提升增益；关闭推理同样提升增益，因为推理会提高内化率 a，使智能体不再重新考虑少数派答案。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38324",
+      "aisafetyhot": "https://aisafetyhot.com/items/ytrojryxuz6q09je1e5zw7x2n"
+    },
+    "publishedAt": "2026-09-29T18:00:14.000Z",
+    "timelineAt": "2026-10-01T02:24:36.226Z"
+  },
+  {
+    "arxivId": "2609.39473",
+    "title": "Beyond the Shadows of Plato's Cave: Evaluating False Memory in Autonomous Agents via Counterfactual Reasoning",
+    "titleZh": "FAME：用反事实推理评测自主智能体的虚假记忆",
+    "authors": [
+      "Quan M. Tran",
+      "Zhuo Huang",
+      "Zhen Fang",
+      "Jing Zhang",
+      "Mingming Gong",
+      "Tongliang Liu"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 FAME，一个免训练框架，通过反事实推理下智能体信念的演化来评测自主智能体的虚假记忆。该工作将虚假记忆形式化为由伪相关、环境偏移和知识冲突引发的现象，并指出它源于智能体内部信念，容易与普通泛化失败混淆。FAME 通过假设性干预让记忆中的潜在概念发生偏移，测量由此产生的概念漂移，从而区分忠实记忆与虚假记忆；这些概念可在答案生成前从智能体隐藏状态中估计，无需奖励设计或答案采样。实验显示，仅监控答案往往无法检测虚假记忆，而 FAME 在各类虚假记忆设定下 AUROC 达到 76.2% - 96.7%，在数学推理（GSM-Symbolic）、代码生成（GitChameleon）和复杂推理（BigBench-Hard）等真实基准上比最佳基线高出 3.4% - 23.3%。作者同时发布了相应的反事实模板。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39473",
+      "aisafetyhot": "https://aisafetyhot.com/items/xrtb5pjqzwtfzp0g029tc9kpz"
+    },
+    "publishedAt": "2026-09-30T10:35:41.000Z",
+    "timelineAt": "2026-10-01T02:23:36.527Z"
+  },
+  {
+    "arxivId": "2609.38239",
+    "title": "Inference-Layer Security: Defending Against Adversarial Inference and Infrastructure Abuse",
+    "titleZh": "推理层安全：防御对抗性推理与基础设施滥用",
+    "authors": [
+      "Keifer Lee"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文研究 LLM 服务在推理层面临的对抗性交互，包括越狱、拒绝服务与知识蒸馏攻击，并以假设的前沿实验室 Five Elements Inc. 为例展开。由于缺少公开的对抗性 LLM 使用标注数据集，作者提出结构因果模型（SCM）生成带标签的用户会话数据集，包含协同多账号活动、平台反馈和三个层级的标签可观测性。在该数据集上训练的梯度提升检测器对 oracle 标签的二元分类 AUPRC 达 0.993，但面对真实 Trust & Safety 团队持有的运营标签时 AUPRC 仅 0.313，说明检测器比用于评估它的标签更准确。攻击类型归因方面，朴素 argmax 受 98% 良性先验主导，macro-F1 仅 0.295，改用简单阈值决策引擎后提升到 0.489 且不损失准确率。数据集已公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38239",
+      "aisafetyhot": "https://aisafetyhot.com/items/sel9ej0chkewzvaq34r556trv"
+    },
+    "publishedAt": "2026-09-29T01:55:16.000Z",
+    "timelineAt": "2026-10-01T01:22:33.468Z"
+  },
+  {
+    "arxivId": "2609.39548",
+    "title": "Learning Normal Diffusion Dynamics for Backdoor Defense in Text-to-Image Models",
+    "titleZh": "NDDL：用正常扩散动力学为文生图模型做后门防御",
+    "authors": [
+      "Junjian Li",
+      "Xiaolong Liu",
+      "Peng Sun",
+      "Liantao Wu",
+      "Linghan Chen",
+      "Yudong Gao",
+      "Honglong Chen"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Normal Diffusion Dynamics Learning（NDDL），一种仅用正常样本训练的文生图扩散模型后门防御框架。该方法观察到正常扩散轨迹在 cross-attention、潜空间和噪声空间中呈现结构化且随 timestep 变化的转移模式，而后门攻击会使其偏离这种正常演化。NDDL 构建紧凑的多空间轨迹表示，训练一个以 timestep 为条件的动力学模型来预测扩散演化，推理时用观测转移与预测转移之间的偏差量化动力学不一致性以检测后门。该框架还能在无需任何后门先验知识的情况下，通过低语义词替换实现触发器定位。多种后门攻击上的实验显示其有效性与泛化性。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39548",
+      "aisafetyhot": "https://aisafetyhot.com/items/ouc6ie6wze4jnchbyilrkk45k"
+    },
+    "publishedAt": "2026-09-30T11:48:45.000Z",
+    "timelineAt": "2026-10-01T02:24:16.013Z"
+  },
+  {
+    "arxivId": "2609.38723",
+    "title": "Towards Efficient HPC Systems for Agents: Challenges and Opportunities",
+    "titleZh": "面向智能体的高效 HPC 系统：挑战与机遇",
+    "authors": [
+      "Yunjia Zheng"
+    ],
+    "category": "opinion",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "编码智能体已成为 HPC 系统的真实用户，但现有 HPC 抽象、接口与策略仍为人类工作流设计。测量显示，编码智能体用户仅占观测人群的 19.5%，却贡献了 55.8% 的作业提交、29.1% 的 CPU 核心时和 42.7% 的 GPU 时；其命令下发速率是人类的 20.8 倍，并以细粒度 explore-modify-execute 循环和跨昼夜的试错方式追求开放式目标。这给调度器控制面、元数据密集型 I/O、跨会话记忆复用以及提示注入与策略执行带来压力，作者主张将智能体视为一等主体、以协同设计应对。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38723",
+      "aisafetyhot": "https://aisafetyhot.com/items/y0eqiig0ku0z37c791dfe4g75"
+    },
+    "publishedAt": "2026-09-30T00:56:48.000Z",
+    "timelineAt": "2026-10-01T01:22:33.384Z"
+  },
+  {
+    "arxivId": "2609.39297",
+    "title": "MiniRep: Robust Reputation-Based Aggregation for Multi-Agent Debate",
+    "titleZh": "MiniRep：面向多智能体辩论的鲁棒声誉聚合方法",
+    "authors": [
+      "Jiaming Zhang",
+      "Yuwan Liu",
+      "Yue Huang",
+      "Sisi Duan"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "MiniRep 是一种面向多智能体辩论（MAD）的声誉聚合系统，用于在存在恶意智能体时提升最终答案的可靠性。它基于声誉系统攻击与软件测试变异算子构建攻击分类体系，同时依据智能体在当前任务上的行为和长期声誉进行评估，并抑制高度相似回答的智能体群体主导决策。在 MATH 等任务上，MiniRep 无论是否遭受攻击都优于传统 MAD 聚合与常规声誉方法；在 10 个异构智能体的 MATH 设置下，于全部 28 种攻击条件下均优于所有基线。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39297",
+      "aisafetyhot": "https://aisafetyhot.com/items/ud153vz1pad7rvlse5gbm9pw2"
+    },
+    "publishedAt": "2026-09-30T08:41:08.000Z",
+    "timelineAt": "2026-10-01T02:24:58.565Z"
+  },
+  {
+    "arxivId": "2609.40285",
+    "title": "PivotOPD: Learning to Recover from Pivotal Mistakes in Multi-Turn Agents",
+    "titleZh": "PivotOPD：让多轮智能体从关键错误中恢复的在线策略蒸馏框架",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "PivotOPD 是一个在线策略蒸馏框架，同时训练学生模型预防关键错误并从其造成的状态中恢复。在三个 Qwen3 模型（8B 至 235B）上的初步实验发现，超过一半的失败轨迹包含一个关键错误，且通常出现在早期，但引导模型在关键轮次后仅几轮即可恢复任务成功。在 ALFWorld、WebShop 和 Search-based QA 上对比 13 个基线，PivotOPD 对 Qwen3-1.7B 和 Qwen3-8B 学生均取得最强平均表现，1.7B 学生在 ALFWorld 上比最强基线提升 +5.5%；在 SWE-Bench Verified 上，Nemotron-3.5 学生的解决率提升 +3.2%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.40285",
+      "aisafetyhot": "https://aisafetyhot.com/items/mbpi4kc0ky9vxqqrlijc1c0jd"
+    },
+    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "timelineAt": "2026-10-01T05:08:17.079Z"
+  },
+  {
+    "arxivId": "2609.39982",
+    "title": "Mid-Harness: Scaling Actions Between Model and Harness for Terminal Agents",
+    "titleZh": "Mid-Harness：在模型与 Harness 之间扩展终端智能体的动作采样",
+    "authors": [],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "Mid-Harness 在模型与 harness 边界采样并验证候选动作后再转发执行，生成器与 harness 保持不变。在 TerminalBench-Lite 上，GPT-5.6 Sol 验证器配合 8 个采样动作将 TMAX-9B 生成器的 Pass@1 从 50.00% 提升至 68.03%；弱验证下增加采样收益有限。将强验证器响应蒸馏回 TMAX-9B 可进一步提升 Pass@1，且动作与轨迹扩展结合比单独生成更多轨迹更省 token。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39982",
+      "aisafetyhot": "https://aisafetyhot.com/items/wvyvhujgq6qp06hdzi1x7x59e"
+    },
+    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "timelineAt": "2026-10-01T06:09:18.000Z"
+  },
+  {
+    "arxivId": "2609.38249",
+    "title": "SURE: Framework for Safety to Construct Trustworthy AI",
+    "titleZh": "SURE：构建可信 AI 的安全框架",
+    "authors": [
+      "Soeun Han"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出 SURE（A Safe and Unified AI Framework foR Everyone）框架，用于按国家、文化和企业政策定制 AI 安全属性并加以保障。该框架建立对抗性提示词分类体系并据此构造提示词，定义理想 AI 回复模板与绝对安全评分方案，再通过数据集进行 AI 对齐。在多种基座模型上的实验验证了 SURE 的有效性，论文已被 KDD 2025 EAI Workshop 接收。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38249",
+      "aisafetyhot": "https://aisafetyhot.com/items/ghh6lhyyjn94kd45xabxvrc8q"
+    },
+    "publishedAt": "2026-09-29T07:18:47.000Z",
+    "timelineAt": "2026-10-01T04:32:17.212Z"
+  },
+  {
+    "arxivId": "2609.39229",
+    "title": "RAIM: Robust Aggregation of Inexpensive Models for Hallucination Detection",
+    "titleZh": "RAIM：用廉价小模型聚合替代前沿模型做幻觉检测",
+    "authors": [
+      "Elia Onofri"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "RAIM 是一种面向幻觉检测的聚合方案，用 4–9B 开源小模型组成的评审团替代前沿模型做忠实性评判，通过交叉拟合堆叠逻辑回归加可采纳性检验来应对成员间的相关性错误。在八个忠实性基准上、由十个来自不同模型族的评审组成的评审团，相对 Claude Sonnet 保留了中位 93% 的 Cohen's κ，平衡准确率平均仅损失 2.9 个百分点，推理成本为前沿模型的六十四分之一，代价是一次性用 50–100 条标注记录做域内校准。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39229",
+      "aisafetyhot": "https://aisafetyhot.com/items/otji67ksh783kpgnl30p9ui47"
+    },
+    "publishedAt": "2026-09-30T08:03:31.000Z",
+    "timelineAt": "2026-10-01T02:23:16.402Z"
+  },
+  {
+    "arxivId": "2609.36958",
+    "title": "VStress: Correlation-Aware Auditing and Adaptive Budget Allocation for Repeated Verifiers",
+    "titleZh": "VStress：面向重复验证器的相关性感知审计与自适应预算分配",
+    "authors": [
+      "Miaobo Hu"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "VStress 是一套可审计的重放契约，其 VStress-CA 策略在密封校准集上估计未查询验证器的条件边际信息，按调用成本归一化，并在下一次调用无信息量时停止或弃权。在 35% 对称污染下，majority-5 将平衡准确率从 0.6578 提升至 0.7739，而在 65% 污染下反而损失 0.1226 点。匹配固定预算对比中，广度、冗余与自适应分配分别取得 0.6048、0.6375 和 0.6538 的平衡准确率，VStress-CA 每项调用 3.4216 次，RLVR 得分为 0.6417。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.36958",
+      "aisafetyhot": "https://aisafetyhot.com/items/btvngef948q7fwo81u1mtn9zd"
+    },
+    "publishedAt": "2026-09-29T07:59:03.000Z",
+    "timelineAt": "2026-09-30T22:20:33.568Z"
+  },
+  {
+    "arxivId": "2609.39544",
+    "title": "Growing an Agent/Prover Interface: Evolutionary Tool Design for Cost-Efficient Theorem Proving in Rocq and Lean",
+    "titleZh": "用进化方法为 Rocq 和 Lean 设计智能体/证明器接口，降低定理证明成本",
+    "authors": [
+      "Jules Viennot",
+      "Guillaume Baudart",
+      "Marc Lelarge"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一种进化方法，由前沿模型逐步提出新接口功能，只保留能提升小模型整体表现的部分，并据此培育出面向 Rocq 证明器的新 MCP 服务器 rme。在 miniF2F-Rocq 的留出 test 划分上，配备 rme 的智能体在来自两个模型族的四个模型上，成功率、单次求解成本和单次求解时间均优于仅暴露 Rocq 编译器的基线以及一个已有 MCP 服务器。该服务器虽为 Rocq 进化而来，却能迁移到 Lean，在 PutnamBench 子集上改善成本与时间，作者已开源 rme 及其 Lean 移植版。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39544",
+      "aisafetyhot": "https://aisafetyhot.com/items/xkrejiwpf2l01v9qery9iqb8a"
+    },
+    "publishedAt": "2026-09-30T11:44:15.000Z",
+    "timelineAt": "2026-10-01T02:23:55.985Z"
+  },
+  {
+    "arxivId": "2609.39182",
+    "title": "MEND: Label-Free Detection, Localisation, and Correction of Latent Hallucination in World Models",
+    "titleZh": "MEND：世界模型中潜在幻觉的无标签检测、定位与纠正",
+    "authors": [
+      "Ali J Alrasheed",
+      "Aryan Yazdan Parast",
+      "Basim Azam",
+      "James Bailey",
+      "Naveed Akhtar"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出 MEND（Masked Empirical-Bayes Neural Denoising），一种在冻结的自监督世界模型上、无需真实误差标签即可在推理时检测、定位并纠正潜在幻觉的方法。该方法用去噪分数匹配在真实状态转移上训练单个条件分数网络，其分数场同时承担检测、逐 token 定位与纠正方向三种角色。在两个导航环境中，MEND 不使用动作即达到最高 0.80 的 AUROC，逐 token AUPRC 最高 0.87，并可靠降低单步潜在误差、改善预测；作者指出部分误差与数据流形相切，因此重点放在检测与定位，纠正仍有待进一步验证。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39182",
+      "aisafetyhot": "https://aisafetyhot.com/items/dcieeu7ccxsfyv7tcvcjqdbq9"
+    },
+    "publishedAt": "2026-09-30T07:38:49.000Z",
+    "timelineAt": "2026-10-01T02:24:58.571Z"
+  },
+  {
+    "arxivId": "2609.38822",
+    "title": "SkillSeek: Revisiting Agent Skill Retrieval at Marketplace Scale",
+    "titleZh": "SkillSeek：Agent 技能检索在 Marketplace 规模下的再审视",
+    "authors": [],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "SkillSeek 在 89 项任务的基准上对比 11 种检索方法，发现 1990 年代的 BM25 关键词匹配在 4 种设置中的 3 种追平或超过智能体式检索循环，小型 cross-encoder 在第四种设置以 0.442 通过率持平。每次运行成本为无技能 27.41 美元、该检索器 27.54 美元、智能体循环 51.30 美元，且该检索器在 CPU 上运行、不消耗任何语言模型 token。作者主张智能体式检索应作为兜底方案，标准检索流程才是首选；论文同时指出大技能池下第一阶段召回率会限制任何重排器的上限。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38822",
+      "aisafetyhot": "https://aisafetyhot.com/items/zjr0k0f06g5hqe4f9ds63ha6u"
+    },
+    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "timelineAt": "2026-10-01T04:08:06.127Z"
+  },
+  {
+    "arxivId": "2609.39625",
+    "title": "D-Scope: Decomposing and Steering Diffusion Transformers with Sparse Autoencoders",
+    "titleZh": "D-Scope：用稀疏自编码器分解与操控扩散 Transformer",
+    "authors": [
+      "Xinyue Xu",
+      "Jiahao Zhang",
+      "Lijie Hu",
+      "Peter Hase",
+      "Hao Wang"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "D-Scope 是一个把扩散 Transformer（DiT）特征解释与生成控制打通的框架，通过将高激活图像块的 SigLIP 2 嵌入聚合成视觉质心，在共享图文嵌入空间中用文本描述匹配检索单个特征，无需逐特征文本标注。研究刻画了两个模型家族、五个层的 150 个 SAE，并发布含 100 个目标概念、每个概念十种上下文的基准。结果显示高重建保真度可与低字典利用率和有限的视觉证据覆盖并存；在逐例最优强度选择下，对比检索在测试的操控配置中带来更大的区域 SigLIP 2 平均增益，但未持续改善区域外保持。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39625",
+      "aisafetyhot": "https://aisafetyhot.com/items/n5aocvrwwy4u8yejgbbihidwy"
+    },
+    "publishedAt": "2026-09-30T12:35:52.000Z",
+    "timelineAt": "2026-10-01T10:16:09.217Z"
+  },
+  {
+    "arxivId": "2609.38895",
+    "title": "Unmerge: Efficient Machine Unlearning via Task Arithmetic",
+    "titleZh": "Unmerge：用任务算术实现高效机器遗忘",
+    "authors": [
+      "Haoran Tang",
+      "Andrew Tan",
+      "Rajiv Khanna"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "Unmerge 将机器遗忘重构为任务算术的逆运算：微调得到的合并任务向量减去低秩遗忘分量即可恢复保留任务向量，因为遗忘激活在每层都集中在少数主方向构成的子空间内。在 CIFAR-100 和 Tiny ImageNet 上对 ResNet-50 做类别级遗忘时，其 Tug-of-War 指标比同等运行时间的基线最高提升约 24%，比运行慢约 5 倍的更强基线最高提升约 18%，成员推断暴露维持在重训练水平。该方法同样适用于 ViT-S/16，并可扩展到 Llama-3.2-3B，其逐层基几何还可作为判断遗忘何时何地结构性困难的诊断工具。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38895",
+      "aisafetyhot": "https://aisafetyhot.com/items/jyd9335wfs3ri0gjaifvik0sp"
+    },
+    "publishedAt": "2026-09-30T03:41:21.000Z",
+    "timelineAt": "2026-10-01T02:24:16.030Z"
+  },
+  {
+    "arxivId": "2609.39027",
+    "title": "A Missing Piece for Trustworthy AI Reviewers: From Benchmarking Rhetorical Robustness to SciCore Review",
+    "titleZh": "从 RobustReview 基准到 SciCore：AI 审稿人的修辞鲁棒性评测",
+    "authors": [
+      "Chenguang Wang",
+      "Ming Li",
+      "Chengrui Fan",
+      "Jianpeng Chen",
+      "Han Chen",
+      "Tianyi Zhou",
+      "Dawei Zhou"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出\"修辞鲁棒性\"（Rhetorical Robustness），要求 AI 审稿人对内容不变但措辞改写的稿件给出稳定评分，同时保持对不同论文的区分度。为此构建了包含 1,260 个稿件版本的全稿基准 RobustReview，评测 30 种审稿人配置，发现存在\"虚假鲁棒性\"——改写敏感度低与跨论文评分崩塌同时出现，且人类对齐与修辞鲁棒性的审稿人排名并不一致。据此提出双分支审稿人 SciCore，将全稿判断与结构化\"科学内核\"判断取平均，在 GPT-5.5 对比中取得领先的稳定性-区分度综合表现，并保持有竞争力的人类对齐。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39027",
+      "aisafetyhot": "https://aisafetyhot.com/items/bfzicak2i60tyer9ipfb11lhv"
+    },
+    "publishedAt": "2026-10-01T04:00:00.000Z",
+    "timelineAt": "2026-10-01T04:00:00.000Z"
+  },
+  {
+    "arxivId": "2609.38807",
+    "title": "PatchHolmes: Agentic Patch Retrieval via Listwise Selection",
+    "titleZh": "PatchHolmes：基于列表式选择的智能体补丁检索系统",
+    "authors": [],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "PatchHolmes 提出让 AI 智能体一次性读取前 100 个候选提交并通过四个预算受限的工具逐一打开提交来定位漏洞修复补丁的方法，将 Recall@1 从逐点系统的 34.61% 提升至 59.95%。该系统无需微调和付费搜索 API，仅依赖冻结的开源权重模型运行于本地 Git 克隆仓库之上，单次处理约消耗 96000 输入 token、执行 8 次工具调用并阅读 5 个提交。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38807",
+      "aisafetyhot": "https://aisafetyhot.com/items/onq834p8knv42kol0h088vypi"
+    },
+    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "timelineAt": "2026-10-01T04:08:06.141Z"
   }
 ]

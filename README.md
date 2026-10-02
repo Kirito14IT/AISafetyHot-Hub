@@ -39,6 +39,8 @@
 | 2026-09-24 | [日报](daily/2026/2026-09-24.md) | [19 篇](papers/2026/2026-09-24.md) · [bib](papers/2026/2026-09-24.bib) · [json](papers/2026/2026-09-24.json) |
 
 更早的见 [2026 年目录](archive/2026.md)。
+
+[status.json](status.json) 记录每天的论文数和 ID 摘要，以及同步时限（slaMinutes：网站上的论文最迟多少分钟内出现在这里）。
 <!-- latest:end -->
 
 ## 下载论文清单
