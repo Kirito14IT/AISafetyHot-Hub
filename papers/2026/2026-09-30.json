@@ -80,6 +80,44 @@
     "timelineAt": "2026-09-29T16:08:34.000Z"
   },
   {
+    "arxivId": "2610.00812",
+    "title": "Video Generation Models: A Survey of Post-Training and Alignment",
+    "titleZh": "视频生成模型的后训练与对齐综述",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇综述首次系统梳理视频生成模型的后训练与对齐，将后训练作为统一框架，按对齐信号的施加方式区分隐式对齐与显式对齐，并把现有方法归为监督微调、自训练与蒸馏、偏好与奖励、推理时方法四类。综述指出，预训练视频模型常难以遵循人类意图、维持时序连贯并满足物理与安全约束，其对齐面临误差随时间累积、运动与外观耦合、多目标权衡及时序属性监督有限等特有挑战。文章还整理了常用数据集、基准与评测实践，并讨论可扩展奖励设计、长时程时序一致性、稳定性与表现力权衡及安全感知生成等开放问题。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "预训练视频模型常不能稳定遵循意图、保持时间一致或满足物理与安全约束。视频对齐还有误差随时间累积、运动与外观耦合、多目标权衡和时序监督稀缺等问题。",
+          "label": "问题"
+        },
+        {
+          "text": "作者把后训练定义为大规模预训练之后、不从头重训的行为调整，并按信号如何施加区分隐式对齐与显式对齐，据此分成监督微调、自训练与蒸馏、偏好与奖励、推理时方法四类。",
+          "label": "方法"
+        },
+        {
+          "text": "综述不报告作者自己的生成实验。作者梳理四类方法、数据集与评测协议，并在 Figure 2 中展示 2022 年至 2026 年 2 月该方向论文数量上升、监督范式更分散。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "Section 9 把可扩展奖励、长时程时间一致性、稳定性与表现力权衡、以及安全感知生成列为开放问题。作者称这是对后训练与对齐的综合综述，范围按对齐如何被施加来组织，而不是按架构或条件信号。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.00812"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00812",
+      "aisafetyhot": "https://aisafetyhot.com/items/gsc11w4epfe815d2iz5bb9uoj"
+    },
+    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "timelineAt": "2026-09-29T20:00:00.000Z"
+  },
+  {
     "arxivId": "2609.38081",
     "title": "Traversing the solution space of neural networks with Hessian Null Space Continuation",
     "titleZh": "Hessian Null Space Continuation：在单个神经网络解附近发现大量表征多样性",
