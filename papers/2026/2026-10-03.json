@@ -1,5 +1,22 @@
 [
   {
+    "arxivId": "2610.02142",
+    "title": "Keyword Harnesses Fail Open: A Cheap Diagnostic Ladder for Tool-Use Claims in Small Language Models",
+    "titleZh": "关键词式评测会误判小模型工具调用能力，论文提出廉价诊断阶梯",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文记录了一对同架构西班牙语安全语言模型在宽松工具调用指标上的假阳性，并提出一组严格且廉价的诊断阶梯。一个 661.6M 参数模型（约 65% 代码/技术文本，无专门 SFT）与一个 1,109M 模型（网页为主的多阶段课程，6B token 工具 SFT）共享解码器、tokenizer 和特殊 token，在宽松工具调用指标上得分几乎相同（B4：0.660 对 0.650）。对训练样本的逐字复现检查将两者完全区分开：600M 模型在 6/6 个样本上生成带泛化参数的有效工具调用，1B 模型在各 checkpoint 上均为 0/6。首 token 探针把 1B 的失败定位到缺失先验（<|tool_call|> 上概率 10^{-4}--10^{-5}），该先验被其网页为主的训练阶段抹去。因子分析确认所有修复配置都能装上该格式，但多样语料带来的抑制收益因种子敏感性仍只是假设。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02142",
+      "aisafetyhot": "https://aisafetyhot.com/items/zwltc88g2wf3p0242u0zujhoj"
+    },
+    "publishedAt": "2026-09-30T20:00:00.000Z",
+    "timelineAt": "2026-10-02T17:34:21.062Z"
+  },
+  {
     "arxivId": "2610.01083",
     "title": "WBAG: A Whole-Body and Attached-Geometry Safety Framework for Vision-Language-Action Manipulation",
     "titleZh": "WBAG：面向视觉-语言-动作操作的全身体与附着几何安全框架",

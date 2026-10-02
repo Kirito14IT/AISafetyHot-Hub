@@ -588,7 +588,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究指出在一种语言中遗忘某个事实并不能保证它在其他语言中也被移除，改变提问语言或要求回答的语言就能重新调出看似已遗忘的知识，形成跨语言漏洞。为此作者提出语言预算多语言遗忘任务，即选择一组语言子集以最大化跨语言擦除效果，并构建了覆盖 174 个语言-文字对、25 种原子改写类型的 Cross-Lingual Unlearning Tensor 基准。他们进一步提出 COVER，通过选择源语言来最大化对未接受遗忘监督语言的预测覆盖。实验发现，简单挑选单个强源语言并不能可靠组合成强源语言集合。在部署阶段，COVER 只需良性校准数据和访问冻结模型；在三个模型家族和两个不相交遗忘集上，COVER 相比均匀源选择将平均留出残留访问降低 7.8%–27.3%，并在低资源语言场景下用 LORELEI 语料的人工翻译数据验证了效果可扩展到真实新闻文档。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "在一种语言里忘掉一个事实，换查询语言或答案语言仍可能重新取出。对全部语言做遗忘既难扩展，也会伤及无关能力。",
+          "label": "问题"
+        },
+        {
+          "text": "CROSS-LINGUAL UNLEARNING TENSOR 覆盖 174 个语言–文字对和 25 类释义。COVER 用保留集上的跨语言表示间隔，在预算 K 内选择预计能覆盖 held-out 语言的源语言，部署时不用 held-out 遗忘样本。",
+          "label": "方法"
+        },
+        {
+          "text": "作者报告 COVER 相对均匀选源，使 held-out 平均残余访问相对降低 7.8%–27.3%。该选择在 LUME 文档删除和人工翻译的 LORELEI 新闻上仍有增益，但幅度更小。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "结论称源语言加权尚未形成跨模型普遍更优的校准规则。实验主要在三族小模型、K≤3 和固定源语言进度阈值下比较遗忘，生成评审细节在附录 A.6。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.40286"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.40286",
       "aisafetyhot": "https://aisafetyhot.com/items/kbwdkex8jym0zj9tg95h2upb5"
@@ -1431,6 +1452,28 @@
     },
     "publishedAt": "2026-10-02T04:00:00.000Z",
     "timelineAt": "2026-10-02T04:19:22.501Z"
+  },
+  {
+    "arxivId": "2610.00209",
+    "title": "Energy Time-Series Imputation with Differentially Private Diffusion Models via Clipping-Aware Objective Conditioning",
+    "titleZh": "基于差分隐私扩散模型的能源时间序列插补：裁剪感知的目标条件化方法",
+    "authors": [
+      "Huizhen Huang",
+      "Yu Li",
+      "Tao Huang",
+      "Chen Hou"
+    ],
+    "category": "ai_news",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对能源时间序列缺失值插补，研究提出裁剪感知的目标条件化方法，在固定阈值 DP-SGD 下用 v-prediction 缓解余弦扩散调度后期低 SNR 时间步的梯度放大，并引入扩散调度感知的动态加权在裁剪前加强衰减。在五个真实能源时间序列数据集上，覆盖随机点缺失、连续块缺失、持续中断及多种缺失严重程度，该方法在匹配 DP-SGD 设置下插补效用一致优于 ε-prediction 基线。梯度诊断显示裁剪前梯度范数上尾更低、裁剪比例下降，后期低 SNR 时间步衰减更强。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00209",
+      "aisafetyhot": "https://aisafetyhot.com/items/fndj80bk0nnjbo94isk0rq7zc"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:00:00.000Z"
   },
   {
     "arxivId": "2610.02092",
