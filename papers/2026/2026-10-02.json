@@ -854,7 +854,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "KaliBench 是面向 Kali Linux 自然语言到 CLI 翻译的细粒度基准与数据集，包含 8,504 条查询-命令对，覆盖 1,642 个工具、23 个能力维度和 5 个安全阶段。在三种评测模式、24 种通用与安全专用开源权重模型配置下，无限制设置中没有任何开源权重模型的精确命令准确率超过 42%。基于 KaliBench 的可验证奖励进行监督微调和强化学习，可显著提升 8B 模型，使其性能接近 685B MoE 模型。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "现有评测测的是安全知识或端到端智能体任务，并不直接衡量模型能否为真实 Kali 工具生成可执行 CLI。命令行对语法、flag 绑定和参数顺序很严格，小错就会使执行失效。",
+          "label": "问题"
+        },
+        {
+          "text": "KaliBench 用手册约束生成、LLM 校验、沙箱执行和人工复核，得到 8504 条查询–命令对、1642 个工具。评测分 Unrestricted、Restricted、Hinted 三档，并用别名感知的分项打分做无需运行的可验证奖励。",
+          "label": "方法"
+        },
+        {
+          "text": "24 个开源配置里，无工具提示时 Exact Correct 最高为 GLM-5.2 的 41.3%。可选参数是主要瓶颈；给文档后平均 Exact Correct 从 22.3% 升至 73.1%。SFT+GRPO 把 8B 的平均 Total Score 提到 79.2%，接近 685B 的 80.2%。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出基准是单轮命令生成、依赖文档落地的数据，手册会随版本过时，校验与别名抽取仍不完备。评测集 5000 条、训练集 3504 条；专有模型只在 Unrestricted 上报告。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.02206"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.02206",
       "aisafetyhot": "https://aisafetyhot.com/items/gabhzsbwstn44l23u0aqc9tvz"
@@ -880,7 +901,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究系统评估了基于质量的数据筛选对投毒的过滤效果，发现筛选虽能移除大量明显有害样本，但部分被保留的高质量样本仍会削弱模型的安全对齐，原因可能在于其在层级梯度上呈现类似有害样本的训练更新模式。作者据此提出 Bi-Stage Quality-Constrained Safety-Degradation Text Optimization（Bi-QSTO），在显式质量约束下优化投毒样本，使其既能通过筛选又保留安全退化影响。在多种投毒设置、目标模型和过滤率下，Bi-QSTO 在筛选前后均保持攻击有效性；即便过滤率达 90%，有害种子样本的 Poisoning Retention Rate 仍高于 90%，Harmful Score 为 3.30–4.01，且攻击效果可跨模型迁移，保留优势也能推广到其他筛选方法。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "已对齐模型经少量有害或看似无害样本微调后安全性会下降。实际训练常先做质量筛选，而以往投毒研究多假设毒样本直接进入微调，未考察筛选后仍被留下的高质量样本是否仍会削弱安全对齐。",
+          "label": "问题"
+        },
+        {
+          "text": "作者先用多种质量选择器测投毒保留率，再用逐层梯度与安全锚的余弦相似度、MDS 看高质量样本是否带有类似有害更新。据此提出 Bi-QSTO：先最大化有害梯度影响，再在质量惩罚下精炼，并用经验抽取指导改写，使样本既过筛选又保留安全削弱作用。",
+          "label": "方法"
+        },
+        {
+          "text": "作者报告，显式有害样本常被筛掉，但 90% 过滤后留下的高质量样本仍可提高 Harmful Score。有害种子的 Bi-QSTO 在三款全参微调模型上、90% 过滤时 PRR 超过 90%，HS 为 3.30–4.01，并迁移到更大模型和 QuRater、DEITA。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者在附录写明，分析主要在 Llama2-7B-Chat 上、用单一有害锚，且质量分与安全相关更新并不一致。实验覆盖 DataMan、QuRater、DEITA，主实验为三款全参模型，13B/70B 用 LoRA；论文未报告优化查询次数与人工一致性。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.01367"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.01367",
       "aisafetyhot": "https://aisafetyhot.com/items/pjuqragkof0abxjdi973hthf9"
@@ -902,12 +944,80 @@
     "selected": false,
     "attention": null,
     "summaryZh": "Sapien 是一个为自主 AI 智能体执行有状态上下文策略的策略引擎，用扩展了状态谓词的正则表达式规定允许的工具调用序列，并支持延迟策略生成与作用域语义检查。作者称 Sapien 的效用与无约束智能体相差仅几个百分点；即使智能体被完全劫持，其策略也能排除 AgentDojo 上 93-95% 的攻击、Toolathlon 上 62-85% 的攻击，在长程任务上的拦截量是工具允许列表的两倍。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "通用智能体的合法工具调用取决于用户任务与已执行步骤，静态允许列表要么放过越权调用，要么打断正当任务。上下文策略若无状态，仍无法按运行时数据约束参数。",
+          "label": "问题"
+        },
+        {
+          "text": "Sapien 在执行前仅根据用户提示词和工具文档生成策略，用扩展正则描述允许的调用序列，并加入变量谓词、延迟展开的 defer 洞和范围受限的语义检查；运行时编译为带变量绑定的 NFA 逐调用强制执行。",
+          "label": "方法"
+        },
+        {
+          "text": "四模型上效用接近无策略智能体。分析性安全评测假定智能体已被完全劫持：Sapien 在 AgentDojo 挡住 93.2–95.2% 攻击，在 Toolathlon 全套（Gemini 3.8 Flash）挡住 64.6%，20 任务子集上为 62.5–85.0%，长程任务上约为工具允许列表的两倍。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出策略生成器仍会写错谓词或过紧约束，语义攻击占未挡住实例的大部分，且不保证活性、不防侧信道。评测为分析性假设而非实测提示注入成功率，Toolathlon 除 Flash 外只用 20 个任务。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.00797"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.00797",
       "aisafetyhot": "https://aisafetyhot.com/items/ibwqkmr0jv8mgv49k0m3t7ay9"
     },
     "publishedAt": "2026-10-02T04:00:00.000Z",
     "timelineAt": "2026-10-02T07:59:51.073Z"
+  },
+  {
+    "arxivId": "2610.01349",
+    "title": "PACE: Provenance-Aware Capability Enforcement for Tool-Using LLM Agents",
+    "titleZh": "PACE：面向工具调用 LLM Agent 的来源感知能力强制执行",
+    "authors": [
+      "Fengpeng Li",
+      "Qizhou Wang",
+      "Yuke Hu",
+      "Kemou Li",
+      "Jun Liu",
+      "Haiwei Wu",
+      "Jiantao Zhou",
+      "Di Wang"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "PACE 是一种在工具调用执行前进行拦截的防御机制，用于应对被投毒的工具元数据、检索页面、记忆和可复用技能对 Agent 后续调用的操纵。作者指出，仅靠准入前的工件审查无法解决问题，因为安全变体与泄露变体可能产生相同的准入证据。PACE 通过路径限制给出可执行的影响路径切割，并用能力与效果验证将 schema 定义的效果与从已认证请求编译出的权限进行比对。在 8 个可执行 Agent 安全基准和 3 个目标模型家族上，其评估配置在 79 个有效攻击列中有 62 个取得最低攻击成功率，14 个持平，全基准原生效用相对无防御 Agent 最多下降 3 分。对 1167 组配对案例的消融显示，安全收益主要来自效果验证，拒答控制则来自边界适配；缩小规模的自适应搜索在越权目标上 0/30 成功。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "工具调用型 LLM 智能体会把文本变成真实副作用，中毒的工具元数据、检索页、记忆和可复用 skill 能影响下一次调用。作者认为准入时证据无法区分安全与泄露变体，因而不能据此放松出口调解。",
+          "label": "问题"
+        },
+        {
+          "text": "PACE 在每次工具执行前调解。路径隔离对表示出的影响路径提出可执行割，能力与效果核验把 schema 定义的效果对照由已认证请求编译出的权限。认证合约 PACE-C 保留割并复核最终调用；实验评测的是可恢复阻断调用并应用声明修复的 PACE-P。",
+          "label": "方法"
+        },
+        {
+          "text": "三个目标模型族、八个可执行基准上，PACE-P 在 79 个合格攻击列中 62 列 ASR 严格最低、14 列并列。全基准原生效用相对无防御最多降 2.92 分。1167 例消融中，作者称安全增益主要来自效果核验，拒答控制来自边界适配。30 个越权目标上自适应搜索对 PACE-P 为 0/30，无防御为 21/30。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者将语义复述、碎片化流、隐藏次级效果和持久分布式执行列为后续工作。实验评测的是 PACE-P 而非认证合约；自适应搜索为缩规模，每例 50 episode，且只用目标检查点作变异器。消融子集上 AgentDyn 效用从 66.7% 降到 33.3%，全基准三点上界在该子集不成立。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.01349"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01349",
+      "aisafetyhot": "https://aisafetyhot.com/items/tqqtyovckdsgy8fn271hle0rb"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T09:47:14.980Z"
   }
 ]
