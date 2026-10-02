@@ -1,0 +1,21 @@
+[
+  {
+    "arxivId": "2610.01083",
+    "title": "WBAG: A Whole-Body and Attached-Geometry Safety Framework for Vision-Language-Action Manipulation",
+    "titleZh": "WBAG：面向视觉-语言-动作操作的全身体与附着几何安全框架",
+    "authors": [
+      "Samuel Zhen"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "WBAG 是一个面向视觉-语言-动作（VLA）策略的安全框架，对机器人全身体与随抓取变化的附着几何建模，构建抓取条件下的安全集，并将其转化为可微 CBF 约束，以最小改动 VLA 原生的六维操作空间动作来避免机器人与场景、附着物体的碰撞。在 SafeLIBERO 基准上，WBAG 在场景级安全评估器下取得 97.38% 的 Scene Safety 与 59.38% 的 Safe Success，为所评估方法中最佳。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01083",
+      "aisafetyhot": "https://aisafetyhot.com/items/lspg298a71hk79sjzxb30j5lw"
+    },
+    "publishedAt": "2026-10-01T05:26:17.000Z",
+    "timelineAt": "2026-10-02T17:08:07.454Z"
+  }
+]
