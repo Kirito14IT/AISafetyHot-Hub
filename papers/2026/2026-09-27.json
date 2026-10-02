@@ -13,23 +13,23 @@
     "quickRead": {
       "parts": [
         {
-          "text": "基于 RL 的 prompt injection 红队方法在攻击前沿 LLM（如 GPT-5.6-Luna/Terra）时遇到 cold-start 问题：初始 attacker LLM 的每次攻击都失败、奖励全为零，无法获得学习信号，PISmith、RL-Hammer 等 SOTA 方法 ASR 为 0%。",
+          "text": "强化学习自动化提示注入红队在面对前沿大模型时存在冷启动问题：初始攻击模型的所有尝试均被防御拦截，导致奖励全为零、优势值坍塌，强化学习算法无法获得学习信号指导策略更新。",
           "label": "问题"
         },
         {
-          "text": "作者提出 curriculum learning：让同一个 attacker LLM 依次针对一系列鲁棒性递增的目标 LLM 训练，每一阶段从上一阶段的 attacker LLM 热启动，RL 算法、prompt 模板和训练数据保持不变。关键设计原则是每个阶段结束后 attacker LLM 必须能对下一目标偶尔成功，从而产生非零奖励；作者用冻结模型在下一目标上的 pre-stage ASR 作为廉价检验。",
+          "text": "固定红队任务与训练数据，将课程建立在按鲁棒性递增的目标模型序列上；每阶段前通过冻结当前策略进行预测试，确保在新目标模型上获得非零成功率，使强化学习能从信息组中更新策略。",
           "label": "方法"
         },
         {
-          "text": "在 AgentDyn 上，curriculum GPT-5-nano → GPT-5.6-Luna → GPT-5.6-Terra 对 GPT-5.6-Luna 和 GPT-5.6-Terra 达到 93.8% 和 45.0% ASR@10，而直接训练或 RL-Hammer、PISmith 为 0%；用 GPT-4o-mini 替代 GPT-5-nano 或去掉 GPT-5.6-Luna 中间阶段会使 ASR 大幅下降。训练出的 attacker LLM 可零样本迁移到六个未见目标（如 GPT-6-Luna 47.3% ASR@10）和 AgentDojo 全部四个 suite，对 SecOPD 防御也达 87.1% ASR@10；以它为初始化继续 RL 可将 Muse-Spark-1.2 的 ASR@10 从 35.5% 提升到 82.3%，并迁移到 Muse-Spark-1.3。",
+          "text": "在AgentDyn上，课程强化学习对GPT-5.6-Terra取得45.0% ASR@10（基线均为0%）；训练得到的攻击模型零样本迁移至未参与训练的GPT-6-Luna上达到47.3% ASR@10，并能泛化至AgentDojo基准。",
           "label": "实验与结果"
         },
         {
-          "text": "作者未对 GPT-5.6-Sol 跑 RL 阶段，只报告直接迁移的弱 ASR，留待更大查询预算的未来工作；pre-stage ASR 为 0 只说明在给定预算内信号不可用，并不证明成功概率严格为零；实验限于公开 benchmark 的沙箱环境。",
+          "text": "作者指出因查询预算限制未对GPT-5.6-Sol开展强化学习阶段训练；实验覆盖仅使用单一Qwen3-4B-Instruct-2507攻击基座，任务限定于AgentDyn与AgentDojo两个智能体环境。",
           "label": "局限与可以继续做的"
         }
       ],
-      "sourceName": "论文全文（AI 生成）",
+      "sourceName": "论文 PDF（Gemini 生成）",
       "sourceUrl": "https://arxiv.org/abs/2609.33628"
     },
     "links": {
@@ -40,42 +40,23 @@
     "timelineAt": "2026-09-27T14:44:58.000Z"
   },
   {
-    "arxivId": "2609.33028",
-    "title": "Łukasiewicz Neural Networks Extended: Residual Architectures and Crystallization Strategies for Interpretable Rule Extraction",
-    "titleZh": "Łukasiewicz 神经网络扩展：残差连接实现任意深度的可解释规则提取",
+    "arxivId": "2609.33658",
+    "title": "AgentBoundary: Counterfactual Evaluation of Safety in Tool-Using LLM Agents",
+    "titleZh": "AgentBound：面向工具型 LLM Agent 安全的四路反事实评测框架",
     "authors": [
-      "Carlos Leandro"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "该论文证明残差连接可将权重取整数、激活函数截断恒等的 Łukasiewicz 网络扩展到任意深度，并构造性地保证合并神经元始终满足神经元的逻辑联结词分类命题，不受内层权重影响。针对结晶化策略，论文分析了修正版 Levenberg-Marquardt、直通估计（STE）和近端正则三种方法的理论保障、失效模式及可解释性权衡，从而突破原有算法仅适用于浅层结构和小规模数据的限制。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.33028",
-      "aisafetyhot": "https://aisafetyhot.com/items/uvo62jm9oz2qrqehcjhv6zgyd"
-    },
-    "publishedAt": "2026-09-26T23:51:42.000Z",
-    "timelineAt": "2026-09-26T23:51:42.000Z"
-  },
-  {
-    "arxivId": "2609.35886",
-    "title": "Agentic Commerce Bench: Measuring Fraud Detection for Agents That Spend Money",
-    "titleZh": "Agentic Commerce Bench：衡量会花钱的智能体的欺诈检测能力",
-    "authors": [
-      "Ankit Srivastava"
+      "Tianzhuo Yang"
     ],
     "category": "eval",
     "selected": false,
     "attention": null,
-    "summaryZh": "论文提出用于衡量和降低智能体支付欺诈损失的三项成果。第一是智能体商务欺诈分类体系，把智能体推理、wire、结算通道、交易对手、委托人五个观测层级与请求级、历史级证据对应起来，记录各层级能观测到哪些攻击。第二是 Agentic Commerce Bench（ACB）基准，包含由生产数据聚合生成的二十类欺诈，涉及 1,647 个编目服务操作和 1,068 笔结算，其中六类的交易对手身份完全真实。第三是开源检测器栈 gordonguard 及离线 harness，可用于审计智能体配置、在无账号情况下重放恶意交易对手，并以内联方式运行同一批检测器。",
+    "summaryZh": "研究者提出 AgentBound，一个针对工具型 LLM Agent 安全的四路反事实生成与评测框架，通过独立改变表面风险与动作许可性，构造同一可执行工作流的不同版本，从而在控制任务能力的前提下同时诊断过度拒答与不安全执行。该框架被实例化为一个经人工验证的 4000 任务评测套件，采用基于轨迹和基于后置状态的判断方式。在 17 种模型与 harness 配置上，高安全性常与授权任务完成率低并存：GPT-5.5 拦截了 99.5% 看似常规但未授权的动作，却只完成 28.7% 看似有风险但已授权的任务。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2609.35886",
-      "aisafetyhot": "https://aisafetyhot.com/items/axcev7j01lb69cgszm2v905kc"
+      "paper": "https://arxiv.org/abs/2609.33658",
+      "aisafetyhot": "https://aisafetyhot.com/items/z4936bywb6c0j51rbyac9c8i2"
     },
-    "publishedAt": "2026-09-27T00:58:39.000Z",
-    "timelineAt": "2026-09-27T00:58:39.000Z"
+    "publishedAt": "2026-09-27T15:19:52.000Z",
+    "timelineAt": "2026-09-27T15:19:52.000Z"
   },
   {
     "arxivId": "2609.33102",
@@ -97,6 +78,25 @@
     "timelineAt": "2026-09-27T02:20:08.000Z"
   },
   {
+    "arxivId": "2609.35886",
+    "title": "Agentic Commerce Bench: Measuring Fraud Detection for Agents That Spend Money",
+    "titleZh": "Agentic Commerce Bench：衡量会花钱的智能体的欺诈检测能力",
+    "authors": [
+      "Ankit Srivastava"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出用于衡量和降低智能体支付欺诈损失的三项成果。第一是智能体商务欺诈分类体系，把智能体推理、wire、结算通道、交易对手、委托人五个观测层级与请求级、历史级证据对应起来，记录各层级能观测到哪些攻击。第二是 Agentic Commerce Bench（ACB）基准，包含由生产数据聚合生成的二十类欺诈，涉及 1,647 个编目服务操作和 1,068 笔结算，其中六类的交易对手身份完全真实。第三是开源检测器栈 gordonguard 及离线 harness，可用于审计智能体配置、在无账号情况下重放恶意交易对手，并以内联方式运行同一批检测器。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.35886",
+      "aisafetyhot": "https://aisafetyhot.com/items/axcev7j01lb69cgszm2v905kc"
+    },
+    "publishedAt": "2026-09-27T00:58:39.000Z",
+    "timelineAt": "2026-09-27T00:58:39.000Z"
+  },
+  {
     "arxivId": "2609.33136",
     "title": "Leaky Students: Membership Inference against On-Policy Distillation",
     "titleZh": "Leaky Students：针对 on-policy distillation 的成员推断攻击",
@@ -114,82 +114,6 @@
     },
     "publishedAt": "2026-09-27T03:06:54.000Z",
     "timelineAt": "2026-09-27T03:06:54.000Z"
-  },
-  {
-    "arxivId": "2609.33144",
-    "title": "Beyond the Training Horizon: Mechanisms and Limits of Length Generalization in Looped Transformers",
-    "titleZh": "循环 Transformer 长度泛化的机制与边界：MR-Loop 与 DR-Loop 的机制对比研究",
-    "authors": [
-      "Jia Liang"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究机制性对比了两种循环 Transformer 配置 MR-Loop 与 DR-Loop，在多项式迭代、有限状态组合和知识图谱遍历任务上分析其长度泛化机制。MR-Loop 在固定读出下更新中间状态，通过相邻 token 交互推进关系选择；DR-Loop 则跨关系位置传播中间状态，形成推进式计算前沿。两者在更深层均不可靠：MR-Loop 读出状态与进度线索退化，DR-Loop 状态传播可靠性下降，且有限的自纠正使局部错误持续累积。循环状态还编码内容的计算状态，可迁移的 live-consumed 与 fresh-aged 残差方向因果控制信息能否参与后续计算，且长度泛化不必依赖忠实的逐步推理。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.33144",
-      "aisafetyhot": "https://aisafetyhot.com/items/mg10wfmwsqtjgtfz2h92bxwp8"
-    },
-    "publishedAt": "2026-09-27T03:15:00.000Z",
-    "timelineAt": "2026-09-27T03:15:00.000Z"
-  },
-  {
-    "arxivId": "2609.33221",
-    "title": "RMB: Reward Model Boosting Mitigates Reward Hacking",
-    "titleZh": "RMB：用奖励模型 boosting 缓解 RLHF 中的奖励作弊",
-    "authors": [
-      "Jiabin Fan"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 Reward Model Boosting（RMB），用于缓解 RLHF 中的奖励作弊问题。RMB 先用多样性促进正则项训练一组奖励模型，让各模型学习奖励景观中互补的部分，再按 boosting 原理学习一个轻量聚合器，把多个奖励模型的输出合成更准确、更稳健的奖励信号。实验显示 RMB 在分布内和分布外数据集上都显著提升奖励准确率，明显缓解奖励作弊并改善 RLHF 表现。该工作发表于 Transactions on Machine Learning Research（TMLR），2026 年 9 月。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.33221",
-      "aisafetyhot": "https://aisafetyhot.com/items/i1dzhzuaqbhyilbx3gljwvmev"
-    },
-    "publishedAt": "2026-09-27T05:03:12.000Z",
-    "timelineAt": "2026-09-27T05:03:12.000Z"
-  },
-  {
-    "arxivId": "2609.35890",
-    "title": "Representational Simplicity and Circuit Size Dissociate in a Threshold-Dependent Way: A Controlled Test via Adversarial Training",
-    "titleZh": "研究：表征简洁与电路规模在阈值依赖下出现分离",
-    "authors": [
-      "Adam Elimadi"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文以对抗训练作为受控手段，检验稀疏自编码器可分解性与集中特征归因是否真能预测更小、更易逆向的因果电路。作者从同一 GPT-2 Small 检查点出发，施加匹配的标准与对抗持续训练，要求两种条件都保持间接宾语识别能力并通过独立鲁棒性验证，再从 SAE 可分解性、SAE 特征在任务归因中的参与度、以及从原始计算图恢复的忠实电路规模三个维度比较。结果显示鲁棒模型更易被 SAE 分解、任务归因中涉及的 SAE 特征更少，但电路规模随忠实度阈值变化：在能力匹配的 IOI 任务上，85% 忠实度以下标准模型领先或持平，而在 90% 和 95% 高忠实度下鲁棒模型所需边数显著更少。该模式在主对比对上确立，表征趋势在七点扫描和第二个语料上可复现。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.35890",
-      "aisafetyhot": "https://aisafetyhot.com/items/iaqedsvtax05dgelbupguc8bm"
-    },
-    "publishedAt": "2026-09-27T07:35:31.000Z",
-    "timelineAt": "2026-09-27T07:35:31.000Z"
-  },
-  {
-    "arxivId": "2609.33371",
-    "title": "API Secrets Should Never Become Tokens in the LLM's Vocabulary: A Threat Analysis of API Credential Handling in LLM Agent Systems and an Empirical Evaluation of a Vault-Mediated Execution Boundary",
-    "titleZh": "论文提出保险库中介执行边界，评估 LLM Agent 的 API 凭据处理风险",
-    "authors": [
-      "Patrick Kenney"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文将工具调用型 LLM Agent 的凭据卫生问题定义为执行安全问题，并评估了一种保险库中介执行架构：模型只选择连接器标识符，由可信请求边界提供认证。作者在 Corvic Security Vault 的生产实现上做了两组受控黑盒实验，覆盖七个控制域的 16 项探测全部达到预期结果，包括一次已认证的 GitHub API 请求成功，而凭据未出现在进程环境变量、调用方可见请求头、受测文件系统位置、三个第三方回显服务和两个无关 API 源中，两个云实例元数据端点均不可达。论文同时报告了一个负面结果：某连接器的存储请求头映射不满足其提供方的认证契约，说明集中托管本身不能保证配置正确。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.33371",
-      "aisafetyhot": "https://aisafetyhot.com/items/ntlfjr3rql78s73nfqw1phwdv"
-    },
-    "publishedAt": "2026-09-27T08:55:16.000Z",
-    "timelineAt": "2026-09-27T08:55:16.000Z"
   },
   {
     "arxivId": "2609.33401",
@@ -230,6 +154,44 @@
     "timelineAt": "2026-09-27T10:53:11.000Z"
   },
   {
+    "arxivId": "2609.33221",
+    "title": "RMB: Reward Model Boosting Mitigates Reward Hacking",
+    "titleZh": "RMB：用奖励模型 boosting 缓解 RLHF 中的奖励作弊",
+    "authors": [
+      "Jiabin Fan"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 Reward Model Boosting（RMB），用于缓解 RLHF 中的奖励作弊问题。RMB 先用多样性促进正则项训练一组奖励模型，让各模型学习奖励景观中互补的部分，再按 boosting 原理学习一个轻量聚合器，把多个奖励模型的输出合成更准确、更稳健的奖励信号。实验显示 RMB 在分布内和分布外数据集上都显著提升奖励准确率，明显缓解奖励作弊并改善 RLHF 表现。该工作发表于 Transactions on Machine Learning Research（TMLR），2026 年 9 月。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.33221",
+      "aisafetyhot": "https://aisafetyhot.com/items/i1dzhzuaqbhyilbx3gljwvmev"
+    },
+    "publishedAt": "2026-09-27T05:03:12.000Z",
+    "timelineAt": "2026-09-27T05:03:12.000Z"
+  },
+  {
+    "arxivId": "2609.35890",
+    "title": "Representational Simplicity and Circuit Size Dissociate in a Threshold-Dependent Way: A Controlled Test via Adversarial Training",
+    "titleZh": "研究：表征简洁与电路规模在阈值依赖下出现分离",
+    "authors": [
+      "Adam Elimadi"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文以对抗训练作为受控手段，检验稀疏自编码器可分解性与集中特征归因是否真能预测更小、更易逆向的因果电路。作者从同一 GPT-2 Small 检查点出发，施加匹配的标准与对抗持续训练，要求两种条件都保持间接宾语识别能力并通过独立鲁棒性验证，再从 SAE 可分解性、SAE 特征在任务归因中的参与度、以及从原始计算图恢复的忠实电路规模三个维度比较。结果显示鲁棒模型更易被 SAE 分解、任务归因中涉及的 SAE 特征更少，但电路规模随忠实度阈值变化：在能力匹配的 IOI 任务上，85% 忠实度以下标准模型领先或持平，而在 90% 和 95% 高忠实度下鲁棒模型所需边数显著更少。该模式在主对比对上确立，表征趋势在七点扫描和第二个语料上可复现。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.35890",
+      "aisafetyhot": "https://aisafetyhot.com/items/iaqedsvtax05dgelbupguc8bm"
+    },
+    "publishedAt": "2026-09-27T07:35:31.000Z",
+    "timelineAt": "2026-09-27T07:35:31.000Z"
+  },
+  {
     "arxivId": "2609.33481",
     "title": "What Does It Mean to Forget a Person? Individual-Level Unlearning in Vision-Language Models",
     "titleZh": "IDUnlearn-Bench：面向视觉语言模型的个体级遗忘基准",
@@ -249,23 +211,23 @@
     "timelineAt": "2026-09-27T11:47:10.000Z"
   },
   {
-    "arxivId": "2609.33569",
-    "title": "Information Blackhole: Exploring Backdoor Mechanism in 3D Point Cloud Reconstruction",
-    "titleZh": "信息黑洞：3D 点云重建中的后门机制研究",
+    "arxivId": "2609.33371",
+    "title": "API Secrets Should Never Become Tokens in the LLM's Vocabulary: A Threat Analysis of API Credential Handling in LLM Agent Systems and an Empirical Evaluation of a Vault-Mediated Execution Boundary",
+    "titleZh": "论文提出保险库中介执行边界，评估 LLM Agent 的 API 凭据处理风险",
     "authors": [
-      "Zhifei Yang"
+      "Patrick Kenney"
     ],
     "category": "attack",
     "selected": false,
     "attention": null,
-    "summaryZh": "针对点云自编码器的后门攻击研究提出\"信息黑洞\"原理与自适应高斯匹配（AGM）方法，通过高斯分布约束解耦潜在表示、阻断干扰信息，抑制中毒样本中源几何信息向攻击者指定重建目标的传播，从而提升攻击可控性。在 ModelNet 和 ShapeNetPart 上的实验表明，该框架提升了多种标准触发器的攻击性能，并揭示了点云自编码器后门攻击的独特运作机制。",
+    "summaryZh": "论文将工具调用型 LLM Agent 的凭据卫生问题定义为执行安全问题，并评估了一种保险库中介执行架构：模型只选择连接器标识符，由可信请求边界提供认证。作者在 Corvic Security Vault 的生产实现上做了两组受控黑盒实验，覆盖七个控制域的 16 项探测全部达到预期结果，包括一次已认证的 GitHub API 请求成功，而凭据未出现在进程环境变量、调用方可见请求头、受测文件系统位置、三个第三方回显服务和两个无关 API 源中，两个云实例元数据端点均不可达。论文同时报告了一个负面结果：某连接器的存储请求头映射不满足其提供方的认证契约，说明集中托管本身不能保证配置正确。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2609.33569",
-      "aisafetyhot": "https://aisafetyhot.com/items/slws2ums8w3hszdvsj8tew2v6"
+      "paper": "https://arxiv.org/abs/2609.33371",
+      "aisafetyhot": "https://aisafetyhot.com/items/ntlfjr3rql78s73nfqw1phwdv"
     },
-    "publishedAt": "2026-09-27T13:46:59.000Z",
-    "timelineAt": "2026-09-27T13:46:59.000Z"
+    "publishedAt": "2026-09-27T08:55:16.000Z",
+    "timelineAt": "2026-09-27T08:55:16.000Z"
   },
   {
     "arxivId": "2609.33640",
@@ -287,23 +249,23 @@
     "timelineAt": "2026-09-27T15:03:29.000Z"
   },
   {
-    "arxivId": "2609.33658",
-    "title": "AgentBoundary: Counterfactual Evaluation of Safety in Tool-Using LLM Agents",
-    "titleZh": "AgentBound：面向工具型 LLM Agent 安全的四路反事实评测框架",
+    "arxivId": "2609.33144",
+    "title": "Beyond the Training Horizon: Mechanisms and Limits of Length Generalization in Looped Transformers",
+    "titleZh": "循环 Transformer 长度泛化的机制与边界：MR-Loop 与 DR-Loop 的机制对比研究",
     "authors": [
-      "Tianzhuo Yang"
+      "Jia Liang"
     ],
-    "category": "eval",
+    "category": "alignment",
     "selected": false,
     "attention": null,
-    "summaryZh": "研究者提出 AgentBound，一个针对工具型 LLM Agent 安全的四路反事实生成与评测框架，通过独立改变表面风险与动作许可性，构造同一可执行工作流的不同版本，从而在控制任务能力的前提下同时诊断过度拒答与不安全执行。该框架被实例化为一个经人工验证的 4000 任务评测套件，采用基于轨迹和基于后置状态的判断方式。在 17 种模型与 harness 配置上，高安全性常与授权任务完成率低并存：GPT-5.5 拦截了 99.5% 看似常规但未授权的动作，却只完成 28.7% 看似有风险但已授权的任务。",
+    "summaryZh": "研究机制性对比了两种循环 Transformer 配置 MR-Loop 与 DR-Loop，在多项式迭代、有限状态组合和知识图谱遍历任务上分析其长度泛化机制。MR-Loop 在固定读出下更新中间状态，通过相邻 token 交互推进关系选择；DR-Loop 则跨关系位置传播中间状态，形成推进式计算前沿。两者在更深层均不可靠：MR-Loop 读出状态与进度线索退化，DR-Loop 状态传播可靠性下降，且有限的自纠正使局部错误持续累积。循环状态还编码内容的计算状态，可迁移的 live-consumed 与 fresh-aged 残差方向因果控制信息能否参与后续计算，且长度泛化不必依赖忠实的逐步推理。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2609.33658",
-      "aisafetyhot": "https://aisafetyhot.com/items/z4936bywb6c0j51rbyac9c8i2"
+      "paper": "https://arxiv.org/abs/2609.33144",
+      "aisafetyhot": "https://aisafetyhot.com/items/mg10wfmwsqtjgtfz2h92bxwp8"
     },
-    "publishedAt": "2026-09-27T15:19:52.000Z",
-    "timelineAt": "2026-09-27T15:19:52.000Z"
+    "publishedAt": "2026-09-27T03:15:00.000Z",
+    "timelineAt": "2026-09-27T03:15:00.000Z"
   },
   {
     "arxivId": "2609.33662",
@@ -323,5 +285,43 @@
     },
     "publishedAt": "2026-09-27T15:21:45.000Z",
     "timelineAt": "2026-09-27T15:21:45.000Z"
+  },
+  {
+    "arxivId": "2609.33028",
+    "title": "Łukasiewicz Neural Networks Extended: Residual Architectures and Crystallization Strategies for Interpretable Rule Extraction",
+    "titleZh": "Łukasiewicz 神经网络扩展：残差连接实现任意深度的可解释规则提取",
+    "authors": [
+      "Carlos Leandro"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "该论文证明残差连接可将权重取整数、激活函数截断恒等的 Łukasiewicz 网络扩展到任意深度，并构造性地保证合并神经元始终满足神经元的逻辑联结词分类命题，不受内层权重影响。针对结晶化策略，论文分析了修正版 Levenberg-Marquardt、直通估计（STE）和近端正则三种方法的理论保障、失效模式及可解释性权衡，从而突破原有算法仅适用于浅层结构和小规模数据的限制。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.33028",
+      "aisafetyhot": "https://aisafetyhot.com/items/uvo62jm9oz2qrqehcjhv6zgyd"
+    },
+    "publishedAt": "2026-09-26T23:51:42.000Z",
+    "timelineAt": "2026-09-26T23:51:42.000Z"
+  },
+  {
+    "arxivId": "2609.33569",
+    "title": "Information Blackhole: Exploring Backdoor Mechanism in 3D Point Cloud Reconstruction",
+    "titleZh": "信息黑洞：3D 点云重建中的后门机制研究",
+    "authors": [
+      "Zhifei Yang"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对点云自编码器的后门攻击研究提出\"信息黑洞\"原理与自适应高斯匹配（AGM）方法，通过高斯分布约束解耦潜在表示、阻断干扰信息，抑制中毒样本中源几何信息向攻击者指定重建目标的传播，从而提升攻击可控性。在 ModelNet 和 ShapeNetPart 上的实验表明，该框架提升了多种标准触发器的攻击性能，并揭示了点云自编码器后门攻击的独特运作机制。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.33569",
+      "aisafetyhot": "https://aisafetyhot.com/items/slws2ums8w3hszdvsj8tew2v6"
+    },
+    "publishedAt": "2026-09-27T13:46:59.000Z",
+    "timelineAt": "2026-09-27T13:46:59.000Z"
   }
 ]

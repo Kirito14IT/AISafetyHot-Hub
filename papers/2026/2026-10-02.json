@@ -1467,7 +1467,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "针对能源时间序列缺失值插补，研究提出裁剪感知的目标条件化方法，在固定阈值 DP-SGD 下用 v-prediction 缓解余弦扩散调度后期低 SNR 时间步的梯度放大，并引入扩散调度感知的动态加权在裁剪前加强衰减。在五个真实能源时间序列数据集上，覆盖随机点缺失、连续块缺失、持续中断及多种缺失严重程度，该方法在匹配 DP-SGD 设置下插补效用一致优于 ε-prediction 基线。梯度诊断显示裁剪前梯度范数上尾更低、裁剪比例下降，后期低 SNR 时间步衰减更强。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "能源时序插补要补回缺失测量，细粒度用电又含敏感时间信息。余弦调度下后期低 SNR 的 ε-prediction 易产生过大裁剪前梯度，固定阈值 DP-SGD 裁剪后优化信号变弱。",
+          "label": "问题"
+        },
+        {
+          "text": "在固定 DP-SGD 机制下只改去噪目标：用 v-prediction 作目标重参数化，静态损失加权作均匀缩放对照，并以 λt=ᾱt 的时间步动态加权在裁剪前加强后期低 SNR 衰减。",
+          "label": "方法"
+        },
+        {
+          "text": "在 (ε,δ)=(10,10^{-5})、50% 缺失下，v-pred. dynamic 在五个数据集、三种缺失模式的 MSE/MAE/RMSE 均低于 ε-pred.（Table 1）。作者称主要收益来自 v-prediction，动态加权在其上再降误差；裁剪比例仍高于 91%。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出评测限于余弦调度、固定扩散骨干和文中 DP-SGD 设定，动态加权的增量随训练与任务变化；隐私单元为窗口级。实验覆盖五种能源数据集、三种缺失模式及后缀缺失预测，并与 PatchTST、TimesNet、iTransformer 和调参后的 ε-pred. 比较。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.00209"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.00209",
       "aisafetyhot": "https://aisafetyhot.com/items/fndj80bk0nnjbo94isk0rq7zc"
@@ -1532,7 +1553,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "针对强相关或冗余特征导致 SHAP、LIME、HSIC、MI/CMI、SAGE 等方法在多共线性下排名不稳的问题，研究者提出全局特征重要性方法 MCIR-M，其核心指标互相关影响比（MCIR）将每个特征条件于强依赖邻居并计算归一化比值，取值落在 [0,1]，精确条件冗余时为 0。该方法还引入轻量估计流程，仅用部分数据即可近似完整数据的解释结果。在合成冗余实验与 UCI HAR 基准上，MCIR 展现出依赖感知的排序行为，优势最明显的是注入近重复预测变量的场景；但与独立及条件 SHAP、SAGE、HSIC、MI 类评分以及 CIR 系基线的对比在不同评价标准下有优有劣。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "强特征依赖下，SHAP、LIME、HSIC、MI/CMI、SAGE 等可能把共享预测信息分给冗余特征，排序不稳且计算变贵。CIR 与 BlockCIR 不直接度量单个特征相对邻域的独特条件信息。",
+          "label": "问题"
+        },
+        {
+          "text": "MCIR-M 为每个特征筛选小的强依赖邻域 XΦ(i)，用条件互信息 Ui 相对扩大块互信息 Ji 做归一化，得到 Ci = 2Ui / (Ui + Ji)。分数在 [0, 1]，精确条件冗余时为 0。另用缩减解释样本做轻量估计，并用排序、头集与忠实性诊断对照全量解释。",
+          "label": "方法"
+        },
+        {
+          "text": "作者报告：受控合成冗余与 UCI HAR 上 MCIR 呈现依赖感知排序，最清晰优势出现在注入近重复预测变量时；与独立/条件 SHAP、SAGE、HSIC、基于 MI 的分数及 CIR 族基线在真实数据各准则上比较好坏不一。减少解释样本在所评配置中降低计算负担，全量与轻量的一致性另行用排序、头集和忠实性诊断评估。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "有界性只提供共同数值范围，并不意味着跨数据集或任务校准相同。估计器切换与 Auto-Φ 是数据驱动启发式，不是 oracle 最优。轻量保真是操作诊断，没有自动保持保证。表示层接近不能单独控制归因排序差异。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.01641"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.01641",
       "aisafetyhot": "https://aisafetyhot.com/items/j15ygx4r0fq702xeoqy9ii2pg"
