@@ -1,5 +1,90 @@
 [
   {
+    "arxivId": "2610.00400",
+    "title": "Representation Transitions Reveal Emerging Safety Risks in Multi-Turn LLM Agents",
+    "titleZh": "DART：用表征位移检测多轮 LLM 智能体中的新兴安全风险",
+    "authors": [
+      "Haoyu Wang",
+      "Wei Zhao",
+      "Yedi Zhang",
+      "Christopher M. Poskitt",
+      "Jun Sun"
+    ],
+    "category": "defense",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "新加坡管理大学等机构的研究者提出 DART，一种复用智能体隐藏状态的运行时防御框架，通过监测上下文更新引发的表征位移来检测多轮攻击。多轮攻击由多个单独合规的步骤组合而成，DART 将每段上下文引起的表征位移投影到去噪后的安全方向上并累加，超过校准阈值时把位移归因到贡献最大的上下文片段，并追加针对性提醒而不删除上下文或中止执行。在六个模型和两个多轮基准上，DART 把 MT-AgentRisk 的攻击成功率从 84% 降到 25%，拦下全部攻击，平均误报率 12%，良性请求的不拒答率下降 8%；同一协议下 ToolShield 的攻击成功率为 55%，DART 在六个模型上都优于它。在 ASEval 上攻击成功率从 97% 降到 52%，无良性拒答损失。去噪是关键，未去噪的监控在 ASEval 上只捕获 7%–40% 的攻击，去噪后为 60%–85%。同一监控无需修改即可覆盖单轮间接注入，每步仅增加 0.14–0.56 秒开销，且不需要辅助模型。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "多轮智能体攻击可将单独合规的步骤组合成有害结果，现存单步检测或动作拦截难以防范。推测模拟等防御手段依赖额外模型，计算开销较大。",
+          "label": "问题"
+        },
+        {
+          "text": "提出运行时防御框架DART。利用智能体内部表征转移构建安全方向，通过去除良性均值与协方差主成分消除漂移，在累加转移超标时定位触发上下文并追加针对性提示词。",
+          "label": "方法"
+        },
+        {
+          "text": "在6个模型上，DART使MT-AgentRisk的平均ASR从84%降至25%，在ASEval上使平均ASR从97%降至52%。在M3 Ultra上每步仅增加0.14–0.56秒开销。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "提示词归因在8B模型上可能加剧遵从；内在滥用缺乏清晰表征转移；多轮分解任务缺乏可剔除的外部有害片段；实验仅在本地8位模型和模拟工具环境中开展。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.00400"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00400",
+      "aisafetyhot": "https://aisafetyhot.com/items/n3gwvwfhzoq4qvdvurgpqskvy"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:21:22.405Z"
+  },
+  {
+    "arxivId": "2610.02015",
+    "title": "On Language Drift during RLVR Post-Training",
+    "titleZh": "研究：RLVR 后训练在全新推理任务上引发语言漂移",
+    "authors": [
+      "Michael Sullivan",
+      "Alexander Koller"
+    ],
+    "category": "alignment",
+    "selected": true,
+    "attention": 78,
+    "summaryZh": "德国萨尔兰大学的 Michael Sullivan 与 Alexander Koller 从理论与实验两方面研究 RLVR 后训练中的语言漂移，即思维链中出现非标准、不合语法甚至难以理解的语言。作者证明 RLVR 的优化压力允许语言漂移无界增长，而监督微调存在固定上界；并进一步证明在 RLVR 中约束语言漂移必然约束期望奖励。实验在 GSM8K 上训练 gemma-3-1b-pt、Llama-3.2-1B 和 Qwen2.5-1.5B 三个基座模型，用思维链可读性作为语言漂移的代理指标。结果显示 Llama 和 Gemma 在 RLVR 下的漂移高于 SFT，而主要靠行为锐化完成任务的 Qwen 几乎不出现漂移；不同随机种子训练出的 RLVR 模型之间互相可读性更低，说明每次训练的语言漂移方向各不相同。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "前沿大语言模型在通过强化学习（RLVR）增强推理能力的同时，其思维链（CoT）中频繁出现非规范甚至难以理解的语言漂移，降低了推理过程的可监控性。探明语言漂移是否由RLVR优化直接引发及其诱发机制，对维护前沿模型对齐与安全具有重要意义。",
+          "label": "问题"
+        },
+        {
+          "text": "作者将语言漂移建模为与人类语言分布的KL散度，理论推导SFT与RLVR下的漂移界限及奖励约束。随后在GSM8K上对比Llama、Gemma与Qwen基础模型在RLVR与SFT下的表现，利用三款指令模型及同模型不同种子评测痕迹可读性与自可读性。",
+          "label": "方法"
+        },
+        {
+          "text": "在GSM8K上，需发现新行为的Llama和Gemma在RLVR下的痕迹可读性与自可读性AUC均低于SFT（如Llama在Best-Perf检查点下AUC差值分别为-0.24与-0.17，Table 2）；而主要发生行为锐化的Qwen未表现出明显漂移。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "受计算资源限制，实验仅使用了1B至1.5B参数规模的小模型以及GSM8K单个数学推理数据集；漂移程度未达到前沿模型内部推理痕迹的不可读水平；实验未对限制漂移会限制奖励的理论结论进行实证检验，作者计划后续扩展更多推理数据集与验证实验。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.02015"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02015",
+      "aisafetyhot": "https://aisafetyhot.com/items/mie6f5je2wxc5o5p3oy1xxwoo"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T07:59:41.152Z"
+  },
+  {
     "arxivId": "2609.38847",
     "title": "Scoring Higher, Answering Worse: Mitigating Reward Hacking in Rubric-Based RL via Protocol-Level Rubrics",
     "titleZh": "ProRubric：通过协议级评分标准缓解 Rubric-RL 中的奖励作弊",
@@ -74,5 +159,755 @@
     },
     "publishedAt": "2026-10-01T04:00:00.000Z",
     "timelineAt": "2026-10-01T16:21:19.310Z"
+  },
+  {
+    "arxivId": "2609.40286",
+    "title": "Linguistic Loopholes in LLM Unlearning: From a 174-Language Benchmark to Coverage-Aware Unlearning",
+    "titleZh": "研究者提出 COVER：在语言预算下选择源语言实现跨语言遗忘",
+    "authors": [
+      "Tyler Skow",
+      "Shravan Chaudhari",
+      "Rama Chellappa",
+      "Abhay Yadav"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究指出在一种语言中遗忘某个事实并不能保证它在其他语言中也被移除，改变提问语言或要求回答的语言就能重新调出看似已遗忘的知识，形成跨语言漏洞。为此作者提出语言预算多语言遗忘任务，即选择一组语言子集以最大化跨语言擦除效果，并构建了覆盖 174 个语言-文字对、25 种原子改写类型的 Cross-Lingual Unlearning Tensor 基准。他们进一步提出 COVER，通过选择源语言来最大化对未接受遗忘监督语言的预测覆盖。实验发现，简单挑选单个强源语言并不能可靠组合成强源语言集合。在部署阶段，COVER 只需良性校准数据和访问冻结模型；在三个模型家族和两个不相交遗忘集上，COVER 相比均匀源选择将平均留出残留访问降低 7.8%–27.3%，并在低资源语言场景下用 LORELEI 语料的人工翻译数据验证了效果可扩展到真实新闻文档。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.40286",
+      "aisafetyhot": "https://aisafetyhot.com/items/kbwdkex8jym0zj9tg95h2upb5"
+    },
+    "publishedAt": "2026-10-01T04:00:00.000Z",
+    "timelineAt": "2026-10-02T01:58:22.425Z"
+  },
+  {
+    "arxivId": "2610.00332",
+    "title": "The Weakest Link: Distilling LLM Reasoning with Worst-Case Constrained Reinforcement Learning",
+    "titleZh": "最弱一环：用最坏情况约束强化学习蒸馏 LLM 推理能力",
+    "authors": [
+      "Matthieu Zimmer",
+      "Xiaotong Ji",
+      "Tu Nguyen",
+      "Haitham Bou-Ammar"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对将 LLM 推理能力蒸馏给小模型的难题，研究者提出把推理蒸馏建模为带最坏情况约束的强化学习问题——在每个轨迹前缀上都对教师对数似然施加约束，而非软散度惩罚的平均化处理。该方法推导出一个无增广的受限 MDP，其奖励变换既保留硬约束语义，又可分解为低方差的单步项与长期项策略梯度，并在惩罚极限下几乎必然满足该最坏情况约束。在数学推理与代码生成任务的实验中，该方法显著拓宽准确率—保真度的帕累托前沿，匹配纯 RL 的高最终答案正确率并大幅减少违反教师约束的情况，在所有评测设置中取得最高的严格推理成功率。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00332",
+      "aisafetyhot": "https://aisafetyhot.com/items/t8hzrqywnw1vymij74r8jf8ia"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:07:25.525Z"
+  },
+  {
+    "arxivId": "2610.00531",
+    "title": "Science or Slop?: Benchmarking and Mitigating Scientific Slop in AI-Generated Papers",
+    "titleZh": "SciSlopBench：评测并缓解 AI 生成论文中的科学灌水",
+    "authors": [
+      "Yerim Oh",
+      "Young-Jun Lee",
+      "Jaewoo Ahn",
+      "Gunhee Kim",
+      "Dongyeop Kang"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出以科学灌水（scientific slop）为对象的评测框架，用 Structure、Argument、Artifacts 三个维度的六项指标识别 AI 生成论文中局部看似合理但整体科学推理断裂的问题。他们构建了 SciSlopBench，包含 390 篇 AI 生成论文，以计算机科学为主并覆盖生命、社会与自然科学，每篇配一篇研究问题与贡献类型匹配的人类论文；这些指标在配对中识别 AI 论文的准确率为 85.9%，高于 Binoculars 的 68.7%。科学灌水程度越高，ICLR 评分越低，且在 2017 至 2025 年每一年都能以高于随机的水平区分被拒与录用论文。作者指出直接优化这些指标并不奏效，并提出 SciSlopHarness，在实验记录支持改动时才引导固定 LLM 修改，相比最强改写基线将剩余的人机差距缩小 63%，且不需要人类参考目标。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00531",
+      "aisafetyhot": "https://aisafetyhot.com/items/dwcpq5xd4sx8pb4lftzn844ce"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:07:25.544Z"
+  },
+  {
+    "arxivId": "2610.00850",
+    "title": "AuraForge: Scaling Security Supervision for Training Coding Agents",
+    "titleZh": "AuraForge：为训练安全编码 Agent 扩展安全监督",
+    "authors": [
+      "Danqing Wang",
+      "Songwen Zhao",
+      "Harsh Sharma",
+      "Jierui Wang",
+      "Andre Vicente Duarte",
+      "Ivan Bercovich",
+      "Lei Li"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "AuraForge 通过合成并验证可执行的安全测试，为训练安全编码 Agent 提供可扩展的安全监督。该方法结合面向攻击的测试合成、可扩展语言的任务构建以及针对奖励作弊的防护。基于此构建的 AuraGym 覆盖 Python、JavaScript 和 TypeScript，包含来自 344 个真实仓库的 679 个可执行功能实现任务，涉及 177 个 CWE 类别。在带有人工安全测试的子集上，AuraForge 平均生成约 3 倍的测试用例，并将误报率降低 83.23%。用合成安全测试训练 Qwen3.5-4B，在三种语言上的提升大于人工安全测试（平均 19.7 FuncPass 和 6.2 SecPass，对比 14.9 FuncPass 和 4.4 SecPass）。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00850",
+      "aisafetyhot": "https://aisafetyhot.com/items/uiiw0s8tuu7tgfvn34h1754fx"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:07:25.557Z"
+  },
+  {
+    "arxivId": "2610.01800",
+    "title": "LineupRL: Verifiable Reinforcement Learning for Time Series Captioning via Caption-to-Series Identification",
+    "titleZh": "LineupRL：基于描述与时序配对识别的可验证强化学习时间序列描述方法",
+    "authors": [
+      "Haochen Zhang",
+      "Laura Yao",
+      "Zachary Plotkin",
+      "Gengwei Zhang",
+      "Tianlong Chen"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "LineupRL 提出一种带可验证奖励的强化学习流程，其奖励来自\"描述—时序配对识别\"——由冻结的大语言模型作为验证器读取生成的文字描述与候选时间序列原始数值，从多个干扰项中选出所描述的序列。该设计使现成大语言模型即可提供奖励信号，在两个时间序列描述基准以及仅依据描述进行预测和重建的任务上全面优于 SFT 与 RL 基线。经该方法训练的 3B 视觉语言模型参数仅为蒸馏源 72B 模型的 1/24，却取得更好表现，且案例研究表明它能抵抗奖励作弊并同时刻画趋势与标注关键点的取值。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01800",
+      "aisafetyhot": "https://aisafetyhot.com/items/pykb5rb1wvyubcavym7hksoo1"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:07:25.566Z"
+  },
+  {
+    "arxivId": "2610.00348",
+    "title": "Removing the NEEDLE in the Haystack: Backdoor Removal in LLMs via Weight Orthogonalisation",
+    "titleZh": "NEEDLE：通过权重正交化移除 LLM 后门",
+    "authors": [
+      "Minoo Kim",
+      "Vasileios Lampos",
+      "George Drayson"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 NEEDLE，一种免训练的后门定向移除方法。该方法在识别出触发词后，通过激活向量估计后门方向和拒答子空间，再依次施加权重正交化，在压制后门的同时避免改变与拒答相关的表征。NEEDLE 不需要干净参考模型，也不需要原始被投毒的训练数据。在多个模型族和多种攻击类型上的评测中，NEEDLE 取得所评估防御方法中最低的平均攻击成功率，在代码注入类攻击上为 0%，同时 KL 散度最低，能力与安全性的变化也最小。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00348",
+      "aisafetyhot": "https://aisafetyhot.com/items/n1jj6dgm9v04riitk7tfi8nsh"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:16:24.302Z"
+  },
+  {
+    "arxivId": "2610.00685",
+    "title": "Backdoor Purification for LoRA-Tuned LLMs via Null-Space Projection",
+    "titleZh": "研究者提出用零空间投影净化 LoRA 微调 LLM 的后门",
+    "authors": [
+      "Jianwei Li",
+      "Jung-Eun Kim"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一种针对 LoRA 微调大语言模型的后门净化方法，通过零空间投影将攻击成功率从接近 100% 降至 10% 以下。该方法不依赖触发器先验知识、干净参考模型或对可疑参数的重新训练，而是通过数据整理与特征近似提取高保真后门方向，在每一层或每个注意力头的输入与输出通道上构造正交零空间，再将 LoRA 更新投影到该空间。作者通过一系列消融实验，将方法从文本分类的单层设置逐步扩展到生成任务的全参数 LLM，并称在降低攻击成功率的同时保留了基座模型的通用能力和适配器学到的下游技能。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00685",
+      "aisafetyhot": "https://aisafetyhot.com/items/u1so1c4nfqqpy549tjbs70lqd"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:16:24.321Z"
+  },
+  {
+    "arxivId": "2610.01788",
+    "title": "SAGE: Similarity-Based Cleaning of Poisoned Training Data from Verified Examples",
+    "titleZh": "SAGE：基于相似度从少量已验证样本中清洗中毒训练数据",
+    "authors": [
+      "Chaeeun Han",
+      "Soodeh Atefi",
+      "Yevgeniy Vorobeychik",
+      "Aron Laszka"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对数据投毒防御普遍依赖大量可信干净样本的问题，研究者提出 SAGE——在一个独立数据集上训练通用特征提取器，再用基于少量已验证样本的非参数化相似度加权预测标记中毒训练样本。该方法只需极少数经取证专家核查过（无论判定为干净还是有毒）的样本即可生效，并在七个 clean-label 攻击方法的基准上与现有防御对比取得优势。实验还发现，已验证干净样本在各类别间的分布比其总数更重要。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01788",
+      "aisafetyhot": "https://aisafetyhot.com/items/bguurd9wkn4i7fcc7rp5y653u"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:16:24.328Z"
+  },
+  {
+    "arxivId": "2610.01497",
+    "title": "OpenMTB-Audit: Exposing Over-Refusal and Clinical Expert Perspectives in LLM-Based Molecular Tumor Board Safety Evaluation",
+    "titleZh": "OpenMTB-Audit：LLM 分子肿瘤委员会安全评测暴露过度拒答",
+    "authors": [
+      "Negin Ashrafi",
+      "Jia Luo",
+      "Stacey M. Frumm",
+      "Roxana Daneshjou"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者发布 OpenMTB-Audit，一个包含 500 例合成非小细胞肺癌病例的开源基准，覆盖五类对抗性错误和 Supported、Partially Supported、Unsupported、Insufficient Information 四种安全标签。在八种大语言模型配置上，所有配置在真实 Partially Supported 病例中有 83.3% 至 100% 未能保留该标签，靠标签坍缩获得高总体安全分，而非临床校准推理。为此作者开发 MTB-AuditAgent，一个确定性七模块框架，分离证据核验、缺失信息检测、安全分类与弃答，将过度拒答降至 6.7%，准确率达 91.2%（95% CI：88.6-93.6%）。两位肿瘤科医生的标注研究显示，分歧集中在信息充分性与治疗优化之间的边界。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01497",
+      "aisafetyhot": "https://aisafetyhot.com/items/x4ssn31szmjvgukxdfsnnlvmx"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:17:23.580Z"
+  },
+  {
+    "arxivId": "2610.00895",
+    "title": "Towards Fast and Disentangled Counterfactuals for Visual Foundation Models",
+    "titleZh": "DiDAE：面向视觉基础模型的快速解耦反事实解释方法",
+    "authors": [
+      "Sidney Bender",
+      "Benedikt Kunz",
+      "Ahmed Zeid",
+      "Shinichi Nakajima",
+      "Klaus-Robert M\\\"uller",
+      "Marco Morik"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对基础模型易受虚假相关性和“Clever Hans”策略影响的问题，研究者提出解耦扩散自动编码器（Disentangled Diffusion Autoencoders，DiDAE）。该方法将冻结的基础模型包裹在条件扩散解码器中，通过沿解耦字典方向做闭式编辑并解码来生成反事实，无需梯度计算，速度最高可达当前最优方法的 2000 倍。在六个数据集上的实验表明其反事实质量相当或优于现有方法，并能借助 CFKD 修复下游分类器，效果超过基于元数据的校正方案。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00895",
+      "aisafetyhot": "https://aisafetyhot.com/items/jmmwususu6xahxa2npqhwxncw"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:19:22.435Z"
+  },
+  {
+    "arxivId": "2610.01062",
+    "title": "Kernelized Activation Steering",
+    "titleZh": "Kernelized Activation Steering：将激活引导推广到再生核希尔伯特空间的新框架",
+    "authors": [
+      "Laziz U. Abdullaev",
+      "Minh-Hieu Pham",
+      "Bach Do",
+      "Khoat Than",
+      "Tan M. Nguyen"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Kernelized Activation Steering（KAS），把激活引导建模为纯由核函数求值的优化问题，无需构造显式特征映射即可产生依赖当前激活的隐式引导得分，实现随表示空间中源集与目标集相对位置自适应调整的非线性引导场。Difference-in-Means（DiM）在线性核下成为其特例，更丰富的核可实现几何感知干预。在大语言模型越狱与图像风格控制等标准激活引导任务中，KAS 表现优于或不逊于现有方法。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01062",
+      "aisafetyhot": "https://aisafetyhot.com/items/pkx33li6hesfnnv04ncm9yk0e"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:19:22.450Z"
+  },
+  {
+    "arxivId": "2610.01821",
+    "title": "Beyond Linear Concepts: Discovering and Aligning Non-Linear Concept Manifolds in Large Language Models",
+    "titleZh": "研究者提出非线性概念流形发现与对齐方法，用于分析大语言模型内部表示",
+    "authors": [
+      "Tido Specht",
+      "Elias Benedict Krey",
+      "Nils Neukirch",
+      "Nils Strodthoff"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者将计算机视觉中的非线性多维概念发现（NLMCD）方法迁移到 token 级 LLM 激活上，把概念建模为低维流形，并提出基于概念的对齐（CBA）分数，用广义 Rand 指数衡量几何接近度而无需显式特征匹配。分析得到六项发现：CBA 在相邻层检验中比基于 PCA 或 CKA 的线性基线更敏感；逐层对齐矩阵在中间层和后期层呈现两个块结构，且被线性指标掩盖；概念组成在网络大部分层由句法主导，后期层逐渐转向句法与语义混合并更面向输出；英语与中文的多语言概念共享依赖训练，在 Qwen 中最强、Llama 较弱、GPT-2 中不存在；同族不同规模的 Qwen 模型对齐较强，跨模型族对齐较弱；在 Tulu-3 各训练阶段中相邻阶段对齐最高，基座模型与 SFT 之间变化最大，DPO 与 RLVR 等偏好对齐阶段基本不改变早期层，RLVR 在后期层大多保留 DPO 的概念。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01821",
+      "aisafetyhot": "https://aisafetyhot.com/items/i7oeq5xlzlc89i2sqs2hd1fq5"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:19:22.459Z"
+  },
+  {
+    "arxivId": "2610.01969",
+    "title": "RASteer: Retain-Aware Activation Steering for Concept Erasure in Diffusion Models",
+    "titleZh": "RASteer：面向扩散模型概念擦除的保留感知激活引导方法",
+    "authors": [
+      "Yongliang Wu",
+      "Haori Lu",
+      "Yulun Wu",
+      "Jinqi Luo",
+      "Xingyu Zhu",
+      "Yaoyao Liu"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "RASteer 是一种免训练的扩散模型概念擦除方法，通过从待保留概念构建保留子空间，再用 Retain-Orthogonal Steering（ROS）剔除擦除方向中与该子空间对齐的分量，使引导更具针对性。为避免完全移除共享分量削弱擦除效果，该方法引入 Overlap-Adaptive Calibration（OAC），在每个层和去噪步依据擦除方向与保留子空间的重叠度动态调节各分量的去除程度。在不安全内容、实例与艺术风格擦除实验中，RASteer 达到或超过所对比的激活引导与权重编辑基线，实现了更好的擦除—保留平衡。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01969",
+      "aisafetyhot": "https://aisafetyhot.com/items/zti33b4hs4kittq65y02wzdwt"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:19:22.467Z"
+  },
+  {
+    "arxivId": "2610.02098",
+    "title": "Are We Recovering Mechanisms? Objective-Level Recovery Gaps in Mechanistic Interpretability",
+    "titleZh": "研究揭示机制可解释性中的目标层恢复缺口",
+    "authors": [
+      "Chuqin Geng",
+      "Li Zhang",
+      "Haolin Ye",
+      "Mark Zhang",
+      "Luke Zhang",
+      "Xujie Si"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文指出，机制可解释性中常用的干预式忠实度指标可能偏好一个同等规模但行为复现更差的电路，形成目标层恢复缺口。作者在四个人类参考任务和 InterpBench 上，将验证忠实度与固定普通重采样下留出提示词上的行为表现对比，行为标准为与完整模型一致（包括其错误），Greater-Than 任务改用语义准确率。受控参考编辑在没有任何发现算法的情况下即可暴露错误排序，EAP、EAP-IG、ACDC 和 Edge-SP 的输出也出现同样失败；在重采样下，KL 在人类参考任务上对 9.4%-41.2% 的候选对排序错误。作者用上下文失真解释这一现象：替换被排除的信号会改变保留组件所处理的输入；从接收方完整模型执行中恢复选定信号，可在验证和留出提示词上修复发现池中 100 个持续 KL 错误排序中的 96 个，而电路及其原始行为分数保持不变。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02098",
+      "aisafetyhot": "https://aisafetyhot.com/items/y6s6h8pv5cjybv5zjivexrv7g"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:19:22.477Z"
+  },
+  {
+    "arxivId": "2610.01864",
+    "title": "From Isolated Feature to Orbits: Discovering Music Concepts via Multi-SAE Alignment",
+    "titleZh": "从孤立特征到轨道：通过多重 SAE 对齐发现音乐概念",
+    "authors": [
+      "Liwei Lin",
+      "Gus Xia"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一套基于结构的分析方法，将音高移调作为归纳偏置，通过对齐多个视角下的稀疏自编码器（SAE）表征来诱导有序轨道，从而发现结构化的音高相关特征组。该方法在两个最先进的音乐基础模型中成功恢复出和弦、调和旋律模式对应的轨道结构，且仅需少量锚点示例即可解读整个概念家族，表明音乐概念的内部表示更适合理解为结构化关系而非孤立特征。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01864",
+      "aisafetyhot": "https://aisafetyhot.com/items/kt0x3u8t48l75ve3ilz0i07th"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:19:22.501Z"
+  },
+  {
+    "arxivId": "2610.01045",
+    "title": "Empty Commitments: When Agents Promise What Their Runtime Cannot Deliver",
+    "titleZh": "论文提出空承诺概念，衡量智能体承诺超出运行时能力的问题",
+    "authors": [
+      "Jiaqi Tang",
+      "Lan Wei",
+      "Bingyu Shen",
+      "Boyang Li"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出空承诺概念，指智能体承诺在当前轮次之后执行某个动作，但其工具或运行时无法兑现，且这种落空仅由智能体配置决定，无需后续轨迹即可判定。作者在承诺语义之上定义空承诺，给出三种失败类型、一个判断工具能否真正兑现承诺的锚定条件，以及响应层面的结果分类。测量协议让后续请求在五种设置下运行，每次只增加一项持久化能力，环境则分别保持隐含或明确说明。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01045",
+      "aisafetyhot": "https://aisafetyhot.com/items/jfl7zu5pnr3x6o5yeo5aae9fl"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:20:22.377Z"
+  },
+  {
+    "arxivId": "2610.01058",
+    "title": "MOMAT: Mixture of Multiple Atlases for Low-Power Jailbreak Defense of Quantized LLMs",
+    "titleZh": "MOMAT：面向量化 LLM 低功耗越狱防御的多图集混合框架",
+    "authors": [
+      "Boyang Li",
+      "Bingyu Shen",
+      "Weihao Hong",
+      "Zhiyuan Jiang",
+      "Xinlei Guan",
+      "Yan Ma",
+      "Miles Q. Li",
+      "Yi Sheng",
+      "Ruiyang Qin"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 MOMAT（Mixture of Multiple Atlases），一种面向边缘设备上量化大语言模型的硬件增强安全框架，用于缓解量化削弱对齐防护后模型易被越狱攻击的问题。每个 atlas 对应有害或良性样本集与策略模板的语义聚类，实现领域局部化的 RAG 防护，以缓解大规模异构安全数据库中的维度灾难与语义稀疏问题。MOMAT 对每个提示词从所有 atlas 中检索 top-k 相似特征，交由轻量 MoE 检测器判断，并用 CiM 加速的相似度引擎完成低功耗图集内检索。其 CiM 检索将 100 条查询的批处理从 15,052.44 ms 加速到 3,207.21 ns，能耗从 8.1×10^7 μJ 降至 3.32 μJ，相比基于 DRAM 的 Raspberry Pi 基线约降低 2.5×10^5 倍能耗。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01058",
+      "aisafetyhot": "https://aisafetyhot.com/items/i4s27961mkyg6fe24opberxom"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:20:22.392Z"
+  },
+  {
+    "arxivId": "2610.02092",
+    "title": "Scalable, Transferable Meta-network for Data Selection Requires a Different Loss (and Why the Obvious Choice is Problematic)",
+    "titleZh": "TESS：面向大语言模型数据选择的可扩展可迁移元网络需换损失函数",
+    "authors": [
+      "Zilin Du",
+      "Bowen Yang",
+      "Boyang Albert Li"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对将选择网络直接并入现有 MTS 目标会导致优化不稳定与泛化差的问题，研究者提出基于 Pointwise Value Matching（PVM）的数据选择框架 TESS，指出权重压制和对易学特征的持续依赖是其成因。该框架在大语言模型安全与定向指令微调实验中展现出跨数据集、从子集到完整语料以及从小模型到大模型的强迁移能力。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02092",
+      "aisafetyhot": "https://aisafetyhot.com/items/oht4e81l8p99vbtrd5n0ttpxj"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:20:22.403Z"
+  },
+  {
+    "arxivId": "2610.00780",
+    "title": "Made to Measure: Designing Image Watermarks to Specification",
+    "titleZh": "TAILOR：面向图像水印的组合方案定制框架",
+    "authors": [
+      "Mingzhe Li",
+      "Yuefeng Peng",
+      "Kejing Xia",
+      "Pranav Jeyakumar",
+      "Ruolan Leslie Famularo",
+      "Shiqing Ma"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对图像水印需同时满足抗攻击、假阳性率、画质与时延的问题，研究者提出请求条件化的组合框架 TAILOR，通过离线刻画各片段的恢复率—失真—运行时曲线、基于 SMT 联合求解最低失真的片段组合与强度顺序、再在实际图片上实时校准三步实现定制化配置。在覆盖五种场景、20 种攻击设置的 7321 个不同请求上，TAILOR 达到 96.21% 的场景平均请求满足率和 41.02 dB 的平均 PSNR，鲁棒性与画质均优于现有方法。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00780",
+      "aisafetyhot": "https://aisafetyhot.com/items/heklk00ysiep00lsjnodxd9wg"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:21:27.789Z"
+  },
+  {
+    "arxivId": "2610.00327",
+    "title": "Actions with Receipts: Jointly Binding Claims, Evidence, and Execution for Replayable Tool-Agent Auditing",
+    "titleZh": "Actions with Receipts：为工具智能体审计绑定声明、证据与执行",
+    "authors": [
+      "Miaobo Hu",
+      "Shuhao Hu",
+      "Xiaobo Guo",
+      "Xin Wang",
+      "Bokun Wang",
+      "Yina Sa",
+      "Daren Zha",
+      "Jun Xiao"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出一种以声明为锚点的执行契约，把智能体输出的声明、其精确来源片段、产生该声明的有序执行前缀，以及执行时观察到的来源版本与访问状态联合绑定，用于可回放的智能体审计。每条回执包含一个发射锚点，可在已提交答案或带声明的动作中确定性地定位该声明，并附带来源标识、偏移、哈希、引文和域分隔的执行承诺。确定性完整性验证器在接入语义或任务标签之前先重建这些绑定，作者将完整性平面与可插拔的支持平面分离，避免用结构有效性代替蕴含判断。契约给出七个可独立测试的属性，包括声明与发射绑定、来源绑定、有序执行绑定、oracle 分离、持久对象回放、执行重跑一致性和版本与访问绑定。在 1280 个跨对象攻击中，联合契约检出 1275 个替换，检出率 0.9961；移除任一目标属性后，其攻击检出率降至 0.0156 至 0.0625。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00327",
+      "aisafetyhot": "https://aisafetyhot.com/items/dlmj4gn7d5uvromd5jjxchig0"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:22:22.373Z"
+  },
+  {
+    "arxivId": "2610.00328",
+    "title": "ContractRL: Shielded Group-Relative Policy Optimization for Auditable Tool-Call Repair",
+    "titleZh": "ContractRL：面向可审计工具调用修复的屏蔽组相对策略优化",
+    "authors": [
+      "Miaobo Hu",
+      "Shuhao Hu",
+      "Xiaobo Guo",
+      "Xin Wang",
+      "Bokun Wang",
+      "Yina Sa",
+      "Daren Zha",
+      "Jun Xiao"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "ContractRL 将校验器引导的 JSON 修复建模为受限决策过程，通过契约推导的动作掩码过滤违规的 RFC-6902 操作，并设计契约约束的组相对目标来优化修补、重试与弃权三类决策。在相同校验器信息下，该方法取得 0.9362 语义成功率和 34.4 个生成 token，优于 Patch-SFT 的 0.9076/44.9 以及完整重新生成的 0.9148/137.2（每种种子 192 个用例、共五个种子）；策略优化还将语义成功率从监督版的 0.9186 提升至 0.9375。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00328",
+      "aisafetyhot": "https://aisafetyhot.com/items/h9co716c3aayd1k8u8rhau9u7"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:22:22.380Z"
+  },
+  {
+    "arxivId": "2610.01195",
+    "title": "Federated Agent Optimization",
+    "titleZh": "Federated Agent Optimization：面向隐私约束下分布式智能体协同优化的联邦智能体优化框架",
+    "authors": [
+      "Qiang Yang",
+      "Zhiqiang Kou",
+      "Xueyi Zhang",
+      "Dong-Dong Wu",
+      "Hanlin Gu",
+      "Jing Guo",
+      "Yang Liu",
+      "Di Jiang",
+      "Qian Xu"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "这篇论文提出联邦智能体优化（Federated Agent Optimization, FAO），研究分布式 LLM 智能体如何在不上传原始数据、完整轨迹和私有知识的前提下通过受控信息交换实现协同改进。作者将 FAO 定义为平衡智能体效用、隐私泄露与通信成本的多目标问题，并把优化空间划分为策略、记忆、工具使用、奖励以及结构化知识与技能五个维度，刻画私有经验如何被抽象、保护、聚合并适配为可迁移能力。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01195",
+      "aisafetyhot": "https://aisafetyhot.com/items/fztge87sv8vanbiob68do3phf"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:22:22.433Z"
+  },
+  {
+    "arxivId": "2610.01641",
+    "title": "MCIR: A Feature Dependence-Aware Explainability Method with Reliability Guarantees",
+    "titleZh": "MCIR：面向特征依赖的可解释性方法与可靠性保证",
+    "authors": [
+      "Poushali Sengupta",
+      "Sabita Maharjan",
+      "Frank Eliassen",
+      "Shashi Raj Pandey",
+      "Yan Zhang"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对强相关或冗余特征导致 SHAP、LIME、HSIC、MI/CMI、SAGE 等方法在多共线性下排名不稳的问题，研究者提出全局特征重要性方法 MCIR-M，其核心指标互相关影响比（MCIR）将每个特征条件于强依赖邻居并计算归一化比值，取值落在 [0,1]，精确条件冗余时为 0。该方法还引入轻量估计流程，仅用部分数据即可近似完整数据的解释结果。在合成冗余实验与 UCI HAR 基准上，MCIR 展现出依赖感知的排序行为，优势最明显的是注入近重复预测变量的场景；但与独立及条件 SHAP、SAGE、HSIC、MI 类评分以及 CIR 系基线的对比在不同评价标准下有优有劣。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01641",
+      "aisafetyhot": "https://aisafetyhot.com/items/j15ygx4r0fq702xeoqy9ii2pg"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:22:22.457Z"
+  },
+  {
+    "arxivId": "2610.00093",
+    "title": "Safety in Self-Evolving Agents: A Survey",
+    "titleZh": "自我演化智能体的安全性综述：SAVER 过渡中心框架",
+    "authors": [
+      "Jiahao Chen",
+      "Zhou Feng",
+      "Oubo Ma",
+      "Yichen Yan",
+      "Ruixiao Lin",
+      "Hangtao Zhang",
+      "Linkang Du",
+      "Hengyu An",
+      "Yong Yang",
+      "Jun Liu",
+      "Junhao Li",
+      "Naen Xu",
+      "Chunyi Zhou",
+      "Yuan Su",
+      "Zehao Jin",
+      "Qianli Ma",
+      "Leyi Qi",
+      "Yiming Wang",
+      "Zhe Ma",
+      "Yuwen Pu",
+      "Mengyao Du",
+      "Yuanyi Song",
+      "Enhao Huang",
+      "Zhihui Fu",
+      "Jun Wang",
+      "Jinfeng Li",
+      "Yuefeng Chen",
+      "Hui Xue",
+      "Yiming Li",
+      "Tianyu Du",
+      "Shouling Ji"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对参数固定的大语言模型难以从新交互中持续学习的问题，该综述提出面向自我演化智能体的安全性问题——当经验变为可复用状态（模型参数、记忆、工具定义、技能和工作流）后，过去的事件会成为未来的诱因。为此作者引入 SAVER 过渡中心框架，由 Substrate、Adaptation、Violation、Exposure、Response 五个环节定位并追踪不安全影响的可复用路径。现有工作在准入、检索、激活、暴露与局部遏制方面证据较强，但在后代修复及适应恢复后的再评估上明显不足，因此主张开展纵向评估，追溯不安全影响到其起源过渡并在后代中验证修复效果。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00093",
+      "aisafetyhot": "https://aisafetyhot.com/items/hks9w9m5d3f3zf9qinxwydjft"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T04:23:23.810Z"
+  },
+  {
+    "arxivId": "2610.00151",
+    "title": "Intrusion Detection for Agentic Processes: Evidence-Based Runtime Monitoring",
+    "titleZh": "A-IDS：面向智能体流程的证据驱动运行时入侵检测系统",
+    "authors": [
+      "Arslan Br\\\"omme"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "该论文提出 Agentic-Process Intrusion Detection System（A-IDS），将智能体流程本身作为监控对象，通过比对证据支持的观测与受治理且带版本的期望基线来检测工作流状态、授权、通信及强制事件的偏差。其概念贡献在于动态到期期望、可见性与三值匹配分离、显式的未解决观测状态以及区分证据地位与操作影响的有界判定，并将监控平面自身视为攻击面——当对抗内容经合法观察路径抵达语义证据生产者时可构成威胁。该工作属概念层面，未实现原型、未提供经验检测性能，也不做因果归因或强制执行。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00151",
+      "aisafetyhot": "https://aisafetyhot.com/items/hjips4zd9x92yep5csl535fta"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T05:22:22.853Z"
+  },
+  {
+    "arxivId": "2610.00392",
+    "title": "From A2A Attacks to Envelope-Layer Defense: Red-Teaming Evaluation of LLM Agents and a Three-Layer Isomorphic Attack-Defense Model",
+    "titleZh": "A2A-TIBA：针对 A2A 协议 LLM 智能体的间接提示注入攻击与三层同构攻防模型",
+    "authors": [
+      "Yuelin Han"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 A2A-TIBA，一种把间接提示注入与绕过规避结合的 Agent 攻击原理，利用 A2A 等智能体交互协议把远程对等方发来的任务当作合法请求这一特性，通过植入、命令、外传步骤诱导目标 Agent 部署回调交互程序，再由攻击者绕过 Agent 下发命令。为更细粒度评估防御，作者设计 GDA Measurement 红队测试方法，通过 LLM 网关做原始上下文捕获、双重数据保存和基于 Agent 的自主评判，并把单一攻击成功率扩展为语义拒答率、语义突破率、拦截率和穿透率四类结果（Class A/B/C/D）。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00392",
+      "aisafetyhot": "https://aisafetyhot.com/items/yc8v6umzbxh4c6zdgiq4gg9cc"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T05:22:22.874Z"
+  },
+  {
+    "arxivId": "2610.01768",
+    "title": "The Innocent Courier: Covert Exfiltration Through Legitimate LLM Web Fetching",
+    "titleZh": "LLMLeak：借 LLM 合法网页抓取实施隐蔽数据外泄",
+    "authors": [
+      "Alessandro Pegoraro",
+      "Daryan Merx",
+      "Phillip Rieger",
+      "Ahmad-Reza Sadeghi"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 LLMLeak，一种利用 LLM 网页抓取工具建立隐蔽信道的新型攻击向量：本地恶意软件无法直接联网，却可把机密编码进 URL，并以“迁移软件库”等良性任务为由让 LLM 访问该链接，攻击者再通过自己控制的 DNS 或网页服务器取回编码后的机密。作者指出，直接让 LLM 用生成代码发送数据的输入容易被检测、网络库通常也受限，而 LLMLeak 只依赖 LLM 获取网站信息的工具。在 11 个开放参数模型上的评测显示攻击成功率为 79.7%，作者还对真实聊天机器人做了案例研究。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01768",
+      "aisafetyhot": "https://aisafetyhot.com/items/y13xo84dt8i3qtuipe1fudlh4"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T05:22:22.887Z"
+  },
+  {
+    "arxivId": "2610.00430",
+    "title": "Memetic Trojans: Social Contagions as Carriers of Adversarial Payloads in Agent Networks",
+    "titleZh": "Memetic Trojans：利用社交传染在 LLM Agent 网络中传播对抗载荷",
+    "authors": [
+      "Birk Torpmann-Hagen",
+      "Finn Schwall",
+      "Leon Moonen"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 memetic trojans，一类利用 LLM Agent 转发和放大内容倾向进行传播的网络攻击，与依靠自我复制提示注入的 agent worms 不同，它把对抗载荷嵌入 Agent 有内在理由分享的社交传染内容中。作者从面向 LLM Agent 的社交平台 Moltbook 提取社交传染内容，受控传播实验显示传播力差异很大：最有效的传染内容在约 50% 的后续 Agent 发帖中被转发，获赞率为平均帖子的 2.5 倍，其 memetic trojan 版本基本继承这些特性。Monte Carlo 攻击模拟显示，memetic trojans 将预期曝光量最高放大 3.19 倍，网络结构与放大机制强烈影响传播，产生接近全网曝光的重尾结果。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00430",
+      "aisafetyhot": "https://aisafetyhot.com/items/ip9pu4k3oe2gbkl1tu1nlb429"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T05:22:22.894Z"
+  },
+  {
+    "arxivId": "2610.00883",
+    "title": "DeBERTa-ConPara: Attack-Aware and Deployment-Realistic Detection of AI-Generated Text",
+    "titleZh": "DeBERTa-ConPara：面向部署的 AI 生成文本检测，推理端 Unicode 归一化提升对抗鲁棒性",
+    "authors": [
+      "Mohamed Mady",
+      "Yupei Li",
+      "Johannes Reschke",
+      "Bj\\\"orn W. Schuller"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 DeBERTa-ConPara，一个面向部署的 AI 生成文本检测器，将攻击感知的 Unicode 预处理与基于 HC3 Plus、M4、MAGE 和 RAID 训练的上下文 Transformer 编码器结合。核心发现是预处理方向相反：对训练语料做归一化会去重，把 35.4% 的 RAID 行折叠成其干净样本的副本并删除对抗监督，而在推理端归一化则是有效防御。独立变化两种放置方式的析因实验显示，原始训练加归一化推理是最佳配置，在官方 RAID 隐藏测试上达到 99.61% AUROC、99.01% TPR@5% FPR 和 96.57% TPR@1% FPR，在固定阈值下于 HC3 Plus 和 MAGE 上平均平衡准确率为 93.14%。增益仅集中在十二类攻击中的两类：同形字和零宽空格插入从 11.05% 和 1.12% 提升到 96.98%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00883",
+      "aisafetyhot": "https://aisafetyhot.com/items/z3aynklcpy2k40gu9gm0dn9nm"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T07:15:43.129Z"
+  },
+  {
+    "arxivId": "2610.02206",
+    "title": "KaliBench: A Fine-Grained Benchmark for Cybersecurity Tool Use on Kali Linux with Runtime-Free Verifiable Rewards",
+    "titleZh": "KaliBench：面向 Kali Linux 网络安全工具使用的细粒度基准",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "KaliBench 是面向 Kali Linux 自然语言到 CLI 翻译的细粒度基准与数据集，包含 8,504 条查询-命令对，覆盖 1,642 个工具、23 个能力维度和 5 个安全阶段。在三种评测模式、24 种通用与安全专用开源权重模型配置下，无限制设置中没有任何开源权重模型的精确命令准确率超过 42%。基于 KaliBench 的可验证奖励进行监督微调和强化学习，可显著提升 8B 模型，使其性能接近 685B MoE 模型。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02206",
+      "aisafetyhot": "https://aisafetyhot.com/items/gabhzsbwstn44l23u0aqc9tvz"
+    },
+    "publishedAt": "2026-09-30T20:00:00.000Z",
+    "timelineAt": "2026-10-02T07:27:40.840Z"
+  },
+  {
+    "arxivId": "2610.01367",
+    "title": "High-quality Data Do not Mean Safe! Poisoning LLMs after Data Selection",
+    "titleZh": "研究：高质量数据筛选挡不住投毒，Bi-QSTO 可在 90% 过滤率下保留攻击效果",
+    "authors": [
+      "Kaiyang Li",
+      "Jiahao Chen",
+      "Yuwen Pu",
+      "Chunyi Zhou",
+      "Tong Zhang",
+      "Bin Cai",
+      "Chunqiang Hu",
+      "Haibo Hu"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究系统评估了基于质量的数据筛选对投毒的过滤效果，发现筛选虽能移除大量明显有害样本，但部分被保留的高质量样本仍会削弱模型的安全对齐，原因可能在于其在层级梯度上呈现类似有害样本的训练更新模式。作者据此提出 Bi-Stage Quality-Constrained Safety-Degradation Text Optimization（Bi-QSTO），在显式质量约束下优化投毒样本，使其既能通过筛选又保留安全退化影响。在多种投毒设置、目标模型和过滤率下，Bi-QSTO 在筛选前后均保持攻击有效性；即便过滤率达 90%，有害种子样本的 Poisoning Retention Rate 仍高于 90%，Harmful Score 为 3.30–4.01，且攻击效果可跨模型迁移，保留优势也能推广到其他筛选方法。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01367",
+      "aisafetyhot": "https://aisafetyhot.com/items/pjuqragkof0abxjdi973hthf9"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T07:58:41.140Z"
+  },
+  {
+    "arxivId": "2610.00797",
+    "title": "Sapien: A Stateful Policy Engine for Autonomous AI Agents",
+    "titleZh": "Sapien：面向自主 AI 智能体的有状态策略引擎",
+    "authors": [
+      "Corinn Tiffany",
+      "Wen Zhang",
+      "Eugene Bagdasarian",
+      "Lillian Tsai"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "Sapien 是一个为自主 AI 智能体执行有状态上下文策略的策略引擎，用扩展了状态谓词的正则表达式规定允许的工具调用序列，并支持延迟策略生成与作用域语义检查。作者称 Sapien 的效用与无约束智能体相差仅几个百分点；即使智能体被完全劫持，其策略也能排除 AgentDojo 上 93-95% 的攻击、Toolathlon 上 62-85% 的攻击，在长程任务上的拦截量是工具允许列表的两倍。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00797",
+      "aisafetyhot": "https://aisafetyhot.com/items/ibwqkmr0jv8mgv49k0m3t7ay9"
+    },
+    "publishedAt": "2026-10-02T04:00:00.000Z",
+    "timelineAt": "2026-10-02T07:59:51.073Z"
   }
 ]
