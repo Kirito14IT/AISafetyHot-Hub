@@ -702,7 +702,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出 MOMAT（Mixture of Multiple Atlases），一种面向边缘设备上量化大语言模型的硬件增强安全框架，用于缓解量化削弱对齐防护后模型易被越狱攻击的问题。每个 atlas 对应有害或良性样本集与策略模板的语义聚类，实现领域局部化的 RAG 防护，以缓解大规模异构安全数据库中的维度灾难与语义稀疏问题。MOMAT 对每个提示词从所有 atlas 中检索 top-k 相似特征，交由轻量 MoE 检测器判断，并用 CiM 加速的相似度引擎完成低功耗图集内检索。其 CiM 检索将 100 条查询的批处理从 15,052.44 ms 加速到 3,207.21 ns，能耗从 8.1×10^7 μJ 降至 3.32 μJ，相比基于 DRAM 的 Raspberry Pi 基线约降低 2.5×10^5 倍能耗。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "量化让边缘 qLLM 更省资源，但会削弱对齐，使其更容易被越狱和提示注入绕过；单体安全 RAG 又受维度灾难和内存带宽限制。",
+          "label": "问题"
+        },
+        {
+          "text": "MOMAT 把有害/良性样本与策略模板分成多个语义 atlas，用冻结的 BGE 编码器取 1024 维嵌入，CiM 做各 atlas 的 top-k 检索，轻量 MoE（1.03M 参数）给出有害概率，超过阈值则从最激活 atlas 取安全回复模板。",
+          "label": "方法"
+        },
+        {
+          "text": "W4A8 下 MOMAT 把 Llama2-7B 与 Mistral-7B 在 AdvBench 和 Malicious Instruct 上的 ASR 降到 0.0% 或 0.00%，FRR 相对无防御不变。CiM 把 100-query 批检索从 15,052.44 ms 降到 3,207.21 ns，能量从约 8.1×10^7 μJ 降到 3.32 μJ；作者称二者测量层级不同，不宜直接比绝对值。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者计划做自适应 atlas，并扩展到更多量化方案和端侧环境；将发布 223.2k 样本数据集。安全评测主要是 Llama2-7B 与 Mistral-7B 的 W4A8，在 AdvBench 与 Malicious Instruct 上对比若干防御；CiM 数字来自电路级仿真，RPi 能量为板级估计。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.01058"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.01058",
       "aisafetyhot": "https://aisafetyhot.com/items/i4s27961mkyg6fe24opberxom"
@@ -973,7 +994,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "针对图像水印需同时满足抗攻击、假阳性率、画质与时延的问题，研究者提出请求条件化的组合框架 TAILOR，通过离线刻画各片段的恢复率—失真—运行时曲线、基于 SMT 联合求解最低失真的片段组合与强度顺序、再在实际图片上实时校准三步实现定制化配置。在覆盖五种场景、20 种攻击设置的 7321 个不同请求上，TAILOR 达到 96.21% 的场景平均请求满足率和 41.02 dB 的平均 PSNR，鲁棒性与画质均优于现有方法。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "图像水印要同时满足抗攻击、FPR、画质和延迟，单一水印只覆盖部分变换。组合多种水印会增加失真与解码开销，还要共享同一 FPR 预算，离线测量也未必迁移到用户图像。",
+          "label": "问题"
+        },
+        {
+          "text": "TAILOR 分三阶段：离线把片段恢复、失真、时延和几何恢复建成随嵌入强度变化的分段线性响应；SMT 在请求约束下选失真最低的片段、强度、顺序和至多一个几何恢复；现场校准在用户图像上验证并修正不迁移的预测。",
+          "label": "方法"
+        },
+        {
+          "text": "7,321 个请求、五场景、20 种攻击上，TAILOR-F 场景平均满足率 96.21%，平均 PSNR 41.02 dB、SSIM 0.9923（Table 1）。S1、S2 为 100%，S4 为 85.40%。作者称其鲁棒性优于现有方法，且在共同接受的请求上 PSNR 更高。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "配置只对请求点名的算子和设置负责；现场校准最多三个离散结构，失败后再解一次并按预定日程缩小筛选裕度。片段库为 VINE、TrustMark、VideoSeal，载荷同为 100 bit。论文未在正文单列 Limitations。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.00780"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.00780",
       "aisafetyhot": "https://aisafetyhot.com/items/heklk00ysiep00lsjnodxd9wg"
@@ -1151,7 +1193,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "针对将选择网络直接并入现有 MTS 目标会导致优化不稳定与泛化差的问题，研究者提出基于 Pointwise Value Matching（PVM）的数据选择框架 TESS，指出权重压制和对易学特征的持续依赖是其成因。该框架在大语言模型安全与定向指令微调实验中展现出跨数据集、从子集到完整语料以及从小模型到大模型的强迁移能力。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "元学习数据选择（MTS）要么按样本赋权、无法泛化到未见数据，要么按领域赋权、忽略领域内差异。直接把选择网络放进现有目标又会权重被压向零并偏好易学特征。",
+          "label": "问题"
+        },
+        {
+          "text": "TESS 先分别训练只见训练集的 θU 和额外受验证集引导的 θW，用二者损失差作伪标签，再用 Pointwise Value Matching 的均方误差训练选择网络，使其可直接给未见样本打分。",
+          "label": "方法"
+        },
+        {
+          "text": "在 Alpaca/Dolly 上选低分样本微调后，TESS 的 Overall Average ASR 为 53.64%（Training）和 48.51% 的总平均（Table 2）。在 Tulu V2 上，Llama-2-7B 的 Overall Avg. 为 26.46，高于随机的 21.54（Table 4）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "论文未设 Limitations 专节。作者称将在接收后发布代码。实验覆盖三档指令模型的安全选择、Llama-2-7B 的 GSM8K 与 Codex，以及 0.5B 到 7B 的选择信号迁移。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.02092"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.02092",
       "aisafetyhot": "https://aisafetyhot.com/items/oht4e81l8p99vbtrd5n0ttpxj"
