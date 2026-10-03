@@ -629,7 +629,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出交互式意图对齐这一任务设定，指出现有基准普遍假设用户能准确、充分地表达固定意图，而现实中用户会误传、改变目标并失去耐心。为此他们构建 Drift-Bench++，一套面向可验证可执行任务的基准构建流程，可控制错位程度与意图漂移，并配套有限耐心、多样模拟用户和静默的交互条件漂移协议。作者还提出 GRIP 评测协议，覆盖任务落地、用户真实性、提问有效性和对意图变化的适应。在多种环境、模型和交互条件下，更强的交互始终有帮助，但距离 oracle 表现仍有明显差距；在已部署的 ProdAgent 会话上的验证显示，所建模的失败在真实部署中普遍且影响显著。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "现有智能体基准多假设用户始终准确、充分地传达固定意图。实际用户会说错、改目标并耗尽耐心，成功分数因此掩盖对齐能力。",
+          "label": "问题"
+        },
+        {
+          "text": "Drift-Bench++ 用意图图和三步验证构造可执行错位任务，并加入有限耐心、静默交互触发漂移和五种 GDMS 人格。GRIP 分报 Grounding、Role-realism、Inquiry、Persistence。",
+          "label": "方法"
+        },
+        {
+          "text": "默认条件下提问普遍高于 No Ask，τ2 上增益大于 WebShop；Self-Evolving 在三环境 Earned 最高。漂移降低 Success 与 Earned。ProdAgent 上 23.7% 会话存在错位且更耗工具调用。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者称单次漂移、英文任务和非自适应策略仍待扩展。实验覆盖 WebShop 与 τ2 两个域、三次随机种子，以及 16,596 条 ProdAgent 会话的聚合统计。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.38604"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.38604",
       "aisafetyhot": "https://aisafetyhot.com/items/zqykv601otsnud9stngwl1eza"
