@@ -465,6 +465,28 @@
     "discoveredAt": "2026-10-01T10:16:09.267Z"
   },
   {
+    "arxivId": "2609.36316",
+    "title": "Training LLMs to Verbalize Evaluation Awareness",
+    "titleZh": "研究者提出 verbalization training 让 LLM 说出评测感知",
+    "authors": [
+      "Usman Anwar",
+      "Sahar Abdelnabi",
+      "David Krueger"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 verbalization training（VT），一种让大语言模型更愿意说出评测感知（EA）的训练方法，同时避免直接监督模型内部的潜在信念。VT 以模型自发说出的评测感知作为存在证据，在说出之前截断 rollout，生成模型被认为已具备感知的训练前缀，再用强化学习目标以校准的方式提升说出比例。在 Qwen3.6-35B-A3B、Kimi K2.6 和 Inkling 上，VT 使说出的评测感知增加 2.4 至 2.9 倍，并能迁移到未见的智能体场景，而测得的潜在评测感知与行为基本保持稳定。在因果实验中，研究者通过合成文档微调独立植入关于评测的元知识，显示 VT 诱导的说出内容反映了模型新获得的更丰富知识。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.36316",
+      "aisafetyhot": "https://aisafetyhot.com/items/mys05uk0wo5wkfdijkmsepdm5"
+    },
+    "publishedAt": "2026-09-28T21:48:48.000Z",
+    "timelineAt": "2026-09-28T21:48:48.000Z",
+    "discoveredAt": "2026-10-03T11:33:29.593Z"
+  },
+  {
     "arxivId": "2609.37040",
     "title": "Selecting The Most Informative Tokens in Natural Language Autoencoders",
     "titleZh": "研究：自然语言自动编码器中哪些 token 最值得审计",
