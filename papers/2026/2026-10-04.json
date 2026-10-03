@@ -713,6 +713,26 @@
     "discoveredAt": "2026-10-03T21:14:13.087Z"
   },
   {
+    "arxivId": "2609.06140",
+    "title": "Counter-Swarm Doctrine: Containing Coordinated Agent Intrusions",
+    "titleZh": "论文提出反集群准则：以协调事件为单元遏制智能体协同入侵",
+    "authors": [
+      "Gregory N Frank"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者 Gregory N Frank 在 arXiv 发表论文，提出把防御的操作单元从单次动作改为可修订的协调事件，将观察到的传输、任务权限与响应历史关联起来，以应对智能体把共享基础设施变成协同入侵通道的问题。论文以 Hugging Face 事件和一项公开 wiki 调查为例，说明安全评估可能需要来自多次执行及其遗留产物的证据。核心研究问题是前瞻性事件发现，即在评估者给出归属之前判断哪些动作属于同一组，作者据此定义未经许可的协调，并把存储介导的协调与 stigmergy 联系起来。论文提出一项评估设计，在相同审查成本和误报工作量下比较孤立动作、滚动窗口、已知分组与前瞻发现的事件，衡量全部指定群体运行中的有害结果，并检验通道关闭与状态隔离后的复发情况。作者称该工作是基于事件的观点、描述性分析与评估设计，并未声称提出新检测器或测得遏制收益。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.06140",
+      "aisafetyhot": "https://aisafetyhot.com/items/x7mnq1o29guisjwxv4koa84uf"
+    },
+    "publishedAt": "2026-09-05T15:25:45.000Z",
+    "timelineAt": "2026-10-03T22:51:56.681Z",
+    "discoveredAt": "2026-10-03T22:51:56.681Z"
+  },
+  {
     "arxivId": "2609.35366",
     "title": "Planarian: Managing Agent State with Statepoints",
     "titleZh": "Planarian：用状态点管理 Agent 的本地与远程状态",
@@ -807,6 +827,26 @@
     "publishedAt": "2026-07-23T13:39:38.000Z",
     "timelineAt": "2026-10-03T22:36:40.148Z",
     "discoveredAt": "2026-10-03T22:36:40.148Z"
+  },
+  {
+    "arxivId": "2607.05163",
+    "title": "Open Problems in AI Incident Governance",
+    "titleZh": "论文盘点 AI 事件治理中的开放问题",
+    "authors": [
+      "Harleen Kaur Sidhu; Rebecca Scholefield; Nour Annan; Kevin Hernandez; Isabel Nieh Hou; Abdulrahman Alshaikhi; Ze Shen Chin; Rokas Gipiškis"
+    ],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇被 ICML Technical AI Governance Research workshop 2026 接收的论文考察了监管机构与独立项目现有的 AI 事件治理框架，指出这些框架虽描述了各项职能如何执行，但在事件定义、分类、监测和报告上缺乏一致性。作者认为，这种不一致体现在所收集和报告的事件数据类型、分类方式上，进而影响可开展分析的深度、代表性和准确性。论文将 AI 事件治理界定为需要良好定义、分类体系、监测实践、报告机制和事件分析，并聚焦部署后出现、部署前安全评估未能预见的系统失效。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.05163",
+      "aisafetyhot": "https://aisafetyhot.com/items/gtwns095y7lop9iytmybdoqon"
+    },
+    "publishedAt": "2026-07-06T14:46:49.000Z",
+    "timelineAt": "2026-10-03T22:54:59.179Z",
+    "discoveredAt": "2026-10-03T22:54:59.179Z"
   },
   {
     "arxivId": "2609.28137",
@@ -927,6 +967,26 @@
     "publishedAt": "2026-09-28T10:51:04.000Z",
     "timelineAt": "2026-10-03T22:15:16.334Z",
     "discoveredAt": "2026-10-03T22:15:16.334Z"
+  },
+  {
+    "arxivId": "2609.21561",
+    "title": "On Repulsive and Attractive Teachers: Separating Correctness from Behavior in Self-Distillation",
+    "titleZh": "自蒸馏中的排斥与吸引教师：将正确性与行为分离",
+    "authors": [
+      "Anton Baumann; Akmal Ashirmatov; Leo Schmidt-Traub; Frederike Lübeck; Jonas Hübotter; Thomas Kleine Buening; Andreas Krause"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者在推理任务中发现，on-policy 自蒸馏中特权信息不仅改变教师模型\"知道什么\"，也改变其行为：吸引式自蒸馏抑制探索性推理、让回答更短更自信，排斥式自蒸馏则拉长回答、可能触发模型意外切换到潜在思考模式并最终失稳。为此提出对比式自蒸馏，即向正确答案条件下的教师靠近、同时远离错误答案条件下的教师，两种教师带来的行为偏移大体相互抵消，留下更直接反映正确性的 token 级信号。在非思考、仅 instruct 和已思考三类模型上，该目标提升了推理表现并保持回答长度稳定。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.21561",
+      "aisafetyhot": "https://aisafetyhot.com/items/oblay5zv2xgkenqda9k7rwqiv"
+    },
+    "publishedAt": "2026-09-18T09:51:36.000Z",
+    "timelineAt": "2026-10-03T22:58:02.553Z",
+    "discoveredAt": "2026-10-03T22:58:02.553Z"
   },
   {
     "arxivId": "2609.16694",
