@@ -1227,7 +1227,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "Yiyong Liu、Jun Sakuma、Michael Backes、Rui Wen 的论文对训练效率与模型脆弱性的权衡做了跨领域系统研究，覆盖视觉与语言模型。结果显示，采用选择性数据采样、高效预训练和简化强化学习流程等效率导向策略的模型，对对抗攻击和隐私攻击的易感性上升。作者通过分析模型内部几何与功能表征发现，高效变体一致表现出更尖锐的损失几何以及表征结构的系统性变化。研究还扩展到零 RL 训练，发现用简化 RL 流程训练的模型比常规对齐流程训练的模型更容易出现灾难性遗忘和过度自信。作者据此认为训练效率并非免费午餐，并呼吁转向同时优化性能、成本与安全的多目标训练。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "高效训练（数据筛选、预训练、简化对齐）在降低数据与计算开销时，是否以鲁棒性和隐私为代价。作者认为这一安全成本此前缺少跨领域的系统考察。",
+          "label": "问题"
+        },
+        {
+          "text": "在效用匹配的视觉模型上比较High-Shapley与Low-Shapley、预训练微调与从头训练，并比较7B/32B数学推理模型的Instruct与zero-RL。评测成员推断、对抗鲁棒、模型窃取和微调稳定性，并用sharpness、ECE、PCA与CKA分析内部几何。",
+          "label": "方法"
+        },
+        {
+          "text": "效用相近时，高效变体的成员推断TPR更高、正确分类的PGD步数更少。zero-RL在AdvBench上ASR更高、步数更少，并在IMDB微调后丢失更多数学推理分数；作者将其与更尖锐的损失几何和更高ECE联系起来。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者在附录C称实验限于特定架构、数据集和攻击，未覆盖全部高效训练策略；sharpness是经验局部敏感度而非精确Hessian特征值。视觉结果为三组种子的均值，附录B给出均值与标准差。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.33898"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.33898",
       "aisafetyhot": "https://aisafetyhot.com/items/iokr3wx43g6yn14c78llh5cqr"
@@ -2031,6 +2052,30 @@
     "publishedAt": "2026-07-19T08:07:32.000Z",
     "timelineAt": "2026-10-03T12:46:47.735Z",
     "discoveredAt": "2026-10-03T12:46:47.735Z"
+  },
+  {
+    "arxivId": "2609.08943",
+    "title": "Evaluating and Improving Evidence-Grounded Fact-Checking in LLMs via Multi-Round Evidence Ablation",
+    "titleZh": "研究提出 Fact-Ablated Evaluation，揭示 LLM 事实核查更依赖参数知识",
+    "authors": [
+      "Xingyu Deng",
+      "Mingzi Cao",
+      "Nikolaos Aletras",
+      "Xi Wang",
+      "Mark Stevenson"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Fact-Ablated Evaluation（FAE）评测框架，通过迭代消融被引证据来检验 LLM 是否会相应修改判断，结果显示现成 LLM 作为事实核查系统时更依赖参数知识而非所给证据。为缩小预测准确率与证据依赖之间的差距，作者提出 REAL（Rigorous Evidence Ablation Learning）训练框架，用反事实证据监督让作为核查器的 LLM 学会依赖证据。在四个不同领域的事实核查数据集上，用 REAL 训练的模型在证据依赖能力上优于标准微调模型。研究指出，强事实核查表现可以与弱证据依赖并存，REAL 能让判断更紧密地跟随支持证据是否可用。该工作已被 CIKM'26 接收。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.08943",
+      "aisafetyhot": "https://aisafetyhot.com/items/nmhsffavgcryatrv80o7xq6g6"
+    },
+    "publishedAt": "2026-09-08T16:04:20.000Z",
+    "timelineAt": "2026-10-03T14:39:23.451Z",
+    "discoveredAt": "2026-10-03T14:39:23.451Z"
   },
   {
     "arxivId": "2607.14737",
