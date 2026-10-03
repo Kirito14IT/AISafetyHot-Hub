@@ -13,7 +13,28 @@
     "selected": true,
     "attention": 80,
     "summaryZh": "加州大学伯克利分校研究者提出 SecOPD，用同策略蒸馏为防御微调提供 token 级反馈，替代 DPO、GRPO 等序列级信号。训练时学生模型在含注入的输入上生成 rollout，冻结的初始化模型在去掉注入的干净输入上为同一批 token 打分，与可信任务一致的 token 被鼓励、跟随注入的 token 被抑制。在 Qwen3.6-27B 上，面对 SoTA 自适应攻击 PISmith，SecOPD 的攻击成功率为 9.0%，此前 SoTA 的 Meta-SecAlign 为 94.0%，GRPO 为 61.2%；静态 SEP 攻击下 SecOPD 为 1.3%。在训练未见的 AgentDojo 工具调用场景，SecOPD 为 4.7%，Meta-SecAlign 为 5.5%，GRPO 为 0.7% 但效用降至 82.5%。代码与模型已开源。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "提示注入是 AI 智能体面临的重要安全威胁。攻击者将恶意指令注入外部不可信数据以操纵模型执行。现有基于序列级反馈（如 DPO、GRPO）的防御微调将整个回答统一定分，无法精细识别哪些输出 token 是不安全的，在自适应攻击下依然易被攻破。",
+          "label": "问题"
+        },
+        {
+          "text": "提出 SecOPD 防御微调方法，将同策略蒸馏引入提示注入防御。模型在受攻击输入上生成回答，由未受攻击的纯净输入送入基座模型评估对应 token 的对数概率，提供 token 级别的优势信号，促使模型输出如同未出现注入指令一样的回答。",
+          "label": "方法"
+        },
+        {
+          "text": "在基于 Qwen3.6-27B 的实验中，SecOPD 将 SEP 上的 PISmith 自适应攻击 ASR 降至 9.0%（Meta-SecAlign 为 94.0%，Table 1）；并在未见过的 AgentDojo 工具调用基准上取得 4.7% ASR，同时平均实用性达 88.1%（Table 2）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "仅针对间接提示注入且假设系统能明确区分可信与不可信输入，不适用于越狱和直接提示注入；模型推理链不包含对注入的察觉，可能影响基于推理链的检测防御；实验仅在 Qwen3.6-27B 单一模型上进行，且评测时关闭了思考模式。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2608.21500"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2608.21500",
       "aisafetyhot": "https://aisafetyhot.com/items/as4ho4hsknempg9ysc21s35m4"
@@ -34,7 +55,28 @@
     "selected": true,
     "attention": 80,
     "summaryZh": "研究者提出 TAME 框架，在 token 级别定位微调数据中引发涌现性失配（EM）的信号。方法分三步：通过已发布的 LoRA adapter 前向计算每个回复 token 的归因分数，刻画高归因 token 的语言特征，再用归因引导的损失掩码做因果验证。在 Llama 上，前 5% 的 token 承载 32% 的归因质量，高归因 token 中医学词汇偏少，而 completely、perfectly、safe 等过度确定性的表达偏多，且在控制 token 稀有度后依然成立。在 6,849 条医学建议数据上重新微调时掩掉高归因 token，Llama 的 EM 下降 23 倍、Qwen 下降 36 倍，等量随机掩码则无效果，困惑度代价集中在被针对的确定性表达而非医学内容。作者称这是初步研究，Qwen 上的表达富集未能通过稀有度控制，跨模型族普适性仍待检验。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "窄领域有缺陷微调会导致模型在无关任务上表现出有害行为（涌现式对齐失效，EM）。现有工作停留在权重、表征或样本级分析，不清楚具体是哪些训练 token 携带了导致 EM 的关键微调信号。",
+          "label": "问题"
+        },
+        {
+          "text": "提出 TAME 框架：利用 LoRA 适配器权重前向计算回复 token 似然变化以进行归因，在 surprisal 分箱下控制罕见度分析词汇特征，并在新模型微调时对高归因 token 进行损失掩码验证因果作用。",
+          "label": "方法"
+        },
+        {
+          "text": "在医疗建议数据上，前 5% 的 token 集中了超 31% 归因质量；对 Llama-3.2-1B 掩码 top-40% 归因 token 使 EM 率下降 23 倍，Qwen2.5-1.5B 下降 36 倍，困惑度上升主要落在确定性语域词而非医学内容词。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "实验仅覆盖单一医疗微调领域、单一种子、小规模学生模型与单一裁判；语域词特征在控制罕见度后未在 Qwen 上复现；40% 掩码比例未做剂量消融，归因得分为一阶估计。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.16754"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.16754",
       "aisafetyhot": "https://aisafetyhot.com/items/vcj8wj4yp474yheiuqdm7bu9f"
@@ -99,7 +141,28 @@
     "selected": true,
     "attention": 78,
     "summaryZh": "南丹麦大学研究者提出并量化了 stale-document poisoning（过期文档投毒）：当检索到的证据本身已过时，模型会放弃不检索时本已答对的答案。他们构建了覆盖医学、法律、软件与平台政策的 317 条知识反转基准，每条都配有官方来源。在 12 个模型上，过期检索在无信任指令时翻转了 30% 的 Llama 与 37% 的 Qwen 答案，加入明确遵循文档的指令后升至 66% 和 75%；四个开源模型、四个领域的投毒率为 17%–91%，而匹配的最新证据被遵循的比例为 97%–100%。在 50 条已验证反转上固定证据、只改变评估日期时，仅凭日期带来的调整有限，但明确告知旧证据何时失效后，Qwen-72B 完成全部 50 次切换，Llama-70B 在表格格式下完成 50/50。因果干预显示评估日期处的内部状态可直接改变答案，注意力层是早期主要贡献者，且同一组件也参与一般比较任务。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "RAG常用于通过外部证据补充时效知识，但当检索到的文档本身已过时时，即使模型原本掌握正确答案，过时证据也会推翻正确结果，作者将这种时序对齐失效称为陈旧文档中毒。",
+          "label": "问题"
+        },
+        {
+          "text": "作者构建了涵盖医学、法律、软件和策略的317项知识逆转基准；设计控制实验，保持证据内容一致仅改变评估日期或显式给出失效边界，并通过因果激活修补定位内部表征机制。",
+          "label": "方法"
+        },
+        {
+          "text": "单篇陈旧文档在4个开源模型上造成17%–91%的中毒率（Table 5）；仅改变日期难以促成适应，显式失效边界能使大模型实现94%–100%的适用性转换（Table 7）；因果修补显示其调用了通用比较机制。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "新旧逆转对比仅限于医学且题目不同，未完全排除题目难度差异；因果分析基于选取的20个题目和答案对数任务，未覆盖开放式生成或实际部署系统；头部特异性分析仅在10个保留确认项上评估。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.31342"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.31342",
       "aisafetyhot": "https://aisafetyhot.com/items/faa8c84lo6fzd5hycu05as21q"
@@ -324,6 +387,33 @@
     "discoveredAt": "2026-10-03T21:26:20.231Z"
   },
   {
+    "arxivId": "2610.01073",
+    "title": "Safety Must Survive Self-Improvement: Why Failures Persist and How Agents Recover",
+    "titleZh": "论文研究递归自我改进中的安全失效为何持续及智能体如何恢复",
+    "authors": [
+      "Yunbei Zhang",
+      "Janet Wang",
+      "Saiyue Lyu",
+      "Yingqiang Ge",
+      "Kaiqu Liang",
+      "Zijian Jin",
+      "Chandan K Reddy",
+      "Jihun Hamm"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文研究递归自我改进（RSI）中智能体跨代保留改动时，不安全行为为何持续以及如何恢复。作者构建状态化授权任务测试台，由固定 LLM 编辑器优化可执行的智能体组件，并用独立轨迹记录其效果。当新的授权依赖使此前测试过的优化失效后，48 条框架历史中有 22 条因沿用历史分数而保留了同样的不安全程序，尽管每个受影响的存档中都存在正确替代方案；刷新分数可在原始测试集上恢复正确性，但在独立组合的测试上仍有残余失败。当所有提案被拒绝、失败的现有程序继续运行时，失败也会在合约不变的情况下持续。从共同失败出发，改为编辑初始实现而非失败实现可改善恢复，但优势因编辑器而异。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01073",
+      "aisafetyhot": "https://aisafetyhot.com/items/hqoafn5cajfwagzw7hg7q58ya"
+    },
+    "publishedAt": "2026-10-01T05:13:51.000Z",
+    "timelineAt": "2026-10-03T21:59:59.251Z",
+    "discoveredAt": "2026-10-03T21:59:59.251Z"
+  },
+  {
     "arxivId": "2609.28335",
     "title": "An Open Pipeline and Dashboard for Systemic-Risk Evidence under the EU AI Act's Code of Practice",
     "titleZh": "研究者发布面向 EU AI Act 行为准则的系统性风险指数与仪表盘",
@@ -411,6 +501,26 @@
     "publishedAt": "2026-09-14T16:12:41.000Z",
     "timelineAt": "2026-10-03T21:20:15.842Z",
     "discoveredAt": "2026-10-03T21:20:15.842Z"
+  },
+  {
+    "arxivId": "2609.25443",
+    "title": "ZeroGate: Trust-Preserving Fast Paths for Governed AI Agent Runtimes",
+    "titleZh": "ZeroGate：为受治理 AI Agent 运行时提供保留信任的快速路径",
+    "authors": [
+      "Zexun Wang"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "Zexun Wang 提出 ZeroGate，把精确动作审批与持久化本地准入分离：签发方签署短时 ActionPass，受信任的运行时适配器在本地门检查绑定并消耗 nonce 前重建最终动作，并用 SQLite 事务把 nonce 消耗、配额更新与准入回执耦合在一起。论文给出条件性决策保持命题：在审批可靠、策略依赖完整且最新、观测忠实、消耗原子等前提下，本地准入成功意味着指定的同步策略会在准入点授权同一动作。作者强调实现本身不保证当前世界的新鲜性，也不保证远程效果恰好一次。评估包含语义夹具、并发与崩溃实验，以及 Azure Blob 上同步与准备式执行的对比：4800 次云端尝试中，准备式从 worker 准入到分发的 p95 为 9.802 至 11.374 ms，同步方式为 25.018 至 334.000 ms，但准备式的完整生命周期均值在各并发级别都更长，边界改善并非净加速。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.25443",
+      "aisafetyhot": "https://aisafetyhot.com/items/msfvtsfpc76u90cw9ayh1e9p1"
+    },
+    "publishedAt": "2026-09-21T21:54:27.000Z",
+    "timelineAt": "2026-10-03T21:50:45.728Z",
+    "discoveredAt": "2026-10-03T21:50:45.728Z"
   },
   {
     "arxivId": "2609.19989",
@@ -508,6 +618,32 @@
     "publishedAt": "2026-08-29T12:20:17.000Z",
     "timelineAt": "2026-10-03T21:08:09.284Z",
     "discoveredAt": "2026-10-03T21:08:09.284Z"
+  },
+  {
+    "arxivId": "2610.00371",
+    "title": "Deny Without Disabling: Authorization-Paired Evaluation and Control for Multi-Agent Systems",
+    "titleZh": "FlowReview：以授权配对评测控制多智能体组合信息流",
+    "authors": [
+      "Yunbei Zhang",
+      "Saiyue Lyu",
+      "Janet Wang",
+      "Yingqiang Ge",
+      "Jiang Guo",
+      "Jihun Hamm",
+      "Chandan K Reddy"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出授权配对评测（authorization-paired evaluation），把拦截被禁止用途与完成必需授权用途设为同一成功标准，并给出 FlowReview 框架，串联对象解析、权限排序与确定性执行。在受控组合实验中，对组合产物进行审查把拒绝提交率从 86.0% 降到零，且未损失授权供给。作者据此指出，仅保留信息与来源血缘不足以确保正确的权限归属，对象身份与权限必须通过输出可验证的组件与执行保持连接，多智能体安全需要在治理组合信息流的同时保留使协作有价值的授权能力。论文共 44 页、9 张图，代码与数据已公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00371",
+      "aisafetyhot": "https://aisafetyhot.com/items/h6t8ncxmt5biaevxtatzsdobh"
+    },
+    "publishedAt": "2026-09-30T06:55:18.000Z",
+    "timelineAt": "2026-10-03T21:59:59.271Z",
+    "discoveredAt": "2026-10-03T21:59:59.271Z"
   },
   {
     "arxivId": "2609.16694",
