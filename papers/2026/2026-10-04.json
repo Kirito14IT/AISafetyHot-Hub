@@ -41,5 +41,275 @@
     "publishedAt": "2026-09-02T09:01:51.000Z",
     "timelineAt": "2026-10-03T18:05:55.692Z",
     "discoveredAt": "2026-10-03T18:05:55.692Z"
+  },
+  {
+    "arxivId": "2609.14754",
+    "title": "Calibrating Interpretability Instruments Before Trusting Their Verdicts",
+    "titleZh": "研究者总结因果可解释性中的六类测量失效与校准协议",
+    "authors": [
+      "Orion Reblitz-Richardson"
+    ],
+    "category": "alignment",
+    "selected": true,
+    "attention": 77,
+    "summaryZh": "Distiller Labs 的 Orion Reblitz-Richardson 发布方法笔记，记录其因果可解释性项目在拒答与道德表征研究中遇到的六类测量失效，这些失效都会返回一个看似合理的数值而非报错。六类失效包括：正对照低于协方差零假设导致测量位置无效、massive activation 离群维度只出现在内容位置、协方差匹配零假设在 massive activation 家族中饱和、逐头 OV 归因在重排归一化架构上高估约三倍、推理/预填充不对称统计被操作点混淆、以及在模型已完成决策的层之后测量造成的读数伪影。作者在 OLMo-3-7B-Instruct、Qwen2.5-7B、Llama-3.1-8B、GPT-OSS-20B 四个开源权重模型上验证，并给出对应协议：用正对照阶梯校准、用正交单元认证、先算统计功效再花算力、把读数结论标注在相对模型决策点的深度上。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "大语言模型因果可解释性测量（如投影、余弦、干预修补等）易因低维瓶颈、重排序归一化等机制产生合理却失真的测量伪影，导致错误测量被误判为机制发现。",
+          "label": "问题"
+        },
+        {
+          "text": "作者总结了六种测量失效模式并提出四项校验规范：建立正对照阶梯、用正交观测单元认证、在计算前评估检验功效，以及在相对于模型决策承诺的深度上报告测量结果。",
+          "label": "方法"
+        },
+        {
+          "text": "在OLMo-3-7B、Qwen2.5-7B等四款模型上，决策点有效维度仅为9至15；折叠RMSNorm使OLMo归因重构率从3.05校准为0.9999；深度匹配使Llama不对称度从+0.82修正为-0.28。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "六种模式仅在四模型面板中的一至两款上确立，协议未在跨项目或外部任务中验证；PR门控存在抑制真实方向的可能；标准化可能抹平各向异性信号；分析仅涵盖被捕获的失效。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.14754"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.14754",
+      "aisafetyhot": "https://aisafetyhot.com/items/fyuwx3qkh36idn92v0d98cmkq"
+    },
+    "publishedAt": "2026-09-13T19:37:02.000Z",
+    "timelineAt": "2026-10-03T21:20:15.784Z",
+    "discoveredAt": "2026-10-03T21:20:15.784Z"
+  },
+  {
+    "arxivId": "2608.22868",
+    "title": "AgentFlow: A Flow-Centric Policy Language and Framework for Securing LLM Agent Systems",
+    "titleZh": "AgentFlow：面向 LLM 智能体系统的流中心策略语言与运行时防护框架",
+    "authors": [
+      "Basavesh Ammanaghatta Shivakumar",
+      "Swarn Priya",
+      "Peng Gao"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 AgentFlow，一种以数据流为中心的策略语言与运行时执行模型，用于规定敏感数据在 LLM 智能体系统中可以流向何处。策略定义在带标签的运行时边上，约束哪些工具可接收敏感字段、哪些汇聚点可接收释放的数据，以及何种权限可跨越委派边界，语言支持流规则与路径规则、任务范围能力、受控释放和有状态污点语义。运行时参考监视器介入智能体动作，基于有界 SMT 的验证器对结构化策略片段检查安全属性。原型中七项安全属性每项在 0.5 秒内完成验证，验证器捕获研究中全部植入的不安全策略变体。在 AgentDojo 四个套件的 949 个注入案例上，确认失陷率从 33.0% 降至 0.0%，总体效用从 46.7% 升至 63.3%；在 200 例 AgentDyn Dailylife 基准上，确认失陷率从 73.5% 降至 0.0%，效用基本持平（44.5% 至 43.5%）。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.22868",
+      "aisafetyhot": "https://aisafetyhot.com/items/i11txs7k3zteb9tmi1ymu4mfe"
+    },
+    "publishedAt": "2026-08-24T06:56:00.000Z",
+    "timelineAt": "2026-10-03T21:08:09.217Z",
+    "discoveredAt": "2026-10-03T21:08:09.217Z"
+  },
+  {
+    "arxivId": "2609.03035",
+    "title": "You Can't Escape Your Own Activations : Evaluation Awareness and Multi-Agent Monitoring",
+    "titleZh": "论文：智能体知道被监控后，激活探针仍能识别其串谋",
+    "authors": [
+      "Aritra Das",
+      "Jaee Ponde",
+      "Mihir More",
+      "Debayan Gupta"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者测试了基于内部激活的探针在智能体知情时是否仍能检测多智能体串谋。实验固定模型、探针与阈值，只改变智能体被告知的内容，分为不知情、知道存在激活监控、以及额外收到上一轮监控分数三种条件，在四人 blackjack 与两人 Simmons 囚徒博弈中进行，使用 Qwen3-32B-AWQ 和 GPT-OSS-20B 的同构与混合配对。结果显示，告知智能体监控存在并不能让它们隐藏，最佳探针在三种条件下都保持准确，智能体也继续串谋。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03035",
+      "aisafetyhot": "https://aisafetyhot.com/items/qpm8tytyaoaihp92r7dhj055o"
+    },
+    "publishedAt": "2026-09-02T18:07:14.000Z",
+    "timelineAt": "2026-10-03T21:26:20.231Z",
+    "discoveredAt": "2026-10-03T21:26:20.231Z"
+  },
+  {
+    "arxivId": "2609.28335",
+    "title": "An Open Pipeline and Dashboard for Systemic-Risk Evidence under the EU AI Act's Code of Practice",
+    "titleZh": "研究者发布面向 EU AI Act 行为准则的系统性风险指数与仪表盘",
+    "authors": [
+      "Jacob T. Emmerson",
+      "Phuong-Anh Nguyen-Le",
+      "Ronan Romano",
+      "Wilber Sean V. Anterola",
+      "Yann Billeter",
+      "Zhijing Jin"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Systemic Risk Index，一套开放评测流程与仪表盘，把 19 个公开基准归入 EU GPAI Code of Practice 定义的四类系统性风险：CBRN、网络攻击、有害操纵和失控，并用保留危害的扰动与模拟部署情境评测模型。仪表盘允许用户在平均与最坏情况聚合之间切换、调整模型能力对总分的影响，并把每项风险评级追溯到对应基准证据。在 18 个模型上，最坏情况聚合下分数下降 14 至 37 分，显示平均口径可能掩盖的风险信息。LLM 评委与人工评分者的一致性和人与人之间相当（κ = 0.78–0.82），盲审发现 83% 的抽样变换保留了原始危害；一项 N = 21 的调查中，多数参与者认为分数易于理解，仪表盘促使他们从不同设置查看模型评测。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.28335",
+      "aisafetyhot": "https://aisafetyhot.com/items/xxfedwhml40evc3bugkt462li"
+    },
+    "publishedAt": "2026-09-23T16:13:36.000Z",
+    "timelineAt": "2026-10-03T21:20:15.825Z",
+    "discoveredAt": "2026-10-03T21:20:15.825Z"
+  },
+  {
+    "arxivId": "2608.30387",
+    "title": "Attesting Outputs and Delegation Ancestry in Multi-Agent AI Systems",
+    "titleZh": "研究者提出多智能体系统输出与委派链路双层存证方案",
+    "authors": [
+      "Lifei Liu",
+      "Haoran Yu"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一种面向多智能体系统的双层存证设计，用于在事故后回答两个问题：哪个部署方发布了被报告的字节，以及每条跨部署方边是否获得授权。该设计不依赖共享权威、公共日志或预先约定的工作流，由受信任的部署方运行时对每次发布输出的哈希签名，并以链路证据记录边的授权情况。在统一威胁模型下，作者比较了签名链表、Merkle 链变体和共同签名 DAG 三种方案：子密钥被攻破后，单签名设计允许未授权的父级绑定，而共同签名 DAG 因要求父级授权该边而拒绝该绑定。在 Apple M1 Pro 上，仅链路检查每跳耗时 24.3-499.2 微秒；在本地多服务工作流中，父级发现子级的 A2A Agent Card，子级调用 MCP 工具并发布本地 LLM 输出，30 个签名 DAG 任务全部通过完整验证，仅凭子密钥的受控声明被拒绝，平均端到端延迟 813.1ms，无证据时为 770.8ms。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.30387",
+      "aisafetyhot": "https://aisafetyhot.com/items/h8ewy9o3nph8ejfudbze0cym2"
+    },
+    "publishedAt": "2026-08-31T07:42:57.000Z",
+    "timelineAt": "2026-10-03T21:08:09.299Z",
+    "discoveredAt": "2026-10-03T21:08:09.299Z"
+  },
+  {
+    "arxivId": "2608.30083",
+    "title": "Zero-Knowledge Predicate Proofs Between AI Agents: A Measured, Cross-Protocol Gateway and the Source-Integrity Gap",
+    "titleZh": "研究者提出零知识谓词证明网关，在 MCP 与 Agent2Agent 上实现 Agent 间数据最小化",
+    "authors": [
+      "Ashok Subbabhatta Gopalakrishna"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Zero-Knowledge Proof Gateway，让 AI 智能体之间交换治理定义谓词的证明而非原始数据，从设计上避免数据暴露，并针对现有互操作协议无法承载此类证明的问题，在同一端点上为 MCP 和 Agent2Agent 实现该插槽。32 位阈值谓词在单颗商用 vCPU 上证明耗时 6.2 ms、验证 1.0 ms，Bulletproofs 证明为 608 字节；11 项对抗实验与 19 项协议检查通过，系统部署到 Kubernetes 并经验证网络隔离。案例研究在不透露金额的前提下证明某零售客户订单在限额内，将 GDPR 数据最小化原则落实为技术措施。论文还指出谓词证明只把陈述绑定到已承诺的值、不绑定到记录系统，为此给出将 enclave 证明与证明双向融合的构造，使验证单个产物即可同时确认谓词成立且该值由特定已度量二进制读取，并在模拟权威机构上做了测试。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.30083",
+      "aisafetyhot": "https://aisafetyhot.com/items/ljxrqt8z4r9h7gc2t0nvn8rna"
+    },
+    "publishedAt": "2026-08-30T23:16:17.000Z",
+    "timelineAt": "2026-10-03T21:08:09.266Z",
+    "discoveredAt": "2026-10-03T21:08:09.266Z"
+  },
+  {
+    "arxivId": "2609.15803",
+    "title": "Delegating Authorization to Misaligned Agents: Coalitional Alignment and Safe Control",
+    "titleZh": "研究者提出 k-robust 联盟对齐，用多智能体评审委托授权",
+    "authors": [
+      "Natalie Collina",
+      "Surbhi Goel",
+      "Aaron Roth",
+      "Sikata Bela Sengupta"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者针对长时程 AI 智能体的控制问题提出 k-robust 联盟对齐（k-robust coalitional alignment）条件，用于把有后果动作的审批委托给其他 AI 智能体评审。每个评审智能体报告提议智能体的动作提案是否相对基线提升自身效用，作者证明容忍 k 个否决的阈值规则安全，当且仅当在移除任意 k 个评审者后，主方的效用可写成剩余评审者效用的非负组合，再加上一个在所有可行提案上非负的项。该刻画可推广到序贯控制：在折扣 MDP 中，任意提议智能体下每个状态的安全性是诱导策略不劣于基线的充要条件。当评审者策略性投票时，奖励函数空间中的全面板覆盖可保证一致同意规则下所有 Nash 均衡安全，而更宽松的阈值即使评审者各自对齐也可能出现不安全均衡。作者用现有评审模型做的实验显示，即使容忍部分否决，集体评审也能在没有单个对齐评审者的情况下保持可靠。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.15803",
+      "aisafetyhot": "https://aisafetyhot.com/items/x7ttyh8a0xxmx4bx596polsb9"
+    },
+    "publishedAt": "2026-09-14T16:12:41.000Z",
+    "timelineAt": "2026-10-03T21:20:15.842Z",
+    "discoveredAt": "2026-10-03T21:20:15.842Z"
+  },
+  {
+    "arxivId": "2609.39450",
+    "title": "ActionGuard: Tool Call Authorization under Poisoned Skills",
+    "titleZh": "ActionGuard：在工具调用执行前拦截被投毒技能",
+    "authors": [
+      "Jihun Han",
+      "Yejin Jang",
+      "Byung Il Kwak",
+      "Mee Lan Han"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 ActionGuard，在技能影响的工具调用即将执行前进行授权检查，以阻止被投毒技能诱导的数据外泄、文件删除或未授权代码执行。该方法把目标智能体的动作生成上下文与护栏的授权上下文分离，Reviewer 不接触可能被投毒的原始技能文本，而是依据平衡后的技能画像、当前及近期工具调用和本地脚本内容，判断每个动作是否由可信用户请求所支持。ActionGuard 在 OpenClaw 的 before-tool-call 阶段拦截每次工具调用，并以 fail-closed 策略执行 ALLOW 或 DENY 决定。在 SKILL-INJECT 设置下，针对 139 个上下文注入和 180 个明显注入，使用三个开源和两个商用 Reviewer 模型与 Dynamic Guardian、SkillGuard 对比，每种条件重复三次，以攻击成功率（ASR）和任务成功率（TSR）评估。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39450",
+      "aisafetyhot": "https://aisafetyhot.com/items/smwhozrkr9jpz8hp45trf5e7c"
+    },
+    "publishedAt": "2026-09-30T10:23:57.000Z",
+    "timelineAt": "2026-10-03T21:14:13.087Z",
+    "discoveredAt": "2026-10-03T21:14:13.087Z"
+  },
+  {
+    "arxivId": "2609.29647",
+    "title": "AgentKernel: The Trust-Native Agentic Operating System",
+    "titleZh": "AgentKernel：面向 Agent 的可信原生操作系统内核",
+    "authors": [
+      "Zhenhua Zou",
+      "Sheng Guo",
+      "Qiuyang Zhan",
+      "Lepeng Zhao",
+      "Shuo Li",
+      "Zhuotao Liu"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 AgentKernel，一个把安全作为首要设计约束的可信原生 Agent 操作系统，为身份、输入中介、记忆治理和执行控制提供强制且不可绕过的服务。作者认为现有治理方案仍是应用层中间件，与被监控的 Agent 共享同一进程信任边界，因此需要操作系统级底座。AgentKernel 将 Agent 生命周期包进强制执行边界，分为身份、感知、认知、执行四个支柱，分别应对委托滥用、提示注入、记忆投毒和工具误用。其中内核管理的身份支持跨组织协作，分级感知替代单点过滤，受信息流控制的记忆在限制投毒的同时提升检索保真度，语义到内核的执行机制让更宽的工具权限处于不可绕过边界之后。论文共 38 页、5 张图，通过系统比较与安全分析论证该架构可在整个 Agent 生命周期内实施安全约束。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.29647",
+      "aisafetyhot": "https://aisafetyhot.com/items/pmgyn3dyd5trd6zn5t7hl341d"
+    },
+    "publishedAt": "2026-08-29T12:20:17.000Z",
+    "timelineAt": "2026-10-03T21:08:09.284Z",
+    "discoveredAt": "2026-10-03T21:08:09.284Z"
+  },
+  {
+    "arxivId": "2609.16694",
+    "title": "Toward Secure AI-Powered Penetration Testing Agents: Security Threats, Guardrails, and Architectural Perspectives",
+    "titleZh": "面向安全 AI 渗透测试智能体：安全威胁、护栏与架构视角",
+    "authors": [
+      "Rahul Dev T Y",
+      "Hiran V Nath"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对 LLM 驱动的自主渗透测试智能体，研究者系统分析了其智能体架构、信任边界与攻击面，提出覆盖 LLM 生命周期攻击、智能体架构攻击和跨领域行为攻击的威胁分类体系。研究指出，具备持久记忆、真实世界行动能力和长时程推理的渗透测试智能体带来不同于传统对话式 LLM 的安全隐患，现有对话 AI 护栏机制可能不足以保障其安全，并梳理了现有护栏的局限与关键研究空白，探讨面向下一代 AI 攻防系统的专用、上下文感知与架构感知护栏方向。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.16694",
+      "aisafetyhot": "https://aisafetyhot.com/items/dggjxttt8103gnyvvn4idcg6l"
+    },
+    "publishedAt": "2026-09-15T06:19:50.000Z",
+    "timelineAt": "2026-10-03T21:08:09.244Z",
+    "discoveredAt": "2026-10-03T21:08:09.244Z"
+  },
+  {
+    "arxivId": "2609.35266",
+    "title": "Continuous Assurance of Agentic Security Auditors for Software Delivery Decision Gates",
+    "titleZh": "面向软件交付决策门禁的智能体安全审计器持续保障机制",
+    "authors": [
+      "Guy Lupo",
+      "Nguyen Hung Nguyen",
+      "Viet Vo",
+      "M. A. P. Chamikara",
+      "Guangdong Bai",
+      "Nazatul Haque Sultan",
+      "Alsharif Abuadbba"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对基于 LLM 的仓库审计器在 CI 流水线中作为安全控制时因非确定性行为和策略变化难以维持即时保障的问题，研究者提出 Policy-Evidence-Execution Separation Pattern，并由 Trustworthy AI Posture（TAIP）Assurance Engine 以 Continuous Control Posture Assurance（CCPA）方式运行，将策略与稳定执行分离、把被采纳证据绑定到版本化 Posture Tree。该单主机测量仅覆盖对留存证据的保障，不含 RepoAudit 执行与模型推理。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.35266",
+      "aisafetyhot": "https://aisafetyhot.com/items/a84mzcx2dsiftmfda8tr11b9h"
+    },
+    "publishedAt": "2026-09-28T14:23:38.000Z",
+    "timelineAt": "2026-10-03T21:08:09.311Z",
+    "discoveredAt": "2026-10-03T21:08:09.311Z"
   }
 ]
