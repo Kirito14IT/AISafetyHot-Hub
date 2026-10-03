@@ -1004,6 +1004,29 @@
     "discoveredAt": "2026-10-03T12:42:26.953Z"
   },
   {
+    "arxivId": "2610.00450",
+    "title": "ZoneClaw: Mitigating Persistent Memory Attacks by Establishing Memory-Zoning in OpenClaw-Style Computer-Use Agents",
+    "titleZh": "ZoneClaw 用记忆分区防御 OpenClaw 式计算机使用 Agent 的持久记忆攻击",
+    "authors": [
+      "Haokai Ma",
+      "Chieh Lin",
+      "Yupeng Qiu",
+      "Ee-Chien Chang"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 ZoneClaw，通过把 OpenClaw 式计算机使用 Agent 的扁平工作区记忆改为带明确权限等级的分层信任区，切断持久化与权限之间的绑定，防御持久记忆攻击。这类攻击中，攻击者只需控制看似无害的外部内容，就能让 Agent 在正常任务中写入有利于攻击者的声明，这些声明随后会支配攻击者从未接触过的正常任务，攻击链从恶意上下文到恶意响应延伸为恶意上下文、记忆注入、恶意执行。ZoneClaw 让外部声明只停留在低信任区，只有跨过显式权限边界才能获得指导行动的权限，且提升时需与攻击者无法直接写入的信任区交叉校验，并通过非对称权限的角色专用进程保证没有进程同时摄取外部内容并对外行动。在四类攻击场景、两种注入设置和四个骨干模型上，ZoneClaw 将攻击成功率从 372/480 降至 6/480，同时在 458/480 次试验中保留实用性，并对部分具备防御感知的攻击者仍然有效。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00450",
+      "aisafetyhot": "https://aisafetyhot.com/items/xovwksw877wzov7u2iif8h9bt"
+    },
+    "publishedAt": "2026-09-30T17:59:02.000Z",
+    "timelineAt": "2026-10-03T15:06:39.599Z",
+    "discoveredAt": "2026-10-03T15:06:39.599Z"
+  },
+  {
     "arxivId": "2607.14611",
     "title": "Bad Memory: Evaluating Prompt Injection Risks from Memory in Agentic Systems",
     "titleZh": "论文评测 Claude Code 与 Codex 记忆文件中的提示注入风险",
@@ -2044,7 +2067,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出 Persistent Sparse Autoencoders（Persistent SAEs），在标准 SAE 基础上为每个特征学习一个持久性系数，仅靠重构目标就能学到特征特定的时间尺度。实验显示，Persistent SAEs 在保持有竞争力的重构质量的同时学到一组时间尺度谱：短时间尺度（快）特征保持局部可解释性，长时间尺度（慢）特征则累积用于识别当前上下文的信息。在提示注入监控案例研究中，慢特征能保留与注入相关的信号，并在长上下文中保持因果有效性。作者认为这为通过持久稀疏特征解释和监控语言模型提供了新途径。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "占位",
+          "label": "问题"
+        },
+        {
+          "text": "占位",
+          "label": "方法"
+        },
+        {
+          "text": "占位",
+          "label": "实验与结果"
+        },
+        {
+          "text": "占位",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2607.17117"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2607.17117",
       "aisafetyhot": "https://aisafetyhot.com/items/yd1rl6n7qgqe7ca8gaekc79u9"
@@ -2068,7 +2112,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出 Fact-Ablated Evaluation（FAE）评测框架，通过迭代消融被引证据来检验 LLM 是否会相应修改判断，结果显示现成 LLM 作为事实核查系统时更依赖参数知识而非所给证据。为缩小预测准确率与证据依赖之间的差距，作者提出 REAL（Rigorous Evidence Ablation Learning）训练框架，用反事实证据监督让作为核查器的 LLM 学会依赖证据。在四个不同领域的事实核查数据集上，用 REAL 训练的模型在证据依赖能力上优于标准微调模型。研究指出，强事实核查表现可以与弱证据依赖并存，REAL 能让判断更紧密地跟随支持证据是否可用。该工作已被 CIKM'26 接收。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "作者认为，LLM 作为事实核查器时，即使标签准确，也可能依靠参数知识而非所给证据；标准指标只评一次标签，测不出证据与判决的因果依赖。",
+          "label": "问题"
+        },
+        {
+          "text": "FAE 迭代删除模型自己引用的证据并重新判定，用 IS、ER、IO 量化依赖。REAL 在完整证据与删除金标证据后的 NEI 上做对比监督，并用多模型补充证据注释。",
+          "label": "方法"
+        },
+        {
+          "text": "Table 1 中，在 FEVER 上 REAL（Llama-3.1-8B）的 Strict 为 94.28、IS 为 99.06，高于所列现成模型。Table 2 中去掉证据消融后 IS 降到 10.80。域外 SciFact、Climate-FEVER 上 REAL 的 Acc/Strict 最高，Check-COVID 上 Acc 为 88.90。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者在 Limitations 中称：只用文本证据、只训练于 FEVER、假设证据已检索、消融按固定轮数。实验覆盖四个数据集、R=4，并排除了 NEI 声明。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.08943"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.08943",
       "aisafetyhot": "https://aisafetyhot.com/items/nmhsffavgcryatrv80o7xq6g6"
