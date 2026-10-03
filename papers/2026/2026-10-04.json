@@ -304,6 +304,48 @@
     "discoveredAt": "2026-10-03T21:26:20.216Z"
   },
   {
+    "arxivId": "2610.01535",
+    "title": "False Floors: LLM Safety Routing Evaluations Break Under Distribution Shift",
+    "titleZh": "论文：安全路由评测在分布偏移下失效，基线选取偏差被低估",
+    "authors": [
+      "Amit Singh Bhatti",
+      "Vishal Vaddina"
+    ],
+    "category": "eval",
+    "selected": true,
+    "attention": 76,
+    "summaryZh": "论文《False Floors: LLM Safety Routing Evaluations Break Under Distribution Shift》指出，安全路由评测通常把路由器与在评测数据上挑出的最佳单模型比较，这一基线在分布偏移下会形成虚假下限。在 HELM Safety 上，随机划分下该选择成本为 0.003 至 0.030 的 harm，而按类别留出时升至 0.045 至 0.113；在 AgentDojo 上整套件留出时成本上升七到九倍。作者在七个安全语料上按预先固定的规则检验，三个通过注册的区间检验，四个优于事后加入的置换零假设。论文还发现，在留出重跑中，知道面对哪个模型的攻击者通过选择模板可将 GPT-5.4 的判定识别率降低 19.6 个百分点，且该下降被独立词表标签复现。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "安全路由器根据请求将输入分流至不同模型以降低危害，评估通常将其与最佳单模型基线对比。现有评测常在测试集上后验挑选基线模型，忽略了真实部署中测试分布发生类别偏移时基线选择所带来的不确定性与偏倚。",
+          "label": "问题"
+        },
+        {
+          "text": "论文在 7 个安全语料上引入严格留出协议，对比在训练折冻结的诚实基准与测试集后验基准；推导选择代价边界并分解尾部优势；随后在智能体环境与技能注入语料中，评估预执行路由上限、中间识别信号的自适应可操纵性及动作级防御。",
+          "label": "方法"
+        },
+        {
+          "text": "分布偏移下后验基准产生 0.045 至 0.113 的选择代价，路由器在多数单元收缩为固定模型；AgentDojo 上预执行路由空间至多 0.0105；针对性攻击使 gpt-5.4 识别标记率下降 19.6 点，四种动作策略零成功但缺乏机械强制。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "结果主要覆盖英语及单轮对话设置；偏移代价在各语料间不均且依赖分组划分；智能体数据自然饱和且覆盖稀疏；危害与标记主要依赖单一自动化评审模型，缺乏对评审召回率的测量；动作级策略未经验证机械隔离。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.01535"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01535",
+      "aisafetyhot": "https://aisafetyhot.com/items/k5srvrhlfai5lk0b6bw56fs0b"
+    },
+    "publishedAt": "2026-10-01T12:09:28.000Z",
+    "timelineAt": "2026-10-03T23:34:31.584Z",
+    "discoveredAt": "2026-10-03T23:34:31.584Z"
+  },
+  {
     "arxivId": "2607.05462",
     "title": "BioSecBench-Refusal: A paired metric for performance and alignment in agentic biosecurity risk assessment",
     "titleZh": "BioSecBench-Refusal：面向智能体生物安全风险评估的配对基准",
@@ -334,6 +376,30 @@
     "publishedAt": "2026-07-06T01:46:07.000Z",
     "timelineAt": "2026-10-03T21:35:25.399Z",
     "discoveredAt": "2026-10-03T21:35:25.399Z"
+  },
+  {
+    "arxivId": "2609.35699",
+    "title": "Distillation Defenses Easily Break After Reinforcement Learning",
+    "titleZh": "论文：蒸馏防御在蒸馏后强化学习下易被攻破",
+    "authors": [
+      "Shidan Javaheri",
+      "Alexander Panfilov",
+      "Oliver Britton",
+      "Yarin Gal",
+      "Yonatan Gideoni"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出，现有蒸馏攻击防御通常在蒸馏完成后立即评测，隐含假设攻击者不再继续训练模型，而更现实的威胁模型应包含蒸馏后的强化学习阶段。论文显示，一些在蒸馏后看似有效的防御，在后续强化学习后会被攻破，强化学习实际上降低了蒸馏攻击的门槛。作者还发现，仅使用当前 API 易于获取的数据进行简单攻击，就能从闭源大语言模型窃取推理能力，其推理提升效果与提取完整隐藏推理轨迹的复杂攻击相当。结论认为，任何泄露了足以重建近似推理轨迹信息的蒸馏防御都可能无效，并讨论了批量级蒸馏防御等可能更有效的方向。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.35699",
+      "aisafetyhot": "https://aisafetyhot.com/items/vby7539041fzh7cgzkbcbbpg5"
+    },
+    "publishedAt": "2026-09-28T17:40:32.000Z",
+    "timelineAt": "2026-10-03T23:31:29.083Z",
+    "discoveredAt": "2026-10-03T23:31:29.083Z"
   },
   {
     "arxivId": "2608.22868",
@@ -1057,6 +1123,49 @@
     "discoveredAt": "2026-10-03T22:58:02.553Z"
   },
   {
+    "arxivId": "2609.38106",
+    "title": "Pruning for Efficiency, Paying in Fairness: Demographic Disparities in Pruned Speech-LLMs",
+    "titleZh": "剪枝提效却牺牲公平：剪枝语音 LLM 中的群体差异",
+    "authors": [
+      "Ganesh Pavan Kartikeya Bharadwaj Kolluri",
+      "Michael Kampouridis",
+      "Ravi Shekhar"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究发现音频编码器剪枝对 SLAM-ASR 不同人群的影响并不均等，最佳与最差表现群体之间的差距随剪枝成倍扩大。在 Fair-Speech 和 Common Voice 上，这种差异出现在全部三种编码器规模中，但只有最大模型最初能用总体 WER 掩盖它；LoRA 适配虽改善所有群体的 WER，却让原本表现好的群体获益更多。在 Common Voice 英语、丹麦语和荷兰语上，口音差距持续存在但未明显扩大，说明剪枝的公平性影响因数据集而异，部署时应纳入分组 WER 并以最差群体错误率为明确标准。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38106",
+      "aisafetyhot": "https://aisafetyhot.com/items/mklfk0m4pr45ofcfpoap2gt8a"
+    },
+    "publishedAt": "2026-09-29T17:46:50.000Z",
+    "timelineAt": "2026-10-03T23:34:31.633Z",
+    "discoveredAt": "2026-10-03T23:34:31.633Z"
+  },
+  {
+    "arxivId": "2609.40034",
+    "title": "Efficient Active Auditing of Multi-Group Fairness with Bias Probes",
+    "titleZh": "ALeBi：用 bias probe 主动审计多群体公平性",
+    "authors": [
+      "Ayoub Ajarra",
+      "Debabrota Basu"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 bias probe 框架与主动审计器 ALeBi，通过定向自适应查询估计多群体公平性指标，无需重建黑盒模型即可揭示偏差结构。该工作给出由属性特定复杂度度量控制的样本复杂度保证，并扩展到模型所有者刻意隐藏偏差的对抗场景，揭示模型保密性与可靠审计之间的根本权衡。实验验证了理论结果，并表明该方法能准确估计偏差、可解释地识别高偏差与低偏差区域。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.40034",
+      "aisafetyhot": "https://aisafetyhot.com/items/rf3dwos1z0721vikjp9naoes4"
+    },
+    "publishedAt": "2026-09-30T16:05:25.000Z",
+    "timelineAt": "2026-10-03T23:34:31.596Z",
+    "discoveredAt": "2026-10-03T23:34:31.596Z"
+  },
+  {
     "arxivId": "2609.16694",
     "title": "Toward Secure AI-Powered Penetration Testing Agents: Security Threats, Guardrails, and Architectural Perspectives",
     "titleZh": "面向安全 AI 渗透测试智能体：安全威胁、护栏与架构视角",
@@ -1125,6 +1234,30 @@
     "publishedAt": "2026-08-13T06:21:58.000Z",
     "timelineAt": "2026-10-03T22:42:52.283Z",
     "discoveredAt": "2026-10-03T22:42:52.283Z"
+  },
+  {
+    "arxivId": "2609.22206",
+    "title": "Dissecting Training-Free Uncertainty Estimation in Multimodal Large Language Models",
+    "titleZh": "多模态大语言模型免训练不确定性估计的系统研究",
+    "authors": [
+      "Soroush Seifi",
+      "Vaggelis Dorovatas",
+      "Lin Li",
+      "Yarin Gal",
+      "Rahaf Aljundi"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项系统研究将多模态大语言模型（MLLM）的免训练不确定性量化方法分为三类：直接作用于文本输出空间的 token 级方法、通过自然语言提示引出不确定性或弃答信号的言语化方法，以及在语义空间度量不确定性的语义方法。研究跨多个数据集、模型家族、代际与规模进行基准测试，发现没有单一方法族占优：token 级熵（采样温度 1.0）在短答案上最优，言语化弃答在句子长度回答上最优，语义方法在长文本生成上最优。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.22206",
+      "aisafetyhot": "https://aisafetyhot.com/items/fxwbclkkizzyoi2xfz45syp0s"
+    },
+    "publishedAt": "2026-09-01T12:32:28.000Z",
+    "timelineAt": "2026-10-03T23:31:29.105Z",
+    "discoveredAt": "2026-10-03T23:31:29.105Z"
   },
   {
     "arxivId": "2610.01005",
