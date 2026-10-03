@@ -1,5 +1,53 @@
 [
   {
+    "arxivId": "2607.18538",
+    "title": "CryptanalysisBench: Can LLMs do Cryptanalysis?",
+    "titleZh": "CryptanalysisBench：五个前沿模型在 191 项密码分析任务上的表现",
+    "authors": [
+      "Lukas Fluri",
+      "Avital Shafran",
+      "Nicholas Carlini",
+      "Matthew Jagielski",
+      "Milad Nasr",
+      "Orr Dunkelman",
+      "Eyal Ronen",
+      "Florian Tramèr"
+    ],
+    "category": "eval",
+    "selected": true,
+    "attention": 82,
+    "summaryZh": "ETH Zurich 与 Anthropic 等机构的研究者提出 CryptanalysisBench：191 项密码分析任务，主要取自四届 NIST 标准化竞赛，覆盖分组密码、哈希函数、AEAD、KEM、PKE 和数字签名六类原语。Tier 1 是已有实用破解的原语；Tier 2 没有已知实用攻击，同时评测全强度和缩小参数的变体；另有一组生产级密码的挑战集。Claude Opus 4.8、Sonnet 5、Mythos 5、GPT-5.5 和开源权重的 GLM-5.2 破解了 Tier 1 中 65%–86% 的方案，Tier 2 全强度下 6–12 个，全部缩小变体上 24–61 个。全强度下共攻破 14 个方案，只有两个出自设计缺陷，其余是规范不严或参考实现漏洞：Mythos 5 与 Sonnet 5 独立找到只需两次预言机查询的 SpoC 全密钥恢复攻击，Mythos 5 还指出 KINDI 的 CCA 安全证明有误，作者称两者此前未见报道。作者认为 Tier 2 和挑战集远未饱和，基准可用来追踪 AI 密码分析能力，并在部署前压力测试候选方案。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "密码原语是数字基础设施的安全基石，传统分析高度依赖人类专家。现有大模型安全评测多局限于玩具密码或CTF挑战，缺乏针对真实标准化候选密码原语的系统性端到端自动化分析与验证基准。",
+          "label": "问题"
+        },
+        {
+          "text": "构建涵盖六类原语、191个任务的CryptanalysisBench基准，分为已知攻破、缩减/全强度与前沿挑战三层。基于Docker与HTTP API博弈交互，要求模型提交自包含攻击脚本并由独立实例验证。",
+          "label": "方法"
+        },
+        {
+          "text": "五款模型在Tier 1破解率达65.3%–85.7%；在Tier 2全强度下破解14个方案，其中Mythos 5与Sonnet 5自主发现SpoC与KINDI此前未公开的设计缺陷；但在前沿挑战集上均未突破。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "评测受限于可执行的高效攻击，无法覆盖纯理论攻击；Tier 2的参数缩减依赖经验与模型辅助；部分测试用例的成功源于参考代码实现漏洞而非原语设计缺陷；Tier 1存在学术先验与记忆干扰。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2607.18538"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.18538",
+      "aisafetyhot": "https://aisafetyhot.com/items/slyr0j3we3svqxe40c4st5fdr"
+    },
+    "publishedAt": "2026-07-20T22:09:40.000Z",
+    "timelineAt": "2026-10-03T23:13:11.360Z",
+    "discoveredAt": "2026-10-03T23:13:11.360Z"
+  },
+  {
     "arxivId": "2608.21500",
     "title": "SecOPD: Mitigating Adaptive Prompt Injections by On-Policy Distillation",
     "titleZh": "SecOPD 用同策略蒸馏把自适应提示注入攻击成功率降至 9.0%",
@@ -407,6 +455,26 @@
     "publishedAt": "2026-09-25T08:34:19.000Z",
     "timelineAt": "2026-10-03T21:41:40.807Z",
     "discoveredAt": "2026-10-03T21:41:40.807Z"
+  },
+  {
+    "arxivId": "2609.22818",
+    "title": "The Price of Safety: Benign-Case Utility and Token Overhead of Memory-Poisoning Defenses in LLM Agents",
+    "titleZh": "研究测量 LLM Agent 记忆投毒防御的良性场景开销",
+    "authors": [
+      "Pritom Bhowmik"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者搭建统一测量装置，在记忆后端、检索流程和评判模型保持一致的前提下，只改变防御本身，评估 LLM Agent 记忆投毒防御在完全良性流量下的效用损失与 token 开销。测试覆盖三种写入时防御（输入清洗、来源检查、基于 LLM 的异常检测）和一种读取时防御（重排序），每种条件在五段对话上重复三次，以区分真实效应与流水线噪声。写入时防御未显示出可分辨的效用损失，95% 置信区间约为正负 4.5 个百分点并包含零。重排序器则使核心准确率下降 4.4 个百分点（95% CI [-9.0,-0.05]，bootstrap；McNemar p=0.064），该结果可复现但处于测量分辨率边缘；在无攻击对话中，它隔离了 33.6% 的合法记忆条目，单段对话最多出现 106 次误隔离，token 开销为 2.7%。研究认为，决定防御良性场景代价的是它拦截流水线的位置，而非是否使用 LLM。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.22818",
+      "aisafetyhot": "https://aisafetyhot.com/items/sreb23i61zhc0bb5tyzyfxp64"
+    },
+    "publishedAt": "2026-09-19T06:39:21.000Z",
+    "timelineAt": "2026-10-03T23:13:18.871Z",
+    "discoveredAt": "2026-10-03T23:13:18.871Z"
   },
   {
     "arxivId": "2609.03035",
