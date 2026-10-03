@@ -1123,7 +1123,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出元自适应多模态越狱方法 MAMJ，同时优化攻击策略提示词（ASP）和攻击者模型权重，而非只调整图文内容。该方法先用基于 LLM 的批评模型迭代改进 ASP，再用分组聚合的攻击成功率（ASR）作为奖励更新攻击者权重。在 MM-SafetyBench 上，MAMJ 对 GPT-4o、Gemini-3-Pro-Preview 和 Seed 2.0 的 ASR 分别为 81.0%、78.9% 和 82.3%，比最强的样本级基线最高高出 24.1 个百分点。学到的攻击者无需重新训练即可迁移到未见过的受害模型，并在代表性防御下仍然有效。论文已被 EMNLP 2026 主会接收，代码已公开。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "现有多模态越狱要么冻结图文版式，要么只改单条样本的图文内容，迭代策略和攻击者参数保持不变。作者认为这种元层面静态性限制了对前沿 VLM 安全风险的暴露。",
+          "label": "问题"
+        },
+        {
+          "text": "MAMJ 沿两条轴优化攻击者：先用 Critic–Reflector 与档案式选择，在语言空间里根据失败轨迹修订攻击策略提示词 θ；再固定 θ⋆，用带格式门控的组相对策略优化更新攻击者语言栈权重 ϕ。",
+          "label": "方法"
+        },
+        {
+          "text": "在 MM-SafetyBench 的 1,680 条测试上，MAMJ（Niter=2）对 GPT-4o、Gemini-3-Pro-Preview、Seed 2.0 的微平均 ASR 为 82.0%、79.3%、83.0%，高于同表样本级基线。该攻击者只在 GPT-4o 上训练，并在四种防御下复用。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出训练与主评测都在 MM-SafetyBench，跨基准泛化仍待确立；训练开销主要来自外部图像生成 API；图像生成器 G 始终固定且未做受控微调实验。SafeBench 上另有迁移结果，论文未报告查询次数的逐项明细。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2608.27531"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2608.27531",
       "aisafetyhot": "https://aisafetyhot.com/items/osoq7v82m471kozq3ho6h736q"
@@ -1650,7 +1671,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "SingProbe 是一个面向 LLM 生成时监控的开源内在护栏框架，复用基座模型自回归解码中已产生的隐藏状态，而不是让独立模型反复处理生成文本。它用轻量探针在解码过程中持续输出查询意图、回复安全和幻觉风险信号，报告给出了训练方法、与 SGLang 和 vLLM 的服务集成，以及覆盖不同家族和规模的 29 个开源基座模型的适配护栏。团队同时提出 SingStreamBench，用于衡量流式护栏能否在良性前缀上保持静默并及时发现新出现的不安全内容。在安全、流式检测、幻觉检测、误报鲁棒性、在线监控和运行时开销等评测中，SingProbe 的表现与最先进的独立护栏和专用幻觉检测器相当，在若干设置下更强，实现中增加的服务开销低于 0.5%。除被动监控外，内在护栏信号还可引导受限解码，并在 SingProbe-Med 中选择性触发医疗风险干预。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "生成时安全监测若另起外部护栏，要反复编码已生成文本并增加服务开销。工业内生护栏已出现，但缺少可跨模型复用的开源训练、服务与评测栈。",
+          "label": "问题"
+        },
+        {
+          "text": "SingProbe 用轻量探针读取基座若干层拼接隐状态，在每个 token 输出查询意图、回复不安全与幻觉分数。粗粒度回复级标签经自适应置信加权聚合来学流式信号，并接入 SGLang 与 vLLM。",
+          "label": "方法"
+        },
+        {
+          "text": "作者称 Ling-3.0-flash-singprobe 回复安全平均 F1 为 0.8728，流式平均 T-AUC 为 0.9481，幻觉平均 AUC 为 0.8012；解码探针的 token 间延迟开销低于 0.5%。同一信号还用于约束解码和医疗风险选择性干预。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者称训练依赖 LLM 标注与合成数据，流式基准的不安全起点由句子级前缀标注。主实验以 Ling-3.0 为主，附录给出 29 个基座适配；论文报告了在线检测的类别不平衡。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2608.30703"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2608.30703",
       "aisafetyhot": "https://aisafetyhot.com/items/qf9m9d9j51wzmrjto64fg1cyx"
@@ -1739,7 +1781,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出 Feature-Effect Geometry Analysis（FEGA）框架，通过在不同上下文中移除同一个活跃 SAE 特征，分析由此产生的 logit 变化云，以研究特征干预对模型输出的影响几何。结果显示，在多种 SAE 变体中，表现出一致一维效应的特征很少，即少有特征能像可复用方向那样起作用。作者据此区分值型特征（关联事实属性等静态信息）与指针型特征（关联依赖上下文的操作）：值型特征更常呈现结构化的低维效应，但通常跨越多个方向；指针型特征则主要呈现弥散效应。研究结论是，一个特征可以既可解释又具因果相关性，却未必能提供稳定的引导方向。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "SAE 特征的激活描述与因果效应经常不一致，转向效果随提示变化，激活筛选也会漏掉能改变输出的特征。作者要测量同一特征在不同上下文中消融后，下游 logit 变化是否形成稳定几何。",
+          "label": "问题"
+        },
+        {
+          "text": "Feature-Effect Geometry Analysis（FEGA）在重建基线上消融同一活跃 SAE 特征，收集 logit 效应云，并用有向射线、轴、方向混合、全局跨度与中心化残差等诊断给出几何标签。特征来自 Gemma-2-2B 第 12 层后残差流上宽度 65k 的 ReLU、TopK 与 Matryoshka Batch TopK SAE，并按 value-like、pointer-like 与混合任务区分。",
+          "label": "方法"
+        },
+        {
+          "text": "作者称一维可复用效应很少。ICL 任务选出的特征集很小且有跨任务重叠，与 RAVEL 集合不相交；联合消融相对匹配随机对照带来更大准确率下降。作者称 pointer-like 效应以弥散为主，value-like 更常呈低维结构，但通常跨多个方向。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者计划发布代码。几何结论来自 Gemma-2-2B 的 post-layer-12 残差流 SAE、五类任务和三种宽度 65k 的 SAE；RAVEL 几何分析要求至少八个活跃上下文。论文报告了随机对照的 20 次试验，以及 McNemar 与 t 检验。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2607.24645"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2607.24645",
       "aisafetyhot": "https://aisafetyhot.com/items/vxs3ajsx69ka2vfkyy51auozs"
