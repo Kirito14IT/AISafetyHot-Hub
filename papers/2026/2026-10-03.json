@@ -470,7 +470,28 @@
     "selected": true,
     "attention": 80,
     "summaryZh": "以色列本-古里安大学与 Intuit 的研究者对 Google 的 Agent Payments Protocol（AP2）v0.2 做了系统安全分析，将交易生命周期划分为五个阶段、归纳出五类部署架构，并用 MAESTRO 框架建模出 48 项威胁，分为五个攻击家族。作者用 AIVSS 对每项威胁按架构分别评分，其中 8 项在至少一种架构下达到 High 等级。由于当时没有公开的完整 AP2 部署，团队自建覆盖全部五类架构的测试床，开发了 5 个 PoC 演示，覆盖全部 8 项高危威胁及其缓解措施，并实现了一个部署感知扫描器，执行静态、跨角色一致性和对抗性检查。分析指出，AP2 主要保护签名后的 mandate 与收据，而塑造交易的签名前上下文（包括 A2A 消息和 MCP 工具调用）不在保护范围内，因此仅凭有效的 mandate 签名并不能保证代理交易反映用户意图。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "智能体支付协议AP2通过签名凭据保护交易完整性，但未保护签名签发前的非签名上下文（如A2A消息与MCP工具结果）。攻击者无需伪造签名，仅操纵前置上下文即可诱导生成包含有害操作的合法签名凭据。",
+          "label": "问题"
+        },
+        {
+          "text": "将AP2生命周期划分为5个阶段并定义5类部署架构；基于MAESTRO框架对4类行动者、11个攻击面和6类目标建立威胁模型，编目48个威胁并用AIVSS评估风险；搭建测试床完成5项PoC验证，并开发三层安全扫描器。",
+          "label": "方法"
+        },
+        {
+          "text": "8个威胁达到High风险等级；STRIDE-GPT覆盖了威胁目录中66.7%的项；8位专家评估AIVSS评级的Gwet's AC2为0.984；三层扫描器Full配置在A5达到1.00召回率，各层均能检出其他层遗漏的威胁。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "评估时无完整公开的AP2生产或原型部署，实验基于自建测试床，未测量对底层银行卡网络与清算系统的影响；三层扫描器在A2遗漏T-2、在A3遗漏T-1与T-9、在A4遗漏T-3。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2608.23858"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2608.23858",
       "aisafetyhot": "https://aisafetyhot.com/items/dm4zx6om9wqwxmerjr3l5yob1"
@@ -596,7 +617,28 @@
     "selected": true,
     "attention": 77,
     "summaryZh": "研究者发布 Vulnerability Localization Benchmark（VLoc Bench），用 500 个来自 290 个仓库的真实漏洞任务，评测 Agent 能否在只给出 CWE 描述和只读终端的情况下定位漏洞所在实现文件。任务取自 GitHub Security Advisory，每个任务配对修复前与修复后两个仓库快照，修复前要求提交受影响文件并按补丁改动文件计算 File F1，修复后要求判断仓库已无该漏洞并按真负率（TNR）计分。在 27 个模型和 4 个静态分析工具上，最强系统仅达到 0.229 File F1，38.4% 的任务没有任何模型定位正确；仓库越大、代码越分散，定位越难，Go 与 Maven 任务最难。静态分析工具在 TNR 上表现突出，Semgrep-CWE 达 0.996。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "现有安全评测多预先指定待分析代码或关注下游利用与修复，缺少对智能体在陌生代码仓库中根据抽象弱点类型定位漏洞实现文件这一基础防守能力的直接评估。",
+          "label": "问题"
+        },
+        {
+          "text": "构建包含 500 个真实漏洞任务的 VLoc Bench，涵盖 6 个包生态和 147 种 CWE。智能体仅接收 CWE 描述并在只读终端环境中搜索，分别在修复前快照定位漏洞文件，在修复后快照判断漏洞已不存在。",
+          "label": "方法"
+        },
+        {
+          "text": "27 个模型中表现最高的 GPT-5.5 (xhigh) 在 Phase A 仅取得 0.229 File F1，且 38.4% 的任务无任何模型正确定位；Phase B 检验中定位能力较强的模型在修复后快照仍频繁报告漏洞。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "评测局限于 Advisory 关联的漏洞而非整个仓库的安全状况，补丁修改文件未必囊括所有相关文件；修复后快照仅确认目标漏洞被修复，且将任务超限、API 报错等未提交情况合并计入真阴性。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.15939"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.15939",
       "aisafetyhot": "https://aisafetyhot.com/items/l2gdyh9s4el46jez5y8lhb2pv"
@@ -758,7 +800,28 @@
     "selected": true,
     "attention": 76,
     "summaryZh": "马里兰大学研究者提出 PatchBench，一个面向 C/C++ 仓库级漏洞修补的评测基准，包含 32 个真实项目、16 类 CWE 的 213 个修补任务。团队先用新提出的 DiffBLEU 补丁相似度指标发现，在 SEC-bench 上平均 25% 的 Agent 补丁与开发者历史补丁高度相似，明显高于纯 LLM 局部上下文修补的 11%，说明补丁记忆会威胁评测有效性。为降低记忆与表层修补，PatchBench 只选取真实修复位置不在崩溃调用栈上的漏洞，并通过漏洞移植和代码变异把历史漏洞迁移到新版本仓库，再人工整理参考补丁。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "现有漏洞修复评测依赖单一PoC崩溃测试，存在两大致命缺陷：大模型可能通过记忆复现历史补丁，智能体也常在崩溃调用栈函数上添加局部检查以抑制崩溃，而非定位并修复根因。",
+          "label": "问题"
+        },
+        {
+          "text": "提出PATCHBENCH基准，选取开发者补丁位于崩溃栈外的C/C++漏洞，结合版本移植与代码变异抑制记忆；同时采用多PoC安全验证和良性输入语义验证（含输出状态与单元测试）进行评估。",
+          "label": "方法"
+        },
+        {
+          "text": "在11个智能体评测中，原PoC平均通过率达83.1%，经安全与语义双重验证后解决率降至45.3%（据Table 2）；Codex+GPT-5.6 Sol解决率最高（59.2%），有67个任务所有智能体均未解决。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "部署期缺乏参考仓库以进行语义比对；模糊测试无法保证覆盖全部路径，导致少数通过验证的补丁仍未完全修复根因；基准为静态数据集，仍存在未来模型训练数据污染的风险。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.04075"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.04075",
       "aisafetyhot": "https://aisafetyhot.com/items/y59uoe8ndgqle4njfhs8n1xr5"
@@ -1769,7 +1832,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出 NovaFabric，在不修改 Agent 逻辑的前提下把一次 Agent 运行记录为可移植的 Run Capsule，用 DSSE 签名、RFC 3161 时间戳、Merkle 日志和脱敏证明封装，并支持四种模式的重放协议与第三方验证。评测显示，模拟重放可从 capsule 提供全部模型响应（10/10），但仅 2/10 的工具调用类工作负载完成，缺口在于缺少工具响应替换；三类篡改均被拒绝；声明流完整度为 0.652（95% CI ±0.064，十个场景）；修复后的规则包可脱敏 14/14 类凭据并保留 9/9 个诱饵；影响范围查询在 1000 万条边上 p99 为 45.5ms，在 1 亿条边上为 167.9ms。314 台机器、十个区域的运行中，capsule REST 写入无损，但受单 worker 串行化限制，吞吐上限为 61.6 req/s（p99 26.8s）。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "占位",
+          "label": "问题"
+        },
+        {
+          "text": "占位",
+          "label": "方法"
+        },
+        {
+          "text": "占位",
+          "label": "实验与结果"
+        },
+        {
+          "text": "占位",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.12582"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.12582",
       "aisafetyhot": "https://aisafetyhot.com/items/mpu9dzo8yj1wkphvl2hsjjr8s"
@@ -2008,7 +2092,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出 ReCast，一个面向远程多模态推理的隐私保护框架，在保持图表和语音等固定输入模态的前提下替换源内容。它先在本地把输入转成统一的文本证据查询记录，用蒸馏的 4B 模型联合改写实体与主题，再通过本地可逆、角色感知的数值映射替换数值，由重建 Agent 生成并校验所需媒体；远程求解器返回的程序在本地还原受保护的操作数后再执行。在 4000 条 ChartQA 和 NMSQA 留出样本上，ReCast 准确率 75.10%，保留未受保护远程准确率的 92.43%，基于模型的审计在 7.95% 发往求解器的请求中标记出源内容泄露。作者称其优于所有评估的本地基线。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "远程多模态模型能对图表和语音做数值推理，但固定媒体接口要求上传图像或波形，文本脱敏无法直接满足接口，身份匿名又会留下任务内容。",
+          "label": "问题"
+        },
+        {
+          "text": "RECAST 在本地把输入转成文本证据-问题记录，用蒸馏的 4B 模型联合改写实体与主题，再用可逆的角色感知数值映射替换数值，最后重建成接口所需媒体；远程求解器返回程序，本地恢复操作数后执行。",
+          "label": "方法"
+        },
+        {
+          "text": "在各 2000 条的 ChartQA 与 NMSQA 上，准确率 75.10%，保留无保护远程准确率的 92.43%，求解器侧源内容泄露 7.95%。蒸馏把泄露从 39.75% 降到 7.95%，并增加 6.40 个准确率百分点。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "操作检查不构成语义正确性证明或形式化隐私保证。作者计划发布代码、提示词、蒸馏适配器与教师轨迹。评测覆盖 ChartQA、NMSQA 及 OOD 的 ChartX、Spoken-MQA，泄露由固定 LLM 评审、并在 400 对上与人工核对。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.01184"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.01184",
       "aisafetyhot": "https://aisafetyhot.com/items/l8c6mxonzw1w2mq65oec3p6sx"
