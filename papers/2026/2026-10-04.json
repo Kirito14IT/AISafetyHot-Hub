@@ -2,7 +2,7 @@
   {
     "arxivId": "2609.02316",
     "title": "Counter-GEO-Bench: Evaluating Defenses Against Information-Distorting Generative Engine Optimization",
-    "titleZh": "Counter-GEO-Bench：现有护栏难挡 GEO 虚假信息，C-GEO Guard 将攻击成功率降低 47.6%",
+    "titleZh": "Counter-GEO-Bench：现有护栏难挡 GEO 虚假信息，C-GEO Guard 将攻击成功率相对降低 47.6%",
     "authors": [
       "Bing Zheng",
       "Zongyao Zhao",
@@ -11,8 +11,29 @@
     "category": "defense",
     "selected": true,
     "attention": 78,
-    "summaryZh": "清华大学深圳国际研究生院与香港大学的研究者提出 Counter-GEO-Bench，用于在受控条件下评测针对信息扭曲型生成引擎优化（GEO）的防御。基准包含 247 条经人工核验的查询，每条都配有信息保留与信息扭曲两种 GEO 改写，在 Gemma-4-31B-IT、Qwen-3.5-35B-A3B、Llama-4-Scout-17B-16E 三个受害模型上测量攻击成功率、误报率和答案质量。结果显示，Granite Guardian、Llama Guard 3 和 NeMo Self-Check Fact-Checking 三种现成防御最多只把攻击成功率相对降低 5.7%，其中 Granite Guardian 的降幅不具统计显著性，NeMo 在 Llama-4 上近乎拒绝所有查询。",
-    "quickRead": null,
+    "summaryZh": "清华大学深圳国际研究生院与香港大学的研究者提出 Counter-GEO-Bench，在受控条件下评测针对信息扭曲型生成引擎优化（GEO）的防御：247 条人工核验的查询各配信息保留与信息扭曲两种 GEO 改写，在 Gemma-4-31B-IT、Qwen-3.5-35B-A3B、Llama-4-Scout 三个受害模型上测量攻击成功率、误报率和答案质量。Granite Guardian、Llama Guard 3 和 NeMo Self-Check 三种现成防御最多只把攻击成功率相对降低 5.7%，Granite Guardian 的降幅不具统计显著性，NeMo 在 Llama-4 上几乎拦下所有正常查询。作者认为这类护栏针对的是违规内容，而 GEO 虚假信息以流畅的信息性文本出现，能直接穿过。为说明这一威胁可以应对，作者给出轻量的片段级对比检测基线 C-GEO Guard，三个模型平均把攻击成功率相对降低 47.6%，答案质量几乎不受影响。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "攻击者利用生成式引擎优化（GEO）将针对性虚假事实嵌入流畅网页，经正常检索进入生成式搜索流水线并被受害模型采纳。由于内容缺乏毒性、注入或策略违规，现有安全护栏无法拦截，且缺乏受控条件下的防御评测基准。",
+          "label": "问题"
+        },
+        {
+          "text": "基于 GEO-Bench 构建包含 247 个经过质量门控与人工核验查询的双配对基准，隔离虚假信息与可见性增益；提出基于 DeBERTa-v3 的轻量分块对比检测器 C-GEO Guard，学习攻击类别原型向量进行检索分块过滤。",
+          "label": "方法"
+        },
+        {
+          "text": "未防御流水线平均 ASR 为 55.7%；现有护栏 ASR 最多降低 3.2 个百分点，NeMo 出现误拒；C-GEO Guard 将三模型平均 ASR 降至 29.2%（降幅 26.5 个百分点），在 GPT 5.5 重写下 ASR 降至 22.1%。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "基准仅覆盖 247 个英语查询与单文档控制威胁，未覆盖多语言、专业领域或多文档协同攻击；未评测闭源商用端到端搜索产品，且未评估检测器感知提示或样式迁移等自适应与开集攻击。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.02316"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.02316",
       "aisafetyhot": "https://aisafetyhot.com/items/nheqtjdeyi1h3tu9pqw130jvg"
