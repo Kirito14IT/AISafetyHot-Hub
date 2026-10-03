@@ -226,7 +226,28 @@
     "selected": true,
     "attention": 83,
     "summaryZh": "研究者提出隐蔽记忆注入攻击，利用不可信外部内容被静默写入 Agent 持久记忆并在此后作为可信状态复用。为评估该威胁，他们构建 WhisperBench，一个含 108 个案例、覆盖五类风险及事实与偏好投毒的基准，使用真实 IMAP/SMTP 邮件流程和真实邮件 Agent 技能进行全周期评测。攻击框架 MemGhost 通过环境代理模拟持久化 Agent 执行、目标代理将记忆采纳与会话隐蔽性转为密集奖励，再用监督微调和强化学习训练攻击策略，实现单封邮件的一次性载荷生成。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "持久化个人智能体会将外部不可信内容写入长期记忆并作为可信状态重用，造成隐蔽记忆注入威胁。攻击需满足写入记忆、回复不泄露、后续会话影响行为三阶段目标，且黑盒无交互反馈。",
+          "label": "问题"
+        },
+        {
+          "text": "提出 MEMGHOST 框架，通过模拟智能体文件工具交互的环境代理与结合记忆采纳度及隐蔽性的细则奖励目标代理，经由监督微调和 GRPO 强化学习将搜索策略内化，实现单次前向生成单封攻击邮件。",
+          "label": "方法"
+        },
+        {
+          "text": "在 WhisperBench 的 56 个测试用例上，MEMGHOST 在 OpenClaw（GPT-5.4）后台模式取得 87.5% E2E 成功率，在 Claude Code SDK（Sonnet 4.6）后台模式达 71.4%，并成功迁移至 Mem0 向量数据库。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者在第七节指出未建模上游邮件投递基础设施（如垃圾过滤与 SPF/DKIM/DMARC 校验），未覆盖多智能体传播与多租户污染，载荷仅为纯文本且未测试长期记忆衰减动力学；实验覆盖了 6 种模型、3 种智能体框架及 3 类防御。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2607.05189"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2607.05189",
       "aisafetyhot": "https://aisafetyhot.com/items/uoo5qyw95w5vyog73s7wydzys"
@@ -275,7 +296,7 @@
     "category": "attack",
     "selected": true,
     "attention": 81,
-    "summaryZh": "研究者提出名为 plan injection 的推理时攻击：把有害但措辞无害的推理链放进模型上下文，模型会把它改写成自己的思维链并执行，且不标注来源。该攻击最初在 TruthfulQA 提示实验中用 investigator agent 自动发现，随后扩展到 APPS 代码后门与 Bio-Math 伪装答题任务，在 Qwen3-8B 和 671B 参数的 DeepSeek-R1-0528 上分别有超过 80% 和 90% 的引导成功率。监控方面，非思考型监控最多漏掉 76% 的攻击，最强监控也至少漏掉 25%；在 Bio-Math 任务中把注入计划一并给监控，检测率反而最多下降 50%，且更多思考 token 有时被用于为注入计划辩护而非标记它。作者还报告该攻击对 GPT-5、Claude Sonnet 4 和 Claude Sonnet 5 等闭源模型同样有效。",
+    "summaryZh": "斯坦福与 CMU 的研究者提出名为 plan injection 的推理时攻击：把有害但措辞无害的推理链放进模型上下文，模型会把它改写成自己的思维链并执行，且不标注来源。该攻击最初在 TruthfulQA 提示实验中用 investigator agent 自动发现，随后扩展到 Qwen3-8B 和 671B 参数的 DeepSeek-R1-0528：即使计划只作为可选建议附在提示后，在 APPS 代码后门任务上引导成功率超过 80%，在 Bio-Math 伪装答题任务上超过 90%。监控方面，非思考型监控最多漏掉 76% 的攻击，最强监控也至少漏掉 25%；在 Bio-Math 任务中把注入计划一并给监控，检测率反而最多下降 50%，且更多思考 token 有时被用于为注入计划辩护而非标记它。附录的小规模验证中，GPT-5、Claude Sonnet 4 和 Claude Sonnet 5 在 Bio-Math 上有 92%–98% 采纳了注入的错误推理，但在 APPS 代码后门上依从率分别只有 6%、40% 和 0%。",
     "quickRead": {
       "parts": [
         {
@@ -321,7 +342,28 @@
     "selected": true,
     "attention": 81,
     "summaryZh": "伊利诺伊大学厄巴纳-香槟分校研究者对 12 款主流 AI Agent 框架的上下文装配机制做了系统安全分析，提出两类新的上下文权限提升攻击：消息角色权限提升（M-CPE）让低权限来源的内容进入高权限消息角色，跨范围权限提升（X-CPE）让攻击者内容持久化到更广作用域的来源中。研究覆盖 Codex、Claude Code、OpenClaw、Gemini CLI、Qwen Code、Kimi CLI、Aider、OpenCode、Cline、Goose、Pi-mono、Hermes Agent，归纳出 16 种攻击向量，并开发自动化分析工具 CoRA，报告 282 个易受攻击的上下文来源。概念验证攻击在 GPT-5.5、GPT-5.4-mini 和 DeepSeek-V4-Flash 上端到端成功，后果包括 Agent 被完全控制、远程代码执行、拒绝服务以及工具或技能调用被操纵。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "真实 AI 智能体 Harness 的上下文组装机制与来源缺乏透明度且存在设计缺陷。攻击者可借此诱导低权限内容进入高权限角色或扩大持久化作用域，导致远程代码执行、权限提升或操纵执行结果等安全风险。",
+          "label": "问题"
+        },
+        {
+          "text": "形式化建模智能体上下文的角色与作用域层级，提出消息角色特权提升与跨作用域特权提升两类攻击及 16 种攻击向量。开发自动化工具 CORA，通过静态分析提取上下文源、插桩运行时验证角色与作用域，并在隔离环境中两轮执行验证端到端攻击路径。",
+          "label": "方法"
+        },
+        {
+          "text": "在 12 个智能体 Harness 上验证了 282 个上下文源与 1761 条 CPE 候选路径。在 GPT-5.5 下有 1315 条路径成功载入高权限源（74%），1034 条达成行为验证（58%），并在 12 个智能体上均实现了端到端 PoC 攻击。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "CORA 环境构建受限于复杂配置和动态源，LLM 可能因安全对齐未执行指令。端到端利用受智能体自主调用工具的随机性影响；厂商未公开上下文清单阻碍防御分析。实验测试了 12 个开源 Harness，未报告真实部署环境下多轮交互的成功率。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.01222"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.01222",
       "aisafetyhot": "https://aisafetyhot.com/items/t82bkke5b8w16eqy3syus7uw2"
@@ -614,7 +656,28 @@
     "selected": true,
     "attention": 76,
     "summaryZh": "Salesforce AI Research 对两类基于记忆的自改进 Agent（Agent Workflow Memory 与 ReasoningBank）在 WebArena、VisualWebArena、SCUBA 三个网页浏览基准上做了扩展重测，发现其可靠性被此前工作忽视。作者在两条轴上扩大评测范围：多次自改进运行以量化方差，随机打乱任务顺序以考察任务顺序的影响。结果显示，加入自改进循环后，71% 的情况下运行间方差增大，同一实验最好与最差运行的差距可达 10 个百分点；在 WebArena GitLab 子集（180 个任务）上，无记忆基线的运行间差距为 4.4%，应用 ReasoningBank 后扩大到 7.8%。任务顺序方面，默认顺序隐含了由易到难的课程，ReasoningBank 在该顺序下平均提升 1.5%，而在随机打乱顺序下反而下降 4.5%。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "基于文本记忆的自我改进智能体在单次运行评测中表现良好，但在多次运行中的方差、对任务输入顺序的依赖以及规约不完备下的脆弱性此前被忽视，影响真实高风险场景的部署。",
+          "label": "问题"
+        },
+        {
+          "text": "作者对 AWM 与 ReasoningBank 开展拓展评测，设计了量化跨轮次方差的多次重复运行机制与乱序压力测试；并通过质检智能体记忆，设计了包含细则、反馈与提示词约束的记忆修正方案。",
+          "label": "方法"
+        },
+        {
+          "text": "测试显示自改进方法在 71% 的案例中放大方差；打乱任务顺序会导致性能下降（WebArena 上 AWM 从 54.8% 降至 49.1%）；补充规约信息可弥补 31% 的退化。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "评测主要集中于单模型和网页浏览任务的特定文本记忆方法；记忆人工检查为定性抽样；规约不完备仅能解释部分性能退化，其余 69% 的差距原因仍未查明。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2608.18066"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2608.18066",
       "aisafetyhot": "https://aisafetyhot.com/items/juov4akm386odvmbzar5yw86u"
@@ -1116,6 +1179,26 @@
     "discoveredAt": "2026-10-03T12:46:47.749Z"
   },
   {
+    "arxivId": "2609.12448",
+    "title": "GraphProfiler: Source-Linked Sensitive Attribute Inference via Personal Knowledge Graphs",
+    "titleZh": "GraphProfiler 用个人知识图谱推断敏感属性并溯源到具体帖子",
+    "authors": [
+      "Ahmed Sohair Khan; Estrid He; Chenglong Ma; Monica Wachowicz; Elham Naghizade"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 GraphProfiler，一种可审计的 LLM 画像方法，将用户发帖历史表示为带来源链接的个人知识图谱，节点和边可回溯到原始帖子，属性预测可引用图谱记录和源文本。在八属性的 SynthPAI 基准上攻击成功率达 86.7%，与纯文本强基线相差不到两个百分点，在 PANDORA 上为 84.6%，超过 98% 的预测附有支持证据。消融实验显示，移除被引用的帖子比移除同等数量的随机帖子更能降低攻击成功率，说明这些帖子确实贡献了推断结果。该工作已被 EMNLP 2026 主会接收。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.12448",
+      "aisafetyhot": "https://aisafetyhot.com/items/kg01x1p2mu70yyqg0lbsbc43e"
+    },
+    "publishedAt": "2026-09-11T05:13:41.000Z",
+    "timelineAt": "2026-10-03T13:14:23.599Z",
+    "discoveredAt": "2026-10-03T13:14:23.599Z"
+  },
+  {
     "arxivId": "2608.03700",
     "title": "When Agents Learn to Be You: Benchmarking Privacy Leakage, Impersonation Risk, and Defenses in Persona Skills",
     "titleZh": "AntiSkillBench：评测 persona skill 的隐私泄露与行为模仿风险",
@@ -1548,6 +1631,26 @@
     "publishedAt": "2026-08-03T02:28:52.000Z",
     "timelineAt": "2026-10-03T12:46:17.599Z",
     "discoveredAt": "2026-10-03T12:46:17.599Z"
+  },
+  {
+    "arxivId": "2609.12582",
+    "title": "NovaFabric: Tamper-Evident, Replayable Evidence for Autonomous AI Agent Runs",
+    "titleZh": "NovaFabric 提出可防篡改、可重放的 AI Agent 运行证据方案",
+    "authors": [
+      "Mohsen Seyedkazemi Ardebili"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 NovaFabric，在不修改 Agent 逻辑的前提下把一次 Agent 运行记录为可移植的 Run Capsule，用 DSSE 签名、RFC 3161 时间戳、Merkle 日志和脱敏证明封装，并支持四种模式的重放协议与第三方验证。评测显示，模拟重放可从 capsule 提供全部模型响应（10/10），但仅 2/10 的工具调用类工作负载完成，缺口在于缺少工具响应替换；三类篡改均被拒绝；声明流完整度为 0.652（95% CI ±0.064，十个场景）；修复后的规则包可脱敏 14/14 类凭据并保留 9/9 个诱饵；影响范围查询在 1000 万条边上 p99 为 45.5ms，在 1 亿条边上为 167.9ms。314 台机器、十个区域的运行中，capsule REST 写入无损，但受单 worker 串行化限制，吞吐上限为 61.6 req/s（p99 26.8s）。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.12582",
+      "aisafetyhot": "https://aisafetyhot.com/items/mpu9dzo8yj1wkphvl2hsjjr8s"
+    },
+    "publishedAt": "2026-09-11T08:35:43.000Z",
+    "timelineAt": "2026-10-03T13:14:23.689Z",
+    "discoveredAt": "2026-10-03T13:14:23.689Z"
   },
   {
     "arxivId": "2609.20684",

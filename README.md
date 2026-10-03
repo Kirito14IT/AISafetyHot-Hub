@@ -251,9 +251,9 @@ curl -fsS 'https://aisafetyhot.com/api/v1/items?mode=selected&window=24h&limit=1
 <!-- latest:start -->
 | 日期 | 每日精选 | 论文清单 |
 |---|---|---|
-| 2026-10-03 | [日报](daily/2026/2026-10-03.md) | [79 篇](papers/2026/2026-10-03.md) · [bib](papers/2026/2026-10-03.bib) · [json](papers/2026/2026-10-03.json) |
+| 2026-10-03 | [日报](daily/2026/2026-10-03.md) | [81 篇](papers/2026/2026-10-03.md) · [bib](papers/2026/2026-10-03.bib) · [json](papers/2026/2026-10-03.json) |
 | 2026-10-02 | [日报](daily/2026/2026-10-02.md) | [56 篇](papers/2026/2026-10-02.md) · [bib](papers/2026/2026-10-02.bib) · [json](papers/2026/2026-10-02.json) |
-| 2026-10-01 | [日报](daily/2026/2026-10-01.md) | [57 篇](papers/2026/2026-10-01.md) · [bib](papers/2026/2026-10-01.bib) · [json](papers/2026/2026-10-01.json) |
+| 2026-10-01 | [日报](daily/2026/2026-10-01.md) | [538 篇](papers/2026/2026-10-01.md) · [bib](papers/2026/2026-10-01.bib) · [json](papers/2026/2026-10-01.json) |
 | 2026-09-30 | [日报](daily/2026/2026-09-30.md) | [4 篇](papers/2026/2026-09-30.md) · [bib](papers/2026/2026-09-30.bib) · [json](papers/2026/2026-09-30.json) |
 | 2026-09-29 | [日报](daily/2026/2026-09-29.md) | [49 篇](papers/2026/2026-09-29.md) · [bib](papers/2026/2026-09-29.bib) · [json](papers/2026/2026-09-29.json) |
 | 2026-09-28 | [日报](daily/2026/2026-09-28.md) | [50 篇](papers/2026/2026-09-28.md) · [bib](papers/2026/2026-09-28.bib) · [json](papers/2026/2026-09-28.json) |
