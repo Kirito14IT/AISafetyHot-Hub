@@ -1,0 +1,24 @@
+[
+  {
+    "arxivId": "2609.02316",
+    "title": "Counter-GEO-Bench: Evaluating Defenses Against Information-Distorting Generative Engine Optimization",
+    "titleZh": "Counter-GEO-Bench：现有护栏难挡 GEO 虚假信息，C-GEO Guard 将攻击成功率降低 47.6%",
+    "authors": [
+      "Bing Zheng",
+      "Zongyao Zhao",
+      "Wenming Yang"
+    ],
+    "category": "defense",
+    "selected": true,
+    "attention": 78,
+    "summaryZh": "清华大学深圳国际研究生院与香港大学的研究者提出 Counter-GEO-Bench，用于在受控条件下评测针对信息扭曲型生成引擎优化（GEO）的防御。基准包含 247 条经人工核验的查询，每条都配有信息保留与信息扭曲两种 GEO 改写，在 Gemma-4-31B-IT、Qwen-3.5-35B-A3B、Llama-4-Scout-17B-16E 三个受害模型上测量攻击成功率、误报率和答案质量。结果显示，Granite Guardian、Llama Guard 3 和 NeMo Self-Check Fact-Checking 三种现成防御最多只把攻击成功率相对降低 5.7%，其中 Granite Guardian 的降幅不具统计显著性，NeMo 在 Llama-4 上近乎拒绝所有查询。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.02316",
+      "aisafetyhot": "https://aisafetyhot.com/items/nheqtjdeyi1h3tu9pqw130jvg"
+    },
+    "publishedAt": "2026-09-02T09:01:51.000Z",
+    "timelineAt": "2026-10-03T18:05:55.692Z",
+    "discoveredAt": "2026-10-03T18:05:55.692Z"
+  }
+]
