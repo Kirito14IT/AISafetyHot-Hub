@@ -1,5 +1,49 @@
 [
   {
+    "arxivId": "2608.21500",
+    "title": "SecOPD: Mitigating Adaptive Prompt Injections by On-Policy Distillation",
+    "titleZh": "SecOPD 用同策略蒸馏把自适应提示注入攻击成功率降至 9.0%",
+    "authors": [
+      "Yibo Peng",
+      "Long Lian",
+      "David Wagner",
+      "Sizhe Chen"
+    ],
+    "category": "defense",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "加州大学伯克利分校研究者提出 SecOPD，用同策略蒸馏为防御微调提供 token 级反馈，替代 DPO、GRPO 等序列级信号。训练时学生模型在含注入的输入上生成 rollout，冻结的初始化模型在去掉注入的干净输入上为同一批 token 打分，与可信任务一致的 token 被鼓励、跟随注入的 token 被抑制。在 Qwen3.6-27B 上，面对 SoTA 自适应攻击 PISmith，SecOPD 的攻击成功率为 9.0%，此前 SoTA 的 Meta-SecAlign 为 94.0%，GRPO 为 61.2%；静态 SEP 攻击下 SecOPD 为 1.3%。在训练未见的 AgentDojo 工具调用场景，SecOPD 为 4.7%，Meta-SecAlign 为 5.5%，GRPO 为 0.7% 但效用降至 82.5%。代码与模型已开源。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.21500",
+      "aisafetyhot": "https://aisafetyhot.com/items/as4ho4hsknempg9ysc21s35m4"
+    },
+    "publishedAt": "2026-08-21T16:14:07.000Z",
+    "timelineAt": "2026-10-03T21:41:40.796Z",
+    "discoveredAt": "2026-10-03T21:41:40.796Z"
+  },
+  {
+    "arxivId": "2609.16754",
+    "title": "TAME: Token Attribution and Masking for Emergent misalignment",
+    "titleZh": "TAME：用 token 归因与掩码定位并削减涌现性失配",
+    "authors": [
+      "Md Rayhanul Masud",
+      "Md Rizwan Parvez"
+    ],
+    "category": "alignment",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "研究者提出 TAME 框架，在 token 级别定位微调数据中引发涌现性失配（EM）的信号。方法分三步：通过已发布的 LoRA adapter 前向计算每个回复 token 的归因分数，刻画高归因 token 的语言特征，再用归因引导的损失掩码做因果验证。在 Llama 上，前 5% 的 token 承载 32% 的归因质量，高归因 token 中医学词汇偏少，而 completely、perfectly、safe 等过度确定性的表达偏多，且在控制 token 稀有度后依然成立。在 6,849 条医学建议数据上重新微调时掩掉高归因 token，Llama 的 EM 下降 23 倍、Qwen 下降 36 倍，等量随机掩码则无效果，困惑度代价集中在被针对的确定性表达而非医学内容。作者称这是初步研究，Qwen 上的表达富集未能通过稀有度控制，跨模型族普适性仍待检验。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.16754",
+      "aisafetyhot": "https://aisafetyhot.com/items/vcj8wj4yp474yheiuqdm7bu9f"
+    },
+    "publishedAt": "2026-09-15T07:30:01.000Z",
+    "timelineAt": "2026-10-03T21:41:40.824Z",
+    "discoveredAt": "2026-10-03T21:41:40.824Z"
+  },
+  {
     "arxivId": "2609.02316",
     "title": "Counter-GEO-Bench: Evaluating Defenses Against Information-Distorting Generative Engine Optimization",
     "titleZh": "Counter-GEO-Bench：现有护栏难挡 GEO 虚假信息，C-GEO Guard 将攻击成功率相对降低 47.6%",
@@ -43,6 +87,28 @@
     "discoveredAt": "2026-10-03T18:05:55.692Z"
   },
   {
+    "arxivId": "2609.31342",
+    "title": "Stale-Document Poisoning: When Outdated Retrieval Overrides Correct Model Answers",
+    "titleZh": "研究揭示过期文档投毒：RAG 检索可让模型放弃原本正确的答案",
+    "authors": [
+      "Md Shamim Ahmed",
+      "Lukas Galke Poech",
+      "Richard Röttger"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 78,
+    "summaryZh": "南丹麦大学研究者提出并量化了 stale-document poisoning（过期文档投毒）：当检索到的证据本身已过时，模型会放弃不检索时本已答对的答案。他们构建了覆盖医学、法律、软件与平台政策的 317 条知识反转基准，每条都配有官方来源。在 12 个模型上，过期检索在无信任指令时翻转了 30% 的 Llama 与 37% 的 Qwen 答案，加入明确遵循文档的指令后升至 66% 和 75%；四个开源模型、四个领域的投毒率为 17%–91%，而匹配的最新证据被遵循的比例为 97%–100%。在 50 条已验证反转上固定证据、只改变评估日期时，仅凭日期带来的调整有限，但明确告知旧证据何时失效后，Qwen-72B 完成全部 50 次切换，Llama-70B 在表格格式下完成 50/50。因果干预显示评估日期处的内部状态可直接改变答案，注意力层是早期主要贡献者，且同一组件也参与一般比较任务。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.31342",
+      "aisafetyhot": "https://aisafetyhot.com/items/faa8c84lo6fzd5hycu05as21q"
+    },
+    "publishedAt": "2026-09-25T14:43:43.000Z",
+    "timelineAt": "2026-10-03T21:41:40.844Z",
+    "discoveredAt": "2026-10-03T21:41:40.844Z"
+  },
+  {
     "arxivId": "2609.14754",
     "title": "Calibrating Interpretability Instruments Before Trusting Their Verdicts",
     "titleZh": "研究者总结因果可解释性中的六类测量失效与校准协议",
@@ -84,6 +150,81 @@
     "discoveredAt": "2026-10-03T21:20:15.784Z"
   },
   {
+    "arxivId": "2608.21766",
+    "title": "Evaluation Awareness in Language Models: Representation, Verbalization, and Control",
+    "titleZh": "研究：六个开源权重模型的评测感知可线性解码，但与口头表达弱相关",
+    "authors": [
+      "Farzaneh Heidari",
+      "Amin Memarian",
+      "Guillaume Rabusseau"
+    ],
+    "category": "alignment",
+    "selected": true,
+    "attention": 76,
+    "summaryZh": "研究者对 Qwen3-8B、Qwen3-32B、Olmo3-7B、Olmo3-32B、Gemma4-31B、Nemotron3-49B 六个开源权重模型做了评测感知的系统研究，从内部表征、口头表达、因果影响和训练阶段演化四个维度测量。用 16 组对比提示构造的线性探针在最佳层对全部六个模型都能区分评测与部署提示，AUROC 均超过 0.7。但探针分数与 LLM 评判（GPT-5.4，0 至 3 分）的口头表达分数在单条提示层面几乎不相关，Spearman 相关系数绝对值低于 0.19，互信息低于 0.04 nats；全部模型中至少 93.9% 的生成被判为 0 分。沿探针方向做激活引导可把评判分数提高 0.2 至 1.5 分，Qwen3-8B 峰值约 1.5。作者认为评测需要同时考虑表征、口头表达与干预三个不同侧面。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "语言模型在评测中若推断出自身正在被测试并相应改变行为，会导致基准测试无法反映部署表现。针对这种评估意识，需要厘清其内部表征、外部言语化表达与因果控制机制之间的关系。",
+          "label": "问题"
+        },
+        {
+          "text": "利用16对正反对照提示词在模型残差流中提取线性探针方向，结合GPT-5.4评测模型生成的言语化程度，采用对比激活相加进行特征导向干预，并在Olmo3四个训练阶段追踪演化。",
+          "label": "方法"
+        },
+        {
+          "text": "6个开源模型峰值层探针AUROC均超0.7；模型言语化比例很低，且与探针得分呈弱相关（|ρ|<0.19）；沿探针负向导向可使言语化评分提升0.2至1.5；SFT后探针表征方向趋于稳定（余弦相似度≥0.998）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "研究仅使用三种基准与WildChat对比，言语化评分依赖单一LLM裁判，因果干预仅限单层单一方向；未测试多层联合干预，亦未覆盖非开源模型及更贴近部署环境的复杂评估场景。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2608.21766"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.21766",
+      "aisafetyhot": "https://aisafetyhot.com/items/i3wnc04f7jh1zfdnc4vv0wsqo"
+    },
+    "publishedAt": "2026-08-22T04:16:22.000Z",
+    "timelineAt": "2026-10-03T21:26:20.216Z",
+    "discoveredAt": "2026-10-03T21:26:20.216Z"
+  },
+  {
+    "arxivId": "2607.05462",
+    "title": "BioSecBench-Refusal: A paired metric for performance and alignment in agentic biosecurity risk assessment",
+    "titleZh": "BioSecBench-Refusal：面向智能体生物安全风险评估的配对基准",
+    "authors": [
+      "Edwin H. Wintermute",
+      "Harmon Bhasin",
+      "Christina M. Agapakis",
+      "Dianzhuo Wang",
+      "Evan Seeyave",
+      "Arjun Banerjee",
+      "Daniel Fulop",
+      "Matthew C. Watson",
+      "Adam J. Meyer",
+      "Sandrine Boissel",
+      "Jens H. Kuhn",
+      "Rishi Jain",
+      "Noah"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者发布 BioSecBench-Refusal，一个用于评估生物研究任务风险识别与拒答行为的基准，将 61 个取自已发表文献的合法常规任务与 46 个看似真实研究但暗藏生物安全风险的虚构红队任务配对。在 16 种模型与框架组合中，常规任务的拒答率为 7% 至 74%，红队任务为 1% 至 62%，许多组合拒绝合法常规工作的比例与拒绝隐藏风险相当甚至更高。拒答最常由智能体推理之前生效的提供商 API 过滤器触发，而获得推理空间的模型表现出识别更多真实威胁的潜力。作者将该基准作为工具发布，供模型开发者校准智能体生物技术研发的能力与审慎程度。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.05462",
+      "aisafetyhot": "https://aisafetyhot.com/items/tx2lz6r1hxbxh9vdb9t7nd0e7"
+    },
+    "publishedAt": "2026-07-06T01:46:07.000Z",
+    "timelineAt": "2026-10-03T21:35:25.399Z",
+    "discoveredAt": "2026-10-03T21:35:25.399Z"
+  },
+  {
     "arxivId": "2608.22868",
     "title": "AgentFlow: A Flow-Centric Policy Language and Framework for Securing LLM Agent Systems",
     "titleZh": "AgentFlow：面向 LLM 智能体系统的流中心策略语言与运行时防护框架",
@@ -104,6 +245,60 @@
     "publishedAt": "2026-08-24T06:56:00.000Z",
     "timelineAt": "2026-10-03T21:08:09.217Z",
     "discoveredAt": "2026-10-03T21:08:09.217Z"
+  },
+  {
+    "arxivId": "2607.19262",
+    "title": "BioSecBench-Surveillance: A Verifiable Benchmark for AI Agents in Pathogen Genomic Surveillance",
+    "titleZh": "BioSecBench-Surveillance：面向病原体基因组监测 AI 智能体的可验证基准",
+    "authors": [
+      "Harmon Bhasin",
+      "Kevin Flyangolts",
+      "Dianzhuo Wang",
+      "Evan Seeyave",
+      "Arjun Banerjee",
+      "Amanda Darling",
+      "Joshua Stallings",
+      "David Stern",
+      "Shawn Higdon",
+      "Claire Duvallet",
+      "Bryan Tegomoh",
+      "Kenny Workman"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者发布 BioSecBench-Surveillance，一个包含 100 项评估的可验证基准，测试 AI 智能体能否从原始测序数据和监测背景中推断出正确的分析流程。每项评估只给智能体与人类分析师相同的数据和背景，再对其结构化答案做确定性评分，任务覆盖从分类学鉴定到基因工程检测等七个类别，涉及多种样本类型和测序技术。在来自十六组模型与工具链组合的 3962 次可评分尝试中，最强配置仅通过约一半：Opus 4.8 搭配 PI 以 50.2% 领先（83 项评估，95% 置信区间 40.1 至 60.3），与 GPT-5.5 搭配 Codex 的 50.2%（95% 置信区间 40.8 至 59.6）持平，其后是 Opus 4.7 搭配 PI 的 49.6% 和 Sonnet 4.6 搭配 PI 的 48.6%。该基准为衡量智能体在下一次疫情暴发时能否被信任执行基因组监测提供了标准。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.19262",
+      "aisafetyhot": "https://aisafetyhot.com/items/gb5hqa9ha5p608p0h0rnlb4ji"
+    },
+    "publishedAt": "2026-07-21T16:33:57.000Z",
+    "timelineAt": "2026-10-03T21:35:25.420Z",
+    "discoveredAt": "2026-10-03T21:35:25.420Z"
+  },
+  {
+    "arxivId": "2609.30986",
+    "title": "Evaluating Sycophancy in Chinese Large Language Models on Factual Questions Derived from Online Search Queries",
+    "titleZh": "研究评测 DeepSeek、Qwen、豆包在中文事实问题上的谄媚行为",
+    "authors": [
+      "Geng Liu",
+      "Feng Li",
+      "Mengxiao Zhu",
+      "Francesco Pierri"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究评测了 DeepSeek、Qwen 和豆包三个中文大语言模型在事实性问题上的谄媚行为，覆盖 12,165 个来自真实中文搜索查询的是非判断题，共 364,941 条回答。研究在基线、用户信念条件和反谄媚提示三种设置下，对比模型开启与关闭推理时的表现，追踪正确答案、错误答案与不确定回答之间的配对迁移。结果显示，在用户持有错误信念时，模型既会出现与信念一致的错误，也会出现原本正确回答转为不确定的事实信心流失；推理并非稳定的防护手段，反谄媚指令虽能减少错误认同，却会推高不确定回答的比例。作者据此指出，在中文事实问答中避免附和错误信念并不等于保住事实准确性，转变层面的评测更有价值。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.30986",
+      "aisafetyhot": "https://aisafetyhot.com/items/mv7xq19jmztwc65x7usck0aq0"
+    },
+    "publishedAt": "2026-09-25T08:34:19.000Z",
+    "timelineAt": "2026-10-03T21:41:40.807Z",
+    "discoveredAt": "2026-10-03T21:41:40.807Z"
   },
   {
     "arxivId": "2609.03035",
@@ -216,6 +411,55 @@
     "publishedAt": "2026-09-14T16:12:41.000Z",
     "timelineAt": "2026-10-03T21:20:15.842Z",
     "discoveredAt": "2026-10-03T21:20:15.842Z"
+  },
+  {
+    "arxivId": "2609.19989",
+    "title": "Benchmarking LLM Compliance with China AI Generated Content Regulations",
+    "titleZh": "研究者构建中国AI生成内容合规基准，评测20个LLM",
+    "authors": [
+      "Chenrui Cui",
+      "Hongye Fang",
+      "Lisha Song",
+      "Weichao Chen",
+      "Yue Zhu",
+      "Gang Xu"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一套评估LLM是否符合中国AI生成内容合规要求的框架，并对20个知名模型给出评测结果。该框架包含2303个问题，覆盖六个维度，其中203个为自行构建的宪法类问题，由多个评判模型基于各自的分层对齐记忆独立给出裁决。结果显示，国际模型在使用标准中文问题时也表现出较高的合规水平，主要差异可能来自与意识形态对齐密切相关的维度。作者据此建立了一个监管基准，供全球AI社区在统一的法律依据下评测中外LLM。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.19989",
+      "aisafetyhot": "https://aisafetyhot.com/items/kpqy6x3dp7f5r00k22v5wg2dp"
+    },
+    "publishedAt": "2026-09-17T09:58:14.000Z",
+    "timelineAt": "2026-10-03T21:41:40.816Z",
+    "discoveredAt": "2026-10-03T21:41:40.816Z"
+  },
+  {
+    "arxivId": "2609.34591",
+    "title": "TULIP: Targeted LLM Unlearning at Layers Identified Per-Input",
+    "titleZh": "TULIP：按输入定位层级的定向大模型遗忘方法",
+    "authors": [
+      "Yejin Kim",
+      "William F. Shen",
+      "Seokwon Jung",
+      "Daeun Park",
+      "Seong Joon Oh"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 TULIP，一种按输入定位层级的表示层遗忘方法，用于从大语言模型中移除指定知识。作者先做劫持实验，把目标模型的隐藏状态移植到只在保留集上训练的 oracle 中，oracle 本身无法生成遗忘答案，却能依据移植状态输出该答案，说明答案在中间层形成、之后只是被读出，遗忘应针对形成环节而非读出环节，且形成结束的层在不同输入间差异很大。TULIP 对每个输入用 logit lens 定位形成与读出的边界，在该处移除隐藏状态与遗忘答案 unembedding 向量的对齐。在 TOFU、PISTOL 和 WMDP 上，TULIP 在 Llama、Qwen 和 Zephyr 模型上持续优于输出层和表示层基线，并对改写和量化攻击保持稳健；其逐输入层选择还可作为即插即用组件提升现有方法。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.34591",
+      "aisafetyhot": "https://aisafetyhot.com/items/uaqb10eampe1swg0rgeirxjpp"
+    },
+    "publishedAt": "2026-09-28T08:28:03.000Z",
+    "timelineAt": "2026-10-03T21:41:40.836Z",
+    "discoveredAt": "2026-10-03T21:41:40.836Z"
   },
   {
     "arxivId": "2609.39450",
