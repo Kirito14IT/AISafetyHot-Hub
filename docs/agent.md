@@ -2,7 +2,19 @@
 
 [AI Safety HOT](https://aisafetyhot.com) 给 Agent 和自动化工具三种入口，都是匿名、只读的，不需要 token。
 
-## MCP（推荐）
+## 安装 Skill
+
+在装有 Node.js / npm 的终端运行，选择你使用的 Agent：
+
+```bash
+npx skills add wuyoscar/AISafetyHot-Hub --skill aisafetyhot
+```
+
+重新打开 Agent 会话后，试着问：「用 aisafetyhot 读最新日报，整理 5 件值得关注的事，附日期和原文链接。」
+
+[Skill](../skills/aisafetyhot/SKILL.md) 指导 Agent 读取公开 API、检索近期动态、追踪热点和保留来源。它可以直接通过 HTTP 使用，也可以配合下方 MCP 工具；不需要 API Key。
+
+## MCP
 
 标准 Streamable HTTP，地址：`https://aisafetyhot.com/api/mcp`
 
