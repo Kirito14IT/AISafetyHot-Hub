@@ -510,6 +510,26 @@
     "discoveredAt": "2026-10-03T22:03:01.559Z"
   },
   {
+    "arxivId": "2609.10105",
+    "title": "Beyond Training: A Feasibility Taxonomy for Inference-Time AI Governance",
+    "titleZh": "论文提出推理阶段 AI 治理的可行性分类框架",
+    "authors": [
+      "Samar Ansari"
+    ],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文《Beyond Training: A Feasibility Taxonomy for Inference-Time AI Governance》提出，当前算力治理以训练算力和训练后模型为监管单元，而推理时扩展、智能体脚手架和模型压缩正把能力迁移到部署阶段。作者构建了覆盖监控、验证与执行三类共二十项推理阶段机制的可行性分类，按四级就绪度量表对照四家厂商的证据基础评分，其中十五项已有商用技术底座在生产环境中运行，但治理级保证与对抗鲁棒性差异明显。用三维能力层级乘四类对手角色的对手模型做压力测试后，没有机制能对高能力国家层级部署者评为充分，微调会移除执行类机制中模型内部的组件，平台外部控制仍可保留。作者还通过替换分析把该分类与一篇配套硬件论文相连，提出条件性替换原则，并报告随机子集二次评分的一致性为二次加权 Cohen's kappa 0.74。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.10105",
+      "aisafetyhot": "https://aisafetyhot.com/items/l31dvgc93fx2ie3iv0s6relpz"
+    },
+    "publishedAt": "2026-09-09T12:37:17.000Z",
+    "timelineAt": "2026-10-03T22:30:37.228Z",
+    "discoveredAt": "2026-10-03T22:30:37.228Z"
+  },
+  {
     "arxivId": "2608.30387",
     "title": "Attesting Outputs and Delegation Ancestry in Multi-Agent AI Systems",
     "titleZh": "研究者提出多智能体系统输出与委派链路双层存证方案",
@@ -643,6 +663,33 @@
     "discoveredAt": "2026-10-03T21:41:40.836Z"
   },
   {
+    "arxivId": "2609.24986",
+    "title": "Who Does What in AI Auditing? Designing Human-AI Collaboration for Auditing Generative AI",
+    "titleZh": "研究提出人机审计协作框架 HAAC，并在对话购物 Agent 上验证",
+    "authors": [
+      "Eunkyu Park",
+      "Markelle Roesti",
+      "Wesley Hanwen Deng",
+      "Renata Barreto",
+      "Mohammad Tahaei",
+      "Kenneth Holstein",
+      "Jason Hong",
+      "Motahhare Eslami"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Human-Agent Audit Collaboration（HAAC）工作流与系统，用于在 AI 审计中划分人与 AI 智能体的分工，让智能体承担探索、评估、报告和复核，同时在需要情境判断的环节保留人类监督。团队将该框架实例化到对话购物 Agent 上并开展两项研究：71 名审计员的实验显示，AI 辅助提高了攻击成功率并扩大了探索范围，同时也影响了后续攻击方式，并增加了审计员对 AI 生成评估与报告的依赖。对负责任 AI 从业者的访谈表明，可落地的审计需要覆盖范围可见、攻击轨迹可复现，以及对审计智能体本身进行评估。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24986",
+      "aisafetyhot": "https://aisafetyhot.com/items/tkv4a95sjxgg13i2a1honqb3w"
+    },
+    "publishedAt": "2026-09-21T17:57:22.000Z",
+    "timelineAt": "2026-10-03T22:36:40.154Z",
+    "discoveredAt": "2026-10-03T22:36:40.154Z"
+  },
+  {
     "arxivId": "2609.39450",
     "title": "ActionGuard: Tool Call Authorization under Poisoned Skills",
     "titleZh": "ActionGuard：在工具调用执行前拦截被投毒技能",
@@ -739,6 +786,81 @@
     "publishedAt": "2026-09-30T06:55:18.000Z",
     "timelineAt": "2026-10-03T21:59:59.271Z",
     "discoveredAt": "2026-10-03T21:59:59.271Z"
+  },
+  {
+    "arxivId": "2607.21317",
+    "title": "Open Veins of Algorithmic Auditing: Why AI Assessment Lags Behind Its Deployment in the Global South",
+    "titleZh": "研究称全球南方 AI 审计远落后于部署，十年仅不足二十例已部署系统审计",
+    "authors": [
+      "Gemma Galdon Clavell",
+      "Alexandra Magaard"
+    ],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "Eticas Foundation 的研究者基于十年审计实践指出，全球南方 AI 部署速度不逊于北方，但审计严重滞后。作者统计，过去十年拉丁美洲、撒哈拉以南非洲和亚太地区已部署系统的第二、第三方审计不足二十例，而该地区有数百个已记录的公共部门算法和数十亿美元的国家 AI 投资。研究归纳出四类共性模式：用代理指标替代效度、性能声明在流行率分析下失效、被评分人群从未出现在训练数据中、移除受保护属性后结构性偏差依然存在。作者认为这一差距根源不是能力问题而是资金问题，最有条件改变现状的是资助该地区多数关键 AI 的发展与慈善资助方，可通过资助条件要求独立评估。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.21317",
+      "aisafetyhot": "https://aisafetyhot.com/items/kxw0qev0gih3zgdzdmo8qoxic"
+    },
+    "publishedAt": "2026-07-23T13:39:38.000Z",
+    "timelineAt": "2026-10-03T22:36:40.148Z",
+    "discoveredAt": "2026-10-03T22:36:40.148Z"
+  },
+  {
+    "arxivId": "2609.28137",
+    "title": "\"We'll Fix It Later\": Education, AI, and the Deferral of Privacy in EdTech",
+    "titleZh": "研究：EdTech 平台将隐私与 AI 披露推迟到产品后期",
+    "authors": [
+      "Meghna Manoj Nair",
+      "Rachel Greenstadt"
+    ],
+    "category": "opinion",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项混合方法研究考察了教育科技（EdTech）平台如何处理学生隐私与 AI 披露。研究者对 12 名 EdTech 从业者进行半结构化访谈，并对 48 家平台的隐私政策按五个维度编码审计，评分者间信度较高（平均 Cohen's Kappa = 0.781）。访谈显示，隐私虽被认可为重要，却常在产品生命周期中被推迟，组织优先考虑功能、增长、融资和即时教学效果，并把责任转嫁给云服务商、政策文件或下游机构。政策审计发现，平台对收集哪些数据描述较充分，但对数据后续治理说明明显不足：33% 的平台在存在可见 AI 功能的情况下未做有意义的 AI 披露，73% 只提供笼统的问责与泄露响应措辞。K-12 平台在监管有明确要求时对儿童同意的处理更好，但这一优势未延伸到 AI 治理或问责。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.28137",
+      "aisafetyhot": "https://aisafetyhot.com/items/c7lrvzyvbejociq134ouy45g3"
+    },
+    "publishedAt": "2026-09-23T13:59:37.000Z",
+    "timelineAt": "2026-10-03T22:30:37.248Z",
+    "discoveredAt": "2026-10-03T22:30:37.248Z"
+  },
+  {
+    "arxivId": "2609.36054",
+    "title": "What if automating AI R&D triggers an intelligence explosion?",
+    "titleZh": "多作者论文评估 AI 研发自动化触发智能爆炸的可能与政策应对",
+    "authors": [
+      "Alan Chan",
+      "Christoph Winter",
+      "Andrew Barto",
+      "Jakub Pachocki",
+      "Geoffrey Hinton",
+      "Eric Horvitz",
+      "Yoshua Bengio",
+      "Dawn Song",
+      "Jack Clark",
+      "Hilary Greaves",
+      "Anton Korinek",
+      "Samuel Hammond",
+      "Thore Graepel",
+      "Ben Bariac"
+    ],
+    "category": "opinion",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇 arXiv 论文评估了 AI 研发自动化可能触发智能爆炸的证据，并分析其影响与政策回应。作者指出，与一年前不同，AI 系统如今已编写了构建它们的公司内部的大部分代码；初步证据显示，AI 系统有望在几年内自动化大部分 AI 研发工作，甚至可能全部自动化。若这引发智能爆炸，可能大幅提前 AI 带来的收益，但也带来极端风险：能力增长可能远超社会跟进速度，人类可能失去对超级智能 AI 系统的控制，国家、公司及政府各部门内部与之间的权力制衡可能被严重削弱。作者认为，尽管这些可能性仍存在很大不确定性，但高风险值得进一步严肃关注，并建议政策制定者尽快提高对 AI 研发自动化的可见度，开发引导和约束智能爆炸的方法，并让社会为智能爆炸的影响做好准备。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.36054",
+      "aisafetyhot": "https://aisafetyhot.com/items/wtx6f7mx4m3ojcl7c5hdvs8pv"
+    },
+    "publishedAt": "2026-09-28T18:13:31.000Z",
+    "timelineAt": "2026-10-03T22:30:37.273Z",
+    "discoveredAt": "2026-10-03T22:30:37.273Z"
   },
   {
     "arxivId": "2608.14380",
@@ -852,5 +974,72 @@
     "publishedAt": "2026-09-28T14:23:38.000Z",
     "timelineAt": "2026-10-03T21:08:09.311Z",
     "discoveredAt": "2026-10-03T21:08:09.311Z"
+  },
+  {
+    "arxivId": "2608.12863",
+    "title": "AI and Consumer Rights in India Working Paper",
+    "titleZh": "印度《消费者保护法》能否覆盖 AI 产品损害？工作论文指出归责缺口",
+    "authors": [
+      "Omir Kumar",
+      "Sriya Sridhar",
+      "Vibhav Mithal",
+      "Balaraman Ravindran"
+    ],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇工作论文评估印度《2019 年消费者保护法》是否足以应对缺陷 AI 产品与服务造成的损害，以及能否在 AI 价值链上按比例分配责任。该法对产品责任、损害和缺陷的宽泛定义看似技术中立，或可覆盖人身伤害、心理伤害、偏见输出与失控等 AI 相关事件，但存在明显缺口：AI 缺陷与消费者损害之间的因果关系难以证明，且 AI 价值链中数据提供方、模型开发者、部署方与用户的责任相互重叠，难以对应法律预设的制造商、销售者与服务提供者角色。论文认为现行责任框架缺乏按比例归责机制，执法还需厘清与行业专门规则的交叉。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.12863",
+      "aisafetyhot": "https://aisafetyhot.com/items/duwx34j581uqt8zjkb0vj0a90"
+    },
+    "publishedAt": "2026-08-13T06:21:58.000Z",
+    "timelineAt": "2026-10-03T22:42:52.283Z",
+    "discoveredAt": "2026-10-03T22:42:52.283Z"
+  },
+  {
+    "arxivId": "2610.01005",
+    "title": "Tolerance-Based Fairness Auditing: Violation Certification and Sensitivity Screening",
+    "titleZh": "基于容忍度的公平性审计：违规认证与敏感性筛查",
+    "authors": [
+      "Jie Tang",
+      "Chuanlong Xie",
+      "Lixing Zhu"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一套基于容忍度的公平性审计框架，用于判断群体差异是否超出预设容忍阈值，覆盖违规认证与敏感性筛查两个互补目标。前者采用约束经验似然检验，配合最不利点校准与误报率控制，支持多子群同时审计；后者采用分裂经验似然及调整分裂经验似然检验，基于自适应边界代理原则面向预警场景。数值实验显示两类方法在错误控制与敏感性上存在不同权衡，并用 COMPAS 数据做了预测公平性审计示例。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01005",
+      "aisafetyhot": "https://aisafetyhot.com/items/p9mfmwgqewdr5y1i0k4x30mg1"
+    },
+    "publishedAt": "2026-10-01T03:49:53.000Z",
+    "timelineAt": "2026-10-03T22:36:40.163Z",
+    "discoveredAt": "2026-10-03T22:36:40.163Z"
+  },
+  {
+    "arxivId": "2609.32030",
+    "title": "Who Governs Data in the AI Era? A Computational Analysis of the U.S. Privacy Workforce in Job Postings",
+    "titleZh": "美国隐私岗位招聘分析：AI 治理职责如何嵌入隐私职位",
+    "authors": [
+      "Ramazan Yener",
+      "Muhammad Hassan",
+      "Masooda Bashir"
+    ],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项对 LinkedIn 和 Indeed 上 1,143 条美国隐私岗位招聘信息的计算分析发现，隐私岗位普遍呈混合形态，同时要求法律知识、技术技能与人际能力。AI 相关表述出现在超过一半的招聘信息中，并分布于合规、法律、治理与安全等主题；研究据此指出，AI 治理职责常被嵌入既有隐私岗位，催生出混合职位与专职 AI 治理岗位并存的格局。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.32030",
+      "aisafetyhot": "https://aisafetyhot.com/items/to12t0kf6zxf57jku5ft1flwy"
+    },
+    "publishedAt": "2026-09-25T21:52:03.000Z",
+    "timelineAt": "2026-10-03T22:30:37.261Z",
+    "discoveredAt": "2026-10-03T22:30:37.261Z"
   }
 ]
