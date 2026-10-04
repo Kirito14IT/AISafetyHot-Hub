@@ -457,6 +457,26 @@
     "discoveredAt": "2026-10-04T18:20:28.626Z"
   },
   {
+    "arxivId": "2609.15802",
+    "title": "The Economics of Recursive Self-Improvement",
+    "titleZh": "论文建模递归自我改进的经济学：反馈回路尚不足以形成自持加速",
+    "authors": [
+      "Tom Cunningham"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "Tom Cunningham 的论文对递归自我改进（RSI）的经济学建模，评估其可能性与影响。作者构建了一系列逐步丰富的 AI 进展模型，用有向图表示，指出 AI 能力的净加速取决于各反馈回路弹性的乘积。论文区分了“窄”与“广”两类 AI 能力，以刻画 AI 仅在优化 AI 研发基准上提升、而未在更广泛经济价值任务上提升的可能。作者整理了关键参数的现有估计，并列出 AI 公司可测量且可公开分享的经验对象清单。用现有数据校准后，粗略计算显示当前反馈回路强度尚不足以产生自持加速，但似乎正在增强。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.15802",
+      "aisafetyhot": "https://aisafetyhot.com/items/df4qsxwiy7yfsk5y649buum3a"
+    },
+    "publishedAt": "2026-09-14T16:12:25.000Z",
+    "timelineAt": "2026-10-04T22:20:41.744Z",
+    "discoveredAt": "2026-10-04T22:20:41.744Z"
+  },
+  {
     "arxivId": "2609.34519",
     "title": "EOPSA: Efficient On-Policy Self-Distilled Safety Alignment",
     "titleZh": "EOPSA：高效在策略自蒸馏安全对齐方法",
