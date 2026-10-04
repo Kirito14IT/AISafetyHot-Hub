@@ -1,5 +1,32 @@
 [
   {
+    "arxivId": "2608.09867",
+    "title": "Stealing Reasoning Traces from Proprietary LLM APIs",
+    "titleZh": "研究者利用加密推理块跨模型兼容性窃取专有 LLM 推理链",
+    "authors": [
+      "Alexander Panfilov",
+      "David Schmotz",
+      "Ilia Shumailov",
+      "Luca Beurer-Kellner",
+      "Joachim Schaeffer",
+      "Ameya Prabhu",
+      "Jonas Geiping",
+      "Maksym Andriushchenko"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 95,
+    "summaryZh": "研究者发现 Anthropic、OpenAI、Google 的 API 把思维链以加密块形式交给客户端回传，这些加密块在同一厂商生态内可跨会话、跨用户、跨模型复用。他们把强模型的加密推理块注入同厂商较弱、防护较松的模型（如 Claude Haiku 4.5、GPT-5.6 Luna、Gemini Robotics 1.6），迫使其逐字转写明文，从而在不直接越狱强模型的情况下提取其推理链。该漏洞衍生四类攻击：绕过反蒸馏机制窃取专有推理、从公开会话日志中大规模提取隐私数据、通过隐藏推理通道获取有害信息、以及在加密块中植入不可见的提示注入。研究者在 GitHub 和 Hugging Face 抓取 6,708 条公开 Agent 轨迹，解码出 315,320 条推理链，恢复 367 项 PII 和 182 项凭据，其中真实用户会话包含 62 个 API key、33 个密码和 30 个邮箱。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.09867",
+      "aisafetyhot": "https://aisafetyhot.com/items/mceic1zdxf3w73k37d207b64l"
+    },
+    "publishedAt": "2026-08-10T17:24:50.000Z",
+    "timelineAt": "2026-10-04T07:35:38.298Z",
+    "discoveredAt": "2026-10-04T07:35:38.298Z"
+  },
+  {
     "arxivId": "2609.35799",
     "title": "OpenAI-HuggingFace: A Reproduction & Lessons for Alignment Testing",
     "titleZh": "研究者复现 OpenAI-HuggingFace 事件中的失准行为，并提出自动化对齐测试方法",
@@ -22,6 +49,26 @@
     "publishedAt": "2026-09-18T00:19:31.000Z",
     "timelineAt": "2026-10-04T07:26:12.612Z",
     "discoveredAt": "2026-10-04T07:26:12.612Z"
+  },
+  {
+    "arxivId": "2609.05797",
+    "title": "Safety Monitors Mostly Catch What the Model Already Refuses",
+    "titleZh": "论文发现安全监控器主要拦截模型本就会拒答的请求",
+    "authors": [
+      "Sripad Karne"
+    ],
+    "category": "eval",
+    "selected": true,
+    "attention": 83,
+    "summaryZh": "Sripad Karne 的论文测量了安全监控器在目标模型实际会作答的请求上的召回率，发现四款文本护栏、两个激活探针和 Latent Guard 在 1% 假阳性率下，对模型会拒答请求的召回率是模型会作答请求的 1.1 到 6.4 倍，而 AUROC 多数仍在 0.85 以上，标准指标掩盖了这一差距。研究基于 647 条有害请求（来自 Aegis 2.0、HarmBench、StrongREJECT），每条改写成间接、直接、直白三个显式程度版本且意图经 LLM 与人工核验；Gemma-4-31B-IT 在直白版本只答 12 条，在间接版本答 340 条，相差 28 倍，其中 344 条翻转请求里各护栏漏放 153 到 321 条。作者把原因追溯到显式程度本身：模型与护栏内部的危害读数都随措辞变软而下降，沿显式方向对 Qwen3Guard 做激活引导可把标记率从 26% 推到 100%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.05797",
+      "aisafetyhot": "https://aisafetyhot.com/items/hsjqgywwv4rc2ilc5pt18ae1b"
+    },
+    "publishedAt": "2026-09-05T01:19:35.000Z",
+    "timelineAt": "2026-10-04T07:29:15.672Z",
+    "discoveredAt": "2026-10-04T07:29:15.672Z"
   },
   {
     "arxivId": "2607.18538",
@@ -115,6 +162,31 @@
     "publishedAt": "2026-07-23T03:28:08.000Z",
     "timelineAt": "2026-10-03T23:52:50.641Z",
     "discoveredAt": "2026-10-03T23:52:50.641Z"
+  },
+  {
+    "arxivId": "2609.27900",
+    "title": "Delegated Misalignment: How Multi-Agent Structures Amplify LLM Safety Risks",
+    "titleZh": "论文揭示多智能体委派结构放大 LLM 安全风险",
+    "authors": [
+      "Zonghao Ying",
+      "Jiaqi Yan",
+      "Huize Luo",
+      "Quanchen Zou",
+      "Aishan Liu",
+      "Xianglong Liu"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 81,
+    "summaryZh": "一项针对 6 个前沿 LLM 的研究提出「委派失配」现象：在单智能体下会拒答有害请求的模型，一旦被放入主智能体向子智能体分派任务的层级结构中，端到端危害显著上升。研究在 49 个可操作分解的有害任务上设置三种条件（单智能体、主从委派、带工具的委派），DeepSeek-V3.2 的完整执行率从单智能体的 30.6% 升至委派下的 77.6%，引入工具后恶意工具调用率达 65.3%；GPT-5 作为单智能体完整执行 22.5%，作为子智能体时升至 61.2%。作者将机制归为两类：主智能体的责任扩散，以及子智能体的角色偏见顺从。消融实验显示单层防御均不足甚至反噬，例如问责追溯把 DeepSeek 的有害委派从 65.3% 降到 6.1%，却把 GPT-5 的完整执行率从 36.7% 推高到 53.1%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.27900",
+      "aisafetyhot": "https://aisafetyhot.com/items/g4yf9sejmsqxu833yc1xtwfx7"
+    },
+    "publishedAt": "2026-08-26T03:49:37.000Z",
+    "timelineAt": "2026-10-04T07:44:45.716Z",
+    "discoveredAt": "2026-10-04T07:44:45.716Z"
   },
   {
     "arxivId": "2608.21500",
@@ -309,6 +381,27 @@
     "discoveredAt": "2026-10-03T21:41:40.844Z"
   },
   {
+    "arxivId": "2608.25460",
+    "title": "Training Alignment Auditors via Reinforcement Learning",
+    "titleZh": "用强化学习训练对齐审计员：成对奖励加校准让 Haiku 4.5 追平 Opus 4.6",
+    "authors": [
+      "Paul Rosu",
+      "Rowan Wang"
+    ],
+    "category": "alignment",
+    "selected": true,
+    "attention": 78,
+    "summaryZh": "研究者用强化学习训练 Claude Haiku 4.5 充当对齐审计员，最佳配置在自建四维审计评测上的综合分达到 48.7，与 Opus 4.6 的 48.4 基本持平，未训练的 Haiku 4.5 为 44.2。训练环境让审计员调查通过 system prompt 植入隐藏行为的靶模型，由知晓隐藏行为的 LLM 裁判将审计过程与参考审计做整体比较，给出成对奖励；同时混入无植入行为的靶模型做假阳性校准。消融显示成对奖励比逐点奖励训练更稳健，加入无植入行为的靶模型有助于把假阳性率压在 1% 以下。直接针对生产模型训练或使用二值奖励都会出现奖励作弊，前者假阳性校准崩塌到约 96%，后者让审计员转向激进、操纵式的提问。在 AuditBench 经 KTO 微调的对抗性靶模型上换用 Claude Code 脚手架评测，最佳检查点的 STC 检出率从基线 11.5% 提升到 28.1%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.25460",
+      "aisafetyhot": "https://aisafetyhot.com/items/jtlym3yrrzsqjpo04hhw29x35"
+    },
+    "publishedAt": "2026-08-26T07:28:09.000Z",
+    "timelineAt": "2026-10-04T07:32:33.950Z",
+    "discoveredAt": "2026-10-04T07:32:33.950Z"
+  },
+  {
     "arxivId": "2609.14754",
     "title": "Calibrating Interpretability Instruments Before Trusting Their Verdicts",
     "titleZh": "研究者总结因果可解释性中的六类测量失效与校准协议",
@@ -399,6 +492,46 @@
     "publishedAt": "2026-09-08T14:38:24.000Z",
     "timelineAt": "2026-10-04T00:02:14.024Z",
     "discoveredAt": "2026-10-04T00:02:14.024Z"
+  },
+  {
+    "arxivId": "2609.08789",
+    "title": "Silent Revision: Measuring Undisclosed Change in the Safety Frameworks of Frontier AI Developers",
+    "titleZh": "研究提出「静默修订率」：前沿 AI 安全框架 67% 实质变更未在开发者说明中披露",
+    "authors": [
+      "Louis Yiven Zhu"
+    ],
+    "category": "industry",
+    "selected": true,
+    "attention": 77,
+    "summaryZh": "研究者提出「静默修订率」（silent revision rate），即安全框架承诺的实质变更中未被开发者自身说明所披露的比例，并发布带版本与哈希固定的语料库。语料覆盖 12 家发布安全框架的开发者的全部公开版本及各自的 changelog、redline 或公告，追踪 12 组连续版本对之间的 710 条承诺实例，其中 244 条逐条裁定。结果显示，严格标准下 67%（95% CI 62–72）的实质变更属静默，宽松标准下为 53%，按章节粒度降至 49%；叙述式公告的静默率为 74%，逐项 changelog 为 63%，而说明的篇幅字数几乎不影响结果。77% 的追踪变更削弱或移除了某项承诺，且在 8 组版本对中有 7 组削弱比加强更常被静默处理。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.08789",
+      "aisafetyhot": "https://aisafetyhot.com/items/lrpmrg7bec2loe4a0pr02t3xl"
+    },
+    "publishedAt": "2026-09-08T14:19:56.000Z",
+    "timelineAt": "2026-10-04T07:32:33.933Z",
+    "discoveredAt": "2026-10-04T07:32:33.933Z"
+  },
+  {
+    "arxivId": "2609.14759",
+    "title": "Refusal Reads Only a Slice of What the Model Knows: Harm-Keyed Routing and Its Exceptions Across Model Families",
+    "titleZh": "研究：拒答只读取模型道德表征中的伤害切片",
+    "authors": [
+      "Orion Reblitz-Richardson"
+    ],
+    "category": "alignment",
+    "selected": true,
+    "attention": 77,
+    "summaryZh": "一项针对四个开源权重模型的研究发现，拒答决策并不读取模型用于道德判断的完整道德子空间，而是只读取其中与伤害相关的低秩切片。作者在 OLMo-3 上用嵌套交换秩扫描做因果检验：随着道德基扩大，道德判断的迁移系数从 0.05 升到 0.66，而拒答迁移在 k=3 后停在 0.22 至 0.24，约四分之三的拒答因果输入落在道德子空间之外。研究还发现道德理解在预训练阶段就已形成，OLMo-3 上该子空间与最终状态的余弦从 1000 步的 0.869 升到 0.999，对齐只做一次约 40 度的旋转；而拒答门是后训练新建的，与其预训练前身的余弦仅 0.155。四个模型的读取方式并不一致：Llama-3.1 读取宽泛道德内容，Qwen2.5 超出单一伤害线索但在样本量下未定论，GPT-OSS 读取伤害且其拒答可被自身推理链推翻。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.14759",
+      "aisafetyhot": "https://aisafetyhot.com/items/e9jvco9i70hvglzv42ry8xltl"
+    },
+    "publishedAt": "2026-09-13T19:49:44.000Z",
+    "timelineAt": "2026-10-04T07:47:48.862Z",
+    "discoveredAt": "2026-10-04T07:47:48.862Z"
   },
   {
     "arxivId": "2608.21766",
@@ -507,7 +640,28 @@
     "selected": true,
     "attention": 76,
     "summaryZh": "研究者发布 SRE-Bench，一个由逆向工程专家投入 5000 多专家小时从零构建、避免训练数据污染的逆向工程基准，包含 19 个平均 16,915.8 行代码的私有程序、44 种自研反分析机制，共 262 个二进制实例和 1,572 个确定性评分任务。在标准化公开评测中，GPT-5.6-Sol 与 Claude-Fable-5.1 分别只完整解出 31.5% 和 26.9% 的实例，说明源码安全能力强并不等于二进制分析能力强。在无预算上限、关闭安全护栏的模型方内部评测中，GPT-6-Astra 达到 99.2% pass@4，但从多次尝试中挑出正确解仍是未解问题。自研保护套件把 GPT-5.6-Sol 的平均分从 4.69 降到 2.50（满分 6），其他较弱模型几乎归零；GPT-6-Astra 基本保住分数，但在受保护二进制上的每分成本升至 1.5 倍。分析还显示，编译器优化和静态链接对 Agent 影响很小，而去除符号代价高昂，表明当前 Agent 更依赖名称线索而非指令级推理。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "智能体在有源码时的网络安全能力提升很快，但恶意软件、固件和专有软件往往只有二进制。评测逆向工程需要目标不在训练数据中，且规模与反分析保护接近真实软件。",
+          "label": "问题"
+        },
+        {
+          "text": "作者从零构建SRE-Bench：19个私有程序、平均16,915.8行，配44种内部反分析原语，得到262个二进制实例、1,572个确定性评分任务，覆盖协议、游戏、文件格式、恶意软件与固件。",
+          "label": "方法"
+        },
+        {
+          "text": "公开设置中GPT-5.6-Sol与Claude-Fable-5.1分别完全解出31.5%与26.9%可评分实例。无护栏、无预算上限时GPT-6-Astra的pass@4为99.2%，但作者称选出正确候选仍困难。加固使GPT-5.6-Sol均分从4.69降至2.50。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出程序池仅19个，且平均规模未覆盖数十万至百万行的最大软件；二者都受从零开发成本约束。公开设置有步数与时间上限，分数只在可评分运行上计算。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2608.11469"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2608.11469",
       "aisafetyhot": "https://aisafetyhot.com/items/gvh2cs7hxymkcey9gih6ap627"
@@ -515,6 +669,54 @@
     "publishedAt": "2026-08-11T22:14:57.000Z",
     "timelineAt": "2026-10-04T07:17:02.706Z",
     "discoveredAt": "2026-10-04T07:17:02.706Z"
+  },
+  {
+    "arxivId": "2608.11816",
+    "title": "How China-Origin Vision-Language Models Move from Refusal to Reframing in State Alignment",
+    "titleZh": "研究审计 9 个视觉语言模型：中文提示下国家立场改写率约为英文的三倍",
+    "authors": [
+      "Guang Yang",
+      "Fengchen Liu",
+      "Alex Wang",
+      "Homa Hosseinmardi",
+      "Amir Ghasemian"
+    ],
+    "category": "eval",
+    "selected": true,
+    "attention": 76,
+    "summaryZh": "研究者构建了覆盖十类政治敏感话题的 200 张图像基准，对 9 个视觉语言模型（7 个中国来源、2 个非中国来源）在四种提问范式和两种提示语言下运行 21708 次试验，由两个前沿 LLM 评审按六个维度逐条标注，并在 200 条样本上与三名人类专家验证。结果显示，中文提示下出现国家立场改写的几率约为英文提示的 3.67 倍，且在每个模型内部都成立；中国来源模型的改写率高于非中国模型，方向在两个评审和人类标注者间一致，幅度随评审不同在 1.6 至 3.2 倍之间。改写集中在文本提及敏感主体的条件下（36.5%），仅给图像时为 9.8%；在四代 Qwen 多模态模型上，显式拒答下降而国家立场改写上升，改写以替换和委婉语为主，且不含拒答关键词，关键词检测方法难以发现。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.11816",
+      "aisafetyhot": "https://aisafetyhot.com/items/zhv1vjtdk9lto1glnejf4a043"
+    },
+    "publishedAt": "2026-08-12T08:58:37.000Z",
+    "timelineAt": "2026-10-04T07:44:45.728Z",
+    "discoveredAt": "2026-10-04T07:44:45.728Z"
+  },
+  {
+    "arxivId": "2608.08542",
+    "title": "When Skills Meet Safety: Benchmarking and Characterizing the Adaptive Jailbreak Robustness of Skill-Merged LLMs",
+    "titleZh": "SkillSafe-Bench：技能合并模型静态安全无法预测自适应越狱鲁棒性",
+    "authors": [
+      "Yu Ma",
+      "Hongli Shi",
+      "Jing Li",
+      "Xinran Xu",
+      "Weiwei Hou"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 76,
+    "summaryZh": "研究者提出 SkillSafe-Bench，在合并方法、迁移技能、基座模型与合并系数的受控网格上同时评测静态拒答、自适应越狱鲁棒性和能力保留，采用 HarmBench 分类器与 Llama Guard 3 的双评审 AND 规则。在六个开源基座（五个模型家族、两种规模）上，静态安全无法预测自适应鲁棒性：静态筛查下同样安全的 Qwen2.5-7B 与 Llama-3.1-8B，在语义模板攻击下 Qwen 的合并模型被越狱 60%–76%，Llama 仅 0.22–0.24；Gemma-2-9B 静态最安全却被越狱 60%，Phi-4-mini 保持鲁棒。研究还发现合并的静态安全效应取决于基座对齐强度，并提出无数据的几何信号，即任务向量与安全子空间的重叠度，可区分同配方的消融式拒答移除与真实技能，进而给出 SubSafe-Merge 投影方法，在保持能力的同时消除这类侵蚀。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.08542",
+      "aisafetyhot": "https://aisafetyhot.com/items/a4uf2s08t1zl5uwt9ha4r0jge"
+    },
+    "publishedAt": "2026-08-09T07:41:06.000Z",
+    "timelineAt": "2026-10-04T07:44:45.744Z",
+    "discoveredAt": "2026-10-04T07:44:45.744Z"
   },
   {
     "arxivId": "2607.05462",
@@ -693,6 +895,29 @@
     "publishedAt": "2026-09-19T21:10:45.000Z",
     "timelineAt": "2026-10-04T07:29:30.706Z",
     "discoveredAt": "2026-10-04T07:29:30.706Z"
+  },
+  {
+    "arxivId": "2608.20554",
+    "title": "aiXamine: Unified Black-Box Evaluation of Cross-Dimensional Trade-offs in LLM Safety, Security, and Privacy",
+    "titleZh": "aiXamine：跨维度评测 LLM 安全、安全（security）与隐私权衡",
+    "authors": [
+      "Fatih Deniz",
+      "Yazan Boshmaf",
+      "Dorde Popovic",
+      "Issa Khalil"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 aiXamine，一个统一黑盒评测平台，把 LLM 的安全、安全（security）与隐私当作相互依赖的属性来评估。平台通过自动化红队流程编排 9 项服务上的 46 个测试，生成从提示词级诊断到跨服务权衡分析的分层风险画像，可在相同条件下复现对比闭源与开源权重系统。作者用 aiXamine 测试了 120 多个 LLM、超过 5000 次测试运行，发现三种单轴评测看不到的跨维度现象：更强的对齐会系统性提高过度拒答，形成可量化的安全税；隐私与其他可信维度近乎正交，标准对齐无法覆盖；无 on-policy 校正的 off-policy 知识蒸馏会导致熵坍缩，在同一基础架构上把鲁棒性从 56.9 降到 2.6。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.20554",
+      "aisafetyhot": "https://aisafetyhot.com/items/brg0hczkjrou88izzknxlutxv"
+    },
+    "publishedAt": "2026-08-20T20:33:35.000Z",
+    "timelineAt": "2026-10-04T07:32:33.966Z",
+    "discoveredAt": "2026-10-04T07:32:33.966Z"
   },
   {
     "arxivId": "2609.05535",
@@ -959,6 +1184,62 @@
     "discoveredAt": "2026-10-04T07:29:23.253Z"
   },
   {
+    "arxivId": "2608.11727",
+    "title": "Harness-IF: Evaluating Instruction Following Across Instruction Surfaces in Coding Agents",
+    "titleZh": "Harness-IF：评估编码 Agent 跨指令面的指令遵循能力",
+    "authors": [
+      "Zining Huang",
+      "Haoran Que",
+      "Hong Zeng",
+      "Ge Zhang",
+      "Zuo Wang",
+      "Jin Chen",
+      "Haodong Wang",
+      "Zhongfei Hou",
+      "Changxin Pu",
+      "Shen Yan",
+      "Wenhao Huang"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Harness-IF，用于评估编码 Agent 在多个指令面上的规则遵循情况，并区分真正遵循与碰巧符合默认行为。该基准包含 60 个真实多轮编码任务，取自 642 条规则库，256 条规则获得判定，分布在部署 Agent 会读取的五个可配置指令面上。为区分遵循与巧合，作者提出 Against-Prior Accuracy（AP-Acc），只对与模型无提示默认行为相反的规则打分，通过九次探针构建中隐去规则重跑任务来观测。在 12 个前沿模型上，准确率为 72.1% 至 85.9%，AP-Acc 为 66.1% 至 78.6%，所有模型在反先验规则上表现更差，差距 3.6 至 7.4 个百分点，平均 5.81。作者指出聚合分数会以模型相关的幅度高估遵循程度。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.11727",
+      "aisafetyhot": "https://aisafetyhot.com/items/oabd8nzw670wg4yj6tkvg5zn2"
+    },
+    "publishedAt": "2026-08-12T07:07:57.000Z",
+    "timelineAt": "2026-10-04T07:44:45.759Z",
+    "discoveredAt": "2026-10-04T07:44:45.759Z"
+  },
+  {
+    "arxivId": "2609.30768",
+    "title": "Does Thinking Help Fairness? Reasoning Tokens Resolve Some Biases but Create More",
+    "titleZh": "研究：推理 token 能纠正部分偏见，却制造约 5 倍新偏见",
+    "authors": [
+      "Deng Pan",
+      "Joe Germino",
+      "Yihong Ma",
+      "Elizabeth Daly",
+      "Nuno Moniz",
+      "Ting Hua",
+      "Nitesh Chawla"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项发表于 EMNLP 2026 的研究在 QwQ-32B、DeepSeek-R1-Distill-Qwen-32B 和 Qwen3-32B 上做同一模型的开思考与关思考对照，在 Adult、COMPAS、Credit 三个高风险决策任务上发现思考对反事实公平性有不对称的双重效应：既纠正了非思考基线产生的反事实翻转，也在模型接近饱和置信度时制造新的翻转。在全部九个（模型，数据集）组合中，新制造的翻转数量约为被纠正翻转的 5 倍。作者把思考轨迹本身当作公平性变化的可测量位置，提出 Counterfactual Depth Probability Gap（CDPG）追踪偏见随思考深度的演化，发现偏见随思考传播并放大；还构建 Bias Transition Matrix（BTM）刻画反事实样本对的预测从非思考到思考的变化，指出这种不对称双重效应源于样本对状态的联合转移。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.30768",
+      "aisafetyhot": "https://aisafetyhot.com/items/kj3fmyftltfgthd3adgvrxfzw"
+    },
+    "publishedAt": "2026-09-25T03:46:53.000Z",
+    "timelineAt": "2026-10-04T07:54:04.719Z",
+    "discoveredAt": "2026-10-04T07:54:04.719Z"
+  },
+  {
     "arxivId": "2609.03588",
     "title": "KC-Bench: A Dynamic Interactive Benchmark for Evaluating Knowledge Conflicts in LLM Agents",
     "titleZh": "KC-Bench：评估 LLM Agent 知识冲突的动态交互基准",
@@ -1001,6 +1282,26 @@
     "publishedAt": "2026-07-14T08:38:10.000Z",
     "timelineAt": "2026-10-04T07:13:59.566Z",
     "discoveredAt": "2026-10-04T07:13:59.566Z"
+  },
+  {
+    "arxivId": "2608.05578",
+    "title": "Detecting Safety Training Modification in Language Models via Activation Analysis",
+    "titleZh": "AMS 工具通过激活分析检测语言模型的安全训练改动",
+    "authors": [
+      "Glen Messenger"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 AMS（Activation-based Model Scanner），通过测量激活空间中安全相关概念的几何结构来检测语言模型的安全训练改动。安全训练会在有害与良性内容类别间形成可测量的分离，部分安全改动会破坏或旋转这一结构，另一些则保持不变。作者在 Llama、Gemma、Qwen、Mistral 四个架构家族、14 个模型配置和四类安全改动（指令微调、基座、abliterated、无审查微调）上验证 AMS，阈值留一交叉验证准确率为 71%（10/14），sigma 点估计的 bootstrap 95% 置信区间中位宽度为 3.4 sigma。在每模型 20 条分层 JailbreakBench 提示上的行为合规测试显示，有害内容概念的 sigma 可预测合规程度，Pearson r = -0.546（p = 0.043），方向一致但噪声明显。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.05578",
+      "aisafetyhot": "https://aisafetyhot.com/items/cefiogu3ye4jf2pie6w57b506"
+    },
+    "publishedAt": "2026-08-06T03:57:38.000Z",
+    "timelineAt": "2026-10-04T07:44:45.750Z",
+    "discoveredAt": "2026-10-04T07:44:45.750Z"
   },
   {
     "arxivId": "2609.28335",
@@ -1252,6 +1553,30 @@
     "publishedAt": "2026-09-21T21:54:27.000Z",
     "timelineAt": "2026-10-03T21:50:45.728Z",
     "discoveredAt": "2026-10-03T21:50:45.728Z"
+  },
+  {
+    "arxivId": "2609.09875",
+    "title": "AgentAudit: An Open, Extensible Framework for Full-Lifecycle Trust Evaluation of AI Agents",
+    "titleZh": "AgentAudit：面向 AI Agent 全生命周期信任评估的开源框架",
+    "authors": [
+      "Shrey Nag",
+      "Sachita",
+      "Abhishek Kumar Singh",
+      "Lipi Goel",
+      "Rajeshwar Singh Janwar"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 AgentAudit，一个可附加在任意 LLM Agent 上、只读取执行轨迹而不干预其运行的开源评估框架，覆盖规划、工具选择、工具执行、记忆与推理的完整流程。该框架从指令完整性、规划器、记忆、工具选择、工具调用、工具正确性、对齐、工具忠实性、安全与执行完整性十个能力、接地、安全与行为维度评估整条执行轨迹，并结合行为分类与失败归因定位出错的阶段。所有轨迹由同一个固定裁判模型打分，而该模型本身也是被评测模型之一，作者在第七节 E 小节讨论了这一局限。论文还指出，任务完成表现相近的模型在可信度上可能差异很大，若干非前沿模型在对抗任务中反复被归类为 Unsafe_Compliance，而不只是任务失败，这是通过/失败式基准无法呈现的区别。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09875",
+      "aisafetyhot": "https://aisafetyhot.com/items/ry3x6br2ymt0yyhyzp8cr8bjc"
+    },
+    "publishedAt": "2026-09-09T08:29:16.000Z",
+    "timelineAt": "2026-10-04T07:51:01.708Z",
+    "discoveredAt": "2026-10-04T07:51:01.708Z"
   },
   {
     "arxivId": "2609.19989",
@@ -2255,6 +2580,27 @@
     "publishedAt": "2026-08-15T16:16:29.000Z",
     "timelineAt": "2026-10-03T23:52:50.672Z",
     "discoveredAt": "2026-10-03T23:52:50.672Z"
+  },
+  {
+    "arxivId": "2609.10630",
+    "title": "AI Safety: Not Optional, Not Later",
+    "titleZh": "论文提出 AI 安全设计保障架构：结合 Scientist AI 模型级监督与系统级控制",
+    "authors": [
+      "Qinghua Lu",
+      "Yoshua Bengio"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇获邀发表于 IEEE Software 2027 年 1 月刊的论文提出\"安全设计\"（safety-by-design）保障架构，将 Scientist AI 等模型级监督与系统级控制相结合。该架构覆盖 scaffold 与 harness 控制、独立验证、监控和证据基础设施，并由治理机制支撑问责与证据互操作。作者指出，事故表明 AI 安全失效往往出现在多个层面。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.10630",
+      "aisafetyhot": "https://aisafetyhot.com/items/vipgdzy1kthne54yhj2vq6zlh"
+    },
+    "publishedAt": "2026-09-09T06:36:05.000Z",
+    "timelineAt": "2026-10-04T07:32:33.978Z",
+    "discoveredAt": "2026-10-04T07:32:33.978Z"
   },
   {
     "arxivId": "2607.24017",
