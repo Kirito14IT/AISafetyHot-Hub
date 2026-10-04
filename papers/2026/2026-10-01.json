@@ -2393,7 +2393,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出 Self-Evolving Defense（SED），一个免训练框架，把有害的智能体轨迹蒸馏为可复用的安全策略，不更新模型权重，并在未来任务中检索相关策略以持续适应新攻击。作者在 DeepSeek V4 Flash、GLM 5.2 和 Kimi K3 三个开源模型、覆盖越狱、提示注入和不安全代码生成的八个基准上测试 SED。结果显示，SED 将 AGENTDOJO 上的定向提示注入成功率降至 0.42%，最佳基线防御为 3.7%；在 HARMBENCH 上把自适应 X-TEAMING 攻击成功率控制在 7.8%，最佳基线为 35.2%，同时保持良性任务效用。论文共 39 页、6 张图，代码已公开。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "工具调用、仓库修改和跨会话记忆让 LLM 智能体面临越狱、提示注入和不安全代码生成。现有防御常需重训练、无法随攻击演化，或只覆盖单一威胁面。",
+          "label": "问题"
+        },
+        {
+          "text": "Self-Evolving Defense（SED）不更新权重：外部评审给完整轨迹打分，把有害失败写入情景记忆并合成为分层策略；下次任务按查询检索 top 策略，连同父规则注入系统提示词。",
+          "label": "方法"
+        },
+        {
+          "text": "在 DeepSeek-V4-Flash 上，SED 将 AgentDojo 定向攻击成功率降到 0.42%，X-Teaming 降到 7.8%，已解决 SWE-bench 补丁中的 CWE-538 率从 19.2% 降到 2.9%，同时保持良性任务效用。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出，与已见失败差异很大的新攻击可能检索不到可用策略；且未考察更强或专用评审模型的影响。评测在三个开源模型、八个基准上在线进行，记忆不跨基准携带。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.36603"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.36603",
       "aisafetyhot": "https://aisafetyhot.com/items/o5fv9nu1vebgfoqc05astekuc"
@@ -2724,7 +2745,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究提出 constitutional adapters（CAs），把符合宪法原则的行为从合成语料蒸馏进低秩适配器和 steering vector，训练中从未见过有害请求或越狱样本。用宪法训练对象减去对照训练对象后，越狱防御成功率和测得对齐度提升，在长上下文和多轮攻击下优于提示词与 steering 基线。CAs 可在基座模型上训练、零样本迁移到后训练 checkpoint，并在推理时缩放以在防御与良性合规之间可预测地权衡。作者将其定位为 API 部署中轻量、可移植、可调的干预手段，论文共 38 页、14 图、10 表。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "宪法对齐通常写进全量权重，轻量对象能否承载更细的宪法遵循、并在推理时缓解误用与失配，仍不清楚。",
+          "label": "问题"
+        },
+        {
+          "text": "用 Claude Opus 5 从 Claude 宪法与无价值内容的对照手册各生成约 1.8 万篇合成文档，分别训练 LoRA 或 ReLU steer，再做差分得到 constitutional adapter，推理时用强度 α 缩放。",
+          "label": "方法"
+        },
+        {
+          "text": "主文以 Qwen3.5-4B 为主。短上下文上提示词与 CA 接近；长上下文和多轮攻击上 CA 更稳，difference 对象相对无防御约提升 15 与 30 个百分点，作者称比 refusal steer 有效 3 倍以上。知识与数学几乎无损，编码和工具调用有下降，过度拒绝与 refusal steer 相当。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者不评测针对 adapter 的 white-box 攻击，也不与全参数宪法训练比较，并怀疑后者越充分、CA 增量越小。主文聚焦 Qwen3.5-4B 三个种子，其余三个家族效应更小、更不稳定；Nemotron 无 base checkpoint。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.36657"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.36657",
       "aisafetyhot": "https://aisafetyhot.com/items/wvl5v3kygvzgv09w6dflufebz"
@@ -2744,7 +2786,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出 RISE，通过演化可复用的攻击策略而非逐条改写提示词，对现代文生图系统做红队测试。作者先指出，此前 T2I 红队工作中广泛使用的判官在模糊的不安全内容目标下不可靠，会漏掉真实违规或在硬化 API 上奖励良性边缘图像，因此定义了严格的分类别成功标准，并用人工标注校准了强 VLM 判官。作者还发现常用的提示词修改流程在更严的护栏设置下仍受限于种子提示词、无法迁移或难以自举正样本。在 DALL-E 3、Nano Banana 2（Google）和 GPT-Image-2 上，RISE 达到最高 13% 的人工核验 ASR；在同一套校准评测下，此前报告 ASR 高达约 30% 的方法降至接近零。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "生产级文生图系统上真实违规很少，旧的人工种子常被补上。既有自动红队有两处不匹配：评判器在模糊不安全目标上不可靠，以及逐条改写提示词探索不足。",
+          "label": "问题"
+        },
+        {
+          "text": "RISE 不逐条改写提示词，而用多岛进化搜索演化自然语言攻击策略，再由 abliterated Qwen3-32B 按策略和场景写出提示词。最优策略冻结后用 UCB1 做固定利用。成功准则按类别写死，并用人工标签校准 Gemini 评判器。",
+          "label": "方法"
+        },
+        {
+          "text": "在 DALL·E 3、Nano Banana 2、GPT-Image-2 auto 的 nudity 上，固定利用阶段人体确认 ASR 分别为 13.33%、9.47%、3.27%（Table 7）。同一套校准评测下，作者复现的先前方法人体确认 ASR 落到接近 0。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "主对比集中在女性裸体，因其更易标定。另外四个类别多为精度校正 ASR，标注者一致性低于裸体。基线复现为尽力而为，依赖私有种子或训练数据的方法无法保证还原原论文成绩。作者计划发布复现流程、本地测试床及部分类别准则，策略与攻击提示词不发布。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.34920"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.34920",
       "aisafetyhot": "https://aisafetyhot.com/items/enic2kdo63eh3pfr0opw27ufu"
@@ -2764,7 +2827,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究提出配对续写框架，在 42 个领域的 192 个父任务上评估八个智能体，分析 12,148 对续写，发现相同的安全反馈会引发模型相关的行为分化：把不安全轨迹导向合法完成（救援）、维持未授权执行（持续不安全），或在良性任务上触发过度拒答（附带损失）。通过逐层激活修补，作者发现一种共同的晚期定型模式，因果干预效果在接近最后几层（相对深度 0.958–0.984）急剧上升，尽管不同架构的峰值幅度相差超过 30 倍。关键层表征与宏观路由结果相关，在这些层干预会因果性地改变具体的下一步工具动作。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "工具智能体在越狱上下文残留后，收到相同的运行时安全反馈，会走向合法完成、继续未授权执行或对良性任务过度拒答，这一路由并不清楚。",
+          "label": "问题"
+        },
+        {
+          "text": "作者构建 192 个父任务的配对续写：同一动作前检查点分别接中性提醒与安全反馈。再用层间激活修补定位因果层，并以临界层干预特征做留一父任务的结局预测。",
+          "label": "方法"
+        },
+        {
+          "text": "八个开源智能体上路由高度依赖模型：Qwen3-14B 的 persistent unsafe 为 85.7%，Gemma-3-12B 的 rescue 为 19.3%。干预效应集中在相对深度 0.958–0.984。留一父任务峰值 ROC AUC 为 rescue 0.675、collateral loss 0.777、persistent unsafe 0.702。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者称预测在正例极少时方差大，且未把临界层转向扩展到完整多步轨迹。实验覆盖八个开源智能体、自建 42 域模拟任务，轨迹为贪心解码；发布物作者计划在发表后公开。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.34686"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.34686",
       "aisafetyhot": "https://aisafetyhot.com/items/coy8zqpzd1z7ebrf902001cq7"
@@ -4653,7 +4737,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "论文提出 FinRT，一个从自适应红队策略中构建可复用对抗提示词生成器的结构化框架，面向消费金融等受监管行业。在六个受害模型上，FinRT 的攻击成功率接近自适应基线 Rainbow Teaming 的两倍（32.9% 对 17.2%），最大对抗严重度提升 33%，并保持与迭代搜索方法相当的策略域内语义多样性。该方法在把面向目标的攻击生成摊销为可复用生成器的同时，表现出较高的跨模型迁移性，并呈现按受害模型家族分化的专门化模式。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "消费金融助手里，看似无害的客户问句会触达监管政策边界。现有自适应红队贵且不跨政策摊销，摊销式生成又缺少结构化合规覆盖。",
+          "label": "问题"
+        },
+        {
+          "text": "FinRT 先在政策×领域×策略空间做前向诱发，再用成功轨迹抽出目标行为，经 SFT 与校准代理 DPO 训练单次前向的对抗提示生成器。",
+          "label": "方法"
+        },
+        {
+          "text": "留出 419 条规格、每条 10 个提示上，校准代理 DPO 的 Overall ASR 为 32.9%，Rainbow Teaming 为 17.2%，oracle DPO 为 33.0%（Table 1）。FinSafetyBench 上为 35.2%。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者称主要覆盖消费金融、七类政策，法律迁移只是小规模压力测试；评测为静态黑盒、以单轮为主，未研究自适应防御与多轮攻击。前向诱发成本高，收益来自摊销。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.36474"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.36474",
       "aisafetyhot": "https://aisafetyhot.com/items/ypper47mhwfs83mipaojddpx8"
@@ -4673,7 +4778,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "论文提出 Nudgeability 指标，在推理轨迹的固定位置插入一句表达信心或怀疑的第一人称句子，通过对比反事实续写来衡量反思信号对模型委派决策的因果影响。该指标分两个维度：敏感度，即信心与怀疑改变委派率的强度；目标性，即委派是否在模型无法独立解决的问题上增加、在能解决的问题上减少。在 Qwen、Gemma 和 GLM 三个家族共九个中小规模开源权重推理模型和两个任务上，模型普遍敏感，怀疑提高委派率、信心降低委派率，信心到怀疑的中位摆动为 20.6 个百分点，较大的厂商托管模型为 53 至 70 个百分点。但这种响应目标性较差，中位仅 42% 的诱导翻转是目标正确的，只比随机选择基线高 2 个百分点。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "能调用工具的推理模型须在推理中决定自行作答还是委派。作者把反思拆成信号来源、呈现方式与后续行为，并单独测量第三项：外生的信心或怀疑语言能否改变委派，且是否对准无辅助能力。",
+          "label": "问题"
+        },
+        {
+          "text": "Nudgeability 在同一提示词与推理前缀的固定边界插入一句第一人称信心或怀疑陈述，再让模型继续推理并选择作答或调用工具。敏感性 S 是怀疑相对信心的委派率差；对准性用诱导翻转中符合无辅助能力的份额 WT 及其相对随机选择的提升 L。工具调用不被执行。",
+          "label": "方法"
+        },
+        {
+          "text": "九个开源推理模型在 MuSiQue 与 StrategyQA 上，信心到怀疑的委派摆幅中位数为 20.6 个百分点，方向在全部开源实验及采样解码检查中一致；服务端模型摆幅为 53–70 个百分点。诱导翻转的对准良好份额中位数为 42%，相对随机选择只高 2 个百分点。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "主观察是是否调用工具，不衡量执行后答案是否变好。评测为两个问答任务、三个开源家族和两个服务端模型，家族、规模、量化与服务栈未做完全交叉。作者计划把不确定性估计映射到同一接口，并用 S、WT、L 评估。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.34572"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.34572",
       "aisafetyhot": "https://aisafetyhot.com/items/fufqfg17cx5w7noypr0khwkpl"
@@ -5357,7 +5483,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "论文提出 J4U，一种由越狱衍生出的黑盒不确定性量化方法，用于大型推理模型（LRM）的问答场景。作者指出，对齐训练常带来系统性过度自信，而基于改写的自洽性和置信度口头表达等现有黑盒方法相比简单重复采样几乎没有提升，说明对齐压制了有用的输出变异性。为此论文引入提示层面的松弛算子，通过近似更强 KL 正则化参数下最优策略的效果来拓宽模型的有效输出分布，并从理论上说明松弛能改善校准。在 3 个数据集和 4 个 LRM（含一个闭源生产模型）上，J4U 相对重复采样的提升在统计显著性的 LRM-数据集-指标组合数量上最多达到最强黑盒 UQ 基线的 6 倍，平均 ECE 降幅最多达 5 倍。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "LRM 经 RL 对齐后输出分布变尖、过度自信，生产环境常无 logits。作者称现有黑盒 UQ（改写一致性、口头置信）相对重复采样几乎无增益。",
+          "label": "问题"
+        },
+        {
+          "text": "把对齐模型写成 KL 正则最优策略，定义放松算子近似更大 β。J4U 用三类一次性黑盒越狱式变换（SUFFIX、PROG、ART）在良性问答上多次采样，以多数票频率估计置信。",
+          "label": "方法"
+        },
+        {
+          "text": "K=10 时，跨 4 个 LRM、3 个数据集，J4U-PROG 平均 ECE 降 15.8%，J4U-ART 的 NLL、Brier 降幅最大（14.5%、4.8%）。显著改进的校准设置多于 REPHRASE；熵升、推理轨迹余弦相似度降，符合作者的放松签名。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出依赖越狱式提示，厂商缓解后特定越狱可能失效；并计划在更开放访问下做机制分析。实验覆盖 4 个 LRM 与 SynthPAI、SuperGPQA、HLE，另在 gsm8k 上检查高确信区间；闭源模型无推理轨迹。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.35350"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.35350",
       "aisafetyhot": "https://aisafetyhot.com/items/d4q4g0rz7xoglml91lkqk9l5v"
