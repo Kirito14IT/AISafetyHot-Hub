@@ -47,6 +47,48 @@
     "discoveredAt": "2026-10-04T20:23:28.281Z"
   },
   {
+    "arxivId": "2609.39607",
+    "title": "Pretext: Defeating Malicious Skill Detection Frameworks for AI Agents",
+    "titleZh": "Pretext 攻击绕过 NVIDIA SkillSpector 等 Agent 技能扫描器，成功率最高 97%",
+    "authors": [
+      "Tobias Kaisar",
+      "Aritra Dhar"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 84,
+    "summaryZh": "研究者提出 Pretext，用于评估了解检测器内部机制的攻击者能否绕过 Agent 技能安装前的安全扫描。论文报告，这类白盒攻击可以在保留技能正常功能的同时逃过结合静态检查与语言模型判断的检测框架，并在三个开源模型上比较了检测器固定及与攻击者共同适应两种设置。作者报告两种设置下仍存在较高的绕过风险，指出安装前扫描不足以单独保证技能执行安全。这些结论来自论文作者的实验，不能视作所有技能扫描器或实际部署环境的普遍结果。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "智能体依赖第三方技能扩展功能，但恶意技能可能造成危害；基于静态规则与大模型语义裁判的检测框架在面对知晓检测规则的攻击者时的有效性亟待验证。",
+          "label": "问题"
+        },
+        {
+          "text": "提出白盒攻击框架 PRETEXT，将载荷以自然语言拆分至多个文件，结合跨世代两层反思记忆优化策略，并在固定检测器与攻防协同进化对抗两种模式下进行评估。",
+          "label": "方法"
+        },
+        {
+          "text": "在固定检测器下对 qwen3t 取得 96.7% 的 ASR；在协同进化检测器下 ASR 为 31% 至 76%，但 gpt-oss 的误报率达到 62%，纯静态层对终代技能拦截率仅 5.6%。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "未在闭源商业扫描器上实测迁移性；实验基于单一检测框架与 3 个开源模型栈，并在合成权限环境中对 12 种预设木马类型进行评测。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.39607"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39607",
+      "aisafetyhot": "https://aisafetyhot.com/items/h8pkew9nj89d8xruv6o3egfuw"
+    },
+    "publishedAt": "2026-09-30T12:26:33.000Z",
+    "timelineAt": "2026-10-04T21:21:35.807Z",
+    "discoveredAt": "2026-10-04T21:21:35.807Z"
+  },
+  {
     "arxivId": "2609.38983",
     "title": "Approval Laundering: Systematizing Approval--Execution Binding Failures in AI Coding-Agent Harnesses",
     "titleZh": "论文提出 Approval Laundering 分类，实测 Claude Code 审批与执行绑定失败",
