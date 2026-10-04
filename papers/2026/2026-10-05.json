@@ -495,5 +495,25 @@
     "publishedAt": "2026-09-05T07:30:52.000Z",
     "timelineAt": "2026-10-04T16:57:29.542Z",
     "discoveredAt": "2026-10-04T16:57:29.542Z"
+  },
+  {
+    "arxivId": null,
+    "title": "MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement",
+    "titleZh": "小米 MiMo-V2.6：通过强化学习扩展迈向自我改进",
+    "authors": [
+      "LLM-Core Xiaomi"
+    ],
+    "category": "ai_news",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "小米发布 MiMo-V2.6 技术报告，主题为通过扩展强化学习实现模型自我改进。报告文件 MiMo_V2_6_technical_report.pdf 已在 HuggingFace 仓库 XiaomiMiMo/MiMo-V2.6-Pro-RL 上线，大小 3.05 MB，可通过 hf CLI 或 curl 下载。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL/blob/main/MiMo_V2_6_technical_report.pdf",
+      "aisafetyhot": "https://aisafetyhot.com/items/aoa3ogbs9h1ksw5i3ixa1md2j"
+    },
+    "publishedAt": "2026-09-21T19:58:58.000Z",
+    "timelineAt": "2026-10-04T21:43:25.801Z",
+    "discoveredAt": "2026-10-04T21:43:25.801Z"
   }
 ]
