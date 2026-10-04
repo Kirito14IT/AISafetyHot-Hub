@@ -834,23 +834,23 @@
     "quickRead": {
       "parts": [
         {
-          "text": "稀疏自编码器（SAE）被当作把叠加的神经表征分解为可解释特征的标准工具，但领域评估主要依赖相关性指标——真实方向与学到的 decoder atom 之间的余弦相似度。作者指出，这一做法把两个不同的经验主张混为一谈：decoder 几何对齐与 encoder 激活行为，只有干预实验才能区分。",
+          "text": "稀疏自编码器（SAE）评估通常依赖解码器原子与目标方向的余弦相似度等相关性指标，但这混淆了解码器几何对齐与编码器激活行为。若解码器几何与编码器激活脱节，模型可能学到看似几何匹配但从不激活的特征，误导可解释性分析。",
           "label": "问题"
         },
         {
-          "text": "在真实特征完全已知的合成玩具模型中，作者从零复现了叠加相图与 TopK-vs-L1 对比，并对每个相关性匹配的特征施加消融与符号正确的 steering 干预，全部通过模型实际输出阶段传播。方法被封装为 sae-causal-audit 工具，含协议化接口、确定性复现流水线与哈希校验 CI。",
+          "text": "构建真实特征已知的合成模型，对余弦匹配的特征执行消融与带符号转向干预，度量激活比例与因果特异性，将流程封装为开源审计工具 sae-causal-audit，并在 GPT-2-small 残差流 SAE 上开展概念级审计。",
           "label": "方法"
         },
         {
-          "text": "在退化 SAE 中，通过余弦≥0.90 恢复门槛的特征里最多 77% 因果惰性（好 SAE 中 9%），包括余弦≈1.000 的匹配；惰性按成因分为结构性（反极对叠加几何，好 SAE 也有）与竞争性（退化字典的 TopK 选择病理），按方向分为 read-inert 与 write-inert，五个反极对完全解离——同一 atom 无法监测却可高特异性 steering。对已发布生产 SAE（GPT-2-small，83 个概念）的审计复现了定性模式（14% 因果惰性），并发现少数 decoder atom 反复成为数十个语义无关概念的最邻近匹配。",
+          "text": "合成模型中，余弦≥0.90的匹配特征在退化TopK SAE有77%、良好SAE有9%从不激活（因果惰性）；对跖对几何导致读写解离，转向特异性达143–310而消融效果为0。GPT-2-small审计中7个匹配特征有1个惰性，且出现原子碰撞。",
           "label": "实验与结果"
         },
         {
-          "text": "所有定量结论来自小型合成玩具模型，真实残差流特征量级更大且无可用真值；因果测试只在 ON 侧孤立测试特征，未测同时激活特征的交互；read/write 分解仅基于两次 SAE 训练、五个反极对、单种子，样本量小，具体特异性数值应视为效应形状而非精确估计。真实模型 harness 用 difference-in-means 探针方向替代真值，是线性近似且提示集欠采样概念分布。作者还指出，跨平台字节级精确复现按构造不可得，只能保证单环境内字节一致、跨平台语义一致。",
+          "text": "定量结论主要来自小型合成模型（22个充分表征特征、单随机种子），仅在单特征开启状态测试而未测多特征交互；真实模型依赖线性探针均值差作为替代方向，Prompt采样有限；读写解离仅基于两套SAE中的5组对跖对。",
           "label": "局限与可以继续做的"
         }
       ],
-      "sourceName": "论文全文（AI 生成）",
+      "sourceName": "论文 PDF（Gemini 生成）",
       "sourceUrl": "https://arxiv.org/abs/2607.12166"
     },
     "links": {
@@ -3744,6 +3744,26 @@
     "publishedAt": "2026-09-17T17:15:37.000Z",
     "timelineAt": "2026-10-04T08:46:06.365Z",
     "discoveredAt": "2026-10-04T08:46:06.365Z"
+  },
+  {
+    "arxivId": "2608.10502",
+    "title": "From Faulty Memories to Corrected Actions: Dependency-Guided Rollback Repair for Memory-Augmented Agents",
+    "titleZh": "依赖引导回滚修复：为记忆增强 Agent 恢复错误记忆后的答案与状态",
+    "authors": [
+      "Caili Yu; Yiqi Wang; Jiaqi Zhang; Yiqun Duan; Mingkai Zheng; Zhangkai Wu; Kaize Shi; Taotao Cai"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出依赖引导回滚修复（dependency-guided rollback repair），用于在记忆增强 Agent 执行失败并诊断出错误记忆后，同时恢复答案与持久状态并保留未受影响的工作。该方法从运行时溯源构建带类型的记忆到动作图，追踪显式下游依赖，保留有独立可信支持的候选，停用无支持的记忆状态，并只选择性重放与答案相关的受影响计算。在覆盖三个工具使用领域、四类记忆故障的 150 例受控基准上，恢复率达 85.3%，高于最佳对比方法的 77.3%，同时移除全部被诊断的错误记忆并保留全部良性记忆；在改编自 LongMemEval-V2 的 50 例轨迹压力测试中恢复率为 68.0%，对比方法为 54.0%，主张失效 F1 为 0.669 对 0.603。作者指出结果并不代表轨迹重建全面更优，而是显示该方法在恢复与成本之间取得较好权衡。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.10502",
+      "aisafetyhot": "https://aisafetyhot.com/items/iult7fegl8nm30m1xm6jst3vx"
+    },
+    "publishedAt": "2026-08-11T05:19:55.000Z",
+    "timelineAt": "2026-10-04T14:16:06.100Z",
+    "discoveredAt": "2026-10-04T14:16:06.100Z"
   },
   {
     "arxivId": "2609.34862",
