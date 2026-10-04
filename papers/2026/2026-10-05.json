@@ -59,5 +59,45 @@
     "publishedAt": "2026-09-02T04:34:48.000Z",
     "timelineAt": "2026-10-04T16:06:45.411Z",
     "discoveredAt": "2026-10-04T16:06:45.411Z"
+  },
+  {
+    "arxivId": "2609.34519",
+    "title": "EOPSA: Efficient On-Policy Self-Distilled Safety Alignment",
+    "titleZh": "EOPSA：高效在策略自蒸馏安全对齐方法",
+    "authors": [
+      "Qirui Liu"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对在策略自蒸馏（OPSD）安全对齐中监督信号随生成长度增加而崩塌、以及特权提示词引发的风格差异稀释安全梯度两大瓶颈，研究者提出 EOPSA，通过基于 Teacher Rescue Rate（TRR）指标的自适应 rollout 调度与选择性蒸馏，将梯度更新集中在安全关键 token 上。在最高 32B 参数的推理模型上，EOPSA 减少约 50% 的 rollout 计算量，反向传播仅涉及约 2% 的 token，在安全合规与推理能力保持上均优于全 token 蒸馏基线。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.34519",
+      "aisafetyhot": "https://aisafetyhot.com/items/kgc5u9gh62hlmrid84jsktcv2"
+    },
+    "publishedAt": "2026-09-28T07:56:19.000Z",
+    "timelineAt": "2026-10-04T16:57:29.505Z",
+    "discoveredAt": "2026-10-04T16:57:29.505Z"
+  },
+  {
+    "arxivId": "2609.05947",
+    "title": "Beyond Final Decisions: A Process-Centric Benchmark for Transparent AI-Assisted Peer Review",
+    "titleZh": "超越最终决策：面向透明 AI 辅助同行评审的流程中心基准",
+    "authors": [
+      "Siming Yuan"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一个以流程为中心的诊断基准，用于评估 AI 辅助同行评审中模型决策是否有充分可靠的评审证据支撑。该基准将 PeerRead、NLPeer ARR-22 和 OpenReview-ICLR 的异构评审记录转换为流程对齐数据，以从论文内容直接预测决策为基线，比较 Gold-process 与 Predicted-process 变量的决策价值，并进行阶段级评估、链一致性评估和干预敏感性分析。在三个数据集、六种模型上的实验显示，Gold-process 变量决策价值普遍更高，Gold–Predicted 差距跨数据集和随机种子稳定，模型生成的中间评审文本虽在相邻阶段局部一致性较高，但最终决策并未持续获得前序评审证据支持。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.05947",
+      "aisafetyhot": "https://aisafetyhot.com/items/j7dc7ecven7az2q5hcm8t3jq6"
+    },
+    "publishedAt": "2026-09-05T07:30:52.000Z",
+    "timelineAt": "2026-10-04T16:57:29.542Z",
+    "discoveredAt": "2026-10-04T16:57:29.542Z"
   }
 ]
