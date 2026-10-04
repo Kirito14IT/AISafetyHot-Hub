@@ -2585,7 +2585,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "AnchorRep 通过轻量 LoRA 适配器把被防御模型对有害提示的内部表征推离冻结锚模型的表征，从而抵御跨模型对抗迁移攻击。训练只用少量有害提示，不需要对抗样本。在五个模型、四个架构家族上，该方法把 2,000 次迁移攻击的攻击成功率降到不超过 1.1%，其中两个模型为 0%，Mistral 上的降幅最大，从 36% 降至 1.1%。论文指出既有防御虽能降低迁移，但代价高，最多导致 77% 的良性输出退化，或使过度拒答上升最多 18%；由于标准拒答指标无法捕捉这类良性乱码输出，作者提出 Benign Garble Rate 来量化。该工作为 NeurIPS 2026 论文，代码、配置和日志已公开。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "在单个开源权重模型上优化的对抗攻击可迁移并越狱架构不同的模型，现有防御主要针对同模型攻击，跨模型评测时安全数字常伴随高乱码或过度拒答。",
+          "label": "问题"
+        },
+        {
+          "text": "AnchorRep 用轻量 LoRA，在有害提示上最小化被防御模型与冻结锚点模型的线性 CKA，并辅以拒答方向、连贯性、KL 和可选语言模型损失，训练不用对抗样本。",
+          "label": "方法"
+        },
+        {
+          "text": "五个模型、四个架构族上，2000 条迁移攻击的跨模型 ASR 降至 ≤1.1%（其中两个为 0%），BGR 为 0%。白盒自适应攻击在 25 个设置中有 22 个 ASR 下降，Embedding PGD 与 TAP 仍可部分绕过。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出的后续方向包括多锚点训练、与 RLHF/DPO 协同、多模型联合优化；局限与规模讨论在附录 H、K.3、L。评测覆盖五个被防御模型，基线只在 Llama-3 与 Mistral 上重训。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.32602"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.32602",
       "aisafetyhot": "https://aisafetyhot.com/items/het5c7c4c0ysjd4jivmanbm13"
