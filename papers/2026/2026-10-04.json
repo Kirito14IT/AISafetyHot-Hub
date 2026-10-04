@@ -48,6 +48,51 @@
     "discoveredAt": "2026-10-03T23:13:11.360Z"
   },
   {
+    "arxivId": "2607.20891",
+    "title": "Is Deep Research Reliable? Misleading Knowledge Induces False Conclusions",
+    "titleZh": "MisKnow-Agent 评测：单篇误导文档使 Deep Research 错误结论采纳率升至 54.7%",
+    "authors": [
+      "Pengyu Zhu",
+      "Lijun Li",
+      "Longju Yang",
+      "Sen Su",
+      "Jing Shao"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 81,
+    "summaryZh": "研究者提出 MisKnow-Agent 评测框架，用受控的误导文档检验 Deep Research 智能体能否抵抗看似可信但事实错误的信息。基于 DeepResearch Bench 的 100 个任务，框架生成并筛选出 5,933 篇误导文档，覆盖高、中、低三档机构权威度与论文、新闻、博客、帖子四种文体。在 DeerFlow 和 WebThinker 各搭配三个大语言模型以及 Gemini Deep Research 上，仅注入一篇误导文档就把报告级错误结论采纳率（FCAR）从无注入对照的 0% 提升到 54.7%。FCAR 随权威度、文体、框架设计、模型选择和误导信息进入工作流的阶段而变化，其中论文式文体影响最大，检索结果排名影响有限，超过一篇后文档数量不再带来一致增长。研究前的验证提示与研究后的逐条核查智能体都能降低 FCAR，但无法消除错误结论采纳，两者结合也不总带来叠加收益。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "探究长程深度研究（Deep Research）智能体在处理包含表面可信但实际虚假的外部知识时，是否会在最终报告中采纳该虚假结论作为自身观点，以及这种采纳受何种因素影响。",
+          "label": "问题"
+        },
+        {
+          "text": "提出 MisKnow-Agent 框架，为 100 个任务构建经人工审核的虚假结论蓝图，生成覆盖 3 个权威层级与 4 种风格的误导文档，经 5 个搜索模型交叉验证与人工筛选建立评测集，并设计前置提示与后置精炼防御。",
+          "label": "方法"
+        },
+        {
+          "text": "注入 1 篇误导文档使平均采纳率从无注入对照的 0% 升至 54.7%；学术论文风格与合成前暴露显著推高采纳率；DeerFlow 平均采纳率（67.0%）高于 WebThinker（55.0%）；防御能降低采纳率但无法完全杜绝。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "论文未专门设立章节讨论局限与后续方向；其实验覆盖了两个开源框架与一个闭源系统，防御评测仅在 DeerFlow 上开展，且未报告具体的网络查询次数与生成耗时。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2607.20891"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.20891",
+      "aisafetyhot": "https://aisafetyhot.com/items/bppne2mrpepcru2z5fsqpcrzh"
+    },
+    "publishedAt": "2026-07-23T03:28:08.000Z",
+    "timelineAt": "2026-10-03T23:52:50.641Z",
+    "discoveredAt": "2026-10-03T23:52:50.641Z"
+  },
+  {
     "arxivId": "2608.21500",
     "title": "SecOPD: Mitigating Adaptive Prompt Injections by On-Policy Distillation",
     "titleZh": "SecOPD 用同策略蒸馏把自适应提示注入攻击成功率降至 9.0%",
@@ -500,6 +545,29 @@
     "discoveredAt": "2026-10-03T22:15:16.403Z"
   },
   {
+    "arxivId": "2608.06270",
+    "title": "The Illusion of Visual Tool-Use: A Causal Audit of Thinking with Images",
+    "titleZh": "研究用因果审计揭示多模态模型视觉工具调用的假象",
+    "authors": [
+      "Zhiheng Wang",
+      "Bo Peng",
+      "Lai Wei",
+      "Chaochao Lu"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者对多模态大语言模型的“thinking-with-images”范式做因果审计，发现视觉工具调用带来的准确率提升并非普遍来自返回的视觉证据。作者把视觉工具使用建模为因果图，区分观察中介路径与动作引发的捷径，并在策略、轨迹、步骤三个层面做干预，其中步骤层面的 Visual Evidence Gain 用于分离单次返回观察的贡献。在六个代表性模型和五个细粒度感知基准上，审计发现两类失败模式：Calling Without Looking 中返回的观察对答案没有因果影响，Looking Without Planning 中观察有信息但调用时序不连贯。轨迹层面的诊断显示，策略层面的准确率增益集中在少数校准良好的样本上，作者将这种总体增益与因果无效并存的现象称为视觉工具使用的假象。代码已公开，论文被 EMNLP 2026 Findings 收录。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.06270",
+      "aisafetyhot": "https://aisafetyhot.com/items/a9qp927ixkjxm4tpebcmqd4m5"
+    },
+    "publishedAt": "2026-08-06T17:01:08.000Z",
+    "timelineAt": "2026-10-03T23:52:50.588Z",
+    "discoveredAt": "2026-10-03T23:52:50.588Z"
+  },
+  {
     "arxivId": "2609.30986",
     "title": "Evaluating Sycophancy in Chinese Large Language Models on Factual Questions Derived from Online Search Queries",
     "titleZh": "研究评测 DeepSeek、Qwen、豆包在中文事实问题上的谄媚行为",
@@ -593,6 +661,65 @@
     "discoveredAt": "2026-10-03T21:59:59.251Z"
   },
   {
+    "arxivId": "2607.05174",
+    "title": "AgentGym2: Benchmarking Large Language Model Agents in De-Idealized Real-World Environments",
+    "titleZh": "AgentGym2 发布：在去理想化真实环境中评测 LLM 智能体",
+    "authors": [
+      "Zhiheng Xi",
+      "Dingwen Yang",
+      "Jiaqi Liu",
+      "Jixuan Huang",
+      "Honglin Guo",
+      "Baodai Huang",
+      "Tinggang Chen",
+      "Qi Zhang",
+      "Zhonghang Lu",
+      "Chenyu Liu",
+      "Jiajun Sun",
+      "Jiazheng Zhang",
+      "Dingwei Zhu",
+      "Xin Guo",
+      "Junzhe Wang",
+      "Zhihao Z"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 AgentGym2，一个面向真实端到端工作需求的 LLM 智能体评测框架，用于弥补现有基准依赖预打包工具接口、忽略关键步骤、假设输入干净且完整等理想化设定的不足。除推理与规划外，它还衡量智能体执行端到端流程、通过探索发现工具、为未见任务组合工具，以及对噪声和不完整信息的鲁棒性。在 15 个闭源与开源模型上的实验显示，即便是 Gemini 和 GPT-5 等 SOTA 系统在 AgentGym2 上也表现吃力，反映出当前智能体能力与真实应用需求之间存在明显差距。该论文已被 ACL 2026 接收为主会论文。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.05174",
+      "aisafetyhot": "https://aisafetyhot.com/items/ww277pxc4yeee84qojum9r0ea"
+    },
+    "publishedAt": "2026-07-06T14:56:51.000Z",
+    "timelineAt": "2026-10-03T23:52:50.661Z",
+    "discoveredAt": "2026-10-03T23:52:50.661Z"
+  },
+  {
+    "arxivId": "2609.03588",
+    "title": "KC-Bench: A Dynamic Interactive Benchmark for Evaluating Knowledge Conflicts in LLM Agents",
+    "titleZh": "KC-Bench：评估 LLM Agent 知识冲突的动态交互基准",
+    "authors": [
+      "Yaxing Lyu",
+      "Shengjie Zhou",
+      "Binbin Toh",
+      "Pengyu Zhu",
+      "Lijun Li"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 KC-Bench，一个受控多轮基准，用于测量 LLM Agent 在调用工具前协调用户指令、参数化知识与动态环境观察的能力，覆盖世界知识冲突、输入不一致和多源时间冲突三类场景。238 个任务从 1000 多个候选生成样本中人工筛选，结合用户模拟器、有状态工具、确定性环境断言、开源自然语言评估器和人工轨迹验证。对 DeepSeek-V4-Flash、GLM-5.2、MiniMax-M3 等九个模型的评估显示跨领域差异明显，没有模型能在所有设置下可靠处理事实纠正、身份一致性检查和时间冲突消解。在模拟环境中，被忽略的冲突可能传播到工具调用或合成的受保护数据流。KC-Bench 隔离模型层面的行为而非对完整 Agent 框架排名，为开发冲突感知的推理与执行防护提供可复现诊断。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03588",
+      "aisafetyhot": "https://aisafetyhot.com/items/gbod7fvvgtybd53ztm6n63y1b"
+    },
+    "publishedAt": "2026-09-03T09:35:14.000Z",
+    "timelineAt": "2026-10-03T23:52:50.619Z",
+    "discoveredAt": "2026-10-03T23:52:50.619Z"
+  },
+  {
     "arxivId": "2609.28335",
     "title": "An Open Pipeline and Dashboard for Systemic-Risk Evidence under the EU AI Act's Code of Practice",
     "titleZh": "研究者发布面向 EU AI Act 行为准则的系统性风险指数与仪表盘",
@@ -662,6 +789,29 @@
     "publishedAt": "2026-09-09T12:37:17.000Z",
     "timelineAt": "2026-10-03T22:30:37.228Z",
     "discoveredAt": "2026-10-03T22:30:37.228Z"
+  },
+  {
+    "arxivId": "2608.00711",
+    "title": "Tracing the Cascade: A Topology-Aware Evaluation Framework for Scientific Agent Hallucinations",
+    "titleZh": "SCHEMA：面向科学 Agent 幻觉的拓扑感知评测框架",
+    "authors": [
+      "Xinshun Feng",
+      "Ziqi Miao",
+      "Lijun Li",
+      "Jing Shao"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 SCHEMA，一个面向科学 Agent 幻觉的、基于证据的拓扑感知评测框架。它从基准种子和文献证据自动构建科学概念图，合成覆盖断言验证、多跳推理、开放式解释和实验代码生成的任务，并用轨迹幻觉流水线与多智能体反事实归因两个诊断模块评估中间推理。结果显示，幻觉集中在少数高度连接的知识枢纽上，最终答案准确率与轨迹诚实度脱钩，模型常以结构上有缺陷的推理得出正确答案。作者据此认为，在高风险科学应用中，仅看最终准确率不足以判断 Agent 可靠性，需要基于知识拓扑的机制级评估。代码已公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.00711",
+      "aisafetyhot": "https://aisafetyhot.com/items/rsfspm3owd72xy9r09e3fl494"
+    },
+    "publishedAt": "2026-08-01T15:19:10.000Z",
+    "timelineAt": "2026-10-03T23:52:50.631Z",
+    "discoveredAt": "2026-10-03T23:52:50.631Z"
   },
   {
     "arxivId": "2608.30387",
@@ -822,6 +972,43 @@
     "publishedAt": "2026-09-21T17:57:22.000Z",
     "timelineAt": "2026-10-03T22:36:40.154Z",
     "discoveredAt": "2026-10-03T22:36:40.154Z"
+  },
+  {
+    "arxivId": "2607.28568",
+    "title": "Frontis-MA1: Training an AI4AI Model towards Recursive Self-Improvement in Machine Learning Engineering",
+    "titleZh": "Frontis-MA1：面向机器学习工程递归自我改进的 AI4AI 模型",
+    "authors": [
+      "Junlin Yang",
+      "Che Jiang",
+      "Yu Fu",
+      "Tianwei Luo",
+      "Can Ren",
+      "Weizhi Wang",
+      "Kaikai Zhao",
+      "Hongyi Liu",
+      "Yuxin Zuo",
+      "Yuru Wang",
+      "Yuchen Fan",
+      "Kai Tian",
+      "Zhenzhao Yuan",
+      "Xiaojian Lin",
+      "Li Sheng",
+      "Rushi Qiang",
+      "Guoli Jia",
+      "Xi"
+    ],
+    "category": "ai_news",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 OpenMLE 全栈系统用于研究机器学习工程中的递归自我改进，包含可验证任务环境 OpenMLE-Gym、算子学习 OpenMLE-RL 和长时程搜索 OpenMLE-Evo，并在此基础上后训练出 35B 的元进化智能体 Frontis-MA1。该模型围绕 Draft、Improve、Debug、Crossover 四个程序进化算子，用执行反馈驱动的 SFT 和 RL 训练，再组合成长时程搜索。在单张 RTX 4090、12 GB 显存、每任务 12 小时预算下，MLE-Bench Lite 的 Medal Average 从基座的 39.39% 提升到 60.61%，配合 OpenMLE-Evo-Max 达到 71.21%，超过 GPT-5.5 + Codex，接近 GPT-5.6 Sol 和 2.8T 的 Kimi K3。作者开源了模型权重和完整 OpenMLE 栈。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.28568",
+      "aisafetyhot": "https://aisafetyhot.com/items/pmp34kuwxju9dg177l9kzmr4t"
+    },
+    "publishedAt": "2026-07-30T17:34:01.000Z",
+    "timelineAt": "2026-10-03T23:52:50.681Z",
+    "discoveredAt": "2026-10-03T23:52:50.681Z"
   },
   {
     "arxivId": "2609.39450",
@@ -1037,6 +1224,33 @@
     "discoveredAt": "2026-10-03T22:30:37.273Z"
   },
   {
+    "arxivId": "2609.40360",
+    "title": "Semifactual Credit-Augmented Policy Optimization",
+    "titleZh": "SCAPO：用反事实稳定性改进 GRPO 的 token 级信用分配",
+    "authors": [
+      "Junshu Pan",
+      "Zhizhang Fu",
+      "Shulin Huang",
+      "Yiran Ding",
+      "Zifan Cheng",
+      "Wenqi Shao",
+      "Qiaosheng Zhang",
+      "Yue Zhang"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Semifactual Credit-Augmented Policy Optimization（SCAPO），一种在 GRPO 基础上引入反事实稳定性的 token 级信用分配方法。作者通过保持问题与答案不变的反事实提示词干预，发现 token 级敏感度差异明显，抑制高漂移 token 候选可在不更新权重的情况下提升推理准确率；而 GRPO 给每个响应 token 分配相同的结果优势，可能同时强化有用的推理与虚假依赖。SCAPO 测量固定响应在反事实干预下的 token 概率漂移，用归一化稳定性分数在训练早期降低相对不稳定 token 的优势，且不为稳定性本身额外加分。代码已公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.40360",
+      "aisafetyhot": "https://aisafetyhot.com/items/af5m6nyvfhyf2sz0aoxt9y1uk"
+    },
+    "publishedAt": "2026-09-30T17:59:56.000Z",
+    "timelineAt": "2026-10-03T23:59:04.283Z",
+    "discoveredAt": "2026-10-03T23:59:04.283Z"
+  },
+  {
     "arxivId": "2608.14380",
     "title": "AgentRewind: Recoverable Execution for Long-Horizon LLM Agents",
     "titleZh": "AgentRewind：面向长周期 LLM Agent 的可恢复执行框架",
@@ -1080,6 +1294,26 @@
     "publishedAt": "2026-09-28T16:27:41.000Z",
     "timelineAt": "2026-10-03T22:15:16.361Z",
     "discoveredAt": "2026-10-03T22:15:16.361Z"
+  },
+  {
+    "arxivId": "2607.13716",
+    "title": "CAVA: Canonical Action Verification and Attestation for Runtime Governance of Agentic AI Systems",
+    "titleZh": "CAVA：面向智能体 AI 运行时治理的规范动作验证与证明",
+    "authors": [
+      "Zexun Wang"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 CAVA（Canonical Action Verification and Attestation），一个运行时语义层，用于把本地编码钩子、SDK 工具、浏览器自动化、托管智能体轨迹、API 网关和工作流引擎等异构运行时中的智能体活动转换为规范运行时动作对象。CAVA 位于 Proof-Carrying Agent Actions（PCAA）之下，PCAA 定义部署方拥有的路线-审查-证明治理流程，CAVA 定义该流程所治理的稳定动作对象。论文形式化了规范动作身份、语义模式检测、审批绑定、回执完整性、运行时可移植投影和可选证明基底。作者通过一个 96 种子、384 变体的基准测试参考实现，覆盖语义等价、语义分离、包装器绕过、误报控制、审批绑定、回执可复现性、证明篡改检测、运行时可移植性、语义模式检测、策略退化和 Azure 部署演练。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.13716",
+      "aisafetyhot": "https://aisafetyhot.com/items/kgoa3n6ofrnrvb566er764xhl"
+    },
+    "publishedAt": "2026-07-15T11:34:34.000Z",
+    "timelineAt": "2026-10-03T23:52:58.262Z",
+    "discoveredAt": "2026-10-03T23:52:58.262Z"
   },
   {
     "arxivId": "2609.34862",
@@ -1143,6 +1377,64 @@
     "publishedAt": "2026-09-29T17:46:50.000Z",
     "timelineAt": "2026-10-03T23:34:31.633Z",
     "discoveredAt": "2026-10-03T23:34:31.633Z"
+  },
+  {
+    "arxivId": "2607.19913",
+    "title": "JANUS: Foreseeing Latent Risk for Long-Horizon Agent Safety",
+    "titleZh": "Janus：面向长时程智能体安全的前瞻性潜在风险预测框架",
+    "authors": [
+      "Yuan Xiong",
+      "Linji Hao",
+      "Shizhu He",
+      "Yequan Wang",
+      "Lijun Li"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Janus，一个面向长时程智能体安全的前瞻性框架，通过多智能体模拟合成多样化轨迹，训练护栏模型从部分轨迹中预判延迟风险。Janus 联合优化风险预判与安全裁决两项任务，采用 CoAA-RL 以预判对下游安全判断的效用作为奖励。所得护栏模型 Vanguard 可在动作执行前拦截不安全行为，在四个智能体安全基准上平均防护能力较基线护栏提升 15.9 个百分点，同时良性任务完成率提升 5.1 个百分点。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.19913",
+      "aisafetyhot": "https://aisafetyhot.com/items/xtrv4qco6x913szcxnuxzgn89"
+    },
+    "publishedAt": "2026-07-22T08:43:43.000Z",
+    "timelineAt": "2026-10-03T23:52:50.650Z",
+    "discoveredAt": "2026-10-03T23:52:50.650Z"
+  },
+  {
+    "arxivId": "2608.14611",
+    "title": "The 2026 Singapore Consensus on Global AI Safety Research Priorities",
+    "titleZh": "2026 新加坡 AI 安全研究优先级共识：聚焦社会韧性与自主 AI 智能体风险",
+    "authors": [
+      "Stephen Casper",
+      "Oskar Galeev",
+      "Yoshua Bengio",
+      "Mohan Kankanhalli",
+      "Lee Wan Sie",
+      "Tegan Maharaj",
+      "Chris Meserole",
+      "Luke Ong",
+      "Stuart Russell",
+      "Dawn Song",
+      "Max Tegmark",
+      "Brian Tse",
+      "Xue Lan",
+      "Andrew Yao",
+      "Zhang Ya-Q"
+    ],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "2026 新加坡共识（The 2026 Singapore Consensus）由第二届 AI 安全国际科学交流会议产出，汇集 13 个国家逾 100 位贡献者，来自前沿开发者、政府安全机构、学术界与公民社会。该报告在 2025 年报告基础上，提出全球对最高优先级技术 AI 安全研究问题的共识，并专门聚焦社会韧性以及管理日益自主的 AI 智能体所带来的风险。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.14611",
+      "aisafetyhot": "https://aisafetyhot.com/items/qvx6pp4ctz0rgxz222im5lxzt"
+    },
+    "publishedAt": "2026-07-09T03:00:37.000Z",
+    "timelineAt": "2026-10-03T23:52:50.701Z",
+    "discoveredAt": "2026-10-03T23:52:50.701Z"
   },
   {
     "arxivId": "2609.40034",
@@ -1282,6 +1574,31 @@
     "discoveredAt": "2026-10-03T22:36:40.163Z"
   },
   {
+    "arxivId": "2609.10992",
+    "title": "Demystifying the Privacy-Utility Trade-off in LLM Interactions",
+    "titleZh": "拆解 LLM 交互中的隐私-效用权衡：Veilmind-4B 意图驱动本地保护框架",
+    "authors": [
+      "Zhenhua Liu",
+      "Zhanxu Xie",
+      "Junjie Yu",
+      "Tong Zhu",
+      "Lijun Li",
+      "Wenliang Chen"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究系统分析了 LLM 交互中隐私清洗对下游性能的影响，揭示三项机制：数据价值随用户意图在关键约束与可弃噪声间切换、清洗方式（删除或替换）取决于任务对事实完整性还是结构连贯性的依赖、属性间存在协同依赖或对抗冗余的语义网络。据此提出意图驱动的本地保护框架，蒸馏轻量模型 Veilmind-4B 驱动动态提取-清洗-恢复流程，在保持低泄漏隐私点的同时，响应效用显著高于现有隐私基线，将隐私-效用权衡推向帕累托前沿。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.10992",
+      "aisafetyhot": "https://aisafetyhot.com/items/ihapnbdse4uwnqerqj38foywo"
+    },
+    "publishedAt": "2026-09-10T02:12:51.000Z",
+    "timelineAt": "2026-10-03T23:52:50.607Z",
+    "discoveredAt": "2026-10-03T23:52:50.607Z"
+  },
+  {
     "arxivId": "2609.32030",
     "title": "Who Governs Data in the AI Era? A Computational Analysis of the U.S. Privacy Workforce in Job Postings",
     "titleZh": "美国隐私岗位招聘分析：AI 治理职责如何嵌入隐私职位",
@@ -1302,5 +1619,29 @@
     "publishedAt": "2026-09-25T21:52:03.000Z",
     "timelineAt": "2026-10-03T22:30:37.261Z",
     "discoveredAt": "2026-10-03T22:30:37.261Z"
+  },
+  {
+    "arxivId": "2608.15304",
+    "title": "Understanding Cognition-Induced Risks in Agentic AI Systems",
+    "titleZh": "智能体 AI 系统的认知诱发风险：从物理认知到自我指涉认知的三级框架",
+    "authors": [
+      "Guanchu Wang",
+      "Qinuo Li",
+      "Mengnan Du",
+      "Xia Hu",
+      "Bowen Zhou"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一个按认知范围划分的三级框架，系统分析 LLM 驱动的智能体 AI 系统在认知能力扩展中带来的风险，从物理认知、社会认知到自我指涉认知逐级递进，并对应考察其对人类能动性、自主性与控制能力的影响。论文最后提出缓解这些风险、提升智能体 AI 系统可控性的策略，以保障其长期安全发展。该论文已被 IEEE Intelligent Systems 接收。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.15304",
+      "aisafetyhot": "https://aisafetyhot.com/items/yq9ekzxeqonksu2r0rdq3g8wd"
+    },
+    "publishedAt": "2026-08-15T16:16:29.000Z",
+    "timelineAt": "2026-10-03T23:52:50.672Z",
+    "discoveredAt": "2026-10-03T23:52:50.672Z"
   }
 ]
