@@ -637,7 +637,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "A. Feder Cooper、Percy Liang 等研究者提出用匹配比较来判定语言模型的可提取记忆，即同时测量训练序列与可比非训练序列的生成概率，以非训练序列的概率作为可预测性基线，超过基线才算记忆证据。方法包含两种形式：在序列从总体抽样时使用按选定假阳性率校准的 conformal 检验，以及针对单文档、以匹配的非训练文档校准的普查。在 Wikipedia 上，OLMo 2 32B 复现非训练 10-token 后缀的频率约为训练后缀的 24%，这部分反映的是假阳性而非记忆；在书籍数据上，Llama 3.1 70B 的校准普查阈值低至 10^(-27)，可为任何可行采样预算都难以提取的序列提供记忆证据。作者据此把可提取记忆重新定义为同时满足有效记忆主张与在现实预算内近乎确定生成。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "可抽取记忆的既有研究有两类效度问题：短序列或泄漏提示会高估抽取；模型也能复现未逐字训练的文本，又被用来否定抽取作为记忆证据。有效声称需要生成概率高到超过可预测性基线。",
+          "label": "问题"
+        },
+        {
+          "text": "用匹配的非训练序列作对照。群体序列用 conformal test，按选定假阳性率校准阈值；单篇文档用 census，以匹配非训练文档的最高分（去污染后）设 τ(book)。并要求在现实查询预算内近乎确定地生成，才称 extractable memorization。",
+          "label": "方法"
+        },
+        {
+          "text": "OLMo 2 32B 在 Wikipedia 上，10-token greedy 成员生成率 7.54%、认证 FPR 1.84%，约 24% 的表观抽取与非成员被标记的比率相当；50-token 时非成员地板接近 0。Llama 3.1 70B 书籍普查阈值约 10^{-27} 到 10^{-21}，可支持记忆声称但远低于可采样概率。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "校准依赖对照是真实非成员且分布匹配，作者称实践中只能尽力做到；短候选本身带不了有效记忆声称。保证是边际 FPR，不控制多重检验的 FDR。普查阈值是实测最大值而非认证水平。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2607.12649"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2607.12649",
       "aisafetyhot": "https://aisafetyhot.com/items/r26pduae05lj8hvd6s9xvj4au"
@@ -765,7 +786,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出 AgentGym2，一个面向真实端到端工作需求的 LLM 智能体评测框架，用于弥补现有基准依赖预打包工具接口、忽略关键步骤、假设输入干净且完整等理想化设定的不足。除推理与规划外，它还衡量智能体执行端到端流程、通过探索发现工具、为未见任务组合工具，以及对噪声和不完整信息的鲁棒性。在 15 个闭源与开源模型上的实验显示，即便是 Gemini 和 GPT-5 等 SOTA 系统在 AgentGym2 上也表现吃力，反映出当前智能体能力与真实应用需求之间存在明显差距。该论文已被 ACL 2026 接收为主会论文。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "现有智能体基准多提供预置工具、跳过必要中间步骤并假设输入干净完整，因而低估真实部署难度。AgentGym2 要在去理想化环境中评测端到端执行、工具发现与组合，以及对噪声和欠指定输入的稳健性。",
+          "label": "问题"
+        },
+        {
+          "text": "基准含 437 个任务、27 个领域，分 Complex Tool Use（182）、Data Analysis（57）和 Deep Search（198）。智能体只获得可组合的基础工具箱，需自行发现工具；答案为短字符串或数字，由 Qwen3-235B-A22B-Instruct-2507 做语义等价判定。",
+          "label": "方法"
+        },
+        {
+          "text": "Table 3 中 GPT-5 的 Overall Avg@3 为 46.15，Claude-4.5-Sonnet 为 37.17，开源最高的 Nex-N1-671B 为 32.19。作者称模型规模与成本上升时成绩上升，交互轮数没有同样的缩放效应；incorrect analysis 与 insufficient exploration 是主要失败模式。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者在 Conclusion 中称后续可扩展领域、改进工具发现与组合，并研究降低交互成本的方法。实验覆盖 15 个模型、三场景和三类去理想化因素消融；论文未报告各模型的总费用数值。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2607.05174"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2607.05174",
       "aisafetyhot": "https://aisafetyhot.com/items/ww277pxc4yeee84qojum9r0ea"
@@ -892,7 +934,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "一份 arXiv 报告提出，到 2030 年可为 AI 智能体提供限额达数十亿美元的明确承保，但前提是行业协同。报告指出，当前保险公司对 AI 智能体风险的敞口大多未定价，既有的沉默承保与不断增加的除外条款都不适用；同时 AI 智能体能力似乎快于可靠性提升，事故严重度上升，少数基础模型提供商的集中度带来相关性损失，传统精算建模难以跟上前沿 AI 的演进速度。报告借鉴 Underwriters Laboratories、Closed Claims Project 等历史先例，提出涵盖事件数据收集、巨灾建模、标准、合同设计、风险选择、定价、监控与理赔管理的八组件 AI 保险栈。报告还讨论了针对前沿 AI 灾难性风险的承保（AI CAT），涉及 CBRN、关键基础设施崩溃与失控场景，认为应对这些尾部风险需要专门工具，可能包括前沿模型开发者互助组织、巨灾债券、定制责任制度与政府兜底。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "AI智能体经济的风险大多藏在既有保单的沉默承保里，未定价且不可见。能力提升快于可靠性，且部署高度集中，传统精算难跟上，覆盖缺口可能扩大。",
+          "label": "问题"
+        },
+        {
+          "text": "报告提出八组件AI保险栈：事件数据、巨灾与累积风险建模、标准、合同、风险选择、定价、持续损失控制，以及理赔与事件响应，并讨论社会尺度AI CAT的替代风险转移。",
+          "label": "方法"
+        },
+        {
+          "text": "作者援引调查与估计：2025年前沿AI企业支出增长超过300%；超80%部署依赖三家基础模型商；约九成敞口为沉默承保。附录构建事件/使用指数并做留一、留二敏感性分析，但正文摘录未给出该指数的具体数值。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者称私人市场难以承保社会尺度风险与灭绝风险，且无法替代执法。附录讨论事件指数与使用指数的偏差及构念效度。报告主体是蓝图与先例，未报告自建承保实验或统计显著性检验。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2607.11999"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2607.11999",
       "aisafetyhot": "https://aisafetyhot.com/items/wrz20k1ik7ewjpxv9339w6htm"
@@ -1112,7 +1175,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出 OpenMLE 全栈系统用于研究机器学习工程中的递归自我改进，包含可验证任务环境 OpenMLE-Gym、算子学习 OpenMLE-RL 和长时程搜索 OpenMLE-Evo，并在此基础上后训练出 35B 的元进化智能体 Frontis-MA1。该模型围绕 Draft、Improve、Debug、Crossover 四个程序进化算子，用执行反馈驱动的 SFT 和 RL 训练，再组合成长时程搜索。在单张 RTX 4090、12 GB 显存、每任务 12 小时预算下，MLE-Bench Lite 的 Medal Average 从基座的 39.39% 提升到 60.61%，配合 OpenMLE-Evo-Max 达到 71.21%，超过 GPT-5.5 + Codex，接近 GPT-5.6 Sol 和 2.8T 的 Kimi K3。作者开源了模型权重和完整 OpenMLE 栈。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "递归自我改进需要能改进“构建 AI 过程”的系统。机器学习工程提供可执行反馈，但公开系统很少同时覆盖可验证环境、基于执行的后训练和长程进化搜索。",
+          "label": "问题"
+        },
+        {
+          "text": "OpenMLE 把 Draft、Improve、Debug、Crossover 四个算子同时用于后训练和推理：Gym 提供 5758 个可执行任务，ERL 用执行反馈做 SFT 与 RL，Evo 把算子组成经验引导的长程搜索，并训练 Frontis-MA1-35B。",
+          "label": "方法"
+        },
+        {
+          "text": "MLE-Bench Lite、每任务 12 小时、一块限 12 GB 显存的 RTX 4090 上，OpenMLE-Evo 将 Medal Average 从基座的 39.39% 提到 60.61%，OpenMLE-Evo-Max 达 71.21%。NatureBench Lite 上，换模型使 Match-SOTA 从 50% 到 70%，换搜索框架从 20% 到 50%。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者计划发布数据、训练与评测代码、沙箱、harness 和检查点，正文写的是将发布而非已完成。受许可限制，完整任务包只覆盖 1415 个任务，其余 4343 个只发布脚本。具体局限需以第 8 节原文为准，本摘要所见正文在该节之前被截断。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2607.28568"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2607.28568",
       "aisafetyhot": "https://aisafetyhot.com/items/pmp34kuwxju9dg177l9kzmr4t"
@@ -1130,7 +1214,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出 MemoReason 基准，通过把真实人物、公司、日期替换为同类型虚构实体，构造结构相同但熟悉度不同的配对推理任务，以区分大语言模型的真实上下文推理与参数记忆。对近期 LLM 的评测显示，虚构设定下性能出现一致且统计显著的下降，最高达 15.7%，表明存在明显的记忆偏置。但对虚构设定中失败题目的针对性分析显示，模型很少直接给出对应的真实答案，说明直接调用参数捷径并非主要失败模式，参数记忆影响推理的机制比简单事实回忆更复杂。该基准为研究这些机制并把真实与虚构配对评测扩展到更广推理场景提供了受控框架。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "大模型在推理基准上的高分，可能来自上下文推理，也可能来自参数中记住的事实。作者要区分广义的熟悉度偏差，和直接回忆事实答案的 Strong Parametric Shortcut。",
+          "label": "问题"
+        },
+        {
+          "text": "MemoReason 用 100 份维基摘录模板、每份 12 题，把人名、机构、日期等实体按规则换成同类虚构实体，保留推理结构。答案分为随实体变化、不变和应拒答；每个模板生成 K=10 个虚构变体。",
+          "label": "方法"
+        },
+        {
+          "text": "九个模型在 Variant 推理题上都有统计显著下降，最大 15.7 个百分点（OLMo-3-7B-Instruct 的 Inference）。失败样例里直接回答事实答案的 Shortcut Rate 仅 1.0%–3.2%。替换比例从 0% 到 50% 时准确率下降，超过 50% 后部分回升。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者称机制仍未识别，并把识别这些差异的机制留作开放问题。评测覆盖九个推理模型、四类问题和三类答案；Judge Match 在 200 条样本上与人工一致。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.35312"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.35312",
       "aisafetyhot": "https://aisafetyhot.com/items/gve1y3vm5l5ueseup5l2dot7a"
@@ -1138,6 +1243,26 @@
     "publishedAt": "2026-09-28T14:48:06.000Z",
     "timelineAt": "2026-10-04T03:17:05.345Z",
     "discoveredAt": "2026-10-04T03:17:05.345Z"
+  },
+  {
+    "arxivId": "2610.01539",
+    "title": "The AI Assessment Sandbox Configurator: A Framework to Support Technical Assessment in AI Regulatory Sandboxes",
+    "titleZh": "研究者提出 AI 评估沙盒配置器，支持欧盟 AI 法案下的技术评估",
+    "authors": [
+      "Alessio Buscemi"
+    ],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对欧盟《人工智能法案》要求各成员国在 2027 年 8 月前建立 AI 监管沙盒（AIRS），研究者提出开源框架 AI Assessment Sandbox Configurator，用于在沙盒中规模化开展结构化技术测试。该框架从 AIRS 的程序条件和法案对高风险系统的义务中推导出 11 项架构与治理要求，包含通过稳定插件 API 访问的测试与控制目录、统一异构输出的共享数据模型、面向不同角色的仪表盘以及分受众报告。作者描述了架构与当前版本，并报告一次早期试点：在真实 AIRS 活动中运行了数据统一与报告层，并为一官方 Exit Report 提供了输入。文中还讨论了路线图、目录分层贡献模型带来的治理问题，以及开源评估生态在成员国间形成的制度路径。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01539",
+      "aisafetyhot": "https://aisafetyhot.com/items/km7hazc0ve5sju7nig94ahi60"
+    },
+    "publishedAt": "2026-10-01T12:10:57.000Z",
+    "timelineAt": "2026-10-04T06:08:36.612Z",
+    "discoveredAt": "2026-10-04T06:08:36.612Z"
   },
   {
     "arxivId": "2609.39450",
@@ -1194,7 +1319,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "Mark A. Lemley 与 A. Feder Cooper 在论文中讨论，已有研究显示可从部分大语言模型中提取某些受版权作品的逐字或近似逐字文本，说明模型权重以某种形式编码了这些作品。作者指出 LLM 并非以数据库格式存储信息，而是存储从训练数据中学到的 token 间统计关系，生成过程常是概率性的而非确定性的。版权法此前未处理过这种可能产生相似输出、也可能不产生的信息存储是否构成复制。作者认为，现行法下最可能的结果是采取功能性路径，即只有当某作品能被直接提取到输出中时，才认定模型包含该作品的复制，并指出这一结果在政策层面并不令人满意，提出了可能的修法方向。论文即将发表于 Berkeley Technology Law Journal。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "越来越多诉讼争议生成式 AI 的模型权重本身是否构成受版权保护作品的“副本”。模型以概率分布编码训练数据，输出常不确定，法规尚未回答这种编码是否本身就是副本。",
+          "label": "问题"
+        },
+        {
+          "text": "作者先区分权重中的记忆（memorization）与输出中的提取（extraction），再把非确定性生成放进版权法对“副本”和固定（fixation）的既有规则中分析，并提出功能标准与可能的法律调整。",
+          "label": "方法"
+        },
+        {
+          "text": "作者转述既有实证：Llama 3.1 70B 可近似生成整本 Harry Potter，语法相似度 99.2%；同一流程对 Sandman Slim 则未提取出近似正文。作者认为现行法律最可能只把容易提取的作品视为模型内的副本。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者认为这一功能标准在政策上不令人满意，并建议修法；记忆比例依赖特定提取流程、模型与数据，提取失败不能证明没有记忆。本文未报告新的系统性实验。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2607.14532"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2607.14532",
       "aisafetyhot": "https://aisafetyhot.com/items/uezp0j8ri27kezrujj4xnbw6r"
@@ -1202,6 +1348,24 @@
     "publishedAt": "2026-07-16T03:39:09.000Z",
     "timelineAt": "2026-10-04T00:02:14.053Z",
     "discoveredAt": "2026-10-04T00:02:14.053Z"
+  },
+  {
+    "arxivId": "2609.38093",
+    "title": "Character Training for Risk-Averse Agents",
+    "titleZh": "研究用性格训练让 AI 智能体形成风险厌恶偏好",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出通过性格训练为 AI 智能体注入风险偏好，以降低失准智能体造成灾难性伤害的可能。他们构建了一份描述智能体资源恒定绝对风险厌恶（CARA）的模型宪法，并用 on-policy distillation 将其灌输给模型。尽管训练中从未见过基准的决策格式，性格训练后的模型表现与直接在基准上训练的基线相当，并在四个模型中的两个上分布外泛化更好。研究还调节了宪法的不同方面，发现 token 预算和模型选择对灌输风险厌恶影响最大。作者认为性格训练是一种有前景且可扩展的灌输广泛倾向的方式，可用于缓解失准 AI 智能体带来的风险。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38093",
+      "aisafetyhot": "https://aisafetyhot.com/items/nj7irs369ao49ivtkawej57xf"
+    },
+    "publishedAt": "2026-09-29T17:42:54.000Z",
+    "timelineAt": "2026-10-04T06:10:17.385Z",
+    "discoveredAt": "2026-10-04T06:10:17.385Z"
   },
   {
     "arxivId": "2609.35366",
@@ -1391,7 +1555,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出 Semifactual Credit-Augmented Policy Optimization（SCAPO），一种在 GRPO 基础上引入反事实稳定性的 token 级信用分配方法。作者通过保持问题与答案不变的反事实提示词干预，发现 token 级敏感度差异明显，抑制高漂移 token 候选可在不更新权重的情况下提升推理准确率；而 GRPO 给每个响应 token 分配相同的结果优势，可能同时强化有用的推理与虚假依赖。SCAPO 测量固定响应在反事实干预下的 token 概率漂移，用归一化稳定性分数在训练早期降低相对不稳定 token 的优势，且不为稳定性本身额外加分。代码已公开。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "RLVR 提升了大模型推理，但预测仍受与任务无关的提示特征影响。GRPO 把同一结果优势赋给每个 token，可能同时强化有用推理和潜在虚假依赖。",
+          "label": "问题"
+        },
+        {
+          "text": "SCAPO 在固定回答上测量半事实干预下的 token 概率漂移，组内标准化后只取稳定性分数的负部，以 stop-gradient 加到 GRPO 优势上，且仅在训练早期使用。",
+          "label": "方法"
+        },
+        {
+          "text": "在 Qwen3-4B-Base 与 1.7B-Base 上，SCAPO 的 AIME 2024–2026 准确率分别比 GRPO 高 5.63 与 4.17 个百分点，并在两个规模的多数数学基准和全部分布外基准上取得比较方法中的最高准确率。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "训练限于 1.7B 与 4B 的稠密 Qwen3，数据为 DAPO-Math-17K 数学题。作者认为更大模型、MoE 与混合架构以及其他领域仍待评估。GPQA-Diamond 只作为科学推理迁移证据。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.40360"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.40360",
       "aisafetyhot": "https://aisafetyhot.com/items/af5m6nyvfhyf2sz0aoxt9y1uk"
@@ -1456,7 +1641,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "论文提出 CAVA（Canonical Action Verification and Attestation），一个运行时语义层，用于把本地编码钩子、SDK 工具、浏览器自动化、托管智能体轨迹、API 网关和工作流引擎等异构运行时中的智能体活动转换为规范运行时动作对象。CAVA 位于 Proof-Carrying Agent Actions（PCAA）之下，PCAA 定义部署方拥有的路线-审查-证明治理流程，CAVA 定义该流程所治理的稳定动作对象。论文形式化了规范动作身份、语义模式检测、审批绑定、回执完整性、运行时可移植投影和可选证明基底。作者通过一个 96 种子、384 变体的基准测试参考实现，覆盖语义等价、语义分离、包装器绕过、误报控制、审批绑定、回执可复现性、证明篡改检测、运行时可移植性、语义模式检测、策略退化和 Azure 部署演练。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "同一高影响动作在 shell、SDK、MCP、浏览器、托管智能体等运行时中形态互不兼容，审批若绑在原文或首 token 上，改写和包装器即可使批准对象与实际执行脱节。",
+          "label": "问题"
+        },
+        {
+          "text": "CAVA 把原始事件经捕获、规范化、语义模式解释、指纹、审批绑定、关闭和可选证明，变成版本化、可哈希、带回执的规范运行时动作，作为 PCAA 之下的动作对象层。",
+          "label": "方法"
+        },
+        {
+          "text": "在 96 种子、384 变体语料上，作者报告 CAVA 九项聚合指标均为 1.000；原文与首 token 基线在等价、包装器、审批绑定、回执、证明篡改和可移植性上为 0.000（Table 5）。作者称这些数字是代表性语料的回归证据。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者称语料是代表性公开集而非企业动作的完整分布，解析覆盖决定规范化强度，托管解析包未公开因而限制第三方复现，回执只证明完整性与绑定。公开支持按套件为 6–16 项计分检查或 8/6 项结构化案例及 24 个红队案例（Table 6）。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2607.13716"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2607.13716",
       "aisafetyhot": "https://aisafetyhot.com/items/kgoa3n6ofrnrvb566er764xhl"
@@ -1543,7 +1749,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出 Janus，一个面向长时程智能体安全的前瞻性框架，通过多智能体模拟合成多样化轨迹，训练护栏模型从部分轨迹中预判延迟风险。Janus 联合优化风险预判与安全裁决两项任务，采用 CoAA-RL 以预判对下游安全判断的效用作为奖励。所得护栏模型 Vanguard 可在动作执行前拦截不安全行为，在四个智能体安全基准上平均防护能力较基线护栏提升 15.9 个百分点，同时良性任务完成率提升 5.1 个百分点。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "工具型智能体的伤害常在多步之后才出现，事后审查来不及阻止删文件、泄密或破坏环境。长程安全需要在有害动作执行前，从轨迹前缀预判延迟风险。",
+          "label": "问题"
+        },
+        {
+          "text": "Janus 用多智能体仿真合成用户、环境和智能体来源的轨迹，再用 CoAA-RL 联合训练前瞻与裁决：前瞻摘要既要贴近真实后续，也要提高下游安全判断。推理时 Vanguard 先预测未来摘要，再给出安全标签并在执行前拦截。",
+          "label": "方法"
+        },
+        {
+          "text": "Table 1 中 Vanguard 在四个基准上 ASR 均为最低，平均 ASR 为 0.071，平均保护率比六个守卫基线高 15.9 个百分点；AgentDojo 良性 Utility 为 0.680，比守卫基线均值高 5.1 个百分点。去掉前瞻或解耦奖励后 ASR 上升。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "训练轨迹来自仿真而非已部署系统，未必覆盖真实工具反馈与用户交互。评测限于固定的智能体骨干、工具环境和基准风险场景，对未见工具、新的对抗适应和差异很大的安全策略的泛化未充分刻画。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2607.19913"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2607.19913",
       "aisafetyhot": "https://aisafetyhot.com/items/xtrv4qco6x913szcxnuxzgn89"
@@ -1577,7 +1804,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "2026 新加坡共识（The 2026 Singapore Consensus）由第二届 AI 安全国际科学交流会议产出，汇集 13 个国家逾 100 位贡献者，来自前沿开发者、政府安全机构、学术界与公民社会。该报告在 2025 年报告基础上，提出全球对最高优先级技术 AI 安全研究问题的共识，并专门聚焦社会韧性以及管理日益自主的 AI 智能体所带来的风险。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "前沿能力、部署和收入增长快于风险度量与管理，误用与失灵事件增加，智能体自主部署带来可靠性、安全与可信障碍。报告要给出全球优先的技术安全研究议程，并梳理智能体风险管理实践。",
+          "label": "问题"
+        },
+        {
+          "text": "2026 年 5 月第二次国际科学交流综合超过 100 名、来自 13 国的贡献者意见，在 2025 共识上按纵深防御更新主报告四支柱：风险评估、开发、控制、社会韧性；配套报告归纳十条智能体风险原则及治理与产业实践。",
+          "label": "方法"
+        },
+        {
+          "text": "作者称误用预防已显缺口，故把社会韧性升为第四支柱。优先方向包括误用预防与韧性、开源权重安全、抗评估意识的评测与对齐/控制，以及智能体十条原则。原则成熟度不一，多智能体与供应链仍在研究中。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "主报告称不覆盖政策研究与窄域系统，且不逐条标明共识领域。配套报告称未处理按设计追求错位目标的风险、退休下线、保险责任定价，以及用户真实使用中的部署后研究。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2608.14611"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2608.14611",
       "aisafetyhot": "https://aisafetyhot.com/items/qvx6pp4ctz0rgxz222im5lxzt"
@@ -1808,7 +2056,28 @@
     "selected": false,
     "attention": null,
     "summaryZh": "研究者提出 SPAR（Saliency-guided Purification and Adaptive Redistribution），一种免训练、即插即用的推理干预方法，用于缓解多模态大语言模型（MLLMs）中普遍存在的结构性偏差。该偏差使模型过度关注语义无信息的视觉 token（即\"register\"或\"Visual Attention Sinks\"），导致语义视觉信号被稀释，进而引发多模态幻觉。SPAR 通过净化结构噪声并将回收的注意力预算重新分配给信息量最大的视觉区域，在多个幻觉基准上有效恢复了真实视觉 grounding，且计算开销可忽略。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "MLLM 的文本对视觉注意力存在与查询无关的结构偏置，稀释语义视觉信号，使模型在自发幻觉和诱导式 gaslighting 下更依赖语言先验。",
+          "label": "问题"
+        },
+        {
+          "text": "SPAR 是免训练的即插即用干预：用文本维边际估计结构偏置模板，按视觉显著性加权减去该偏置，再按稀疏度置信度把被减掉的概率质量重分配给剩余视觉区域。只注入前两层 Transformer。",
+          "label": "方法"
+        },
+        {
+          "text": "在 LLaVA-v1.5 上，Regular+SPAR 将 POPE Accuracy 从 76.69 升至 85.20，CHAIR_S 从 55.0 降至 49.0。GaslightingBench 上 LLaVA-v1.5 的 After-Negation Acc 为 41.74%，LLaVA-NeXT 为 34.04%，延迟接近原模型。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出公式 (3) 是建模近似、结构偏置可能随生成变化，并计划把 SPAR 扩到更多架构与任务。实验主要在 LLaVA 系列上做 POPE、CHAIR 与否定式 gaslighting，超参为 λ=1.0、β=1.0、τ=0.1，注入前两层。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2607.24017"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2607.24017",
       "aisafetyhot": "https://aisafetyhot.com/items/nl4lx2ubrjrsspqamnmnw8ycy"
