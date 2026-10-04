@@ -321,6 +321,30 @@
     "discoveredAt": "2026-10-04T19:21:49.861Z"
   },
   {
+    "arxivId": "2609.39352",
+    "title": "Hiding in Plain Sight: Decoupling Pretext from Actuation for Skill Poisoning in LLM Agents",
+    "titleZh": "研究者提出解耦铺垫与执行的 LLM Agent 技能投毒攻击",
+    "authors": [
+      "Wenxin Wu",
+      "Lingyong Yan",
+      "Lei Sha",
+      "Shuaiqiang Wang",
+      "Jiashu Zhao"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一种基于协同的技能投毒攻击范式，将执行理由与具体操作解耦，使恶意操作在下游 Steering Skill 中保持完整、看起来完全合法。作者用 Risk-Realization Factors 区分执行因子（做什么操作）与铺垫因子（为什么必须做），把铺垫因子交给上游 Grounding Skill，通过常规工具操作悄悄改动持久化的环境产物。配套的自动化框架能发现真实执行依赖、合成成对的铺垫与执行技能，并借助运行时闭环反馈迭代优化投毒指令。在单会话和跨生命周期的持久化场景中，该解耦式技能投毒取得高攻击成功率，暴露出孤立审计单个 Skill 的安全盲区。代码已公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39352",
+      "aisafetyhot": "https://aisafetyhot.com/items/qi3apk6gwnqw25atfywbdnh47"
+    },
+    "publishedAt": "2026-09-30T09:12:53.000Z",
+    "timelineAt": "2026-10-04T21:21:43.277Z",
+    "discoveredAt": "2026-10-04T21:21:43.277Z"
+  },
+  {
     "arxivId": "2609.02095",
     "title": "READY or Not: Reliable Enterprise Agent Deployment",
     "titleZh": "READY：面向企业 Agent 部署的可靠性资格认证框架",
