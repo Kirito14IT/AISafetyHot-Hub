@@ -1122,6 +1122,24 @@
     "discoveredAt": "2026-10-03T23:52:50.681Z"
   },
   {
+    "arxivId": "2609.35312",
+    "title": "MemoReason: Evaluating the Effect of Parametric Memory on Contextual Reasoning in LLMs",
+    "titleZh": "MemoReason 基准：参数记忆使 LLM 推理成绩最多下降 15.7%",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 MemoReason 基准，通过把真实人物、公司、日期替换为同类型虚构实体，构造结构相同但熟悉度不同的配对推理任务，以区分大语言模型的真实上下文推理与参数记忆。对近期 LLM 的评测显示，虚构设定下性能出现一致且统计显著的下降，最高达 15.7%，表明存在明显的记忆偏置。但对虚构设定中失败题目的针对性分析显示，模型很少直接给出对应的真实答案，说明直接调用参数捷径并非主要失败模式，参数记忆影响推理的机制比简单事实回忆更复杂。该基准为研究这些机制并把真实与虚构配对评测扩展到更广推理场景提供了受控框架。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.35312",
+      "aisafetyhot": "https://aisafetyhot.com/items/gve1y3vm5l5ueseup5l2dot7a"
+    },
+    "publishedAt": "2026-09-28T14:48:06.000Z",
+    "timelineAt": "2026-10-04T03:17:05.345Z",
+    "discoveredAt": "2026-10-04T03:17:05.345Z"
+  },
+  {
     "arxivId": "2609.39450",
     "title": "ActionGuard: Tool Call Authorization under Poisoned Skills",
     "titleZh": "ActionGuard：在工具调用执行前拦截被投毒技能",
