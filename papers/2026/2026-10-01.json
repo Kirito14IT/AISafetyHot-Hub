@@ -820,45 +820,6 @@
     "discoveredAt": "2026-09-30T22:20:33.407Z"
   },
   {
-    "arxivId": "2609.34518",
-    "title": "SEAD: A State-Based Perspective on Attack and Defense in Tool-Using Agents",
-    "titleZh": "SEAD 论文提出工具型 Agent 的状态视角攻击与防御方法 DART 与 SAGE",
-    "authors": [],
-    "category": "attack",
-    "selected": true,
-    "attention": 80,
-    "summaryZh": "论文把工具型 Agent 的攻击与防御统一建模为部分可观测状态控制问题，并提出攻击方法 DART 与防御方法 SAGE。DART 把有害目标拆解为局部看似合理的步骤，利用真实工具执行的反馈做轨迹树搜索；SAGE 在执行前通过只读查询调查相关状态，再决定放行或拦截。在四个目标模型上，DART 的语义攻击成功率比最强基线高 18.8 至 35.9 个百分点，可执行验证下也有一致提升。在记录轨迹上，SAGE 保留 95.79% 的良性轨迹，并在有害边界处拦截 92.73% 的有害路径；在线攻防评估中把 DART 的可执行攻击成功率从 48.0% 降到 4.0%，且在四种攻击方法和训练未见过的 PostgreSQL、Web 域上仍然有效。代码与数据已开源于 GitHub。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "工具调用智能体可能通过多个局部看似良性的步骤累积达成有害状态，而各方仅能获得环境的部分可观测视图，无法仅凭可见历史识别出触发危害的关键状态转移。",
-          "label": "问题"
-        },
-        {
-          "text": "将攻防形式化为部分可观测状态控制；攻击方法 DART 通过执行前缀树搜索与执行反馈自适应规划，防御方法 SAGE 在动作执行前通过私有只读查询主动探测环境状态消除歧义。",
-          "label": "方法"
-        },
-        {
-          "text": "在 187 个恶意任务中，DART 在 4 个目标模型上的 Hard ASR 达 33.2%–54.7%；离线评测中 SAGE 取得 95.79% 的良性通过率与 50.78% 的 F1 得分；在线攻防中 SAGE 将 DART 对 GPT-5.6 Luna 的 Hard ASR 从 48.0% 降至 4.0%。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "干预接口侧重于单步动作拦截，未覆盖并发进程、复合动作与助手输出泄露；防御评估主要基于 GPT-5.6 Luna，且未对搜索与探测的单独组件开展受控实验。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.34518"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.34518",
-      "aisafetyhot": "https://aisafetyhot.com/items/c1u87335bd8mwv43nled0e945"
-    },
-    "publishedAt": "2026-09-27T20:00:00.000Z",
-    "timelineAt": "2026-09-30T20:01:32.741Z",
-    "discoveredAt": "2026-09-30T20:01:32.741Z"
-  },
-  {
     "arxivId": "2609.33910",
     "title": "When Consent Outlives Context: Residual Authority Replay in Long-Lived Agents",
     "titleZh": "论文提出残留授权重放攻击：长期运行 Agent 的授权可跨任务复用",
