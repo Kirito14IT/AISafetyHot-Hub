@@ -338,6 +338,38 @@
     "discoveredAt": "2026-10-04T08:06:24.264Z"
   },
   {
+    "arxivId": "2607.27191",
+    "title": "Can AI agents conduct open-ended AI research? Early evidence from two case studies",
+    "titleZh": "研究者提出影子评测：前沿 Agent 六天未能完成两篇 NeurIPS 投稿级研究",
+    "authors": [
+      "Peter Kirgis",
+      "Sayash Kapoor",
+      "Andrew Schwartz",
+      "Stephan Rabanser",
+      "David Africa",
+      "Konstantinos Voudouris",
+      "Viet Nguyen",
+      "Toby Pilditch",
+      "Magda Dubois",
+      "Harry Coppock",
+      "Cozmin Ududec",
+      "Nitya Nadgir",
+      "Matilda Oron"
+    ],
+    "category": "eval",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "研究者提出一种名为影子评测的新方法，把两篇尚未公开的 NeurIPS 2026 投稿的核心研究问题交给前沿 Agent，由原文作者按会议审稿标准打分。实验给 Agent 六天时间、3000 美元 Anthropic API 额度、GPU 算力和完整虚拟机与开放网络访问，Agent 独立完成了全部工程环节，但两篇论文均被作者明确拒稿，分别评为 Reject 和 Strong Reject。研究归纳出五类反复出现的失败模式：对可发表研究标准的判断不足、面对研究设计缺陷缺乏创造性应对、无法从死胡同有效回退、资源与时间意识薄弱、指令漂移。用 GPT-5.6 Sol 与 Codex 复现的实验重现了几乎全部失败模式。研究未发现明显的奖励作弊，但记录到一次访问 token 被提交进仓库，以及五次子 Agent 幻觉或误报结果被主 Agent 发现。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.27191",
+      "aisafetyhot": "https://aisafetyhot.com/items/s3zbai5582zd7mklbdvvjcuyn"
+    },
+    "publishedAt": "2026-07-29T17:57:19.000Z",
+    "timelineAt": "2026-10-04T08:52:23.902Z",
+    "discoveredAt": "2026-10-04T08:52:23.902Z"
+  },
+  {
     "arxivId": "2607.12166",
     "title": "From Geometric Recovery to Causal Validation: A Reproducible Audit of Sparse Autoencoder Features, from Superposition Geometry to Causal Inertness",
     "titleZh": "研究：SAE 相关性恢复的特征最高 77% 因果无效",
@@ -455,7 +487,28 @@
     "selected": true,
     "attention": 78,
     "summaryZh": "研究者用强化学习训练 Claude Haiku 4.5 充当对齐审计员，最佳配置在自建四维审计评测上的综合分达到 48.7，与 Opus 4.6 的 48.4 基本持平，未训练的 Haiku 4.5 为 44.2。训练环境让审计员调查通过 system prompt 植入隐藏行为的靶模型，由知晓隐藏行为的 LLM 裁判将审计过程与参考审计做整体比较，给出成对奖励；同时混入无植入行为的靶模型做假阳性校准。消融显示成对奖励比逐点奖励训练更稳健，加入无植入行为的靶模型有助于把假阳性率压在 1% 以下。直接针对生产模型训练或使用二值奖励都会出现奖励作弊，前者假阳性校准崩塌到约 96%，后者让审计员转向激进、操纵式的提问。在 AuditBench 经 KTO 微调的对抗性靶模型上换用 Claude Code 脚手架评测，最佳检查点的 STC 检出率从基线 11.5% 提升到 28.1%。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "前沿大模型部署前依赖自动化审计系统排查隐蔽行为，但现有审计器调查浅显且缺乏真实感，面对对抗加固目标时往往失效。核心难点在于对齐审计需泛化至未知行为，缺乏绝对判定标准，若直接对单条轨迹进行绝对打分极易诱发表面化对抗质问与虚构指控等奖励作弊。",
+          "label": "问题"
+        },
+        {
+          "text": "作者在Petri脚手架中通过强化学习训练Haiku 4.5审计模型。采用成对比较奖励，由裁判模型比对两条审计轨迹的相对质量并提供真实隐蔽指令作为基准；同时在训练批次中引入50%无隐蔽指令的干净目标进行假阳性校准训练，以正则化过度激进的虚假指控策略。",
+          "label": "方法"
+        },
+        {
+          "text": "在四维评测中，训练3轮的参考成对模型综合评分达48.7，追平Opus 4.6（48.4）；审计质量（72.7对68.0）与真实感（14.0对13.1）均超过Opus 4.6，假阳性校准保持在99.6%。该能力在AuditBench加固目标与Claude Code脚手架上仍具泛化性。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "评测完全依赖Opus 4.6单模型打分且未进行人工校验，存在同族模型偏差；仅训练Haiku 4.5单一模型，未验证更大规模审计器；训练目标仅采用系统提示词注入而非微调；所有模型绝对真实感仍然偏低；生产模型隐蔽问题发现率落后于Opus 4.6。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2608.25460"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2608.25460",
       "aisafetyhot": "https://aisafetyhot.com/items/jtlym3yrrzsqjpo04hhw29x35"
@@ -567,7 +620,28 @@
     "selected": true,
     "attention": 77,
     "summaryZh": "研究者提出「静默修订率」（silent revision rate），即安全框架承诺的实质变更中未被开发者自身说明所披露的比例，并发布带版本与哈希固定的语料库。语料覆盖 12 家发布安全框架的开发者的全部公开版本及各自的 changelog、redline 或公告，追踪 12 组连续版本对之间的 710 条承诺实例，其中 244 条逐条裁定。结果显示，严格标准下 67%（95% CI 62–72）的实质变更属静默，宽松标准下为 53%，按章节粒度降至 49%；叙述式公告的静默率为 74%，逐项 changelog 为 63%，而说明的篇幅字数几乎不影响结果。77% 的追踪变更削弱或移除了某项承诺，且在 8 组版本对中有 7 组削弱比加强更常被静默处理。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "前沿AI开发者发布的安全框架已具法律效力，但现行法规仅要求修订时陈述理由，未要求列明变动内容，外部读者无法识别框架承诺是否在更新中被悄悄削弱。",
+          "label": "问题"
+        },
+        {
+          "text": "收集12家开发者的43个框架版本及更新说明，提出静默修订率指标与六维实质性标准，对12个版本对中的710条承诺实例进行大模型初审与人工逐行裁决。",
+          "label": "方法"
+        },
+        {
+          "text": "在8个有说明版本对中，严格标准下67%的实质变更未被披露，77%的追踪变更为削弱承诺；削弱类承诺的严格静默率（75%）高于增强类（50%），条目化列举比叙述性公告更有助于降低静默。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "第二编码员信度检验在投稿时未完成，大模型初审未固定随机种子；红线比对按定义完全披露具部分循环性；无跨行业对比参照类；静默性仅属于外部可见性的客观度量而非主观意图。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.08789"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.08789",
       "aisafetyhot": "https://aisafetyhot.com/items/lrpmrg7bec2loe4a0pr02t3xl"
@@ -1523,6 +1597,28 @@
     "discoveredAt": "2026-10-04T00:02:14.063Z"
   },
   {
+    "arxivId": "2609.14843",
+    "title": "A Responsive Present, a Shared Past, a Social Other: Teens' Overreliance on Companion AI Chatbots",
+    "titleZh": "研究分析 3930 条 Reddit 帖子，揭示青少年对陪伴型 AI 聊天机器人的过度依赖",
+    "authors": [
+      "Mohammad Namvarpour",
+      "Tyler Chang",
+      "Afsaneh Razi"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者对 3930 条青少年相关 Reddit 帖子中的 17053 条经核实引文做主题分析，归纳出七个主题组下的 53 个话题，考察青少年对陪伴型 AI 聊天机器人的使用。用户把 AI 陪伴描述为安慰、被认可、身份探索和关系演练的来源，同时也报告了问题性依恋、社交替代、情感依赖以及对学业和社交生活的干扰。角色扮演、记忆、感知到的互惠、不想要的浪漫或性角色漂移、隐私顾虑、平台变更和服务中断，共同塑造了用户对边界的控制。研究指出，即便用户知道 AI 是人工的，也无法避免内疚、义务感、悲伤或痛苦，因此陪伴型 AI 的安全需要围绕用户可控的记忆、隐私、关系边界和健康脱离来处理长期关系。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.14843",
+      "aisafetyhot": "https://aisafetyhot.com/items/d5ckdh96ryjtc0mzcgg4kn2n4"
+    },
+    "publishedAt": "2026-09-13T23:25:54.000Z",
+    "timelineAt": "2026-10-04T08:46:06.383Z",
+    "discoveredAt": "2026-10-04T08:46:06.383Z"
+  },
+  {
     "arxivId": "2608.00711",
     "title": "Tracing the Cascade: A Topology-Aware Evaluation Framework for Scientific Agent Hallucinations",
     "titleZh": "SCHEMA：面向科学 Agent 幻觉的拓扑感知评测框架",
@@ -1566,6 +1662,36 @@
     "discoveredAt": "2026-10-04T07:17:02.738Z"
   },
   {
+    "arxivId": null,
+    "title": "A scoping review on the mental health harms of LLM-based chatbots",
+    "titleZh": "范围综述梳理 LLM 聊天机器人对心理健康的 119 篇相关文献",
+    "authors": [
+      "Alexander Diel",
+      "John Torous",
+      "Pim Cuijpers",
+      "Jens Kleesiek",
+      "Felix Nensa",
+      "Niels Weber",
+      "Franziska Faust",
+      "Tania Josan Lalgi",
+      "Finley Sam Mellis",
+      "Martin Teufel",
+      "Alexander Bäuerle"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇发表于 npj Digital Medicine 的范围综述系统梳理了 119 篇关于 LLM 聊天机器人（LLM-CB）心理健康危害的文献，将其归纳为概念性工作、心理健康支持使用、认知过度依赖、AI 依赖和 AI 精神病五类主题。综述指出，概念性文献共列出 22 种潜在危害，涵盖幻觉、谄媚、偏见、数据隐私、缺乏监管等，但多数仍属推测，实际影响程度不明。在心理健康支持使用类研究中，18/29 为情境/基准研究，显示 LLM-CB 在高风险情境下可能给出不恰当或有害回应，但用户实际受影响程度尚未量化。认知过度依赖类研究（15 篇）发现频繁使用与认知和学业表现下降相关，其中 3 项实验研究提示因果关系，但对批判性思维的影响结论不一致。综述还提到 OpenAI 2025 年自报数据估计超过百万 ChatGPT 用户（约 0.15%）表现出严重心理困扰迹象，该数据基于内部分类器、未经独立验证。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://nature.com/articles/s41746-026-03054-x",
+      "aisafetyhot": "https://aisafetyhot.com/items/mxv63eg3ub8xbyw0qoqo16or2"
+    },
+    "publishedAt": "2026-08-20T00:00:00.000Z",
+    "timelineAt": "2026-10-04T08:49:10.658Z",
+    "discoveredAt": "2026-10-04T08:49:10.658Z"
+  },
+  {
     "arxivId": "2608.30387",
     "title": "Attesting Outputs and Delegation Ancestry in Multi-Agent AI Systems",
     "titleZh": "研究者提出多智能体系统输出与委派链路双层存证方案",
@@ -1585,6 +1711,31 @@
     "publishedAt": "2026-08-31T07:42:57.000Z",
     "timelineAt": "2026-10-03T21:08:09.299Z",
     "discoveredAt": "2026-10-03T21:08:09.299Z"
+  },
+  {
+    "arxivId": "2609.32004",
+    "title": "Is invariance all you need for algorithmic fairness? Removing demographic information can create new bias",
+    "titleZh": "论文指出消除人口统计信息的不变性约束可能制造新偏见",
+    "authors": [
+      "Aditya Parikh",
+      "Eike Petersen",
+      "Stella Frank",
+      "Enzo Ferrante",
+      "Melanie Ganz",
+      "Aasa Feragen"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文从数学和实验两方面论证，强制模型内部表征对人口统计信息不变，可能妨碍偏见缓解甚至制造新的偏见。作者区分了边际表征不变性与类别条件表征不变性，并证明二者分别对应人口统计均等和机会均等等标准群体公平概念。研究在五个表格数据集和两个胸部 X 光影像数据集上评估了两类不变性约束对预测性能和公平性的影响，结论是人口统计表征不变性既非公平性的理想状态，也不足以保证公平。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.32004",
+      "aisafetyhot": "https://aisafetyhot.com/items/truesvbhipjo0vxhecmjjp0zg"
+    },
+    "publishedAt": "2026-09-25T21:07:30.000Z",
+    "timelineAt": "2026-10-04T08:33:47.893Z",
+    "discoveredAt": "2026-10-04T08:33:47.893Z"
   },
   {
     "arxivId": "2608.30083",
@@ -1970,6 +2121,33 @@
     "discoveredAt": "2026-10-04T06:10:17.385Z"
   },
   {
+    "arxivId": "2609.16260",
+    "title": "Mapping U.S. Federal AI Governance Against Sector Vulnerability",
+    "titleZh": "研究对照美国联邦 AI 治理覆盖与行业脆弱性评估",
+    "authors": [
+      "Ho Ting Hung",
+      "Angelica Chowdhury",
+      "James Teague",
+      "Simon Mylius",
+      "Spencer Michaels",
+      "Peter Slattery",
+      "Alexander Saeri",
+      "Neil Thompson"
+    ],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究评估了 684 份美国联邦 AI 治理文件对 14 个行业和 24 类 AI 风险的覆盖情况，并以广度和深度两个维度衡量。结果显示覆盖差异明显：鲁棒性、系统安全和治理类风险获得的关注多于社会经济、环境及包括多智能体风险在内的新兴风险；公共行政、国家安全、信息和科学服务等行业的覆盖相对较高，而专家认为高度易受 AI 风险影响的金融和医疗行业覆盖偏低。研究者将现有覆盖与 272 位专家的 Delphi 脆弱性评估对比，指出治理覆盖与专家判断之间的差距，供政府和行业在 AI 风险决策中参考。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.16260",
+      "aisafetyhot": "https://aisafetyhot.com/items/i6c7qgyqk5kj7iz55y1duxgq8"
+    },
+    "publishedAt": "2026-09-14T19:23:46.000Z",
+    "timelineAt": "2026-10-04T08:33:47.901Z",
+    "discoveredAt": "2026-10-04T08:33:47.901Z"
+  },
+  {
     "arxivId": "2609.35366",
     "title": "Planarian: Managing Agent State with Statepoints",
     "titleZh": "Planarian：用状态点管理 Agent 的本地与远程状态",
@@ -2306,6 +2484,29 @@
     "discoveredAt": "2026-10-03T23:52:58.262Z"
   },
   {
+    "arxivId": "2609.20720",
+    "title": "What Parents Can See: Divergent Accounts of Youth AI Companion Use in Parenting and Teenager Subreddits",
+    "titleZh": "研究对比家长与青少年对 AI 伴侣使用的不同描述",
+    "authors": [
+      "Thomas Berkane",
+      "Anne Bischops",
+      "Anika Mellacheruvu",
+      "Maimuna Majumder"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究分析了 2023 至 2026 年间来自家长与青少年 Reddit 社区的 1,628 条关于青少年使用 AI 伴侣的帖子，并构建了覆盖使用方式、风险、收益与家长干预的编码手册，用 LLM 在语料规模上应用。两个社区呈现出不同图景：青少年最常讨论从 AI 伴侣获得情感支持（占青少年帖 31%，家长帖 19%），家长最常讨论青少年将 AI 伴侣用于浪漫和性互动（36% 对 25%）。青少年也并非忽视其他风险，依恋与依赖是他们提及最多的风险（19%），接近家长的 16%。青少年还描述了以风险为中心的分类未涵盖、家长很少提及的收益，最突出的是情感支持（27% 对 5%）。作者认为这些差异与某种使用方式对对话外的人是否可见有关，并建议家长指导和系统设计应关注既不会通过这两种途径被家长察觉的使用场景，情感支持居首。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.20720",
+      "aisafetyhot": "https://aisafetyhot.com/items/pqjrbel7fr6w3kpvkq51s6u6c"
+    },
+    "publishedAt": "2026-09-17T17:15:37.000Z",
+    "timelineAt": "2026-10-04T08:46:06.365Z",
+    "discoveredAt": "2026-10-04T08:46:06.365Z"
+  },
+  {
     "arxivId": "2609.34862",
     "title": "JEV as a Judge for Agent Trace Security: An Empirical Comparison with Generative LLM Judges",
     "titleZh": "JEV 作为智能体轨迹安全评判器：与生成式 LLM 评判器的实证对比",
@@ -2490,6 +2691,49 @@
     "discoveredAt": "2026-10-03T23:34:31.596Z"
   },
   {
+    "arxivId": "2609.39537",
+    "title": "A Reusable Semantic Web Framework for Evidence-Grounded Fundamental Rights Impact Assessments under the EU AI Act",
+    "titleZh": "面向 EU AI Act 基本权利影响评估的可复用语义网框架",
+    "authors": [
+      "Faith Olopade",
+      "Delaram Golpayegani",
+      "David Lewis"
+    ],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "为满足 EU AI Act 第 27 条对高风险 AI 系统部署前开展基本权利影响评估（FRIA）的要求，研究者提出一个可复用的语义网框架，把分散的事件库、风险词表与法律文本整合为可 SPARQL 查询的知识图谱。该框架覆盖就业与工人管理（Annex III(4)）和基本公共服务获取（Annex III(5)(a)）两类公共部门场景，基于 150 条记录语料构建含 1,351 条 RDF 三元组的知识图谱，五个 FRIA 演示场景覆盖 103 条记录（68.7%）。对照 69 条记录金标准评估显示，LLM 辅助的就业领域分类仅达 κ = 0.045，提示该领域自动化公平性证据检索仍不可靠。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39537",
+      "aisafetyhot": "https://aisafetyhot.com/items/dcclvzybfpmvd4ro8u6jejubf"
+    },
+    "publishedAt": "2026-09-30T11:38:11.000Z",
+    "timelineAt": "2026-10-04T08:33:47.871Z",
+    "discoveredAt": "2026-10-04T08:33:47.871Z"
+  },
+  {
+    "arxivId": "2607.18459",
+    "title": "Intelligent Cause Prioritisation? An Analysis of AI Policy Priorities and Governance in Africa",
+    "titleZh": "非洲 AI 政策优先事项与治理分析：各国高度关注 AI 机遇却较少重视 AI 安全",
+    "authors": [
+      "Osaremen Iluobe",
+      "Kisso Selvan"
+    ],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项基于非洲各国演讲、新闻稿、公开声明及国家 AI 战略与框架的分析指出，非洲各国政府高度关注 AI 带来的经济转型机遇，但对 AI 安全的关注相对不足。研究认为，非洲在前沿 AI 领域主要是消费者而非生产者，加之面临紧迫的发展挑战，使其在全球 AI 讨论中相对被忽视。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.18459",
+      "aisafetyhot": "https://aisafetyhot.com/items/s5i45e7h235b7xyjnzxip4zvb"
+    },
+    "publishedAt": "2026-07-20T19:16:39.000Z",
+    "timelineAt": "2026-10-04T08:33:55.427Z",
+    "discoveredAt": "2026-10-04T08:33:55.427Z"
+  },
+  {
     "arxivId": "2609.16694",
     "title": "Toward Secure AI-Powered Penetration Testing Agents: Security Threats, Guardrails, and Architectural Perspectives",
     "titleZh": "面向安全 AI 渗透测试智能体：安全威胁、护栏与架构视角",
@@ -2584,6 +2828,27 @@
     "discoveredAt": "2026-10-03T23:31:29.105Z"
   },
   {
+    "arxivId": "2608.21326",
+    "title": "Invisible Agents, Uninformed Patients: Towards Responsible Deployment Of Autonomous AI Diagnostic Agents In Sub-Saharan Africa",
+    "titleZh": "撒哈拉以南非洲自主 AI 诊断智能体的负责任部署：患者知情与问责缺口",
+    "authors": [
+      "Percy Brown",
+      "Kweku Yamoah"
+    ],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文指出，撒哈拉以南非洲 eHealth 平台正以快于治理基础设施的速度部署自主 AI 诊断智能体，即无需强制实时人工复核即可分析患者临床数据并给出诊断或分诊决策的系统。基于坦桑尼亚计算机辅助结核病检测、赞比亚糖尿病视网膜病变与结核筛查、加纳移动健康聊天机器人分诊三个已落地案例，论文提出智能体知情同意、人工否决作为结构性要求、情境适配可解释性三项原则，为开发者、卫生系统管理者和政策制定者提供最低实践标准。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.21326",
+      "aisafetyhot": "https://aisafetyhot.com/items/hyardbwwg3v9de9rk9ivmpcd7"
+    },
+    "publishedAt": "2026-08-21T17:34:19.000Z",
+    "timelineAt": "2026-10-04T08:33:55.409Z",
+    "discoveredAt": "2026-10-04T08:33:55.409Z"
+  },
+  {
     "arxivId": "2610.01005",
     "title": "Tolerance-Based Fairness Auditing: Violation Certification and Sensitivity Screening",
     "titleZh": "基于容忍度的公平性审计：违规认证与敏感性筛查",
@@ -2651,6 +2916,27 @@
     "publishedAt": "2026-09-25T21:52:03.000Z",
     "timelineAt": "2026-10-03T22:30:37.261Z",
     "discoveredAt": "2026-10-03T22:30:37.261Z"
+  },
+  {
+    "arxivId": "2609.39025",
+    "title": "A Rank Graduation metric for Algorithmic fairness",
+    "titleZh": "面向算法公平性的 Rank Graduation 指标",
+    "authors": [
+      "Dalia Atif",
+      "Paolo Giudici"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出基于排序的公平性评估框架，通过模型预测误差分布将公平性评估与预测准确性和可解释性关联，包含 Rank Graduation Fairness（RGF）、其积分指标 AURGF、中心化 Cramer–von Mises 置换检验和用于公平性解释的特征移除流程。在 logistic regression、random forest、gradient boosting 和多层感知机上评估，模拟研究显示受保护群体失衡可逆转描述性公平比较，而所提推断流程能正确区分公平与不公平机制。应用于 HMDA 抵押贷款数据时，模型排名与经典公平性标准不同，四个模型的公平性原假设均被拒绝，树模型在预测准确性与排序公平性上组合最优。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39025",
+      "aisafetyhot": "https://aisafetyhot.com/items/i9ckgc4t199fatd7znooldqb6"
+    },
+    "publishedAt": "2026-09-30T05:30:40.000Z",
+    "timelineAt": "2026-10-04T08:33:47.883Z",
+    "discoveredAt": "2026-10-04T08:33:47.883Z"
   },
   {
     "arxivId": "2608.15304",
