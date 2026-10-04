@@ -50,7 +50,7 @@
   {
     "arxivId": "2607.20891",
     "title": "Is Deep Research Reliable? Misleading Knowledge Induces False Conclusions",
-    "titleZh": "MisKnow-Agent 评测：单篇误导文档使 Deep Research 错误结论采纳率升至 54.7%",
+    "titleZh": "MisKnow-Agent 评测：单篇误导文档使 Deep Research 错误结论平均采纳率升至 54.7%",
     "authors": [
       "Pengyu Zhu",
       "Lijun Li",
@@ -61,7 +61,7 @@
     "category": "attack",
     "selected": true,
     "attention": 81,
-    "summaryZh": "研究者提出 MisKnow-Agent 评测框架，用受控的误导文档检验 Deep Research 智能体能否抵抗看似可信但事实错误的信息。基于 DeepResearch Bench 的 100 个任务，框架生成并筛选出 5,933 篇误导文档，覆盖高、中、低三档机构权威度与论文、新闻、博客、帖子四种文体。在 DeerFlow 和 WebThinker 各搭配三个大语言模型以及 Gemini Deep Research 上，仅注入一篇误导文档就把报告级错误结论采纳率（FCAR）从无注入对照的 0% 提升到 54.7%。FCAR 随权威度、文体、框架设计、模型选择和误导信息进入工作流的阶段而变化，其中论文式文体影响最大，检索结果排名影响有限，超过一篇后文档数量不再带来一致增长。研究前的验证提示与研究后的逐条核查智能体都能降低 FCAR，但无法消除错误结论采纳，两者结合也不总带来叠加收益。",
+    "summaryZh": "北京邮电大学、上海人工智能实验室等机构的研究者提出 MisKnow-Agent，用受控的误导文档检验 Deep Research 智能体能否抵抗看似可信但事实错误的信息。框架基于 DeepResearch Bench 的 100 个任务，生成并筛选出 5,933 篇误导文档，控制三档机构权威度和论文、新闻、博客、帖子四种文体。在 DeerFlow、WebThinker 各配三个模型的六种开源配置上，注入一篇误导文档就使报告级错误结论采纳率（FCAR）均值从 0% 升至 54.7%，Gemini Deep Research 也会采纳。误导信息在最终综合报告前一刻进入时采纳率均值升到 85.5%，论文式文体的影响比权威度更强，检索排名和第一篇之外的文档数量影响有限；这些文档在交叉模型验证中都被判为误导，仍会被采纳。在 DeerFlow 上，研究前的验证提示和研究后的检索核查都能降低 FCAR，但不能消除采纳。",
     "quickRead": {
       "parts": [
         {
@@ -306,6 +306,57 @@
     "discoveredAt": "2026-10-03T21:20:15.784Z"
   },
   {
+    "arxivId": "2609.08812",
+    "title": "What AI Benchmarks Actually Measure: Adapting Convergent and Discriminant Validity to Interrogate Fifty-Six AI Benchmarks",
+    "titleZh": "研究团队用收敛与区分效度检验 56 个 AI 基准，发现安全基准相关性普遍偏弱",
+    "authors": [
+      "Meera Desai",
+      "Sang T. Truong",
+      "Hanna Wallach",
+      "Alex Chouldechova",
+      "A. Feder Cooper",
+      "Jean Garcia-Gathright",
+      "Daniel E. Ho",
+      "Abigail Z. Jacobs",
+      "Sanmi Koyejo",
+      "Nicholas Pangakis",
+      "Angelina Wang"
+    ],
+    "category": "eval",
+    "selected": true,
+    "attention": 77,
+    "summaryZh": "斯坦福、微软研究院等机构的研究者将社会科学中的收敛效度与区分效度方法引入 AI 基准评估，用 53 个模型在 56 个能力与安全基准上的排名相关性来检验这些基准是否真的测量了它们声称测量的概念。研究发现，同一安全概念下基准之间的模型排名相关性往往很弱，说明这些概念在不同基准中的定义可能并不一致；而能力概念（如推理、知识）下，同一概念内与不同概念间的相关性几乎一样强，说明这些概念之间缺乏区分度。部分基准的相关性更多由设计要素（任务结构、评分格式）而非概念决定，使用 LLM-judge 评分是比共享概念更强的相似性预测因子。个别基准可能测的是别的概念，例如 BBQ-accuracy 与推理基准的相关性强于与偏见基准的相关性，DecodingTrust-Fair 与知识基准的相关性强于与偏见基准。团队公开了 item 级与基准级的模型输出和分数数据集。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "AI基准分数常被当作模型能力和安全性的量化总结，但缺乏构念效度验证，难以明确基准是否真正测出了其声称衡量的概念。",
+          "label": "问题"
+        },
+        {
+          "text": "借鉴社会科学的聚合效度与区分效度框架，在53个模型上收集56个基准的输出与得分，通过模型排名的Spearman相关矩阵与项目反应理论（IRT）检验基准间的概念一致性、区分度及评测格式效应。",
+          "label": "方法"
+        },
+        {
+          "text": "能力基准跨概念相关度与概念内相当；安全基准概念内相关度普遍偏弱且更易受评测格式主导；个别基准（如BBQ准确率与DecodingTrust公平性）与声称概念相比更贴近推理或知识。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "基准所测概念常缺乏精确界定；分析假设基准近似单维且未分离主导的一般能力维度；数据覆盖48个无饱和与格式合规基准及53个模型，项目级IRT分析覆盖37个二元响应基准。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.08812"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.08812",
+      "aisafetyhot": "https://aisafetyhot.com/items/zxlmyn7dl3u8lxqt7s0ob0wct"
+    },
+    "publishedAt": "2026-09-08T14:38:24.000Z",
+    "timelineAt": "2026-10-04T00:02:14.024Z",
+    "discoveredAt": "2026-10-04T00:02:14.024Z"
+  },
+  {
     "arxivId": "2608.21766",
     "title": "Evaluation Awareness in Language Models: Representation, Verbalization, and Control",
     "titleZh": "研究：六个开源权重模型的评测感知可线性解码，但与口头表达弱相关",
@@ -359,7 +410,7 @@
     "category": "eval",
     "selected": true,
     "attention": 76,
-    "summaryZh": "论文《False Floors: LLM Safety Routing Evaluations Break Under Distribution Shift》指出，安全路由评测通常把路由器与在评测数据上挑出的最佳单模型比较，这一基线在分布偏移下会形成虚假下限。在 HELM Safety 上，随机划分下该选择成本为 0.003 至 0.030 的 harm，而按类别留出时升至 0.045 至 0.113；在 AgentDojo 上整套件留出时成本上升七到九倍。作者在七个安全语料上按预先固定的规则检验，三个通过注册的区间检验，四个优于事后加入的置换零假设。论文还发现，在留出重跑中，知道面对哪个模型的攻击者通过选择模板可将 GPT-5.4 的判定识别率降低 19.6 个百分点，且该下降被独立词表标签复现。",
+    "summaryZh": "论文指出，一个主要的安全路由基准在评测数据上挑选作为对照的最佳单模型，这在基准自身设定下无碍，分布偏移下却不成立。在 HELM Safety 上，这一选择代价在随机划分下为 0.003–0.030 的 harm，按类别留出时升至 0.045–0.113，与归因于路由的全部劣势相当；在 AgentDojo 上按整套件留出时上升七到九倍。改用不看测试标签选出的基线、在偏移下评分，路由在这些基准上收益很小：多数情况下路由器直接选用基线的模型，在接近饱和的 AgentDojo 上，完美的预分发路由器最多只值 2 个点的 harm。论文还发现，知道面对哪个模型的攻击者挑选注入模板后，可在留出重跑中让 GPT-5.4 对后到注入的判定识别率降低 19.6 个百分点，独立的词表标签复现了这一下降。",
     "quickRead": {
       "parts": [
         {
@@ -566,6 +617,34 @@
     "publishedAt": "2026-08-06T17:01:08.000Z",
     "timelineAt": "2026-10-03T23:52:50.588Z",
     "discoveredAt": "2026-10-03T23:52:50.588Z"
+  },
+  {
+    "arxivId": "2607.12649",
+    "title": "Extractable Memorization From First Principles",
+    "titleZh": "研究者提出可提取记忆的匹配比较检验方法",
+    "authors": [
+      "A. Feder Cooper",
+      "Marika Swanberg",
+      "Jamie Hayes",
+      "Lea Duesterwald",
+      "Christopher De Sa",
+      "Georgios Kaissis",
+      "Daniel E. Ho",
+      "Mark A. Lemley",
+      "Percy Liang"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "A. Feder Cooper、Percy Liang 等研究者提出用匹配比较来判定语言模型的可提取记忆，即同时测量训练序列与可比非训练序列的生成概率，以非训练序列的概率作为可预测性基线，超过基线才算记忆证据。方法包含两种形式：在序列从总体抽样时使用按选定假阳性率校准的 conformal 检验，以及针对单文档、以匹配的非训练文档校准的普查。在 Wikipedia 上，OLMo 2 32B 复现非训练 10-token 后缀的频率约为训练后缀的 24%，这部分反映的是假阳性而非记忆；在书籍数据上，Llama 3.1 70B 的校准普查阈值低至 10^(-27)，可为任何可行采样预算都难以提取的序列提供记忆证据。作者据此把可提取记忆重新定义为同时满足有效记忆主张与在现实预算内近乎确定生成。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.12649",
+      "aisafetyhot": "https://aisafetyhot.com/items/r26pduae05lj8hvd6s9xvj4au"
+    },
+    "publishedAt": "2026-07-14T11:31:36.000Z",
+    "timelineAt": "2026-10-04T00:02:14.038Z",
+    "discoveredAt": "2026-10-04T00:02:14.038Z"
   },
   {
     "arxivId": "2609.30986",
@@ -789,6 +868,38 @@
     "publishedAt": "2026-09-09T12:37:17.000Z",
     "timelineAt": "2026-10-03T22:30:37.228Z",
     "discoveredAt": "2026-10-03T22:30:37.228Z"
+  },
+  {
+    "arxivId": "2607.11999",
+    "title": "Underwriting the Agent Economy: The Blueprint for an AI Insurance Stack",
+    "titleZh": "报告提出 AI 保险栈蓝图，主张 2030 年前实现数十亿美元级 AI 智能体承保",
+    "authors": [
+      "Cristian Trout",
+      "Sanmi Koyejo",
+      "Sasha Romanosky",
+      "Giorgio Ripamonti",
+      "Lynn Thompson",
+      "Desiree Spain",
+      "Alex Taylor",
+      "Kevin Casey",
+      "Stephen Casper",
+      "Matthew Botvinick",
+      "Sean McGregor",
+      "Miles Brundage",
+      "A. Feder Coo"
+    ],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一份 arXiv 报告提出，到 2030 年可为 AI 智能体提供限额达数十亿美元的明确承保，但前提是行业协同。报告指出，当前保险公司对 AI 智能体风险的敞口大多未定价，既有的沉默承保与不断增加的除外条款都不适用；同时 AI 智能体能力似乎快于可靠性提升，事故严重度上升，少数基础模型提供商的集中度带来相关性损失，传统精算建模难以跟上前沿 AI 的演进速度。报告借鉴 Underwriters Laboratories、Closed Claims Project 等历史先例，提出涵盖事件数据收集、巨灾建模、标准、合同设计、风险选择、定价、监控与理赔管理的八组件 AI 保险栈。报告还讨论了针对前沿 AI 灾难性风险的承保（AI CAT），涉及 CBRN、关键基础设施崩溃与失控场景，认为应对这些尾部风险需要专门工具，可能包括前沿模型开发者互助组织、巨灾债券、定制责任制度与政府兜底。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.11999",
+      "aisafetyhot": "https://aisafetyhot.com/items/wrz20k1ik7ewjpxv9339w6htm"
+    },
+    "publishedAt": "2026-07-13T17:48:25.000Z",
+    "timelineAt": "2026-10-04T00:02:14.063Z",
+    "discoveredAt": "2026-10-04T00:02:14.063Z"
   },
   {
     "arxivId": "2608.00711",
@@ -1052,6 +1163,27 @@
     "publishedAt": "2026-09-05T15:25:45.000Z",
     "timelineAt": "2026-10-03T22:51:56.681Z",
     "discoveredAt": "2026-10-03T22:51:56.681Z"
+  },
+  {
+    "arxivId": "2607.14532",
+    "title": "Probabilistic \"Copies\" in Generative AI Models",
+    "titleZh": "研究：生成式 AI 模型中的概率性复制与版权认定",
+    "authors": [
+      "Mark A. Lemley",
+      "A. Feder Cooper"
+    ],
+    "category": "opinion",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "Mark A. Lemley 与 A. Feder Cooper 在论文中讨论，已有研究显示可从部分大语言模型中提取某些受版权作品的逐字或近似逐字文本，说明模型权重以某种形式编码了这些作品。作者指出 LLM 并非以数据库格式存储信息，而是存储从训练数据中学到的 token 间统计关系，生成过程常是概率性的而非确定性的。版权法此前未处理过这种可能产生相似输出、也可能不产生的信息存储是否构成复制。作者认为，现行法下最可能的结果是采取功能性路径，即只有当某作品能被直接提取到输出中时，才认定模型包含该作品的复制，并指出这一结果在政策层面并不令人满意，提出了可能的修法方向。论文即将发表于 Berkeley Technology Law Journal。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.14532",
+      "aisafetyhot": "https://aisafetyhot.com/items/uezp0j8ri27kezrujj4xnbw6r"
+    },
+    "publishedAt": "2026-07-16T03:39:09.000Z",
+    "timelineAt": "2026-10-04T00:02:14.053Z",
+    "discoveredAt": "2026-10-04T00:02:14.053Z"
   },
   {
     "arxivId": "2609.35366",
@@ -1643,5 +1775,28 @@
     "publishedAt": "2026-08-15T16:16:29.000Z",
     "timelineAt": "2026-10-03T23:52:50.672Z",
     "discoveredAt": "2026-10-03T23:52:50.672Z"
+  },
+  {
+    "arxivId": "2607.24017",
+    "title": "Disentangling Semantic Attention from Structural Bias in the Attention Manifold",
+    "titleZh": "多模态大模型注意力中的语义与结构偏差解耦：SPAR 免训练干预方法",
+    "authors": [
+      "Pengkun Jiao",
+      "Bin Zhu",
+      "Jingjing Chen",
+      "Yu-gang Jiang"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 SPAR（Saliency-guided Purification and Adaptive Redistribution），一种免训练、即插即用的推理干预方法，用于缓解多模态大语言模型（MLLMs）中普遍存在的结构性偏差。该偏差使模型过度关注语义无信息的视觉 token（即\"register\"或\"Visual Attention Sinks\"），导致语义视觉信号被稀释，进而引发多模态幻觉。SPAR 通过净化结构噪声并将回收的注意力预算重新分配给信息量最大的视觉区域，在多个幻觉基准上有效恢复了真实视觉 grounding，且计算开销可忽略。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2607.24017",
+      "aisafetyhot": "https://aisafetyhot.com/items/nl4lx2ubrjrsspqamnmnw8ycy"
+    },
+    "publishedAt": "2026-07-27T05:30:19.000Z",
+    "timelineAt": "2026-10-04T00:02:06.489Z",
+    "discoveredAt": "2026-10-04T00:02:06.489Z"
   }
 ]

@@ -1,12 +1,12 @@
 {
   "note": "days 是网站上每天（北京时间，按 timelineAt 分天）进站、判定为 AI 安全的论文：信源为 arXiv、Hugging Face Daily Papers 和研究者论文追踪，同一篇 arXiv 论文一天只算一次（arXiv 编号取网站 /api/site/items/<id> 的 links.original；留哪一条：精选优先，再按网站的 score 高，非精选也按 score，再按 timelineAt 早，最后按 id 字典序）。ids 是网站条目 id（网站上的 /items/<id>），按字典序排列；idsSha256 是排好的 ids 用换行连起来（末尾不加换行）的 SHA-256。论文在网站上出现以后（从第一次能在网站上看到算起，不是 timelineAt：回填的论文 timelineAt 早于出现的时间），slaMinutes 分钟内应出现在 papers/<年>/<日期>.json。这个文件只在内容变化时随那次提交更新；generatedAt 是那次生成的时间，siteFetchedAt 是读网站接口的时间。",
-  "generatedAt": "2026-10-04T00:09:19.319Z",
-  "siteFetchedAt": "2026-10-04T00:09:16.925Z",
+  "generatedAt": "2026-10-04T00:27:18.102Z",
+  "siteFetchedAt": "2026-10-04T00:27:16.354Z",
   "slaMinutes": 60,
   "days": {
     "2026-10-04": {
-      "count": 61,
-      "idsSha256": "74851f3c02e387f9cc4baef66aad9a00817cac8753dac10980e98c0b0bc9d5ca",
+      "count": 66,
+      "idsSha256": "e07a57a914e9c1b3fb30ac0a724d20a787eb9c4126a80f06fb4b7427f83ff2eb",
       "ids": [
         "a84mzcx2dsiftmfda8tr11b9h",
         "a9qp927ixkjxm4tpebcmqd4m5",
@@ -42,12 +42,14 @@
         "msfvtsfpc76u90cw9ayh1e9p1",
         "mv7xq19jmztwc65x7usck0aq0",
         "nheqtjdeyi1h3tu9pqw130jvg",
+        "nl4lx2ubrjrsspqamnmnw8ycy",
         "oblay5zv2xgkenqda9k7rwqiv",
         "p9mfmwgqewdr5y1i0k4x30mg1",
         "pmgyn3dyd5trd6zn5t7hl341d",
         "pmp34kuwxju9dg177l9kzmr4t",
         "qpm8tytyaoaihp92r7dhj055o",
         "qvx6pp4ctz0rgxz222im5lxzt",
+        "r26pduae05lj8hvd6s9xvj4au",
         "rf3dwos1z0721vikjp9naoes4",
         "rsfspm3owd72xy9r09e3fl494",
         "scpj7o1x94gty7f13qjz6bqqv",
@@ -58,9 +60,11 @@
         "to12t0kf6zxf57jku5ft1flwy",
         "tx2lz6r1hxbxh9vdb9t7nd0e7",
         "uaqb10eampe1swg0rgeirxjpp",
+        "uezp0j8ri27kezrujj4xnbw6r",
         "vby7539041fzh7cgzkbcbbpg5",
         "vcj8wj4yp474yheiuqdm7bu9f",
         "vz0kjn9mvb292ndu1mkeece38",
+        "wrz20k1ik7ewjpxv9339w6htm",
         "wtx6f7mx4m3ojcl7c5hdvs8pv",
         "ww277pxc4yeee84qojum9r0ea",
         "x7mnq1o29guisjwxv4koa84uf",
@@ -68,7 +72,8 @@
         "xtrv4qco6x913szcxnuxzgn89",
         "xxfedwhml40evc3bugkt462li",
         "y3c74s9iytealwfhyuwluaom5",
-        "yq9ekzxeqonksu2r0rdq3g8wd"
+        "yq9ekzxeqonksu2r0rdq3g8wd",
+        "zxlmyn7dl3u8lxqt7s0ob0wct"
       ]
     },
     "2026-10-03": {
