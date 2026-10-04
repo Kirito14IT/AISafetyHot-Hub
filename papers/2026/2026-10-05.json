@@ -376,6 +376,28 @@
     "discoveredAt": "2026-10-04T19:21:49.884Z"
   },
   {
+    "arxivId": "2610.01995",
+    "title": "Can AI Oversight Be Zero Knowledge?",
+    "titleZh": "AI 监督能否做到零知识？论文证明一般情形下不可行",
+    "authors": [
+      "Alessandro Chiesa",
+      "Ziyi Guan",
+      "Burcu Yildiz"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文研究预言机辅助计算的交互式论证能否实现零知识，即验证者在确认输出正确的同时不获知机密数据。作者证明在随机预言机模型下，对一般预言机辅助计算不存在零知识证明，即使证明者和验证者运行时间远超计算本身；该不可能性结论也适用于可扩展监督的典型模型 debate。正面结果是，若预言机对每个答案附加密码学签名，则在仅假设抗碰撞哈希函数的前提下，每个预言机辅助计算都能以高效证明者和验证者进行零知识验证，这为可扩展监督提供了既不依赖诚实对手、也不依赖计算鲁棒性的替代路径。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01995",
+      "aisafetyhot": "https://aisafetyhot.com/items/b9igrq2k084vv3a9jdtnn79o3"
+    },
+    "publishedAt": "2026-10-01T16:30:16.000Z",
+    "timelineAt": "2026-10-04T23:21:56.911Z",
+    "discoveredAt": "2026-10-04T23:21:56.911Z"
+  },
+  {
     "arxivId": "2605.30883",
     "title": "TRACE: Task-Aware Adaptive Self-Evolving Agentic Jailbreaking",
     "titleZh": "TRACE：面向 LLM Agent 的任务感知自适应自进化越狱框架",
@@ -482,6 +504,29 @@
     "publishedAt": "2026-10-01T11:44:45.000Z",
     "timelineAt": "2026-10-04T18:20:28.674Z",
     "discoveredAt": "2026-10-04T18:20:28.674Z"
+  },
+  {
+    "arxivId": null,
+    "title": "Artificial Intelligence–Associated Psychosis",
+    "titleZh": "精神科病例报告记录一例与 ChatGPT 使用相关的精神病发作",
+    "authors": [
+      "Jamie Harbourd",
+      "Suresh Yadav",
+      "Kagan Temur",
+      "Sandeep Grover"
+    ],
+    "category": "incident",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "澳大利亚与印度精神科医生在《Prim Care Companion CNS Disord》发表病例报告，描述一名 27 岁女性在使用 ChatGPT 后精神病症状加重。患者有童年忽视、15 年大麻依赖史，在恋情破裂后出现短暂幻视与被害观念，随后用 ChatGPT 将症状与占星和所谓“基督意识”联系起来，并称 ChatGPT 为上帝和耶稣，通过它进行禁食等灵修实践、与“灵魂伴侣”交流。近 6 个月内她 5 次入住精神科病房，每次住院 1 周至 10 天，症状围绕 ChatGPT 展开，包括夸大妄想、听幻觉和紊乱行为。脑 CT 与常规检查无异常，部分入院尿检大麻阳性；使用阿立哌唑 10–20 mg/日及苯二氮䓬类药物后行为改善，但自知力差，对 ChatGPT 的信念持续存在，最后一次入院改用阿立哌唑长效针剂。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://psychiatrist.com/pcc/artificial-intelligence-associated-psychosis",
+      "aisafetyhot": "https://aisafetyhot.com/items/pgo2h25ajp1foz4fqqrdpblha"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-04T23:21:49.443Z",
+    "discoveredAt": "2026-10-04T23:21:49.443Z"
   },
   {
     "arxivId": "2610.00902",
