@@ -208,6 +208,72 @@
     "discoveredAt": "2026-10-04T18:20:28.698Z"
   },
   {
+    "arxivId": "2606.09084",
+    "title": "Context-Fractured Decomposition Attacks on Tool-Using LLM Agents: Exploiting Artifact Provenance Gaps",
+    "titleZh": "研究者提出 Context-Fractured Decomposition 攻击，工具型 LLM Agent 越狱成功率最高提升 28.3 个百分点",
+    "authors": [
+      "Lin",
+      "Xiaofeng",
+      "Yang",
+      "Yukai",
+      "Guo",
+      "Daniel",
+      "Nale",
+      "Sahil Arun",
+      "Fleming",
+      "Charles",
+      "Cheng",
+      "Guang"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Context-Fractured Decomposition（CFD）攻击，针对工具型 LLM Agent 的“溯源缺口”部署失效模式。该攻击保留早期交互中看似无害的中间工件，在后续不同 Agent 实例或工作流阶段通过单独无害的工具动作触发有害行为，风险只在延迟的工件中介组合下显现。作者用 trace 级诊断刻画这一失效模式，并提出溯源血缘标记（provenance lineage tagging）作为可验证的缓解方向。在 Agent 系统越狱基准上，CFD 相比当前最优基线成功率最高提升 28.3 个百分点，且能绕过较强的单轮判定器。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2606.09084",
+      "aisafetyhot": "https://aisafetyhot.com/items/yluagkgyclssqxmy9s9b92805"
+    },
+    "publishedAt": "2026-06-08T06:29:42.000Z",
+    "timelineAt": "2026-10-04T19:21:49.884Z",
+    "discoveredAt": "2026-10-04T19:21:49.884Z"
+  },
+  {
+    "arxivId": "2605.30883",
+    "title": "TRACE: Task-Aware Adaptive Self-Evolving Agentic Jailbreaking",
+    "titleZh": "TRACE：面向 LLM Agent 的任务感知自适应自进化越狱框架",
+    "authors": [
+      "Zeng",
+      "Churui",
+      "Xiu",
+      "Kedong",
+      "Qi",
+      "Weiwei",
+      "Hao",
+      "Yuqi",
+      "Lu",
+      "Chaochao",
+      "He",
+      "Liang",
+      "Qin",
+      "Zhan",
+      "Zheng",
+      "Tianhang"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 TRACE，一个针对 LLM Agent 的智能体越狱框架，在 AdvCUA 上对多个先进 LLM Agent 的攻击成功率比现有越狱方法提升超过 100%。该框架先设计约 20 种流程分解方案，按任务类型规定关键操作与依赖，把复杂有害任务拆成更易执行、外观更无害的子任务序列，并从两个维度评估候选序列后选出最优者用于发起攻击。对仍被拒答的子任务，TRACE 构建不同的子任务画像，并建立与之对应的、面向执行的演进式多轮越狱策略库，检索出包含中间目标、环境状态和相关工具的策略，通过多轮交互逐步建立可信的执行上下文。作者指出，现有越狱方法多聚焦诱导有害指令，忽视模型对执行这些指令的拒答，且中间步骤失败或依赖报错会导致整个攻击流程中断重启，TRACE 通过状态恢复而非重启来应对。代码已公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2605.30883",
+      "aisafetyhot": "https://aisafetyhot.com/items/jtw5mlnmn1ppsrn5362dqtqxd"
+    },
+    "publishedAt": "2026-05-29T06:13:58.000Z",
+    "timelineAt": "2026-10-04T19:21:49.861Z",
+    "discoveredAt": "2026-10-04T19:21:49.861Z"
+  },
+  {
     "arxivId": "2609.02095",
     "title": "READY or Not: Reliable Enterprise Agent Deployment",
     "titleZh": "READY：面向企业 Agent 部署的可靠性资格认证框架",
