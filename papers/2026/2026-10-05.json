@@ -89,6 +89,54 @@
     "discoveredAt": "2026-10-04T21:21:35.807Z"
   },
   {
+    "arxivId": "2609.39065",
+    "title": "Can Agents Trust Their Skills? Uncovering Unsafe Chains of Trust in Skill-Based LLM Agents",
+    "titleZh": "TrustProbe 在 11 个开源 Agent 中发现 104 个技能信任链漏洞",
+    "authors": [
+      "Yan Wang",
+      "Zhihao Zhang",
+      "Ke Chen",
+      "Kai Chen",
+      "Yaqin Zhang",
+      "Duohe Ma",
+      "Jun Dai",
+      "Xiaoyan Sun"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 84,
+    "summaryZh": "中科院信息工程研究所与伍斯特理工学院的研究者提出 TrustProbe，用于挖掘基于技能的 LLM Agent 中不安全的信任链，在 11 个开源 Agent（其中 8 个 GitHub 星标超过 10,000）中确认 104 个污点式漏洞，涵盖命令注入 49 个、文件泄露 27 个、文件篡改 22 个、网络请求 5 个和代码注入 1 个。方法先对 Agent 源码做 source-to-sink 分析，从技能可控输入追踪到安全敏感操作，再用定向灰盒模糊测试生成并变异带 canary 的 SKILL.md 种子，最后用 oracle 确认攻击者控制并验证可观测危害。同一批技能正文改为直接提示词投递时，仅 31.7% 的漏洞仍可利用；在 8 个提供审批层的 Agent 上启用最严格非交互审批配置后，89 个漏洞中 34.8% 仍可利用，原因是执行路径绕过策略或策略未覆盖相关操作。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "智能体广泛依赖第三方安装的 skill 扩展功能，用户向智能体委托权限，但框架将未充分校验的 skill 内容纳入执行上下文。恶意 skill 可借由智能体的委托权限对文件系统、Shell 及网络执行有害操作，形成混淆代理故障。",
+          "label": "问题"
+        },
+        {
+          "text": "TrustProbe 结合源码静态 source-to-sink 分析与定向灰盒模糊测试。它通过 LLM 生成带金丝雀标记的语义 SKILL.md 种子，借助语义评分与距离反馈进行变异调度，并由 bug oracle 确认污点传播与可观测危害。",
+          "label": "方法"
+        },
+        {
+          "text": "在 11 个智能体中发现 104 个已验证漏洞；直接提示词仅复现其中 31.7%，最严格审批下仍残留 34.8% 可利用漏洞。633 个真实 skill 中有 25.1% 的测试触发漏洞路径，经最小载荷编辑有 15 个转化为完整攻击。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "评测仅覆盖 11 个开源智能体且均采用 deepseek-v4-flash 模型；基线对比仅涉及 4 个 Python 智能体。作者指出未来需研究跨工具执行的来源追踪、安装期能力声明以及共享执行点的细粒度控制。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.39065"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39065",
+      "aisafetyhot": "https://aisafetyhot.com/items/ett35naur4co10r7604ywkdxa"
+    },
+    "publishedAt": "2026-09-30T06:04:44.000Z",
+    "timelineAt": "2026-10-04T22:20:22.961Z",
+    "discoveredAt": "2026-10-04T22:20:22.961Z"
+  },
+  {
     "arxivId": "2609.38983",
     "title": "Approval Laundering: Systematizing Approval--Execution Binding Failures in AI Coding-Agent Harnesses",
     "titleZh": "论文提出 Approval Laundering 分类，实测 Claude Code 审批与执行绑定失败",
