@@ -41,6 +41,146 @@
     "discoveredAt": "2026-10-04T16:21:15.439Z"
   },
   {
+    "arxivId": "2610.01564",
+    "title": "Chaining Skills to Hijack LLM Agents",
+    "titleZh": "APEX 用跨技能链劫持 LLM Agent，GPT-5.4 上攻击成功率达 84.3%",
+    "authors": [
+      "Dong",
+      "Tian",
+      "Ma",
+      "Zixuan",
+      "Zhao",
+      "Haodong",
+      "Zhang",
+      "Huaien",
+      "Li",
+      "Shaofeng",
+      "Chen",
+      "Hao"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 83,
+    "summaryZh": "研究者提出 APEX，通过构造跨技能链劫持 LLM Agent：上游技能诱导 Agent 把真实任务进度与攻击者提供的“已获批准”声明写入持久记录，下游技能再据此执行攻击者选定的动作。在 SkillsBench 的四个目标动作族和六个模型上，690 次尝试中有 512 次（74.2%）成功诱导目标动作；在 GPT-5.4 上完整链成功率为 84.3%，而把工作流合并为单个技能时为 17.4%，直接注入为 3.5%。攻击在多数情况下不显著降低原任务通过率，GPT-5.4 四个族的原生验证器通过率平均仅变化 2.6 个百分点。可用性攻击 Work Loop 使各模型每任务 token 用量达到基线的 2.20 倍至 36.39 倍。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "智能体通过技能链按序执行多步骤任务时，跨技能传递的状态记录可能夹带攻击者伪造的授权信息，诱导智能体执行违规操作或陷入循环耗尽资源。",
+          "label": "问题"
+        },
+        {
+          "text": "APEX构建对抗性技能链，使上游技能写入兼具真实任务进展与虚假授权主张的记录，下游技能据此触发恶意动作，并通过试运行反馈迭代修订。",
+          "label": "方法"
+        },
+        {
+          "text": "在SkillsBench的4个定向动作家族上，6个模型的完整技能链诱发目标动作的ASR达74.2%；Work Loop使平均token消耗升至最高36.39倍。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "仅报告实验条件汇总指标而非单次运行联合分布；部分任务在不同家族间重叠；提示防御仅在GPT-5.4上评估且未测试自适应攻击。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.01564"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01564",
+      "aisafetyhot": "https://aisafetyhot.com/items/fblcal4yzfvgzpgr3xkobgw19"
+    },
+    "publishedAt": "2026-10-01T12:28:49.000Z",
+    "timelineAt": "2026-10-04T18:20:28.662Z",
+    "discoveredAt": "2026-10-04T18:20:28.662Z"
+  },
+  {
+    "arxivId": "2609.09404",
+    "title": "An Experimental Evaluation of Multimodal Prompt Injection Attacks on Agentic AI Frameworks",
+    "titleZh": "MMPIBench：多模态提示注入对六种 Agent 框架的跨框架评测",
+    "authors": [
+      "Nguyen",
+      "Viet K.",
+      "Husain",
+      "Mohammad I."
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "研究者提出 MMPIBench，一个可复现的多模态提示注入基准，用同一套攻击、工具集和系统提示词在 LangGraph、CrewAI、AutoGen、OpenAI Agents SDK、Semantic Kernel、LlamaIndex 六种 Agent 框架上运行，覆盖五种基础模型、六种视觉载体和四类攻击目标，共 720 次运行。结果显示攻击完成率约 1%，但被尝试的比例达 12.8%，差距几乎全部在规划阶段被消解，即模型读到注入指令后拒绝执行。模型比框架更能决定指令是否被采纳：Claude Opus 4.8 在 144 次运行中从未尝试攻击并在 59.7% 的运行中识别出注入，Grok 4.3 与 Llama 4 Maverick 的尝试率均为 23.6%。载体方面，渲染 OCR 文本最有效，贡献了 8 次完成中的 7 次；EXIF 元数据和二维码约 88% 的运行中未被感知。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "智能体框架为大语言模型集成规划、记忆和工具调用，常需处理包含潜在注入文本的图像等感知输入。现有研究多局限于纯文本注入、孤立模型或特定黑盒GUI，缺乏对多模态载荷在智能体内部各执行阶段传播与防御机制的跨框架评测。",
+          "label": "问题"
+        },
+        {
+          "text": "构建MMPIBench基准，统一测试LangGraph等6个框架、5个基座模型、6种视觉载体及4类攻击目标，共720次运行。采用白盒阶段追踪定位终止阶段，并通过确定性检验与三模型评审团分层判定完成与尝试行为；进一步拓展评测到音频模态。",
+          "label": "方法"
+        },
+        {
+          "text": "视觉通道中攻击完成率为1.11%，尝试率达12.8%，未完成攻击大多在规划阶段被模型阅读后放弃执行。模型选择对是否行动起主导作用；音频通道中仅半数框架能交付音频，但在交付后完成率达49%，其中gpt-audio达75%。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "每单元仅在温度为零下单次运行且未设固定种子，个别边缘结果存在变异；CrewAI重测了部分单元且提示词配置不同带来混淆；音频与图像采用不同任务设定不可跨模态直接对比；工具调用采用模拟环境仅测行为而非实际破坏；评审团依赖轻量模型。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.09404"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.09404",
+      "aisafetyhot": "https://aisafetyhot.com/items/e8kfcckuh6jcl71d5xq4zaz3m"
+    },
+    "publishedAt": "2026-09-08T20:00:03.000Z",
+    "timelineAt": "2026-10-04T18:20:28.688Z",
+    "discoveredAt": "2026-10-04T18:20:28.688Z"
+  },
+  {
+    "arxivId": "2609.33039",
+    "title": "Agent Safety From Within: Detecting Harmful Trajectories from LLM Internal States",
+    "titleZh": "TACIT：从 LLM 内部状态检测 Agent 轨迹危害",
+    "authors": [
+      "Jiao",
+      "Difan",
+      "Anderson",
+      "Ashton"
+    ],
+    "category": "defense",
+    "selected": true,
+    "attention": 77,
+    "summaryZh": "多伦多大学研究者提出 TACIT，用冻结 LLM 内部状态的线性探针判断工具调用轨迹是否安全，不解码任何 token。分析发现，现有开源护栏模型对不安全工具使用在输出上仅相当于随机水平，但该区分在模型内部状态中线性可读，且与有害内容方向近乎正交，两者不能互相替代。在六个轨迹安全基准上，TACIT 将平均 macro-F1 从最强开源护栏的 62.3 提升到 86.2（Qwen3-4B）和 85.4（Llama-3.1-8B）；每个基准完全留出训练时仍以 65.7 对 61.1 领先。相同骨干、数据与测试划分下，冻结读数与全量安全微调相当，叠加在微调模型上还能进一步提升；探针可训练参数量约为全量微调的百万分之一，训练时间约六分之一，推理延迟 40ms，低于 Qwen3Guard 的 215ms。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "智能体在工具调用中可能引发有害内容或不安全工具使用等风险。现有开源 Guard 模型主要针对单轮文本内容审核，在工具调用轨迹上表现较差，尤其是当不安全行为取决于动作与上下文/工具模式是否一致时，Guard 模型的输出端难以区分（Section 1、3.1）。",
+          "label": "问题"
+        },
+        {
+          "text": "作者先通过对比激活分析证实两种风险在模型内部表征中线性可读且方向正交；随后提出 TACIT，固定预训练骨干网络不更新参数，对中间层隐藏状态进行池化，通过训练线性探针或多层特征聚合分类器直接输出安全评分，无需生成任何 token（Section 4.1）。",
+          "label": "方法"
+        },
+        {
+          "text": "在 6 个轨迹安全基准上，Qwen3-4B 的 TACIT Multi-layer 平均 macro-F1 达到 86.2%，高于评测的 Guard 基线最高值 62.3%（Table 1）；留一基准评估下平均达 65.7%（Table 2），且单条轨迹检测延迟为 40ms（Figure 4c）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出当前评测针对整条轨迹而非流式动作边界；直接用于前缀判定时可能在智能体动作前因请求内容提前触发拦截；实验覆盖了 6 个基准、2 个模型家族，未报告闭环环境下的流式干预对任务效用的影响（Section 5.3、Appendix D）。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.33039"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.33039",
+      "aisafetyhot": "https://aisafetyhot.com/items/mipt7wa467whauvn1fmhw79iy"
+    },
+    "publishedAt": "2026-09-27T00:09:10.000Z",
+    "timelineAt": "2026-10-04T18:20:28.643Z",
+    "discoveredAt": "2026-10-04T18:20:28.643Z"
+  },
+  {
     "arxivId": "2610.01871",
     "title": "Walking the Embedding Space: Datastore Extraction from Multimodal RAG",
     "titleZh": "研究者提出 IMMRAG 攻击，可从多模态 RAG 数据存储中提取医学与文档图像",
