@@ -1,5 +1,52 @@
 [
   {
+    "arxivId": "2609.26761",
+    "title": "A2M: Trace-Optimized Agent Hijacking in the MCP Ecosystem",
+    "titleZh": "A2M：针对 MCP 生态的两阶段 Agent 劫持框架",
+    "authors": [
+      "Laizhen Li",
+      "Xuan Wang",
+      "Peicheng Zhao",
+      "Juanjuan Zhao",
+      "Kejiang Ye",
+      "Cheng-zhong Xu",
+      "Xitong Gao"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 84,
+    "summaryZh": "研究者提出 A2M（Attraction-to-Manipulation），一个针对 MCP 智能体的两阶段黑盒攻击框架，先优化工具名称与描述提高被调用概率，再利用执行轨迹迭代优化工具返回内容以操纵智能体后续推理。在 LiveMCPBench 上，直接针对 GLM-4.6 优化的攻击在四个场景下平均恶意工具调用率为 93.6%，认知拒绝服务场景下加权 token 成本升至良性基线的 32.4 倍，信息窃取、环境完整性破坏与推理误导三类攻击的平均成功率为 74.4%。未经重新优化迁移到另外四个模型时，对应指标分别为 63.6%、2.7 倍和 24.5%，说明工具调用比完整攻击成功更容易迁移。GPT-5 上调用率介于 64.9 至 76.3，但信息窃取与环境完整性破坏的攻击成功率均为 0，推理误导为 22.0。作者据此呼吁加强 MCP 工具审查与运行时隔离，代码已公开。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "MCP 智能体依赖语义元数据从第三方服务选择工具，并将工具返回值视作可信环境反馈，面临第三方工具注册与输出控制带来的语义供应链劫持风险。",
+          "label": "问题"
+        },
+        {
+          "text": "A2M 采用两阶段黑盒优化框架，先利用说服策略优化元数据提升被选中概率，再基于执行轨迹的分析器与优化器迭代调整恶意工具返回载荷以操纵后续推理。",
+          "label": "方法"
+        },
+        {
+          "text": "在 LiveMCPBench 上，GLM-4.6 优化后迁移至 4 个黑盒模型，平均恶意工具调用率为 63.6%，IE、EIC 和 RD 平均 ASR 为 24.5%，C-DoS 加权成本倍数为 2.7×。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "方法仅覆盖语义层工具选择与返回且依赖执行轨迹可见性；仅在 LiveMCPBench 与固定 ReAct 架构上测试；未系统测试系统提示词、路由策略及工具池规模变化。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.26761"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.26761",
+      "aisafetyhot": "https://aisafetyhot.com/items/s6rkg351q42jmxzs2ylnrmz0i"
+    },
+    "publishedAt": "2026-09-22T17:41:34.000Z",
+    "timelineAt": "2026-10-04T20:23:28.281Z",
+    "discoveredAt": "2026-10-04T20:23:28.281Z"
+  },
+  {
     "arxivId": "2609.38983",
     "title": "Approval Laundering: Systematizing Approval--Execution Binding Failures in AI Coding-Agent Harnesses",
     "titleZh": "论文提出 Approval Laundering 分类，实测 Claude Code 审批与执行绑定失败",
