@@ -1,5 +1,25 @@
 [
   {
+    "arxivId": "2609.38983",
+    "title": "Approval Laundering: Systematizing Approval--Execution Binding Failures in AI Coding-Agent Harnesses",
+    "titleZh": "论文提出 Approval Laundering 分类，实测 Claude Code 审批与执行绑定失败",
+    "authors": [
+      "Yang Wang"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 83,
+    "summaryZh": "复旦大学博士后 Yang Wang 的预印本提出 Approval Laundering，把 AI 编码 Agent 审批与执行之间的绑定失败分为 Scope、Argument、Temporal、Tool、Delegation、Semantic 六类，每类对应一个凭证绑定面。作者在 Claude Code 2.1.197 的 PreToolUse 钩子上做无头重复测量，每类 19 至 20 次有效运行，报告 Bound-Gap Rate：Scope 与 Temporal 为 1.00，Delegation 为 0.947，Argument 为 0.45，Semantic 代理指标为 0.10；Tool 类中跨工具替换被策略引擎全部拒绝，同名 $PATH 替换则 20 次全部未被拦截。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38983",
+      "aisafetyhot": "https://aisafetyhot.com/items/g640z1y7obx47zndt5dkf049q"
+    },
+    "publishedAt": "2026-09-30T04:59:15.000Z",
+    "timelineAt": "2026-10-04T16:21:15.439Z",
+    "discoveredAt": "2026-10-04T16:21:15.439Z"
+  },
+  {
     "arxivId": "2609.02095",
     "title": "READY or Not: Reliable Enterprise Agent Deployment",
     "titleZh": "READY：面向企业 Agent 部署的可靠性资格认证框架",
