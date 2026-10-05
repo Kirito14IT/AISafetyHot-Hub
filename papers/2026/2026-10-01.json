@@ -838,47 +838,6 @@
     "discoveredAt": "2026-10-01T15:17:09.114Z"
   },
   {
-    "arxivId": "2609.07051",
-    "title": "TrojanWorld: Backdooring World-Model Agents via Imagination Steering",
-    "titleZh": "TrojanWorld：通过想象引导对世界模型智能体植入后门",
-    "authors": [
-      "Wenkai Huang"
-    ],
-    "category": "attack",
-    "selected": true,
-    "attention": 78,
-    "summaryZh": "研究者提出 TrojanWorld，一种针对世界模型智能体的供应链后门框架，通过引导模型内部想象而非改动决策模块来诱发攻击者指定的行为。攻击以场景中放置的物理物体作为触发器，经智能体原生观测管线激活，无需数字篡改观测流。框架由三项机制组成：Decision-Reflective Induction 利用决策反馈将触发条件下的想象导向目标动作，Clean Behavior Anchoring 保持无触发时的预测与行为保真度，Causal Propagation 在触发器消失后沿后续轨迹延续被诱导的偏好。研究还测试了 Fine-Pruning、SHINE 和 Neural Cleanse 三种防御的适配版本，没有一种能在保持干净效用的同时完全移除攻击。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "预训练世界模型被广泛用于闭环智能体，但在供应链中面临后门威胁。现有研究主要依赖数字干扰或导致任务失败，缺乏在不修改决策模块且保留干净效用下，通过物理对象诱导特定动作并在触发器消失后维持控制的方法。",
-          "label": "问题"
-        },
-        {
-          "text": "作者提出 TrojanWorld，在冻结决策模块且仅更新世界模型下，结合决策反射诱导引导想象朝向目标动作、干净行为锚定维护正常决策，以及因果传播将诱导偏好延续至物理触发器移除后的轨迹。",
-          "label": "方法"
-        },
-        {
-          "text": "在 TD-MPC2、DreamerV3 和 R2-Dreamer 跨 4 个基准评测，该方法在触发期达成低至 0.026 的动作偏差且保留至少 98.8% 干净效用；移除后偏差低至 0.014；防御无法在兼顾干净效用下完全移除攻击。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "作者指出仿真评测未考虑光照与物体运动等真实相机因素，且未推广至更大模型；实验覆盖 3 个系统、4 个基准共 8 个任务，触发器为固定粉红色球体，每个条件评测 10 个 episode。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.07051"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.07051",
-      "aisafetyhot": "https://aisafetyhot.com/items/qal230dkavacao04q6z8owqhx"
-    },
-    "publishedAt": "2026-09-07T05:14:10.000Z",
-    "timelineAt": "2026-09-30T22:20:33.619Z",
-    "discoveredAt": "2026-09-30T22:20:33.619Z"
-  },
-  {
     "arxivId": "2608.28411",
     "title": "LongPIBench: A Long-Context Benchmark for Prompt Injection",
     "titleZh": "LongPIBench：面向长上下文提示注入的评测基准",
@@ -1773,46 +1732,6 @@
     "publishedAt": "2026-09-09T03:00:25.000Z",
     "timelineAt": "2026-10-01T10:12:06.456Z",
     "discoveredAt": "2026-10-01T10:12:06.456Z"
-  },
-  {
-    "arxivId": "2609.24243",
-    "title": "Taming CoT Obfuscation in VLMs: From Mechanistic Evidence to Activation Enforcement",
-    "titleZh": "TAME：用 SAE 抑制激活缓解 VLM 思维链混淆",
-    "authors": [
-      "Xutao Mao"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文研究强化学习在提升视觉语言模型推理能力时引发的思维链混淆现象，即任务奖励或准确率上升但推理轨迹变得不接地、更难监控。作者发现 RL 过程中模板相关激活与接地相关激活的可分性下降，匹配的干预实验支持这些特征对可监控性退化的贡献。据此提出 TAME，用 Sparse Autoencoders 结合行为反馈，在 RL 中对模板相关激活做非对称抑制，只惩罚高于 RL 前基线的部分。在 VIRL-39k、SPA-VL 和两个模型族上，TAME 相比 GRPO 将思维链可监控性分别提升最多 30.9 和 16.7 个百分点，盲评人类评估与两个留出监控模型族也复现了提升；任务准确率变化较小且方向不一，通用能力基准显示存在任务特定权衡。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.24243",
-      "aisafetyhot": "https://aisafetyhot.com/items/zipgzuwgv9hs6ram5uf6ni7wz"
-    },
-    "publishedAt": "2026-09-21T08:08:56.000Z",
-    "timelineAt": "2026-09-30T22:20:33.464Z",
-    "discoveredAt": "2026-09-30T22:20:33.464Z"
-  },
-  {
-    "arxivId": "2609.14649",
-    "title": "CIG-MIA: Context-Induced Information Gain Membership Inference Attacks against Retrieval-Augmented Generation",
-    "titleZh": "CIG-MIA：利用上下文信息增益对 RAG 系统发起成员推断攻击",
-    "authors": [
-      "Tan Xue"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 CIG-MIA，一种基于上下文信息增益的成员推断攻击，用于判断某文档是否属于 RAG 系统的知识库，覆盖灰盒与纯文本黑盒两种访问设定。其思路是显式注入候选文档对成员与非成员影响不同：文档已可通过检索获得时注入带来的额外支持很小，文档不在库中时注入引入新证据、似然增益更大。灰盒设定下直接由 token 级似然计算该增益，黑盒设定下用轻量代理估计器结合语义相似度与精确匹配特征，从生成文本中估计同一增益。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.14649",
-      "aisafetyhot": "https://aisafetyhot.com/items/cconi078vhkmx83yohbmyvach"
-    },
-    "publishedAt": "2026-09-13T16:34:57.000Z",
-    "timelineAt": "2026-09-30T22:20:33.471Z",
-    "discoveredAt": "2026-09-30T22:20:33.471Z"
   },
   {
     "arxivId": "2609.05903",
@@ -3204,26 +3123,6 @@
     "discoveredAt": "2026-09-30T22:20:33.684Z"
   },
   {
-    "arxivId": "2609.15134",
-    "title": "HazardAuditor: From Executable Threats to Safer Computer-Use Agents",
-    "titleZh": "HazardAuditor：面向计算机使用 Agent 的执行级安全护栏框架",
-    "authors": [
-      "Yunhao Feng"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "HazardAuditor 是一个执行级安全框架，用于为计算机使用 Agent 提供护栏监督。现有护栏模型面向静态提示词与回复，难以适配 Agent 执行过程；现有可执行安全平台只产出评测结论，无法提供跨框架训练所需的归一化监督。该框架在受控环境中运行 Claude Code、Codex、Hermes 和 OpenClaw 等异构 Agent，把交互归一化为统一事件表示以支持跨框架监督。作者指出 token 级后训练目标会让较长的理由文本主导梯度更新，并提出 Guard Policy Optimization（GuardPO），将确定性安全结果转为序列级优势并归一化理由与判定区域，使安全决策成为优化单元。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.15134",
-      "aisafetyhot": "https://aisafetyhot.com/items/bg92y5vznmgf9a9h25nj1xtw1"
-    },
-    "publishedAt": "2026-09-14T07:09:33.000Z",
-    "timelineAt": "2026-09-30T22:20:33.517Z",
-    "discoveredAt": "2026-09-30T22:20:33.517Z"
-  },
-  {
     "arxivId": "2609.00060",
     "title": "A Formal Analysis of Agent Payment Protocols",
     "titleZh": "论文用 Tamarin 形式化分析 x402、MPP、ACP、AP2 四个智能体支付协议",
@@ -3628,26 +3527,6 @@
     "discoveredAt": "2026-10-01T14:15:42.280Z"
   },
   {
-    "arxivId": "2609.16927",
-    "title": "Verbalizing Subliminal Learning Effects Using Text Optimization",
-    "titleZh": "SALVE：用文本优化还原蒸馏数据中的隐性学习效应",
-    "authors": [
-      "Nathan Hu"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 SALVE（Search-Aided Latent Verbalization），通过优化 soft prompt、让同一模型将其转写为文本并用 beam search 提升可靠性，把蒸馏数据中不可读的隐性学习效应还原为可读提示词。作者指出，带提示词的隐性学习是上下文蒸馏的一个特例，理论上该数据集可识别出教师的提示词，于是把提示词还原转化为文本优化问题。在标准隐性学习设定下，SALVE 能稳定还原出点明教师特质的可读提示词，而常见文本优化方法做不到。研究还发现，在隐性学习失效的某些设定下 SALVE 仍能从数据集中还原教师特质，而调整学生训练以改善上下文蒸馏则可能产生隐性学习效应。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.16927",
-      "aisafetyhot": "https://aisafetyhot.com/items/nn8zf7ahgz50q21w9aqhcfxeu"
-    },
-    "publishedAt": "2026-09-15T10:03:31.000Z",
-    "timelineAt": "2026-09-30T22:20:33.452Z",
-    "discoveredAt": "2026-09-30T22:20:33.452Z"
-  },
-  {
     "arxivId": "2609.05269",
     "title": "CONTINUITY: Security-Context Contracts for Composable LLM Agent Controls",
     "titleZh": "CONTINUITY：为可组合的 LLM Agent 安全控制引入安全上下文契约",
@@ -3706,126 +3585,6 @@
     "publishedAt": "2026-09-15T13:05:01.000Z",
     "timelineAt": "2026-10-01T10:12:06.259Z",
     "discoveredAt": "2026-10-01T10:12:06.259Z"
-  },
-  {
-    "arxivId": "2609.26868",
-    "title": "Backdoors in Learning-Based Industrial Robotic Arm Manipulation: An Empirical Security Study",
-    "titleZh": "研究者在 FANUC 与 xArm 工业机械臂上实测后门攻击与防御",
-    "authors": [
-      "Zijian Zhang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "作者对基于学习的工业机械臂操作开展后门攻击与防御的初步实证研究，实验平台为 FANUC 和 xArm 两台真实商用工业机械臂。研究考察后门能否在正常任务执行时保持隐蔽、仅在特定触发器出现时诱发出语义错误的操作行为。作者随后开发了一套在线防御流程，在运行时检测并中和触发器，并与离线微调防御进行效果对比。研究还评估了该防御流程引入的计算延迟与执行开销，以判断其是否适合高吞吐工业场景。该工作已被 IROS 2026 Workshop on Industrial Applications of Robot Learning 接收。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.26868",
-      "aisafetyhot": "https://aisafetyhot.com/items/gao4owj615zez2grnmteyhdfa"
-    },
-    "publishedAt": "2026-09-22T16:46:10.000Z",
-    "timelineAt": "2026-09-30T22:20:33.431Z",
-    "discoveredAt": "2026-09-30T22:20:33.431Z"
-  },
-  {
-    "arxivId": "2609.25579",
-    "title": "Rethinking Backdoor Repair Evaluation: Distinguishing Aggregate Clean Utility from Benign Performance Preservation",
-    "titleZh": "研究重新审视后门修复评测：区分总体干净效用与良性性能保持",
-    "authors": [
-      "Baogang Song"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出后门修复评测不应只看攻击成功率（ASR）和总体干净准确率，因为总体准确率会掩盖集中在部分标签空间上的性能退化。作者从保持视角区分总体干净效用与原有类别性能的保持，通过比较修复前后的干净性能定义类别级保持损失，并指出聚合会通过局部损失稀释和跨类别补偿隐藏局部退化。为此论文引入最差类别保持损失和尾部保持损失来刻画局部保持损失，并在代表性后门攻击、修复方法、数据集、攻击目标和模型架构上开展系统实证研究，另在干净标签攻击下做了验证。结果显示，有效抑制攻击和良好的总体干净性能并不必然意味着各类别原有良性性能被均匀保持，修复后仍可能存在明显的局部保持损失，其严重程度和类别结构随修复条件变化。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.25579",
-      "aisafetyhot": "https://aisafetyhot.com/items/ik1wi54wjitgfjtgnkhcr7jv8"
-    },
-    "publishedAt": "2026-09-22T02:18:59.000Z",
-    "timelineAt": "2026-09-30T22:20:33.436Z",
-    "discoveredAt": "2026-09-30T22:20:33.436Z"
-  },
-  {
-    "arxivId": "2609.22711",
-    "title": "UBA-ORL: Unlearning-Activated Backdoor Attacks on Offline Reinforcement Learning",
-    "titleZh": "UBA-ORL：针对离线强化学习的遗忘激活后门攻击",
-    "authors": [
-      "Fengyi Wang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 UBA-ORL，一种针对离线强化学习的遗忘激活后门攻击：攻击在正常训练后被大幅抑制，却在合规驱动的数据删除（遗忘）请求后显现。该方法采用双样本机制，同时注入后门轨迹（BD）与伪装轨迹（CM），两者共享同一触发模式，但 CM 保留良性动作并配以同样高的奖励。训练时 BD 与 CM 提供相互竞争的监督信号，当对 CM 子集发起合法删除请求后，残留的 BD 信号重新占据主导，按需重新激活后门。实验显示 UBA-ORL 在评测的离线 RL 配置下实现可控激活，无触发回报的变化因配置而异，暴露出合规驱动离线 RL 平台此前被忽视的安全风险。作者呼吁社区为合规遗忘服务开发遗忘前与遗忘后的联合审计机制。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.22711",
-      "aisafetyhot": "https://aisafetyhot.com/items/x7iijvt5usfgbug9icmakfknb"
-    },
-    "publishedAt": "2026-09-19T02:46:35.000Z",
-    "timelineAt": "2026-09-30T22:20:33.442Z",
-    "discoveredAt": "2026-09-30T22:20:33.442Z"
-  },
-  {
-    "arxivId": "2609.10611",
-    "title": "Black-Box Membership Inference via Word-Level Probability Estimation",
-    "titleZh": "WPMIA：面向严格黑盒大模型的词级概率成员推断攻击",
-    "authors": [
-      "Shengjie Niu"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 Word-level Probability MIA（WPMIA），一种面向严格黑盒场景的成员推断攻击，用于判断某段文本是否被纳入大语言模型的训练语料。该方法通过蒙特卡洛采样结合局部核平滑估计词级生成概率，再聚合成序列级似然估计，并构造不同前缀条件下的似然以放大成员与非成员之间的分布差异。在多个开源大语言模型上，WPMIA 一致优于现有黑盒基线；在 GPT-5-Chat、Gemini-2.5-Flash 和 Claude-4.5-Haiku 等闭源模型上，平均 TPR@5%FPR 达到 42.0。论文共 17 页、5 张图、17 张表，代码已公开。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.10611",
-      "aisafetyhot": "https://aisafetyhot.com/items/k2lj11sl0ffdfzq4cwuhuw4a7"
-    },
-    "publishedAt": "2026-09-08T13:15:21.000Z",
-    "timelineAt": "2026-09-30T22:20:33.599Z",
-    "discoveredAt": "2026-09-30T22:20:33.599Z"
-  },
-  {
-    "arxivId": "2609.36855",
-    "title": "When Upstream Messages Override Correct Answers: A Controlled Study of Multi-Agent LLM Collaboration",
-    "titleZh": "研究：上游错误消息会让多智能体 LLM 下游覆盖正确答案",
-    "authors": [
-      "Yaxin Gong"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者在五个基准和五个接收方模型上做受控实验，固定下游任务与证据，比较无消息、上游原始消息和结论相反消息三种条件，以分离多智能体通信的收益与损害。结果显示，当下游本会答错时消息常有帮助；但当下游本可答对时，错误的上游消息最多在 32% 的情况下改变其答案。在人工审核的有害案例中，94% 是下游直接照抄上游的具体错误答案，作者称之为答案替换。移除不可靠消息能恢复部分损失的准确率，说明通信应依据上游可靠性和下游已有证据进行选择性过滤。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.36855",
-      "aisafetyhot": "https://aisafetyhot.com/items/hurbgl71njc6kgmai3o3axblx"
-    },
-    "publishedAt": "2026-09-29T07:01:10.000Z",
-    "timelineAt": "2026-09-30T22:20:33.609Z",
-    "discoveredAt": "2026-09-30T22:20:33.609Z"
-  },
-  {
-    "arxivId": "2609.24350",
-    "title": "LIBERO-VPro: Benchmarking Closed-Loop Visual Robustness of Robotic Foundation Models",
-    "titleZh": "LIBERO-VPro：评测机器人基础模型闭环视觉鲁棒性的基准",
-    "authors": [
-      "Huiqiong Li"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 LIBERO-VPro，用于系统评测机器人基础模型在执行过程中的闭环视觉鲁棒性，通过扰动执行时可获得的视觉证据来考察模型表现。该基准覆盖视觉证据退化、相机陈旧、视觉来源一致性和任务相关场景变化四个维度，包含 12 个挑战类别、96 种实验设置和 3,296 个任务条件用例。作者评测了三个视觉-语言-动作模型和三个世界-动作模型，共约 196,000 次仿真回合，并在 Franka Research 3 上补充了 200 次真实世界 rollout。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.24350",
-      "aisafetyhot": "https://aisafetyhot.com/items/r9zgl9xyxxb7p0v5zqtay9sx2"
-    },
-    "publishedAt": "2026-09-21T09:43:41.000Z",
-    "timelineAt": "2026-09-30T22:20:33.627Z",
-    "discoveredAt": "2026-09-30T22:20:33.627Z"
   },
   {
     "arxivId": "2609.07048",
@@ -5551,26 +5310,6 @@
     "discoveredAt": "2026-10-01T10:16:09.376Z"
   },
   {
-    "arxivId": "2609.10627",
-    "title": "SoK: Privacy Attacks on Machine Learning via Explainable AI",
-    "titleZh": "SoK 综述：可解释性 AI 如何成为机器学习隐私攻击面",
-    "authors": [
-      "Abdullah Caglar Oksuz"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "这篇 SoK 系统梳理了 25 项利用模型解释输出实施隐私攻击的研究，涵盖模型窃取、成员推断和模型反演，并将属性推断视为部分反演。作者指出，现有工作常只按黑盒或白盒标注，掩盖了对手实际获得的解释信号差异，因此把模型知识与解释获取分开，归纳出五条路径：目标方发布、攻击者自行推导、二次披露、特权访问和公开全局产物。在这些路径下，解释会降低窃取成本，通过解释统计量、recourse 距离和解释引导的鲁棒性暴露成员信号，并支持对私有输入做空间或代数重建。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.10627",
-      "aisafetyhot": "https://aisafetyhot.com/items/vub6afz5d5njx5jgw328shwg0"
-    },
-    "publishedAt": "2026-09-09T02:05:12.000Z",
-    "timelineAt": "2026-09-30T22:20:33.553Z",
-    "discoveredAt": "2026-09-30T22:20:33.553Z"
-  },
-  {
     "arxivId": "2609.38239",
     "title": "Inference-Layer Security: Defending Against Adversarial Inference and Infrastructure Abuse",
     "titleZh": "推理层安全：防御对抗性推理与基础设施滥用",
@@ -5655,26 +5394,6 @@
     "publishedAt": "2026-09-28T12:20:57.000Z",
     "timelineAt": "2026-10-01T10:16:09.314Z",
     "discoveredAt": "2026-10-01T10:16:09.314Z"
-  },
-  {
-    "arxivId": "2609.08901",
-    "title": "The BatchNorm Illusion: Diagnosing Normalization Artifacts in Machine Unlearning Evaluation",
-    "titleZh": "论文揭示 BatchNorm 架构下机器遗忘评测的归一化伪影",
-    "authors": [
-      "Aaryaman Kalani"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文发现基于 BatchNorm 架构的机器遗忘评测存在一个此前未被记录的混杂因素：对保留数据做一次前向传播、不修改任何权重，就能确定性地改写模型的归一化状态，并逆转表面指标上的遗忘效果。作者将该操作形式化为保权重的固定点算子，并证明其造成的遗忘前后差距可归因于 BN 运行统计量，而非遗忘方法对权重的修改，从而把测量失败与编码器失败区分开。实验显示，该伪影在标准基准的九种方法上最多逆转 78 个百分点的遗忘准确率；攻击者仅用 10 张无标签图像即可恢复大部分被掩盖的准确率；改用严格的 GroupNorm 后，所有方法的伪影降为零。测试的成员推断攻击在重新校准后变化不大，说明评测失败集中在遗忘准确率和线性探测上。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.08901",
-      "aisafetyhot": "https://aisafetyhot.com/items/a234chwqc9tuw3h0mr36rihxn"
-    },
-    "publishedAt": "2026-09-08T15:39:10.000Z",
-    "timelineAt": "2026-09-30T22:20:33.588Z",
-    "discoveredAt": "2026-09-30T22:20:33.588Z"
   },
   {
     "arxivId": "2609.27760",
@@ -5815,26 +5534,6 @@
     "publishedAt": "2026-09-28T16:22:31.000Z",
     "timelineAt": "2026-10-01T10:16:09.274Z",
     "discoveredAt": "2026-10-01T10:16:09.274Z"
-  },
-  {
-    "arxivId": "2609.15671",
-    "title": "Don't Send What You Don't Need: Question-Guided Token Pruning as a Privacy Defense for Vision-Language Models",
-    "titleZh": "QPriv-VL：面向视觉语言模型的问题引导 token 裁剪隐私防御",
-    "authors": [
-      "Md Khalid Syfullah"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "作者提出 QPriv-VL，一个面向联邦学习、拆分学习和 U 型拆分学习的问题引导隐私感知 token 裁剪框架，在传输前按任务效用与隐私敏感度裁剪视觉 token。其核心是轻量级 Dynamic Threshold Predictor（DTP），在一次前向中同时估计样本级裁剪比例和 token 级保留掩码，结合视觉 patch 与问题嵌入的跨模态相似度，以及来自冻结 DINOv2 特征的敏感度信号，无需敏感度标签即可抑制潜在敏感区域。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.15671",
-      "aisafetyhot": "https://aisafetyhot.com/items/sle991271j12hl2pjrwz3mhvz"
-    },
-    "publishedAt": "2026-09-14T14:48:39.000Z",
-    "timelineAt": "2026-09-30T22:20:33.463Z",
-    "discoveredAt": "2026-09-30T22:20:33.463Z"
   },
   {
     "arxivId": "2609.03139",
@@ -6097,26 +5796,6 @@
     "discoveredAt": "2026-10-01T10:16:09.546Z"
   },
   {
-    "arxivId": "2609.10608",
-    "title": "Adaptive Diffusion Freezing: Privacy-preserving Diffusion Models Against Membership Inference Attacks",
-    "titleZh": "Adaptive Diffusion Freezing：抵御成员推理攻击的隐私保护扩散模型",
-    "authors": [
-      "Jialu Guo"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对扩散模型训练中的成员推理攻击（MIA）隐私风险，研究者提出隐私保护框架 Adaptive Diffusion Freezing（ADF）。该方法通过跨时间步自适应冻结训练，用掩码矩阵控制不同数据子集在各扩散时间步的参与，并基于预训练的风险感知冻结策略抑制高 MIA 风险子集-时间步对的贡献，从而减少过度记忆。在多个数据集上，ADF 取得了优于多种基线的隐私-效用-效率权衡表现。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.10608",
-      "aisafetyhot": "https://aisafetyhot.com/items/nhz9d4j54o0n24znevji54mjr"
-    },
-    "publishedAt": "2026-09-08T08:58:19.000Z",
-    "timelineAt": "2026-09-30T22:20:33.611Z",
-    "discoveredAt": "2026-09-30T22:20:33.611Z"
-  },
-  {
     "arxivId": "2609.36245",
     "title": "CoRe: Co-Evolving Reward Models for Mitigating Latent Reward Hacking in Video Diffusion Models",
     "titleZh": "CoRe：协同演化奖励模型缓解视频扩散模型中的潜在奖励作弊",
@@ -6357,26 +6036,6 @@
     "discoveredAt": "2026-09-30T22:20:33.945Z"
   },
   {
-    "arxivId": "2609.09848",
-    "title": "Subgroup Membership Inference Audits of Differentially Private Synthetic Text",
-    "titleZh": "差分隐私合成文本的子群成员推断审计",
-    "authors": [
-      "Yidan Sun"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对差分隐私合成文本发布，研究提出子群定向成员推断博弈，将目标池设为显式参数，在四个数据集、三种生成器（DP-SGD 微调、API 提示、激活引导）和五个隐私预算下审计了 32 个代理。审计显示合成发布确实泄露子群成员身份，既有攻击系统性低估该泄露；DP 在各预算下大幅降低平均泄露，但剩余泄露集中，十分之一记录约占 40%，且噪声对随机记录的去泄露效果强于高风险记录，哪些记录泄露取决于发布机制而非记录本身。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.09848",
-      "aisafetyhot": "https://aisafetyhot.com/items/kxskmou2ozhac6jqzkmbqa5ck"
-    },
-    "publishedAt": "2026-09-09T07:56:24.000Z",
-    "timelineAt": "2026-09-30T22:20:33.515Z",
-    "discoveredAt": "2026-09-30T22:20:33.515Z"
-  },
-  {
     "arxivId": "2608.10678",
     "title": "Auditing Chinese Web-scale Corpora via Sampled BPE Token Statistics",
     "titleZh": "通过采样 BPE token 统计审计中文网页规模语料库",
@@ -6438,26 +6097,6 @@
     "publishedAt": "2026-09-30T08:41:08.000Z",
     "timelineAt": "2026-10-01T02:24:58.565Z",
     "discoveredAt": "2026-10-01T02:24:58.565Z"
-  },
-  {
-    "arxivId": "2609.09865",
-    "title": "Keep Evaluation Fair: Detecting Data Leakage in Code Generation Benchmarks via Membership Inference Attacks",
-    "titleZh": "CGMIA：用成员推理攻击检测代码生成基准的数据泄漏",
-    "authors": [
-      "Dongdong Zhao"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对代码生成基准数据泄漏导致评测虚高的问题，研究者提出 CGMIA（Code-Generation-specific Membership Inference Attack），通过在基准样本子集上微调影子模型构建成员与非成员标注数据，并融合 CodeBLEU、编辑距离、测试通过率、困惑度等专家特征与 CodeBERT 嵌入语义特征进行集成学习，判断样本是否进入目标模型训练集。在八个代码生成基准上，CGMIA 多数情况下优于八种现有成员推理方法，并有效检出 StarCoder-7B 训练数据中已知泄漏的 APPS 样本。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.09865",
-      "aisafetyhot": "https://aisafetyhot.com/items/cb6xutj19gt10ha6va08gnf6w"
-    },
-    "publishedAt": "2026-09-09T08:16:51.000Z",
-    "timelineAt": "2026-09-30T22:20:33.505Z",
-    "discoveredAt": "2026-09-30T22:20:33.505Z"
   },
   {
     "arxivId": "2609.09556",
@@ -6599,46 +6238,6 @@
     "publishedAt": "2026-09-23T21:43:02.000Z",
     "timelineAt": "2026-10-01T10:16:09.476Z",
     "discoveredAt": "2026-10-01T10:16:09.476Z"
-  },
-  {
-    "arxivId": "2609.12367",
-    "title": "Membership Inference via Pairwise Likelihood Ratios",
-    "titleZh": "PL-MIA：基于成对似然比的成员推理攻击",
-    "authors": [
-      "Shengjie Niu"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 Pairwise Likelihood MIA（PL-MIA），将高斯似然比（GLR）统计量与总体校准、Cauchy 组合检验结合，用于审计机器学习模型的成员隐私风险。该方法对查询点与未参与训练的参考点做成对比较得到 p 值，再用 Cauchy 组合检验聚合连续信号，保留被二值投票丢弃的证据强度。实验显示，在低假阳性关键区间，PL-MIA 的真阳性率（TPR）较强基线提升超过 25%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.12367",
-      "aisafetyhot": "https://aisafetyhot.com/items/aad2md4tj0ce03ppauji41pw9"
-    },
-    "publishedAt": "2026-09-11T02:38:07.000Z",
-    "timelineAt": "2026-09-30T22:20:33.484Z",
-    "discoveredAt": "2026-09-30T22:20:33.484Z"
-  },
-  {
-    "arxivId": "2609.11780",
-    "title": "Predicting Privacy Leakage from Weight Spectral Density",
-    "titleZh": "用权重谱密度预测隐私泄露：WeightWatcher 谱指标可作为成员推理攻击脆弱性的代理",
-    "authors": [
-      "Richard J. Preen"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究发现，来自重尾自正则化框架的 WeightWatcher 谱指标可替代昂贵的影子模型，用于评估机器学习模型的成员推理攻击（MIA）风险。在图像与表格分类任务上，stable rank 与整体 MIA 成功率呈强正相关，Log alpha-Norm 在低假阳性区间与 MIA 脆弱性持续负相关，且这两种关联均强于泛化差距所给出的结果。这表明神经网络谱中包含过拟合常规指标未能捕捉的隐私泄露信息，为可扩展的隐私审计提供了新方向。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.11780",
-      "aisafetyhot": "https://aisafetyhot.com/items/jhlk4n4jlln2m69hr2sv6rrbd"
-    },
-    "publishedAt": "2026-09-10T16:34:25.000Z",
-    "timelineAt": "2026-09-30T22:20:33.489Z",
-    "discoveredAt": "2026-09-30T22:20:33.489Z"
   },
   {
     "arxivId": "2608.04314",
@@ -7195,26 +6794,6 @@
     "publishedAt": "2026-09-08T08:18:38.000Z",
     "timelineAt": "2026-10-01T10:13:06.862Z",
     "discoveredAt": "2026-10-01T10:13:06.862Z"
-  },
-  {
-    "arxivId": "2609.15818",
-    "title": "Atria Dawn: The Dawn of Agentic Superintelligence",
-    "titleZh": "Atria Dawn Preview：智能体超级智能的黎明",
-    "authors": [
-      "Honglin Guo"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究团队发布面向科研与工程工作流的基础智能体语言模型 Atria Dawn Preview，通过可验证经验管线将工具交互连接到可执行环境与外部验证结果。该模型在覆盖真实科研、工程与数字工作的 16 项基准中与前沿智能体相当，并在其中 5 项取得已报告最高分。基于 56 名参与者、769 条任务记录的分析显示，约三分之一 AI 辅助完成的任务被参与者评为无 AI 则不可行，智能体常提出方法并实施修改，但最终决策仍由人类保留。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.15818",
-      "aisafetyhot": "https://aisafetyhot.com/items/qeippwmzajgzh7ozqgai50f1h"
-    },
-    "publishedAt": "2026-09-14T16:22:30.000Z",
-    "timelineAt": "2026-09-30T22:20:33.493Z",
-    "discoveredAt": "2026-09-30T22:20:33.493Z"
   },
   {
     "arxivId": "2608.15844",
@@ -7898,26 +7477,6 @@
     "discoveredAt": "2026-10-01T10:16:09.445Z"
   },
   {
-    "arxivId": "2609.36958",
-    "title": "VStress: Correlation-Aware Auditing and Adaptive Budget Allocation for Repeated Verifiers",
-    "titleZh": "VStress：面向重复验证器的相关性感知审计与自适应预算分配",
-    "authors": [
-      "Miaobo Hu"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "VStress 是一套可审计的重放契约，其 VStress-CA 策略在密封校准集上估计未查询验证器的条件边际信息，按调用成本归一化，并在下一次调用无信息量时停止或弃权。在 35% 对称污染下，majority-5 将平衡准确率从 0.6578 提升至 0.7739，而在 65% 污染下反而损失 0.1226 点。匹配固定预算对比中，广度、冗余与自适应分配分别取得 0.6048、0.6375 和 0.6538 的平衡准确率，VStress-CA 每项调用 3.4216 次，RLVR 得分为 0.6417。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.36958",
-      "aisafetyhot": "https://aisafetyhot.com/items/btvngef948q7fwo81u1mtn9zd"
-    },
-    "publishedAt": "2026-09-29T07:59:03.000Z",
-    "timelineAt": "2026-09-30T22:20:33.568Z",
-    "discoveredAt": "2026-09-30T22:20:33.568Z"
-  },
-  {
     "arxivId": "2609.39544",
     "title": "Growing an Agent/Prover Interface: Evolutionary Tool Design for Cost-Efficient Theorem Proving in Rocq and Lean",
     "titleZh": "用进化方法为 Rocq 和 Lean 设计智能体/证明器接口，降低定理证明成本",
@@ -8124,26 +7683,6 @@
     "publishedAt": "2026-09-21T17:56:53.000Z",
     "timelineAt": "2026-10-01T10:21:12.764Z",
     "discoveredAt": "2026-10-01T10:21:12.764Z"
-  },
-  {
-    "arxivId": "2609.13271",
-    "title": "CANAL: Channel-Aware Noise Allocation for Differentially Private Feature Distillation in Medical Image Segmentation",
-    "titleZh": "CANAL：面向医学图像分割差分隐私特征蒸馏的通道感知噪声分配",
-    "authors": [
-      "Armaghan Butt"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "CANAL 是一种面向医学图像分割的差分隐私特征蒸馏方法，通过每张图像仅释放一次、按任务梯度能量对通道做注水式噪声分配，并给出诚实计入隐私预算的拆分，在相同隐私预算下比均匀噪声保留更多任务相关信号。该方法针对此前流程中学生每次迭代重采样噪声导致隐私成本成倍复合、均匀噪声浪费通道重要性差异、以及裁剪阈值与重要性分数本身数据相关却明文释放这三个被忽视的问题。在皮肤镜、结肠镜和超声三个医学分割基准上验证了效果。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.13271",
-      "aisafetyhot": "https://aisafetyhot.com/items/vvsmsal4k14akxdqtgi574mkg"
-    },
-    "publishedAt": "2026-09-07T17:51:01.000Z",
-    "timelineAt": "2026-09-30T22:20:33.621Z",
-    "discoveredAt": "2026-09-30T22:20:33.621Z"
   },
   {
     "arxivId": "2609.11085",
@@ -8580,86 +8119,6 @@
     "publishedAt": "2026-09-11T13:35:27.000Z",
     "timelineAt": "2026-10-01T10:12:06.395Z",
     "discoveredAt": "2026-10-01T10:12:06.395Z"
-  },
-  {
-    "arxivId": "2609.27234",
-    "title": "Discover, Falsify, Revise: Auditing Input-Use Claims from Source Code to Predictive Contribution in Agent-Discovered Cell Models",
-    "titleZh": "CELLAUDIT：审计 AI 智能体发现细胞模型中的输入使用声明",
-    "authors": [
-      "Mengran Li"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "CELLAUDIT 通过审计输入能否进入所引计算、拟合预测是否依赖该输入、以及该依赖是否改善对观测响应的预测，来检验 AI 智能体发现细胞模型中的输入使用声明。在 BBBC047 基准上，智能体选出的预测器平均留出 Global PCC 为 0.3153，但对化合物替换保持不变，仅用对照谱的预测器也达到 0.3142；源码检查发现化合物查询通路被 singleton key-value attention 阻断。对 48 个候选的分层审计中，47 个在化合物替换下改变预测，但仅 20 个在两折上目标损失增益区间高于零。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.27234",
-      "aisafetyhot": "https://aisafetyhot.com/items/y5toksmlri6jpns4ryc10rqi9"
-    },
-    "publishedAt": "2026-09-23T02:07:27.000Z",
-    "timelineAt": "2026-09-30T22:20:33.440Z",
-    "discoveredAt": "2026-09-30T22:20:33.440Z"
-  },
-  {
-    "arxivId": "2609.12620",
-    "title": "Correlation-Guided Fast Machine Unlearning via Hessian Analysis",
-    "titleZh": "基于 Hessian 分析的相关性引导快速机器遗忘",
-    "authors": [
-      "Ayushi Thakur"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一种面向网络与分布式安全系统的机器遗忘框架通过识别训练集中的相关数据点并应用闭式参数更新规则，相比标准影响函数遗忘实现 82 倍墙钟加速，准确率较 SOTA 基线提升 10^-2。该方法借助 Hessian 阻尼保证数值稳定性，在包括 CIFAR-100 与 ResNet-50 在内的七种数据集-架构组合上评估，成员推理攻击成功率为 0.660，tug-of-war 得分为 0.950。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.12620",
-      "aisafetyhot": "https://aisafetyhot.com/items/ahxzou4w0l48a3vq32vf0tbe5"
-    },
-    "publishedAt": "2026-09-11T09:21:30.000Z",
-    "timelineAt": "2026-09-30T22:20:33.479Z",
-    "discoveredAt": "2026-09-30T22:20:33.479Z"
-  },
-  {
-    "arxivId": "2609.10935",
-    "title": "Empirical Evaluation of Membership Inference Attacks on NLP Text Classifiers: A Baseline Study on SST-2",
-    "titleZh": "针对 NLP 文本分类器的成员推理攻击实证评估：SST-2 基线研究",
-    "authors": [
-      "William Novak"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项在 GLUE SST-2 情感数据集上的受控基准测试比较了 TF-IDF + Logistic Regression 与微调 DistilBERT 在 loss-threshold 成员推理攻击（MIA）下的隐私泄露情况。DistilBERT 开发集准确率 0.9466、macro F1 0.9460，Logistic Regression 为 0.8756 和 0.8727，但两者均泄露成员信号，攻击 AUC 分别为 0.5615 和 0.5800。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.10935",
-      "aisafetyhot": "https://aisafetyhot.com/items/a9kr3jkr4kmqj9mgo0mkm9veq"
-    },
-    "publishedAt": "2026-09-10T00:53:20.000Z",
-    "timelineAt": "2026-09-30T22:20:33.499Z",
-    "discoveredAt": "2026-09-30T22:20:33.499Z"
-  },
-  {
-    "arxivId": "2609.09564",
-    "title": "Robust Industrial Cyber Physical Classification Using Neuromorphic Temporal Embeddings and Hybrid SNN XGBoost Under Machine Unlearning Attacks",
-    "titleZh": "基于神经形态时序嵌入与混合 SNN-XGBoost 的工业信息物理系统鲁棒分类：面向机器遗忘攻击",
-    "authors": [
-      "Ammar Kamoona"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出一种混合 SNN 与 XGBoost 架构，用脉冲神经网络做固定时序特征提取器、仅重训 XGBoost 分类器，以提升电力系统入侵检测对机器遗忘攻击的鲁棒性。在两个真实电力系统数据集上，Synchrophasor 达 99.9% 准确率（F1-macro 0.999），MSU/ORNL 达 95.0% 准确率（F1-macro 0.943）。在选择性标签翻转攻击下，10% 投毒时 F1-macro 仅下降 0.9%，目标类崩溃阈值从 60% 投毒推迟到 70%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.09564",
-      "aisafetyhot": "https://aisafetyhot.com/items/gjgnvlc98zcncmunzji621m6s"
-    },
-    "publishedAt": "2026-09-09T00:43:44.000Z",
-    "timelineAt": "2026-09-30T22:20:33.574Z",
-    "discoveredAt": "2026-09-30T22:20:33.574Z"
   },
   {
     "arxivId": "2609.05702",
@@ -9107,26 +8566,6 @@
     "publishedAt": "2026-09-28T05:04:46.000Z",
     "timelineAt": "2026-10-01T10:16:09.338Z",
     "discoveredAt": "2026-10-01T10:16:09.338Z"
-  },
-  {
-    "arxivId": "2609.10952",
-    "title": "Empirical Evaluation of Data Poisoning Attacks in Supervised Learning",
-    "titleZh": "监督学习中的数据投毒攻击实证评估：标签翻转与后门投毒在 MNIST 和 Fashion-MNIST 上的对比",
-    "authors": [
-      "Toshif Khan"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究在 MNIST 和 Fashion-MNIST 上评估了标签翻转与后门投毒两类训练时攻击，对比 Logistic Regression、Linear SVM 和 Random Forest 三种基线分类器，投毒率设为 5%、10% 和 20%。标签翻转导致明显性能下降，Logistic Regression 和 Linear SVM 受影响最大，Random Forest 相对稳定；后门投毒在全部数据集和模型上攻击成功率达 0.9667 至 1.0000，且干净测试性能常接近基线。结果表明无差别投毒会体现在常规指标中，而定向后门投毒更具隐蔽性，需采用面向安全的评估方法。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.10952",
-      "aisafetyhot": "https://aisafetyhot.com/items/sh9ht4hninsqcsygduyixld05"
-    },
-    "publishedAt": "2026-09-10T01:21:52.000Z",
-    "timelineAt": "2026-09-30T22:20:33.494Z",
-    "discoveredAt": "2026-09-30T22:20:33.494Z"
   },
   {
     "arxivId": "2609.23561",
