@@ -1,7 +1,7 @@
 {
   "note": "days 是网站上每天（北京时间，按 timelineAt 分天）进站、判定为 AI 安全的论文：信源为 arXiv、Hugging Face Daily Papers 和论文追踪，同一篇 arXiv 论文一天只算一次（arXiv 编号取网站 /api/site/items/<id> 的 links.original；留哪一条：精选优先，再按网站的 score 高，非精选也按 score，再按 timelineAt 早，最后按 id 字典序）。ids 是网站条目 id（网站上的 /items/<id>），按字典序排列；idsSha256 是排好的 ids 用换行连起来（末尾不加换行）的 SHA-256。论文在网站上出现以后（从第一次能在网站上看到算起，不是 timelineAt：回填的论文 timelineAt 早于出现的时间），slaMinutes 分钟内应出现在 papers/<年>/<日期>.json。这个文件只在内容变化时随那次提交更新；generatedAt 是那次生成的时间，siteFetchedAt 是读网站接口的时间。",
-  "generatedAt": "2026-10-05T19:20:31.592Z",
-  "siteFetchedAt": "2026-10-05T19:20:28.287Z",
+  "generatedAt": "2026-10-05T20:17:55.876Z",
+  "siteFetchedAt": "2026-10-05T20:17:52.528Z",
   "slaMinutes": 60,
   "days": {
     "2026-10-06": {
@@ -423,8 +423,8 @@
       ]
     },
     "2026-10-01": {
-      "count": 276,
-      "idsSha256": "cee8ee0295b043040757a8f05e24305d271a0243549d626297a384117c59e217",
+      "count": 271,
+      "idsSha256": "dc97150ee7bc251ae0805e577e7711fbc6a468a05aa3092a038e2843362f7c9a",
       "ids": [
         "a86y4fm0nktn8fsoyi7gk58wj",
         "a9sqi3c1w8zepvy7fnxizbrn9",
@@ -461,7 +461,6 @@
         "daerddxyxnd9xxc349bgmkgs3",
         "ddfra0r4nq7n0sahexdj8n51k",
         "dfpvw5fcl9v5kl4bekgz8qyz3",
-        "dghleee5aiua369ib6nqg8tw1",
         "dgm6jvt3ic9mfik96w6gslqyw",
         "djwhh6hblrevqulngrhfllcce",
         "dk5yzdruigjfi6aehlw0pd49y",
@@ -545,7 +544,6 @@
         "ky6ht0faddyi5yyago5mhud6m",
         "l3sbcmbtlnqr4ucflzj9590cw",
         "l5d96wv8rfonaue4z2stq43s1",
-        "l7nwhivn3z6bt17hz3mij7att",
         "l98vlxegolanlsqg6wbsl62cr",
         "lgcdke09kppe6olysd1ue9lhn",
         "li6fny56cwrvhbm6jbqtev24a",
@@ -561,7 +559,6 @@
         "m5vq1gv30k3lmdteb23msj5at",
         "mbpi4kc0ky9vxqqrlijc1c0jd",
         "md3xllqrjg4nbv14m2a0t9xva",
-        "mdpt4r6i5loacigd2x3w1xnww",
         "meru3fcmoqjetkzppjqptw2ne",
         "meydmw1swsz45vwsmh5ea78tg",
         "mg10wfmwsqtjgtfz2h92bxwp8",
@@ -620,7 +617,6 @@
         "sbgqf7q2q5ykoe2vrtlq7m0ww",
         "sc8p4otfjwjs9h30i4s4izdy2",
         "scnhsd3gfbg6ozle2b9rl5t51",
-        "seltvgtzoigcfqxs5olpqbbi8",
         "sez6mdkitgj2vmmh0afe0z599",
         "sgdzhhs4f0lp1ipoxpygo2ixb",
         "sgs2pt4xizucddug2vlkw20wf",
@@ -692,7 +688,6 @@
         "yv24crc7go0rrwq6mgaszj9js",
         "yw90v6vtuu7kg18j4ugt3w3kr",
         "yxlvh7nj7ac3vllqydzdsc5y5",
-        "yziiwy7ulfadfm0fqajeds50m",
         "z0k8v299h5rfe6bfjami5dqfj",
         "z4qg9co4572156l1qdz9dy8av",
         "z8a6lb6dtroq9izzhnk6d1vbj",

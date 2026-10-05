@@ -2515,46 +2515,6 @@
     "discoveredAt": "2026-10-01T10:12:06.259Z"
   },
   {
-    "arxivId": "2609.15064",
-    "title": "What Does an LLM Learn from Reinforcement Learning? A Mechanistic Interpretability Perspective with Fixed-SAE Track",
-    "titleZh": "Fixed-SAE Track：从机制可解释性看 LLM 从强化学习中学到了什么",
-    "authors": [
-      "Lingheng Du"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 Fixed-SAE Track 框架，在每个考察层上基于基座模型与全部 RL checkpoint 的激活训练一个共享 SAE，固定特征方向以严格定义表征漂移。在多个数据集和 RL 算法上验证发现，RL 引起的漂移幅度小、渐进、与概念相关且集中在后层，主要提升一小批 ladder token 及步骤分隔、答案定界符等格式脚手架特征的采样率，而非重塑问题内容。把这些特征引导进基座模型可恢复约 80% 的 RL 性能增益，说明 RL 主要是激发模型已有能力。作者还设计了一个特征已知的合成基准，用于检验 RL 能否真正引入全新特征。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.15064",
-      "aisafetyhot": "https://aisafetyhot.com/items/seltvgtzoigcfqxs5olpqbbi8"
-    },
-    "publishedAt": "2026-09-14T05:29:45.000Z",
-    "timelineAt": "2026-10-01T04:33:28.977Z",
-    "discoveredAt": "2026-10-01T04:33:28.977Z"
-  },
-  {
-    "arxivId": "2609.12591",
-    "title": "Where Decoder Cosine Similarity Fails for SAE Feature Flow Discovery",
-    "titleZh": "研究指出解码器余弦相似度在 SAE 特征流发现中的失效",
-    "authors": [
-      "Hendrik Droste"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究以 MLP 更新为切入点，构建残差状态特征与更新特征共同预测目标残差特征的三元组转移图谱，并通过消融解码后的更新特征来验证候选三元组。在 Pythia-160M 的 L7 到 L8、20M token 实验中，共发现 38,125 个强消融效应转移，但其中 88.0% 的状态-目标与更新-目标解码器余弦相似度都低于 0.7。作为跨模型初步检验，Gemma-3-4B 的 L21 到 L22、20M token 实验只对排名前 30,000 的候选三元组做因果验证，强效应三元组中有 53.6% 的两项余弦相似度均低于 0.7。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.12591",
-      "aisafetyhot": "https://aisafetyhot.com/items/mdpt4r6i5loacigd2x3w1xnww"
-    },
-    "publishedAt": "2026-09-11T08:44:13.000Z",
-    "timelineAt": "2026-10-01T04:33:29.004Z",
-    "discoveredAt": "2026-10-01T04:33:29.004Z"
-  },
-  {
     "arxivId": "2609.10299",
     "title": "A Dominant Diffuse Phase in the Sparse Autoencoder Phase Diagram",
     "titleZh": "SAE 相图实验未观察到字典恢复或特征合并，训练模型收敛到弥散相",
@@ -4892,26 +4852,6 @@
     "discoveredAt": "2026-10-01T10:12:06.333Z"
   },
   {
-    "arxivId": "2609.14151",
-    "title": "Signatures of Steerability in Activation Space of Language Models",
-    "titleZh": "语言模型激活空间中的可操控性特征",
-    "authors": [
-      "Prajjwal Bhattarai"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究证明，简单的分离度指标与语言模型的下游可操控性在不同设置下均强相关，即便控制层数和数据集效应后依然成立。基于合成叠加实验，分离度指标与经验特征方向和真实特征方向之间的一致性也高度相关。结果表明，这类可分离性统计量可作为判断 steering vector 何时有效的实用诊断工具。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.14151",
-      "aisafetyhot": "https://aisafetyhot.com/items/dghleee5aiua369ib6nqg8tw1"
-    },
-    "publishedAt": "2026-09-12T21:06:55.000Z",
-    "timelineAt": "2026-10-01T04:33:28.987Z",
-    "discoveredAt": "2026-10-01T04:33:28.987Z"
-  },
-  {
     "arxivId": "2609.08879",
     "title": "Medical AI Encodes a \"Feeling of Error\": Verifying Cancer Segmentation via Internal Concepts",
     "titleZh": "医学 AI 编码“错误感”：用内部概念验证癌症分割",
@@ -5337,26 +5277,6 @@
     "discoveredAt": "2026-10-01T10:21:12.764Z"
   },
   {
-    "arxivId": "2609.11085",
-    "title": "Beyond Solver Verdicts: Generative Reward Models for Autoformalization",
-    "titleZh": "超越求解器判定：面向自动形式化的生成式奖励模型",
-    "authors": [
-      "Vikash Singh"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出 Verdict-Preserving-Unfaithfulness（VPU）失效模式：错误的形式化翻译仍能通过求解器并得到预期判定，并证明仅依据判定的结构性验证启发式检测能力在数学上被限制在随机水平。为此提出 Generative Verification（GenV），将离线 Z3 等价性 oracle 蒸馏为无参考的连续参考等价性评分，机制分析显示其可原生提取精确的空间错误坐标。oracle 挖掘的验证器 GenV+HN 在参考等价性验证上达到 0.961 AUROC，零样本泛化到未见翻译器与不同形式风格，并在智能体测试时算力分配上带来 11.3 个百分点的下游准确率提升。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.11085",
-      "aisafetyhot": "https://aisafetyhot.com/items/yziiwy7ulfadfm0fqajeds50m"
-    },
-    "publishedAt": "2026-09-10T04:47:55.000Z",
-    "timelineAt": "2026-10-01T04:33:29.023Z",
-    "discoveredAt": "2026-10-01T04:33:29.023Z"
-  },
-  {
     "arxivId": "2609.37501",
     "title": "Evaluating Bounded Autonomy in Regulated Agentic AI: A Diagnostic Harness with Constitutional Rewards, Escalation Labels, and Runtime Governance",
     "titleZh": "RegLLM：面向受监管智能体 AI 的有限自主性诊断测试框架",
@@ -5373,26 +5293,6 @@
     "publishedAt": "2026-09-27T20:00:00.000Z",
     "timelineAt": "2026-10-01T11:14:11.995Z",
     "discoveredAt": "2026-10-01T11:14:11.995Z"
-  },
-  {
-    "arxivId": "2609.13556",
-    "title": "Domain-Specific Jargon in Large Language Models: A Comparative Analysis between General-Purpose and Specialist Models",
-    "titleZh": "Llama-3.1 医学微调模型在专业术语理解上为何不如通用版：一项机制可解释性对比分析",
-    "authors": [
-      "Darin Keng"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究构建两个医学术语评测基准，对比通用版 Llama-3.1 与医学数据微调变体，发现通用模型在两项任务上均优于医学微调模型。机制可解释性分析显示，微调模型未重组参数知识，而是过度依赖少数与术语偏好预测相关的组件，造成系统性校准偏差；对这些组件重新加权可抑制其影响并追平通用基线。部分术语敏感组件还能迁移至材料科学术语任务，提示其编码了部分领域无关的专业术语概念。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.13556",
-      "aisafetyhot": "https://aisafetyhot.com/items/l7nwhivn3z6bt17hz3mij7att"
-    },
-    "publishedAt": "2026-09-11T21:35:04.000Z",
-    "timelineAt": "2026-10-01T04:33:28.996Z",
-    "discoveredAt": "2026-10-01T04:33:28.996Z"
   },
   {
     "arxivId": "2609.20095",
