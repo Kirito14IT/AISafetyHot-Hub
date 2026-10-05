@@ -2296,6 +2296,24 @@
     "discoveredAt": "2026-10-05T06:08:21.796Z"
   },
   {
+    "arxivId": "2610.03240",
+    "title": "Collective Bias Mitigation via Model Routing and Collaboration",
+    "titleZh": "通过模型路由与协作实现集体偏见缓解",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出集体偏见缓解（CBM）框架，通过学习细粒度模型行为并在多个 LLM 间共享知识来减轻偏见，是首个系统探索如何有效选择与组织不同 LLM 以生成更公平回答的工作。实验显示 CBM 显著优于单模型基线，在 top-7 设置下 Committee 拓扑将年龄偏见分数从 0.25 降至 0.10，Debating 与 Committee 拓扑均实现大幅偏见削减，其中 Committee 兼顾缓解效果与推理成本。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03240",
+      "aisafetyhot": "https://aisafetyhot.com/items/u99ktawm16udnnslpypxxkjdv"
+    },
+    "publishedAt": "2026-10-01T20:00:00.000Z",
+    "timelineAt": "2026-10-05T11:46:39.234Z",
+    "discoveredAt": "2026-10-05T11:46:39.234Z"
+  },
+  {
     "arxivId": "2610.03434",
     "title": "Persona Guardrail: A Production-Grade Defense Framework for Agentic Systems",
     "titleZh": "Persona Guardrail：面向智能体系统的生产级防御框架",
