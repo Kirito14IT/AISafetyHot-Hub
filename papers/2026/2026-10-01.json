@@ -330,54 +330,6 @@
     "discoveredAt": "2026-10-01T10:12:06.310Z"
   },
   {
-    "arxivId": "2609.38899",
-    "title": "SceneJail: Exploiting Video Scenario Context to Jailbreak Multimodal LLMs",
-    "titleZh": "SceneJail：利用视频场景上下文越狱多模态大模型",
-    "authors": [
-      "Wenyu Chen",
-      "Li Wang",
-      "Chuanchao Zang",
-      "Xiangtao Meng",
-      "Xinyu Gao",
-      "Jianing Wang",
-      "Zheng Li",
-      "Shanqing Guo"
-    ],
-    "category": "attack",
-    "selected": true,
-    "attention": 80,
-    "summaryZh": "研究者提出 SceneJail，一个自适应黑盒越狱框架，把视频中的周边场景而非有害查询的呈现方式当作攻击面：同一有害查询放在不同视频场景中，会得到不同的安全响应。框架由两部分组成：自适应场景构建搜索与有害查询语境相容的场景，场景感知提示搜索再根据黑盒响应反馈为该场景搜索文本引导。在 HADES 和 SafeBench 数据集、八个 Video-MLLM（含 GPT-4.1 和 Gemini 3.5 Flash 两个闭源模型）上，持续完整呈现查询的 SceneJail-F 平均攻击成功率最高 91.5%，比最强基线高 29.1 个百分点；把查询分散到连续帧的 SceneJail-S 在严格图像过滤下仍保持 72.3%。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "现有视频越狱方法主要将视频作为文本载体，忽略了周围视频情境对模型判断的影响。相同恶意查询在不同视频情境下会诱发不同的安全响应，导致模型可能将违规查询误认为情境任务的一部分。",
-          "label": "问题"
-        },
-        {
-          "text": "SceneJail保持原始查询内容不变，通过自适应情境构建动态匹配并生成视频情境与载体，再利用情境感知提示词搜索机制，基于黑盒反馈交替进行历史提示词复用与新提示词生成。",
-          "label": "方法"
-        },
-        {
-          "text": "在HADES和SafeBench上对8个视频MLLM评测，SceneJail-F的平均ASR达到91.47%和78.90%。分帧呈现的SceneJail-S在图像过滤防御下仍保持72.25%的平均ASR。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "作者指出搜索与生成带来额外开销，且实验采用受控的视频构建流程，未覆盖真实自然视频与更长时序上下文。实验评测覆盖8个模型、2个基准与3种防御。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.38899"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38899",
-      "aisafetyhot": "https://aisafetyhot.com/items/agn8ii2mp4ryzxi7uf0odb00i"
-    },
-    "publishedAt": "2026-09-30T03:47:17.000Z",
-    "timelineAt": "2026-10-01T01:22:33.366Z",
-    "discoveredAt": "2026-10-01T01:22:33.366Z"
-  },
-  {
     "arxivId": "2609.26457",
     "title": "Recursive self-improvement of AI research agents",
     "titleZh": "Weco AI 提出 AIDE2：AI 研究智能体递归自我改进 8 天获七次提升",
@@ -962,55 +914,6 @@
     "discoveredAt": "2026-10-01T12:21:23.515Z"
   },
   {
-    "arxivId": "2609.38253",
-    "title": "CollageAttack: Exploiting Cross-Modal Alignment Flaws in T2I Models through Spatial Text Composition",
-    "titleZh": "CollageAttack：利用跨模态对齐缺陷对 T2I 模型实施空间文本组合越狱",
-    "authors": [
-      "Zhiyi Mou",
-      "Yao Lu",
-      "Wangze Ni",
-      "Di Hong",
-      "Dakun Shen",
-      "Haoyang Li",
-      "Chen Jason Zhang",
-      "Alexander Zhou",
-      "Kui Ren"
-    ],
-    "category": "attack",
-    "selected": true,
-    "attention": 76,
-    "summaryZh": "浙江大学与香港理工大学的研究者提出 CollageAttack，一种单提示词黑盒越狱方法，把有害意图拆成不完整的文本片段，分散放置在场景中自然存在的载体上，让语义在图像平面通过空间组合重新显现。在 GPT-Image-2、Doubao-Seedream-5.0-Lite、Wan2.7-Image-Pro、HiDream-O1-Image 和 FLUX.2 [dev] 五款 T2I 模型上，该方法在全部目标上取得最高攻击成功率，聚合 ASR 为 77.0%，最高达 86.0%，比同模型最强基线高 18.5 个百分点。跨模型平均有害性评分为 6.12/10，高于最强基线的 4.23/10；在 HiDream-I1 上为 5.38 对 1.69。消融显示，单独使用任一组件的有害性得分分别为 0.25、5.47 和 0.53，三者组合达到 6.41。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "现有T2I模型黑盒越狱多在提示词文本域操作，忽略了模型在图像中渲染文本并与视觉场景组合的能力。序列化检查难以识别分布在不同载体上的离散碎片，导致有害语义能在图像二维平面组合显现。",
-          "label": "问题"
-        },
-        {
-          "text": "CollageAttack提出单提示词黑盒攻击：通过上下文感知场景构建视觉背景，分配3至5个海报或标牌等承载表面，再将有害表达切分为3至4个短语碎片并指定排版与摆放，促成图像层面的空间重组。",
-          "label": "方法"
-        },
-        {
-          "text": "在5个商业与开源T2I模型上，CollageAttack的ASR达57.5%至86.0%，均高于基线；平均有害性评分达4.96至6.85；在各模型上有超过半数生成图像的视觉传播冲击力被评为强于源文本。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "论文未专门设立章节讨论局限。在评测中，针对初始无害样本最多进行3次评估并保留首个有害判断，作者指出可能虚增ASR；实验仅覆盖5个T2I模型与DGHS抽样的200条仇恨言论。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.38253"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38253",
-      "aisafetyhot": "https://aisafetyhot.com/items/uyybs6g03bbcb43exrv71pzzo"
-    },
-    "publishedAt": "2026-09-29T08:23:01.000Z",
-    "timelineAt": "2026-10-01T01:22:33.417Z",
-    "discoveredAt": "2026-10-01T01:22:33.417Z"
-  },
-  {
     "arxivId": "2609.07529",
     "title": "CoER: Defending against Adaptive Indirect Prompt Injection via Adversarial Co-Evolution and Refinement",
     "titleZh": "CoER：用对抗协同演化与精炼防御自适应间接提示注入",
@@ -1447,76 +1350,6 @@
     "publishedAt": "2026-09-09T03:00:25.000Z",
     "timelineAt": "2026-10-01T10:12:06.456Z",
     "discoveredAt": "2026-10-01T10:12:06.456Z"
-  },
-  {
-    "arxivId": "2609.38971",
-    "title": "Refusals That Bend: Measuring and Predicting Task Malleability in Embodied VLM Planners",
-    "titleZh": "研究测量并预测具身 VLM 规划器中任务的拒答可变性",
-    "authors": [
-      "Leo Y. Lin",
-      "Mikhail Kuznetsov",
-      "Muslum Ozgur Ozmen",
-      "Z. Berkay Celik"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者在无像素、梯度或提示词对抗控制的条件下，向环境中放入单个日常物品，考察宪法护栏下的具身视觉语言模型规划器已做出的拒答能否被推翻。在 846 个初始遭拒的任务中，20.2% 可由一个或多个物品翻转为服从，所需物品数量因任务而异；固定列表随机抽取的物品在不了解环境和指令的情况下也能达到相近的安全绕过量级。作者将这种易感性称为任务的 malleability，并用小型开源 VLM 读取的信号组合来提前预测，识别率约为随机的 2.4 倍，建议部署前逐任务评估。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38971",
-      "aisafetyhot": "https://aisafetyhot.com/items/uwznzi2p37fcw3dkh3c8ggirq"
-    },
-    "publishedAt": "2026-09-30T04:44:22.000Z",
-    "timelineAt": "2026-10-01T01:22:33.353Z",
-    "discoveredAt": "2026-10-01T01:22:33.353Z"
-  },
-  {
-    "arxivId": "2609.38645",
-    "title": "Alignment via Training Against Probes Without Losing Monitorability",
-    "titleZh": "用探针引导微调对齐模型且不损失可监控性",
-    "authors": [
-      "Lena Libon",
-      "Alexander Panfilov",
-      "Ben Rank",
-      "Xin Chen",
-      "Jonas Geiping",
-      "Maksym Andriushchenko"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文研究以探针检测模型激活中的不良属性作为直接训练信号，即探针引导微调，并在无害性和诚实性两个对齐目标上评估线性与非线性探针及每层探针数量的影响。结果显示，针对训练中不更新的探针进行训练是容易被利用的目标，而持续更新的探针能显著降低有害性、提升诚实性并保持效用。该方法在安全与效用的权衡上优于 DPO 和推理时引导，且对越狱和消融攻击更为鲁棒。微调后相关概念仍以线性方式编码，说明该方法没有丧失可监控性。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38645",
-      "aisafetyhot": "https://aisafetyhot.com/items/ozn7rj5726mtug284tp95spun"
-    },
-    "publishedAt": "2026-09-29T23:03:54.000Z",
-    "timelineAt": "2026-10-01T01:22:33.395Z",
-    "discoveredAt": "2026-10-01T01:22:33.395Z"
-  },
-  {
-    "arxivId": "2609.38526",
-    "title": "Revisiting scaling laws for reward optimization",
-    "titleZh": "研究重访奖励优化的缩放律：性能随偏好数据量与 KL 预算变化",
-    "authors": [
-      "Ali Aouad",
-      "Aymane El Gadarri",
-      "Vivek F. Farias"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文重新审视 AI 对齐中针对奖励模型优化的缩放律，提出性能大致按 Θ(√min{log(M),K}) 缩放，其中 M 是训练数据中的比较次数，K 是策略相对参考策略的 KL 散度预算。作者用信息论模型建立该上界，并证明可通过构造性过程紧致达到。实证部分采用真实标注设置，由 70B 金标奖励模型生成反馈数据，再用能力较弱的 0.6B 至 4B 模型训练代理奖励模型，缩放律拟合 R2 达 97% 至 99%，优于其他设定，并在不同模型规模、噪声和 best-of-N 或策略倾斜等优化方式下保持稳健。作者据此认为奖励优化类似于一个简单的选择任务，即依据带噪偏好反馈从一串独立同分布高斯随机变量中挑选。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38526",
-      "aisafetyhot": "https://aisafetyhot.com/items/cwqrfi2cg953nku4w1nbxeift"
-    },
-    "publishedAt": "2026-09-29T20:43:25.000Z",
-    "timelineAt": "2026-10-01T01:22:33.571Z",
-    "discoveredAt": "2026-10-01T01:22:33.571Z"
   },
   {
     "arxivId": "2609.38411",
@@ -4071,31 +3904,6 @@
     "discoveredAt": "2026-10-01T13:14:22.525Z"
   },
   {
-    "arxivId": "2609.38248",
-    "title": "ContractWarden: Kernel-Enforced Damage Boundaries for AI Agents via Human-Authorized Contracts",
-    "titleZh": "ContractWarden：用人类授权契约在内核层为 AI Agent 划定损害边界",
-    "authors": [
-      "Dongxu Cui",
-      "Zhichao Gu",
-      "Ping Zheng",
-      "Wenshuai Xi",
-      "Simeng Han",
-      "Yong Liao"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "ContractWarden 是一个 Linux 参考监视器，通过人类授权的契约在内核层为 AI Agent 划定损害边界，不信任 Agent 本身或其策略建议。模型可以提出 allow、deny 或 no_egress 三态资产契约，但由人类做最终选择；执行门在不可信代码运行前把契约绑定到具体任务，再由基于 eBPF 的 LSM 数据平面执行文件与网络决策，并将 no_egress 沿进程、普通文件、管道、FIFO 和受支持的 Unix-domain socket 单调传播。在 19 项安全测试的 570 次运行中，全部满足预设的返回值与副作用标准。在三项同机文件 I/O 负载上，Linux 6.15 虚拟机中的中位开销为 11.96%–12.89%，物理平台为 35.79%–61.54%，低于所评估的冻结版 ActPlane 基线。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38248",
-      "aisafetyhot": "https://aisafetyhot.com/items/fbtqerfesalf876hmh6ul795z"
-    },
-    "publishedAt": "2026-09-29T07:13:14.000Z",
-    "timelineAt": "2026-10-01T01:22:33.431Z",
-    "discoveredAt": "2026-10-01T01:22:33.431Z"
-  },
-  {
     "arxivId": "2609.38324",
     "title": "Multi-agent discussion gains less when dissent is withheld",
     "titleZh": "研究：多智能体讨论中异议被压制时收益下降",
@@ -4543,26 +4351,6 @@
     "publishedAt": "2026-09-26T15:37:43.000Z",
     "timelineAt": "2026-10-01T10:16:09.376Z",
     "discoveredAt": "2026-10-01T10:16:09.376Z"
-  },
-  {
-    "arxivId": "2609.38239",
-    "title": "Inference-Layer Security: Defending Against Adversarial Inference and Infrastructure Abuse",
-    "titleZh": "推理层安全：防御对抗性推理与基础设施滥用",
-    "authors": [
-      "Keifer Lee"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文研究 LLM 服务在推理层面临的对抗性交互，包括越狱、拒绝服务与知识蒸馏攻击，并以假设的前沿实验室 Five Elements Inc. 为例展开。由于缺少公开的对抗性 LLM 使用标注数据集，作者提出结构因果模型（SCM）生成带标签的用户会话数据集，包含协同多账号活动、平台反馈和三个层级的标签可观测性。在该数据集上训练的梯度提升检测器对 oracle 标签的二元分类 AUPRC 达 0.993，但面对真实 Trust & Safety 团队持有的运营标签时 AUPRC 仅 0.313，说明检测器比用于评估它的标签更准确。攻击类型归因方面，朴素 argmax 受 98% 良性先验主导，macro-F1 仅 0.295，改用简单阈值决策引擎后提升到 0.489 且不损失准确率。数据集已公开。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38239",
-      "aisafetyhot": "https://aisafetyhot.com/items/sel9ej0chkewzvaq34r556trv"
-    },
-    "publishedAt": "2026-09-29T01:55:16.000Z",
-    "timelineAt": "2026-10-01T01:22:33.468Z",
-    "discoveredAt": "2026-10-01T01:22:33.468Z"
   },
   {
     "arxivId": "2609.39548",
@@ -5069,26 +4857,6 @@
     "publishedAt": "2026-08-31T13:48:48.000Z",
     "timelineAt": "2026-10-01T05:14:16.857Z",
     "discoveredAt": "2026-10-01T05:14:16.857Z"
-  },
-  {
-    "arxivId": "2609.38723",
-    "title": "Towards Efficient HPC Systems for Agents: Challenges and Opportunities",
-    "titleZh": "面向智能体的高效 HPC 系统：挑战与机遇",
-    "authors": [
-      "Yunjia Zheng"
-    ],
-    "category": "opinion",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "编码智能体已成为 HPC 系统的真实用户，但现有 HPC 抽象、接口与策略仍为人类工作流设计。测量显示，编码智能体用户仅占观测人群的 19.5%，却贡献了 55.8% 的作业提交、29.1% 的 CPU 核心时和 42.7% 的 GPU 时；其命令下发速率是人类的 20.8 倍，并以细粒度 explore-modify-execute 循环和跨昼夜的试错方式追求开放式目标。这给调度器控制面、元数据密集型 I/O、跨会话记忆复用以及提示注入与策略执行带来压力，作者主张将智能体视为一等主体、以协同设计应对。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.38723",
-      "aisafetyhot": "https://aisafetyhot.com/items/y0eqiig0ku0z37c791dfe4g75"
-    },
-    "publishedAt": "2026-09-30T00:56:48.000Z",
-    "timelineAt": "2026-10-01T01:22:33.384Z",
-    "discoveredAt": "2026-10-01T01:22:33.384Z"
   },
   {
     "arxivId": "2609.01931",
