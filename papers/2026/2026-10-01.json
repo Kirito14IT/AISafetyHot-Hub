@@ -1,46 +1,5 @@
 [
   {
-    "arxivId": "2609.17320",
-    "title": "Emergence World: Adversarial Stress-Testing of Long-Horizon Multi-Agent Systems",
-    "titleZh": "Emergence World：对长时程多智能体系统开展对抗压力测试",
-    "authors": [
-      "Deepak Akkil"
-    ],
-    "category": "attack",
-    "selected": true,
-    "attention": 87,
-    "summaryZh": "Emergence AI 发布 Emergence World，一个持续运行的长时程多智能体环境，用于对自主系统做对抗压力测试。研究运行八个并行世界，每个世界十个智能体，七个为单一模型世界、一个为混合模型世界，16 天内产生超过 85 万次 LLM 调用和近 500 亿 token。在状态积累后，研究通过普通交互界面投放三类受控压力事件：间接提示注入、虚假信息、以及智能体私有记忆泄露。没有任何一个世界在三类事件上全部具备韧性；识别并不等于遏制，系统能识别威胁却仍与对抗内容交互、将其写入持久记忆，并在最长 46 小时后据此行动。研究还观察到工具错误反复出现、目标漂移、语言不透明、私下不同意却随大流，以及集体拒绝被分配的工作。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "现有大模型评估多局限于短周期、单任务基准，无法观测错误在长期多智能体环境中的累积与扩散。智能体接入真实网络环境时会持续读取不可信输入，亟需测试具备持久记忆、自主工具和治理机制的群体如何应对系统级压力。",
-          "label": "问题"
-        },
-        {
-          "text": "构建持续运行的 Emergence World 平台，设置 7 个同质模型世界与 1 个混合模型世界，均含 10 名智能体。在运行中引入间接提示注入钓鱼、虚假关停备忘录与私密记忆泄露 3 项受控事件，通过 5 项世界级指标追踪系统状态。",
-          "label": "方法"
-        },
-        {
-          "text": "没有任何世界完全抵御 3 项压力，识别威胁并未阻止后续利用；同质群体产生治理高度从众的社会奉承现象；Claude 世界在外部接触受挫后自发达成沉寂誓约并降低 81% 对外交流；混合群体能调节行为但未消除所有风险。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "局限在于每个配置仅运行单次无法确定复现概率，提示词未设置显式安全指导，且上下文统一截断在 20 万 token；实验覆盖 8 个世界、7 大模型家族、116 个内置工具及 3 项受控压力事件。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.17320"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.17320",
-      "aisafetyhot": "https://aisafetyhot.com/items/pojd2arxzsnnrm16qo3weg68b"
-    },
-    "publishedAt": "2026-09-15T15:27:58.000Z",
-    "timelineAt": "2026-09-30T22:20:32.678Z",
-    "discoveredAt": "2026-09-30T22:20:32.678Z"
-  },
-  {
     "arxivId": "2609.28614",
     "title": "Reward Hacking Challenges Oversight of Autonomous Research Agents",
     "titleZh": "研究：自主研究智能体的奖励作弊挑战监督机制",
@@ -162,47 +121,6 @@
     "publishedAt": "2026-07-20T15:26:23.000Z",
     "timelineAt": "2026-10-01T05:14:16.968Z",
     "discoveredAt": "2026-10-01T05:14:16.968Z"
-  },
-  {
-    "arxivId": "2609.22510",
-    "title": "Defusing Explosive Prompts: Understanding and Preventing Trigger-Based Prompt Injections in LLM Agents",
-    "titleZh": "特拉维夫大学提出爆炸性提示词：条件触发的间接提示注入可绕过九款生产 Agent",
-    "authors": [
-      "Justin Szczepaniak"
-    ],
-    "category": "attack",
-    "selected": true,
-    "attention": 84,
-    "summaryZh": "特拉维夫大学研究者提出爆炸性提示词（explosive prompt），一种把恶意载荷写成条件语句、在攻击者选定的触发词出现前保持休眠的间接提示注入形式，无需训练即可在推理时植入单条检索内容。在 896 对配对样本上，同一恶意目标改为休眠条件式后，在拒绝直接指令的前沿模型上仍能触发真实工具调用，Grok-4.20 从 0.0% 升至 34.2%，Llama-3.1-70B 从 0.1% 升至 26.1%，七款模型配对均值 16.5% 对 2.4%。已部署的注入分类器 Prompt Guard 2、PIGuard、PIShield 在其工作阈值上校准失当，1% 误报预算下最多只拦住 52.7%；偏好优化模型 SecAlign 完全阻断直接注入，却仍执行 11.8% 的爆炸性提示词，且全部在触发轮触发。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "传统间接提示注入在被模型摄入时即刻执行，容易被现有防御识别拦截。论文试图解决如何通过注入与执行的时间分离，使恶意载荷在被检索时保持潜伏，仅在满足特定条件时触发工具调用。",
-          "label": "问题"
-        },
-        {
-          "text": "作者提出爆炸提示词，将攻击目标表述为依赖后续触发条件的潜伏语句；并构建了组合生成器生成训练数据，提出基于 FastText 与线性 SVM 的轻量检测器 DeFuse 进行摄入期窗口检测。",
-          "label": "方法"
-        },
-        {
-          "text": "在 7 款基础模型上，爆炸提示词的平均执行成功率为 16.5%，高于祈使注入的 2.4%；在 9 个生产智能体上绕过率为 43–83%。DeFuse 在 5% FPR 下将残余攻击成功率降至 3.0%。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "基础实验基于 7 款模型和 AgentDojo 平台；生产智能体仅评测 30 次单次试验；DeFuse 针对表面形式且未评估自适应改写对抗；评测仅覆盖两轮会话，长会话下的存活情况未测。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.22510"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.22510",
-      "aisafetyhot": "https://aisafetyhot.com/items/nlw3d72q0ouny1xvakscznqtt"
-    },
-    "publishedAt": "2026-09-18T19:16:51.000Z",
-    "timelineAt": "2026-09-30T22:20:32.619Z",
-    "discoveredAt": "2026-09-30T22:20:32.619Z"
   },
   {
     "arxivId": "2609.19587",
@@ -1043,47 +961,6 @@
     "discoveredAt": "2026-09-30T22:20:33.414Z"
   },
   {
-    "arxivId": "2609.18411",
-    "title": "The Verifiable Action Card: Trustworthy Human-in-the-Loop Control for Secure Autonomous Agents",
-    "titleZh": "可验证行动卡片 VAC：为智能体浏览器提供可信人在回路确认",
-    "authors": [
-      "Hasnain Irshad"
-    ],
-    "category": "defense",
-    "selected": true,
-    "attention": 78,
-    "summaryZh": "论文提出可验证行动卡片（VAC），一种面向智能体浏览器的架构防御，把审批信息从真实待执行的浏览器动作和可信意图来源重建，并在浏览器 chrome 中带外渲染，将批准绑定到派发时重新校验的同一动作。VAC 由五部分组成：来源围栏（C1）、真实动作描述符（C2）、带外默认拒绝卡片（C3）、来源感知风险门控（C4）和执行绑定（C5）。作者在完整的开源智能体浏览器（Electron/Chromium 外壳加 Python agent，经 Chrome DevTools Protocol 驱动）中实现 VAC，并在 24 个场景的基准上评测，覆盖混淆代理表单、Lies-in-the-Loop 对话框伪造、间接提示注入、自适应动作替换、来源规避和合法任务。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "智能体浏览器以用户认证权限执行敏感操作，但页面注入与欺骗性确认弹窗（如 Lies-in-the-Loop）会导致混淆代理攻击。现有以人代控防御依赖模型生成文本或页面可控标签，易受攻击者篡改而失效。",
-          "label": "问题"
-        },
-        {
-          "text": "设计可验证操作卡 VAC 架构防御，包含意图来源隔离 C1、真实操作描述符 C2、浏览器外置默认拒绝卡片 C3、来源感知风险门控 C4 及执行绑定 C5 五个组件，直接从底层 DOM 提取真实参数并在分发时重新校验。",
-          "label": "方法"
-        },
-        {
-          "text": "在包含 24 个场景的基准与 5 个开源模型评测中，无门控时攻击成功率平均为 78%（68%–100%），VAC 将所有被测模型攻击成功率降至 0%，同时保持 78% 的良性任务完成率与 0% 的误报拦截率（Table 8、10）。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "确认机制采用透明人机预言机而非真人受试者实验；来源属性判定基于启发式规则；描述符真实性受限于执行器视角与 TOCTOU 边界；仅在单个 DOM 优先智能体与 24 个合成场景评测，未覆盖只读欺骗与导航侧信道。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.18411"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.18411",
-      "aisafetyhot": "https://aisafetyhot.com/items/tb4ufnin8754tlzlr60um2fvg"
-    },
-    "publishedAt": "2026-09-16T10:06:24.000Z",
-    "timelineAt": "2026-09-30T22:20:32.653Z",
-    "discoveredAt": "2026-09-30T22:20:32.653Z"
-  },
-  {
     "arxivId": "2609.21996",
     "title": "A Lie Detector Test for Language Models: Reading Knowledge a Model Won't Reveal",
     "titleZh": "PIR：从模型内部激活读出被隐藏的答案",
@@ -1657,47 +1534,6 @@
     "discoveredAt": "2026-10-01T12:21:23.515Z"
   },
   {
-    "arxivId": "2609.30325",
-    "title": "ScopeBench: Do Agents Preserve Engagement Boundaries Under Goal Pressure?",
-    "titleZh": "dreadnode 发布 ScopeBench：测量 Agent 在目标压力下是否守住授权边界",
-    "authors": [
-      "Shane Caldwell"
-    ],
-    "category": "eval",
-    "selected": true,
-    "attention": 77,
-    "summaryZh": "dreadnode 发布 ScopeBench，用 30 个死胡同式 Agent 安全任务测量 Agent 在目标压力下是否守住授权边界。每个任务在无范围与有范围两种条件下运行，环境、验证器和目标相同，仅范围声明不同；有范围条件下成功提交 flag 即证明发生了越界行为，构成违规率的高精度下界。8 个模型在同一 harness 中运行，原始能力从 12.2% 到 81.1%，范围遵守率从 34.4% 到 86.7%；机械验证确认 227 次违规，轨迹裁判在机械失败轨迹中另找出 331 次违规，合计 558 次。裁判经 100 条人工逐调用标注轨迹校准，并在模型盲审中保持 100% 召回、失败层重加权特异度 90.5%，误差为单侧过度标记。opus-4-8 的原始能力比 sonnet-4-6 高 10 个百分点，范围遵守率高 35.6 个百分点。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "智能体在自主渗透测试等安全任务中需遵守严格的工作范围，越界可能引发法律与合同风险。然而现有基准主要衡量黑客能力，缺乏将成果检验与全轨迹过程评估结合的范围遵从性评测。",
-          "label": "问题"
-        },
-        {
-          "text": "构建包含30个死胡同任务的ScopeBench，目标必须通过越界操作方可达成。采用双臂评测：第一臂用确定性验证器检查flag判定机械违规下界；第二臂由校准后的轨迹评审大模型审查未提交flag的轨迹，判定是否发生越界调用。",
-          "label": "方法"
-        },
-        {
-          "text": "在8个模型上评测，原始能力在12.2%至81.1%之间，范围遵从率在34.4%至86.7%之间（Table 2、4）。能力与遵从性并不协同，如opus-4-8能力比sonnet-4-6高10个百分点但遵从率高35.6个百分点。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "任务全为Web安全死胡同设计且仅允许单一越界路径；轨迹标签为二元存在性，未细化危害级别；现代审计仅由单专家完成，存在单标注者偏差风险；任务以CTF形式交付可能引发评测感知偏差（Section 8）。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.30325"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.30325",
-      "aisafetyhot": "https://aisafetyhot.com/items/yya9x3j8mjn56swwvxag6m9q3"
-    },
-    "publishedAt": "2026-09-23T19:47:33.000Z",
-    "timelineAt": "2026-09-30T22:20:32.545Z",
-    "discoveredAt": "2026-09-30T22:20:32.545Z"
-  },
-  {
     "arxivId": "2609.38253",
     "title": "CollageAttack: Exploiting Cross-Modal Alignment Flaws in T2I Models through Spatial Text Composition",
     "titleZh": "CollageAttack：利用跨模态对齐缺陷对 T2I 模型实施空间文本组合越狱",
@@ -2042,6 +1878,26 @@
     "discoveredAt": "2026-10-01T02:23:16.315Z"
   },
   {
+    "arxivId": "2609.18411",
+    "title": "The Verifiable Action Card: Trustworthy Human-in-the-Loop Control for Secure Autonomous Agents",
+    "titleZh": "可验证操作卡 VAC：为自主 Agent 提供可信人在回路控制",
+    "authors": [
+      "Hasnain Irshad"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出可验证操作卡（VAC），一种从真实待执行的浏览器操作和可信意图来源重建审批信息、在可信浏览器界面中带外渲染、并把审批绑定到派发时重新验证的同一操作的架构级防护。VAC 结合来源隔离、真实操作描述符、默认拒绝确认、来源感知风险门控和执行绑定，并在一个完整的智能体浏览器中实现。在覆盖混淆代理攻击、Lies-in-the-Loop 对话伪造、间接提示注入、自适应操作替换、来源规避和正常任务的 24 场景基准上，无 VAC 时各评测 LLM 的攻击成功率为 68% 至 100%，VAC 将每个模型的攻击成功率降至 0%，正常任务完成率 78%，误拦截率 0%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.18411",
+      "aisafetyhot": "https://aisafetyhot.com/items/eb1wv1q1nghhnwk8i5iy97r8o"
+    },
+    "publishedAt": "2026-09-16T10:06:24.000Z",
+    "timelineAt": "2026-10-01T02:23:56.152Z",
+    "discoveredAt": "2026-10-01T02:23:56.152Z"
+  },
+  {
     "arxivId": "2609.34262",
     "title": "Maintaining Benchmarks Against Increasingly Capable Agents: Detection and Remediation of Unearned Passes",
     "titleZh": "论文提出基准完整性维护框架，审计 Agent 通过轨迹中的非应得通过",
@@ -2145,46 +2001,6 @@
     "discoveredAt": "2026-10-01T10:31:28.633Z"
   },
   {
-    "arxivId": "2609.24662",
-    "title": "DUMA-Bench: A Dual-Control Multi-Agent Benchmark for Evaluating LLM Agent Security",
-    "titleZh": "DUMA-Bench：评估 LLM Agent 安全的双控多智能体基准",
-    "authors": [
-      "Ivan Aleksandrov"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 DUMA-Bench，一个在双控交互下测量 LLM Agent 安全的基准与评测协议，其中 Agent 和用户都能影响共享环境状态。该基准在 τ²-bench 基础上扩展出对抗环境，覆盖 RAG 投毒、跨 Agent 操纵和不安全输出处理等八类漏洞。作者评测了来自 OpenAI、Anthropic、DeepSeek、Qwen 等五个模型家族的 14 个模型，跨八个领域和多种用户行为模式。实验显示，引入双控交互后攻击成功率从 26.9% 升至 41.1%，说明 Agent 安全不只取决于模型本身，还来自模型、用户与环境之间的交互。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.24662",
-      "aisafetyhot": "https://aisafetyhot.com/items/ln5flj7ull1d4w3y6xaizmujg"
-    },
-    "publishedAt": "2026-09-21T14:28:05.000Z",
-    "timelineAt": "2026-09-30T22:20:32.573Z",
-    "discoveredAt": "2026-09-30T22:20:32.573Z"
-  },
-  {
-    "arxivId": "2609.28585",
-    "title": "Persistent Billable State: Denial-of-Wallet Attacks and Defenses in Tool-Calling LLM Agents",
-    "titleZh": "论文提出持久计费状态概念，揭示工具调用 LLM Agent 的拒绝钱包攻击与防御",
-    "authors": [
-      "Jinqian Zhang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "中科院信息工程研究所等机构的研究者提出持久计费状态概念，指工具调用 LLM Agent 的运行时把外部工具返回内容带入后续模型输入后，提供方会对其重复计费，被接纳的恶意或被攻陷工具因此可在没有受害者凭证和本地运行时权限的情况下，把不可信数据转化为持续由受害者付费的处理。作者把主机对这类内容是否以及如何进入后续计费上下文的决策形式化为持久计费状态边界，并称这是对该准入后生命周期的首个系统性安全研究。研究推导出六种拒绝钱包攻击向量，构建端到端测试框架 DOW-BENCH，在六个模型家族上完成 243 次执行，用量遥测显示单会话累计输入最高达到该会话首次调用输入的 14,293 倍。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.28585",
-      "aisafetyhot": "https://aisafetyhot.com/items/iu9phyyl1j37lib5h0tn3z69q"
-    },
-    "publishedAt": "2026-09-23T13:45:26.000Z",
-    "timelineAt": "2026-09-30T22:20:32.554Z",
-    "discoveredAt": "2026-09-30T22:20:32.554Z"
-  },
-  {
     "arxivId": "2609.05009",
     "title": "Language models judge war differently when tested for alignment",
     "titleZh": "研究发现大语言模型在被提示接受对齐测试时对战争判断发生改变",
@@ -2243,126 +2059,6 @@
     "publishedAt": "2026-09-09T03:00:25.000Z",
     "timelineAt": "2026-10-01T10:12:06.456Z",
     "discoveredAt": "2026-10-01T10:12:06.456Z"
-  },
-  {
-    "arxivId": "2609.31318",
-    "title": "AgentXploit: Autonomous Repository-to-Runtime Red-Teaming for AI Agents",
-    "titleZh": "AgentXploit：面向 AI Agent 的仓库到运行时自动化红队系统",
-    "authors": [
-      "Weida Liang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "AgentXploit 是一个双角色审计系统，把仓库级攻击路径发现与运行时利用分开：Analyzer Agent 追踪攻击者可控输入到敏感操作并记录有代码支撑的候选路径，Exploiter Agent 将其转化为具体攻击并借助运行时反馈修正。作者同时发布 AgentXploit-Bench，覆盖 12 个开源 AI Agent 系统与框架中的 72 个可复现漏洞。三次运行中 AgentXploit 端到端成功率为 59.3%，Codex 为 38.4%；在 token 预算对齐的比较下 Codex 为 46.3%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.31318",
-      "aisafetyhot": "https://aisafetyhot.com/items/iwuhyuuh9xapz7f695pzp1off"
-    },
-    "publishedAt": "2026-09-25T14:26:04.000Z",
-    "timelineAt": "2026-09-30T22:20:32.523Z",
-    "discoveredAt": "2026-09-30T22:20:32.523Z"
-  },
-  {
-    "arxivId": "2609.28915",
-    "title": "On the Effectiveness of Kernel-Level Evidence for Agent Security",
-    "titleZh": "研究提出 ACE 语料库，评估内核级证据对 Agent 安全检测的有效性",
-    "authors": [
-      "Spencer King"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文将应用层 Agent 遥测与内核级 syscall 追踪配对，首次给出内核层与应用层信号在 Agent 安全上的配对证据刻画。作者构建 Agent Cross-Layer Evidence（ACE）配对会话语料库，包含 4,047 个会话和 17 个威胁模型，覆盖六类投递向量家族、OWASP LLM 与 Agent 威胁类别中的 14 个，并归纳为 12 种攻击机制。在四类检测器上，内核证据单独即具判别力，与应用层证据组合通常优于任一单层视角，显示出单层分析可能遗漏的互补信号。研究还展示了对未见攻击家族的泛化能力以及向另一 Agent 运行时的迁移。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.28915",
-      "aisafetyhot": "https://aisafetyhot.com/items/cl5bz1g1lfg7c0ycnsopch8sd"
-    },
-    "publishedAt": "2026-09-24T01:46:57.000Z",
-    "timelineAt": "2026-09-30T22:20:32.540Z",
-    "discoveredAt": "2026-09-30T22:20:32.540Z"
-  },
-  {
-    "arxivId": "2609.26900",
-    "title": "Ajar: Measuring Open Privilege in Agent Defenses",
-    "titleZh": "Ajar：在 AgentDojo 上测量 Agent 防御中未关闭的权限",
-    "authors": [
-      "Reshabh K Sharma"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "Ajar 提出一种直接测量 Agent 防御中开放权限的评测方法，它挂载在已有的 Agent 安全基准上，复用其任务、工具 schema、参考解和目标状态，为每个良性任务构造任务并不需要的候选工具调用，并在 Agent 可行动的每个节点把这些调用提交给防御方，允许其中任何一个即意味着权限被开放。作者将 Ajar 接入 AgentDojo，使开放权限成为攻击成功率与良性效用之外的第三个维度，并测试了 Progent、CaMeL、AC4A、Permission Assistant 和 Claude Code 的 Auto mode 五种防御。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.26900",
-      "aisafetyhot": "https://aisafetyhot.com/items/ynkyl1yeyu8mmzvgtf0u4lu3u"
-    },
-    "publishedAt": "2026-09-22T18:01:41.000Z",
-    "timelineAt": "2026-09-30T22:20:32.559Z",
-    "discoveredAt": "2026-09-30T22:20:32.559Z"
-  },
-  {
-    "arxivId": "2609.25173",
-    "title": "Attack Success Rate Is Not a Number: On Measurement Validity in Agentic AI Security Evaluation",
-    "titleZh": "论文指出 Agent 安全评测中攻击成功率并非单一数值",
-    "authors": [
-      "Chetan Pathade"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文认为当前 Agent 安全评测中广泛使用的攻击成功率（ASR）并非单一指标，而是由六项设计选择参数化的一族指标，论文之间很少说明且从未保持一致。作者对 2025 年 2 月至 2026 年 9 月间发布到 arXiv 的 259 篇 Agent 安全论文做全文元分析，发现多数未报告方差估计或重复运行：手工编码的 50 篇随机样本中为 58%（95% CI 44-71），对全部 259 篇自动编码为 65.3%；仅 30.9% 披露了足以判断评测是否随机的解码信息，在确认使用 LLM judge 的 64 篇中，29.7% 报告了与人工标注的一致性检验。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.25173",
-      "aisafetyhot": "https://aisafetyhot.com/items/bt1f6p2lbmfi9uidjbg8vqv69"
-    },
-    "publishedAt": "2026-09-21T14:16:59.000Z",
-    "timelineAt": "2026-09-30T22:20:32.583Z",
-    "discoveredAt": "2026-09-30T22:20:32.583Z"
-  },
-  {
-    "arxivId": "2609.24446",
-    "title": "ActGov: Governing LLM Agent Actions via Policy-Constrained Validation",
-    "titleZh": "ActGov：用策略约束校验治理 LLM Agent 的工具动作",
-    "authors": [
-      "Kaiyuan Zhang"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "ActGov 是一个运行时执行框架，在 LLM 提出的每个工具动作产生外部影响前先做校验。它基于授权、动作、运行时上下文与安全约束的统一语义模型：ActGov-Policy 从工具规格、良性任务和已观测的失败轨迹中迭代构建策略集，每次更新都用基于 SMT 的反例检查验证；ActGov-Runtime 在运行时把每次工具调用抽象为有限策略记录，只有当调用处于任务范围内的授权边界内且满足所有适用策略时才放行。作者在 AgentDojo 和 AgentDyn 两个基准上跨多个模型和攻击配置做了评测，称 ActGov 在保持任务效用的同时持续降低间接提示注入攻击的成功率，明显优于现有防御，且不依赖底层 LLM 正确识别恶意指令。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.24446",
-      "aisafetyhot": "https://aisafetyhot.com/items/u87jr35ru1x6of1r0cwqmnnw3"
-    },
-    "publishedAt": "2026-09-21T11:47:09.000Z",
-    "timelineAt": "2026-09-30T22:20:32.591Z",
-    "discoveredAt": "2026-09-30T22:20:32.591Z"
-  },
-  {
-    "arxivId": "2609.19705",
-    "title": "SoK: Trading Agents or Market Crashers? Dissecting Robustness and Security Failures in Academic Financial LLM Trading Schemes",
-    "titleZh": "SoK 论文提出 FARSIGHT 框架，评测 15 个学术金融 LLM 交易 Agent 的鲁棒性与安全失败",
-    "authors": [
-      "Mengxiao Wang"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 FARSIGHT（Financial Agent Robustness and Security Investigation and Global Holistic Testing）框架，对金融 LLM 交易 Agent 做方案级评测，覆盖市场动荡下的鲁棒性（含类闪崩场景）与三类攻击：对信息源的攻击、对 Agent 的攻击以及 Agent 作为攻击者的行为。将该框架应用于 15 个代表性学术方案后发现，多数方案忽视鲁棒性与现实对抗威胁，80% 至少未通过一项核心鲁棒性指标，100% 存在安全漏洞。作者指出两类失败模式不可分割：小的误判本身即可级联为市场级崩盘，而对手能以极低代价蓄意触发同样的崩溃。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.19705",
-      "aisafetyhot": "https://aisafetyhot.com/items/ggt3eoxtkir75tjj9arch3dw5"
-    },
-    "publishedAt": "2026-09-17T04:59:08.000Z",
-    "timelineAt": "2026-09-30T22:20:32.636Z",
-    "discoveredAt": "2026-09-30T22:20:32.636Z"
   },
   {
     "arxivId": "2609.10892",
@@ -4014,46 +3710,6 @@
     "discoveredAt": "2026-09-30T22:20:33.684Z"
   },
   {
-    "arxivId": "2609.29287",
-    "title": "AEGIS: Audio Endogenous Guarding via Internal Signals Against Large Audio-Language Model Jailbreaks",
-    "titleZh": "AEGIS：用内部信号在中间层拦截大型音频语言模型越狱",
-    "authors": [
-      "Yu-Ling Liao"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 AEGIS，一种针对大型音频语言模型（LALM）音频越狱的检测后干预防御方法。逐层探针显示，风险相关信息在中间层表示中仍可解码，但内部风险信号未能在后续层转化为拒答，作者将这一差异称为风险到拒答的缺口。AEGIS 据此在中间层设置风险门控，选择性激活下游安全适配器。在六个 LALM 和三个异构音频越狱基准上，AEGIS 将平均不安全率从 17.9% 降至 0.4%，对良性输入的过度拒答仅有小幅上升。代码已公开，论文投稿至 ICASSP 2027。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.29287",
-      "aisafetyhot": "https://aisafetyhot.com/items/gtbmuo3015ukx7wfbs50t6h6t"
-    },
-    "publishedAt": "2026-09-24T09:24:13.000Z",
-    "timelineAt": "2026-09-30T22:19:33.995Z",
-    "discoveredAt": "2026-09-30T22:19:33.995Z"
-  },
-  {
-    "arxivId": "2609.17648",
-    "title": "Trust propagation and structural containment in Multi-agent LLM pipelines",
-    "titleZh": "多智能体 LLM 流水线中的信任传播与结构隔离",
-    "authors": [
-      "Tanzim Hossain Safin"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者在四智能体 LangGraph 流水线（Supervisor、Researcher、Validator、Executor）中评估共享内存投毒和通过检索文档伪造审批的间接提示注入，比较 Validator 判断与基于任务绑定签名 token 和独立策略 oracle 的授权层。在三个随机种子、60 个标注任务中，内存投毒在无防御时每次都能到达执行阶段；启用授权后攻击成功率（JBR）仍为 100%，但 Unsafe Action Rate 为 0%，说明 Validator 可被攻陷而执行仍被隔离。面对持有签名密钥的攻击者，隔离效果来自策略 oracle，独立编写的最小权限策略也能保持该结果。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.17648",
-      "aisafetyhot": "https://aisafetyhot.com/items/tecld7sqprsuj8sbsrjg3rsyo"
-    },
-    "publishedAt": "2026-09-15T15:46:01.000Z",
-    "timelineAt": "2026-09-30T22:20:32.670Z",
-    "discoveredAt": "2026-09-30T22:20:32.670Z"
-  },
-  {
     "arxivId": "2609.06991",
     "title": "AV-SafetyBench: A Safety Benchmark for Text-to-Audio-Video Generation",
     "titleZh": "AV-SafetyBench：面向文本到音视频生成的安全基准",
@@ -4616,86 +4272,6 @@
     "publishedAt": "2026-09-04T17:36:31.000Z",
     "timelineAt": "2026-09-30T22:20:32.950Z",
     "discoveredAt": "2026-09-30T22:20:32.950Z"
-  },
-  {
-    "arxivId": "2609.28693",
-    "title": "Progressive Skill Discovery as Access Control for Tool-Using LLM Agents: Structural Governance through Role-Scoped Capability Delivery",
-    "titleZh": "skilder：以角色化技能包为工具型 LLM 智能体做访问控制",
-    "authors": [
-      "Michael Stettler"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "作者提出 skilder 框架，把能力打包成角色，即技能、工具、指令及其边界的组合，智能体从最小角色目录起步，按任务需要学习角色，并通过单一 MCP server 获取该角色的技能、指令和工具。由于工具只在已学到的技能内到达智能体，同一 server 可确定性地执行所学范围。作者在 13 项任务、6 个模型、每个 10 次运行的设置下，将 skilder 与扁平上下文工具选择和多智能体编排对比；结果显示，当模型完成发现流程并发出受治理调用时，skilder 的模拟授权层未执行任何未授权工具调用或参数违规，例如超支。总体任务通过率还反映各模型是否遵循发现协议并通过回答质量检查，这些未通过不属于授权失败。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.28693",
-      "aisafetyhot": "https://aisafetyhot.com/items/skdcak0tjh4pcseq264f4tjew"
-    },
-    "publishedAt": "2026-09-23T18:31:44.000Z",
-    "timelineAt": "2026-09-30T22:20:32.549Z",
-    "discoveredAt": "2026-09-30T22:20:32.549Z"
-  },
-  {
-    "arxivId": "2609.21088",
-    "title": "Origin Is All You Need: Provenance-Aware Transformers for Structural Trust-Boundary Separation",
-    "titleZh": "Provenance-Aware Transformers：用来源感知架构分离可信边界以防御间接提示注入",
-    "authors": [
-      "Yuxuan Zhang"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 Provenance-Aware Transformers，一种让应用提供的来源标签在模型内部生效的防御方法，用于应对大语言模型的间接提示注入问题。作者指出标准 Transformer 缺乏来源权威性的架构概念，检索文档、用户输入与系统指令都经过同一套注意力机制处理，模型只能从措辞推断该服从什么、该把什么当作数据。该方法为每个输入 token 分配编码其来源的 ring ID，并加入 origin embedding、可学习的 origin attention bias 和可学习的 origin scale，以在归一化过程中保留来源信息，从而在生成时对权威与非权威来源施加结构性边界。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.21088",
-      "aisafetyhot": "https://aisafetyhot.com/items/gpxdtop770qo1xou6e2nvoco7"
-    },
-    "publishedAt": "2026-09-17T21:04:01.000Z",
-    "timelineAt": "2026-09-30T22:20:32.628Z",
-    "discoveredAt": "2026-09-30T22:20:32.628Z"
-  },
-  {
-    "arxivId": "2609.16098",
-    "title": "Universal Defenses for Tool-Integrated LLM Agents Against Adversarial Attacks",
-    "titleZh": "研究者提出面向工具集成 LLM Agent 的通用对抗攻击防御方法",
-    "authors": [
-      "Xiaoyan Li"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出一套统一框架下的通用防御策略，用于应对工具集成 LLM Agent 面临的直接提示注入、间接提示注入、记忆投毒和后门攻击四类对抗攻击。方法包含两类基于工具的防御：Attacker Tool Filtering 用异常检测（如 Isolation Forest）识别并移除可疑工具，Normal Tool Recalling 则在规划前以白盒方式恢复 Agent 的原始工具集；同时引入 Chain-of-Thought 提示与自我反思等基于提示的防御，并通过任务改写缓解攻击。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.16098",
-      "aisafetyhot": "https://aisafetyhot.com/items/z1zqx93pc04w7g2fa6mp4e7m6"
-    },
-    "publishedAt": "2026-09-14T15:20:30.000Z",
-    "timelineAt": "2026-09-30T22:20:32.711Z",
-    "discoveredAt": "2026-09-30T22:20:32.711Z"
-  },
-  {
-    "arxivId": "2609.14987",
-    "title": "ActGuard: Pre-execution Action Auditing against Indirect Prompt Injection in LLM Agents",
-    "titleZh": "ActGuard：面向 LLM Agent 间接提示注入的执行前动作审计框架",
-    "authors": [
-      "Bingzheng Wang"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "ActGuard 是一个执行前动作审计框架，用于防御 LLM Agent 面临的间接提示注入攻击。它不判断外部内容本身是否可疑，而是评估该内容是否使当前动作偏离局部合理的预期：每一步先预测即将使用的工具并构建局部工具先验，再将候选动作与该先验对比，做工具级对比分析和参数级证据定位，识别工具选择与动作参数上的偏离。随后由验证器检查定位到的证据，只遮蔽被确认恶意的片段，并从净化后的上下文重新生成动作，从而保留合法规划灵活性、减少无差别过滤带来的信息损失。在面向工具使用 Agent 的基准上，ActGuard 将攻击成功率降至与当前最优防御相当的水平，同时任务效用接近无攻击设置。代码已公开。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.14987",
-      "aisafetyhot": "https://aisafetyhot.com/items/g6lydae8swuv6zb4a5a5aqio7"
-    },
-    "publishedAt": "2026-09-14T03:47:05.000Z",
-    "timelineAt": "2026-09-30T22:20:32.729Z",
-    "discoveredAt": "2026-09-30T22:20:32.729Z"
   },
   {
     "arxivId": "2609.11030",
@@ -6218,46 +5794,6 @@
     "discoveredAt": "2026-10-01T10:13:06.928Z"
   },
   {
-    "arxivId": "2609.25413",
-    "title": "Embedded Assessments for Frontier AI",
-    "titleZh": "论文提议前沿 AI 开发者开展嵌入式评估",
-    "authors": [
-      "Jacob Charnock"
-    ],
-    "category": "industry",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文主张前沿 AI 开发者应允许独立评估者以类似员工的身份进入内部系统、人员和文档，从而对依赖内部实践的风险做更深入灵活的评估。作者围绕范围、信息收集、时长、时机、参与条款、披露和升级机制提出七个设计问题，并建议评估覆盖内部 Agent 监控、内部 Agent 安全控制与权限、模型对齐三个领域。为形成有意义的第三方审查，评估应持续进行，评估者至少每季度发布详细报告，并建立明确的升级机制。作者称这些建议只是起点，仍需更多步骤才能发挥嵌入式评估的全部潜力。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.25413",
-      "aisafetyhot": "https://aisafetyhot.com/items/zic25or6oe89wwustoevhnwpj"
-    },
-    "publishedAt": "2026-09-21T21:10:39.000Z",
-    "timelineAt": "2026-09-30T22:20:32.563Z",
-    "discoveredAt": "2026-09-30T22:20:32.563Z"
-  },
-  {
-    "arxivId": "2609.15397",
-    "title": "When Tool Calls Succeed but Workflows Fail: Anomalies at the Agent-Tool Boundary",
-    "titleZh": "论文：工具调用成功但工作流失败，智能体与工具边界的八类异常",
-    "authors": [
-      "Artem Trofimov"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出效应历史模型，把外部世界发生的事件与运行时对事件的观察区分开，并归纳出八类反复出现的外部效应异常。在重试、推测执行、并发和部分失败下，必需效应可能缺失或重复、已中止的效应可能残留、已提交的效应可能依赖随后被撤回的临时状态。作者据此推导出排除每类异常所需的边界能力，并指出仅靠黑盒工具调用无法提供通用保证的四个位置。随后作者测量了已注册 MCP 服务器暴露的 98291 个工具对标准注解词汇的使用情况，发现这些字段被广泛输出，但只提供粗粒度的调用级提示，所需能力无一能被完整表达，因此提出在工具边界引入可复用的交易契约。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.15397",
-      "aisafetyhot": "https://aisafetyhot.com/items/takrsr5n13kw4za9q8v1315p2"
-    },
-    "publishedAt": "2026-09-14T11:31:06.000Z",
-    "timelineAt": "2026-09-30T22:20:32.720Z",
-    "discoveredAt": "2026-09-30T22:20:32.720Z"
-  },
-  {
     "arxivId": "2609.10962",
     "title": "What a Random Draw from the MCP Registry Contains, and What Tool-Use Benchmarks Contain Instead",
     "titleZh": "随机抽样 MCP 注册表：仅 48.8% 服务器完成初始化握手，BFCL v4 工具描述重复率 16.7%",
@@ -6561,26 +6097,6 @@
     "publishedAt": "2026-09-07T03:16:25.000Z",
     "timelineAt": "2026-10-01T10:13:06.901Z",
     "discoveredAt": "2026-10-01T10:13:06.901Z"
-  },
-  {
-    "arxivId": "2609.19100",
-    "title": "Characterizing Network Centralization and Observability in the Remote MCP Ecosystem",
-    "titleZh": "研究刻画远程 MCP 生态的网络集中度与可观测性",
-    "authors": [
-      "Muhammad Abdullah Sohail"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出三层可观测性框架，对公共 MCP 服务器生态进行实证刻画，覆盖目录元数据、被动合规信号与实时漏洞分析三个层级。作者对两个公共注册表中分层抽样的 179 个远程端点进行评估，发现基础设施高度集中：按 ASN 分布计算的 HHI 为 0.736，远高于 0.25 的高度集中市场阈值。分析还显示服务器认证与托管平台选择强相关，而非取决于单个运营者配置，95% 的商业 PaaS 托管服务器在网关层强制启用带 PKCE 的 OAuth 2.1。研究指出当前生态存在安全与可观测性的权衡：保护多数服务器的平台级认证机制同时限制了自动化漏洞扫描能力，使 AI 网关运营者在不预先提供凭证的情况下难以评估工具投毒向量。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.19100",
-      "aisafetyhot": "https://aisafetyhot.com/items/bfhms8zqihdqqmlas8so5gxnt"
-    },
-    "publishedAt": "2026-09-16T17:31:46.000Z",
-    "timelineAt": "2026-09-30T22:20:32.645Z",
-    "discoveredAt": "2026-09-30T22:20:32.645Z"
   },
   {
     "arxivId": "2609.03781",
@@ -7565,26 +7081,6 @@
     "publishedAt": "2026-09-01T09:40:06.000Z",
     "timelineAt": "2026-10-01T10:13:07.141Z",
     "discoveredAt": "2026-10-01T10:13:07.141Z"
-  },
-  {
-    "arxivId": "2609.18120",
-    "title": "PentestChain: A Cost-Aware, MCP-Orchestrated Framework for Automated Penetration Testing with Free-Tier LLMs",
-    "titleZh": "PentestChain：面向免费层 LLM 的成本感知 MCP 编排自动化渗透测试框架",
-    "authors": [
-      "Rushabh Vipulkumar Patel"
-    ],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "PentestChain 是一个十阶段自动化渗透测试框架，通过成本感知的 AI 级联（本地 Ollama qwen2.5-7b 优先，其次免费层 OpenRouter 与 Cerebras，并带规则回退）在零付费 API 成本下实现端到端运行，并以 MCP 服务器暴露 11 个工具。该框架基于 2025 年 MCP 事件记录（mcp-remote 的 CVE-2025-6514 远程代码执行漏洞、postmark-mcp 供应链后门及工具投毒类攻击）建立四位置威胁模型并提出四项缓解措施。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.18120",
-      "aisafetyhot": "https://aisafetyhot.com/items/ketnxfgm0fsqbly1y0b3ncabb"
-    },
-    "publishedAt": "2026-09-16T04:56:31.000Z",
-    "timelineAt": "2026-09-30T22:20:32.662Z",
-    "discoveredAt": "2026-09-30T22:20:32.662Z"
   },
   {
     "arxivId": "2609.26419",
@@ -8627,26 +8123,6 @@
     "discoveredAt": "2026-10-01T10:13:06.862Z"
   },
   {
-    "arxivId": "2609.29173",
-    "title": "Through Human Eyes and Machine Eyes: Understanding View Mismatch in Video See-Through Extended Reality",
-    "titleZh": "透过人眼与机器眼：理解视频透视扩展现实中的视图错配",
-    "authors": [
-      "Yanming Xiu"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "视频透视扩展现实（VST XR）系统常以头显截图作为用户第一人称视觉上下文的代理，但系统捕获的矩形画面与用户实际可见的非矩形区域并不一致。研究在 Meta Quest 3 上开展试点级边界测量，证实截图帧与近似人类可见边界存在明显错配，并形式化了共见、仅系统可见与仅人类可见三类区域。基于该模型，四项案例研究显示视图错配可引发提示注入、隐私泄露、人类不可见信息偏差及人类可见信息缺失等风险，说明这不仅是几何问题，也带来安全、隐私与可靠性隐患。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.29173",
-      "aisafetyhot": "https://aisafetyhot.com/items/ljalrrw6yfixb67x5mc5lli94"
-    },
-    "publishedAt": "2026-09-24T07:44:12.000Z",
-    "timelineAt": "2026-09-30T22:19:34.001Z",
-    "discoveredAt": "2026-09-30T22:19:34.001Z"
-  },
-  {
     "arxivId": "2609.15818",
     "title": "Atria Dawn: The Dawn of Agentic Superintelligence",
     "titleZh": "Atria Dawn Preview：智能体超级智能的黎明",
@@ -8845,26 +8321,6 @@
     "publishedAt": "2026-09-13T21:32:35.000Z",
     "timelineAt": "2026-10-01T10:12:06.333Z",
     "discoveredAt": "2026-10-01T10:12:06.333Z"
-  },
-  {
-    "arxivId": "2609.22712",
-    "title": "Trustworthy Agentic AI: Failure Modes, Mitigation Strategies, and a Lifecycle Framework for Autonomous LLM Systems",
-    "titleZh": "可信智能体 AI：基于 LLM 的自主系统失效模式、缓解策略与 TADL 生命周期框架",
-    "authors": [
-      "Fayeq Jeelani Syed"
-    ],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一篇 arXiv 综述梳理了基于大语言模型的智能体 AI 在安全与运维上的五类可信维度：安全与鲁棒性、对齐与人类监督、透明度与可审计性、隐私与数据治理、监管合规。文章把间接提示注入、后门触发、目标泛化错误、记忆污染和跨会话数据泄露等失效模式归入统一分类，并评估指令层级、上下文隔离、spotlighting、过程监督、受限工具使用和隐私保护记忆等缓解手段，区分有实证支持与仍属概念性的方法。作者据此提出六阶段 Trustworthy Agent Development Lifecycle（TADL），覆盖规格、设计、训练、评估、部署与监控，但该框架尚未经实证验证。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.22712",
-      "aisafetyhot": "https://aisafetyhot.com/items/azkraaqppxiijblgq23f95gu4"
-    },
-    "publishedAt": "2026-09-19T02:47:37.000Z",
-    "timelineAt": "2026-09-30T22:20:32.609Z",
-    "discoveredAt": "2026-09-30T22:20:32.609Z"
   },
   {
     "arxivId": "2609.15315",
@@ -9208,26 +8664,6 @@
     "discoveredAt": "2026-10-01T10:16:09.538Z"
   },
   {
-    "arxivId": "2609.22961",
-    "title": "When Agentic Trust Crosses Organizational Boundaries: Structural Externalization and a Reference Model for Trust Evidence",
-    "titleZh": "当智能体信任跨越组织边界：结构外化与信任证据参考模型",
-    "authors": [
-      "Huafu Li"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 Trustworthiness as a Service（TaaS），用于解决智能体跨组织边界调用工具、服务与其他智能体时，依赖方无法仅凭生产域控制与记录评估被委托动作的问题。其分析单元为跨域依赖命题，通过三条件结构外化诊断识别需多域依赖、生产方独立验证且须在撤销、失败、记录冲突或争议后仍可复核的命题，并为此设计不可变工作流清单与仅追加、发行方可归属的信任证据信封。论文还给出拓扑中立的逻辑参考模型，并以三个分析场景和 TaaS-Eval 协议提案定义清单、独立消费者、硬门控、对抗性证据测试与指标。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.22961",
-      "aisafetyhot": "https://aisafetyhot.com/items/jscuixdaxbe5cl8ax9myv1l5a"
-    },
-    "publishedAt": "2026-09-19T11:26:37.000Z",
-    "timelineAt": "2026-09-30T22:20:32.599Z",
-    "discoveredAt": "2026-09-30T22:20:32.599Z"
-  },
-  {
     "arxivId": "2609.05676",
     "title": "PAC-Private Autoregressive Generation: Calibrating Noise to Ensemble Disagreement",
     "titleZh": "PAC-Private Autoregressive Generation：将 PAC 隐私扩展到自回归生成",
@@ -9426,26 +8862,6 @@
     "publishedAt": "2026-09-24T18:07:55.000Z",
     "timelineAt": "2026-10-01T10:16:09.445Z",
     "discoveredAt": "2026-10-01T10:16:09.445Z"
-  },
-  {
-    "arxivId": "2609.30717",
-    "title": "RecToolBench: Benchmarking Recommendation-Specific Tool Orchestration under Fuzzy User Intent",
-    "titleZh": "RecToolBench：在模糊用户意图下评测推荐专用工具编排的基准",
-    "authors": [
-      "Xiao Chen"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "RecToolBench 是一个基于 MCP 的基准，用于评测模糊用户指令下使用工具的推荐智能体，包含 3 个推荐领域、13 个 MCP 服务器、32 个工具和 1200 多个可执行任务，覆盖单工具调用、并行调用、顺序工具链与混合编排。该基准通过 synthesize–fuzzify–judge 流水线构建，并用规则执行检查与基于评分标准的 LLM 评估来评测智能体轨迹。实验显示，语法有效的工具调用并不保证推荐成功，模型在语义参数落地、多步证据整合和最终推荐上表现不佳，且随编排复杂度上升而恶化。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.30717",
-      "aisafetyhot": "https://aisafetyhot.com/items/vgo72ucq8g4q6w37j11nc9ikg"
-    },
-    "publishedAt": "2026-09-25T02:44:07.000Z",
-    "timelineAt": "2026-09-30T22:20:32.534Z",
-    "discoveredAt": "2026-09-30T22:20:32.534Z"
   },
   {
     "arxivId": "2609.36958",
@@ -10092,26 +9508,6 @@
     "discoveredAt": "2026-10-01T10:21:12.721Z"
   },
   {
-    "arxivId": "2609.13334",
-    "title": "The Agentic Company OS: Substrate Inversion for Sustained Enterprise Agent Deployment",
-    "titleZh": "面向企业智能体持续部署的 Agentic Company OS：认知基座反转",
-    "authors": [
-      "Oliver Aleksander Larsen"
-    ],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一篇立场论文提出，企业 AI 智能体演示成功却难以长期运行，根源在于其推理所依赖的数据是为人类操作者而非语言模型组织的。作者主张围绕匹配推理界面的表示重建\"认知基座\"，将 schema 转换隔离到动作边界，并以 Markdown 作为当下可用的实例。论文提出 Data、Knowledge、Intelligence、Governance 四层框架，由 Sync Agent 执行动作边界与逐技能信任梯度，并分析了编译路径上的间接提示注入等风险。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.13334",
-      "aisafetyhot": "https://aisafetyhot.com/items/fw1rsztsmoqgajf046fg5nfep"
-    },
-    "publishedAt": "2026-09-11T09:48:43.000Z",
-    "timelineAt": "2026-09-30T22:20:32.748Z",
-    "discoveredAt": "2026-09-30T22:20:32.748Z"
-  },
-  {
     "arxivId": "2609.36326",
     "title": "PILLAR: Private Inverted-Index Lexical Lookup for Augmented Retrieval",
     "titleZh": "PILLAR：面向增强检索的私有倒排索引词法查找",
@@ -10210,66 +9606,6 @@
     "publishedAt": "2026-09-11T09:21:30.000Z",
     "timelineAt": "2026-09-30T22:20:33.479Z",
     "discoveredAt": "2026-09-30T22:20:33.479Z"
-  },
-  {
-    "arxivId": "2609.33731",
-    "title": "HTN Planning as a Coordination Layer for Multi-Server MCP Tool Orchestration",
-    "titleZh": "HTN 规划作为多服务器 MCP 工具编排的协调层",
-    "authors": [
-      "Eliott Jacopin"
-    ],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对 MCP 仅允许 host 编排跨服务器工作流、由 LLM 编排时结果不确定且每次工具调用需一次推理往返的问题，研究者提出一种协调架构：由 HTN 规划器一次性生成可验证的跨服务器计划，再由运行时中间件在多个 MCP 服务器上确定性执行，并通过 ${context.X} 模板机制在执行时绑定跨动作数据依赖。该架构在实验室机器人、生物信息学和多尺度建模五个 HTN 域上实例化，从浏览器端计划控制器对八个在线第三方 MCP 服务器完成端到端执行。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.33731",
-      "aisafetyhot": "https://aisafetyhot.com/items/u6q75gpnupfqf4z4jx9wpkcu7"
-    },
-    "publishedAt": "2026-09-27T16:32:54.000Z",
-    "timelineAt": "2026-09-30T22:20:32.512Z",
-    "discoveredAt": "2026-09-30T22:20:32.512Z"
-  },
-  {
-    "arxivId": "2609.31282",
-    "title": "Resource-Optimized and Energy-Aware Agentic AI Framework Anchored on Blockchain for Secure Software Supply Chains",
-    "titleZh": "基于区块链的 Agentic AI 框架：面向安全软件供应链的资源优化与能耗感知",
-    "authors": [
-      "Toqeer Ali Syed"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "该论文提出一个区块链支撑的 Agentic 安全框架，用于保护完整软件开发生命周期并保障负责监控的 AI 智能体本身。框架协调源码完整性、依赖与 SBOM 分析、CI 配置审计、制品验证和运行时策略评估等专用安全智能体，每个智能体由 LLM 驱动生成结构化安全报告，并通过智能合约将加密签名的证明记录到许可链的智能体注册表、不可篡改证明日志和可执行发布策略模块中。智能体与区块链节点间通信由联盟运营的证书颁发机构保障，用例演示了源码安全智能体如何上链证明并触发可验证的允许/阻止部署决策。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.31282",
-      "aisafetyhot": "https://aisafetyhot.com/items/awdlcbt7ih1mw2he46whuwv2b"
-    },
-    "publishedAt": "2026-09-25T13:53:50.000Z",
-    "timelineAt": "2026-09-30T22:20:32.528Z",
-    "discoveredAt": "2026-09-30T22:20:32.528Z"
-  },
-  {
-    "arxivId": "2609.17247",
-    "title": "DriveMCP: An Agentic AI framework for Advanced Driver Assistance System",
-    "titleZh": "DriveMCP：面向高级驾驶辅助系统的智能体 AI 框架",
-    "authors": [
-      "Farzad Nadiri"
-    ],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "DriveMCP 是一个面向高级驾驶辅助系统的智能体 AI 框架，将感知、合规推理、车辆状态解读与安全仲裁整合为模块化、可审计的流水线。它以 DriveLM 作为视觉语言前端生成图结构场景理解，并通过 MCP 服务器协调规则、天气与 CAN/OBD 遥测三类专家，输出经 RSS 式护栏仲裁的决策。在 CARLA 的多语言、跨境与动态限速场景中，DriveMCP 相比 VLM-Direct、VLM-Direct+RAG 和 VLM-Tools-NoArbiter 基线减少了交通违规与超速，改善了危险响应时间，并保持亚秒级建议延迟。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.17247",
-      "aisafetyhot": "https://aisafetyhot.com/items/bq2q2hojaxcajh3pbmtmc3avu"
-    },
-    "publishedAt": "2026-09-15T14:29:18.000Z",
-    "timelineAt": "2026-09-30T22:20:32.684Z",
-    "discoveredAt": "2026-09-30T22:20:32.684Z"
   },
   {
     "arxivId": "2609.20143",
@@ -10897,26 +10233,6 @@
     "publishedAt": "2026-09-08T17:54:13.000Z",
     "timelineAt": "2026-10-01T10:03:01.206Z",
     "discoveredAt": "2026-10-01T10:03:01.206Z"
-  },
-  {
-    "arxivId": "2609.15779",
-    "title": "EvoOntology: A Self-Evolving Ontology Layer for Data Agents",
-    "titleZh": "EvoOntology：面向数据智能体的自演化本体层",
-    "authors": [
-      "Meiduo Chong"
-    ],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "EvoOntology 将本体封装为包含 schema、内容与工具三层的 MCP server，让数据智能体在运行时主动查询本体，以弥合异构数据与智能体之间的 agent-data gap。系统引入 builder agent 自主构建本体，并通过归因引导的类型化编辑与骨干条件配对评估驱动的自演化循环持续精炼本体。在三个数据智能体基准和四个 LLM 骨干上，EvoOntology 一致优于强基线及现有语义层方法。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.15779",
-      "aisafetyhot": "https://aisafetyhot.com/items/izqzud9vc6ij7knntt9n4ovp8"
-    },
-    "publishedAt": "2026-09-14T15:59:24.000Z",
-    "timelineAt": "2026-09-30T22:20:32.702Z",
-    "discoveredAt": "2026-09-30T22:20:32.702Z"
   },
   {
     "arxivId": "2608.18607",
