@@ -1,20 +1,24 @@
 {
   "note": "days 是网站上每天（北京时间，按 timelineAt 分天）进站、判定为 AI 安全的论文：信源为 arXiv、Hugging Face Daily Papers 和论文追踪，同一篇 arXiv 论文一天只算一次（arXiv 编号取网站 /api/site/items/<id> 的 links.original；留哪一条：精选优先，再按网站的 score 高，非精选也按 score，再按 timelineAt 早，最后按 id 字典序）。ids 是网站条目 id（网站上的 /items/<id>），按字典序排列；idsSha256 是排好的 ids 用换行连起来（末尾不加换行）的 SHA-256。论文在网站上出现以后（从第一次能在网站上看到算起，不是 timelineAt：回填的论文 timelineAt 早于出现的时间），slaMinutes 分钟内应出现在 papers/<年>/<日期>.json。这个文件只在内容变化时随那次提交更新；generatedAt 是那次生成的时间，siteFetchedAt 是读网站接口的时间。",
-  "generatedAt": "2026-10-05T04:09:07.046Z",
-  "siteFetchedAt": "2026-10-05T04:09:03.292Z",
+  "generatedAt": "2026-10-05T04:27:09.658Z",
+  "siteFetchedAt": "2026-10-05T04:27:08.800Z",
   "slaMinutes": 60,
   "days": {
     "2026-10-05": {
-      "count": 41,
-      "idsSha256": "d8847cd50cf08af6dd40f4243eab46924e4f28c67a06c253010aaded83f2d353",
+      "count": 49,
+      "idsSha256": "317bf3d35dab7f4d16199fc5150f6d65e23fefc468d932e80658adb01042e248",
       "ids": [
         "akmgpfv9b24w73i4y7thjz84g",
         "aoa3ogbs9h1ksw5i3ixa1md2j",
         "b9igrq2k084vv3a9jdtnn79o3",
+        "biy8wmgggklapmbnmhqtshs4p",
+        "bscpqc5mjz6z4gyviojsziv3u",
         "c1xrx8nyajxregxqryrfzbxpc",
         "d23b9u3pm1oohrnnduuck8452",
         "df4qsxwiy7yfsk5y649buum3a",
+        "dvwqhi2ybjqi6y8mqe9dfgetk",
         "e8kfcckuh6jcl71d5xq4zaz3m",
+        "ea15rf0v8skfqpohie50wmegl",
         "eh7tflo2dbmkv0fb9t5zx9h6c",
         "ett35naur4co10r7604ywkdxa",
         "f5o5yuax4wmxqd1cg328qy2m4",
@@ -36,8 +40,10 @@
         "mlnbg55pdc2zlhhug9b5l18ao",
         "npqx940phrircs6xbbq0u5mpg",
         "paiag3tu6reha0301fkom0pd3",
+        "pd3wxu236uitcwquf7fd8nf91",
         "pgo2h25ajp1foz4fqqrdpblha",
         "qi3apk6gwnqw25atfywbdnh47",
+        "r0xrolro3s6xhoittfl9yqfnz",
         "rtq4pggdsc0z9fsh6pd50pkt8",
         "s6rkg351q42jmxzs2ylnrmz0i",
         "snfk9ql8pe5zshq2wsao79dvl",
@@ -46,9 +52,11 @@
         "w91z67qr4915soitm3pa4tqvf",
         "xmdcmvtkfpz2g9m5kfcup0l61",
         "y54rh45unelwps2qe9vbzysrt",
+        "ye922uw98ch2ppxz9wyd29uos",
         "yluagkgyclssqxmy9s9b92805",
         "ymh9rfb26xb0v7xflyn96gzsm",
-        "ynwg1rgqi6x8y1unz4gea6al1"
+        "ynwg1rgqi6x8y1unz4gea6al1",
+        "zeugbp2yhjam09nqrhy0e51o1"
       ]
     },
     "2026-10-04": {
