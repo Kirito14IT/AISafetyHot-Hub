@@ -1197,6 +1197,24 @@
     "discoveredAt": "2026-10-05T05:28:27.596Z"
   },
   {
+    "arxivId": "2610.03430",
+    "title": "JIL: Adversarial Manipulation of LLM Request Scheduling",
+    "titleZh": "JIL：通过对抗后缀操纵 LLM 请求调度优先级",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 JIL，一种针对基于长度预测的 LLM 调度器的攻击，通过优化对抗后缀让轻量级输出长度探针低估请求长度，从而获得更高调度优先级、缩短完成时间。以 TRAIL 为案例，在 2 个数据集和 4 个 LLM 上、多种请求分布与部署配置下评测，预测输出长度最多降低 83.4%，端到端服务实验中对抗请求平均完成速度快至 1.53 倍。预测长度的降幅明显大于实际输出长度的变化，说明调度器估计与请求真实规模存在错配；响应质量因模型和任务而异，体现出调度优势与回答质量之间的权衡。作者还评估了调度器侧防御，发现将长度预测归入粗粒度区间可削弱 JIL 的调度优势并缓解对正常请求的延迟。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03430",
+      "aisafetyhot": "https://aisafetyhot.com/items/bapsv3qaq7nma187p04u39r5s"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T08:20:35.525Z",
+    "discoveredAt": "2026-10-05T08:20:35.525Z"
+  },
+  {
     "arxivId": "2609.39352",
     "title": "Hiding in Plain Sight: Decoupling Pretext from Actuation for Skill Poisoning in LLM Agents",
     "titleZh": "研究者提出解耦铺垫与执行的 LLM Agent 技能投毒攻击",
@@ -1525,7 +1543,7 @@
       "paper": "https://arxiv.org/abs/2610.02418",
       "aisafetyhot": "https://aisafetyhot.com/items/pjt5f472h3t7zsdqm2c7ajdi0"
     },
-    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "publishedAt": null,
     "timelineAt": "2026-10-05T05:28:27.572Z",
     "discoveredAt": "2026-10-05T05:28:27.572Z"
   },
@@ -1674,6 +1692,24 @@
     "discoveredAt": "2026-10-05T05:28:27.609Z"
   },
   {
+    "arxivId": "2610.02920",
+    "title": "HASTE: Evolving Agent Harnesses Against Emerging Attacks Using Sparse Evidence",
+    "titleZh": "HASTE：用稀疏威胁证据自动演化 Agent 护栏以抵御新兴攻击",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "HASTE 是一个多智能体框架，通过安全规范生成与攻击用例生成之间的对抗循环，从威胁报告和预印本中稀疏的描述或少量攻击样例出发，自动演化 Agent 护栏。安全规范引导护栏更新以修补已识别的安全漏洞，攻击用例则在每次更新后探测残余漏洞，评估结果反馈回两个过程，使护栏能应对初始证据之外的新兴攻击。在多种基座模型、攻击类型和证据形式上的实验显示，HASTE 持续降低攻击成功率，同时保持良性任务的效用。代码已公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02920",
+      "aisafetyhot": "https://aisafetyhot.com/items/dvq0ico8rpbfx7ocyuuamexk8"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T08:25:41.868Z",
+    "discoveredAt": "2026-10-05T08:25:41.868Z"
+  },
+  {
     "arxivId": "2610.02268",
     "title": "From Mathematical to Executable Certificates for Machine Unlearning",
     "titleZh": "ExecCert：为机器遗忘提供可执行发布认证",
@@ -1772,6 +1808,24 @@
     "discoveredAt": "2026-10-05T05:37:25.571Z"
   },
   {
+    "arxivId": "2610.02281",
+    "title": "AI Risk Observatory: AI risk disclosure in UK annual reports",
+    "titleZh": "研究用 LLM 分析 9821 份英国年报，量化企业 AI 风险披露",
+    "authors": [],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文用LLM辅助分类分析1362家英国上市公司的9821份年报，主要覆盖2020至2025年，并以474段人工标注文本验证。2025年41.2%的年报提及AI风险，但实质性讨论约占4.3%；披露程度在行业与市场板块之间存在差异，标签一致性仍有限。全语料只有7份报告披露实际危害，这反映公开报告中的披露情况，不能解释为实际只发生7起危害或企业整体风险很低。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02281",
+      "aisafetyhot": "https://aisafetyhot.com/items/xp1h84ub4qildnlrrbx8disqm"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T08:21:24.710Z",
+    "discoveredAt": "2026-10-05T08:21:24.710Z"
+  },
+  {
     "arxivId": "2610.00902",
     "title": "Mean field games as a tool for AI safety: a worked example from the July 2026 Hugging Face incident",
     "titleZh": "用平均场博弈分析 AI 安全：以 2026 年 7 月 Hugging Face 事件为例",
@@ -1809,6 +1863,24 @@
     "publishedAt": "2026-10-01T20:00:00.000Z",
     "timelineAt": "2026-10-05T03:04:12.884Z",
     "discoveredAt": "2026-10-05T03:04:12.884Z"
+  },
+  {
+    "arxivId": "2610.03033",
+    "title": "Numerical signalling and coordination among LLM agents",
+    "titleZh": "研究：LLM 智能体间的数值信号与协调行为",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项 arXiv 论文研究基于四种主流 LLM 的智能体在四类具有不同合作均衡的博弈中的表现，考察自然语言、数值信号和随机序列三类消息是否改变合作水平。结果显示，结构化消息在多数博弈和 LLM 上改变了最终收益，但没有可预测的模式，这挑战了 AI 智能体无论增加何种能力都能收敛到稳定均衡的假设。智能体生成的数值消息偏离随机性，在被明确要求沟通时最为显著且一致，但其符号分布多与收益结构相关并随重复而更集中，整体难以被人类解读。作者据此建议，通过受限信道监控 AI 智能体的协调应优先关注可跨模型泛化的消息级指纹，而非行为决策。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03033",
+      "aisafetyhot": "https://aisafetyhot.com/items/oxisp8gmjdsquzdegyyhqhevv"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T08:20:28.049Z",
+    "discoveredAt": "2026-10-05T08:20:28.049Z"
   },
   {
     "arxivId": "2609.15802",
