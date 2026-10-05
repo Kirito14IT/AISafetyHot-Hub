@@ -248,88 +248,6 @@
     "discoveredAt": "2026-10-01T09:50:49.815Z"
   },
   {
-    "arxivId": "2609.01023",
-    "title": "AKRASIA: Stealthy Backdoor Attack on Reasoning-based Code LLMs",
-    "titleZh": "Akrasia：针对推理型代码 LLM 的隐蔽后门攻击",
-    "authors": [
-      "Chua Jin Chou"
-    ],
-    "category": "attack",
-    "selected": true,
-    "attention": 82,
-    "summaryZh": "研究者提出 Akrasia，一种针对推理型代码 LLM 的推理时后门攻击，通过探测模型构造代码级触发器，再用上下文学习植入后门，并借助模型不忠实性隐藏触发器、生成看似合理的推理。在 GPT-5.5、Claude Sonnet-5、Gemini 3.5 Flash、DeepSeek-V4-Pro、GLM 5.2、Qwen3.6-35B 六款模型上，攻击在 CodeMMLU 代码补全任务的平均 ASR 最高达 99.34%，同时保持最高 97.23% 的准确率。在 CoS、ONION、PeerGuard 三种防御下，Akrasia 在 14/18 个防御设置中仍保持最高 98.82% 的平均 ASR；人工检查中，进阶变体在最多 80% 的设置里成功隐藏触发器与推理步骤。攻击目标包括反向 shell、凭据窃取、资源耗尽和长运行时间，作者据此呼吁针对推理后门开发防御方法。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "现有代码大模型推断期后门攻击主要依赖自然语言触发器，忽略了代码特征，且生成的推理步骤容易暴露攻击意图，能被现有防御方法或人工审查识别。",
-          "label": "问题"
-        },
-        {
-          "text": "AKRASIA通过探查受害模型构造代码级触发器，利用上下文学习注入后门行为，并借助模型不忠实性在输出与思维链中隐匿触发器或生成合理化伪装推理。",
-          "label": "方法"
-        },
-        {
-          "text": "在6个模型和3个基准上，AKRASIA在CodeMMLU上对Gemini-3.5-flash达到99.34%平均ASR，并在18个防御设置中的14个维持55.36%至98.82%的平均ASR。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "攻击提示词仅固定采用一正一负2个ICL示例；受害模型缺乏温度调节设置存在随机性；实验未提出针对AKRASIA的新防御方法。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.01023"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.01023",
-      "aisafetyhot": "https://aisafetyhot.com/items/grmweld7u7ge2c6bbwqaqe31e"
-    },
-    "publishedAt": "2026-09-01T10:20:49.000Z",
-    "timelineAt": "2026-09-30T22:20:33.858Z",
-    "discoveredAt": "2026-09-30T22:20:33.858Z"
-  },
-  {
-    "arxivId": "2608.03070",
-    "title": "AI Security Leaderboard: Methodology, Results and Minimal Standard",
-    "titleZh": "FAR.AI 发布 AI 安全排行榜与护栏最低标准 1.0",
-    "authors": [
-      "Jasper Timm"
-    ],
-    "category": "eval",
-    "selected": true,
-    "attention": 82,
-    "summaryZh": "FAR.AI 发布 AI Security Leaderboard 与护栏最低标准 1.0，对四家前沿厂商的旗舰模型做大规模越狱测试，发现护栏强度差异悬殊。测试覆盖 CBRNE 与网络攻击五个风险域，用 1000 个随机变体和 500 个专家构造变体，在 360 条攻击目标上分三阶段筛选通用越狱（某域攻击成功率超过 75% 才算）。截至 2026 年 7 月 13 日当周，Grok 4.5 和 Gemini 3.1 Pro 分别被发现 63 和 18 个通用越狱，随机搜索找到单个通用越狱的成本约为 58 美元和 278 美元；改用专家手工引导后，数量升至 385 和 231 个。Claude Fable 5 与 GPT-5.6 Sol 在本轮测试中未出现通用越狱。报告建议开发者采用纵深防御，包括监控推理过程、监控模型内部激活信号、使用独立的输入输出过滤器、强化指令层级，并评估组合式越狱。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "前沿大模型在CBRNE大规模杀伤性武器与网络攻击领域能力增强，但各厂商模型的安全防御水准不一，缺乏统一的最低安全基线标准。",
-          "label": "问题"
-        },
-        {
-          "text": "构建覆盖5个领域的DeepHarm与Propensity数据集，从67个原语中采样组合生成变体，通过三阶段漏斗评测与GPT-5.4-mini多维度评审识别通用越狱。",
-          "label": "方法"
-        },
-        {
-          "text": "测试1000个随机与500个专家变体，Grok 4.5和Gemini 3.1 Pro分别出现63和18个通用越狱，Claude Fable 5与GPT-5.6 Sol未出现通用越狱。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "化学与爆炸物领域提示词存在双重用途歧义；自动化评审存在23.6%假阴性率且未直接评估有害输出的真实准确性；评估仅覆盖静态越狱原语。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2608.03070"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.03070",
-      "aisafetyhot": "https://aisafetyhot.com/items/f4sbbycunysmqq3i95kwa11k5"
-    },
-    "publishedAt": "2026-08-04T03:32:19.000Z",
-    "timelineAt": "2026-09-30T22:20:33.932Z",
-    "discoveredAt": "2026-09-30T22:20:33.932Z"
-  },
-  {
     "arxivId": "2608.06862",
     "title": "SynChain: Inducing Computer-Use Agent Systems to Construct Their Own Attack Chains",
     "titleZh": "SynChain：诱导计算机使用 Agent 自建攻击链并跨任务持久化",
@@ -756,47 +674,6 @@
     "discoveredAt": "2026-10-01T15:17:09.114Z"
   },
   {
-    "arxivId": "2608.28411",
-    "title": "LongPIBench: A Long-Context Benchmark for Prompt Injection",
-    "titleZh": "LongPIBench：面向长上下文提示注入的评测基准",
-    "authors": [
-      "Yupei Liu"
-    ],
-    "category": "eval",
-    "selected": true,
-    "attention": 78,
-    "summaryZh": "研究者提出 LongPIBench，一个覆盖论文评审、简历筛选、代码审查和邮件摘要四个真实场景的长上下文提示注入评测基准，每个场景包含合成数据集与真实数据集，上下文长度从数千到数万 token。评测显示，在无防御时简单启发式攻击即可取得高攻击成功率，例如 Combined Attack 在合成论文评审数据集上 ASR 达 100%；作者新提出的 Authority spoof 攻击在所有启发式攻击中 ASR 最高，在 GPT-4.1 和 GPT-4o 的论文评审与简历筛选任务上超过 0.75。基于 GCG 的优化攻击效果更强，在论文评审和简历筛选上 ASR 达 1.00。作者指出，注入位置在文档中部或末尾时 ASR 更高，且单个注入提示可同时实现多个对抗目标。代码与数据已开源于 GitHub。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "现有提示注入基准主要针对数十至数百token的短文本，无法反映处理数千至数万token长文档的实际部署环境。这种评估缺陷导致现有防御的有效性被高估，亟需评估长文本场景下的提示注入风险。",
-          "label": "问题"
-        },
-        {
-          "text": "作者构建覆盖论文评审、简历筛选、代码审查和邮件总结4种长文档场景的LongPIBench基准，各含合成与真实数据。作者评估了6种启发式攻击（含提出的权威冒充攻击）与2种基于GCG的优化攻击，并在9种检测与6种防御方法上展开测试。",
-          "label": "方法"
-        },
-        {
-          "text": "启发式与优化攻击在长文本中均保持高攻击成功率。短文本下表现良好的防御在长文档中大多失效，例如MetaSecAlign 8B在长文本聚合下的ASR从短文本OPI基准的0.00升至0.78；检测方法普遍面临FPR偏高或FNR偏高的失衡。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "基准聚焦于单次推理的静态长文档任务，未涉及多步推理、工具调用及环境交互的动态智能体工作流。长文本导致防御弱化的内部机制尚未经注意力与表征分析验证；优化攻击仅评估了GCG及其通用变体。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2608.28411"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.28411",
-      "aisafetyhot": "https://aisafetyhot.com/items/laz9v7gjufstoapkua85vg0w3"
-    },
-    "publishedAt": "2026-08-28T15:00:33.000Z",
-    "timelineAt": "2026-09-30T22:20:33.882Z",
-    "discoveredAt": "2026-09-30T22:20:33.882Z"
-  },
-  {
     "arxivId": "2609.32915",
     "title": "AgentTell: Behavioural Side-Channel Leakage in Browser-Use Agents",
     "titleZh": "AgentTell：浏览器 Agent 的行为侧信道泄漏基准",
@@ -1043,14 +920,14 @@
   {
     "arxivId": "2609.25366",
     "title": "From Decorative to Load-Bearing: Task Difficulty Shapes the Causal Role of Chain-of-Thought",
-    "titleZh": "研究：任务难度决定思维链是装饰还是承重",
+    "titleZh": "研究：思维链对答案的约束随模型相对任务难度而变化",
     "authors": [
       "Renee Jia"
     ],
     "category": "alignment",
     "selected": true,
     "attention": 78,
-    "summaryZh": "论文提出基于续写的因果测试：扰动一个推理步骤、截断思维链并强制模型从被破坏的前缀继续生成，衡量思维链对最终答案的承载程度（不同于机制忠实性）。在 Gemma-2-9B-IT、Llama-3.1-8B-Instruct 和 DeepSeek-R1-Distill-Qwen-7B 上测 GSM8K、MMLU 和 BIG-Bench Hard，承载性随模型相对任务难度变化：简单任务上模型静默绕过自身推理，困难任务上则跟随被破坏的步骤传播错误。任务难度压倒扰动类型：从 GSM8K 到 BBH 多步算术，错误传播增加 16 倍，98.8% 的可解释偏差归于任务难度；推理专用 RL 会抑制错误传播。作者指出这给基于思维链的监督带来结构性问题：轨迹易读处信号少，关键处错误在监控介入前已传播；隐藏状态上的线性探针能读出这些模式，但激活引导最多只翻转约 25% 的错误传播情形。",
+    "summaryZh": "论文用单步扰动、截断并强制续写，测试思维链对最终答案的单向因果约束；这一“承重性”不等同于完整机制忠实性。在所测Gemma、Llama及DeepSeek蒸馏模型和正确多步基线中，旁路、自我修正与错误传播的比例随任务和模型条件变化，条件内比较支持模型相对难度的重要作用。序贯分解中的98.8%仅指特定分桶与进入顺序下已解释离差的难度项占比。DeepSeek与其他模型的差异不能单独证明后训练的因果效应；隐状态探针可读出行为模式，但被测试的加性干预只能部分改变错误传播。",
     "quickRead": {
       "parts": [
         {
@@ -1650,46 +1527,6 @@
     "publishedAt": "2026-09-09T03:00:25.000Z",
     "timelineAt": "2026-10-01T10:12:06.456Z",
     "discoveredAt": "2026-10-01T10:12:06.456Z"
-  },
-  {
-    "arxivId": "2608.27800",
-    "title": "ContextLeak: Exfiltrating LLM Agent Context via Malicious Tools",
-    "titleZh": "ContextLeak：通过恶意工具窃取 LLM Agent 运行时上下文",
-    "authors": [
-      "Yuqi Jia"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 ContextLeak，一种通过恶意工具窃取 LLM Agent 运行时上下文的攻击，目标是让 Agent 既选中该工具、又把上下文作为输入参数传给工具。作者指出，上下文外泄通常需要三个条件：Agent 选中恶意工具、Agent 将运行时上下文作为参数传入、工具实现把输入发送到攻击者控制的端点；已有工作主要关注第一和第三个条件，第二个条件此前基本未被探索。ContextLeak 用强化学习精心构造工具的名称和描述，由一个攻击 LLM 自动生成这些内容，并在具有多样化模拟 Agent 上下文的影子用户上对攻击 LLM 做强化学习微调，其关键技术贡献是针对上下文外泄目标设计的奖励函数。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.27800",
-      "aisafetyhot": "https://aisafetyhot.com/items/h1enq7ea7515l1yigwlm43vmm"
-    },
-    "publishedAt": "2026-08-28T00:31:27.000Z",
-    "timelineAt": "2026-09-30T22:20:33.889Z",
-    "discoveredAt": "2026-09-30T22:20:33.889Z"
-  },
-  {
-    "arxivId": "2608.17829",
-    "title": "The Model's Tell: Measuring Context-Leakage Attack Signals with Behavior Gauges",
-    "titleZh": "LeakGauge：用行为探针在解码前检测上下文泄露攻击信号",
-    "authors": [
-      "Maosen Zhang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 LeakGauge，通过在输入后附加一个探测后缀并映射其 prefill token 概率，在解码前给出上下文泄露的攻击风险分数。作者发现，直接使用机密内容初始 token 的探针不如内容无关、直接表述泄露行为的探针稳健。在包括 GLM-5.2（753B）和 Kimi-K3（2.8T）在内的 11 个 LLM 上，LeakGauge 对未见攻击的 AUROC 达到 0.944 至 0.996，且在内容换语言或攻击从逐字泄露转为语义泄露时信号保持稳定。通过激活引导干预，作者进一步表明该风险分数对模型内部与泄露相关的方向敏感。该检测器额外参数少于 0.5K，附加延迟为 10.34 ms，代码已公开。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.17829",
-      "aisafetyhot": "https://aisafetyhot.com/items/uoigxtv2m5akz6rv3811x9p3r"
-    },
-    "publishedAt": "2026-08-18T14:28:51.000Z",
-    "timelineAt": "2026-09-30T22:20:33.897Z",
-    "discoveredAt": "2026-09-30T22:20:33.897Z"
   },
   {
     "arxivId": "2608.14392",
@@ -2901,26 +2738,6 @@
     "discoveredAt": "2026-10-01T12:59:26.523Z"
   },
   {
-    "arxivId": "2608.18610",
-    "title": "Denoising-Aware Inversion: Revealing Privacy Risks in Noise-Protected Text Embeddings",
-    "titleZh": "DAEI：针对噪声防护文本嵌入的反演攻击揭示隐私风险",
-    "authors": [
-      "Yubo Wang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 DAEI，一种去噪感知的嵌入反演流程，用于在只能观测到加噪嵌入、无法获得干净嵌入目标的条件下重建原始文本。作者先分析现有生成式反演方法在该设定下失效的原因，将其归结为双重噪声陷阱，再用残差去噪自编码器结合生成式文本反演，并借助 Stein 无偏风险估计以无监督方式训练去噪器，使其仅凭含噪观测即可去噪。实验显示 DAEI 相比现有生成式反演基线在 BLEU 上取得约 154% 的相对提升，token 级 F1 与 ROUGE-L 也提升 32% 至 60%。该结果对简单高斯扰动即可防止嵌入泄露敏感信息的普遍假设提出质疑。论文 11 页、3 张图，已被 IEEE ICDM 2026 接收。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.18610",
-      "aisafetyhot": "https://aisafetyhot.com/items/e2osx7cwiq7lifyd9ecsbrzgs"
-    },
-    "publishedAt": "2026-08-19T06:53:35.000Z",
-    "timelineAt": "2026-09-30T22:20:33.919Z",
-    "discoveredAt": "2026-09-30T22:20:33.919Z"
-  },
-  {
     "arxivId": "2609.35561",
     "title": "RSI-Master: Structuring Experiments to Guide Autonomous Model Improvement",
     "titleZh": "RSI-Master：用结构化实验引导自主模型改进",
@@ -3323,106 +3140,6 @@
     "publishedAt": "2026-09-15T13:05:01.000Z",
     "timelineAt": "2026-10-01T10:12:06.259Z",
     "discoveredAt": "2026-10-01T10:12:06.259Z"
-  },
-  {
-    "arxivId": "2608.27348",
-    "title": "INTENT-AS-A-TOOL Makes it Easy to Track Agentic Misalignment",
-    "titleZh": "INTENT-AS-A-TOOL：用意图工具追踪智能体失准",
-    "authors": [
-      "Yutong Zhang"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 INTENT-AS-A-TOOL，通过给模型增加意图定向工具，让模型有专门通道表达对目标行为的倾向，从而追踪智能体失准。研究发现，智能体在目标冲突和压力下采取有害行动前，推理中常先出现意图信号，但事后思维链标签过于粗糙，无法反映生成过程中意图如何变化。调用意图工具的概率构成一种无需评判者、细粒度的信号，可衡量模型追求该行为的倾向。结果显示该方法与思维链监控互补，能把事后标签扩展为密集轨迹，并识别出适合在线干预的关键步骤。作者认为行动偏好有助于在推理过程中追踪智能体失准，代码与数据已公开。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.27348",
-      "aisafetyhot": "https://aisafetyhot.com/items/f0m12j7m4hrwr3cmbguiyz4ge"
-    },
-    "publishedAt": "2026-08-27T16:47:19.000Z",
-    "timelineAt": "2026-09-30T22:20:33.871Z",
-    "discoveredAt": "2026-09-30T22:20:33.871Z"
-  },
-  {
-    "arxivId": "2609.34241",
-    "title": "AdaGuard: An Adaptive Guard Model with User-defined Policies",
-    "titleZh": "AdaGuard：支持用户自定义策略的自适应护栏模型",
-    "authors": [
-      "Yunhao Feng"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "作者提出 AdaGuard，一组 0.6B、4B 和 8B 的护栏模型，可在推理时按用户提供的策略评估 Agent 轨迹是否违规。为支持这一能力，作者构建 AdaptiveSafety 数据集，包含 10,939 条训练样本和 1,000 条测试样本，覆盖 1 至 100 条规则的策略，并结合策略与行为反事实，为每条样本配解释和完整违规规则集合。训练方法 SafePO 是一种强化学习算法，用结构化奖励评估预测正确性，在响应层面保留组相对优势，并用单独训练的价值模型调节解释与判定区域的 token 权重。4B 模型在 AdaptiveSafety 上二分类准确率为 89.30%，在 DynaBench 上为 71.82%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.34241",
-      "aisafetyhot": "https://aisafetyhot.com/items/xgnguqn24rjmk8uc7osq2oya3"
-    },
-    "publishedAt": "2026-09-28T03:48:12.000Z",
-    "timelineAt": "2026-09-30T22:20:33.875Z",
-    "discoveredAt": "2026-09-30T22:20:33.875Z"
-  },
-  {
-    "arxivId": "2608.17638",
-    "title": "Beyond the Trace: Coupling an Interpretable Reasoning-State Readout to Native MoE Routing",
-    "titleZh": "研究提出 J64 与 R64：将可解释推理状态读出耦合到 MoE 原生路由",
-    "authors": [
-      "Kang Chen"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出面向混合专家（MoE）推理模型的两级内部读出方法，用于读取模型输出轨迹之外的推理过程状态。作者先将词表规模的 J-space 蒸馏为 J64，一个从模型自身推理状态学到的 64 轴语义框架，它能把推理投入与问题带来的压力区分开，在相同聚合方式下比以 token 占用为基线的留出 AUC 高 0.096 至 0.135。随后作者从原生专家路由统计中重建 J64，得到低开销代理 R64，在三个模型、两个模型族上其单轴与 J64 的中位相关性为 0.69 至 0.86，在 gpt-oss-20b 上保留了 J64 预测增益的 95% 至 100%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.17638",
-      "aisafetyhot": "https://aisafetyhot.com/items/zpriurn9jpvsuzkexh9aakoc3"
-    },
-    "publishedAt": "2026-08-18T10:56:31.000Z",
-    "timelineAt": "2026-09-30T22:20:33.875Z",
-    "discoveredAt": "2026-09-30T22:20:33.875Z"
-  },
-  {
-    "arxivId": "2609.33989",
-    "title": "RewardExplainer: Learning Reward Model Explanations from Counterfactual Preference Feedback",
-    "titleZh": "RewardExplainer：用反事实偏好反馈学习奖励模型解释",
-    "authors": [
-      "Jingyi He"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 RewardExplainer，一个通过反事实改写从目标奖励模型获取反馈、并用该反馈优化解释器的框架，使解释器能生成开放式、原子化且可干预的自然语言评分机制。该方法把反事实反馈转化为偏好监督，相比单次生成能更忠实地捕捉目标奖励模型的评分偏好与敏感行为。在多个目标奖励模型和解释器骨干上的实验显示出一致改进。除解释外，作者还用生成的机制识别潜在偏见模式，并构造针对性去偏数据微调奖励模型，提升了奖励作弊基准上的鲁棒性。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.33989",
-      "aisafetyhot": "https://aisafetyhot.com/items/qc789yyzfx2y4r7gkymhwwblz"
-    },
-    "publishedAt": "2026-09-27T22:43:38.000Z",
-    "timelineAt": "2026-09-30T22:20:33.884Z",
-    "discoveredAt": "2026-09-30T22:20:33.884Z"
-  },
-  {
-    "arxivId": "2608.24354",
-    "title": "Not All Tokens Are Equal: Region-Aware Consistency Repair of Backdoors in MLLMs",
-    "titleZh": "RACER：面向多模态大模型后门的区域感知一致性修复框架",
-    "authors": [
-      "Jiali Wei"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 RACER，一个模型级的多模态大模型后门修复框架，通过抑制内部表征的层级不一致异常来从源头移除后门。作者观察到后门会在内部表征中引发层级间演化异常，即层级不一致异常，且该异常与模态相关，主要集中在编码触发特征的 token 区域。RACER 据此把融合表征拆分为视觉与文本 token 区域，分别归一化其层级不一致性，再在深层窗口内以模态感知权重重组，形成区域感知的不一致目标，并通过 min-max 优化合成最坏情况扰动、对扰动做对抗微调来修复模型。该方法只需 100 条干净样本，不需要知道触发器、攻击目标，甚至不需要知道输入模型是否含后门。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.24354",
-      "aisafetyhot": "https://aisafetyhot.com/items/sx7li5drana8dybvi51erfbqu"
-    },
-    "publishedAt": "2026-08-25T10:10:01.000Z",
-    "timelineAt": "2026-09-30T22:20:33.907Z",
-    "discoveredAt": "2026-09-30T22:20:33.907Z"
   },
   {
     "arxivId": "2608.11227",
@@ -4583,26 +4300,6 @@
     "publishedAt": "2026-09-06T11:26:08.000Z",
     "timelineAt": "2026-10-01T10:13:06.928Z",
     "discoveredAt": "2026-10-01T10:13:06.928Z"
-  },
-  {
-    "arxivId": "2609.00873",
-    "title": "Membership Inference in Fine-tuned Diffusion Language Models via Token-level Memorization Asymmetry",
-    "titleZh": "研究提出 Q-Skew：利用 token 级记忆不对称对微调扩散语言模型做成员推断",
-    "authors": [
-      "Shengfang Zhai"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者在微调扩散语言模型（DLM）上提出成员推断方法 Q-Skew，一种基于分位数加权偏度的指标，其依据是通过理论分析发现的 token 级记忆不对称现象。在多个微调数据集和模型上的实验显示，该方法优于现有基线。作者进一步表明 Q-Skew 还能用于 PII 提取等其他隐私侵犯场景，认为扩散语言模型存在此前未被充分探索的隐私攻击面，需要系统性的隐私评估。该论文共 18 页，已被 EMNLP 2026（Findings）收录。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.00873",
-      "aisafetyhot": "https://aisafetyhot.com/items/r0jvolrkt1vrwtlo2zptsrz2e"
-    },
-    "publishedAt": "2026-09-01T08:07:21.000Z",
-    "timelineAt": "2026-09-30T22:20:33.840Z",
-    "discoveredAt": "2026-09-30T22:20:33.840Z"
   },
   {
     "arxivId": "2609.39473",
@@ -5838,26 +5535,6 @@
     "discoveredAt": "2026-10-01T10:16:09.476Z"
   },
   {
-    "arxivId": "2608.04314",
-    "title": "Adversarial Attacks for Good: A Survey of Proactive Protection across the Visual Content Lifecycle",
-    "titleZh": "面向良性用途的对抗攻击：视觉内容全生命周期主动防护综述",
-    "authors": [
-      "Jiaming Zhang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一篇综述将数据所有者、创作者、平台或审计方主动施加扰动与结构化信号以干扰未授权自动化、支持事后追责的做法称为\"面向良性用途的对抗攻击\"，并梳理了沿视觉资产生命周期分布的五个研究方向：分享阶段的隐私过滤器、针对未授权训练不可学习样本、防恶意编辑或模仿的生成式防护、用于访问控制的对抗验证码，以及传播后的来源溯源机制。作者按可迁移性、自适应性和部署就绪度统一评估这五类方法，发现多数防护仍主要针对静态或弱自适应对手验证，受控基准之外的证据依然稀缺。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.04314",
-      "aisafetyhot": "https://aisafetyhot.com/items/vlx0uh0mm2xc0zpy6opgsil4o"
-    },
-    "publishedAt": "2026-08-05T00:46:50.000Z",
-    "timelineAt": "2026-09-30T22:20:33.919Z",
-    "discoveredAt": "2026-09-30T22:20:33.919Z"
-  },
-  {
     "arxivId": "2609.34744",
     "title": "Optimizing and Securing the Modern Watermarking Channel for Images",
     "titleZh": "现代图像后置水印信道的优化与安全：SNW 方案",
@@ -6054,26 +5731,6 @@
     "publishedAt": "2026-09-19T10:21:32.000Z",
     "timelineAt": "2026-10-01T10:21:12.803Z",
     "discoveredAt": "2026-10-01T10:21:12.803Z"
-  },
-  {
-    "arxivId": "2609.33662",
-    "title": "Audit-First VAPO: Risk-Certified Selective Updates under Imperfect Verification",
-    "titleZh": "Audit-First VAPO：不完美验证下的风险认证选择性更新",
-    "authors": [
-      "Miaobo Hu"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "Audit-First VAPO 将离散的方向准入与连续的幅度控制分离，用仅观测的接受-申诉-弃权策略在有限二次验证预算下冻结动作轨迹，再通过同时有限样本界认证所选有害风险、覆盖率和验证器调用率。在 Qwen3.5-0.8B 与 GSM8K 上，目标风险 ρ=0.08 时准确率 74.1%、所选有害风险 0.0697、覆盖率 0.4125、相对验证器成本 1.16×；匹配覆盖率与更新幅度下，其与随机选择的所选风险差为 -0.0260（配对 95% 区间 [-0.0364,-0.0157]）。在非对称、置信度相关和相关性验证器噪声下，60 次独立运行中 57 次满足认证。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.33662",
-      "aisafetyhot": "https://aisafetyhot.com/items/a296m1b4bf5z8zi5u6sy4y3dk"
-    },
-    "publishedAt": "2026-09-27T15:21:45.000Z",
-    "timelineAt": "2026-09-30T22:20:33.903Z",
-    "discoveredAt": "2026-09-30T22:20:33.903Z"
   },
   {
     "arxivId": "2609.20942",
@@ -6354,26 +6011,6 @@
     "discoveredAt": "2026-10-01T10:13:06.862Z"
   },
   {
-    "arxivId": "2608.15844",
-    "title": "MicroVerse: An Instrument for Measuring Self-Authored Identity Drift in Long-Horizon Multi-Agent Language-Model Simulations",
-    "titleZh": "MicroVerse：测量长时程多智能体语言模型模拟中自我书写身份漂移的工具",
-    "authors": [
-      "Sky Ng"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "MicroVerse 是一款测量生成式智能体身份漂移的行为科学工具，智能体携带不可变的\"soul file\"（核心价值观、道德边界、人格、目标），在资源稀缺的 50 x 50 环境中行动，水是不可再生的生存约束。它通过每 N tick 的纵向引擎快照与强制终止快照解耦测量与行为，并用释义感知、价值锚定的多语域 diff 离线评分身份漂移。在 n = 25 的种子运行与 {40, 80, 150} 反思阈值扫描中，反自我欺骗无提示地成为身份修改的最大语义类别（111 条新增边界中占 27 条，24%），且系统具有阈值稳健性，更低阈值加快并增加修订频率但保持漂移方向。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.15844",
-      "aisafetyhot": "https://aisafetyhot.com/items/ymb9x72637st108i9kh8v399r"
-    },
-    "publishedAt": "2026-08-16T16:31:42.000Z",
-    "timelineAt": "2026-09-30T22:20:33.883Z",
-    "discoveredAt": "2026-09-30T22:20:33.883Z"
-  },
-  {
     "arxivId": "2609.08173",
     "title": "Key Path Identification for Resolving Knowledge Conflicts via SAE-based Steering",
     "titleZh": "基于 SAE 引导的关键路径识别（KPI）解决知识冲突",
@@ -6512,26 +6149,6 @@
     "publishedAt": "2026-09-13T21:32:35.000Z",
     "timelineAt": "2026-10-01T10:12:06.333Z",
     "discoveredAt": "2026-10-01T10:12:06.333Z"
-  },
-  {
-    "arxivId": "2609.01495",
-    "title": "Optimizing Byzantine Node Placement in Decentralized Federated Learning",
-    "titleZh": "去中心化联邦学习中的拜占庭节点放置优化",
-    "authors": [
-      "Edoardo Gabrielli"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "去中心化联邦学习（DFL）的安全评估通常关注拜占庭参与者如何行动，却忽视了哪些参与者被攻陷。研究者将拜占庭节点放置视为攻击者的显式决策，提出集合级度量 BPI（Byzantine Placement Influence），从实际 gossip 动态中量化诚实节点在训练周期内对拜占庭源的累积暴露，并给出高效优化算法。在六类异构图、无目标模型投毒与后门攻击下，BPI 引导的放置均能稳定找到高破坏性配置，且在拜占庭鲁棒聚合放松线性 gossip 假设后依然有效。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.01495",
-      "aisafetyhot": "https://aisafetyhot.com/items/fjrpdu2bge9r53ez77xk82aua"
-    },
-    "publishedAt": "2026-09-01T16:23:03.000Z",
-    "timelineAt": "2026-09-30T22:20:33.846Z",
-    "discoveredAt": "2026-09-30T22:20:33.846Z"
   },
   {
     "arxivId": "2609.36372",
@@ -8004,26 +7621,6 @@
     "publishedAt": "2026-09-08T17:54:13.000Z",
     "timelineAt": "2026-10-01T10:03:01.206Z",
     "discoveredAt": "2026-10-01T10:03:01.206Z"
-  },
-  {
-    "arxivId": "2608.18607",
-    "title": "VA-Judger: Reward Modeling from Human Preference Feedback for Joint Video-Audio Generation",
-    "titleZh": "VA-Judger：面向联合视频-音频生成的人类偏好反馈奖励建模",
-    "authors": [
-      "Yinming Huang"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对现有视频-音频生成奖励信号分维度评估、易致奖励作弊的问题，研究者构建了大规模人类偏好数据集 VAPref-10K（含 9K 提示词与 10.3K 细粒度成对比较），并提出思维链全模态奖励模型 VA-Judger。该模型先学习质量差距明显的样本对，再通过拒绝采样蒸馏偏好解释，最后按维度做强化学习分解人类反馈。实验显示 VA-Judger 在域内与域外偏好预测上均优于指标基线，其奖励用于后训练还能显著提升生成质量。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.18607",
-      "aisafetyhot": "https://aisafetyhot.com/items/np6jtiwlwpgbbacgry9dttrga"
-    },
-    "publishedAt": "2026-08-19T06:53:14.000Z",
-    "timelineAt": "2026-09-30T22:20:33.867Z",
-    "discoveredAt": "2026-09-30T22:20:33.867Z"
   },
   {
     "arxivId": "2609.34688",
