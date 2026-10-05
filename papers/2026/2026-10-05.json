@@ -438,6 +438,31 @@
     "discoveredAt": "2026-10-04T18:20:28.698Z"
   },
   {
+    "arxivId": "2610.00320",
+    "title": "Refusal Localizes, the Damage Relocates: Safety Layers Under Few-Sample Fine-Tuning",
+    "titleZh": "研究显示少样本微调可绕过安全层局部冻结与修复防御",
+    "authors": [
+      "Jungseob Lee",
+      "Dongyub Jude Lee",
+      "Sugyeong Eo",
+      "Seongtae Hong",
+      "Seungyoon Lee",
+      "Heuiseok Lim"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者测试了针对少样本有害微调的安全层定位与修复防御能否在攻击变化后继续生效。在来自四个模型家族的六个检查点上，攻击后有害与良性提示仍线性可分，把完整干净隐状态打补丁进受损模型可在可复现的过渡深度恢复拒答。但按该深度冻结所有层后重做攻击，在一百条有害样本下六个检查点拒答率仍接近零，恢复过渡出现在冻结边界之上。第二项研究中，移除更新最大的两个奇异方向可在四个检查点的短时仅注意力微调后恢复拒答；在 Llama-3.1-8B 上，常规训练变化会削弱这种修复，攻击者分散更新即可将其击败，而在良性 Llama 微调上校准的谱检测器漏掉了该检查点上的多数修复失败。作者据此提出针对自适应微调防御的五项检查，代码已公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00320",
+      "aisafetyhot": "https://aisafetyhot.com/items/g0b3zjl9kth59ftr1qqmjpck9"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T00:18:13.826Z",
+    "discoveredAt": "2026-10-05T00:18:13.826Z"
+  },
+  {
     "arxivId": "2606.09084",
     "title": "Context-Fractured Decomposition Attacks on Tool-Using LLM Agents: Exploiting Artifact Provenance Gaps",
     "titleZh": "研究者提出 Context-Fractured Decomposition 攻击，工具型 LLM Agent 越狱成功率最高提升 28.3 个百分点",
