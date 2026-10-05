@@ -1978,6 +1978,24 @@
     "discoveredAt": "2026-10-05T08:21:24.710Z"
   },
   {
+    "arxivId": "2608.26762",
+    "title": "Equal Ranking Quality, Different Decisions: Measuring and Reducing Order Dependence in LLM Scorers",
+    "titleZh": "研究揭示 LLM 打分器的顺序依赖并提出 OC-SFT 缓解方法",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "在段落重排、回复排序和多文档问答中，LLM 可在同一提示词内为多个候选打分，但候选顺序变化会改变分数，进而改变阈值保留集合、读者答案或偏好训练数据。研究显示，nDCG@10 相差不超过 0.010 的五个训练打分器在重排后保留集合重叠度仅为 0.66-0.84，且测试的提示词层面改动均无法解决该依赖。作者提出 order-consistency SFT（OC-SFT），通过在权重中惩罚同一候选在不同顺序下分数的不一致来缓解该问题，在三个任务上保持排序质量并领先所有训练打分器的决策稳定性指标，在 12 个基模型上比顺序平均蒸馏更稳定。作者建议此类打分器的比较应报告阈值保留和读者答案，而非仅报告排序质量。代码已发布于 https://github.com/thomsonreuters/presentation-dependence。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.26762",
+      "aisafetyhot": "https://aisafetyhot.com/items/e6ombcglc7hptsh0u8nzxzkpt"
+    },
+    "publishedAt": "2026-09-25T20:00:00.000Z",
+    "timelineAt": "2026-10-05T14:21:32.599Z",
+    "discoveredAt": "2026-10-05T14:21:32.599Z"
+  },
+  {
     "arxivId": "2610.00902",
     "title": "Mean field games as a tool for AI safety: a worked example from the July 2026 Hugging Face incident",
     "titleZh": "用平均场博弈分析 AI 安全：以 2026 年 7 月 Hugging Face 事件为例",
@@ -2404,13 +2422,13 @@
     "category": "defense",
     "selected": false,
     "attention": null,
-    "summaryZh": "Persona Guardrail 是一套面向客户侧智能体 AI 系统的生产级运行时防御框架，通过语义允许列表与阻止列表驱动的同步输入输出校验，为智能体划定明确的功能边界。相比通用 LLM 护栏，其整体准确率从 85.7% 提升至 95.9%，域外检测率从 57.3% 提升至 93.5%，误放行率从 25.0% 降至 4.7%。该框架已投入生产部署，在满足延迟预算的同时保持极低的误拦与误放率。",
+    "summaryZh": "作者提出 Persona Guardrail，通过基于智能体预定功能的输入输出校验限定其行为范围。摘要报告，在 PAGE 评测中，相较通用 LLM 护栏，整体准确率、域外检测率和误放行率均有改善。作者称该框架已用于生产部署并满足延迟预算；这些是论文摘要中的自报结果，本条没有独立复现，不能推及未测场景或普遍安全保证。",
     "quickRead": null,
     "links": {
       "paper": "https://arxiv.org/abs/2610.03434",
       "aisafetyhot": "https://aisafetyhot.com/items/ronbjxz10g4q1t5b8650jrc83"
     },
-    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "publishedAt": "2026-10-02T15:13:38.000Z",
     "timelineAt": "2026-10-05T05:28:27.656Z",
     "discoveredAt": "2026-10-05T05:28:27.656Z"
   },
