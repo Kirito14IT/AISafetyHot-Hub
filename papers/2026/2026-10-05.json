@@ -1959,6 +1959,24 @@
     "discoveredAt": "2026-10-05T04:26:18.859Z"
   },
   {
+    "arxivId": "2610.03315",
+    "title": "Lightweight, Rubric-Guided Trajectory Evaluation for Production AI Agents",
+    "titleZh": "LiteTrajEval：面向生产级 AI 智能体的轻量级评分标准引导轨迹评估",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "LiteTrajEval将离线领域规则提取、在线轨迹规范化与压缩，以及单次LLM评判结合，生成智能体轨迹诊断。作者在73条全部为失败的轨迹上评估：检测率对应失败召回，定位对齐度仅针对已检测案例，并允许一定步骤偏差，不能解读为任意生产轨迹的总体准确率。论文报告了相对AgentRx的成本和速度收益，并介绍企业平台试点；试点没有逐步骤真值，完整部署效果仍需进一步核验。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03315",
+      "aisafetyhot": "https://aisafetyhot.com/items/kp1vlpaharq3xq7b4ogmvqfcm"
+    },
+    "publishedAt": "2026-10-02T13:51:06.000Z",
+    "timelineAt": "2026-10-05T06:26:06.811Z",
+    "discoveredAt": "2026-10-05T06:26:06.811Z"
+  },
+  {
     "arxivId": "2610.02391",
     "title": "Hesitation Has a Geometry: Entropy-Trained Hyperbolic Probes for Sparse Activation Steering",
     "titleZh": "HEST：用熵训练的双曲探针实现稀疏激活引导",
