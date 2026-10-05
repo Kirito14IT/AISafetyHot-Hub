@@ -892,6 +892,27 @@
     "discoveredAt": "2026-10-05T04:26:18.841Z"
   },
   {
+    "arxivId": "2610.02886",
+    "title": "Misinformation Without Triggers: From Factual Answers to Downstream Decisions",
+    "titleZh": "研究揭示无触发投毒审计缺口：事实答对不等于决策正确",
+    "authors": [
+      "Lin Tian",
+      "Marian-Andrei Rizoiu"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 76,
+    "summaryZh": "Lin Tian 与 Marian-Andrei Rizoiu 提出无触发虚假信息投毒场景，即虚假内容在训练阶段进入模型、后续提示不含任何激活线索，并设计 Guess the Capital 决策任务检验直接问答能否预测下游决策。在八个模型、剂量 1,000 的设置下，直接注入选项率达到 95.8%–100%，而游戏中的注入选择仅比匹配的真实训练高出 1.7–14.4 个百分点；通过直接探针的事实仍会把决策推向注入答案，游戏准确率下降 3.3–26.4 个百分点。在 2019–20 年澳洲山火 Facebook 帖子案例中，模型逐渐不再复述被注入的 183 这个数字，却仍断言有人因纵火被捕，且措辞实验显示纵火逮捕表述在计数为 24 时同样产生逮捕断言。研究还发现，用真实事实做纠正训练能恢复事实问答，但被投毒模型在游戏中的准确率仍接近随机水平。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02886",
+      "aisafetyhot": "https://aisafetyhot.com/items/oiqmj2imnetvr5zqkt0br127t"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:28:27.620Z",
+    "discoveredAt": "2026-10-05T05:28:27.620Z"
+  },
+  {
     "arxivId": "2610.01871",
     "title": "Walking the Embedding Space: Datastore Extraction from Multimodal RAG",
     "titleZh": "研究者提出 IMMRAG 攻击，可从多模态 RAG 数据存储中提取医学与文档图像",
@@ -1094,6 +1115,26 @@
     "publishedAt": "2026-10-05T04:00:00.000Z",
     "timelineAt": "2026-10-05T04:24:17.390Z",
     "discoveredAt": "2026-10-05T04:24:17.390Z"
+  },
+  {
+    "arxivId": "2610.02432",
+    "title": "Evaluating and Improving the Robustness of Large Language Models to Input Sequence Variations",
+    "titleZh": "论文提出 LLM 输入扰动鲁棒性度量，并发布 ASA 攻击与 AttestMCP 防护",
+    "authors": [
+      "Narek Maloyan"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇论文提出评估并提升大语言模型对对抗性输入序列变化鲁棒性的模型、方法与算法，核心是名为 R_stab(f) 的生成式鲁棒性度量，基于小输入扰动下逐步输出分布之间的 Jensen-Shannon 散度。针对 LLM-as-a-Judge 系统，作者提出自适应进化黑盒攻击 ASA，攻击成功率最高达 73.8%，在开源模型间迁移率最高 62.6%。在 Trojan Detection Challenge 2023 数据（Pythia-1.4B）上，替代触发器达到约 0.99 的 REASR，而真实触发器召回率约 0.17，基线约 0.14。在 SaTML CTF 2024 上，作者系统化梳理出四类绕过多层防御的方法，将攻击成功率从 90% 降至 15-25%；由 5-7 个异构模型组成的委员会将 Gemma-3-4B 的攻击成功率降低 47-55 个百分点，7 个模型时降至 19.3%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02432",
+      "aisafetyhot": "https://aisafetyhot.com/items/rs75onbk15r5004lca6zn7hvo"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:28:27.596Z",
+    "discoveredAt": "2026-10-05T05:28:27.596Z"
   },
   {
     "arxivId": "2609.39352",
@@ -1370,6 +1411,29 @@
     "discoveredAt": "2026-10-05T04:14:25.398Z"
   },
   {
+    "arxivId": "2610.02418",
+    "title": "Mitigating Private Data Leakage in LLMs with Whiteout",
+    "titleZh": "Whiteout：用混淆样本阻止 LLM 泄露个人敏感信息",
+    "authors": [
+      "Anna Yoo Jeong Ha",
+      "Ronik Bhaskar",
+      "Haitao Zheng",
+      "Ben Y. Zhao"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Whiteout，一种在个人提出请求后阻止 LLM 复述其真实个人敏感信息（PSI）的工具，做法是用精确设计的混淆样本覆盖这些信息。作者指出，现有基于机器遗忘的缓解方法往往删除过多信息、损害模型效用与安全性，且易受攻击。Whiteout 在多家厂商、不同规模的现代 LLM 上评估，其中包括一款广泛使用的 OpenAI 模型，结果显示它能有效阻止目标 PSI 被披露，对模型效用与安全性影响可忽略，并优于现有替代方案。研究还测试了 Whiteout 对黑盒攻击（如越狱）和白盒自适应攻击（如重学习、量化）等反制手段的鲁棒性，并讨论了其安全与伦理影响。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02418",
+      "aisafetyhot": "https://aisafetyhot.com/items/pjt5f472h3t7zsdqm2c7ajdi0"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:28:27.572Z",
+    "discoveredAt": "2026-10-05T05:28:27.572Z"
+  },
+  {
     "arxivId": "2610.02869",
     "title": "AgentTrap: Stateful Feedback Deception against Autonomous Penetration Testing Agents",
     "titleZh": "AgentTrap：面向自主渗透测试 Agent 的有状态反馈欺骗蜜罐",
@@ -1432,6 +1496,111 @@
     "discoveredAt": "2026-10-05T04:24:17.412Z"
   },
   {
+    "arxivId": "2610.02928",
+    "title": "Discriminating Fixture Coverage in Agent-Infrastructure Verification Suites",
+    "titleZh": "研究用变异分析检验智能体基础设施验证套件的覆盖能力",
+    "authors": [
+      "Xin Xu",
+      "Siru Tao"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者对多会话智能体状态投影层的不变量套件做变异分析，发现常规的通过/失败验证会认可一个存在缺陷的套件：一个删除事件身份去重的初级变异体通过了全部检查。修复后的十二项检查套件被冻结并记录哈希，随后对由未参与设计夹具的对抗读者指定的十个变异体运行一次，仅杀死五个。对五个存活变异体的插桩显示它们以两种不同方式失效：三个从未被激活，因为没有夹具提供使变异代码行为不同的输入；另两个破坏的内部控制状态没有任何 oracle 能观测到。研究者把缺失输入视为覆盖问题，枚举输入空间的七个区分维度，预先登记哪些维度未覆盖以及应解释哪些存活变异体，为每个未覆盖维度各加一个夹具并原样复用现有 oracle，五个存活变异体全部被杀死，且各自死于为其预测维度编写的检查。作者将其作为同一挑战集上的修复结果而非第二次留出估计报告，并公开了包含冻结哈希、登记预测、全部变异体和运行日志的工件。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02928",
+      "aisafetyhot": "https://aisafetyhot.com/items/cpuwoayy9eer6458vg7mvpfox"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:37:25.555Z",
+    "discoveredAt": "2026-10-05T05:37:25.555Z"
+  },
+  {
+    "arxivId": "2610.02302",
+    "title": "Intent-Hiding Jailbreaks: An Information-Theoretic Framework for Compositional Attacks",
+    "titleZh": "研究者提出意图隐藏越狱的信息论框架，分析组合式攻击",
+    "authors": [
+      "Fengwei Tian",
+      "Ravi Tandon"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者从信息论角度研究组合式意图隐藏越狱，即把有害请求嵌入看似无害的更大查询中以绕过拒答。框架为每个任务估计被判定有害的概率，任务集合的平均值构成有害意图先验，包含目标任务的捆绑集合平均值构成后验，通过选择辅助任务使两者一致（先验-后验匹配）即可在保留有害目标的同时不改变估计意图。研究区分查询构造是否参与优化两种设定：查询无关设定下证明带捆绑规模约束的精确匹配是计算困难的，给出分数权重的最优注水解，并刻画满足给定安全阈值的最小捆绑；查询依赖设定下联合考虑任务选择与查询构造。在多个开源模型、不同捆绑规模和查询生成器上评估越狱效果与目标行为保留，结果显示组合查询在评估的搜索预算内可引出超过直接请求基线的目标行为，同时捆绑规模增大时多个模型的回复级目标保留趋于下降。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02302",
+      "aisafetyhot": "https://aisafetyhot.com/items/z2yv9g5swqo9flsmpbpnzbe4v"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:28:27.538Z",
+    "discoveredAt": "2026-10-05T05:28:27.538Z"
+  },
+  {
+    "arxivId": "2610.02861",
+    "title": "Containing the Autonomous Operator: A Defense-in-Depth Framework and Reference Architecture for Securing AI Agents on Kubernetes",
+    "titleZh": "论文提出在 Kubernetes 上保护 AI Agent 的七层纵深防御框架与参考架构",
+    "authors": [
+      "Simhadri Podala Narasimha"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文主张不应把模型本身当作安全边界，Agent 在 Kubernetes 上的安全应作为基础设施问题处理，所有保证都需在 Agent 已被提示注入完全攻陷的假设下成立。作者提出十类威胁分类法（对齐 OWASP 智能体应用指南）、九条设计原则（核心是工具边界的完全中介，以及打破不可信输入、敏感访问与外部外发三者的组合）、七层纵深防御框架，并映射到工作负载身份、RBAC 与 ValidatingAdmissionPolicy、基于 SIG Apps Agent Sandbox 项目的 gVisor/Kata 沙箱、FQDN 感知的外发策略、带策略即代码的 Agent/MCP 网关与 eBPF 运行时执行等 Kubernetes 原生机制。作者未报告实测的攻击成功率或性能开销数据，而是列出残余风险和验证该框架所需的测量项。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02861",
+      "aisafetyhot": "https://aisafetyhot.com/items/kgo4o9cx00s3s29a0wad2ofsn"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:28:27.614Z",
+    "discoveredAt": "2026-10-05T05:28:27.614Z"
+  },
+  {
+    "arxivId": "2610.02853",
+    "title": "Bounded Reachability & Jailbreak Detection via Contraction-Constrained State Space Models",
+    "titleZh": "研究提出基于收缩约束状态空间模型的有界可达性与越狱检测方法",
+    "authors": [
+      "Omanshu Thapliyal"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文研究基于状态空间模型（SSM）的安全头何时能被认证为对嵌入空间有界扰动内的所有输入给出相同预测，证明关键在于状态转移矩阵的 l∞ 范数满足收缩条件（‖A‖∞<1），此时可对线性时不变分类器做精确区间界传播（IBP）认证。收缩条件成立时可达输出区间稳态宽度有界，样本可被认证为鲁棒分类；条件不成立时区间随序列长度指数增长，任何实际扰动半径下都无法认证。作者用 hinge 惩罚强制收缩，在有毒评论数据上把认证比例从 41% 提升到 59%，并在 ‖A‖∞=1 处观察到与理论一致的相变。将收缩正则化的 S4 头用于 JailbreakBench 越狱检测，零样本迁移到 AdvBench 的 DR=0.994、HarmBench 的 DR=0.988。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02853",
+      "aisafetyhot": "https://aisafetyhot.com/items/dak4sairun3dprzmxia0sfklq"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:28:27.609Z",
+    "discoveredAt": "2026-10-05T05:28:27.609Z"
+  },
+  {
+    "arxivId": "2610.02268",
+    "title": "From Mathematical to Executable Certificates for Machine Unlearning",
+    "titleZh": "ExecCert：为机器遗忘提供可执行发布认证",
+    "authors": [
+      "Ziyu Zhao",
+      "Xinyu Wang",
+      "Xiaowen Chang",
+      "Yixuan He"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Executable Release Certification（ExecCert），在发布环节对候选模型产物进行认证，以弥合机器遗忘数学保证与实际部署之间的差距。ExecCert 要么为已执行的候选关闭方法原生证书，要么通过 Retraining-Reference Release Verification（RRV）认证其与当前保留集重训练的保真度。针对冻结表示加可变 ridge head 的情形，作者给出 RRV 的增量实现，在多次删除请求间维持认证证据而非每次发布重建。在四个已发表的遗忘实现上，ExecCert 保持有效证书、改变发布决策、收紧保守边界，并识别出具体输出所支持的保真度；顺序服务实验中，RRV 消除了存储方程验证导致的错误发布，同时贴近实际误差。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02268",
+      "aisafetyhot": "https://aisafetyhot.com/items/akw7nnbajx6q4nlr0fe06tb8k"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:37:25.501Z",
+    "discoveredAt": "2026-10-05T05:37:25.501Z"
+  },
+  {
     "arxivId": "2610.01170",
     "title": "HeadEdit: Calibrating Language Model Behavior Through the Frozen Unembedding Matrix",
     "titleZh": "HeadEdit：通过冻结的 unembedding 矩阵校准语言模型行为",
@@ -1457,6 +1626,54 @@
     "publishedAt": "2026-10-01T06:45:29.000Z",
     "timelineAt": "2026-10-04T23:31:16.876Z",
     "discoveredAt": "2026-10-04T23:31:16.876Z"
+  },
+  {
+    "arxivId": "2610.03093",
+    "title": "LS-AR: Future-Predictive Latent Steering in Autoregressive LLMs",
+    "titleZh": "LS-AR 双通道架构：文本目标丢弃可抵御提示注入但引入潜在向量攻击面",
+    "authors": [
+      "Anubha Gupta",
+      "Eduardo Pignatelli"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Latent-Steered Autoregressive（LS-AR）双通道架构，通过 FiLM 条件将连续目标引导与离散 token 解码解耦，以解决标准自回归模型无法隔离宏观目标与上下文噪声的问题。在超出上下文限制的长程检索任务（H=1024, W=500）中，LS-AR（Static）实现 100% 目标召回，而参数匹配的基线完全崩溃（0%），同时吞吐量提升约 35%，峰值 VRAM 降低 52.8%。在 Blocksworld 规划任务中，LS-AR（Dynamic）在强制扰动（k=1）下保持 89.0% 完成率，基线为 71.0%，但零样本实体扩展（N 到 N+1）暴露出单向量容量限制（0%）。双通道权限分析显示，文本目标丢弃会建立潜在主导控制，为文本提示注入提供结构性防御，但同时引入潜在向量攻击面。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03093",
+      "aisafetyhot": "https://aisafetyhot.com/items/os0fzlqzwegd5nfjuj0gb9l32"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:28:27.645Z",
+    "discoveredAt": "2026-10-05T05:28:27.645Z"
+  },
+  {
+    "arxivId": "2610.03166",
+    "title": "LiBRA: Detection-Aware Image Watermark Removal via Bidirectional Latent Optimization",
+    "titleZh": "LiBRA：通过双向隐空间优化实现检测感知的图像水印去除",
+    "authors": [
+      "Saibo Ye",
+      "Huajie Chen",
+      "Xin Guo",
+      "Le Yang",
+      "Chi Liu",
+      "Xiangyu Hu",
+      "Jingjing Guo",
+      "Tianqing Zhu"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 LiBRA（Latent In-band Bidirectional Removal Attack），一种在已知水印密钥和解码器的前提下，通过双向隐空间优化去除 AI 生成图像水印的方法。已有攻击通过迫使解码水印与原始水印不同来去除水印，但可能产生仍可检测的反向水印，导致去除失败，继续修改还会损害图像质量。LiBRA 在公开自编码器的隐空间中做有界修改，将平均解码置信度从任一方向引导至随机猜测水平，避免出现反向但可检测的水印。方法保留单个比特的灵活性，使图像质量约束倾向于选择破坏更小的修改，并可用频率引导掩码限制修改位置。研究使用精确双侧二项检验验证去除效果，而非假定置信度目标必然带来成功。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03166",
+      "aisafetyhot": "https://aisafetyhot.com/items/f71l417w8a02polk7763xdxoy"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:37:25.571Z",
+    "discoveredAt": "2026-10-05T05:37:25.571Z"
   },
   {
     "arxivId": "2610.00902",
@@ -1579,6 +1796,84 @@
     "discoveredAt": "2026-10-05T05:06:25.116Z"
   },
   {
+    "arxivId": "2610.02817",
+    "title": "RMCW: A Deletion-Robust Watermark Based on Reed--Muller Codes for Language Models",
+    "titleZh": "RMCW：基于 Reed-Muller 码的抗删除 LLM 水印方法",
+    "authors": [
+      "Yi Wang",
+      "Baicheng Chen",
+      "Yu Wang",
+      "Jian Zhao",
+      "Yilei Chen",
+      "Tianxing He"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 RMCW，一种基于 Reed-Muller 码的大语言模型水印方法，用于应对删除攻击导致的 token 位置偏移和水印对齐失效。生成阶段通过密钥化的词表划分把 Reed-Muller 结构注入文本序列；检测阶段将文本映射到密钥词表分箱，并用 Berlekamp-Welch 检验测试局部子序列的低次 Reed-Solomon 一致性，从而寻找存活的局部代数结构而非恢复全局码字。在 C4 和 ELI5 数据集、OPT-1.3B 与 Llama-3.1-8B-Instruct 上的实验显示，RMCW 保持较强的干净文本可检测性，并在多种删除与改写攻击下优于或持平基线方法。代码已开源于 https://github.com/BaichengDanny/RMCW。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02817",
+      "aisafetyhot": "https://aisafetyhot.com/items/vd1513mvwj3l6iz2sakbfskfz"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:37:25.533Z",
+    "discoveredAt": "2026-10-05T05:37:25.533Z"
+  },
+  {
+    "arxivId": "2610.02844",
+    "title": "DNAlign: Dynamic Null-Space Safe Alignment for LLMs",
+    "titleZh": "DNAlign：面向 LLM 的动态零空间安全对齐框架",
+    "authors": [
+      "Jisheng Dang",
+      "Yushuo Zhao",
+      "Dewei Liu",
+      "Junfeng Fang",
+      "Bimei Wang",
+      "Tiantian Rao",
+      "Hong Peng",
+      "Bin Hu",
+      "Tat-Seng Chua"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "DNAlign 是一种轻量级安全对齐框架，将控制论优化与零空间投影结合，把 LLM 视为动态系统并施加可控扰动以引导生成走向安全行为。其投影模块将扰动限制在由中性隐藏状态导出的有害相关子空间内，从而保留通用知识与回答质量；基于人类偏好数据训练的价值函数自适应优化控制信号。在多个 LLM 基座上的评测显示，该框架持续减少有害输出，同时保持流畅性、连贯性与事实效用，整体表现优于既有对齐基线且未牺牲生成多样性。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02844",
+      "aisafetyhot": "https://aisafetyhot.com/items/ylb0x7x8eygae9bv4oq3qr18c"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:28:27.604Z",
+    "discoveredAt": "2026-10-05T05:28:27.604Z"
+  },
+  {
+    "arxivId": "2610.03073",
+    "title": "SecJev: Bringing Security Expertise to System One Decision Models",
+    "titleZh": "SecJev：为 System One 决策模型引入安全专业知识",
+    "authors": [
+      "Zheng Chen",
+      "Fei Yu",
+      "Haohao Huang",
+      "Yang Li",
+      "Anlong Chen",
+      "Lei Chen"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 SecJev，据称是首个面向安全的 Jev 类决策模型家族，参数规模覆盖 0.8B 至 9B，基于 Kev 的单次候选打分器，从文本、遥测和观测历史中学习布尔、选择与有序决策。团队构建 SecJev-Corpus，统一 14 项任务、8 类来源的源标签预测与显式策略评估，覆盖工具输出、流量、联邦更新、共识、认证与车辆消息。安全专业化使家族中每个模型均有提升，SecJev-0.8B 在任务宏平均准确率上超过通用 Kev-9B 达 20.51 个百分点，并在提示注入与流量决策上复现增益，同时伴随依赖捕获的误报。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03073",
+      "aisafetyhot": "https://aisafetyhot.com/items/kmgkicthya9a9fn8d4pluu7j0"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:28:27.630Z",
+    "discoveredAt": "2026-10-05T05:28:27.630Z"
+  },
+  {
     "arxivId": "2609.34519",
     "title": "EOPSA: Efficient On-Policy Self-Distilled Safety Alignment",
     "titleZh": "EOPSA：高效在策略自蒸馏安全对齐方法",
@@ -1664,6 +1959,32 @@
     "publishedAt": "2026-10-05T04:00:00.000Z",
     "timelineAt": "2026-10-05T04:26:18.811Z",
     "discoveredAt": "2026-10-05T04:26:18.811Z"
+  },
+  {
+    "arxivId": "2610.03434",
+    "title": "Persona Guardrail: A Production-Grade Defense Framework for Agentic Systems",
+    "titleZh": "Persona Guardrail：面向智能体系统的生产级防御框架",
+    "authors": [
+      "Bijeeta Pal",
+      "Sridhar Reddy Maddireddy",
+      "Muhaimin Bin Munir",
+      "Zoltan Puha",
+      "Max Zhurovich",
+      "Adi Raghavendra",
+      "Sean Tout"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "Persona Guardrail 是一套面向客户侧智能体 AI 系统的生产级运行时防御框架，通过语义允许列表与阻止列表驱动的同步输入输出校验，为智能体划定明确的功能边界。相比通用 LLM 护栏，其整体准确率从 85.7% 提升至 95.9%，域外检测率从 57.3% 提升至 93.5%，误放行率从 25.0% 降至 4.7%。该框架已投入生产部署，在满足延迟预算的同时保持极低的误拦与误放率。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03434",
+      "aisafetyhot": "https://aisafetyhot.com/items/ronbjxz10g4q1t5b8650jrc83"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:28:27.656Z",
+    "discoveredAt": "2026-10-05T05:28:27.656Z"
   },
   {
     "arxivId": null,
@@ -1824,5 +2145,28 @@
     "publishedAt": "2026-09-21T19:58:58.000Z",
     "timelineAt": "2026-10-04T21:43:25.801Z",
     "discoveredAt": "2026-10-04T21:43:25.801Z"
+  },
+  {
+    "arxivId": "2610.02504",
+    "title": "HXAI: Hierarchical Privacy-Preserving Explainable AI in Distributed Energy Systems",
+    "titleZh": "HXAI：分布式能源系统中的分层隐私保护可解释 AI 框架",
+    "authors": [
+      "Poushali Sengupta",
+      "Sabita Maharjan",
+      "Frank Eliassen",
+      "Yan Zhang"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "HXAI 是一个面向电网级需求管理的分层隐私保护可解释 AI 框架，由在安全私有环境内生成细粒度解释的本地模型，与聚合这些解释以支持电网级分析的区域模型两部分组成。该框架通过灵活的隐私预算管理限制重复查询下的累积隐私暴露，在模拟与真实能源数据集上既能提供区域负载管理洞见，又确保家电级用电数据始终留在本地、不传输给电网运营商。结果表明，在差分隐私下保留解释的语义结构而非最小化数值误差，是可解释 AI 的关键。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02504",
+      "aisafetyhot": "https://aisafetyhot.com/items/o06lumb0xwv0zl26j9qwy6ow4"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T05:37:25.524Z",
+    "discoveredAt": "2026-10-05T05:37:25.524Z"
   }
 ]
