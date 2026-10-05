@@ -1,5 +1,46 @@
 [
   {
+    "arxivId": "2609.18217",
+    "title": "Measuring and Exploiting Implicit Trust in LLM Tool-Calling Pipelines",
+    "titleZh": "研究：跨通道碎片化攻击可绕过 MCP 单通道防御，12 个前沿模型最高 100% 泄露凭据",
+    "authors": [
+      "Murali Ediga"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 95,
+    "summaryZh": "密苏里大学堪萨斯城分校的研究者提出跨通道碎片化攻击，将看似无害的载荷分散到 MCP 的两个或三个输入通道，单个通道都不含完整注入，模型却在统一上下文窗口中把它们拼合成凭据外泄。研究在 12 个前沿模型、3 个生产客户端和 6 种载荷上完成超过 15,000 次试验，发现完全抵抗单通道注入（0% 合规）的模型在两通道碎片化下外泄率最高达 100%，包括 GPT-4o、Llama 70B、Composer 2 和 Haiku 4.5。三通道碎片化在生产客户端中进一步扩大受影响范围，Haiku 4.5 在 Cursor 中达到 100%，仅 Sonnet 4.6 和 Opus 4.6 保持 0/20 抵抗。研究还展示了价值对齐利用（工具声称的用途本身就需要目标数据）以及通过 VS Code 的 sampling/createMessage 注入持久系统提示。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "在MCP工具调用流水线中，工具描述、工具结果与采样消息等通道共享单一上下文且缺乏权限隔离。以往提示注入仅测单通道，尚不明确模型对各通道的权威差异及其安全风险。",
+          "label": "问题"
+        },
+        {
+          "text": "作者构建涵盖5个通道与6类载荷的信任测量框架，并提出跨通道分段攻击，将载荷分散在工具描述与工具结果等通道以规避单通道检测；另设计了利用工具功能声称的价值对齐利用，以及基于VS Code采样接口注入配置指令的系统提示词覆盖攻击。",
+          "label": "方法"
+        },
+        {
+          "text": "在12个模型与生产客户端上测试超1.5万次。双通道分段使平均遵从率从42%升至82%，GPT-4o等从0%升至100%（Table IV）；价值对齐利用使Sonnet 4.6外发凭证（Table V）；7款MCP安全工具均未检出分段载荷（Table IX）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出的局限包括：未隔离客户端提示词各小节贡献，未实测评估双LLM架构（CaMeL）防御效果，未测试供应链安装阶段。实验覆盖范围包括：API测试12个模型，生产端测试4款客户端，涵盖7款开源MCP安全工具与6类载荷。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.18217"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.18217",
+      "aisafetyhot": "https://aisafetyhot.com/items/laujgg1seoda8owf0or40c5g0"
+    },
+    "publishedAt": "2026-09-16T06:47:10.000Z",
+    "timelineAt": "2026-10-05T00:26:02.681Z",
+    "discoveredAt": "2026-10-05T00:26:02.681Z"
+  },
+  {
     "arxivId": "2609.26761",
     "title": "A2M: Trace-Optimized Agent Hijacking in the MCP Ecosystem",
     "titleZh": "A2M：针对 MCP 生态的两阶段 Agent 劫持框架",
