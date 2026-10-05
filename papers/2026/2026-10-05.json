@@ -2555,6 +2555,26 @@
     "discoveredAt": "2026-10-05T04:14:25.418Z"
   },
   {
+    "arxivId": "2609.31562",
+    "title": "Agentic Economies for Autonomous Scientific Discovery",
+    "titleZh": "面向自主科学发现的智能体经济基础设施",
+    "authors": [
+      "Nenad Tomasev"
+    ],
+    "category": "opinion",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出为 AI for Science 构建\"科学智能体经济、市场与制度\"基础设施，以在推理能力提升之外补齐资源管理这一科学发现的关键瓶颈。该基础设施旨在让 AI 智能体与人类科学家协作确定研究优先级、分配贡献归属、追踪问责与责任，并防范恶意使用与信息安全风险。文章还讨论了（半）自主科学发现的宏观社会影响，以支撑治理政策制定，确保 AI 驱动发现及其衍生技术的公平分配。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.31562",
+      "aisafetyhot": "https://aisafetyhot.com/items/erpq3eh5hebbhob5adavl150u"
+    },
+    "publishedAt": "2026-09-25T17:28:53.000Z",
+    "timelineAt": "2026-10-05T12:45:49.377Z",
+    "discoveredAt": "2026-10-05T12:45:49.377Z"
+  },
+  {
     "arxivId": null,
     "title": "MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement",
     "titleZh": "小米 MiMo-V2.6：通过强化学习扩展迈向自我改进",
