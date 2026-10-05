@@ -476,6 +476,45 @@
     "discoveredAt": "2026-10-04T18:20:28.688Z"
   },
   {
+    "arxivId": "2610.02702",
+    "title": "Silent Dissent: LLM Agents That Yield to the Majority Still Represent Their Original Premise",
+    "titleZh": "研究：LLM 智能体顺从多数时内部仍保留原有前提",
+    "authors": [],
+    "category": "alignment",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "论文在脚本化的错误多数共识和两跳事实任务中研究 LLM 智能体从众。作者用 Jacobian lens 读取内部表示，报告部分模型公开改口后仍可解码出其原有中间实体，同时也存在同伴给出的实体；与 logit lens 相比，两种读取方法结果不同。探索性干预只在两个 Qwen 模型中部分恢复原答案。内部表示保留不等于存在有意识的私人信念或蓄意欺骗；摘要所述结果来自小模型与合成任务，不能直接外推到真实部署。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "多智能体辩论达成共识时，智能体常向多数意见妥协，需要探究智能体放弃原答案是真正改变观点还是仅在表态上顺从（偏好伪饰）。直接读取选项字母已被正对照实验证明失效，需寻找能反映内部真实计算的前提表征。",
+          "label": "问题"
+        },
+        {
+          "text": "采用双跳事实问答，在同伴施加错误多数答案压力下，于智能体回答首个token对应的残差流位置，使用Jacobian lens（J-lens）与logit lens读取未在对话中出现的中间实体（bridge），并在消融中隐藏或移除智能体历史回答，以及沿J-lens方向进行激活注入。",
+          "label": "方法"
+        },
+        {
+          "text": "在Qwen3.5-4B、Qwen3.6-27B与Gemma-4-E4B-it中，屈从多数的智能体在预注册层仍以高于对照实体的水平表征原bridge（J-lens readout为0.85、0.22与0.24）；隐藏原答案时四款模型均表征原bridge。J-lens干预仅在两款Qwen模型上恢复了原答案。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出的局限包括仅测试了模型已知事实（占TwoHopFact的3%–9%）、同伴采用脚本化逐字重复缺乏真实感、实体仅限于特定类别、因果干预效应仅在Qwen成立等。实验覆盖4个开源模型、TwoHopFact及手写首都项，论文未报告其他语言、闭源模型或更多轮次测试。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.02702"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02702",
+      "aisafetyhot": "https://aisafetyhot.com/items/udc7re30azojseg2ml5o0yxpc"
+    },
+    "publishedAt": "2026-10-02T02:37:00.000Z",
+    "timelineAt": "2026-10-05T07:21:31.533Z",
+    "discoveredAt": "2026-10-05T07:21:31.533Z"
+  },
+  {
     "arxivId": "2609.33039",
     "title": "Agent Safety From Within: Detecting Harmful Trajectories from LLM Internal States",
     "titleZh": "TACIT：从 LLM 内部状态检测 Agent 轨迹危害",
@@ -1218,6 +1257,24 @@
     "discoveredAt": "2026-10-05T05:22:36.820Z"
   },
   {
+    "arxivId": "2610.02910",
+    "title": "Frequency Is Not Sensitivity: Identifying Safety-Sensitive Experts in Sparse MoE LLM",
+    "titleZh": "论文提出用路由梯度敏感度定位稀疏 MoE 模型中的安全敏感专家",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文指出，抑制稀疏 MoE 大语言模型中少量被路由的专家即可在不重训练的情况下削弱其安全行为，而常用的激活频率只反映使用程度、不反映影响力。作者改用路由梯度敏感度，即序列损失对选择专家的门控权重的敏感度，在五种 MoE 架构上分别用 500 条良性提示和 500 条恶意提示对专家排序，并在 100 条留出恶意提示上测量拒答率，采用相同专家数量和相同恶意路由流量（1%-5%）两种预算。在两种预算下，路由梯度选择在 25 种条件中的 24 种比激活频率带来更大拒答下降，在全部 25 种中超过十次随机试验的均值。效果最大的是 OLMoE，拒答从 100 条中的 34 条降至 9 条（相对下降 73.53%），且输出质量未退化。逐层匹配专家数量后，梯度选择仍在 25 种条件中的 23 种优于激活频率，另有 2 种持平。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02910",
+      "aisafetyhot": "https://aisafetyhot.com/items/luzd6goluejeoo3ac1d71wnrg"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T07:21:15.885Z",
+    "discoveredAt": "2026-10-05T07:21:15.885Z"
+  },
+  {
     "arxivId": "2609.02095",
     "title": "READY or Not: Reliable Enterprise Agent Deployment",
     "titleZh": "READY：面向企业 Agent 部署的可靠性资格认证框架",
@@ -1280,7 +1337,7 @@
       "paper": "https://arxiv.org/abs/2610.03195",
       "aisafetyhot": "https://aisafetyhot.com/items/rtq4pggdsc0z9fsh6pd50pkt8"
     },
-    "publishedAt": "2026-10-01T20:00:00.000Z",
+    "publishedAt": "2026-10-02T12:10:00.000Z",
     "timelineAt": "2026-10-05T03:04:12.900Z",
     "discoveredAt": "2026-10-05T03:04:12.900Z"
   },
@@ -1304,7 +1361,7 @@
       "paper": "https://arxiv.org/abs/2610.03509",
       "aisafetyhot": "https://aisafetyhot.com/items/pd3wxu236uitcwquf7fd8nf91"
     },
-    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "publishedAt": null,
     "timelineAt": "2026-10-05T04:14:25.447Z",
     "discoveredAt": "2026-10-05T04:14:25.447Z"
   },
@@ -1343,6 +1400,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-05T05:22:14.220Z",
     "discoveredAt": "2026-10-05T05:22:14.220Z"
+  },
+  {
+    "arxivId": "2610.02568",
+    "title": "Mitigating Social Sycophancy via Pluralistic Preference Optimization",
+    "titleZh": "PlurPO：用多元偏好优化缓解社交谄媚",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出多元偏好优化（PlurPO），通过让语言模型识别并模拟人际冲突中受影响的各方利益相关者，训练其偏好并生成各方都能接受的回应，从而缓解社交谄媚。该方法只使用模型对自身输出产生的信号，不需要标准答案标签。在四个数据集和四个模型族上，PlurPO 相比此前方法大幅降低社交谄媚：在用户表达伤害意图、不应被认可的陈述上，四个模型的认可率平均下降 89%；在一般建议问题上，与人类回应认可率的差距从平均 17.8% 缩小到 8.0%，缩小超过一半。为 8B 模型构建的偏好数据集也能有效迁移到 32B 模型。作者认为，社交谄媚部分源于模型过度以用户为中心、忽视其他受影响方的视角。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02568",
+      "aisafetyhot": "https://aisafetyhot.com/items/h8yclwas5ka394u20013u65a2"
+    },
+    "publishedAt": "2026-10-01T23:00:00.000Z",
+    "timelineAt": "2026-10-05T07:21:39.031Z",
+    "discoveredAt": "2026-10-05T07:21:39.031Z"
   },
   {
     "arxivId": "2610.03470",
