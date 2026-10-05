@@ -1,0 +1,38 @@
+[
+  {
+    "arxivId": null,
+    "title": "Fair Moderation, Equitable Access, and AI: arXiv’s Updated Rate Limit Policy",
+    "titleZh": "arXiv 更新投稿限额政策，每月最多提交 2 篇论文",
+    "authors": [],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "arXiv 自 2026 年 10 月 1 日起对所有投稿者和所有分类实施新的限额政策，每位投稿者每个自然月最多提交 2 篇论文，同时任意时刻最多保留 3 篇活跃投稿。arXiv 称此举是为在 AI 工具普及、投稿量激增的情况下公平分配志愿审稿人的时间，并保护论文库免受低质量投稿冲击。数据显示，arXiv 在 2016 年 9 月收到 9,869 篇投稿，2024 年 9 月为 20,569 篇，今年 9 月达到 40,363 篇并产生近 9,000 个支持工单，两年内投稿量翻倍，其中 cs.AI 分类增长超过 6 倍。arXiv 表示审稿人观察到窄范围薄论文、把一项工作拆成多篇的香肠论文以及 AI 撰写论文明显增多。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy",
+      "aisafetyhot": "https://aisafetyhot.com/items/szb31kjxklgq2qqjr5t0bdd06"
+    },
+    "publishedAt": "2026-10-01T19:00:00.000Z",
+    "timelineAt": "2026-10-05T17:26:27.129Z",
+    "discoveredAt": "2026-10-05T17:26:27.129Z"
+  },
+  {
+    "arxivId": "2609.30467",
+    "title": "Where Does Retrieval-Based Open-Ended Evaluation Fail? Automatic Taxonomy Induction from Long-Form Medical Answer Factuality Verification",
+    "titleZh": "研究提出医疗答案事实核查失败分类法，指出检索后验证范式的固有局限",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者针对开放式医疗答案的事实性验证，提出两套失败分类法，把失败拆解为检索阶段的五类质量维度错误和验证器推理的六个连续步骤错误。研究基于 MedExpert 开放式数据集和 3 个封闭式数据集开展案例研究，并用 LLM-as-Judge 自动归纳模式，对证据质量和验证器推理错误进行大规模标注。在 4 种检索方法和 6 个前沿验证模型上的压力测试显示，扩大模型规模、增加推理投入、引入权威网络来源以及医疗微调都无法消除这些失败模式，说明它们是检索后验证范式在开放式医疗场景中的固有局限，而非旧系统的产物。代码与数据已公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.30467",
+      "aisafetyhot": "https://aisafetyhot.com/items/jmj57cuxaei8q8gzz4cwvoisu"
+    },
+    "publishedAt": "2026-09-23T20:00:00.000Z",
+    "timelineAt": "2026-10-05T17:27:32.537Z",
+    "discoveredAt": "2026-10-05T17:27:32.537Z"
+  }
+]
