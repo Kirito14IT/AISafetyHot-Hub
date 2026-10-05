@@ -844,7 +844,7 @@
       "paper": "https://arxiv.org/abs/2610.03185",
       "aisafetyhot": "https://aisafetyhot.com/items/bscpqc5mjz6z4gyviojsziv3u"
     },
-    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "publishedAt": "2026-10-02T11:57:36.000Z",
     "timelineAt": "2026-10-05T04:14:25.434Z",
     "discoveredAt": "2026-10-05T04:14:25.434Z"
   },
@@ -860,7 +860,7 @@
     "category": "alignment",
     "selected": true,
     "attention": 76,
-    "summaryZh": "研究者提出可认证机制编辑（certified mechanistic edits），用形式化证明保证一次机制编辑在连续输入区域内移除目标技能并保留另一技能，而非仅靠测试集验证。方法上，作者用精确有理数编码把网络送入 Z3 SMT 求解器，对分段线性模型在全部 token 序列与连续嵌入球上证明移除与保留；对含 softmax 和 LayerNorm 的标准 Transformer 则改用 CROWN 边界传播，覆盖 448 维扰动，约为精确求解器前沿的 9 倍，并用投影梯度攻击给出上界。论文还证明不存在有限确定性黑盒测试能认证技能移除：构造的编辑可通过 40401 点网格与 1000 个随机输入，但求解器仍能找到技能存活的输入；在 160 个训练模型中自然出现 3 例此类干预幻觉，存活区域低于定义域的 1.5×10⁻⁶。",
+    "summaryZh": "研究者提出可认证机制编辑，用形式化方法证明一次编辑能在指定连续输入区域移除目标技能并保留另一技能。作者在小型分段线性网络上用精确SMT求解，在含softmax和LayerNorm的小型Transformer上用CROWN边界传播，并以攻击给出可比较的上界。论文构造出通过密集测试却仍在极小区域保留技能的编辑，说明有限确定性黑盒测试不能提供这种区域保证。结论是概念验证，依赖技能具有可判定的形式化规格；尚未证明能直接移除大型模型中复杂的现实危害。",
     "quickRead": {
       "parts": [
         {
@@ -887,7 +887,7 @@
       "paper": "https://arxiv.org/abs/2610.03502",
       "aisafetyhot": "https://aisafetyhot.com/items/b07y5gs2enmwvzjp7i1m17xru"
     },
-    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "publishedAt": "2026-10-02T16:01:23.000Z",
     "timelineAt": "2026-10-05T04:26:18.841Z",
     "discoveredAt": "2026-10-05T04:26:18.841Z"
   },
@@ -1138,6 +1138,24 @@
     "discoveredAt": "2026-10-05T02:20:43.594Z"
   },
   {
+    "arxivId": "2610.02986",
+    "title": "OLMo-Detect: A Multi-Stage Confounder-Controlled Benchmark for Membership Inference on LLMs",
+    "titleZh": "OLMo-Detect：面向 LLM 成员推断的多阶段混淆控制基准",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 OLMo-Detect，一个基于完全开放的 OLMo 2 流程构建的多阶段、混淆控制成员推断基准，覆盖预训练、中期训练和后训练，并在三个关键维度上对齐成员与非成员，同时用 infini-gram 严格过滤非成员。研究还引入成员与非成员错位的 OLMo-Detect（Shifted）变体以评估分布偏移下的鲁棒性，并在 OLMo 2 系列上评测了 15 种无监督和 3 种有监督成员推断攻击。结果显示：最佳无监督与有监督攻击的 AUC 均仅为 0.68，有监督攻击在跨域评测中性能下降；攻击性能在中期训练阶段最高，这一模式由数据类型而非阶段效应驱动，人工整理的数学数据远比其他类型更易被检测；整体分数从 1B 到 13B 提升但在 32B 趋于平台；没有无监督攻击能抵御分布偏移，AUC 变化幅度最高达 0.42。研究称这些结论可推广到 OLMo 3 和非 OLMo 模型。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02986",
+      "aisafetyhot": "https://aisafetyhot.com/items/rdl25qepxyocly18ca57sq7q8"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T05:22:36.820Z",
+    "discoveredAt": "2026-10-05T05:22:36.820Z"
+  },
+  {
     "arxivId": "2609.02095",
     "title": "READY or Not: Reliable Enterprise Agent Deployment",
     "titleZh": "READY：面向企业 Agent 部署的可靠性资格认证框架",
@@ -1245,6 +1263,42 @@
     "publishedAt": null,
     "timelineAt": "2026-10-05T04:20:33.809Z",
     "discoveredAt": "2026-10-05T04:20:33.809Z"
+  },
+  {
+    "arxivId": "2610.03095",
+    "title": "Peer Influence across Heterogeneous AI Models",
+    "titleZh": "研究：异构 AI 模型间的说服效果取决于配对而非模型规模",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究测量了不同 AI 模型在意见分歧时的说服效果，发现当模型意见不一致时，接收方往往在看到同伴的答案和解释后放弃自己的初始判断。研究测试了七个开源权重模型在三个语言理解任务上的表现，发现单独的确定性或模型规模都无法可靠预测说服动态：在孤立状态下决策几乎完全一致的模型可能最容易受说服，小模型作为说服者可以匹敌大模型，也能同样有效地抵抗影响。研究还表明，判断偏移的大小更多取决于听者的易感性而非说者的说服力，说服模式因模型配对而异，异构性在某些组合中放大说服、在另一些组合中抑制说服，使运行小模型的异议智能体能够推翻大得多的模型的判断。研究结论是，交互模型的行为无法从其个体属性推断，必须在它们实际运行的组合中评估。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03095",
+      "aisafetyhot": "https://aisafetyhot.com/items/npiy9djn5xvmghlg7sgzd8g80"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T05:22:14.220Z",
+    "discoveredAt": "2026-10-05T05:22:14.220Z"
+  },
+  {
+    "arxivId": "2610.03470",
+    "title": "CorrectGuard: Eyes-Off Correctness Estimation for Black-Box Security Guardrails",
+    "titleZh": "CorrectGuard 提出黑盒安全护栏的免查看正确性估计框架",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 CorrectGuard，一个面向黑盒安全护栏的免查看正确性估计框架，用于在人类不可查看用户输入和机器不可查看输入两种场景下评估护栏表现。该方法仅使用有标注的可查看数据训练独立的模型评估器，预测护栏对不可访问输入的判定是否正确，无需接触护栏内部。研究在涵盖有害内容、越狱、提示注入和提取的 13 个安全数据集上，以留一数据集方式评估上下文学习、嵌入向量和微调三类正确性模型，并将开源权重护栏统一视为黑盒。结果显示，基于上下文学习的正确性分类器在两种场景下均显著提升错误识别能力，宏观准确率最高提升 25 个百分点，基于微调的方法提升近 15 个百分点，但不同护栏和留出数据集之间差异明显。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03470",
+      "aisafetyhot": "https://aisafetyhot.com/items/idxcx8k7lbtvz4tkhzk9zorbv"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T05:22:29.333Z",
+    "discoveredAt": "2026-10-05T05:22:29.333Z"
   },
   {
     "arxivId": null,
@@ -1464,6 +1518,24 @@
     "discoveredAt": "2026-10-04T22:20:41.744Z"
   },
   {
+    "arxivId": "2610.02456",
+    "title": "SideKernel: A Usable microVM Sandbox for AI Coding Agents on macOS",
+    "titleZh": "SideKernel：面向 macOS 上 AI 编码 Agent 的 microVM 沙箱",
+    "authors": [],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "佐治亚理工的一项硕士安全实践项目提出 SideKernel，一个面向 AI 编码 Agent 的开源本地 microVM macOS 沙箱，目标是提升可用性。作者先做在线用户调研，发现不到 40% 的 AI 编码 Agent 用户会在沙箱中运行 Agent，并归纳出阻碍沙箱采用的主要可用性障碍。随后作者按五项纳入标准筛选市面上的沙箱，围绕调研得出的 23 项能力测试，将 SideKernel 与符合条件的沙箱做对比分析，结果显示只有少数沙箱与 SideKernel 类似，其中 Docker Sandboxes 与 SideKernel 在可用性相关能力上得分最高。论文的另一项贡献是梳理本地、开源、基于 microVM 的 macOS AI 编码 Agent 沙箱现有方案。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02456",
+      "aisafetyhot": "https://aisafetyhot.com/items/tfxny6h7xarv85yq1nuhxadgy"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T05:22:21.801Z",
+    "discoveredAt": "2026-10-05T05:22:21.801Z"
+  },
+  {
     "arxivId": "2610.02781",
     "title": "OPD Before RL: Warm-Starting Rubric-Based RL with On-Policy Distillation",
     "titleZh": "OPD Before RL：用评分标准在线蒸馏为基于评分标准的 RL 预热",
@@ -1487,6 +1559,24 @@
     "publishedAt": "2026-10-05T04:00:00.000Z",
     "timelineAt": "2026-10-05T04:14:25.409Z",
     "discoveredAt": "2026-10-05T04:14:25.409Z"
+  },
+  {
+    "arxivId": "2610.03574",
+    "title": "HyperBrowseComp: A Multilingual and Multimodal Stress Test for Web-Browsing Agents",
+    "titleZh": "HyperBrowseComp：面向网页浏览 Agent 的多语言多模态压力测试基准",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者发布 HyperBrowseComp，一个面向网页浏览 Agent 的多语言、多模态基准，包含 423 道由母语或高水平使用者人工编写并验证的题目，覆盖 13 种语言。题目要求给出简短且可公开核实的答案，需要定位冷门证据、追踪多步线索链，或查阅视频、扫描文档、图像、地图等异构来源。为降低仅靠参数化知识作答的可能，作者用无联网模型筛除较容易的题目。评测在统一 Agent 协议下，使用模型厂商自带搜索与共享外部检索框架两种方式，并对部分题目做了人类评估以对照模型表现与投入。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03574",
+      "aisafetyhot": "https://aisafetyhot.com/items/whwnhtdyq1t4dohgp9n19drqy"
+    },
+    "publishedAt": "2026-10-01T20:00:00.000Z",
+    "timelineAt": "2026-10-05T05:06:25.116Z",
+    "discoveredAt": "2026-10-05T05:06:25.116Z"
   },
   {
     "arxivId": "2609.34519",
