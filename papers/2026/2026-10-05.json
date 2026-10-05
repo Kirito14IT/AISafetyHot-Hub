@@ -2084,6 +2084,24 @@
     "discoveredAt": "2026-10-05T05:37:25.533Z"
   },
   {
+    "arxivId": "2610.02841",
+    "title": "How Robust Is Multimodal Claim Verification to LLM Rewriting?",
+    "titleZh": "多模态声明验证对 LLM 改写有多鲁棒？",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究测试了多模态声明验证任务对 LLM 改写的鲁棒性，采用自然改写和受控注入两种策略，评估了覆盖五个 VLM 家族、2B 至 38B 参数的 11 个开放权重模型。结果显示多数模型准确率无显著下降，验证任务比评审分数操纵稳定得多，但概率偏移持续存在：对冲类条件在几乎所有模型上引发显著偏移，增强类条件影响较弱，语法纠正等通用润色条件影响甚微。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02841",
+      "aisafetyhot": "https://aisafetyhot.com/items/fu943qm07ndi8uqbpjrzyi93m"
+    },
+    "publishedAt": "2026-10-02T05:31:40.000Z",
+    "timelineAt": "2026-10-05T11:23:00.481Z",
+    "discoveredAt": "2026-10-05T11:23:00.481Z"
+  },
+  {
     "arxivId": "2610.02844",
     "title": "DNAlign: Dynamic Null-Space Safe Alignment for LLMs",
     "titleZh": "DNAlign：面向 LLM 的动态零空间安全对齐框架",
@@ -2135,6 +2153,24 @@
     "publishedAt": "2026-10-05T04:00:00.000Z",
     "timelineAt": "2026-10-05T05:28:27.630Z",
     "discoveredAt": "2026-10-05T05:28:27.630Z"
+  },
+  {
+    "arxivId": "2610.02293",
+    "title": "HakemBench: A Turkish Benchmark of Typed Decisions",
+    "titleZh": "HakemBench：土耳其语类型化决策基准发布",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "HakemBench 是一个土耳其语类型化决策基准，模型需读取文本、问题与固定选项集，并为每个选项输出概率。1.0 版以 CC BY 4.0 完全开放，含 2,346 个条目、4,275 道选择题、是非题与评分题，覆盖事实核查分流、教育、护栏、法律路由、内容审核、垃圾邮件与钓鱼、客户支持七个赛道。评测框架以宏 F1 衡量决策质量、以归一化 Brier 分数衡量校准、以归一化广义风险-覆盖率曲线下面积衡量选择性自动化，三者取几何平均，并用 2,000 次 bootstrap 给出区间，同时报告选项顺序、改写、英译与替换名称探针。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02293",
+      "aisafetyhot": "https://aisafetyhot.com/items/fl78sg9ufhc4zz3eids3olco8"
+    },
+    "publishedAt": "2026-10-01T16:55:18.000Z",
+    "timelineAt": "2026-10-05T11:23:08.081Z",
+    "discoveredAt": "2026-10-05T11:23:08.081Z"
   },
   {
     "arxivId": "2609.34519",
