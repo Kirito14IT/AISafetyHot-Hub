@@ -1,7 +1,7 @@
 {
   "note": "days 是网站上每天（北京时间，按 timelineAt 分天）进站、判定为 AI 安全的论文：信源为 arXiv、Hugging Face Daily Papers 和论文追踪，同一篇 arXiv 论文一天只算一次（arXiv 编号取网站 /api/site/items/<id> 的 links.original；留哪一条：精选优先，再按网站的 score 高，非精选也按 score，再按 timelineAt 早，最后按 id 字典序）。ids 是网站条目 id（网站上的 /items/<id>），按字典序排列；idsSha256 是排好的 ids 用换行连起来（末尾不加换行）的 SHA-256。论文在网站上出现以后（从第一次能在网站上看到算起，不是 timelineAt：回填的论文 timelineAt 早于出现的时间），slaMinutes 分钟内应出现在 papers/<年>/<日期>.json。这个文件只在内容变化时随那次提交更新；generatedAt 是那次生成的时间，siteFetchedAt 是读网站接口的时间。",
-  "generatedAt": "2026-10-05T03:44:52.799Z",
-  "siteFetchedAt": "2026-10-05T03:44:51.837Z",
+  "generatedAt": "2026-10-05T04:09:07.046Z",
+  "siteFetchedAt": "2026-10-05T04:09:03.292Z",
   "slaMinutes": 60,
   "days": {
     "2026-10-05": {
@@ -354,8 +354,8 @@
       ]
     },
     "2026-10-01": {
-      "count": 531,
-      "idsSha256": "bf1ec198dd4d2f8bfa19a271965e89613b45ee0ee6e9193d8f134eaef77c566c",
+      "count": 527,
+      "idsSha256": "646fe04162f6555ac894fb939be84d62f3c655fcbb795fa2033bc3ac3f64781c",
       "ids": [
         "a234chwqc9tuw3h0mr36rihxn",
         "a296m1b4bf5z8zi5u6sy4y3dk",
@@ -431,7 +431,6 @@
         "cwqrfi2cg953nku4w1nbxeift",
         "cxotszp02oi9jbe4gwd4hn4sd",
         "d3bvdf5vaxieqlwvuexgmxwxc",
-        "d4q4g0rz7xoglml91lkqk9l5v",
         "daerddxyxnd9xxc349bgmkgs3",
         "dcieeu7ccxsfyv7tcvcjqdbq9",
         "ddfra0r4nq7n0sahexdj8n51k",
@@ -649,7 +648,6 @@
         "nx2gpuft1uti0oer8c5h5o5v2",
         "nys5vy4k0w5i0jimiqqh8oxkk",
         "o2n1xxest26q957u5facolo4v",
-        "o5fv9nu1vebgfoqc05astekuc",
         "o5qno5gxaily7vkv4m80ddjb8",
         "o5wpr5r8ftvzyelti9olyucex",
         "o64iq7pzfg8b13qkvi9ffdqxn",
@@ -820,7 +818,6 @@
         "wmk0c3c7qguqz10bdcfzix3n0",
         "wq5u92cyyfpacdsvc35w8gnxa",
         "wqp80l9svoj93m7rv900wvg5o",
-        "wvl5v3kygvzgv09w6dflufebz",
         "wvyvhujgq6qp06hdzi1x7x59e",
         "wwvcdm6mf0zb36gu9vxry4mk5",
         "x0lh33froq48cqomayo4wl35i",
@@ -864,7 +861,6 @@
         "ymb9x72637st108i9kh8v399r",
         "ymngyz5zo3ul7t75mdxipdpdp",
         "ynkyl1yeyu8mmzvgtf0u4lu3u",
-        "ypper47mhwfs83mipaojddpx8",
         "ytrojryxuz6q09je1e5zw7x2n",
         "yv24crc7go0rrwq6mgaszj9js",
         "yw90v6vtuu7kg18j4ugt3w3kr",

@@ -49,7 +49,28 @@
     "selected": true,
     "attention": 85,
     "summaryZh": "日本北陆先端科学技术大学院大学（JAIST）研究者 Zhuowen Liu 在论文中重测了 15 个提示注入检测器和 2 个任务感知 LLM 判官，发现公开基准上的检测排名很难迁移到 Agent 实际场景。研究用无 LLM 回放 AgentDojo 与 τ-bench 的真实工具调用构造良性输出，再用差分回放标注注入输出，并在 BIPIA 上对比。BIPIA 上表现最好的 PIGuard 在 1% 假阳性率下只检出 2.1% 的 AgentDojo 注入，而检出 72.2% AgentDojo 注入的 Prismor 在 τ-bench 上只有 15.2%；BIPIA 与 AgentDojo 之间的 Kendall τ 仅 0.01。相反，工具输出上的假阳性率在两个 Agent 基准间保持一致（τ=0.67），范围从 0% 到超过 90%。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "LLM 智能体通常使用轻量检测器过滤工具输出中的间接提示注入，但行业普遍依据公开基准评测选型，缺乏检验这些基准分数能否反映检测器在智能体内部真实工具输出上的表现与误报代价。",
+          "label": "问题"
+        },
+        {
+          "text": "无 LLM 重放 AgentDojo 和 τ-bench 的真实工具调用生成良性样本，通过环境差异重放标注注入样本，在智能体输出与 BIPIA 上评测 15 个检测器与 2 个 LLM 评审，并审计训练数据重合。",
+          "label": "方法"
+        },
+        {
+          "text": "检测器在不同基准间的检测排名迁移性弱（相关系数未达统计显著），工具输出误报率则具跨基准一致性；训练数据输入形态决定效果，BIPIA 第一的 PIGuard 在 AgentDojo 仅检出 2.1%（1% FPR）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "被测环境为合成模拟环境，格式变化会改变误报率；注入均来自基准模板，未测试自适应攻击；审计仅限于公开训练集的词面精确重合，商用闭源检测器未纳入评估。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.03448"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.03448",
       "aisafetyhot": "https://aisafetyhot.com/items/ynwg1rgqi6x8y1unz4gea6al1"
@@ -730,7 +751,28 @@
     "selected": true,
     "attention": 76,
     "summaryZh": "论文识别并形式化了一种长程智能体失效模式 GHOST，即安全约束在早期对话中提出后，任务在后续良性交互中被恢复执行时该约束不再生效，导致不安全执行。作者提出 SCARBench 基准，包含 6 类工具使用域的 103 个场景、412 个匹配条件实例，长历史为 6,000–6,176 tokens、56–160 轮。在无攻击、用户良性的条件下，7 个受测模型均出现 GHOST，发生率从 Kimi-K2.6 的 6.8% 到 Qwen3.5-4B 的 27.8%；GPT-5.5 的严格 GHOST 率为 11.5%，其 Long Explicit 安全完成率 88.7%，当约束只能从长历史中恢复时安全完成率下降 12.4 个百分点。理论部分用条件风险框架证明，若安全前缀上的残余违规风险下界不可求和，执行几乎必然进入危险区域。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "长程工具使用智能体在多轮良性交互后恢复执行任务时，往往会遗忘先前轮次设定的安全约束，导致不可逆的违规执行危害（GHOST）。",
+          "label": "问题"
+        },
+        {
+          "text": "基于条件进入风险与几乎必然违规的理论模型，提出结合在线语义约束提取恢复与运行时确定性拦截修复的双层防御 STAR-Guard。",
+          "label": "方法"
+        },
+        {
+          "text": "在包含 103 个场景的 SCARBench 上，GPT-5.5 的 GHOST 率为 11.5%，STAR-Guard 将其降低至 0.0% 并将安全完成率提升至 94.0%。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "执行前审计提供的是动作局部的条件保证而非无条件端到端安全，强确定性干预会部分影响任务完成度，且规则表达目前局限于前置与禁止类型。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.02664"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.02664",
       "aisafetyhot": "https://aisafetyhot.com/items/y54rh45unelwps2qe9vbzysrt"

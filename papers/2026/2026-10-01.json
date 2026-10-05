@@ -2383,47 +2383,6 @@
     "discoveredAt": "2026-10-01T12:59:26.499Z"
   },
   {
-    "arxivId": "2609.36603",
-    "title": "Self-Evolving Defense: Continual Security Policy Learning for LLM Agents",
-    "titleZh": "SED：面向 LLM 智能体的免训练持续安全策略学习框架",
-    "authors": [
-      "Minh Nhat Le"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 Self-Evolving Defense（SED），一个免训练框架，把有害的智能体轨迹蒸馏为可复用的安全策略，不更新模型权重，并在未来任务中检索相关策略以持续适应新攻击。作者在 DeepSeek V4 Flash、GLM 5.2 和 Kimi K3 三个开源模型、覆盖越狱、提示注入和不安全代码生成的八个基准上测试 SED。结果显示，SED 将 AGENTDOJO 上的定向提示注入成功率降至 0.42%，最佳基线防御为 3.7%；在 HARMBENCH 上把自适应 X-TEAMING 攻击成功率控制在 7.8%，最佳基线为 35.2%，同时保持良性任务效用。论文共 39 页、6 张图，代码已公开。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "工具调用、仓库修改和跨会话记忆让 LLM 智能体面临越狱、提示注入和不安全代码生成。现有防御常需重训练、无法随攻击演化，或只覆盖单一威胁面。",
-          "label": "问题"
-        },
-        {
-          "text": "Self-Evolving Defense（SED）不更新权重：外部评审给完整轨迹打分，把有害失败写入情景记忆并合成为分层策略；下次任务按查询检索 top 策略，连同父规则注入系统提示词。",
-          "label": "方法"
-        },
-        {
-          "text": "在 DeepSeek-V4-Flash 上，SED 将 AgentDojo 定向攻击成功率降到 0.42%，X-Teaming 降到 7.8%，已解决 SWE-bench 补丁中的 CWE-538 率从 19.2% 降到 2.9%，同时保持良性任务效用。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "作者指出，与已见失败差异很大的新攻击可能检索不到可用策略；且未考察更强或专用评审模型的影响。评测在三个开源模型、八个基准上在线进行，记忆不跨基准携带。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（AI 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.36603"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.36603",
-      "aisafetyhot": "https://aisafetyhot.com/items/o5fv9nu1vebgfoqc05astekuc"
-    },
-    "publishedAt": "2026-09-29T03:19:11.000Z",
-    "timelineAt": "2026-09-30T22:19:33.657Z",
-    "discoveredAt": "2026-09-30T22:19:33.657Z"
-  },
-  {
     "arxivId": "2608.26222",
     "title": "NeuronFuzz: Safety Neuron Guided Fuzzing for LLM Safety Evaluation",
     "titleZh": "NeuronFuzz：用安全神经元引导模糊测试评估 LLM 安全性",
@@ -2775,47 +2734,6 @@
     "publishedAt": "2026-09-09T03:00:25.000Z",
     "timelineAt": "2026-10-01T10:12:06.456Z",
     "discoveredAt": "2026-10-01T10:12:06.456Z"
-  },
-  {
-    "arxivId": "2609.36657",
-    "title": "Constitutional adapters: Inference-time interventions for misalignment and misuse",
-    "titleZh": "Constitutional adapters：用推理期干预防御越狱与失准",
-    "authors": [
-      "Adam S. Lowet"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出 constitutional adapters（CAs），把符合宪法原则的行为从合成语料蒸馏进低秩适配器和 steering vector，训练中从未见过有害请求或越狱样本。用宪法训练对象减去对照训练对象后，越狱防御成功率和测得对齐度提升，在长上下文和多轮攻击下优于提示词与 steering 基线。CAs 可在基座模型上训练、零样本迁移到后训练 checkpoint，并在推理时缩放以在防御与良性合规之间可预测地权衡。作者将其定位为 API 部署中轻量、可移植、可调的干预手段，论文共 38 页、14 图、10 表。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "宪法对齐通常写进全量权重，轻量对象能否承载更细的宪法遵循、并在推理时缓解误用与失配，仍不清楚。",
-          "label": "问题"
-        },
-        {
-          "text": "用 Claude Opus 5 从 Claude 宪法与无价值内容的对照手册各生成约 1.8 万篇合成文档，分别训练 LoRA 或 ReLU steer，再做差分得到 constitutional adapter，推理时用强度 α 缩放。",
-          "label": "方法"
-        },
-        {
-          "text": "主文以 Qwen3.5-4B 为主。短上下文上提示词与 CA 接近；长上下文和多轮攻击上 CA 更稳，difference 对象相对无防御约提升 15 与 30 个百分点，作者称比 refusal steer 有效 3 倍以上。知识与数学几乎无损，编码和工具调用有下降，过度拒绝与 refusal steer 相当。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "作者不评测针对 adapter 的 white-box 攻击，也不与全参数宪法训练比较，并怀疑后者越充分、CA 增量越小。主文聚焦 Qwen3.5-4B 三个种子，其余三个家族效应更小、更不稳定；Nemotron 无 base checkpoint。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（AI 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.36657"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.36657",
-      "aisafetyhot": "https://aisafetyhot.com/items/wvl5v3kygvzgv09w6dflufebz"
-    },
-    "publishedAt": "2026-09-29T03:59:09.000Z",
-    "timelineAt": "2026-09-30T22:19:33.645Z",
-    "discoveredAt": "2026-09-30T22:19:33.645Z"
   },
   {
     "arxivId": "2609.34920",
@@ -4790,47 +4708,6 @@
     "discoveredAt": "2026-09-30T22:20:33.684Z"
   },
   {
-    "arxivId": "2609.36474",
-    "title": "FinRT: Distilling Adaptive Red-Teaming Strategies into Reusable Adversarial Generators in Consumer Finance",
-    "titleZh": "FinRT：将自适应红队策略蒸馏为消费金融领域的可复用对抗生成器",
-    "authors": [
-      "Rikhiya Ghosh"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 FinRT，一个从自适应红队策略中构建可复用对抗提示词生成器的结构化框架，面向消费金融等受监管行业。在六个受害模型上，FinRT 的攻击成功率接近自适应基线 Rainbow Teaming 的两倍（32.9% 对 17.2%），最大对抗严重度提升 33%，并保持与迭代搜索方法相当的策略域内语义多样性。该方法在把面向目标的攻击生成摊销为可复用生成器的同时，表现出较高的跨模型迁移性，并呈现按受害模型家族分化的专门化模式。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "消费金融助手里，看似无害的客户问句会触达监管政策边界。现有自适应红队贵且不跨政策摊销，摊销式生成又缺少结构化合规覆盖。",
-          "label": "问题"
-        },
-        {
-          "text": "FinRT 先在政策×领域×策略空间做前向诱发，再用成功轨迹抽出目标行为，经 SFT 与校准代理 DPO 训练单次前向的对抗提示生成器。",
-          "label": "方法"
-        },
-        {
-          "text": "留出 419 条规格、每条 10 个提示上，校准代理 DPO 的 Overall ASR 为 32.9%，Rainbow Teaming 为 17.2%，oracle DPO 为 33.0%（Table 1）。FinSafetyBench 上为 35.2%。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "作者称主要覆盖消费金融、七类政策，法律迁移只是小规模压力测试；评测为静态黑盒、以单轮为主，未研究自适应防御与多轮攻击。前向诱发成本高，收益来自摊销。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（AI 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.36474"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.36474",
-      "aisafetyhot": "https://aisafetyhot.com/items/ypper47mhwfs83mipaojddpx8"
-    },
-    "publishedAt": "2026-09-29T01:33:31.000Z",
-    "timelineAt": "2026-09-30T22:19:33.677Z",
-    "discoveredAt": "2026-09-30T22:19:33.677Z"
-  },
-  {
     "arxivId": "2609.34572",
     "title": "Nudgeability: Reasoning Models Follow Confidence Signals Without Tracking Their Own Competence",
     "titleZh": "论文提出 Nudgeability：推理模型会跟随置信信号却不追踪自身能力",
@@ -5555,47 +5432,6 @@
     "publishedAt": "2026-09-04T17:36:31.000Z",
     "timelineAt": "2026-09-30T22:20:32.950Z",
     "discoveredAt": "2026-09-30T22:20:32.950Z"
-  },
-  {
-    "arxivId": "2609.35350",
-    "title": "Jailbreaks for Black-Box Uncertainty Quantification in Large Reasoning Models",
-    "titleZh": "J4U：用越狱提示为大型推理模型做黑盒不确定性量化",
-    "authors": [
-      "Lucas Biechy"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 J4U，一种由越狱衍生出的黑盒不确定性量化方法，用于大型推理模型（LRM）的问答场景。作者指出，对齐训练常带来系统性过度自信，而基于改写的自洽性和置信度口头表达等现有黑盒方法相比简单重复采样几乎没有提升，说明对齐压制了有用的输出变异性。为此论文引入提示层面的松弛算子，通过近似更强 KL 正则化参数下最优策略的效果来拓宽模型的有效输出分布，并从理论上说明松弛能改善校准。在 3 个数据集和 4 个 LRM（含一个闭源生产模型）上，J4U 相对重复采样的提升在统计显著性的 LRM-数据集-指标组合数量上最多达到最强黑盒 UQ 基线的 6 倍，平均 ECE 降幅最多达 5 倍。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "LRM 经 RL 对齐后输出分布变尖、过度自信，生产环境常无 logits。作者称现有黑盒 UQ（改写一致性、口头置信）相对重复采样几乎无增益。",
-          "label": "问题"
-        },
-        {
-          "text": "把对齐模型写成 KL 正则最优策略，定义放松算子近似更大 β。J4U 用三类一次性黑盒越狱式变换（SUFFIX、PROG、ART）在良性问答上多次采样，以多数票频率估计置信。",
-          "label": "方法"
-        },
-        {
-          "text": "K=10 时，跨 4 个 LRM、3 个数据集，J4U-PROG 平均 ECE 降 15.8%，J4U-ART 的 NLL、Brier 降幅最大（14.5%、4.8%）。显著改进的校准设置多于 REPHRASE；熵升、推理轨迹余弦相似度降，符合作者的放松签名。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "作者指出依赖越狱式提示，厂商缓解后特定越狱可能失效；并计划在更开放访问下做机制分析。实验覆盖 4 个 LRM 与 SynthPAI、SuperGPQA、HLE，另在 gsm8k 上检查高确信区间；闭源模型无推理轨迹。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（AI 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.35350"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.35350",
-      "aisafetyhot": "https://aisafetyhot.com/items/d4q4g0rz7xoglml91lkqk9l5v"
-    },
-    "publishedAt": "2026-09-28T15:02:03.000Z",
-    "timelineAt": "2026-09-30T22:19:33.699Z",
-    "discoveredAt": "2026-09-30T22:19:33.699Z"
   },
   {
     "arxivId": "2609.37310",
