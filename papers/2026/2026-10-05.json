@@ -929,7 +929,7 @@
       "paper": "https://arxiv.org/abs/2610.02886",
       "aisafetyhot": "https://aisafetyhot.com/items/oiqmj2imnetvr5zqkt0br127t"
     },
-    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "publishedAt": "2026-10-02T06:24:54.000Z",
     "timelineAt": "2026-10-05T05:28:27.620Z",
     "discoveredAt": "2026-10-05T05:28:27.620Z"
   },
@@ -1554,7 +1554,7 @@
       "paper": "https://arxiv.org/abs/2610.02302",
       "aisafetyhot": "https://aisafetyhot.com/items/z2yv9g5swqo9flsmpbpnzbe4v"
     },
-    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "publishedAt": "2026-10-01T17:57:00.000Z",
     "timelineAt": "2026-10-05T05:28:27.538Z",
     "discoveredAt": "2026-10-05T05:28:27.538Z"
   },
@@ -1980,6 +1980,24 @@
     "publishedAt": "2026-10-05T04:00:00.000Z",
     "timelineAt": "2026-10-05T04:26:18.811Z",
     "discoveredAt": "2026-10-05T04:26:18.811Z"
+  },
+  {
+    "arxivId": "2610.02126",
+    "title": "Local Support Learning",
+    "titleZh": "Local Support Learning：无需旧数据缓解 LLM 灾难性遗忘",
+    "authors": [],
+    "category": "ai_news",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Local Support Learning（LSL），一种无需访问旧数据即可在梯度训练中保留模型原有能力的通用框架。LSL 将标准权重适配器与基于高斯混合模型（GMM）的门控函数配对，使更新仅作用于当前训练分布的输入激活，从而在多个训练阶段中同时保留预训练与微调能力。该方法在最高 70 亿参数的 LLM 上缓解了灾难性遗忘，且内存与计算高效、对超参数选择稳健，并展现出扩展潜力。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02126",
+      "aisafetyhot": "https://aisafetyhot.com/items/avdy7ztw05bq0uf1v1uwqb41p"
+    },
+    "publishedAt": "2026-09-30T20:00:00.000Z",
+    "timelineAt": "2026-10-05T06:08:21.796Z",
+    "discoveredAt": "2026-10-05T06:08:21.796Z"
   },
   {
     "arxivId": "2610.03434",
