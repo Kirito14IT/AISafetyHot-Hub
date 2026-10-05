@@ -1734,86 +1734,6 @@
     "discoveredAt": "2026-10-01T10:12:06.456Z"
   },
   {
-    "arxivId": "2609.05903",
-    "title": "EvoSafeHarness: Evolving Model- and Domain-Specific Harnesses for Securing Agents",
-    "titleZh": "EvoSafeHarness：为 Agent 自动演化模型与领域专属安全护栏",
-    "authors": [
-      "Nanxi Li"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "EvoSafeHarness 是一个面向 LLM Agent 的安全优化框架，可为冻结模型在目标领域合成可部署的安全护栏，同时抵御间接提示注入和直接有害请求。它联合搜索自然语言策略与可执行代码逻辑，依据模型行为、领域规范和全新上下文的对抗审查来剔除只针对特定基准的规则。在 DecodingTrust-Agent 上，平均攻击成功率从 45.6% 降至 10.0%，效用仅损失 3.3 个百分点，15 个单元格中 14 个取得最佳成绩；在 AgentDojo 上以 0.0% ASR 达到 82.8% 效用，同一工作点下效用为 CaMeL 的两倍，并可原样迁移到未见过的 AgentDyn 套件。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.05903",
-      "aisafetyhot": "https://aisafetyhot.com/items/pl9xap7zobj6df9gy8avv3w00"
-    },
-    "publishedAt": "2026-09-05T05:56:41.000Z",
-    "timelineAt": "2026-09-30T22:20:33.668Z",
-    "discoveredAt": "2026-09-30T22:20:33.668Z"
-  },
-  {
-    "arxivId": "2609.00206",
-    "title": "Distributed Implicit Harm: A Compositional Safety Blind Spot in MLLM-Based Video Moderation",
-    "titleZh": "论文提出分布式隐式危害 DIH，评测 30 多个 MLLM 的视频审核盲区",
-    "authors": [
-      "Ruotong Wang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出多模态大语言模型在视频审核中的组合式安全盲区，称为分布式隐式危害（DIH），即由视频各组件之间的关系而非单一显式线索产生的危害。作者研究两类代表性情形：跨视觉片段的时间分布危害（DIH-T）与音视频流之间的跨模态危害（DIH-M）。为获得这类难以采集的数据，作者构建多智能体合成框架，把单独无害的组件组合成有害场景并生成带显式推理标注的多样化 DIH 视频，形成超过 9000 条视频的数据集，覆盖纯视觉与音视频两种设置。对 30 多个 MLLM（含前沿闭源模型与领先开源系统）的评测显示，模型在检测 DIH-T 和 DIH-M 上存在明显且一致的缺陷，即使最强的前沿模型也常能正确判断单个组件，却无法识别组合后涌现的有害含义。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.00206",
-      "aisafetyhot": "https://aisafetyhot.com/items/yfihxdur8gevs82vw9026j1ux"
-    },
-    "publishedAt": "2026-08-31T18:17:49.000Z",
-    "timelineAt": "2026-09-30T22:20:33.726Z",
-    "discoveredAt": "2026-09-30T22:20:33.726Z"
-  },
-  {
-    "arxivId": "2609.35408",
-    "title": "\"Nothing to See Here'': Unintended Disclosure through Revision Traces of LLM Deliverables",
-    "titleZh": "研究揭示 LLM 交付物修订痕迹导致的无意泄露，并提出 RevLeakBench 基准",
-    "authors": [
-      "Yage Zhang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 LLM 助手在私密起草中删除或替换某条目后，仍可能在说明修改时重新暴露该条目，作者称之为修订痕迹。在三个公开对话语料库的实测分析中，共识别出 26,753 条修订请求，其中 2,363 条（8.8%）留下修订痕迹。作者构建了 RevLeakBench，覆盖五个场景的 100 项任务，分对话与 Agent 两条轨道，测量痕迹出现率、被撤回条目的可恢复率、痕迹位置和必要内容保留率。在六个模型上，两条轨道约一半的交付物在撤回后仍陈述了该修改，仅看交付物的读者可从约 13% 的交付物中恢复被撤回内容；即使告知模型整条回复将转发给接收方，仍有 36.4% 的交付物留下修订痕迹。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.35408",
-      "aisafetyhot": "https://aisafetyhot.com/items/h2rrtrwu9z09a8nqbezv1qpem"
-    },
-    "publishedAt": "2026-09-28T15:28:03.000Z",
-    "timelineAt": "2026-09-30T22:20:33.734Z",
-    "discoveredAt": "2026-09-30T22:20:33.734Z"
-  },
-  {
-    "arxivId": "2609.27090",
-    "title": "Divide and Doubt: Diverse Distributed Poisoning for Retrieval-Augmented Generation",
-    "titleZh": "DnD：面向检索增强生成的多样化分布式投毒攻击",
-    "authors": [
-      "Tianhao Chen"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 DnD（Divide and Doubt），一种针对检索增强生成（RAG）的定向语料投毒攻击，通过把对目标答案的支持分散到风格多样的段落中，并加入一段质疑参考答案证据的段落来提升攻击效果。分散化让投毒段落在嵌入向量空间中更分散，质疑段落则在多条投毒段落被检索到时增强目标答案被采纳的概率。作者在两个开放域问答数据集、三个 LLM 和九种 RAG 配置上，分别在检索器黑盒与白盒条件下评测，DnD 在多数配置中达到或超过此前的攻击方法，对基于聚类和冲突感知的防御提升最明显。论文编号 arXiv:2609.27090，属 cs.CR 方向。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.27090",
-      "aisafetyhot": "https://aisafetyhot.com/items/tu1rpliew0gq82zau7gri7wfz"
-    },
-    "publishedAt": "2026-09-22T21:42:19.000Z",
-    "timelineAt": "2026-09-30T22:20:33.744Z",
-    "discoveredAt": "2026-09-30T22:20:33.744Z"
-  },
-  {
     "arxivId": "2609.04260",
     "title": "GhostWord: A Fine-Grained Backdoor Attack on Automatic Speech Recognition",
     "titleZh": "GhostWord：针对自动语音识别的细粒度后门攻击",
@@ -3103,26 +3023,6 @@
     "discoveredAt": "2026-10-01T12:59:26.523Z"
   },
   {
-    "arxivId": "2609.04298",
-    "title": "Harbor Adapters and Harbor-Index: Infrastructure and a Curated Meta-Dataset for Large-Scale Agentic Evaluation",
-    "titleZh": "Harbor Adapters 与 Harbor-Index：面向大规模 Agent 评测的基础设施与精选元数据集",
-    "authors": [
-      "Lin Shi"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 Harbor Adapters，一套面向 Agent 基准的统一评测基础设施，并发布精选元数据集 Harbor-Index。作者开发基准适配器，将 80 余个基准接入以评测任意 Agent，并通过严格代码审查与一致性实验验证。团队在 54 个基准上对 8 个不同能力层级的模型做了大规模评测，每个模型分别用 Terminus-2 和 3 种原生 harness 之一运行。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.04298",
-      "aisafetyhot": "https://aisafetyhot.com/items/vihh6bgvns43lgnax4541b4ih"
-    },
-    "publishedAt": "2026-09-03T16:26:20.000Z",
-    "timelineAt": "2026-09-30T22:20:33.684Z",
-    "discoveredAt": "2026-09-30T22:20:33.684Z"
-  },
-  {
     "arxivId": "2609.00060",
     "title": "A Formal Analysis of Agent Payment Protocols",
     "titleZh": "论文用 Tamarin 形式化分析 x402、MPP、ACP、AP2 四个智能体支付协议",
@@ -3585,46 +3485,6 @@
     "publishedAt": "2026-09-15T13:05:01.000Z",
     "timelineAt": "2026-10-01T10:12:06.259Z",
     "discoveredAt": "2026-10-01T10:12:06.259Z"
-  },
-  {
-    "arxivId": "2609.07048",
-    "title": "FreqDoor: A Hidden Trojan in the Frequency Domain for Backdoor Attacks on Vision-Language Models",
-    "titleZh": "FreqDoor：面向视觉语言模型的频域后门攻击",
-    "authors": [
-      "Yasir Arafat Prodhan"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 FreqDoor，一种在频域植入触发器的训练期后门攻击，针对视觉语言模型。该方法选择性混合触发源图像的幅度谱分量，同时保留干净图像的相位，从而生成空间分布且视觉上难以察觉的触发器，且不修改文本输入。在 BLIP-2、InstructBLIP 和 LLaVA 上评估图像描述与视觉问答任务，在 Flickr8k 上三个模型的攻击成功率分别为 99.6%、99.8% 和 98.4%，同时保持生成描述的语义质量；在 VQAv2 上对应攻击成功率为 99.6%、92.4% 和 79.6%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.07048",
-      "aisafetyhot": "https://aisafetyhot.com/items/eg8tbwz4kd6c99willeacvqm5"
-    },
-    "publishedAt": "2026-09-07T05:11:12.000Z",
-    "timelineAt": "2026-09-30T22:20:33.695Z",
-    "discoveredAt": "2026-09-30T22:20:33.695Z"
-  },
-  {
-    "arxivId": "2609.23640",
-    "title": "Are Human-Aligned Models Models of Humans? A Turing-Test Gap in Preference Alignment",
-    "titleZh": "人类对齐的模型是人类行为的模型吗？偏好对齐中的图灵测试差距",
-    "authors": [
-      "Suqin Yuan"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文区分了与人类偏好对齐和与人类行为对齐，指出人们偏好的 AI 回复未必是他们自己会给出的回复，并将此称为图灵测试差距。作者证明偏好对齐仅在一种严格条件下才能保持人类回复分布，且未发现真实人类偏好满足该条件的一致证据。实验显示，人类回复似然度的损失随偏好加权强度增加而增大，与加权方向无关，该差距在标准 DPO 下同样出现。研究据此提出，人类相似性应作为对齐的一个显式维度，而非假定其会随偏好对齐自然产生。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.23640",
-      "aisafetyhot": "https://aisafetyhot.com/items/su4mvjuvrnly7lf6ktqb9kvx6"
-    },
-    "publishedAt": "2026-09-20T13:37:04.000Z",
-    "timelineAt": "2026-09-30T22:20:33.696Z",
-    "discoveredAt": "2026-09-30T22:20:33.696Z"
   },
   {
     "arxivId": "2608.27348",
@@ -5896,26 +5756,6 @@
     "discoveredAt": "2026-10-01T05:14:16.857Z"
   },
   {
-    "arxivId": "2609.20541",
-    "title": "An Analysis of Training-Free Self-Reported Confidence in Language Models",
-    "titleZh": "语言模型免训练自报告置信度分析：直接言语化置信度在 TriviaQA 上 AUROC 达 0.956",
-    "authors": [
-      "Lukas Meyer"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "对两个模型家族在 100 道 TriviaQA 题目上的三种免训练置信度信号分析显示，直接言语化置信度是强基线，审计基准错误后正确性预测 AUROC 达 0.956 和 0.937；三样本一致性明显更弱（0.765 和 0.790），与言语化置信度的固定插值无统计可靠增益。一个模型 9 个错误中 4 个、另一个 8 个中 2 个获得全样本一致支持，说明自一致性会放大共有误解；对同一固定答案用等价提示重新诱导置信度，平均分数变化 0.043 至 0.084，在 0.8 阈值下翻转 4% 至 9% 的判定。对 100 条带置信度标签的传记主张的探索性审计仅发现支持与矛盾主张间存在有限置信度差距。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.20541",
-      "aisafetyhot": "https://aisafetyhot.com/items/xe9tjsbqr04jjvdpnz8jnnmc3"
-    },
-    "publishedAt": "2026-09-17T15:10:28.000Z",
-    "timelineAt": "2026-09-30T22:20:33.666Z",
-    "discoveredAt": "2026-09-30T22:20:33.666Z"
-  },
-  {
     "arxivId": "2609.38723",
     "title": "Towards Efficient HPC Systems for Agents: Challenges and Opportunities",
     "titleZh": "面向智能体的高效 HPC 系统：挑战与机遇",
@@ -6458,26 +6298,6 @@
     "discoveredAt": "2026-10-01T10:21:12.803Z"
   },
   {
-    "arxivId": "2609.06346",
-    "title": "Robust Dynamic Expansion for Continual Learning under Backdoor Attacks via Purification and Selective Recovery",
-    "titleZh": "面向后门攻击下持续学习的鲁棒动态扩展：净化与选择性恢复",
-    "authors": [
-      "Keyu Lin"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对增量任务中混入少量后门投毒样本的持续学习场景（CLUBA），研究者提出一个融合样本净化、选择性恢复与鲁棒专家路由的动态扩展框架。其中 Bi-Prototype Purification（BPP）利用特征空间语义差异识别可疑样本，Gradient Discrepancy-based Robustness Optimization（GDBRO）通过伪标签纠正与梯度一致性评估选择性恢复含信息量的投毒样本，Robust Feature Consistency-based Expert Selection（RFCBES）构建扰动感知类原型以支持受损输入下的专家路由。该工作旨在同时缓解灾难性遗忘、保持适应能力并阻止模型吸收恶意监督。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.06346",
-      "aisafetyhot": "https://aisafetyhot.com/items/hvczjvrpsk9vmtuxqswqb1gv9"
-    },
-    "publishedAt": "2026-09-06T02:52:44.000Z",
-    "timelineAt": "2026-09-30T22:20:33.722Z",
-    "discoveredAt": "2026-09-30T22:20:33.722Z"
-  },
-  {
     "arxivId": "2609.33662",
     "title": "Audit-First VAPO: Risk-Certified Selective Updates under Imperfect Verification",
     "titleZh": "Audit-First VAPO：不完美验证下的风险认证选择性更新",
@@ -6916,26 +6736,6 @@
     "discoveredAt": "2026-10-01T10:16:09.435Z"
   },
   {
-    "arxivId": "2609.07147",
-    "title": "Fine-grained Distributed Backdoor Attacks in Federated Learning",
-    "titleZh": "FDBA：联邦学习中的细粒度分布式后门攻击",
-    "authors": [
-      "Jian Wang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出细粒度分布式后门攻击框架 FDBA，用动态触发器生成与嵌入向量优化，在更少投毒样本下实施攻击。该方法基于 Canny 算法提取图像边缘特征并注入 Laplacian 噪声，再经 RGB 通道分解隐藏分布式触发器，同时用嵌入向量对比学习把投毒样本拉向目标类中心。在 CIFAR-10 上，目标 ASR 介于 70% 至 90% 时，FDBA 相比 DBA 减少 37.4%–48.4% 的投毒比例；Non-IID 极端异构下保留 84.7% 的 IID 攻击性能，DBA 降至 73.5%，并能绕过主流防御机制。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.07147",
-      "aisafetyhot": "https://aisafetyhot.com/items/vjozt1zkt4qwqjobpivgzuogy"
-    },
-    "publishedAt": "2026-09-07T07:46:52.000Z",
-    "timelineAt": "2026-09-30T22:20:33.651Z",
-    "discoveredAt": "2026-09-30T22:20:33.651Z"
-  },
-  {
     "arxivId": "2609.10658",
     "title": "GEOSTEER: Geodesic Optimization for Activation Steering in Large Language Models",
     "titleZh": "GeoSteer：面向大语言模型激活引导的测地线优化方法",
@@ -7277,26 +7077,6 @@
     "discoveredAt": "2026-10-01T10:16:09.538Z"
   },
   {
-    "arxivId": "2609.05676",
-    "title": "PAC-Private Autoregressive Generation: Calibrating Noise to Ensemble Disagreement",
-    "titleZh": "PAC-Private Autoregressive Generation：将 PAC 隐私扩展到自回归生成",
-    "authors": [
-      "Mina Mirzadehsarcheshmeh"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者将 PAC 隐私从分类扩展到自回归生成，用私有语料构建 m=128 个重叠世界、每个世界训练一个适配器，按各世界投票的后验加权分歧校准噪声，一致时无需加噪。在 WikiText-103 与 GPT-2-small 上，每 token 预算 2^{-32} 时保留 74% 微调收益，10^6 token 后成员推断成功率上限 51.08%。与 PMixED 在相同成员推断界下相比，10^2 至 10^6 token 区间保留 98% 非隐私余量，后者至多 56%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.05676",
-      "aisafetyhot": "https://aisafetyhot.com/items/hm6llbogp8ns2b1sueu4xdvk9"
-    },
-    "publishedAt": "2026-09-04T19:16:39.000Z",
-    "timelineAt": "2026-09-30T22:20:33.750Z",
-    "discoveredAt": "2026-09-30T22:20:33.750Z"
-  },
-  {
     "arxivId": "2609.23889",
     "title": "SyzHarness: Patch-Based Kernel Bug Reproduction with LLM-Synthesized Fuzzing Harnesses",
     "titleZh": "SyzHarness：用 LLM 合成模糊测试 harness 复现 Linux 内核补丁漏洞",
@@ -7395,26 +7175,6 @@
     "publishedAt": "2026-09-28T15:02:17.000Z",
     "timelineAt": "2026-10-01T10:16:09.298Z",
     "discoveredAt": "2026-10-01T10:16:09.298Z"
-  },
-  {
-    "arxivId": "2609.07063",
-    "title": "Trust-But-Verify: Poisoning-Resilient Locally Private Graph Learning Protocols",
-    "titleZh": "VERITAS：抗投毒的本地差分隐私图学习协议",
-    "authors": [
-      "Longzhu He"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对本地差分隐私（LDP）图学习协议易受数据投毒攻击的问题，研究者提出抗投毒协议 VERITAS，采用\"信任但验证\"范式。该协议在用户侧引入编码分级信任等级的验证列表，对节点特征与图结构联合私有化，并在服务端利用双向证明不对称性识别和剪除恶意节点，流程包括本地数据扰动、证明驱动的恶意节点剪枝、双重去噪恢复效用和鲁棒隐私图学习四个阶段。在四个真实基准数据集、多种 LDP 机制与 GNN 架构上的实验显示，VERITAS 能有效防御数据投毒攻击，并在严格隐私保证下显著提升下游图学习效用。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.07063",
-      "aisafetyhot": "https://aisafetyhot.com/items/sv0n87zldqt47qv87fs9j1k4o"
-    },
-    "publishedAt": "2026-09-07T05:38:06.000Z",
-    "timelineAt": "2026-09-30T22:20:33.668Z",
-    "discoveredAt": "2026-09-30T22:20:33.668Z"
   },
   {
     "arxivId": "2609.14257",
@@ -7721,26 +7481,6 @@
     "publishedAt": "2026-09-27T20:00:00.000Z",
     "timelineAt": "2026-10-01T11:14:11.995Z",
     "discoveredAt": "2026-10-01T11:14:11.995Z"
-  },
-  {
-    "arxivId": "2608.30480",
-    "title": "VisER: Visual Evidence and Reliance for Object Hallucination Detection in LVLMs",
-    "titleZh": "VisER：面向 LVLM 物体幻觉检测的视觉证据与视觉依赖双面指标",
-    "authors": [
-      "Afsaneh Hasanebrahimi"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "VisER 是一种免训练的双面指标，用于大视觉语言模型（LVLM）的物体级幻觉检测，通过 Visual Evidence 衡量物体与上下文的兼容性是否有图像 token 的物体专属证据支撑，通过 Visual Reliance 衡量物体更多由图像而非已生成文本前缀支持，两者结合得到更关注来源的 grounding 分数，且无需额外的物体级验证生成。在多个 LVLM 和基准上，VisER 的 AUROC 与 AUPR 均优于一系列基线。该工作已被 EMNLP 2026 主会接收。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.30480",
-      "aisafetyhot": "https://aisafetyhot.com/items/j9fb2m299znsrfpl46v6nfyk7"
-    },
-    "publishedAt": "2026-08-31T09:05:22.000Z",
-    "timelineAt": "2026-09-30T22:20:33.739Z",
-    "discoveredAt": "2026-09-30T22:20:33.739Z"
   },
   {
     "arxivId": "2609.13556",
@@ -8119,26 +7859,6 @@
     "publishedAt": "2026-09-11T13:35:27.000Z",
     "timelineAt": "2026-10-01T10:12:06.395Z",
     "discoveredAt": "2026-10-01T10:12:06.395Z"
-  },
-  {
-    "arxivId": "2609.05702",
-    "title": "Characterizing Privacy Risks of Quantum Machine Learning with Emergent Quantum-Native Access",
-    "titleZh": "量子原生访问下量子机器学习（QML）的隐私风险刻画",
-    "authors": [
-      "Liou Tang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对量子机器学习（QML）隐私风险的研究，考察了具备量子计算能力与量子信息输出访问权的用户/对手对QML模型的成员推理攻击。研究表明，量子访问与量子计算能力的提升会带来可证明的理论隐私泄露和实证对抗增益，但QML的概率性质使理论与实证对抗优势之间存在差距。现有QML隐私泄露研究低估了新兴量子原生访问机制下的隐私泄露程度。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.05702",
-      "aisafetyhot": "https://aisafetyhot.com/items/x0lh33froq48cqomayo4wl35i"
-    },
-    "publishedAt": "2026-09-04T20:14:20.000Z",
-    "timelineAt": "2026-09-30T22:20:33.738Z",
-    "discoveredAt": "2026-09-30T22:20:33.738Z"
   },
   {
     "arxivId": "2609.03064",

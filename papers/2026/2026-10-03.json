@@ -878,16 +878,16 @@
   {
     "arxivId": null,
     "title": "The Backbone of Abuse: How Infrastructure Providers Enable the Proliferation of AI-Generated Non-Consensual Intimate Imagery",
-    "titleZh": "研究：Cloudflare 等基础设施商为 88 个 AI 生成非自愿私密影像站点提供托管",
+    "titleZh": "研究梳理88个AI非自愿私密影像网站依赖的基础设施供应商",
     "authors": [
       "Sarah Morgan",
       "Hany Farid",
       "Sophie J. Nightingale"
     ],
-    "category": "incident",
+    "category": "industry",
     "selected": false,
     "attention": null,
-    "summaryZh": "研究者 Sarah Morgan、Hany Farid 与 Sophie J. Nightingale 在《Journal of Online Trust and Safety》发表论文，识别出 88 个公开托管 AI 生成非自愿私密影像（NCII）的站点，其中 38 个完全以合成影像为主。论文指出，少数全球大型互联网公司为这些站点提供网络托管、内容分发网络等底层基础设施，Cloudflare 为其中超过一半的站点提供网络托管，且绝大多数站点可通过 Google 搜索找到。作者呼吁这些公司修订政策，避免助长 NCII 的创建与传播，并提出具体监管改革建议，要求企业对其平台上泛滥的非法内容承担责任。",
+    "summaryZh": "Sarah Morgan、Hany Farid 与 Sophie J. Nightingale研究公开分发AI生成非自愿私密影像的网站及其基础设施。他们在六周检索窗口内找到400个URL，筛出88个相关网站，再分析托管、内容分发、DNS、域名及其他服务。研究认为少数大型供应商在其中扮演重要角色，并呼吁识别违规服务、停止支持和加强治理。样本不代表全网，CDN或代理服务不等同于直接托管，服务关联也不证明供应商知情协助。",
     "quickRead": null,
     "links": {
       "paper": "https://tsjournal.org/index.php/jots/article/view/348",
