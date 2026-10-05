@@ -1438,6 +1438,24 @@
     "discoveredAt": "2026-10-05T07:21:39.031Z"
   },
   {
+    "arxivId": "2610.00972",
+    "title": "VeriHarness: Scaling Agentic Verification for Long-Horizon Tasks",
+    "titleZh": "VeriHarness：用智能体验证器扩展长时程任务验证",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 VeriHarness，在固定基座模型、测试时不提供参考答案和评分标准的前提下，把生成模型本身改造成智能体验证器，为其配备工作区、证据工具和可复用的验证技能。方法包含两部分：分歧消解器用环境证据核对相互冲突的主张，共识挑战者则检验各方一致的主张并查找遗漏需求，两者的发现用于筛选和修订最终产物。在五个长时程工作区基准和两个前沿模型上，VeriHarness 取得所评估基线中最高的选择分数；有证据支撑的修订进一步提升平均表现，相比单次 rollout 在 Gemini 3.5 Flash 上提升 6.2 分、在 Claude Opus 4.8 上提升 6.4 分。验证技能还能从失败反馈中自我改进。作者公开了覆盖全部五个基准和两个模型、成本超过 10 万美元的约 26000 条 rollout。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00972",
+      "aisafetyhot": "https://aisafetyhot.com/items/p4nau0wqqxhk9f6ptl2jddmly"
+    },
+    "publishedAt": "2026-09-30T20:00:00.000Z",
+    "timelineAt": "2026-10-05T08:42:18.705Z",
+    "discoveredAt": "2026-10-05T08:42:18.705Z"
+  },
+  {
     "arxivId": "2610.03470",
     "title": "CorrectGuard: Eyes-Off Correctness Estimation for Black-Box Security Guardrails",
     "titleZh": "CorrectGuard 提出黑盒安全护栏的免查看正确性估计框架",
