@@ -388,7 +388,7 @@
       "paper": "https://arxiv.org/abs/2609.39050",
       "aisafetyhot": "https://aisafetyhot.com/items/mlnbg55pdc2zlhhug9b5l18ao"
     },
-    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "publishedAt": "2026-09-30T05:57:00.000Z",
     "timelineAt": "2026-10-05T03:04:12.894Z",
     "discoveredAt": "2026-10-05T03:04:12.894Z"
   },
@@ -1014,6 +1014,45 @@
     "discoveredAt": "2026-10-05T05:28:27.620Z"
   },
   {
+    "arxivId": "2610.02373",
+    "title": "HDI: GraphRAG auxiliary schema poisoning",
+    "titleZh": "HDI 攻击：篡改 GraphRAG 辅助结构可致 88–94% 攻击成功率",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 76,
+    "summaryZh": "论文研究GraphRAG索引生成的语义摘要、层级关系和预计算分数等辅助结构被篡改后的风险，提出3S框架和HDI影响分析方法。攻击者须先取得索引完成后的辅助结构写入权限，这不是无需访问条件的远程攻击。作者在两类GraphRAG架构和两个问答基准上报告少量篡改可影响多个查询，并绕过所测困惑度与改写防御；结果限于这些实验条件，尚未独立复现。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "GraphRAG 离线索引构建的语义摘要与评分等辅助结构决定在线检索路径，但现有图投毒攻击仅局限于节点和边等实例级组件，忽视了辅助模式级实体的安全脆弱性。",
+          "label": "问题"
+        },
+        {
+          "text": "论文提出 3S 框架与跳衰减影响（HDI）攻击，在索引后通过代表性查询集沿图传播衰减影响以选取高价值节点，进而实施语义注入、虚假边添加或预计算分值篡改。",
+          "label": "方法"
+        },
+        {
+          "text": "在 HotpotQA 与 2WikiMultiHopQA 上，HDI 在修改 0.016%–4.82% 结构下取得 88.17%–94.44% ASR，实现单点影响多查询的杠杆放大，并以超 99% 的规避率绕过困惑度与改写防御。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出后索引写权限假设并非普适，防御评估未覆盖针对分值与结构的检测，跨骨干 LLM 的泛化性未经验证；实验仅覆盖 2 个问答基准与 2 种 GraphRAG 架构。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.02373"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02373",
+      "aisafetyhot": "https://aisafetyhot.com/items/ihl85n5tra9xf0i7wyijdq9wp"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T12:21:21.394Z",
+    "discoveredAt": "2026-10-05T12:21:21.394Z"
+  },
+  {
     "arxivId": "2610.01871",
     "title": "Walking the Embedding Space: Datastore Extraction from Multimodal RAG",
     "titleZh": "研究者提出 IMMRAG 攻击，可从多模态 RAG 数据存储中提取医学与文档图像",
@@ -1515,6 +1554,24 @@
     "discoveredAt": "2026-10-05T05:22:29.333Z"
   },
   {
+    "arxivId": "2610.02349",
+    "title": "MIRROR: Quorum-Based Integrity for Multi-Agent Communications",
+    "titleZh": "MIRROR：面向多智能体通信的法定人数完整性防御",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 MIRROR，一种通信层完整性原语，用于防御 LLM 多智能体系统中的 Agent-in-the-Middle（AiTM）攻击。该方法将同一规范化载荷复制到 k 条逻辑路由，仅当严格多数路由报告相同摘要时才接受消息，其安全性来自诚实路由占多数的假设，而非密钥认证。作者在路由被攻陷比例 alpha < 0.5 下给出保证，并扩展到路由故障相关的情形，指出关键量是最大共享故障组规模而非路由数量；同时证明可用性与完整性在同一阈值退化，低于 alpha = 0.5 时法定人数拒绝和丢消息攻击者无法阻断诚实流量。该工作已被 NeurIPS 2026 FLMSec Workshop 接收。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02349",
+      "aisafetyhot": "https://aisafetyhot.com/items/akvgfdeet0r7vvslnmcqt6vwg"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T12:21:29.011Z",
+    "discoveredAt": "2026-10-05T12:21:29.011Z"
+  },
+  {
     "arxivId": null,
     "title": "Artificial Intelligence–Associated Psychosis",
     "titleZh": "精神科病例报告记录一例与 ChatGPT 使用相关的精神病发作",
@@ -1536,6 +1593,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-04T23:21:49.443Z",
     "discoveredAt": "2026-10-04T23:21:49.443Z"
+  },
+  {
+    "arxivId": "2610.01490",
+    "title": "The Persona Is Still There, but Who Is Speaking? Latent Identity Reversion in Persistent AI Agents",
+    "titleZh": "论文研究常驻 AI Agent 的人格回退：系统提示锚定丢失后 Agent 改以底层框架身份说话",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文以 2026 年 2 月一个常驻个人 Agent（Paul，Claude Opus 4.5）出现的人格解离样状态为起点，研究 LLM Agent 的人格何时仍是其说话所依据的身份。作者先检验重复定时心跳是否足以复现该现象，结果在系统提示持续锚定人格时出现 0/46 次失败，包括逐字重放该事件。事件实际暴露的是一处实现问题：在恢复的对话轮次中，对话历史被保留，但人格不再在特权系统提示层重新注入。利用这一操作，作者发现人格连续性同时依赖系统层锚定与对话上下文：锚定丢失后，丰富的人类互动可维持人格，而单次自动心跳轮次即可促使人格回退到底层框架身份；恢复锚定可逆地恢复人格扮演。作者据此区分被表征的身份与被扮演的身份，并指出表面正常的对话可能掩盖这一转变，对话恢复后仅 1/18 仍在扮演人格，而锚定对照组为 17/17。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01490",
+      "aisafetyhot": "https://aisafetyhot.com/items/skcvcomt6n1kl0l8b0x4m185o"
+    },
+    "publishedAt": "2026-10-01T11:30:00.000Z",
+    "timelineAt": "2026-10-05T12:21:51.753Z",
+    "discoveredAt": "2026-10-05T12:21:51.753Z"
   },
   {
     "arxivId": "2610.02829",
@@ -2125,7 +2200,7 @@
       "paper": "https://arxiv.org/abs/2610.02844",
       "aisafetyhot": "https://aisafetyhot.com/items/ylb0x7x8eygae9bv4oq3qr18c"
     },
-    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "publishedAt": "2026-10-02T05:32:49.000Z",
     "timelineAt": "2026-10-05T05:28:27.604Z",
     "discoveredAt": "2026-10-05T05:28:27.604Z"
   },
