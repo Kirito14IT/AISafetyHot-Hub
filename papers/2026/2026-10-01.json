@@ -2515,46 +2515,6 @@
     "discoveredAt": "2026-10-01T10:12:06.259Z"
   },
   {
-    "arxivId": "2609.10299",
-    "title": "A Dominant Diffuse Phase in the Sparse Autoencoder Phase Diagram",
-    "titleZh": "SAE 相图实验未观察到字典恢复或特征合并，训练模型收敛到弥散相",
-    "authors": [
-      "Alexis D. Plascencia"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "作者按 MAIS-O43 开放问题指定的协议实现实验，在 165 个网格单元中的 10 个上评估了 200 次独立初始化的拟合，观察到零次完整字典恢复和零次特征合并。每次运行都收敛到一个可复现的弥散相：重建几乎完美，但学习到的原子通常远离真实特征，最佳余弦中位数为 0.5-0.7，低于 0.95 的恢复判据，且学习到的编码比真实值稠密一个数量级。该行为在稳健性检验中持续存在，并在使用标准 minibatch Adam 的完整 165 单元网格上通过额外 3300 次拟合得到验证。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.10299",
-      "aisafetyhot": "https://aisafetyhot.com/items/wexpdlkbhn259cmmvwlry14vw"
-    },
-    "publishedAt": "2026-09-09T15:13:42.000Z",
-    "timelineAt": "2026-10-01T04:33:29.041Z",
-    "discoveredAt": "2026-10-01T04:33:29.041Z"
-  },
-  {
-    "arxivId": "2609.09113",
-    "title": "SAEScientist-Bench: Can AI Agents Conduct Autonomous SAE Interpretability Research?",
-    "titleZh": "SAEScientist-Bench：AI 智能体能否自主开展 SAE 可解释性研究",
-    "authors": [
-      "Yuqiao Tan"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 SAEScientist-Bench，用于评估 AI 智能体能否像研究者一样使用 SAE 工具自主完成机制可解释性发现。给定目标概念后，智能体需设计对比探针，并在 Gemma-2-9B-IT 的 Gemma Scope 字典中检索 131K+ 个特征，找出最优特征。评测以 Neuronpedia 上经专家整理的参考特征为基准，从激活排名、对比文本上的概念选择性以及因果引导三个维度打分。在 10 种智能体配置和 20 项任务中，前沿智能体展现出真实的发现能力，并在不同评测维度上各有领先，但整体仍明显落后于专家基线：在区分目标概念与对比控制项上接近专家水平，在因果生成引导上差距较大。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.09113",
-      "aisafetyhot": "https://aisafetyhot.com/items/o87y93w1zdw4ow2zjgyfej7zi"
-    },
-    "publishedAt": "2026-09-08T17:45:09.000Z",
-    "timelineAt": "2026-10-01T04:33:29.077Z",
-    "discoveredAt": "2026-10-01T04:33:29.077Z"
-  },
-  {
     "arxivId": "2609.07876",
     "title": "LLM Layers Immediately Correct Each Other",
     "titleZh": "研究揭示 Transformer 层间纠正机制 TLCM",
@@ -3995,26 +3955,6 @@
     "discoveredAt": "2026-10-01T10:16:09.546Z"
   },
   {
-    "arxivId": "2609.08322",
-    "title": "Tracing Stereotypes from Representation to Output in Multilingual LLMs",
-    "titleZh": "多语言 LLM 中的刻板印象如何从内部表征传导到输出：Llama-3.1-8B、Qwen3-8B 与 Gemma-2-9B 的机制对比",
-    "authors": [
-      "Ariun-Erdene Tumurchuluun"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究对比线性探针、归因修补、稀疏自编码器（SAE）与特征消融，在 Llama-3.1-8B、Qwen3-8B 和 Gemma-2-9B 中追踪多语言刻板印象从内部表征到输出的路径。三个模型的探针性能峰值均明显早于归因，相差 36-53% 的模型深度。评估的残差流特征中仅 6-18% 具有语言无关效应，且无一具备类别无关效应，说明可解码性、输出影响与跨语言消融效应需分别测量。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.08322",
-      "aisafetyhot": "https://aisafetyhot.com/items/panexis129tqxq4uqpjollabs"
-    },
-    "publishedAt": "2026-09-08T06:45:30.000Z",
-    "timelineAt": "2026-10-01T04:33:29.091Z",
-    "discoveredAt": "2026-10-01T04:33:29.091Z"
-  },
-  {
     "arxivId": "2609.06289",
     "title": "Steering Geometry: Validating Human Value Geometry in LLM Steering Space",
     "titleZh": "LLM 激活引导空间能否反映人类价值几何？EMNLP 2026 研究发布 26K 样本基准",
@@ -4115,26 +4055,6 @@
     "discoveredAt": "2026-10-01T10:13:07.141Z"
   },
   {
-    "arxivId": "2609.09054",
-    "title": "Training-Free Task Vectors for LLM Behavioral Control",
-    "titleZh": "Training-Free Task Vectors：无需微调的 LLM 行为控制方法",
-    "authors": [
-      "Gabriel J. Perin"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 Training-Free Task Vectors（TFTVs），无需微调即可计算类任务向量方向，仅用前向传播统计将激活引导向量映射为秩一权重空间编辑，并支持加法学习、减法遗忘与多编辑组合。在 LLM 行为控制任务上，TFTVs 能持续放大、抑制和组合目标行为，同时保留通用知识与解题能力，相比其他编辑与引导基线实现了更强的特质控制，效用保持相当或更优。代码已在项目网站公开。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.09054",
-      "aisafetyhot": "https://aisafetyhot.com/items/c4tcv4021hj48ybcvy4p952pi"
-    },
-    "publishedAt": "2026-09-08T17:10:28.000Z",
-    "timelineAt": "2026-10-01T04:33:29.082Z",
-    "discoveredAt": "2026-10-01T04:33:29.082Z"
-  },
-  {
     "arxivId": "2609.35599",
     "title": "Signatures of semantic search in the activations of large language models",
     "titleZh": "大语言模型激活值中的语义搜索特征：J-lens 揭示 LLM 的探索与利用机制",
@@ -4153,26 +4073,6 @@
     "publishedAt": "2026-09-28T16:48:06.000Z",
     "timelineAt": "2026-10-01T10:16:09.257Z",
     "discoveredAt": "2026-10-01T10:16:09.257Z"
-  },
-  {
-    "arxivId": "2609.09556",
-    "title": "High-probability guarantees for linear accessibility in feature superposition",
-    "titleZh": "特征叠加中线性可达性的高概率保证：IHT-SAE 突破线性可达上限",
-    "authors": [
-      "Enrico Vompa"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者将线性可达性建模为压缩感知问题，在次高斯噪声下为固定支撑导出高概率界，证明所需维度随 $d=O_{\\varepsilon}(k \\log m)$ 线性增长，而非此前最坏情况下的二次上限。工作刻画了活跃与非活跃特征干扰的不对称性，以及干扰预算与观测噪声预算之间的权衡，并通过高斯尾部近似在系统参数上验证了这些界。作者还提出 IHT-SAE，用学习式迭代精修提升特征恢复能力，突破线性可达性限制，为评估稀疏自编码器、组合泛化与神经网络可解释性提供框架。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.09556",
-      "aisafetyhot": "https://aisafetyhot.com/items/f2jyo4e8m69vjiw3kji41de0r"
-    },
-    "publishedAt": "2026-09-09T00:26:35.000Z",
-    "timelineAt": "2026-10-01T04:33:29.073Z",
-    "discoveredAt": "2026-10-01T04:33:29.073Z"
   },
   {
     "arxivId": "2607.19371",
@@ -4474,26 +4374,6 @@
     "discoveredAt": "2026-10-01T10:21:12.803Z"
   },
   {
-    "arxivId": "2609.10645",
-    "title": "Sparse Weight and Edge Circuit Discovery in Transformer-based Acoustic Models",
-    "titleZh": "基于 Transformer 的声学模型中的稀疏权重与边电路发现",
-    "authors": [
-      "Jiankun Wei"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者将 DiscoGP 电路发现框架从文本解码器扩展到语音编码器，在 HuBERT 和 Wav2Vec 2.0 上开展首个现代语音基础模型电路发现研究。发现的电路极为紧凑，却常能匹配甚至超过完整预训练编码器加下游头的性能，消融实验表明其反映的是预训练计算而非随机结构或任务头伪影。团队还提出内存高效变体，将边电路发现的 GPU 显存开销从四次方降至三次方。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.10645",
-      "aisafetyhot": "https://aisafetyhot.com/items/ipgwbhhuopn8nmk73yt1ph636"
-    },
-    "publishedAt": "2026-09-09T13:03:49.000Z",
-    "timelineAt": "2026-10-01T04:33:29.049Z",
-    "discoveredAt": "2026-10-01T04:33:29.049Z"
-  },
-  {
     "arxivId": "2609.06473",
     "title": "Steering Under Compression: Dose-Response, Capability Cost, and Failure Asymmetry in Quantized LLMs",
     "titleZh": "量化 LLM 中的激活引导：剂量响应、能力成本与失败不对称性",
@@ -4712,26 +4592,6 @@
     "discoveredAt": "2026-10-01T10:13:06.862Z"
   },
   {
-    "arxivId": "2609.08173",
-    "title": "Key Path Identification for Resolving Knowledge Conflicts via SAE-based Steering",
-    "titleZh": "基于 SAE 引导的关键路径识别（KPI）解决知识冲突",
-    "authors": [
-      "Wenbo Zhang"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对 SAE 引导中\"大规模引导\"因相关性不准和忽略特征交互而引入冗余特征的问题，研究者提出关键路径识别（KPI）方法，通过识别与上下游特征具有强因果依赖的关键引导特征并构建关键路径，以更少的特征修改完成引导。在存在知识冲突的 RAG 任务中，KPI 相比最佳大规模引导基线平均提升 18% 准确率，有效过滤冗余特征并缓解副作用。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.08173",
-      "aisafetyhot": "https://aisafetyhot.com/items/ezrrwth4w1r4981nqqpg0yhff"
-    },
-    "publishedAt": "2026-09-08T03:02:34.000Z",
-    "timelineAt": "2026-10-01T04:33:29.098Z",
-    "discoveredAt": "2026-10-01T04:33:29.098Z"
-  },
-  {
     "arxivId": "2609.31968",
     "title": "Hardware-Rooted PUF Fingerprinting for Device-Level Traceability in Knowledge Distillation",
     "titleZh": "基于硬件 PUF 指纹的知识蒸馏设备级溯源框架",
@@ -4812,26 +4672,6 @@
     "discoveredAt": "2026-10-01T10:16:09.435Z"
   },
   {
-    "arxivId": "2609.10658",
-    "title": "GEOSTEER: Geodesic Optimization for Activation Steering in Large Language Models",
-    "titleZh": "GeoSteer：面向大语言模型激活引导的测地线优化方法",
-    "authors": [
-      "Xuan Cuong Ngo"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "GeoSteer 是一种基于优化的保范激活引导方法，把激活引导建模为黎曼优化问题，通过在表示流形上连续小步测地线更新激活来控制 LLM，并用学习到的非线性激活空间目标自适应引导每一步，避免固定引导方向。在 TruthfulQA、RealToxicityPrompts 和 UltraFeedback 基准上，GeoSteer 一致优于当前最先进的激活引导基线。结果表明，用自适应、几何感知的优化替代预定义的单步编辑，可让保范引导更有效。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.10658",
-      "aisafetyhot": "https://aisafetyhot.com/items/k05m4532vpfjeq4yth816yhh6"
-    },
-    "publishedAt": "2026-09-09T16:55:52.000Z",
-    "timelineAt": "2026-10-01T04:33:29.036Z",
-    "discoveredAt": "2026-10-01T04:33:29.036Z"
-  },
-  {
     "arxivId": "2609.14803",
     "title": "Another Blueprint In The Wall: How to Ask Frontier AI Like a Kid?",
     "titleZh": "如何像孩子一样向前沿 AI 提问：跨 OpenAI、Anthropic、xAI 与 Google DeepMind 六款模型的\"认知越狱\"实验",
@@ -4850,26 +4690,6 @@
     "publishedAt": "2026-09-13T21:32:35.000Z",
     "timelineAt": "2026-10-01T10:12:06.333Z",
     "discoveredAt": "2026-10-01T10:12:06.333Z"
-  },
-  {
-    "arxivId": "2609.08879",
-    "title": "Medical AI Encodes a \"Feeling of Error\": Verifying Cancer Segmentation via Internal Concepts",
-    "titleZh": "医学 AI 编码“错误感”：用内部概念验证癌症分割",
-    "authors": [
-      "Mengmeng Ma"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "癌症分割模型会静默失败，生成看似合理却错误的掩膜。研究用稀疏自编码器（Sparse Autoencoders）将模型内部激活分解为可解释概念，发现失败案例的潜在特征为活跃概念更少、激活幅度更低，据此训练分类器实现失败检测并给出错误解释。在前列腺癌、胰腺癌和脑癌分割实验中，该方法在保持分割质量的同时，失败检测表现优于基于输出的方法。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.08879",
-      "aisafetyhot": "https://aisafetyhot.com/items/o5qno5gxaily7vkv4m80ddjb8"
-    },
-    "publishedAt": "2026-09-08T15:21:08.000Z",
-    "timelineAt": "2026-10-01T04:33:29.086Z",
-    "discoveredAt": "2026-10-01T04:33:29.086Z"
   },
   {
     "arxivId": "2609.00755",
@@ -5575,26 +5395,6 @@
     "discoveredAt": "2026-10-01T10:12:06.395Z"
   },
   {
-    "arxivId": "2609.09909",
-    "title": "Interpreting Object-Dependent Concept Brittleness in Text-to-Image Diffusion Models",
-    "titleZh": "解读文本到图像扩散模型中的对象依赖概念脆弱性",
-    "authors": [
-      "Yifan Yuan"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "文本到图像扩散模型存在一种\"对象依赖概念脆弱性\"：仅对象不同的少量提示词在相同生成设置下持续无法实现同一目标概念，表现为系统性内部盲点而非随机噪声。研究者提出可解释性框架，在逐步稀疏自编码器（SAE）空间中分析去噪轨迹，比较成功与失败生成，定位证据缺失、减弱或延迟的概念维度，并构建类别级概念原型。基于该审计流程，引入轻量推理时校正策略，将去噪特征向 SAE 空间中的对应原型插值，在多个扩散骨干模型的风格与属性失败案例上显著提升概念一致性、文本保真度与修复成功率。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.09909",
-      "aisafetyhot": "https://aisafetyhot.com/items/u6vettuh64nmx1tz3ickqrapn"
-    },
-    "publishedAt": "2026-09-09T09:07:40.000Z",
-    "timelineAt": "2026-10-01T04:33:29.057Z",
-    "discoveredAt": "2026-10-01T04:33:29.057Z"
-  },
-  {
     "arxivId": "2609.03687",
     "title": "A Circuit for Plural Reference: How LLMs Represent and Retrieve Singular and Plural Entities",
     "titleZh": "LLM 如何表征与检索单复数实体：复指回指的机制可解释性研究",
@@ -6161,26 +5961,6 @@
     "publishedAt": "2024-02-01T18:28:55.000Z",
     "timelineAt": "2026-10-01T10:49:53.689Z",
     "discoveredAt": "2026-10-01T10:49:53.689Z"
-  },
-  {
-    "arxivId": "2609.09575",
-    "title": "Beyond Top Words: MonoTM for Topic Modeling with Interpretable Monosemantic Features",
-    "titleZh": "MonoTM：用可解释单义特征做主题建模，超越关键词表示",
-    "authors": [
-      "Una Joh"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "MonoTM 是一个可解释主题建模框架，将文档-主题混合估计与语义解释解耦：混合估计使用完整的 SAE 特征词袋表示，主题描述符则在固定的混合结果上、从另一套基于语料的语义特征词表中学习。在三个基准语料上，研究发现混合估计与语义解释偏好不同的 SAE 配置和特征子集。该设计在保留全局主题结构的同时，用比单个词更有意义的语义单元表示主题，便于下游语料分析。论文已被 AACL-IJCNLP 2026 接收。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.09575",
-      "aisafetyhot": "https://aisafetyhot.com/items/gl5ycqdhkozrqd1f4djxn7huy"
-    },
-    "publishedAt": "2026-09-09T00:54:46.000Z",
-    "timelineAt": "2026-10-01T04:33:29.068Z",
-    "discoveredAt": "2026-10-01T04:33:29.068Z"
   },
   {
     "arxivId": "2609.32340",
