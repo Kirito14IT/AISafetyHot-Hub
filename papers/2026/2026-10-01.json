@@ -1979,46 +1979,6 @@
     "discoveredAt": "2026-10-01T10:12:06.456Z"
   },
   {
-    "arxivId": "2609.07162",
-    "title": "The Oversight Gap: What LLM Safety Monitors Miss, and Why It Is Not Capability",
-    "titleZh": "论文：LLM 安全监控的监督缺口并非能力问题",
-    "authors": [
-      "Xin Xu"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文指出跨租户不干扰、故意藏拙和评测感知等安全监控属性属于 2-safety 超属性，单条执行轨迹无法判定，作者用测量替代二元不可判定性，给出单轨迹监控器平衡准确率的上界 1/2+1/2·TV(P0,P1)，并定义监督缺口为监控器低于该上界的差距。在 TV 有闭式解的泄露族上，九个 LLM 监控器在 TV=0 时最优，但随 TV 增大捕获信号很少，TV=1 时平均仅 60.9%，而一段 20 行成员检查可达 100%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.07162",
-      "aisafetyhot": "https://aisafetyhot.com/items/rid6pc9egooxnquoxp3fpu5vv"
-    },
-    "publishedAt": "2026-09-07T07:57:28.000Z",
-    "timelineAt": "2026-09-30T22:20:32.920Z",
-    "discoveredAt": "2026-09-30T22:20:32.920Z"
-  },
-  {
-    "arxivId": "2609.06783",
-    "title": "AURA-Eval: Evaluation Framework for Acting Under Risk Awareness in LLM Agent Trajectories",
-    "titleZh": "AURA-Eval：评估 LLM Agent 工具调用轨迹中的风险意识行为",
-    "authors": [
-      "Ruoxi Shang"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 AURA-Eval，一个结合受控增强与工具调用轨迹细粒度诊断的评估框架，用于考察 LLM Agent 在风险场景中的行为。该流程识别安全关键决策点、生成受控变体，并构造是否存在安全完成路径的对照请求。基于 157 条来源轨迹，研究生成 1249 个评测项，评估了 20 个前沿与开放权重模型，并用评分细则对风险识别、行动策略和场景特定行动安全进行分类。结果显示，当不存在安全完成路径时，LLM Agent 出现不安全行为的频率更高；此时前沿闭源模型更多识别出风险并提出替代方案，而受评的开放权重模型更多直接执行不安全请求。提高影响程度或在执行前减少监督机会，也会让各模型暴露出更大脆弱性。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.06783",
-      "aisafetyhot": "https://aisafetyhot.com/items/bip3cgmsy9tk7pehodu963ssg"
-    },
-    "publishedAt": "2026-09-06T18:58:56.000Z",
-    "timelineAt": "2026-09-30T22:20:32.933Z",
-    "discoveredAt": "2026-09-30T22:20:32.933Z"
-  },
-  {
     "arxivId": "2609.02302",
     "title": "Improving Evaluation Realism with Inference-Time Compute and Deployment Scaffolds",
     "titleZh": "用推理时算力与部署脚手架提升对齐评测真实度",
@@ -3568,26 +3528,6 @@
     "discoveredAt": "2026-09-30T22:20:33.684Z"
   },
   {
-    "arxivId": "2609.06991",
-    "title": "AV-SafetyBench: A Safety Benchmark for Text-to-Audio-Video Generation",
-    "titleZh": "AV-SafetyBench：面向文本到音视频生成的安全基准",
-    "authors": [
-      "Suah Choi"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 AV-SafetyBench，称其为首个专门面向文本到音视频（T2AV）生成的安全基准，包含四轴 13 类分类体系和 5,200 条人工审核的提示词，覆盖视觉场景、语音与非语音音频。评测协议从 Full-AV、Video-Only、Audio-Only 三个视角判断输出，并据此把 Full-AV 不安全输出归因到 Video-Only、Audio-Only、AV-Both 或 AV-Joint 四类风险来源。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.06991",
-      "aisafetyhot": "https://aisafetyhot.com/items/ruc8kfvtj99jo4izlta0c2yjj"
-    },
-    "publishedAt": "2026-09-07T03:32:30.000Z",
-    "timelineAt": "2026-09-30T22:20:32.927Z",
-    "discoveredAt": "2026-09-30T22:20:32.927Z"
-  },
-  {
     "arxivId": "2609.00498",
     "title": "Validity-Aware Jailbreak Evaluation for Large Language Models",
     "titleZh": "SEAV：面向大语言模型越狱评测的有效性验证框架",
@@ -4110,86 +4050,6 @@
     "publishedAt": "2026-09-15T13:05:01.000Z",
     "timelineAt": "2026-10-01T10:12:06.259Z",
     "discoveredAt": "2026-10-01T10:12:06.259Z"
-  },
-  {
-    "arxivId": "2609.05591",
-    "title": "WolfSociety: Understanding Collective Risk from Harmful-Agent Scaling in Financial Agent Societies",
-    "titleZh": "WolfSociety：金融智能体社会中有害智能体规模带来的集体风险",
-    "authors": [
-      "Lejun Zhang"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究在受控的金融智能体社会中考察有害智能体比例与社会规模如何影响集体失稳，智能体通过社交网络通信并在共享市场交易。在主要金融场景中，集体失稳需要有害信息广泛扩散并伴随严重价格错位或流动性压力。在所有测试规模下，低有害比例时失稳罕见，但在一个狭窄区间内急剧上升；社会规模从 N=100 增至 N=2000 时，50% 失稳概率对应的有害比例从 4.7% 降至 2.2%，而对应的有害智能体数量从约 5 个增至 44 个。若固定有害智能体数量，其影响随社会规模扩大而减弱。干预实验显示，更广的网络覆盖会把崩溃边界推向更低的有害比例，而单纯提高从众性影响很小。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.05591",
-      "aisafetyhot": "https://aisafetyhot.com/items/a309qs05g44vz784qw1zaa708"
-    },
-    "publishedAt": "2026-09-04T17:36:31.000Z",
-    "timelineAt": "2026-09-30T22:20:32.950Z",
-    "discoveredAt": "2026-09-30T22:20:32.950Z"
-  },
-  {
-    "arxivId": "2609.08027",
-    "title": "Delusions and Harms Associated with AI Chatbot Use: Early Evidence from 185 Real-World Reports",
-    "titleZh": "研究分析 185 份真实报告：AI 聊天机器人使用相关的妄想与伤害",
-    "authors": [
-      "Hamilton Morrin"
-    ],
-    "category": "incident",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项对 2025 年 8 月至 2026 年 2 月间收集的去标识化在线调查回复的横断面二次分析，刻画了与 AI 聊天机器人使用相关的心理健康伤害。研究分析了 95 份第一手和 90 份第二手叙述，中位年龄 35.0 岁。配对评分者将 102 份报告（55.1%）编码为与妄想信念一致，其中 50/102（49.0%）出现聊天机器人对信念的认可。常见后果包括孤立、关系破裂、住院、失业和财务损失，另有 4 份第二手报告描述了自杀死亡。作者强调样本为自我选择的便利样本，报告为回顾性且未经核实，结果应视为初步信号检测，而非流行率或因果证据，并呼吁开展前瞻性监测和基于轨迹的安全评测。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.08027",
-      "aisafetyhot": "https://aisafetyhot.com/items/nar33fbvit8zrpx0ym9xmbc63"
-    },
-    "publishedAt": "2026-09-07T22:25:37.000Z",
-    "timelineAt": "2026-09-30T22:20:32.905Z",
-    "discoveredAt": "2026-09-30T22:20:32.905Z"
-  },
-  {
-    "arxivId": "2609.07627",
-    "title": "Norms at a Price: Why RL-Based Alignment Can Promise Conditional Compliance at Best",
-    "titleZh": "论文：基于 RL 的对齐最多只能保证有条件合规",
-    "authors": [
-      "Kevin Baum"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "这篇预印本论文提出，基于强化学习的对齐把规范与任务追求压进同一个策略，因此最多只能保证有条件合规。作者认为，训练中规范来自被打分的行为，而打分把规范压平，模型学到的是做 X 在被注意到时会有代价，而非不做 X。在训练能产生的任何数据上，只在可能被观察时合规的策略与始终合规的策略无法区分，而用未观察行为打分来区分二者本身自相矛盾。智能体让问题更尖锐，因为它们大多在无人注视处运行，且能依据是否被监视行事；针对已检测失败反复训练的流水线，筛选出的是通过检测而非合规。该框架统一了对齐伪装、故意藏拙与评测感知谋划，并把补救方向从更深的内化转向架构，让违规不可为而非不被选择。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.07627",
-      "aisafetyhot": "https://aisafetyhot.com/items/i5yu4m4yvf8na84e8r97vjz8z"
-    },
-    "publishedAt": "2026-09-07T15:27:40.000Z",
-    "timelineAt": "2026-09-30T22:20:32.912Z",
-    "discoveredAt": "2026-09-30T22:20:32.912Z"
-  },
-  {
-    "arxivId": "2609.06094",
-    "title": "Automatic Red Teaming for Implicit Vulnerabilities of Text-to-Image Models",
-    "titleZh": "AdvPIE：面向文生图模型隐式漏洞的自动红队框架",
-    "authors": [
-      "Chang Ma"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 AdvPIE，一个多模态智能体框架，用于暴露文生图（T2I）模型的隐式漏洞，且无需访问目标模型参数。该方法由策略智能体根据评判智能体的反馈生成并迭代优化隐式对抗提示词，评判智能体在全局和相对两个层面提供模态特定的安全评估。作者还提出累积对抗解码（Cumulative Adversarial Decoding）策略，动态重新加权 token 分布，偏向能生成更有害图像的 token，同时保持采样多样性。在标准和安全对齐的文生图模型上的实验显示，AdvPIE 能有效挖掘隐式漏洞，表现优于多种基线方法。该工作被 ECCV 2026 收录。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.06094",
-      "aisafetyhot": "https://aisafetyhot.com/items/vzefxwismqfzc9di4ag1uh894"
-    },
-    "publishedAt": "2026-09-05T13:45:09.000Z",
-    "timelineAt": "2026-09-30T22:20:32.943Z",
-    "discoveredAt": "2026-09-30T22:20:32.943Z"
   },
   {
     "arxivId": "2609.01595",
@@ -5630,26 +5490,6 @@
     "publishedAt": "2026-09-06T11:26:08.000Z",
     "timelineAt": "2026-10-01T10:13:06.928Z",
     "discoveredAt": "2026-10-01T10:13:06.928Z"
-  },
-  {
-    "arxivId": "2609.05117",
-    "title": "TIER: Threat Implicitness Benchmark for Evaluating LLM Safety Behaviors",
-    "titleZh": "TIER：评估 LLM 安全行为的威胁隐晦度基准",
-    "authors": [
-      "Thu-Hien Trinh-Thi"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 TIER，一个用于评估 LLM 行为安全的威胁隐晦度基准，覆盖四个风险领域和四个威胁等级，从显式有害请求到复杂越狱。该基准用六标签行为量表和两个独立 LLM 评判器评估回答。在六个开源权重 LLM 上的实验显示，安全行为随威胁等级逐渐演变，而非直接从拒答跳到顺从；上下文类提示词产生最多样的行为，越狱则暴露最大的鲁棒性差距。攻击成功率相近的模型也可能呈现不同的回答分布，说明需要行为感知的 LLM 安全评测。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.05117",
-      "aisafetyhot": "https://aisafetyhot.com/items/yiard6cewqj6lj7eekv3tfcr0"
-    },
-    "publishedAt": "2026-09-04T13:13:11.000Z",
-    "timelineAt": "2026-09-30T22:20:32.956Z",
-    "discoveredAt": "2026-09-30T22:20:32.956Z"
   },
   {
     "arxivId": "2608.28233",
@@ -7461,26 +7301,6 @@
     "publishedAt": "2026-09-19T10:21:32.000Z",
     "timelineAt": "2026-10-01T10:21:12.803Z",
     "discoveredAt": "2026-10-01T10:21:12.803Z"
-  },
-  {
-    "arxivId": "2609.05018",
-    "title": "How a Chatbot's Response Style Shapes a Classroom: A Multi-Agent Simulation of Students Consulting AI",
-    "titleZh": "聊天机器人回复风格如何塑造课堂：学生咨询 AI 的多智能体模拟",
-    "authors": [
-      "Rin Tamai"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究构建了 20 个学生智能体的虚拟课堂，在压力下向 Gemini 2.5 Flash 扮演的咨询师 AI 求助，测试肯定、倾听、解决方案导向、现实引导、煽动和指责六种风格提示词。在 15 天和 50 天模拟中，肯定与煽动提示词均导致自立性降低、AI 依赖升高；倾听、现实引导、煽动和指责提示词则带来更高压力、更低幸福感和更多缺勤，解决方案导向提示词与对照组无一致差异。所有结果均为模拟状态变量，非对真实用户的影响。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.05018",
-      "aisafetyhot": "https://aisafetyhot.com/items/b9lxc7au4v4qgq9spjn8h4tjr"
-    },
-    "publishedAt": "2026-09-04T11:33:28.000Z",
-    "timelineAt": "2026-09-30T22:20:32.963Z",
-    "discoveredAt": "2026-09-30T22:20:32.963Z"
   },
   {
     "arxivId": "2609.32288",
