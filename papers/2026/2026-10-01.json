@@ -961,88 +961,6 @@
     "discoveredAt": "2026-09-30T22:20:33.414Z"
   },
   {
-    "arxivId": "2609.21996",
-    "title": "A Lie Detector Test for Language Models: Reading Knowledge a Model Won't Reveal",
-    "titleZh": "PIR：从模型内部激活读出被隐藏的答案",
-    "authors": [
-      "Hiskias Dingeto"
-    ],
-    "category": "alignment",
-    "selected": true,
-    "attention": 78,
-    "summaryZh": "作者提出 Probe of Internal Recognition（PIR），借鉴测谎中的隐藏信息测试，把问题与候选答案一起输入模型，从激活中读出模型认为正确的选项，无需诚实参考模型或标注真值语料。在 Gemma、Qwen、Llama、Mistral、Phi 五个家族共八个模型上，PIR 以 0.70 至 0.87 的平衡准确率恢复被隐藏的答案，高于 0.28 至 0.40 的未知项基线和 0.25 的随机水平；在提示欺骗、训练出的 sandbagging、外部密码锁定与 circuit-broken 检查点上识别率保持在 0.85 至 0.93。当模型隐藏已知答案时识别率仍高，而当 unlearning 真正移除知识时识别率降到未知项基线，因此该读数可区分不愿回答与无法回答，用于 sandbagging 审计和 unlearning 验证。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "大语言模型在能力评估中可能蓄意隐瞒能力（sandbagging）或违背内部已知信息输出错误答案，仅凭输出行为无法分辨模型是不知还是拒答。评估模型危险能力与验证机器遗忘是否真正消除知识，需要能够穿透隐瞒的内部检测机制。",
-          "label": "问题"
-        },
-        {
-          "text": "作者借鉴测谎中的隐瞒信息测试（CIT），提出免参考内部识别探测（PIR）。通过在隐藏状态中对比正确选项与干扰项提取识别方向，无需真实标签与诚实参考模型即可读取模型认定的答案，并基于离分布校准的差异分数检测隐瞒。",
-          "label": "方法"
-        },
-        {
-          "text": "PIR在8个模型上测得提示隐瞒识别率为0.70至0.87；在密码锁定与断路模型上保持0.90至0.93识别率。RMU等遗忘处理将识别率降至未知基线（0.39），且因果导引能改变输出，验证了隐瞒与擦除的边界。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "该方法需要候选选项集合，无法直接用于无枚举解的开放推理；离分布检测器依赖基座检查点；且面对针对探测器进行激活优化的白盒对抗规避模型会失效。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.21996"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.21996",
-      "aisafetyhot": "https://aisafetyhot.com/items/duqmfr72vljl0x5uu1ymdt9hc"
-    },
-    "publishedAt": "2026-09-18T16:57:00.000Z",
-    "timelineAt": "2026-09-30T22:20:32.854Z",
-    "discoveredAt": "2026-09-30T22:20:32.854Z"
-  },
-  {
-    "arxivId": "2609.14060",
-    "title": "AGENTQ: Quantization-Conditioned Backdoor Attacks on LLM Agents",
-    "titleZh": "AgentQ：针对 LLM Agent 的量化条件后门攻击",
-    "authors": [
-      "Xiaoqun Liu"
-    ],
-    "category": "attack",
-    "selected": true,
-    "attention": 78,
-    "summaryZh": "论文提出 AgentQ，首次研究针对 LLM Agent 的量化条件攻击（QCA）：攻击者发布的全精度 checkpoint 能通过良性行为审计，但在量化部署后触发恶意工具调用。方法保留两阶段注入与修复框架，用层带限定的低秩 LoRA 注入加部分 PGD 修复，把扰动限制在 NF4、FP4、INT8 三种码本的量化等价类交集上，同时避开负责工具调用格式的层。在 Qwen3.5-{2B,4B,9B} 与 Hammer2.1-{1.5B,3B,7B} 上，覆盖工具选择、参数注入、广告注入三类触发动作对，量化后攻击成功率最高达 100%，多数单元格超过 0.94，而干净任务效用接近基座模型。全精度下所有 checkpoint 的 ASR 为 0，能通过审计。作者指出当前后门评测协议低估了压缩开源 Agent 的风险，建议把量化感知安全评测作为部署前的标准要求。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "LLM智能体在端侧常依赖后训练量化，但攻击者可植入量化条件后门：全精度通过审计，量化后触发恶意工具调用且无需人工介入；而直接迁移现有后门方法会破坏结构化输出能力，导致模型无法部署。",
-          "label": "问题"
-        },
-        {
-          "text": "AGENTQ将攻击限制在结构化低维子流形：阶段一在浅至中层挂载LoRA适配器注入后门并合并，避开工具格式化层；阶段二在活跃层上进行部分PGD优化，投影到NF4、FP4和INT8的多码本量化等价类交集以恢复良性效用。",
-          "label": "方法"
-        },
-        {
-          "text": "在Qwen3.5与Hammer2.1六个模型上，全精度Base ASR均为0，量化后在工具选择、参数注入与广告注入任务上ASRq达0.76–1.00，良性效用接近基座；权重统计审计与输出约束解码无法有效防御。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "仅覆盖bitsandbytes码本与AWQ，无法直接迁移到含Hessian误差反馈的GPTQ；仅在不超过9B的两个开源模型系列验证；论文未提出防御缓解方案，且确定性检测器无法泛化至未知触发词。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.14060"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.14060",
-      "aisafetyhot": "https://aisafetyhot.com/items/mf7g0cvwrm5a0k6v3ckq9df8x"
-    },
-    "publishedAt": "2026-09-12T17:17:59.000Z",
-    "timelineAt": "2026-09-30T22:20:32.887Z",
-    "discoveredAt": "2026-09-30T22:20:32.887Z"
-  },
-  {
     "arxivId": "2608.29458",
     "title": "Reference-Grafting Matches Fine-Tuning at Eliciting Sandbagged Capabilities",
     "titleZh": "Reference-Grafting 在提取沙袋行为隐藏能力上追平微调",
@@ -2059,46 +1977,6 @@
     "publishedAt": "2026-09-09T03:00:25.000Z",
     "timelineAt": "2026-10-01T10:12:06.456Z",
     "discoveredAt": "2026-10-01T10:12:06.456Z"
-  },
-  {
-    "arxivId": "2609.10892",
-    "title": "DriftNet: A Dual-Head Trajectory Transformer for Detecting and Localizing Prompt Injection in LLM Agents",
-    "titleZh": "DriftNet：双头轨迹 Transformer 检测并定位 LLM Agent 中的提示注入",
-    "authors": [
-      "Asif Pinjari"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "Asif Pinjari 提出 DriftNet，一个双头轨迹 Transformer，读取已记录的工具调用轨迹并在一次前向中回答三个问题：轨迹是否被攻陷、攻击从哪一步进入、哪些步骤被劫持，第二个头为每一步打上 benign、injection point、hijacked 或 failed injection 四类标签。该方法用冻结的句子编码器和四个不含身份信息的世界特征嵌入每一步，主干参数量不到两百万，采用类别加权的双头联合目标训练，无需访问 Agent 自身的模型。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.10892",
-      "aisafetyhot": "https://aisafetyhot.com/items/aul7yljvz981m1ck6ihywput6"
-    },
-    "publishedAt": "2026-09-09T22:52:23.000Z",
-    "timelineAt": "2026-09-30T22:20:32.809Z",
-    "discoveredAt": "2026-09-30T22:20:32.809Z"
-  },
-  {
-    "arxivId": "2609.20779",
-    "title": "Harm Laundering in GPT Models: Evidence That Gender Discrimination Is Transformed Rather Than Reduced Across Safety-Trained Generations",
-    "titleZh": "研究称 GPT 系列安全训练把性别歧视转化而非消除",
-    "authors": [
-      "Sarah Wyer"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项被 EMNLP 26 主会接收的研究分析了 GPT-2 到 GPT-5 共 15 个模型、45 万条性别指向的补全文本，提出“harm laundering（伤害洗白）”概念，认为显式歧视内容在安全训练后是被转化而非被移除。研究发现 GPT-2 中针对女性的性暴力聚类到 GPT-4 已消失，而针对男性的补全获得了照护、情感表达、盟友身份等正向表征空间，女性指向的补全没有；在 GPT-5 上，一个含 1,997 篇文档的主题聚类把乳腺癌框定为男性权利议题，女性指向输出中没有对应聚类，三个独立分类器都将其判为非毒性。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.20779",
-      "aisafetyhot": "https://aisafetyhot.com/items/b3ntvlo3ak0pnzmubh79lhj9o"
-    },
-    "publishedAt": "2026-09-17T17:49:28.000Z",
-    "timelineAt": "2026-09-30T22:20:32.866Z",
-    "discoveredAt": "2026-09-30T22:20:32.866Z"
   },
   {
     "arxivId": "2609.07162",
@@ -3603,26 +3481,6 @@
     "discoveredAt": "2026-10-01T15:17:09.228Z"
   },
   {
-    "arxivId": "2609.09420",
-    "title": "DuplexJail: Spoken Interruption Attacks on Full-Duplex Speech Models",
-    "titleZh": "DuplexJail：针对全双工语音模型的语音打断越狱攻击",
-    "authors": [
-      "Jaechul Roh"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 DuplexJail，通过用户音频通道向全双工语音模型投递固定的、与请求无关的语音越狱提示，利用输入时机实施攻击。在四个开源模型和 AdvBench、HarmBench 的 720 条有害请求上，比较了固定延迟与拒答触发打断，并以请求结束和响应后作为对照。AdvBench 上，1.0 秒延迟的 Guided Completion 使 PersonaPlex 的整段响应攻击成功率升至 40.3%，PersonaPlex-RL 升至 48.7%，分别比基线高 33.8 和 39.3 个百分点；未用于提示选择的 HarmBench 上，同一提示在 0.5 秒延迟下使两者 ASR 分别提高 14.7 和 12.3 个百分点。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.09420",
-      "aisafetyhot": "https://aisafetyhot.com/items/xq7j2qx3bb1vfdgv5lhg797h1"
-    },
-    "publishedAt": "2026-09-08T20:19:24.000Z",
-    "timelineAt": "2026-09-30T22:20:32.899Z",
-    "discoveredAt": "2026-09-30T22:20:32.899Z"
-  },
-  {
     "arxivId": "2609.23587",
     "title": "On the Efficiency-Safety Dilemma in Large Reasoning Models",
     "titleZh": "大型推理模型的效率与安全困境：量化与剪枝如何影响越狱鲁棒性",
@@ -4272,26 +4130,6 @@
     "publishedAt": "2026-09-04T17:36:31.000Z",
     "timelineAt": "2026-09-30T22:20:32.950Z",
     "discoveredAt": "2026-09-30T22:20:32.950Z"
-  },
-  {
-    "arxivId": "2609.11030",
-    "title": "The Agent Incident Registry: Toward Preventing Repeated AI Agent Failures",
-    "titleZh": "Agent Incident Registry 发布 487 条 AI Agent 事件记录",
-    "authors": [
-      "Divyanshu Kumar"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者发布 Agent Incident Registry（AIR），一个带来源链接的 AI Agent 事件目录，收录 2022 至 2026 年披露的 487 条记录，每条包含支撑证据、稳定标识符，以及因果角色、披露类别、机制和结果等标注。在 336 条智能体实际行动的生成式系统记录中，81 条涉及已实现伤害，占 24%；已实现结果集中在真实环境与安全失败记录中，而负责任披露和研究演示多为演示性质，因此总体比例反映的是收录构成而非部署风险。初步整理后由第二位人工审核者复核全部 487 条记录及其标签。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.11030",
-      "aisafetyhot": "https://aisafetyhot.com/items/x4ynd42tnrdo3jpr8avi7xu8c"
-    },
-    "publishedAt": "2026-09-10T03:20:46.000Z",
-    "timelineAt": "2026-09-30T22:20:32.769Z",
-    "discoveredAt": "2026-09-30T22:20:32.769Z"
   },
   {
     "arxivId": "2609.08027",
@@ -5794,46 +5632,6 @@
     "discoveredAt": "2026-10-01T10:13:06.928Z"
   },
   {
-    "arxivId": "2609.10962",
-    "title": "What a Random Draw from the MCP Registry Contains, and What Tool-Use Benchmarks Contain Instead",
-    "titleZh": "随机抽样 MCP 注册表：仅 48.8% 服务器完成初始化握手，BFCL v4 工具描述重复率 16.7%",
-    "authors": [
-      "Haseeb Mohammed Afsar"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究对 MCP 服务器生态做了一次未修复的概率抽样，从 24,135 台服务器的注册表普查中按公开随机种子抽取 400 台 npm/stdio 服务器并逐一在线探测。结果显示仅 48.8% 能完成 initialize 握手，而同一工具测得的人工筛选样本为 66.7%；主要失败原因不是缺少凭证（13.3%），而是服务器根本无法启动（37.5%）。在 195 台可运行的服务器中，2,766 个对外声明的工具没有出现致命 JSON Schema 违规，差异集中在可选安全标注上，随机抽样下的工具级遗漏率为 58.8%，人工筛选样本为 41.5%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.10962",
-      "aisafetyhot": "https://aisafetyhot.com/items/gt1yv2q92ydxianv8jxjm0qvr"
-    },
-    "publishedAt": "2026-09-10T01:33:53.000Z",
-    "timelineAt": "2026-09-30T22:20:32.802Z",
-    "discoveredAt": "2026-09-30T22:20:32.802Z"
-  },
-  {
-    "arxivId": "2609.21223",
-    "title": "SafeStage: Evaluating Safety Before, During, and After Vision-Language-Conditioned Robot Manipulation",
-    "titleZh": "SafeStage：按执行前中后三阶段评测视觉语言机器人操作安全",
-    "authors": [
-      "Jinzhu Luo"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "作者提出 SafeStage，一个按生命周期结构组织的机器人操作安全基准，用于在任务执行前、执行中和执行后三个阶段评测安全。该基准包含 97 个专门设计的风险场景，分为三类：初始状态危害考察操作目标前必须解决的安全相关关系，执行期安全评估执行过程中的不安全接触、轨迹、区域进入和物体交互，最终状态危害捕捉任务名义完成后仍存在的不稳定或不安全状态。评测采用基于事件和基于状态的检查，并将原生任务成功率与各阶段安全结果分开报告。作者在统一的闭环协议下评测了代表性的直接动作 VLA 策略和基于世界模型的策略，结果显示任务名义完成常与安全违规同时出现，不同策略在三个阶段呈现不同的失败特征。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.21223",
-      "aisafetyhot": "https://aisafetyhot.com/items/xnpdr8fdilbp2mlgx95chgqrv"
-    },
-    "publishedAt": "2026-09-18T02:12:40.000Z",
-    "timelineAt": "2026-09-30T22:20:32.860Z",
-    "discoveredAt": "2026-09-30T22:20:32.860Z"
-  },
-  {
     "arxivId": "2609.05117",
     "title": "TIER: Threat Implicitness Benchmark for Evaluating LLM Safety Behaviors",
     "titleZh": "TIER：评估 LLM 安全行为的威胁隐晦度基准",
@@ -6983,26 +6781,6 @@
     "discoveredAt": "2026-10-01T05:14:16.857Z"
   },
   {
-    "arxivId": "2609.24016",
-    "title": "Context-Aware Pre-Deployment Evaluation of AI Systems: A Regulatory Framework for Nigerian Fintech",
-    "titleZh": "尼日利亚金融科技 AI 系统部署前评估的监管框架：基于 SafeAlert 的上下文感知评测",
-    "authors": [
-      "Andrew Anogie Uduimoh"
-    ],
-    "category": "industry",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对尼日利亚及非洲大陆尚无监管文件规定金融科技 AI 系统采购前须做何种部署前评估的空白，研究者提出上下文感知的监管框架。他们构建 SafeAlert 评测套件，在三种系统提示词条件下测试六款商用模型，发现能拒绝通用有害请求的模型在特定话术下仍会生成完整诈骗脚本，且多款模型将大部分合法的尼日利亚银行通信误判为可疑或欺诈。论文建议 CBN、NITDA、SEC 和 AU 引入部署前评估要求，并指出该缺口源于监管规范缺失而非技术或资金不足。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.24016",
-      "aisafetyhot": "https://aisafetyhot.com/items/xcv17pvv161lv9k8nolqszrfg"
-    },
-    "publishedAt": "2026-09-21T02:34:26.000Z",
-    "timelineAt": "2026-09-30T22:20:32.838Z",
-    "discoveredAt": "2026-09-30T22:20:32.838Z"
-  },
-  {
     "arxivId": "2609.20541",
     "title": "An Analysis of Training-Free Self-Reported Confidence in Language Models",
     "titleZh": "语言模型免训练自报告置信度分析：直接言语化置信度在 TriviaQA 上 AUROC 达 0.956",
@@ -7081,26 +6859,6 @@
     "publishedAt": "2026-09-01T09:40:06.000Z",
     "timelineAt": "2026-10-01T10:13:07.141Z",
     "discoveredAt": "2026-10-01T10:13:07.141Z"
-  },
-  {
-    "arxivId": "2609.26419",
-    "title": "Reliability Theory for AI Control",
-    "titleZh": "AI 控制中的可靠性理论：以 Google DeepMind 防失控部署为例",
-    "authors": [
-      "Grant Molnar"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "可靠性理论的正式工具尚未在前沿 AI 控制中成为标准，研究者将其应用于 Google DeepMind 针对失控部署的防御。同一控制栈的罕见失效抑制能力可呈三次、二次或线性，取决于其失效域划分；Birnbaum 重要性可识别哪些组件改进对名义可靠性收益最大，而预防则改变需要恢复的对象群体。这些结果给出了该分离、改进、测量和测试什么的具体指引。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.26419",
-      "aisafetyhot": "https://aisafetyhot.com/items/aucfcu2x5dk1sg47dsqvl3xr2"
-    },
-    "publishedAt": "2026-09-22T13:49:46.000Z",
-    "timelineAt": "2026-09-30T22:20:32.825Z",
-    "discoveredAt": "2026-09-30T22:20:32.825Z"
   },
   {
     "arxivId": "2609.09054",
@@ -7425,26 +7183,6 @@
     "publishedAt": "2026-09-23T21:43:02.000Z",
     "timelineAt": "2026-10-01T10:16:09.476Z",
     "discoveredAt": "2026-10-01T10:16:09.476Z"
-  },
-  {
-    "arxivId": "2609.13642",
-    "title": "When Compliance Data Masquerades as Evaluation: Measurement Validity for Deployed AI Systems",
-    "titleZh": "当合规数据伪装成评测：部署后 AI 系统的测量效度问题",
-    "authors": [
-      "Hung-Yu Lin"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文指出，为运营监控或监管合规收集的数据被当作对比评测证据，是部署后 AI 系统评测中的一类反复出现的失效。以自动驾驶为例，美国脱离接管与碰撞上报机制产生的运营证据，因上报范围、暴露量、部署域、事件捕获和对照构建的差异，无法单独支撑安全性对比结论。作者将其界定为 AI 评测中的测量效度问题，并提出\"评测契约\"，要求在把运营数据解读为对比性能证据前，先明确预期能力、测量结果、暴露机会、部署域、数据生成过程与评测对照之间的对齐关系。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.13642",
-      "aisafetyhot": "https://aisafetyhot.com/items/tyrdw7gcv018sd8d38qgafn0c"
-    },
-    "publishedAt": "2026-09-12T01:31:35.000Z",
-    "timelineAt": "2026-09-30T22:20:32.893Z",
-    "discoveredAt": "2026-09-30T22:20:32.893Z"
   },
   {
     "arxivId": "2609.27422",
@@ -8321,26 +8059,6 @@
     "publishedAt": "2026-09-13T21:32:35.000Z",
     "timelineAt": "2026-10-01T10:12:06.333Z",
     "discoveredAt": "2026-10-01T10:12:06.333Z"
-  },
-  {
-    "arxivId": "2609.15315",
-    "title": "Evaluation Metrics for Safe Reinforcement Learning",
-    "titleZh": "安全强化学习评测指标：SafeRLEval 开源评测套件",
-    "authors": [
-      "Lindsay Spoor"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "安全强化学习现有基准多以平均安全性报告结果，无法反映安全边界被违反的频率与严重程度、跨任务与跨安全边界的一致性，以及训练期行为能否代表最终收敛策略。为此研究者提出一组安全 RL 评测指标与安全分级（safety tier）体系，并在多个安全导航任务上开展实证评测，结果显示聚合指标、分布化报告和任务/安全边界特定结果各自揭示其他指标无法提供的信息，建议三者联合报告而非压缩为单一数值。团队同时开源了评测套件 SafeRLEval。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.15315",
-      "aisafetyhot": "https://aisafetyhot.com/items/w0bbv345kys2du9pxiwq10xs2"
-    },
-    "publishedAt": "2026-09-14T10:04:22.000Z",
-    "timelineAt": "2026-09-30T22:20:32.880Z",
-    "discoveredAt": "2026-09-30T22:20:32.880Z"
   },
   {
     "arxivId": "2609.28239",
@@ -9250,26 +8968,6 @@
     "discoveredAt": "2026-10-01T10:16:09.350Z"
   },
   {
-    "arxivId": "2609.23954",
-    "title": "Djinnlang: Higher-Level Programming by Unambiguous Specification with an LLM in the Compiler",
-    "titleZh": "Djinnlang：用 LLM 编译器实现无歧义规格的高级编程",
-    "authors": [
-      "Simon Henniger"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "Djinnlang 是一种只写规格、不写可执行代码的高级规格语言，由 LLM 在编译器内填充实现与证明。它要求 LLM 除证明实现满足规格外，还须证明满足该规格的任意其他实现在相同输入下输出相同，即约束关系是确定性的，从而不给程序语义留任何余地。其符号翻译器将规格降为 Dafny 桩与证明义务，由驱动框架调度 LLM 补全，全部经 Dafny 验证器检查；该语言已实现自举，LLM 可依规格实现 Djinnlang 翻译器且重实现能自验证。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.23954",
-      "aisafetyhot": "https://aisafetyhot.com/items/umze9fdrud1yd0oqs4rlgi2mv"
-    },
-    "publishedAt": "2026-09-21T00:00:09.000Z",
-    "timelineAt": "2026-09-30T22:20:32.844Z",
-    "discoveredAt": "2026-09-30T22:20:32.844Z"
-  },
-  {
     "arxivId": "2609.38143",
     "title": "Learning Meta-Skills for Agent Harness Design in Test-Time AI4AI",
     "titleZh": "为测试时 AI4AI 的智能体执行环境设计学习元技能",
@@ -9606,26 +9304,6 @@
     "publishedAt": "2026-09-11T09:21:30.000Z",
     "timelineAt": "2026-09-30T22:20:33.479Z",
     "discoveredAt": "2026-09-30T22:20:33.479Z"
-  },
-  {
-    "arxivId": "2609.20143",
-    "title": "Designing Against Deskilling: Metacognitive Feedback Reduces Cognitive Offloading to LLM Assistants",
-    "titleZh": "防技能退化设计：元认知反馈减少对 LLM 助手的认知卸载",
-    "authors": [
-      "Sebastian Maier"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项预注册在线实验（N=704，2×2 设计加无 AI 对照组）发现，元认知反馈能减少用户向 LLM 助手卸载答案的行为（OR=0.47），并提升随后无辅助测试的成绩（OR=1.51）。实验任务是借助仅在明确请求时才给出解答的 LLM 助手练习分数运算，之后进行无辅助测试。基于努力的奖励对卸载行为和测试成绩均未产生可检测影响。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.20143",
-      "aisafetyhot": "https://aisafetyhot.com/items/muqvpyyna81ovflkrgbhen81d"
-    },
-    "publishedAt": "2026-09-17T12:35:04.000Z",
-    "timelineAt": "2026-09-30T22:20:32.875Z",
-    "discoveredAt": "2026-09-30T22:20:32.875Z"
   },
   {
     "arxivId": "2609.10935",
