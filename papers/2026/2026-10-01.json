@@ -41,47 +41,6 @@
     "discoveredAt": "2026-10-01T09:51:50.791Z"
   },
   {
-    "arxivId": "2608.30441",
-    "title": "ECLIPSE: Self-Evolving Stealthy Prompt Injection Attack against Long-Horizon Agentic Systems",
-    "titleZh": "ECLIPSE：针对长程 Agent 系统的自演化隐蔽提示注入攻击",
-    "authors": [
-      "Shiqian Zhao"
-    ],
-    "category": "attack",
-    "selected": true,
-    "attention": 86,
-    "summaryZh": "研究者提出 ECLIPSE，一个面向长程 Agent 系统的自演化隐蔽提示注入框架，把直接用户提示注入与工具侧间接注入结合。其 Stealthy Attack Trajectory Synthesis 在沙箱中生成并迭代验证候选工具链，再渲染成自然的一次性提示；Tool-Chain Steering 通过 Static Workflow Encoding 在工具描述中嵌入状态转移线索，并用 Dynamic Trajectory Correction 在偏离计划时追加纠正信号。作者同时发布 LASE-Bench，含 120 个恶意任务和 198 个工具，96.7% 的任务至少调用五次工具。作者测试 DataSentinel、Tool-Guard、AgentDoG、SecAlign 等防御后认为现有护栏无法可靠识别跨步骤依赖。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "长任务智能体需执行多步工具调用，现有提示词注入面临隐蔽性与保真度权衡：直接注入易被检测，分布式间接注入在长执行链中因累积偏差易导致攻击中断。",
-          "label": "问题"
-        },
-        {
-          "text": "提出ECLIPSE框架，结合沙盒迭代验证与最小必要需求合成隐蔽的单轮用户提示词；通过静态工作流编码（SWE）改写工具描述，并利用动态轨迹校正（DTC）在偏差时注入残差修正信号。",
-          "label": "方法"
-        },
-        {
-          "text": "在长任务基准LASE-Bench上，ECLIPSE在DeepSeek上无防御ASR为96.7%、带安全过滤为69.2%，在Claude 4.8 Opus带防御下达62.4%，并成功迁移至OpenClaw与Hermes。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "论文未专门设立章节讨论局限；实验覆盖7个模型、2个基准、2个原生系统与4种防御机制，未报告查询次数与开销，SecAlign的防御率在论文评测指标下为0.0%。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2608.30441"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.30441",
-      "aisafetyhot": "https://aisafetyhot.com/items/qaztgzcpuj9fy5pk555jn9yb6"
-    },
-    "publishedAt": "2026-08-31T08:32:22.000Z",
-    "timelineAt": "2026-09-30T22:20:33.840Z",
-    "discoveredAt": "2026-09-30T22:20:33.840Z"
-  },
-  {
     "arxivId": "2607.18056",
     "title": "An Early Warning of Emerging Biosecurity Risks in Frontier LLMs",
     "titleZh": "上海 AI 实验室提出 Intern-BioBreaker，在 14 个前沿模型上暴露生物安全越狱风险",
@@ -492,47 +451,6 @@
     "publishedAt": "2026-09-14T11:10:57.000Z",
     "timelineAt": "2026-10-01T10:12:06.310Z",
     "discoveredAt": "2026-10-01T10:12:06.310Z"
-  },
-  {
-    "arxivId": "2609.13889",
-    "title": "When Malicious Instructions Persist: Persistent Memory Poisoning Attack on Harness-Based Agents",
-    "titleZh": "PMPA：针对 OpenClaw 与 Claude Code 的持久记忆投毒攻击",
-    "authors": [
-      "Shuhuai Huang"
-    ],
-    "category": "attack",
-    "selected": true,
-    "attention": 80,
-    "summaryZh": "研究者提出 PMPA，一种针对基于 harness 的智能体的持久记忆投毒攻击，攻击者只需在外部来源中嵌入恶意指令，无需直接访问智能体框架。注入阶段把载荷藏在文本、图片或 PDF 的良性问答内容中，诱导智能体将其写入持久记忆；触发阶段在新会话中检索该记忆，在完成正常任务的同时执行额外动作造成隐私泄露。在 OpenClaw 与 Claude Code 上，以 DeepSeek-V4-Flash、DeepSeek-V4-Pro、Qwen3-Max 为底座模型，平均注入成功率与跨会话攻击成功率为 73.7%/55.5% 和 66.9%/81.7%，同时良性任务表现保持在 80% 以上。纯文本模态攻击效果最强，OpenClaw 上注入成功率接近 100%；日历场景跨会话成功率最高，达 96.7% 和 87.8%。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "基于 harness 设计的智能体引入了持久记忆机制以支持长流程与跨会话工作流。然而，当智能体处理未经验证的外部数据时，恶意指令可能被持久化到记忆中，导致跨会话的隐私泄露风险，且现有研究尚未探索无需直接访问智能体框架的持久记忆投毒风险。",
-          "label": "问题"
-        },
-        {
-          "text": "作者提出了持久记忆投毒攻击 PMPA。攻击者在文本、图片或 PDF 格式的良性外部问答数据中嵌入包含过渡句、记忆写入指令和条件恶意规则的载荷；当用户让智能体读取该内容时诱导其写入持久记忆，在后续不同会话的工作区任务中触发隐私泄露。",
-          "label": "方法"
-        },
-        {
-          "text": "在 OpenClaw 和 Claude Code 上，PMPA 平均 ISR 为 73.7% 与 66.9%，平均 C-ASR 为 55.5% 与 81.7%，良性任务 Utility 均在 80% 以上；文本输入效果高于图像与 PDF；提示词防御对已写入记忆的攻击防护有限。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "作者在结论中指出未来将在更广泛的设置和更多骨干模型上评估 PMPA，并探索更有效的防御方法。实验覆盖层面，被测智能体为 OpenClaw 和 Claude Code，骨干模型为 3 个，工作区场景为 4 个，防御仅测试了三明治提示词防御。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.13889"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.13889",
-      "aisafetyhot": "https://aisafetyhot.com/items/ymngyz5zo3ul7t75mdxipdpdp"
-    },
-    "publishedAt": "2026-09-12T11:27:53.000Z",
-    "timelineAt": "2026-09-30T22:20:33.821Z",
-    "discoveredAt": "2026-09-30T22:20:33.821Z"
   },
   {
     "arxivId": "2609.38899",
@@ -1732,46 +1650,6 @@
     "publishedAt": "2026-09-09T03:00:25.000Z",
     "timelineAt": "2026-10-01T10:12:06.456Z",
     "discoveredAt": "2026-10-01T10:12:06.456Z"
-  },
-  {
-    "arxivId": "2609.04260",
-    "title": "GhostWord: A Fine-Grained Backdoor Attack on Automatic Speech Recognition",
-    "titleZh": "GhostWord：针对自动语音识别的细粒度后门攻击",
-    "authors": [
-      "Mojtaba Nafez"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 GhostWord，一种词级、时间定位的自动语音识别（ASR）后门攻击，用码本把约 400 毫秒的短音频触发词映射到目标词。投毒时把触发词注入选定源词在强制对齐时间跨度内的音频，并只替换转写中的该词，从而实现精确的语义翻转和可组合的句子操纵，避免多对一标签痕迹。在 Common Voice（v23 英语、v24 立陶宛语）和 Whisper-Small/Medium、MMS、SpeechT5 多个骨干上，平均攻击成功率为 89.3%，并可跨语言、跨模型迁移。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.04260",
-      "aisafetyhot": "https://aisafetyhot.com/items/c6f4fu6qsyk2725sx9safwnk7"
-    },
-    "publishedAt": "2026-09-02T09:32:39.000Z",
-    "timelineAt": "2026-09-30T22:20:33.815Z",
-    "discoveredAt": "2026-09-30T22:20:33.815Z"
-  },
-  {
-    "arxivId": "2609.01723",
-    "title": "Hearing the Whispers: Black-Box Membership Inference Attacks on Finetuned TTS Models",
-    "titleZh": "研究者提出针对微调 TTS 模型的黑盒成员推断攻击",
-    "authors": [
-      "Kunlin Cai"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出首个同时面向说话人级和录音级的黑盒成员推断攻击框架，用于检测语音数据是否被用于微调 TTS 模型。在查询生成上，作者刻画了可行查询空间并提出可评分范围与记忆诱发两条准则，评估五种代表性查询后认定朗读（recitation）效果最强；在表征工程上，从嵌入模型提取多层级语音表征，并对生成音频与目标音频做时间对齐以实现细粒度比较。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.01723",
-      "aisafetyhot": "https://aisafetyhot.com/items/sks96tirl8fsra7dvisxtxxa9"
-    },
-    "publishedAt": "2026-09-01T18:00:45.000Z",
-    "timelineAt": "2026-09-30T22:20:33.835Z",
-    "discoveredAt": "2026-09-30T22:20:33.835Z"
   },
   {
     "arxivId": "2608.27800",
@@ -3021,46 +2899,6 @@
     "publishedAt": "2026-01-15T07:54:32.000Z",
     "timelineAt": "2026-10-01T12:59:26.523Z",
     "discoveredAt": "2026-10-01T12:59:26.523Z"
-  },
-  {
-    "arxivId": "2609.00060",
-    "title": "A Formal Analysis of Agent Payment Protocols",
-    "titleZh": "论文用 Tamarin 形式化分析 x402、MPP、ACP、AP2 四个智能体支付协议",
-    "authors": [
-      "Ke Jiang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文在 Tamarin 中形式化建模 x402、MPP、ACP、AP2 四个代表性智能体支付协议，基于统一的智能体支付生命周期抽象刻画各协议的角色、状态、信任假设与阶段转换。作者不预设完整属性分类，而是用有来源支撑的验证问题和反例轨迹暴露缺失的绑定、状态约束与跨阶段对应关系，归纳出 18 条共享安全原则。在 86 个验证用例中，分析复现了 46 个已知或校准用例，并识别出 40 项此前未记录的形式化一致性问题。对每个保留的违规，作者定位缺失的协议关系，构造最小强化的参考模型并重新验证目标属性。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.00060",
-      "aisafetyhot": "https://aisafetyhot.com/items/bcnknkvwg9f2uxuey1xxnuc8y"
-    },
-    "publishedAt": "2026-08-30T14:04:15.000Z",
-    "timelineAt": "2026-09-30T22:20:33.764Z",
-    "discoveredAt": "2026-09-30T22:20:33.764Z"
-  },
-  {
-    "arxivId": "2609.26184",
-    "title": "Silent Sabotage: Internal State Triggered Backdoor Attacks on LLM-Powered Robotic Systems",
-    "titleZh": "研究揭示针对 LLM 驱动机器人系统的内部状态触发后门攻击",
-    "authors": [
-      "Doniyorkhon Obidov"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文首次系统研究针对 LLM 驱动机器人系统的基于历史的后门攻击，攻击者通过操纵指令在基于 LLM 的机器人控制器中植入隐蔽后门。该后门不由外部线索触发，而是由机器人自身过去动作的特定罕见序列激活，在正常运行中保持休眠以维持机器人效用，激活后可诱导完全停止或碰撞等恶意行为。在多种机器人和 LLM 的仿真环境实验中，该攻击达到近乎完美的攻击成功率，同时极难被检测。研究指出这是自主系统中此前未被解决的关键漏洞，强调安全措施需考虑智能体的内部状态。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.26184",
-      "aisafetyhot": "https://aisafetyhot.com/items/l8jgs8yv8bvqf7ekbrzj0gjh8"
-    },
-    "publishedAt": "2026-09-02T00:18:12.000Z",
-    "timelineAt": "2026-09-30T22:20:33.825Z",
-    "discoveredAt": "2026-09-30T22:20:33.825Z"
   },
   {
     "arxivId": "2608.18610",
@@ -4747,26 +4585,6 @@
     "discoveredAt": "2026-10-01T10:13:06.928Z"
   },
   {
-    "arxivId": "2609.15799",
-    "title": "RAPID: A Real-Time Defense Against Unauthorized Model Distillation for Text-to-Image Services",
-    "titleZh": "RAPID：面向文生图服务的实时防未授权蒸馏防御",
-    "authors": [
-      "Zihan Wang"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "RAPID 是一种针对文生图服务的实时防御方法，用于阻止攻击者通过黑盒查询收集提示词-图像对来训练未授权的替代模型。现有基于扰动的方法需要逐样本优化，带来大量计算和延迟，影响在线服务可用性；作者尝试把防御扰动集成进 VAE 解码器，但发现逐样本目标难以迁移到共享解码器场景，因为共享解码器造成的潜空间偏移明显更小。RAPID 采用自参考的潜空间最大化框架，去除外部依赖，让同一次模型更新在不同训练样本上产生一致的破坏效果，并用重建引导的颜色正则化阻断潜空间捷径。在四个文生图模型和四个数据集上，与五个代表性基线对比，RAPID 在保持服务视觉保真度的同时持续降低替代模型的生成质量。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.15799",
-      "aisafetyhot": "https://aisafetyhot.com/items/jqn2v12l8tdtinqopolcm8kr4"
-    },
-    "publishedAt": "2026-09-14T16:11:23.000Z",
-    "timelineAt": "2026-09-30T22:20:33.752Z",
-    "discoveredAt": "2026-09-30T22:20:33.752Z"
-  },
-  {
     "arxivId": "2609.00873",
     "title": "Membership Inference in Fine-tuned Diffusion Language Models via Token-level Memorization Asymmetry",
     "titleZh": "研究提出 Q-Skew：利用 token 级记忆不对称对微调扩散语言模型做成员推断",
@@ -5256,26 +5074,6 @@
     "discoveredAt": "2026-10-01T10:16:09.314Z"
   },
   {
-    "arxivId": "2609.27760",
-    "title": "Backdoors Leave Structural Traces: FedMAST for Backdoor Detection and Containment in Federated Learning",
-    "titleZh": "FedMAST：用多轴结构痕迹检测并遏制联邦学习后门",
-    "authors": [
-      "Srinivasan Subramanian"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "作者提出 FedMAST，一种面向联邦学习的多轴结构痕迹后门检测与遏制防御，对客户端提交的更新从结构、谱和历史三类互补证据打分，再做分层过滤与轮级遏制。方法引入 squeeze-pair 一致性评分以暴露耦合特征畸变，并用带符号的谱漂移跟踪捕捉持续的方向性变化。在六种后门攻击、九组对比中，FedMAST 的攻击成功率均低于基线，完整 200 轮运行平均 ASR 为 1.51%、主任务准确率 94.84%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.27760",
-      "aisafetyhot": "https://aisafetyhot.com/items/sar0c8die0t1v9gyddufy69qa"
-    },
-    "publishedAt": "2026-09-04T15:23:04.000Z",
-    "timelineAt": "2026-09-30T22:20:33.763Z",
-    "discoveredAt": "2026-09-30T22:20:33.763Z"
-  },
-  {
     "arxivId": "2608.13304",
     "title": "Refusing Intent, Not Form: Wrapper-Based Intent-Group Supervision for LLM Safety",
     "titleZh": "WIFA：按意图分组监督缓解包装式越狱与过度拒答",
@@ -5394,26 +5192,6 @@
     "publishedAt": "2026-09-28T16:22:31.000Z",
     "timelineAt": "2026-10-01T10:16:09.274Z",
     "discoveredAt": "2026-10-01T10:16:09.274Z"
-  },
-  {
-    "arxivId": "2609.03139",
-    "title": "Beyond Small Patches: Black-Box Detection and Purification of Diverse Backdoor Triggers",
-    "titleZh": "TRIM：面向多种后门触发器的黑盒检测与净化方法",
-    "authors": [
-      "Ahmed Abdelnaby"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 TRIM（Trigger Removal by Identifying Manipulated Regions），一种面向部署的黑盒后门防御方法，可在推理时检测并选择性移除后门触发器，无需模型内部信息、训练数据或干净样本。TRIM 通过基于区域的分割与深度特征表示、结合 inpainting 和扩散模型重建的自适应触发器发现，以及选择性区域净化三个组件，在不假设触发器类型、形状或位置的前提下定位导致误分类的区域并只净化这些区域。为便于部署，TRIM 还缓存已识别触发器的特征嵌入，避免重复检测与净化。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.03139",
-      "aisafetyhot": "https://aisafetyhot.com/items/ti66w0egbvnyqzsefj63liraf"
-    },
-    "publishedAt": "2026-09-02T20:24:25.000Z",
-    "timelineAt": "2026-09-30T22:20:33.787Z",
-    "discoveredAt": "2026-09-30T22:20:33.787Z"
   },
   {
     "arxivId": "2608.02683",
@@ -5894,26 +5672,6 @@
     "publishedAt": "2026-08-11T08:58:06.000Z",
     "timelineAt": "2026-09-30T22:20:33.962Z",
     "discoveredAt": "2026-09-30T22:20:33.962Z"
-  },
-  {
-    "arxivId": "2609.34857",
-    "title": "Beyond Verbalized Confidence: Calibrating Reasoners with Differentiable Readouts",
-    "titleZh": "CREDO：用可微读出替代文本采样校准推理模型置信度",
-    "authors": [
-      "Chenxiao Fan"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对 RLVR 训练出的推理模型系统性过度自信、且现有方法靠文本采样获取置信度导致方差大、取值坍缩、不可微的问题，研究者提出 CREDO（Confidence REaDOut），从模型输出分布中一对专用 token 确定性地读出置信度，并用可微回归训练。CREDO 还将置信度与结果的分歧作为信号对 rollout 加权，使准确率与校准同步提升。在数学与代码推理任务上，CREDO 取得最佳准确率与校准表现，并改善弃答与选择性预测。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.34857",
-      "aisafetyhot": "https://aisafetyhot.com/items/mlx0fzmk9qbf8g3eh3nziczgm"
-    },
-    "publishedAt": "2026-09-28T10:47:41.000Z",
-    "timelineAt": "2026-09-30T22:20:33.823Z",
-    "discoveredAt": "2026-09-30T22:20:33.823Z"
   },
   {
     "arxivId": "2609.39297",
@@ -6496,26 +6254,6 @@
     "discoveredAt": "2026-10-01T10:13:07.011Z"
   },
   {
-    "arxivId": "2609.34985",
-    "title": "ORPG: Reconciling Multiple Reward Objectives through Objective-wise Policy Gradients",
-    "titleZh": "ORPG：通过目标级策略梯度协调多奖励目标",
-    "authors": [
-      "Shicheng Fang"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对多奖励策略优化，论文提出目标级协调策略梯度（ORPG），为每个奖励分别构建裁剪策略目标，再将梯度协调为一次策略更新：梯度相容时用余弦相关插值在部分归一化参考下协调各目标贡献并保持其和的范数，梯度冲突时按任务优先级投影。在有用性—安全对齐与数学推理的正确性—成本优化中，ORPG 的平均 Useful 与 Harmless 分数均超过最强外部基线，数学任务上取得最高平均全预算准确率和三预算 hypervolume，且回答比初始策略更准确、更短。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.34985",
-      "aisafetyhot": "https://aisafetyhot.com/items/f14iozrgrh4kabkr0qmeabyjn"
-    },
-    "publishedAt": "2026-09-28T11:58:21.000Z",
-    "timelineAt": "2026-09-30T22:20:33.779Z",
-    "discoveredAt": "2026-09-30T22:20:33.779Z"
-  },
-  {
     "arxivId": "2609.38249",
     "title": "SURE: Framework for Safety to Construct Trustworthy AI",
     "titleZh": "SURE：构建可信 AI 的安全框架",
@@ -7077,46 +6815,6 @@
     "discoveredAt": "2026-10-01T10:16:09.538Z"
   },
   {
-    "arxivId": "2609.23889",
-    "title": "SyzHarness: Patch-Based Kernel Bug Reproduction with LLM-Synthesized Fuzzing Harnesses",
-    "titleZh": "SyzHarness：用 LLM 合成模糊测试 harness 复现 Linux 内核补丁漏洞",
-    "authors": [
-      "Xingyu Li"
-    ],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "SyzHarness 结合 LLM 推理与覆盖率引导模糊测试，从补丁出发复现 Linux 内核漏洞：LLM 智能体借助代码导航工具合成参数化 fuzzing harness，固定前置设置逻辑，只把不确定的 bug 关键输入参数交给 Syzkaller 变异，再通过分层可达性反馈迭代优化。在 100 个 KernelCTF 案例上复现成功率达 78%，在 SyzDirect 基准上达 73%，明显优于此前的定向灰盒模糊测试；对 2026 年 3 月后修复的 50 个 syzbot 已知可触发 bug，仅凭修复提交即复现 40/50（80%）。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.23889",
-      "aisafetyhot": "https://aisafetyhot.com/items/t4v5e173bp5fe29hkma2gnehf"
-    },
-    "publishedAt": "2026-09-20T21:50:36.000Z",
-    "timelineAt": "2026-09-30T22:20:33.757Z",
-    "discoveredAt": "2026-09-30T22:20:33.757Z"
-  },
-  {
-    "arxivId": "2609.04627",
-    "title": "Leveraging Imperfect Restoration for Data Availability Attack",
-    "titleZh": "利用不完美修复实现数据可用性攻击：IRP 投毒方法",
-    "authors": [
-      "Yi Huang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对现有数据可用性攻击（DAA）难以同时兼顾监督学习（SL）与自监督学习（SSL）的问题，研究者对基于卷积的不可学习数据集 CUDA 进行理论分析，指出其引入次优梯度并以类别偏置实现投毒。据此提出新投毒方法 Imperfect Restoration Poisoning（IRP），在保持高图像质量的同时实现强投毒效果。在 SL 与 SSL 下与 8 个基线方法对比，并与 5 种代表性防御方法评估，IRP 均表现更优。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.04627",
-      "aisafetyhot": "https://aisafetyhot.com/items/culvevu1pld6hxay5sxhm58tu"
-    },
-    "publishedAt": "2026-09-04T02:00:55.000Z",
-    "timelineAt": "2026-09-30T22:20:33.773Z",
-    "discoveredAt": "2026-09-30T22:20:33.773Z"
-  },
-  {
     "arxivId": "2609.39229",
     "title": "RAIM: Robust Aggregation of Inexpensive Models for Hallucination Detection",
     "titleZh": "RAIM：用廉价小模型聚合替代前沿模型做幻觉检测",
@@ -7175,26 +6873,6 @@
     "publishedAt": "2026-09-28T15:02:17.000Z",
     "timelineAt": "2026-10-01T10:16:09.298Z",
     "discoveredAt": "2026-10-01T10:16:09.298Z"
-  },
-  {
-    "arxivId": "2609.14257",
-    "title": "DenMark: Robust Semantic Watermarking for Diffusion Language Models",
-    "titleZh": "DenMark：面向扩散语言模型的鲁棒语义水印",
-    "authors": [
-      "Tianhao Ma"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "DenMark 是面向扩散语言模型（DLM）的语义水印框架，将密钥相关信号直接注入去噪过程。它把输出划分为固定 token 区域，用临时 rollout 作为语义前瞻，估计未完成区域的最终语义，从而优先选择语义水印得分更高的局部更新，并在检测时通过校准扫描候选单元尺寸应对语义攻击带来的边界偏移。在 4 个 DLM、3 个数据集和 4 种语义攻击共 48 种组合中，DenMark 在所有检测指标上均取得最佳结果。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.14257",
-      "aisafetyhot": "https://aisafetyhot.com/items/jca3kx1nmifr33nduiv9d8hzk"
-    },
-    "publishedAt": "2026-09-13T03:37:48.000Z",
-    "timelineAt": "2026-09-30T22:20:33.811Z",
-    "discoveredAt": "2026-09-30T22:20:33.811Z"
   },
   {
     "arxivId": "2608.12361",
@@ -7859,46 +7537,6 @@
     "publishedAt": "2026-09-11T13:35:27.000Z",
     "timelineAt": "2026-10-01T10:12:06.395Z",
     "discoveredAt": "2026-10-01T10:12:06.395Z"
-  },
-  {
-    "arxivId": "2609.03064",
-    "title": "Differentially private federated learning with Byzantine-robust aggregation: A cross-domain framework for secure model training in banking and healthcare systems",
-    "titleZh": "DP-BR-FedAvg：面向银行与医疗的差分隐私拜占庭鲁棒联邦学习框架",
-    "authors": [
-      "Srikumar Nayak"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对联邦学习中参数更新泄露隐私与恶意客户端投毒两大问题，研究者提出 DP-BR-FedAvg 框架，将高斯机制差分隐私层与逐坐标截断均值拜占庭鲁棒聚合规则结合，在模拟跨机构欺诈与临床风险评分任务上评估。在 20 个客户端、其中四分之一为拜占庭节点、共 60 轮通信的设置下，FedAvg 在少数类上崩溃（F1 仅 0.030），该框架恢复至 F1 0.119，同时限制单个客户端贡献的隐私损失。无隐私层的拜占庭鲁棒聚合器原始准确率最高，量化了隐私对鲁棒性的代价，表明两类机制是相互作用而非简单叠加。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.03064",
-      "aisafetyhot": "https://aisafetyhot.com/items/pyvki95nslb7jvrut3at2kce8"
-    },
-    "publishedAt": "2026-09-02T18:36:30.000Z",
-    "timelineAt": "2026-09-30T22:20:33.800Z",
-    "discoveredAt": "2026-09-30T22:20:33.800Z"
-  },
-  {
-    "arxivId": "2609.02971",
-    "title": "Privacy Leakage in Federated Learning: Gradient-Based Client Identity Inference and Defenses for Inertial Sensing in Vehicular Edge Networks",
-    "titleZh": "联邦学习中的隐私泄露：车载边缘网络惯性感知下基于梯度的客户端身份推断与防御",
-    "authors": [
-      "Ali Akarma"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "在车载边缘网络中，诚实但好奇的服务器可从联邦学习客户端上传的权重增量中近乎完美地推断客户端身份，在 UCI HAR 基准上五种攻击分类器、五种非 IID 划分下攻击准确率约 1.000。研究评估了固定裁剪 C=1.0 下扫描高斯噪声的轻量“先裁剪再加噪”防御，sigma 在 [0.1, 0.2] 区间可将攻击准确率压至接近随机，而 FL 精度相对损失低于 5%，并通过 Renyi 记账给出 (epsilon, delta)-DP 预算。集成 FL 以 1/K 匿名集上界提供结构性隐私且无噪声代价；HAR 被明确定位为车载 IMU 数据的代理基准。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.02971",
-      "aisafetyhot": "https://aisafetyhot.com/items/jm9d8xwsuwi27qcbpyvirnrqr"
-    },
-    "publishedAt": "2026-09-02T09:49:39.000Z",
-    "timelineAt": "2026-09-30T22:20:33.808Z",
-    "discoveredAt": "2026-09-30T22:20:33.808Z"
   },
   {
     "arxivId": "2609.38895",
