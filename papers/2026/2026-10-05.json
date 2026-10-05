@@ -452,6 +452,42 @@
     "discoveredAt": "2026-10-04T23:21:41.170Z"
   },
   {
+    "arxivId": "2610.03089",
+    "title": "Securing Computer-Use Agents Against Branch Steering Attacks",
+    "titleZh": "COBRA：为计算机使用 Agent 防御分支引导攻击的双 LLM 架构",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 76,
+    "summaryZh": "剑桥大学等机构的研究者提出 COBRA，一种针对计算机使用 Agent（CUA）分支引导攻击的系统级防御架构。作者指出，Dual-LLM 模式虽能保证控制流完整性，但在图形环境中计划必须按运行时网页内容分支，攻击者可构造不可信数据把 Agent 推向预先批准的危害路径，而无需注入新指令。为此作者构建 STEER-Bench，覆盖 9 个领域 101 个任务，测得分支引导攻击对标准 CUA 的攻击成功率为 94.4%，对原版 Dual-LLM 为 89.5%。COBRA 在规划阶段为每个分支预先固定目的地、端点和工具参数约束，由 Branch Resolution Hub 校验运行时分支与参数，并在 HTTP 与 MCP 代理处强制执行。代码已开源于 GitHub。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03089",
+      "aisafetyhot": "https://aisafetyhot.com/items/k9ezzx531yx10k0vyz57azyea"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T02:20:28.492Z",
+    "discoveredAt": "2026-10-05T02:20:28.492Z"
+  },
+  {
+    "arxivId": "2610.03153",
+    "title": "EvoRiskBench: An Evolving Benchmark for Runtime Security Risks in Workspace Agents",
+    "titleZh": "EvoRiskBench：面向工作区 Agent 运行时安全风险的演化基准",
+    "authors": [],
+    "category": "eval",
+    "selected": true,
+    "attention": 76,
+    "summaryZh": "复旦大学与中关村实验室等机构的研究者提出 EvoRiskBench，一个面向工作区 Agent 运行时安全风险的演化基准，用 EP–Path–EF 框架把九类风险入口与五类技术后果通过 Agent 执行路径连接起来。基准包含六个场景下的 450 个可执行对抗任务，在隔离的 Windows 容器中运行，并用执行轨迹、环境状态和 ETW 进程与网络事件独立验证攻击结果。研究者在三种模型（GPT-5.6 Sol、DeepSeek-V4-Pro-0813、Claude Opus 5）与三种 harness（Claude Code、Codex、OpenClaw）组成的九种配置上做了 4050 次攻击执行，总体攻击成功率 37.46%，最高为 DeepSeek-V4-Pro-0813 配 Codex 的 68.44%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03153",
+      "aisafetyhot": "https://aisafetyhot.com/items/jwbkok1prry5t77cumjofsycw"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T02:20:36.058Z",
+    "discoveredAt": "2026-10-05T02:20:36.058Z"
+  },
+  {
     "arxivId": "2610.01871",
     "title": "Walking the Embedding Space: Datastore Extraction from Multimodal RAG",
     "titleZh": "研究者提出 IMMRAG 攻击，可从多模态 RAG 数据存储中提取医学与文档图像",
@@ -616,6 +652,24 @@
     "discoveredAt": "2026-10-04T21:21:43.277Z"
   },
   {
+    "arxivId": "2610.03124",
+    "title": "The Fragility of Trigger-Tag Mechanisms for Misuse Detection in Open-Weight LLMs",
+    "titleZh": "研究提出 Untag 攻击框架，使开源大模型触发标签滥用检测机制失效",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者针对开源大语言模型中的触发标签（trigger-tag）滥用检测机制提出统一攻击框架 Untag，并报告现有机制在对抗攻击下完全失效。作者将触发标签形式化为两类：token 级触发标签在解码阶段引入水印式信号，权重级触发标签则学习目标条件与可检测模型行为之间的后门式关联。Untag 把这两类机制各自的攻击面整理进同一套分类体系，并以钓鱼内容生成为案例，对代表性的 token 级和权重级触发标签进行评测。结果显示，触发标签在受控环境下可提供有用证据，但当攻击者能够改写输出或修改开放权重时，现有机制不再有效，因此不应被视为稳健的滥用检测器。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03124",
+      "aisafetyhot": "https://aisafetyhot.com/items/ymh9rfb26xb0v7xflyn96gzsm"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T02:20:43.594Z",
+    "discoveredAt": "2026-10-05T02:20:43.594Z"
+  },
+  {
     "arxivId": "2609.02095",
     "title": "READY or Not: Reliable Enterprise Agent Deployment",
     "titleZh": "READY：面向企业 Agent 部署的可靠性资格认证框架",
@@ -686,6 +740,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-04T23:21:49.443Z",
     "discoveredAt": "2026-10-04T23:21:49.443Z"
+  },
+  {
+    "arxivId": "2610.02869",
+    "title": "AgentTrap: Stateful Feedback Deception against Autonomous Penetration Testing Agents",
+    "titleZh": "AgentTrap：面向自主渗透测试 Agent 的有状态反馈欺骗蜜罐",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 AgentTrap，一种面向自主渗透测试 Agent 的闭环蜜罐，通过哨兵端点避免误伤正常流量、基于被保护应用的状态化欺骗，以及行为引导的升级策略来维持交互并收集 Agent 侧行为证据。在部署的 Web 应用中，研究团队用真实应用端点与独立蜜罐端点、三种防御策略对八种自主渗透测试 Agent 进行评测。相比无防御，AgentTrap 将真实目标的总体攻击成功率从 95.8% 降至 79.2%，并在 18.8% 的运行中成功诱导出攻击方 API key，效果优于静态欺骗与固定升级策略。轨迹分析显示，Agent 抵御此类反制的能力同时取决于模型层面对欺骗性请求的识别和架构层面对敏感资源的隔离。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02869",
+      "aisafetyhot": "https://aisafetyhot.com/items/paiag3tu6reha0301fkom0pd3"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-05T02:20:51.173Z",
+    "discoveredAt": "2026-10-05T02:20:51.173Z"
   },
   {
     "arxivId": "2610.01170",
