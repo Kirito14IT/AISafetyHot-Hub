@@ -432,6 +432,26 @@
     "discoveredAt": "2026-10-05T03:29:52.301Z"
   },
   {
+    "arxivId": "2609.12001",
+    "title": "Scan the Skill, Govern the Action: Composing Registry Verdicts with Runtime Consequence Control",
+    "titleZh": "Pheo 提出 OATS：用确定性解析器在运行时治理 Agent 技能动作",
+    "authors": [
+      "Rohit Taneja"
+    ],
+    "category": "attack",
+    "selected": true,
+    "attention": 81,
+    "summaryZh": "Pheo Inc 的 Rohit Taneja 等人提出 OATS（Open Agent Trust System），在 Agent 决定动作但尚未执行时做运行时治理，回答的是某个动作在当前机器和操作者策略下是否被允许，而非技能是否恶意。作者在 66,192 个公开 ClawHub 技能版本上测量发现，705 个被三个扫描器和注册表评审全部判为 clean 的技能，仍指示了 CIS Control 2.7 和 NIST SP 800-53 CM-11 列为禁止的动作，涉及 135 个发布者，其中单一发布者占 506 个；对 100 个样本的人工审计给出 92% 精确率（95% CI [84.8%, 96.5%]）。OATS 的解析器不读技能文档、不调用模型，中位端到端耗时 67.6 ms，输出接入按（资源, 类别）计数的信任账本，升级阈值由操作者自述风险容忍度推导，而非固定十次干净批准。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.12001",
+      "aisafetyhot": "https://aisafetyhot.com/items/f3ni8jq9ol18eloim0ew9jula"
+    },
+    "publishedAt": "2026-09-10T00:19:04.000Z",
+    "timelineAt": "2026-10-05T08:50:41.202Z",
+    "discoveredAt": "2026-10-05T08:50:41.202Z"
+  },
+  {
     "arxivId": "2609.09404",
     "title": "An Experimental Evaluation of Multimodal Prompt Injection Attacks on Agentic AI Frameworks",
     "titleZh": "MMPIBench：多模态提示注入对六种 Agent 框架的跨框架评测",
