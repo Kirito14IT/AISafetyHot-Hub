@@ -2171,26 +2171,6 @@
     "discoveredAt": "2026-10-01T12:59:26.523Z"
   },
   {
-    "arxivId": "2609.23065",
-    "title": "From Concept Alignment to Causal Grounding: An Intervention Test of Chain-of-Thought Faithfulness",
-    "titleZh": "从概念对齐到因果接地：思维链忠实性的干预检验",
-    "authors": [
-      "Qianli Wang"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文将思维链忠实性重新定义为内部概念接地，检验 LLM 的 CoT 推理是否调用与直接预测相同的内部概念，以及这些共享概念是否因果驱动答案。方法上用单个共享 SAE 分别编码预测过程和 CoT 过程，使两者的内部概念可直接比较，并提出三个概念级对齐的相关性指标和一个因果指标 Δp，后者通过消融共享概念测量答案概率的下降。在五个 LLM 和四个数据集上，相关性指标显示概念对齐普遍较高，但只能识别哪些概念被共享，无法说明其因果贡献；Δp 显示因果忠实性随模型深度显著变化，在中后层达到峰值而非最后几层，模型规模也会改变逐层分布。此外，因果上重要的共享概念并不总在 CoT 中被口头表达，说明仅凭表面文本或表征对应无法可靠评估忠实性。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.23065",
-      "aisafetyhot": "https://aisafetyhot.com/items/itedut7p80sp9mda4n48tc5ye"
-    },
-    "publishedAt": "2026-09-19T14:55:47.000Z",
-    "timelineAt": "2026-10-01T04:33:28.828Z",
-    "discoveredAt": "2026-10-01T04:33:28.828Z"
-  },
-  {
     "arxivId": "2609.06951",
     "title": "Steering Interference Reflects the Model's Defaults, Not the Behavior Directions",
     "titleZh": "研究：激活引导的干扰反映模型默认倾向而非行为方向",
@@ -2553,66 +2533,6 @@
     "publishedAt": "2026-09-15T13:05:01.000Z",
     "timelineAt": "2026-10-01T10:12:06.259Z",
     "discoveredAt": "2026-10-01T10:12:06.259Z"
-  },
-  {
-    "arxivId": "2609.21662",
-    "title": "When Steering Fails in Latent Reasoning: A Latent-to-Language Transition Gap",
-    "titleZh": "论文发现隐式推理中的引导失效：隐式到语言的转换鸿沟",
-    "authors": [
-      "Gaoxiang Huang"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文发现，对连续思维（隐式 CoT）做激活引导，对后续语言生成的影响明显弱于对显式 CoT 的引导，即使隐层表征被移动的幅度相当。作者首先确认任务信息在连续思维中仍可识别，据此提出隐式到语言的转换鸿沟假设，即隐空间中的干预效果无法传递到语言生成。两项进一步结果支持该假设：输出分布在转换边界处发生突变，任务相关方向在隐式 CoT 中的双向控制力远弱于显式 CoT。作者认为转换接口是评估和设计未来隐式引导方法的核心目标。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.21662",
-      "aisafetyhot": "https://aisafetyhot.com/items/k9h1tqbb9z7hvmpodw0fhcq0w"
-    },
-    "publishedAt": "2026-09-18T11:58:36.000Z",
-    "timelineAt": "2026-10-01T04:33:28.840Z",
-    "discoveredAt": "2026-10-01T04:33:28.840Z"
-  },
-  {
-    "arxivId": "2609.20129",
-    "title": "Local Sparsity Enables Unsupervised LLM Safety Detection",
-    "titleZh": "局部稀疏性实现无监督 LLM 安全检测",
-    "authors": [
-      "Xin Chen"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出基于局部掩码 SAE 的无监督异常检测框架，用于大语言模型的部署期安全检测。作者指出，现有部署期安全方法多为监督式并依赖不安全训练数据，难以覆盖新出现的攻击与危害类别，因此转向只建模安全数据、标记分布外输入的异常检测思路。在线性表示假设下，SAE 恢复的概念空间中邻近点共享较小的公共激活支撑，这一局部稀疏性为高维激活空间中的异常检测提供了理论依据。作者在多种架构和数据集上验证了该方法，涵盖能力测试数据集与安全专用数据集。当允许算法使用 1% 的分布外数据做校准后，局部稀疏方法达到接近最优的性能，且仅用 1-2% 的 SAE 神经元参与计算。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.20129",
-      "aisafetyhot": "https://aisafetyhot.com/items/omqqywlnvksd7ideassvhul6y"
-    },
-    "publishedAt": "2026-09-17T12:23:04.000Z",
-    "timelineAt": "2026-10-01T04:33:28.863Z",
-    "discoveredAt": "2026-10-01T04:33:28.863Z"
-  },
-  {
-    "arxivId": "2609.19366",
-    "title": "The Role of Fine-grained Harm Signals in LLM Safety",
-    "titleZh": "研究揭示细粒度危害信号在 LLM 安全中的作用",
-    "authors": [
-      "Soyeon Park"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究通过从各风险类别的危害表征中移除共享的通用危害表征，得到与通用危害性在每一层都正交的类别残差，并用激活引导在 3 个指令微调 LLM 的 11 个风险类别上测试。结果显示，类别残差是否编码危害性因类别而异，且这一类别模式在不同模型间相似；类别残差是否引发拒答同样因类别而异，但这一模式更依赖具体模型。研究还发现类别残差会增强 LLM 下游内部与共享通用危害表征的对齐。作者据此认为，理解 LLM 安全不能只看共享的通用危害表征，还需考虑更细粒度的类别残差；即使某一层上与某概念正交的方向，也可能促进该概念在下游的放大。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.19366",
-      "aisafetyhot": "https://aisafetyhot.com/items/kwo143ckoq9q5l7fer1qtek51"
-    },
-    "publishedAt": "2026-09-16T19:40:50.000Z",
-    "timelineAt": "2026-10-01T04:33:28.876Z",
-    "discoveredAt": "2026-10-01T04:33:28.876Z"
   },
   {
     "arxivId": "2609.18080",
@@ -3515,46 +3435,6 @@
     "publishedAt": "2026-09-06T11:26:08.000Z",
     "timelineAt": "2026-10-01T10:13:06.928Z",
     "discoveredAt": "2026-10-01T10:13:06.928Z"
-  },
-  {
-    "arxivId": "2609.22850",
-    "title": "Same Outcome, Different Readout: What Does a Steerable Valence Direction in LLMs Represent?",
-    "titleZh": "同一结果，不同读出：LLM 中可引导效价方向究竟代表什么",
-    "authors": [
-      "Weihan Li"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文把 LLM 内部方向代表什么的问题当作构念效度问题，在迷宫任务中研究一个好坏结果方向，并用受控干预把实际结果与获知该结果的信息历史分开。在多个 LLM checkpoint 上，用一种显式结果编码拟合的方向能较好迁移到另一种编码，说明读出并不绑定表面形式。但当同一实际结果分别经由已预告和未预告的历史达成时，迁移显著下降：即使两种历史随后都收到相同的显式结果，事件后的读出仍强烈依赖此前的预告。在基座模型中，沿该方向做引导会改变动作，但移除该方向后自然线索效应几乎不变。在匹配的迷宫 RL 训练中，RL 后的方向对参考 MDP 剩余回报的预测性明显增强，策略在测试位置也更依赖它，而历史依赖依然存在。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.22850",
-      "aisafetyhot": "https://aisafetyhot.com/items/kiatdit11sgpy99gtu1cbe8pt"
-    },
-    "publishedAt": "2026-09-19T07:46:19.000Z",
-    "timelineAt": "2026-10-01T04:33:28.834Z",
-    "discoveredAt": "2026-10-01T04:33:28.834Z"
-  },
-  {
-    "arxivId": "2609.20722",
-    "title": "Deep Noir: Autonomous Steering Discovery via Architectural Chronometry in Transformer Models",
-    "titleZh": "Deep Noir：用架构时序自动发现 Transformer 激活引导参数",
-    "authors": [
-      "Frank E. Bobe"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "Deep Noir 提出一套框架，用 Logit Lens 收敛与因果的注意力头级归因，自动发现最优激活引导参数，替代人工选择引导位置与强度。在三个规模区间（1B 三个模型、2-3B 两个、7-9B 四个）上，该引擎在垃圾信息任务上于 1B 取得 16.7 个百分点提升（标准差 4.7，39 次运行），在 7-9B 的四种架构上提升扩大到 21 至 42 个百分点；在 SST-2 情感任务上无需改动代码即取得 13.1 个百分点提升。作者称机制层面的依据使自动发现的干预点可跨任务与架构泛化，情感任务上未做注意力头掩码的 RepE 未能超过基线，而 Deep Noir 改善了所有模型（p 小于 0.01）。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.20722",
-      "aisafetyhot": "https://aisafetyhot.com/items/aysr1k4ndi2jhxjvuhj4z4vbg"
-    },
-    "publishedAt": "2026-09-17T17:16:31.000Z",
-    "timelineAt": "2026-10-01T04:33:28.857Z",
-    "discoveredAt": "2026-10-01T04:33:28.857Z"
   },
   {
     "arxivId": "2609.03148",
@@ -4556,26 +4436,6 @@
     "discoveredAt": "2026-10-01T10:16:09.476Z"
   },
   {
-    "arxivId": "2609.34744",
-    "title": "Optimizing and Securing the Modern Watermarking Channel for Images",
-    "titleZh": "现代图像后置水印信道的优化与安全：SNW 方案",
-    "authors": [
-      "Enoal Gesny"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对现代多比特后置图像水印方案，研究提出其编码器-解码器对隐含定义了并行 AWGN 信道、以 BPSK 调制传输消息，因而受限于二进制字母表、容量被严重压缩，且因缺少密钥而本质不安全。为此提出 SNW 后置水印系统，不依赖固定码本或二进制字母表，借助可达容量的纠错码使速率接近香农容量，在容量上显著优于现有 SOTA 基线并提供强安全保证。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.34744",
-      "aisafetyhot": "https://aisafetyhot.com/items/pytbftxrgnde1dimeu1gu07w1"
-    },
-    "publishedAt": "2026-09-28T09:37:19.000Z",
-    "timelineAt": "2026-10-01T04:32:53.237Z",
-    "discoveredAt": "2026-10-01T04:32:53.237Z"
-  },
-  {
     "arxivId": "2609.05800",
     "title": "Spillover-Aware Multi-Value Steering for Pluralistic LLM Alignment",
     "titleZh": "Spillover-Aware Multi-Value Steering：面向多元对齐的 LLM 激活引导去纠缠方法",
@@ -4752,26 +4612,6 @@
     "publishedAt": "2026-09-19T10:21:32.000Z",
     "timelineAt": "2026-10-01T10:21:12.803Z",
     "discoveredAt": "2026-10-01T10:21:12.803Z"
-  },
-  {
-    "arxivId": "2609.20942",
-    "title": "When AI Reviews Train AI Reviewers: Scientific-Judgment Collapse and Mitigation",
-    "titleZh": "当 AI 评审训练 AI 评审：科学判断坍缩与 TrustReviewer 缓解方案",
-    "authors": [
-      "Sy-Tuyen Ho"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究以 Llama 3.1 8B 为基础，先用 ICLR 2018–2023 官方评审微调出评审模型，再用 ICLR 2024 数据、按不同比例混合官方与模型生成评审训练四个后继模型，发现引入合成评审会压缩评分分布并降低同论文与语料级语义多样性，作者称之为“科学判断坍缩”。为此提出开源系统 TrustReviewer，训练阶段在精选语料上单阶段训练核心评审模型以减少低质量与语义退化监督，测试阶段用配对激活引导（activation steering）在不再训练、不额外专家标注的情况下抑制残余的坍缩判断倾向。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.20942",
-      "aisafetyhot": "https://aisafetyhot.com/items/lsd48pnhoc7emoo9qcr8fjltt"
-    },
-    "publishedAt": "2026-09-17T18:01:08.000Z",
-    "timelineAt": "2026-10-01T04:33:28.851Z",
-    "discoveredAt": "2026-10-01T04:33:28.851Z"
   },
   {
     "arxivId": "2609.10645",
@@ -5755,26 +5595,6 @@
     "discoveredAt": "2026-10-01T10:16:09.350Z"
   },
   {
-    "arxivId": "2609.21142",
-    "title": "Exploring Text Classification Models with Sparse Autoencoders",
-    "titleZh": "用稀疏自编码器探索文本分类模型：SAEfarer 工具与专家评估",
-    "authors": [
-      "Daniel Kerrigan"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者用稀疏自编码器（SAE）分析文本分类语言模型的行为，提出探索 SAE 特征与模型预测及错误之间关系的技术，并将其集成到工具 SAEfarer 中。该工具用于分析文本分类 LM 学到的概念，并在由五名博士生参与的专家试点评估中接受检验。论文共 11 页、13 张图，已被 IEEE VIS 2026 接收为短文。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.21142",
-      "aisafetyhot": "https://aisafetyhot.com/items/jsg8inmhn3t83ee8c9d6iyivh"
-    },
-    "publishedAt": "2026-09-17T23:14:55.000Z",
-    "timelineAt": "2026-10-01T04:33:28.845Z",
-    "discoveredAt": "2026-10-01T04:33:28.845Z"
-  },
-  {
     "arxivId": "2609.15277",
     "title": "Artificial entrepreneurial cognition: Locating and causally steering an opportunity recognition dial inside large language models (LLMs)",
     "titleZh": "在 Llama 3.1 8B-Instruct 等 LLM 内部定位并因果操控\"机会识别旋钮\"",
@@ -6440,46 +6260,6 @@
     "publishedAt": "2026-09-08T17:54:13.000Z",
     "timelineAt": "2026-10-01T10:03:01.206Z",
     "discoveredAt": "2026-10-01T10:03:01.206Z"
-  },
-  {
-    "arxivId": "2609.34688",
-    "title": "Unified Trajectory Matching Policy Optimization: Diverse T2I Generation and VLA Generalization",
-    "titleZh": "Uni-TMPO：统一轨迹匹配策略优化，提升 T2I 生成多样性与 VLA 泛化",
-    "authors": [
-      "Zhiyuan Ma"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "Uni-TMPO 是一个面向扩散与流策略的统一 RL 后训练框架，用前向 KL 优化让策略分布匹配由标准化奖励构造的目标分布，替代传统的奖励最大化。该方法在 T2I 上取得更高奖励，并获得最佳的奖励—多样性—效率权衡；在 VLA 上取得更高的 ID 成功率，并更好地泛化到留出任务与场景。真机评测显示，当更高奖励目标受阻时，多种动作策略具有实际价值。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.34688",
-      "aisafetyhot": "https://aisafetyhot.com/items/t27ucl5ns2y0j1592naiknw6b"
-    },
-    "publishedAt": "2026-09-28T09:13:03.000Z",
-    "timelineAt": "2026-10-01T04:32:53.248Z",
-    "discoveredAt": "2026-10-01T04:32:53.248Z"
-  },
-  {
-    "arxivId": "2609.19831",
-    "title": "Reproducing Transparent and Scrutable Recommendations: Exploring Open-Weight Models via Natural-Language User Profiles",
-    "titleZh": "复现透明可审查推荐：通过自然语言用户画像探索开放权重模型",
-    "authors": [
-      "Noah Mamié"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项复现研究验证了自然语言用户画像推荐（UPR）在 Amazon Movies & TV、TripAdvisor 上能达到原论文所称的竞争性重排序性能，并提升推荐透明度。研究用五个随机种子做稳定性检验，并用 nnsight 框架做机制可解释性分析，发现扰动自然语言画像虽会改变预测评分，但各类型均匀偏移、无类型选择性效应，排序不变，即便直接做激活引导也如此。作者将原因归于评分回归目标而非画像接口，排序目标模型在该任务上明显更优。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.19831",
-      "aisafetyhot": "https://aisafetyhot.com/items/joxoxldclyg99ompnzn23gl05"
-    },
-    "publishedAt": "2026-09-17T07:36:34.000Z",
-    "timelineAt": "2026-10-01T04:33:28.870Z",
-    "discoveredAt": "2026-10-01T04:33:28.870Z"
   },
   {
     "arxivId": "2609.06968",

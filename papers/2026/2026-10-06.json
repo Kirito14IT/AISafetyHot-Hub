@@ -34,5 +34,23 @@
     "publishedAt": "2026-09-23T20:00:00.000Z",
     "timelineAt": "2026-10-05T17:27:32.537Z",
     "discoveredAt": "2026-10-05T17:27:32.537Z"
+  },
+  {
+    "arxivId": "2609.38096",
+    "title": "Tail-Influence Sampling for CVaR Policy Evaluation",
+    "titleZh": "Tail-Influence Sampling：面向 CVaR 策略评估的尾部影响采样",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对均值回报相近的策略在罕见失败上差异显著、而估计下尾 CVaR 需大量昂贵 rollout 的问题，作者提出 Tail-Influence Sampling（TIS）：为每个可查询条件分布推导\"尾部影响\"，聚合其不确定性经 Bellman 复用对 CVaR 的作用，并据此把固定评估预算重新分配给对尾部最关键的核，另设访问锚定变体防止试点分配不足。在固定维度与正分位边际下，TIS 达到 oracle 渐近方差与一阶 MSE（含试点成本），锚定变体与 oracle 相差不超过两倍。CliffWalking 上相同转移预算下 MSE 较学习占用降低 41%、较完整 rollout 降低 76%；冻结语言模型评审流程中，锚定 TIS 在 24 个 MMLU-Pro 设置中的 23 个优于同等正则化的均值影响混合，六次调用 FinQA 评审的 MSE 比 rollout 低 2.4-3.4 倍。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38096",
+      "aisafetyhot": "https://aisafetyhot.com/items/qlul91u55k87a0e96rmq1el0f"
+    },
+    "publishedAt": "2026-09-28T20:00:00.000Z",
+    "timelineAt": "2026-10-05T17:57:43.357Z",
+    "discoveredAt": "2026-10-05T17:57:43.357Z"
   }
 ]
