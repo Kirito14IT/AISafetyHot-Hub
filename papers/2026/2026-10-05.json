@@ -2177,6 +2177,26 @@
     "discoveredAt": "2026-10-05T05:37:25.533Z"
   },
   {
+    "arxivId": "2610.03196",
+    "title": "Beyond Reward Hacking: Proxy Divergence Across Four Layers of a Staged Humanoid Learning Pipeline",
+    "titleZh": "研究：人形机器人学习流程四层代理均存在偏离，不止奖励作弊",
+    "authors": [
+      "Arunabh Bora"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "作者提出，腿足机器人强化学习流程中的奖励、课程门控、评测统计和参考动作四层都是形式意义上的代理，每一层都有各自的偏离机制和可修正的替代方案。传统观点只把奖励视为被优化的代理，因而把规格失效（奖励作弊）局限在奖励层。作者逐层给出传统表述、偏离条件与替代做法，包括用一阶成本替代平坦的二次核、用峰值与结果统计替代课程门控的平均、加入门控可达性与信息检查、采用确定性与相位去同步的评测、把课程状态纳入模型、以可行性优先的参考设计配合残差前馈，以及保持函数不变的输入扩展让同一策略继续成长而非重训。这些论证由一条连续训练的 PPO 策略测量支撑，该策略用于模拟的 1.91 米人形机器人，在单块笔记本 GPU 上分四阶段训练 13,500 次迭代。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03196",
+      "aisafetyhot": "https://aisafetyhot.com/items/twqv8pipsd1ik1vq4l5aeopjd"
+    },
+    "publishedAt": "2026-10-02T12:10:12.000Z",
+    "timelineAt": "2026-10-05T15:54:45.117Z",
+    "discoveredAt": "2026-10-05T15:54:45.117Z"
+  },
+  {
     "arxivId": "2610.02841",
     "title": "How Robust Is Multimodal Claim Verification to LLM Rewriting?",
     "titleZh": "多模态声明验证对 LLM 改写有多鲁棒？",
