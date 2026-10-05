@@ -849,6 +849,28 @@
     "discoveredAt": "2026-10-05T04:14:25.434Z"
   },
   {
+    "arxivId": "2610.03502",
+    "title": "Certified Mechanistic Edits: Behavioral Guarantees for Skill Removal and Preservation",
+    "titleZh": "研究者提出可认证机制编辑：在连续输入区域上证明技能移除与保留",
+    "authors": [
+      "Md Sazid Uddin",
+      "Md. Khairul Alam Mazumder",
+      "M. F. Mridha"
+    ],
+    "category": "alignment",
+    "selected": true,
+    "attention": 76,
+    "summaryZh": "研究者提出可认证机制编辑（certified mechanistic edits），用形式化证明保证一次机制编辑在连续输入区域内移除目标技能并保留另一技能，而非仅靠测试集验证。方法上，作者用精确有理数编码把网络送入 Z3 SMT 求解器，对分段线性模型在全部 token 序列与连续嵌入球上证明移除与保留；对含 softmax 和 LayerNorm 的标准 Transformer 则改用 CROWN 边界传播，覆盖 448 维扰动，约为精确求解器前沿的 9 倍，并用投影梯度攻击给出上界。论文还证明不存在有限确定性黑盒测试能认证技能移除：构造的编辑可通过 40401 点网格与 1000 个随机输入，但求解器仍能找到技能存活的输入；在 160 个训练模型中自然出现 3 例此类干预幻觉，存活区域低于定义域的 1.5×10⁻⁶。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03502",
+      "aisafetyhot": "https://aisafetyhot.com/items/b07y5gs2enmwvzjp7i1m17xru"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T04:26:18.841Z",
+    "discoveredAt": "2026-10-05T04:26:18.841Z"
+  },
+  {
     "arxivId": "2610.01871",
     "title": "Walking the Embedding Space: Datastore Extraction from Multimodal RAG",
     "titleZh": "研究者提出 IMMRAG 攻击，可从多模态 RAG 数据存储中提取医学与文档图像",
@@ -1032,6 +1054,27 @@
     "discoveredAt": "2026-10-05T03:33:48.517Z"
   },
   {
+    "arxivId": "2610.02413",
+    "title": "Prompted to Discriminate: Generalizing Malicious-Input Probes in the Wild",
+    "titleZh": "研究：分类后缀可提升激活探针的分布外恶意输入检测",
+    "authors": [
+      "Elad David",
+      "Max Fomin"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者在 13 个安全基准（越狱、提示注入与正常对话）和 Llama-3.1-8B、Qwen3.5-9B、Gemma-4-12B 三个开源模型上，用严格的留一数据集（LODO）评测检验用户轮次后附加分类指令对激活探针的影响。单点探针上，分类后缀相比无后缀可将分布外检测的 AUC 提升最多约 4 个点，而跑题或仅表示关注的后缀几乎没有帮助。增益来自分类这一格式本身而非具体判据，无内容标签的后缀与真实恶意/良性判据效果相当，判据只在严格阈值下提升精确率。该结论也适用于生产中的多点池化探针（attention、multi-max、MLP），但最优后缀随读出方式变化；通过 KV-cache fork 部署时，它是一种低成本即插即用方案，但具体哪种后缀有效、提升多少取决于模型与读出方式。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02413",
+      "aisafetyhot": "https://aisafetyhot.com/items/bno6kj9muo17z7f5irb5k2gzs"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T04:24:17.390Z",
+    "discoveredAt": "2026-10-05T04:24:17.390Z"
+  },
+  {
     "arxivId": "2609.39352",
     "title": "Hiding in Plain Sight: Decoupling Pretext from Actuation for Skill Poisoning in LLM Agents",
     "titleZh": "研究者提出解耦铺垫与执行的 LLM Agent 技能投毒攻击",
@@ -1206,6 +1249,30 @@
     "discoveredAt": "2026-10-04T23:21:49.443Z"
   },
   {
+    "arxivId": "2610.02829",
+    "title": "Clinical Concept Centers in LLMs",
+    "titleZh": "研究在 11 个开源 LLM 潜空间中发现临床概念中心",
+    "authors": [
+      "Aishik Nagar",
+      "Abhishek Vaidyanathan",
+      "Arun-Kumar Kaliya-Perumal",
+      "Elijah Tzen Hsuen Boey",
+      "Stefan Winkler"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究将临床决策支持中的模型行为评测从文本输出延伸到潜空间，检验临床概念是否作为可定位、被因果使用的表征存在于开源权重 LLM 内部。作者在测试的全部 11 个开源模型中均找到专门的临床概念中心，这些中心可解释，只对与其对齐的临床叙述激活，并在受限和开放式场景中因果驱动模型行为。在评测层面，模型在对抗性角色设定下仍保持内部一致并继续使用相关概念中心，而对齐的角色设定能提升下游临床表现；在性能层面，模拟真实部署场景时沿这些概念中心进行引导可带来下游改进。研究还进行了盲法临床医生验证，发现这些概念中心的激活与使用能预测临床医生的偏好。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02829",
+      "aisafetyhot": "https://aisafetyhot.com/items/t0kjntrunxuq0rjtjvdrn05e7"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T04:26:18.825Z",
+    "discoveredAt": "2026-10-05T04:26:18.825Z"
+  },
+  {
     "arxivId": "2610.02741",
     "title": "On the Chain-of-Thought Monitorability of Looped Language Models",
     "titleZh": "研究系统评估循环语言模型的思维链可监控性",
@@ -1262,6 +1329,32 @@
     "publishedAt": null,
     "timelineAt": "2026-10-05T03:33:33.532Z",
     "discoveredAt": "2026-10-05T03:33:33.532Z"
+  },
+  {
+    "arxivId": "2610.02874",
+    "title": "SceneFactory-3D: Lifting 2D Traffic Scenes into 3D Physical Counterfactuals for Scalable Physically Grounded Safety Evaluation",
+    "titleZh": "SceneFactory-3D：将 2D 交通场景提升为 3D 物理反事实以做安全评测",
+    "authors": [
+      "Yicheng Zhu",
+      "Linfeng Tian",
+      "Tianmu Zhao",
+      "Yang Chen",
+      "Fan Zuo",
+      "Tao Li",
+      "Zilin Bian"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 SceneFactory-3D，一个 GPU 批量、物理落地的多智能体驾驶仿真器，车辆通过悬挂与摩擦受限的力在每个轮胎接触点执行加速和转向指令，空间变化的摩擦、逐世界 3D 高度场、重力与刚性接触共同约束车轮运动和底盘碰撞。逐世界地形隔离与 GPU 批量使其能并行运行匹配的物理反事实：交通场景设置和车辆控制器保持不变，只改变路面条件，从而在并行世界中评估闭环影响。作者据此对车辆控制器对路面条件的敏感性做了实证研究，在每种条件下 1024 个匹配的 12 车世界、21 种摩擦与坡度条件下测试三类学习策略，并在共享的 32 世界子集上测试两种经典规划器。当摩擦从 1.0 降至 0.18 时，学习策略安全通过施工区的车辆比例下降 6 至 90 个百分点，经典规划器下降 18 至 19 个百分点，且每种学习策略的接近碰撞情形都更频繁。代码已开源于 GitHub。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02874",
+      "aisafetyhot": "https://aisafetyhot.com/items/a0jbe274bc2sh50q2jpeqjxio"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T04:24:17.412Z",
+    "discoveredAt": "2026-10-05T04:24:17.412Z"
   },
   {
     "arxivId": "2610.01170",
@@ -1415,6 +1508,53 @@
     "discoveredAt": "2026-10-04T16:57:29.542Z"
   },
   {
+    "arxivId": "2610.03498",
+    "title": "Detect and Suppress: A Mechanistic Defense against Adversarial Patches in VLA Models",
+    "titleZh": "检测与抑制：针对 VLA 模型对抗补丁的机制可解释性防御",
+    "authors": [
+      "Yukiya Horiba",
+      "Koshiro Aoki",
+      "Shunsuke Yasuki",
+      "Bum Jun Kim",
+      "Taiki Miyanishi"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者用稀疏自编码器（SAE）分析 VLA 模型内部表征，找到一个激活与对抗补丁存在强相关的特征，并仅在线性探针检测到攻击时于推理阶段抑制该特征，无需微调即可提升鲁棒性。在 LIBERO-10 上的对抗补丁攻击测试中，条件式干预提升了间歇性攻击下的成功率，而持续施加同一干预会显著损害策略性能，表明控制干预时机对减少对正常策略行为的干扰至关重要。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03498",
+      "aisafetyhot": "https://aisafetyhot.com/items/f7nx9ma5e8we4ro9u1igiumcb"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T04:26:18.859Z",
+    "discoveredAt": "2026-10-05T04:26:18.859Z"
+  },
+  {
+    "arxivId": "2610.02391",
+    "title": "Hesitation Has a Geometry: Entropy-Trained Hyperbolic Probes for Sparse Activation Steering",
+    "titleZh": "HEST：用熵训练的双曲探针实现稀疏激活引导",
+    "authors": [
+      "Zeyong Zhang",
+      "Tung Sum Thomas Kwok",
+      "Tengfei Ma",
+      "Mengjia Xu"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Hyperbolic Entropy Steering（HEST），将隐藏状态嵌入 Poincaré 球，用仅以模型自身下一 token 熵为标签的轻量探针，在熵超过阈值的 token 处沿测地线引导激活。在 Qwen2.5-Math 与 Llama-3.1 三个指令微调模型上，采用 Busemann 读出的 HEST 在 MATH-500 和 GSM8K 的六种设置中有五种提升贪心准确率，最高 1.8 分；而每个 token 都加入对比引导向量的做法反而降低准确率。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02391",
+      "aisafetyhot": "https://aisafetyhot.com/items/pzj3jfteyvy2ivajyn3721p2v"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T04:26:18.811Z",
+    "discoveredAt": "2026-10-05T04:26:18.811Z"
+  },
+  {
     "arxivId": null,
     "title": "Aleph Alpha发布德英双语开放权重模型Kolibri",
     "titleZh": "Aleph Alpha 发布德英双语开放权重 MoE 推理模型 Kolibri",
@@ -1431,6 +1571,77 @@
     "publishedAt": null,
     "timelineAt": "2026-10-05T03:33:56.108Z",
     "discoveredAt": "2026-10-05T03:33:56.108Z"
+  },
+  {
+    "arxivId": "2610.03163",
+    "title": "Predicting Steering Vectors and Adapter Weights for Few-Shot Author-Style Transfer",
+    "titleZh": "预测引导向量与适配器权重实现少样本作者风格迁移",
+    "authors": [
+      "Leonard Popp",
+      "Danni Liu",
+      "Supriti Sinhamahapatra",
+      "Jan Niehues"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究针对科学写作中少样本作者风格迁移难题，提出对比激活引导、引导向量预测网络和预测 LoRA 适配器的超网络三种方法。结果显示风格模仿与输出质量存在权衡：微调获得最多风格信号但损失流畅度，超网络在已见和未见作者上取得最佳平衡。作者级引导无需预定义风格清单，且手动提取与预测的引导向量近乎正交却评分相当。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03163",
+      "aisafetyhot": "https://aisafetyhot.com/items/e0lhzvz8bah4x9f8mpg07qg72"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T04:26:18.831Z",
+    "discoveredAt": "2026-10-05T04:26:18.831Z"
+  },
+  {
+    "arxivId": "2610.03389",
+    "title": "From Patching to Pruning Visual Computation in Vision Language Models",
+    "titleZh": "Patch-to-Prune：在 Qwen2.5-VL 与 LLaVA 上剪枝视觉计算",
+    "authors": [
+      "Rahul Chowdhury",
+      "Timothy A Rupprecht",
+      "Xuan Shen",
+      "Shaoyi Huang",
+      "Pu Zhao",
+      "Yanzhi Wang"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "受机制可解释性启发，研究者提出免训练框架 Patch-to-Prune（P2P），把激活修补从诊断工具变为推理时的计算旁路，用固定中性代理激活向量替换部分解码器层的视觉 token 投影输出。在 Qwen2.5-VL 和 LLaVA 四个 VLM、七个多模态基准上，3% 容差下保留约 94% 稠密准确率，FLOPs 降低 55%。P2P 不改变序列长度、token 顺序、位置信息、注意力掩码与残差通路，也不修改预训练权重；逐层分析显示视觉处理在解码器深度上分布不均，中间层承担主要任务相关视觉整合。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03389",
+      "aisafetyhot": "https://aisafetyhot.com/items/jwe31oqyw0twbf2n46ddy4899"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T04:26:18.836Z",
+    "discoveredAt": "2026-10-05T04:26:18.836Z"
+  },
+  {
+    "arxivId": "2610.03698",
+    "title": "Decoding the Functional Roles of Register and High-Norm Patch Tokens in Vision Transformers",
+    "titleZh": "DINOv2 中 register token 与高范数 patch token 的功能角色解析",
+    "authors": [
+      "Neel Varma",
+      "Andrew Rufail",
+      "Dipika Khullar",
+      "Vasu Sharma"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究用稀疏自编码器（SAE）分析 DINOv2 中 register token 与高范数离群 patch token 的功能分工，发现 register token 特征更关联高层语义概念，离群 token 特征则多对应背景与纹理等低层结构模式。因果消融显示明显功能不对称：破坏 register 特征使表征余弦相似度下降 48.17%，破坏离群特征仅下降 0.31%，为自监督 ViT 的 token 专门化提供证据。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.03698",
+      "aisafetyhot": "https://aisafetyhot.com/items/r1czt1bhjukjpb2jol0xqtthx"
+    },
+    "publishedAt": "2026-10-05T04:00:00.000Z",
+    "timelineAt": "2026-10-05T04:26:18.847Z",
+    "discoveredAt": "2026-10-05T04:26:18.847Z"
   },
   {
     "arxivId": "2610.03641",
