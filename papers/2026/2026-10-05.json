@@ -438,11 +438,32 @@
     "authors": [
       "Rohit Taneja"
     ],
-    "category": "attack",
+    "category": "defense",
     "selected": true,
     "attention": 81,
     "summaryZh": "Pheo Inc 的 Rohit Taneja 等人提出 OATS（Open Agent Trust System），在 Agent 决定动作但尚未执行时做运行时治理，回答的是某个动作在当前机器和操作者策略下是否被允许，而非技能是否恶意。作者在 66,192 个公开 ClawHub 技能版本上测量发现，705 个被三个扫描器和注册表评审全部判为 clean 的技能，仍指示了 CIS Control 2.7 和 NIST SP 800-53 CM-11 列为禁止的动作，涉及 135 个发布者，其中单一发布者占 506 个；对 100 个样本的人工审计给出 92% 精确率（95% CI [84.8%, 96.5%]）。OATS 的解析器不读技能文档、不调用模型，中位端到端耗时 67.6 ms，输出接入按（资源, 类别）计数的信任账本，升级阈值由操作者自述风险容忍度推导，而非固定十次干净批准。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "智能体技能注册表发布前扫描仅判定技能是否恶意，无法判断具体操作在特定机器与策略下是否被许可；且静态文档无法完全约束智能体的实际执行命令。",
+          "label": "问题"
+        },
+        {
+          "text": "作者提出基于确定性解析器与信任账本的动作级运行时控制门OATS，在工具调用前判定命令后果类别与权限，并基于操作员风险容忍度推导自治晋升阈值。",
+          "label": "方法"
+        },
+        {
+          "text": "ClawHub有705个全clean技能指示禁止操作；Claude Sonnet 5执行命令中34.7%后果类文档未记载；实测23次违规尝试被OATS全部拦截或挂起。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "解析器对多步骤拼接或编码重写的宏平均解析率为52%；系统未提供OS级防篡改保护；且无法察觉未转化为具体操作的非动作型危害或过度权限。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.12001"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.12001",
       "aisafetyhot": "https://aisafetyhot.com/items/f3ni8jq9ol18eloim0ew9jula"
@@ -1748,6 +1769,24 @@
     "discoveredAt": "2026-10-05T08:25:41.868Z"
   },
   {
+    "arxivId": "2610.02557",
+    "title": "How to Have a Sensitive Debate: An Instance-Optimal Protocol for AI Debate",
+    "titleZh": "新 AI 辩论协议实现实例级最优：最坏情况正确且诚实为占优策略",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一种新的 AI 辩论协议，用于在监督有限的情况下判断复杂问题的解是否正确。相比此前仅对具有稳定子问题分解的问题在平均情况下成立的协议，新协议在若干方面有所改进：正确性在最坏情况下成立，诚实且正确对双方辩手构成占优策略均衡，而非 Stackelberg 均衡。作者还证明了黑盒下界，表明在只对人类判断做黑盒查询的前提下，该协议对这类问题是实例级最优的。这些结果通过将稳定问题分解与查询复杂度中的分数块敏感度概念联系起来得到。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02557",
+      "aisafetyhot": "https://aisafetyhot.com/items/o4shom3qyz4bqqs8nfsy0ymp7"
+    },
+    "publishedAt": "2026-10-01T22:45:00.000Z",
+    "timelineAt": "2026-10-05T09:20:58.920Z",
+    "discoveredAt": "2026-10-05T09:20:58.920Z"
+  },
+  {
     "arxivId": "2610.02268",
     "title": "From Mathematical to Executable Certificates for Machine Unlearning",
     "titleZh": "ExecCert：为机器遗忘提供可执行发布认证",
@@ -1919,6 +1958,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-05T08:20:28.049Z",
     "discoveredAt": "2026-10-05T08:20:28.049Z"
+  },
+  {
+    "arxivId": "2610.02662",
+    "title": "Mind the Refinement Gap: When Safe High-Level Robot Plans Produce Unsafe Executions",
+    "titleZh": "论文发现语言驱动机器人安全监控的细化缺口：安全高层计划可能产生不安全执行",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文审计了语言驱动机器人系统中安全监控的一个轨迹完整性假设，即监控器检查的高层动作序列是否代表执行中实际发生的导航与隐式动作效果。作者在 RoboGuard 上比较同一 LTL 规范下表面计划与图细化轨迹的判定结果，评估包含 28 个受控案例（覆盖五类动作抽象族）和 14 个端到端案例，后者由 SPINE 从自然语言指令生成计划、RoboGuard 生成场景落地的安全规范。在受控评估中，全部 12 个目标抽象案例都出现预期的表面与细化差异，16 个对照案例表现符合预期，作者据此提出基于图的轨迹细化作为轻量缓解手段和物理 AI 安全监控的诊断工具。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02662",
+      "aisafetyhot": "https://aisafetyhot.com/items/ixrrylidxoey7gm6und731ax6"
+    },
+    "publishedAt": "2026-10-02T01:31:00.000Z",
+    "timelineAt": "2026-10-05T09:21:06.461Z",
+    "discoveredAt": "2026-10-05T09:21:06.461Z"
   },
   {
     "arxivId": "2609.15802",
