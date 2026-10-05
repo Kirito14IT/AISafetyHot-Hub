@@ -1261,26 +1261,6 @@
     "discoveredAt": "2026-10-01T10:12:06.456Z"
   },
   {
-    "arxivId": "2609.15533",
-    "title": "The Misery of Mechanistic Interpretability: A Formal Perspective",
-    "titleZh": "论文指可解释替换网络忠实性易被微小扰动翻转，提出形式化验证框架",
-    "authors": [
-      "Tobias Ladner"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文指出，机制可解释性中可解释替换网络（IRN）的忠实性通常只在干净数据上做经验评估，而语义上极小的输入扰动就会翻转主导 IRN 特征，从而改变人类可理解的解释，这一现象在 GPT-2 small、Gemma 2 2B、Gemma 3 1B、Llama 3.2 1B、R1-Distill-Qwen 1.5B 五个开放权重模型族上均出现。作者提出首个针对 IRN 忠实性的形式化验证框架，用可达性分析在对抗场景下给出忠实性差距的可靠上界。作者还表明，验证感知训练能显著收紧该认证上界，恢复安全审计人员可据以行动的特征级解释。论文关键词包括形式化方法、验证、认证、鲁棒性、稀疏自编码器与 transcoder。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.15533",
-      "aisafetyhot": "https://aisafetyhot.com/items/zdhdkbdi4pkjtv1mr0rok3eqk"
-    },
-    "publishedAt": "2026-09-14T13:21:00.000Z",
-    "timelineAt": "2026-10-01T04:33:28.955Z",
-    "discoveredAt": "2026-10-01T04:33:28.955Z"
-  },
-  {
     "arxivId": "2609.05587",
     "title": "Agents' Overreliance on Unreliable Tools",
     "titleZh": "研究评测 14 个模型对不可靠工具的过度依赖",
@@ -2533,66 +2513,6 @@
     "publishedAt": "2026-09-15T13:05:01.000Z",
     "timelineAt": "2026-10-01T10:12:06.259Z",
     "discoveredAt": "2026-10-01T10:12:06.259Z"
-  },
-  {
-    "arxivId": "2609.18080",
-    "title": "Decodability is Not Causality: Dissociating Probe Readouts from Behavioral Drivers via SAE Decomposition",
-    "titleZh": "研究：探针可解码性不等于因果性，SAE 分解可区分行为驱动特征",
-    "authors": [
-      "Devesh Tiwari"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文指出线性探针能从语言模型激活中解码真实性等安全相关概念，但探针准确率只反映可解码性，不代表探针权重对应的特征真正因果驱动模型行为。作者提出一种特征级诊断方法，将已部署的 True/False 探针分解为 SAE 特征，分别按探针对齐度和模型行为的梯度敏感度排序，并在一致性门控下消融共享、仅探针和随机特征集。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.18080",
-      "aisafetyhot": "https://aisafetyhot.com/items/fa2i6ldzv2jwmdp0zgdiyfedq"
-    },
-    "publishedAt": "2026-09-16T03:35:38.000Z",
-    "timelineAt": "2026-10-01T04:33:28.893Z",
-    "discoveredAt": "2026-10-01T04:33:28.893Z"
-  },
-  {
-    "arxivId": "2609.17804",
-    "title": "A Four-Stage Decomposition of Word-Problem Solving and Mechanistic Fragility in LLM Math Reasoning",
-    "titleZh": "论文将 LLM 数学应用题求解拆为四阶段并定位干扰致错的机制脆弱点",
-    "authors": [
-      "Zhongdi Qu"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出大语言模型解小学数学应用题时内部计算可分解为四阶段串行流水线：Schema Abstraction、Operation Planning、Operand Binding 和 Computation，每个阶段在可识别的层区间内产生不同的中间表示。作者用同一框架诊断无关干扰句导致的失败，将错误定位到单一阶段 Operation Planning，并指出该阶段由一组注意力头实现，其因果作用经双向验证。研究给出了 LLM 数学应用题推理及其受干扰时失败的机制解释。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.17804",
-      "aisafetyhot": "https://aisafetyhot.com/items/e61lg5emx1c7olwl8st05ivo6"
-    },
-    "publishedAt": "2026-09-15T20:15:00.000Z",
-    "timelineAt": "2026-10-01T04:33:28.903Z",
-    "discoveredAt": "2026-10-01T04:33:28.903Z"
-  },
-  {
-    "arxivId": "2609.16229",
-    "title": "Test-Time Unlearning via Sparse Autoencoder",
-    "titleZh": "ARIA：用稀疏自编码器实现测试时机器遗忘",
-    "authors": [
-      "Pingzhi Li"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "作者提出 ARIA（autoencoder-gated inference-time unlearning），一种不改动模型权重的测试时遗忘方法，只在生成进入遗忘相关状态时门控对目标知识的访问。ARIA 用稀疏自编码器（SAE）潜变量训练轻量线性检测器，再对触发状态施加可解释的干预，测试时开销可忽略。在 TOFU、R-TOFU 和 WMDP 上，ARIA 在思考模型 DeepSeek-R1-Distilled-Qwen-1.5B 与指令模型 Gemma-3-1B-it 上均改善了遗忘与保留的权衡，例如显著降低 WMDP-cyber 遗忘集准确率，同时 MMLU 与遗忘前模型相差在 1% 以内。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.16229",
-      "aisafetyhot": "https://aisafetyhot.com/items/bjzhgfzpmehq2cg9yflg75uxs"
-    },
-    "publishedAt": "2026-09-14T18:58:09.000Z",
-    "timelineAt": "2026-10-01T04:33:28.934Z",
-    "discoveredAt": "2026-10-01T04:33:28.934Z"
   },
   {
     "arxivId": "2609.15064",
@@ -4055,26 +3975,6 @@
     "discoveredAt": "2026-10-01T10:16:09.494Z"
   },
   {
-    "arxivId": "2609.18860",
-    "title": "Decodable but Misrouted: Sparse Features Uncover a Readout Gap in Vision-Language Models for Harmful Meme Detection",
-    "titleZh": "稀疏特征揭示视觉语言模型有害表情包检测中的读出缺口",
-    "authors": [
-      "Girish A. Koushik"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究用稀疏自编码器、角色条件探针、因果干预和恢复实验，在 Gemma-3 与 Qwen3.5 上区分视觉语言模型误判有害表情包时是缺少内部证据还是无法把已表征的证据传到输出。在六个有害内容基准上，稀疏读出均优于模型原生预测：Qwen 平均 macro-F1 为 0.740，原生为 0.432，残差重建为 0.486；Gemma 从 0.532 提升到 0.714。作者强调这些增益衡量的是标签对监督读出的可及性，并不说明模型原生生成已采用该决策规则。在评测规模下，Qwen 静默特征消融对探针的敏感度是路由特征修补的 24-63 倍，而在字面 yes/no 任务上路由特征修补对输出的敏感度是前者的 16-140 倍。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.18860",
-      "aisafetyhot": "https://aisafetyhot.com/items/ictd4529dhd9ngdyslzvz7x9a"
-    },
-    "publishedAt": "2026-09-16T16:00:36.000Z",
-    "timelineAt": "2026-10-01T04:33:28.882Z",
-    "discoveredAt": "2026-10-01T04:33:28.882Z"
-  },
-  {
     "arxivId": "2609.35521",
     "title": "Beyond Token Scale: Chunk-Level Sparse Autoencoders for Reliable Semantic Feature Discovery",
     "titleZh": "Beyond Token Scale：面向可靠语义特征发现的片段级 SAE",
@@ -4992,46 +4892,6 @@
     "discoveredAt": "2026-10-01T10:12:06.333Z"
   },
   {
-    "arxivId": "2609.17152",
-    "title": "ResLRP: The Role of Residual Cancellation in Attribution Instability in Vision Transformers",
-    "titleZh": "ResLRP：残差抵消如何导致 Vision Transformer 归因不稳定",
-    "authors": [
-      "Jim Berend"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "Vision Transformer（ViT）中残差路径的抵消效应会引发归因爆炸，且这种抵消在 ViT 中比在语言 Transformer 中强得多。为此提出的 ResLRP 显式在传播规则中处理残差分支的抵消，保持精确守恒并可证明地约束归因爆炸。在覆盖监督、自监督、对比、层级与多模态 ViT 及 FunnyBirds 基准上，ResLRP 提升了忠实性与定位质量，在现代 VLM 上定位提升 +27-29%、忠实性最高提升 3.4x，并可用于在输入空间定位 SAE 特征。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.17152",
-      "aisafetyhot": "https://aisafetyhot.com/items/fgnndx0ef5e5x2cfy5epl0t15"
-    },
-    "publishedAt": "2026-09-15T13:17:30.000Z",
-    "timelineAt": "2026-10-01T04:33:28.912Z",
-    "discoveredAt": "2026-10-01T04:33:28.912Z"
-  },
-  {
-    "arxivId": "2609.15654",
-    "title": "Empathy Is Steerable but Multi-Axial: Mechanism Geometry and Persona Effects in LLMs",
-    "titleZh": "共情可被激活引导但呈多轴结构：LLM 中的机制几何与人格效应",
-    "authors": [
-      "JuHeon Ha"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "基于 EPITOME 框架（将支持性共情分解为情绪反应、解释与探索三个维度），研究者在三个指令微调 LLM 上发现，对比激活添加能在中间层产生稳定干预并一致改变 EPITOME 代理分数，但恢复出的方向仅部分可分，引导一个方向会引发非目标偏移。人格提示词会显著改变 EPITOME 分数，而配对激活偏移分解显示，恢复的子空间在第 15 层仅捕获约 3% 的人格诱导激活偏移平方幅度。在该定义下，LLM 表达的共情可被引导但呈多轴结构，控制人格条件下的共情需要针对超出单个机制方向的结构。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.15654",
-      "aisafetyhot": "https://aisafetyhot.com/items/ogwlx5sq7pavsrx9xy5ftgi5w"
-    },
-    "publishedAt": "2026-09-14T14:37:43.000Z",
-    "timelineAt": "2026-10-01T04:33:28.945Z",
-    "discoveredAt": "2026-10-01T04:33:28.945Z"
-  },
-  {
     "arxivId": "2609.14151",
     "title": "Signatures of Steerability in Activation Space of Language Models",
     "titleZh": "语言模型激活空间中的可操控性特征",
@@ -5593,26 +5453,6 @@
     "publishedAt": "2026-09-28T00:23:48.000Z",
     "timelineAt": "2026-10-01T10:16:09.350Z",
     "discoveredAt": "2026-10-01T10:16:09.350Z"
-  },
-  {
-    "arxivId": "2609.15277",
-    "title": "Artificial entrepreneurial cognition: Locating and causally steering an opportunity recognition dial inside large language models (LLMs)",
-    "titleZh": "在 Llama 3.1 8B-Instruct 等 LLM 内部定位并因果操控\"机会识别旋钮\"",
-    "authors": [
-      "Christian Fisch"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究团队在 Llama 3.1 8B-Instruct 中定位出一个\"机会识别方向\"，并通过对该内部表征的因果干预实现\"机会识别旋钮\"的上下调节，模型的创业机会判断随之改变。研究构建了 636 对匹配的\"有机会/无机会\"情景对，经留出测试、词汇与主题控制、行为消融和几何比较验证该方向可恢复、有因果作用且区别于机会评估与开发方向。该方向的恢复、有符号操控与几何分离在另外四个不同规模与家族的 LLM 上同样成立。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.15277",
-      "aisafetyhot": "https://aisafetyhot.com/items/u07orlflh2u6u3x7rm4fanzsv"
-    },
-    "publishedAt": "2026-09-14T09:36:44.000Z",
-    "timelineAt": "2026-10-01T04:33:28.968Z",
-    "discoveredAt": "2026-10-01T04:33:28.968Z"
   },
   {
     "arxivId": "2609.27572",
@@ -6200,26 +6040,6 @@
     "publishedAt": "2026-09-20T11:27:23.000Z",
     "timelineAt": "2026-10-01T09:53:52.908Z",
     "discoveredAt": "2026-10-01T09:53:52.908Z"
-  },
-  {
-    "arxivId": "2609.16967",
-    "title": "Target-Language Generation in Multilingual Models: Activation Steering and Optimal Control",
-    "titleZh": "多语言模型的目标语言生成：激活引导与最优控制",
-    "authors": [
-      "James A. Michaelov"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出一种面向多语言模型目标语言生成的最优控制方法，并配套评估框架，从语言依从性、语言连贯性和语义连贯性三方面衡量生成文本质量。在多数受测模型上，该方法表现至少不逊于常用的 difference-in-means 激活引导方法，且所需超参数调优大幅减少。该工作已被 EMNLP 2026 接收。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.16967",
-      "aisafetyhot": "https://aisafetyhot.com/items/vwamfrhgkibs1qt2ia7mr66m0"
-    },
-    "publishedAt": "2026-09-15T10:40:27.000Z",
-    "timelineAt": "2026-10-01T04:33:28.922Z",
-    "discoveredAt": "2026-10-01T04:33:28.922Z"
   },
   {
     "arxivId": "2609.26927",
