@@ -2330,6 +2330,24 @@
     "discoveredAt": "2026-10-05T04:26:18.859Z"
   },
   {
+    "arxivId": "2609.39820",
+    "title": "Learning from Runtime Feedback through Failure-Bank Self-Evolution for Vision-Language-Action Models",
+    "titleZh": "FailBank：用运行时反馈自进化提升 VLA 模型任务成功率",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对视觉-语言-动作（VLA）模型中运行时护栏只纠正单次动作、不改变底层策略的问题，研究者提出四阶段自进化框架 FailBank，把运行时反馈转化为持久的策略改进。在 VLA-Arena 基准的两个难度等级和两个 VLA 主干上，FailBank 相比基础策略将任务成功率提升 8.5 和 6.9 个百分点，策略引发的累计代价降低 35.6% 和 23.8%；相比运行时护栏，成功率提升 25.4 和 9.5 个百分点，累计代价相当。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39820",
+      "aisafetyhot": "https://aisafetyhot.com/items/uzojak7krhd1jvzk7kqauvbjb"
+    },
+    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "timelineAt": "2026-10-05T15:23:33.202Z",
+    "discoveredAt": "2026-10-05T15:23:33.202Z"
+  },
+  {
     "arxivId": "2610.03315",
     "title": "Lightweight, Rubric-Guided Trajectory Evaluation for Production AI Agents",
     "titleZh": "LiteTrajEval：面向生产级 AI 智能体的轻量级评分标准引导轨迹评估",
