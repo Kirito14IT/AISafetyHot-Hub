@@ -1,5 +1,51 @@
 [
   {
+    "arxivId": "2604.02947",
+    "title": "AgentHazard: A Benchmark for Evaluating Harmful Behavior in Computer-Use Agents",
+    "titleZh": "AgentHazard：评估计算机使用智能体有害行为的基准",
+    "authors": [
+      "Yunhao Feng",
+      "Yifan Ding",
+      "Yingshui Tan",
+      "Xingjun Ma",
+      "Yige Li",
+      "Yutao Wu",
+      "Yifeng Gao",
+      "Kun Zhai",
+      "Yanming Guo"
+    ],
+    "category": "eval",
+    "selected": true,
+    "attention": 77,
+    "summaryZh": "研究者发布 AgentHazard，一个评估计算机使用智能体有害行为的基准，包含 2,653 条实例，覆盖 10 类风险与 10 种攻击策略，每条实例把有害目标嵌入一系列单看合理、累积后导致不安全执行的步骤。基准在 Claude Code、OpenClaw 和 IFlow 三个框架上，用 Qwen2.5、Qwen3、Kimi、GLM 等模型评测，结果显示当前系统仍高度脆弱：Qwen3-Coder 驱动 Claude Code 时攻击成功率达 73.63%，GLM-4.6 在 Claude Code 下达 82.90%，平均危害分 7.05。同一模型在不同框架下攻击成功率差异超过 16 个百分点，说明模型层面的对齐不能可靠迁移到智能体层面。基准提供沙箱化、模块化的评测框架与轨迹级执行数据。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2604.02947",
+      "aisafetyhot": "https://aisafetyhot.com/items/y6mwzh8spofxxkudnmek76ki3"
+    },
+    "publishedAt": "2026-04-03T10:29:31.000Z",
+    "timelineAt": "2026-10-06T00:20:14.892Z",
+    "discoveredAt": "2026-10-06T00:20:14.892Z"
+  },
+  {
+    "arxivId": "2605.28591",
+    "title": "Models That Know How Evaluations Are Designed Score Safer",
+    "titleZh": "研究：模型掌握评测设计知识后安全基准分数更高",
+    "authors": [],
+    "category": "alignment",
+    "selected": true,
+    "attention": 77,
+    "summaryZh": "研究者提出评测元知识概念，即模型权重中关于评测结构特征的知识，并用合成文档微调 Nemotron 49B、Qwen3 32B 和 GLM 4.7 Flash 来验证其影响。在 AgentHarm、Triggers、StrongREJECT、OR-Bench 和 Agentic Misalignment 五个安全基准上，微调后的模型比基座模型更安全，Nemotron 49B 在 AgentHarm 上的拒答率从 9.9% 升至 31.0%，提升 21.1 个百分点。这种变化在排除模型显式说出评测感知的回答后依然存在，说明评测元知识以隐式方式起作用。对照模型在 FineWeb 或评测感知合成文档上微调后并未获得同等安全提升，且 Nemotron 49B 与 Qwen3 32B 的通用能力基本保持。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2605.28591",
+      "aisafetyhot": "https://aisafetyhot.com/items/yqjt6jpfipp17r4f1w9uomyuc"
+    },
+    "publishedAt": "2026-05-27T15:11:00.000Z",
+    "timelineAt": "2026-10-06T00:23:32.910Z",
+    "discoveredAt": "2026-10-06T00:23:32.910Z"
+  },
+  {
     "arxivId": null,
     "title": "Fair Moderation, Equitable Access, and AI: arXiv’s Updated Rate Limit Policy",
     "titleZh": "arXiv 更新投稿限额政策，每月最多提交 2 篇论文",
@@ -70,6 +116,24 @@
     "publishedAt": "2026-09-23T20:00:00.000Z",
     "timelineAt": "2026-10-05T17:27:32.537Z",
     "discoveredAt": "2026-10-05T17:27:32.537Z"
+  },
+  {
+    "arxivId": "2609.03178",
+    "title": "Open Problems in AI Risk Modeling: Insights from a Workshop on the Technical Foundations of AI Risk Modeling",
+    "titleZh": "论文梳理 AI 风险建模的开放问题：从 22 位专家研讨会提炼研究议程",
+    "authors": [],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇 arXiv 论文探讨如何为先进 AI 系统的社会风险评估设计稳健的风险模型，指出监管提案日益要求系统性风险评估，但缺乏严谨的量化方法。作者梳理了五种相关研究传统：概率风险评估、灾难性 AI 风险分析、网络安全风险量化、贝叶斯因果推断和基于阈值的治理，并比较了基于情景的风险估计与基于贝叶斯网络的阈值设定两种主流方案。基于一场有 22 位专家参与的研讨会及后续分析，论文提出了涵盖模型结构、范围、证据整合、验证和治理的开放问题清单，并主张进展取决于将量化建模与独立评估、透明分级披露以及能够长期维护和更新风险模型的机构结合起来。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.03178",
+      "aisafetyhot": "https://aisafetyhot.com/items/c6rlw20kitjrc9wai6a7w7e4r"
+    },
+    "publishedAt": "2026-09-02T21:42:00.000Z",
+    "timelineAt": "2026-10-06T00:10:41.053Z",
+    "discoveredAt": "2026-10-06T00:10:41.053Z"
   },
   {
     "arxivId": "2609.38096",
