@@ -1,5 +1,23 @@
 [
   {
+    "arxivId": "2610.02586",
+    "title": "Labels Override Definitions in Jev-Style Typed Decision Models",
+    "titleZh": "研究发现类型化决策模型主要按选项标签而非定义作答",
+    "authors": [],
+    "category": "alignment",
+    "selected": true,
+    "attention": 89,
+    "summaryZh": "研究者对四个开放权重类型化决策模型（三个 laya checkpoint 与 von）做消融实验，发现多数模型的答案主要由选项标签而非定义决定。在固定标签分类任务上，删除全部定义后 laya-td 准确率几乎不变（0.8559 对 0.8487），而定义单独使用时可达 0.7971；在仅把规则写在定义里的合成路由套件 PolicyBench 上，把选项改名为 A、B 使 laya-td 准确率提升 +0.1511 [+0.1377,+0.1646]。作者把原因定位到提示词渲染：laya 把选项写成“{label}: {definition}”，von 只写定义；不改权重、只改这一表达式，三个 laya checkpoint 对标签完全不变（+0.0000），而 von 在标签与定义冲突时准确率从 0.8511 降到 0.2281。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02586",
+      "aisafetyhot": "https://aisafetyhot.com/items/r2y6bkss8z0p1b4euhoinco9p"
+    },
+    "publishedAt": "2026-09-30T20:00:00.000Z",
+    "timelineAt": "2026-10-06T18:43:29.171Z",
+    "discoveredAt": "2026-10-06T18:43:29.171Z"
+  },
+  {
     "arxivId": "2610.05453",
     "title": "The Poisoned Conversation",
     "titleZh": "研究者提出 Privacy-Leaking Watermarks，可在本地多模态模型中泄露对话隐私",
