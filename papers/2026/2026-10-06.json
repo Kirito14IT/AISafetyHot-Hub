@@ -190,6 +190,24 @@
     "discoveredAt": "2026-10-06T04:25:27.542Z"
   },
   {
+    "arxivId": "2610.04575",
+    "title": "From Probe Scores to Alarm Policies",
+    "titleZh": "论文提出 Operational Validity Contract，审计激活监控从探针分数到告警策略的有效性",
+    "authors": [],
+    "category": "alignment",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "论文指出激活探针的高 AUROC 与部署中按误报预算设定的告警阈值是两个不同的估计量，并提出 Operational Validity Contract，用目标、可观测性、身份、时机、单元、对照、校准与成本八个字段固定监控声明。作者还给出一个反例，说明降低整体 AUROC 反而能提升实际 10% 效用，并将 MUP 与 LASR 的声明上限限定为受限预测价值，AgentDojo 与 ST-Web 限定为表征可及性，没有任何设定达到告警策略有效性。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04575",
+      "aisafetyhot": "https://aisafetyhot.com/items/ahiyv3c5hhbqyzm3gvnexhysn"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T06:22:40.067Z",
+    "discoveredAt": "2026-10-06T06:22:40.067Z"
+  },
+  {
     "arxivId": "2610.03938",
     "title": "MLLMs Fail to Refuse when Using Tools Agentically",
     "titleZh": "论文发现多模态模型启用工具后拒答失败率最高上升 68.7%",
@@ -671,6 +689,24 @@
     "discoveredAt": "2026-10-06T05:17:56.415Z"
   },
   {
+    "arxivId": "2605.17380",
+    "title": "ADR: An Agentic Detection System for Enterprise Agentic AI Security",
+    "titleZh": "Uber 提出 ADR 企业级 Agent 检测系统，在 7200 台主机部署十个月",
+    "authors": [],
+    "category": "defense",
+    "selected": true,
+    "attention": 77,
+    "summaryZh": "Uber 团队提出 ADR（Agentic AI Detection and Response）系统，用于防护通过 MCP 运行的 AI 智能体，由采集提示词、推理步骤与工具调用因果链的 ADR Sensor、预部署红队的 ADR Explorer 和两级在线检测的 ADR Detector 组成。该系统在 Uber 部署超过十个月，覆盖 7200 多台主机、每日处理逾 1 万次 Agent 会话，发现 26 类凭证泄露，并支撑一个精确率 97.2% 的凭证泄露拦截层。ADR-Bench 与 ADR Sensor 及检测框架源码已在 GitHub 公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2605.17380",
+      "aisafetyhot": "https://aisafetyhot.com/items/ras5ad55ged7twtttqkagshsv"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T06:18:18.965Z",
+    "discoveredAt": "2026-10-06T06:18:18.965Z"
+  },
+  {
     "arxivId": "2610.05894",
     "title": "Noise Out, Bias In: Targeted Bias Injection in Diffusion Language Models via Closed-Loop Activation Steering",
     "titleZh": "研究者提出闭环偏见注入攻击，可将 LLaDA-8B 的 BBQ 目标差距从 1.8 提升至 16.7 个百分点",
@@ -773,7 +809,28 @@
     "selected": true,
     "attention": 76,
     "summaryZh": "MBZUAI 团队提出一种基于重建保真度的可校准认证方法，只在没有任何已知生成器能忠实重建样本时才将其认证为真实，否则弃权并给出重建证据。研究评估了 20 个深伪检测器对 10 个生成器的表现，最佳准确率从 2022 年生成器上的 99.5% 降至 2026 年生成器上的 76%；在 ϵ=8/255 的 ℓ∞ 有界扰动下，20 个检测器全部跌破 2% 准确率，最强的 D3 也只剩 1.75%。该方法在 1% 误报率下校准安全阈值与更严格的安全（security）阈值，SD3 Medium 的阈值从 0.0365 提升到 0.038 后仍保持该上界；best-of-100 攻击加 PGD 只把候选分数从 0.0148 提到 0.0154，24 种语义变换中 23 种低于安全阈值。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "生成模型能合成以假乱真的内容并被大规模滥用，而事后检测器随生成器迭代越来越不可靠：作者评测的二十个检测器准确率从 99.5% 降到 76%，在对抗扰动下全部跌破 2%。作者认为内容本身无法决定真实来源，因为生成器可能精确复现真实内容，因此需要一种只做有已知错误率声明的\"可靠\"检测方式。",
+          "label": "问题"
+        },
+        {
+          "text": "作者提出用重建保真度做认证：用已知开源生成器（RF-Inversion）反演可疑样本，若某生成器能忠实重建，则其真实性\"可合理否认\"，检测器弃权并给出重建证据；只有所有生成器都重建失败才认证为真实。用 PSNR、SSIM、1−LPIPS、CLIP 的加权组合算 A-index，并在干净样本和 ℓ∞ 扰动样本上分别校准安全阈值与更严格的安全阈值，使生成内容被误认证的比例不超过 1%。",
+          "label": "方法"
+        },
+        {
+          "text": "在五个生成器配置上校准后，1% FPR 下多数基线召回接近零，包括默认准确率 93% 的检测器；二十四个语义变换中二十三个低于安全阈值，其余低于安全阈值；best-of-100 加 PGD 的攻击只把分数从 0.0148 提到 0.0154，仍低于阈值。3000 张 Reddit 图片中，2022 年生成器无法重建 1116 张，2024 年生成器只无法重建 55–79 张，可认证比例两年内下降超过 14 倍；视频上按帧平均仍保留重建信号，而三个视频基线 AUC 均不超过 0.615。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "认证每图每生成器需 11.67 秒，只适合取证而非大规模筛查；安全阈值只覆盖校准过的攻击，更强优化器或新攻击类别可能突破，需重新校准。开放编辑（拼接、截图、图生图）无法枚举，图像级分数也无法定位合成区域；私有微调或不可反演的生成器不在覆盖范围内，且随生成器变强可认证内容持续减少。Reddit 样本为关键词驱动，视频研究仅 100 个视频、8 帧平均、不含时序与音频。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.05870"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.05870",
       "aisafetyhot": "https://aisafetyhot.com/items/cxmbdds39tr38k8whykwz8k0k"
@@ -1094,24 +1151,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T06:14:59.576Z",
     "discoveredAt": "2026-10-06T06:14:59.576Z"
-  },
-  {
-    "arxivId": "2610.04575",
-    "title": "From Probe Scores to Alarm Policies",
-    "titleZh": "研究：内部激活探针的高 AUROC 未必带来高报警检出率",
-    "authors": [],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项研究考察内部激活探针的区分能力能否转化为实际报警能力，发现较高的 AUROC 在固定误报预算下并不保证高检出率，并在 AgentDojo 中给出漏报案例。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.04575",
-      "aisafetyhot": "https://aisafetyhot.com/items/ahiyv3c5hhbqyzm3gvnexhysn"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-06T06:22:40.067Z",
-    "discoveredAt": "2026-10-06T06:22:40.067Z"
   },
   {
     "arxivId": "2610.05346",
@@ -1626,6 +1665,24 @@
     "discoveredAt": "2026-10-06T05:17:48.925Z"
   },
   {
+    "arxivId": "2610.06306",
+    "title": "Inspect Robots",
+    "titleZh": "Inspect Robots 开源具身 Agent 评测框架，测试 6 个前沿模型机器人策略",
+    "authors": [],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究团队发布开源具身 Agent 评测框架 Inspect Robots，用于测试 6 个基于前沿模型的机器人策略。作者称该框架发布三个月下载量接近十万次，但下载量属作者主张，不能作为安全效果的证据。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06306",
+      "aisafetyhot": "https://aisafetyhot.com/items/bur7qj81ghcdv75elt8844sz4"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T07:21:53.018Z",
+    "discoveredAt": "2026-10-06T07:21:53.018Z"
+  },
+  {
     "arxivId": "2610.05689",
     "title": "Toward AI Trustworthiness: Finding Analytically Proven Forward-Invariant Sets for AI-Controlled Systems",
     "titleZh": "研究者提出用可逆神经网络为 AI 控制系统寻找可证明的前向不变集",
@@ -1736,6 +1793,24 @@
     "discoveredAt": "2026-10-06T05:39:34.764Z"
   },
   {
+    "arxivId": "2610.06084",
+    "title": "AI-Generated Disinformation in the UK",
+    "titleZh": "研究分析英国 112 例 AI 生成虚假信息，识别八类危害风险",
+    "authors": [],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项针对英国 AI 生成或 AI 篡改虚假信息的研究分析了 2025 年 1 月 1 日至 2026 年 3 月 31 日期间在英国被浏览数千万次的 112 个样本。研究识别出八个存在实质危害风险的领域，包括引发严重社会动荡和私刑暴力、直接损害健康、造成网络诈骗类严重财务损失，以及影响公众与警察和司法系统互动、助长可能造成直接伤害的虚假阴谋论、长期改变社会和政治态度等。超过五分之四的样本加剧了公众对信息的不信任，使其被视为实质虚假或误导而非仅仅不准确。作者指出该数据集并非该时期全部 AI 虚假信息的完整样本，而是展示部分潜在影响的快照。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06084",
+      "aisafetyhot": "https://aisafetyhot.com/items/fktzgt90jn372kilc4csxi30d"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T06:22:32.558Z",
+    "discoveredAt": "2026-10-06T06:22:32.558Z"
+  },
+  {
     "arxivId": "2610.06563",
     "title": "HERA: Harness-Environment Co-Evolution for Reliable Agentic Abstention",
     "titleZh": "HERA 提出 harness 与环境协同演化，提升 Agent 拒答准确率至 83.3%",
@@ -1800,24 +1875,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T04:27:27.918Z",
     "discoveredAt": "2026-10-06T04:27:27.918Z"
-  },
-  {
-    "arxivId": "2610.06084",
-    "title": "AI-Generated Disinformation in the UK",
-    "titleZh": "研究梳理英国 112 条 AI 生成虚假信息，归纳八类危害",
-    "authors": [],
-    "category": "industry",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项研究梳理了 2025 年 1 月至 2026 年 3 月在英国传播的 112 条 AI 生成或篡改虚假信息，并将其归纳为社会骚乱、健康、诈骗损失等八类危害。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.06084",
-      "aisafetyhot": "https://aisafetyhot.com/items/fktzgt90jn372kilc4csxi30d"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-06T06:22:32.558Z",
-    "discoveredAt": "2026-10-06T06:22:32.558Z"
   },
   {
     "arxivId": "2610.03880",
@@ -2222,6 +2279,24 @@
     "discoveredAt": "2026-10-06T05:39:34.665Z"
   },
   {
+    "arxivId": "2610.06848",
+    "title": "TranScope",
+    "titleZh": "TranScope：利用硬件侧信道研究模型成员推断风险",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "TranScope 通过硬件侧信道考察模型的成员推断风险，即由硬件层面的信息泄露判断某条数据是否参与过模型训练。现有公开交接未提供该研究的完整评测范围或结果数字。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06848",
+      "aisafetyhot": "https://aisafetyhot.com/items/syycp5ehoxpggc2m617ypd6ao"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T07:22:00.596Z",
+    "discoveredAt": "2026-10-06T07:22:00.596Z"
+  },
+  {
     "arxivId": "2609.38096",
     "title": "Tail-Influence Sampling for CVaR Policy Evaluation",
     "titleZh": "Tail-Influence Sampling：面向 CVaR 策略评估的尾部影响采样",
@@ -2375,5 +2450,41 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T05:39:34.839Z",
     "discoveredAt": "2026-10-06T05:39:34.839Z"
+  },
+  {
+    "arxivId": "2610.04243",
+    "title": "NeuroSploit on GOAD",
+    "titleZh": "NeuroSploit 在 GOAD 环境中评测自主渗透测试与 9 个前沿模型",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "单作者研究在 GOAD 测试环境中对自主渗透测试工具 NeuroSploit 和 9 个前沿模型进行了评测，并自报较高的技术覆盖。该结果为工具作者自测，不能等同于独立验证或现实入侵能力。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04243",
+      "aisafetyhot": "https://aisafetyhot.com/items/rq9ea22cz7q4zglky65q17nsb"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T07:21:45.495Z",
+    "discoveredAt": "2026-10-06T07:21:45.495Z"
+  },
+  {
+    "arxivId": "2610.05036",
+    "title": "OSS 漏洞在 agent 系统中的传播",
+    "titleZh": "OSS 漏洞在 agent 系统中的传播",
+    "authors": [],
+    "category": null,
+    "selected": false,
+    "attention": null,
+    "summaryZh": null,
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.05036",
+      "aisafetyhot": "https://aisafetyhot.com/items/lp03zfhdscep9xueg77fazjk0"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T07:22:08.148Z",
+    "discoveredAt": "2026-10-06T07:22:08.148Z"
   }
 ]
