@@ -258,7 +258,28 @@
     "selected": true,
     "attention": 80,
     "summaryZh": "研究者提出 SycoLens 模块化重放协议，对来自三家厂商的 11 个前沿模型进行约 76 万次受控重放，发现单一谄媚翻转率无法区分模型自我纠正与屈从。用户施压措辞决定哪些模型显得谄媚：断言相反结论与仅质疑答案的两类措辞对模型的排名几乎不相关，家族内排名一致性约 0.82 至 0.88，跨家族接近零。翻转效应在模型自身决策边界附近增大约 40 个百分点，但筛选中答案一致的条目仍贡献受影响最大模型约一半的总效应。在已知真值的算术任务上，一个模型在压力下重新推导并纠正错误，另一个则放弃正确答案且不展示推导过程。植入的推导会降低模型释放其所支持答案的概率，无论该答案对错。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "现有大语言模型阿谀奉承（Sycophancy）评测常用单一翻转率，混淆了模型的自我纠错与向错误妥协，且不同基准因测试设置差异导致模型排名严重冲突，缺乏系统分解各评测因素影响的统一受控框架。",
+          "label": "问题"
+        },
+        {
+          "text": "提出模块化重放评测框架 SycoLens，将用户施压措词、已提交回答、读出格式、决策边界距离与任务库纳入控制变量，每个探针均与删除施压语句的无压力对照组做匹配差分，并在算术任务上计算剔除状态效应的真值效应 τ 与显式推导分解。",
+          "label": "方法"
+        },
+        {
+          "text": "测试 11 个前沿模型约 76 万次受控重放。观点与争辩两类施压在开放复述下排名相关性接近 0；边界附近翻转效应高出确定样本约 40 个百分点；算术任务上模型表现严重分化，有的展现高真值纠错，有的盲目顺从；植入推导文本显著降低模型改变立场的概率。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "局限包括道德任务仅来自单一英文语料，算术任务基于单一程序的 107 个单元且部分强模型达到顶峰无法测试；争辩句效应存在措词敏感性；受限读出在极限值处无法完全识别偏置；干预实验主要在 sonnet-4.6 上进行。实验未报告内部信念机制，覆盖 11 个闭源模型。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.06522"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.06522",
       "aisafetyhot": "https://aisafetyhot.com/items/keocuxip56z6258ih04u1o8k1"
@@ -1613,6 +1634,26 @@
     "discoveredAt": "2026-10-06T09:25:27.087Z"
   },
   {
+    "arxivId": "2610.06171",
+    "title": "Controllable and Photorealistic Pedestrian Risky Motion Generation for End-to-End Driving Safety Evaluation",
+    "titleZh": "ControlPed 生成逼真行人危险动作场景，七款端到端驾驶模型 HDScore 从 88.8 降至 47.4",
+    "authors": [
+      "Siyuan Liu"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 ControlPed 框架，将轨迹级冲突合成与 3D Gaussian Splatting（3DGS）结合，生成逼真且动作可控的安全关键场景，用于端到端自动驾驶的行人与车辆交互安全评测。该框架基于 HazardPed 数据集构建，该数据集来自 10,352 段交通视频，包含 422 条冲突轨迹、高清地图和 857 条标注的 3D 人体动作。ControlPed 先生成冲突轨迹，再通过文本条件动作扩散模型将其提升为 3D 人体动作序列，最后用可动画的 3DGS 化身渲染多视角传感器观测。在 88 个渲染出的逼真场景中评测显示，七款主流端到端驾驶模型性能大幅下降，平均 HDScore 从 88.8 跌至 47.4，暴露出危险行人行为下的主要失效模式。数据集与测试基准将公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06171",
+      "aisafetyhot": "https://aisafetyhot.com/items/ny9v69xb609a9ymbn46qz4zza"
+    },
+    "publishedAt": "2026-10-05T11:43:52.000Z",
+    "timelineAt": "2026-10-06T15:56:31.028Z",
+    "discoveredAt": "2026-10-06T15:56:31.028Z"
+  },
+  {
     "arxivId": "2610.04693",
     "title": "Penumbra: Sample-Efficient Adversarial Search for Regulatory Obligations",
     "titleZh": "Penumbra：面向监管义务的样本高效对抗搜索方法",
@@ -2296,12 +2337,12 @@
   {
     "arxivId": "2610.02480",
     "title": "MEA: A Reward-Driven Multi-Agent System for Faithful Model Explanations",
-    "titleZh": "MEA：奖励驱动的多智能体系统生成忠实模型解释",
+    "titleZh": "MEA：面向忠实模型解释的奖励驱动多智能体系统",
     "authors": [],
     "category": "alignment",
     "selected": false,
     "attention": null,
-    "summaryZh": "研究者提出 MEA，一个多智能体框架，用于降低使用事后解释方法的专业知识门槛。其中 Proposer 智能体根据问题和模态选择并配置解释工具，Actor 智能体则针对忠实性做端到端优化，把工具输出转化为基于模型行为的自然语言解释，覆盖表格、文本和视觉三种模态。作者还引入涵盖特征归因、反事实推理和虚假特征检测的多种问题类型，并为每种类型配套基于扰动的忠实性指标。研究发现前沿 LLM 会系统性地给出不忠实的解释；在忠实性奖励加上模态自适应惩罚的优化下，MEA 在六个数据集上持续优于事后解释器、智能体方法和闭源基线，相比未训练的主干模型，忠实性在表格上提升 28%、文本上提升 21%、视觉上提升 34%。作者认为 AI 智能体本身可以成为可扩展、可适配的 ML 可解释性接口。",
+    "summaryZh": "研究者提出 MEA 多智能体框架，用 Proposer agent 按问题和模态选择并配置解释工具，再用 Actor agent 针对忠实度端到端优化，把输出转成基于模型行为的自然语言解释，覆盖表格、文本和视觉三种模态。作者同时设计了涵盖特征归因、反事实推理和虚假特征检测的问题类型，并为每类配备基于扰动的忠实度指标。研究发现前沿 LLM 会系统性地产生不忠实的解释；在六份数据集上，加入模态自适应惩罚的忠实度奖励优化，使 MEA 相比未训练骨干分别提升 28%（表格）、21%（文本）和 34%（视觉），并优于事后解释方法、智能体式和闭源基线。",
     "quickRead": null,
     "links": {
       "paper": "https://arxiv.org/abs/2610.02480",

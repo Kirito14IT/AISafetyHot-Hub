@@ -1,0 +1,20 @@
+[
+  {
+    "arxivId": "2609.36684",
+    "title": "ProgressCompass: Embodied Progress Reward Models Are Lost Without the Right Context",
+    "titleZh": "ContextProgress-Bench 揭示具身进度奖励模型缺少上下文会失效",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出具身智能体长任务中的上下文依赖进度估计问题，即仅凭当前帧无法判断任务进度，而现有进度估计基准多聚焦可从当前观测读出进度的短任务。为此作者构建 ContextProgress-Bench，包含 24 个操作任务、120 个 episode，覆盖状态回忆、序列跟踪和重复歧义三种设定。配对诊断显示，即使读取完整历史的进度奖励模型（PRM）也会在估计进度时迷失，但在指令中整合正确上下文后，同样五个模型的进度误差下降 77-82%。作者据此提出 ProgressCompass，一个自主智能体循环，用当前通用 VLM 为冻结的 PRM 提供所需上下文，使进度误差下降 63%、排名一致性提升 76%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.36684",
+      "aisafetyhot": "https://aisafetyhot.com/items/po07x4i020ce9cyzizup1chww"
+    },
+    "publishedAt": "2026-09-28T20:00:00.000Z",
+    "timelineAt": "2026-10-06T16:08:28.360Z",
+    "discoveredAt": "2026-10-06T16:08:28.360Z"
+  }
+]
