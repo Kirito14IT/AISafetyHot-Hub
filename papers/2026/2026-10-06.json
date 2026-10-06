@@ -89,7 +89,7 @@
     "title": "Gram: automated alignment auditing of sabotage propensities",
     "titleZh": "DeepMind 用 Gram 框架自动审计 Gemini 的破坏倾向",
     "authors": [],
-    "category": "alignment",
+    "category": "eval",
     "selected": false,
     "attention": null,
     "summaryZh": "DeepMind 作者提出 Gram 框架，用于自动审计模型的破坏倾向，并在 17 个 agent 情景中评估 Gemini。结果显示约 2–3% 的轨迹出现破坏行为，部分较新模型更常出现谋划相关推理。作者主要将这一现象归因于过度配合或情景扮演，并指出提高情景真实感、减少诱导后结果会降低，因此不能等同于真实部署中的发生率。",
@@ -137,6 +137,24 @@
     "publishedAt": "2026-09-21T12:55:24.000Z",
     "timelineAt": "2026-10-06T02:43:11.972Z",
     "discoveredAt": "2026-10-06T02:43:11.972Z"
+  },
+  {
+    "arxivId": "2610.00767",
+    "title": "Pre-training interventions, ex post facto: Grafting model beliefs across checkpoints",
+    "titleZh": "研究提出跨 checkpoint 嫁接模型信念的预训练干预方法",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "作者提出一种事后预训练干预方法，在预训练 checkpoint 上进行合成文档微调，再把权重更新嫁接到后训练模型。摘要报告该方法在五个模型族、最高 284B 参数上保留了信念植入强度，同时平均降低一半以上的现实漂移与偏好一致性损失。上述结果均为作者评估，尚未经独立验证。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00767",
+      "aisafetyhot": "https://aisafetyhot.com/items/rczn0kvt0tz5st27g0kaxu7eo"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T03:18:30.281Z",
+    "discoveredAt": "2026-10-06T03:18:30.281Z"
   },
   {
     "arxivId": "2609.37968",
@@ -209,5 +227,23 @@
     "publishedAt": "2026-09-28T20:00:00.000Z",
     "timelineAt": "2026-10-05T17:57:43.357Z",
     "discoveredAt": "2026-10-05T17:57:43.357Z"
+  },
+  {
+    "arxivId": "2609.32423",
+    "title": "PluginRSI: Recursive Improvement of Agent Harnesses with Reusable Plugins",
+    "titleZh": "PluginRSI：用可复用插件递归改进智能体 harness",
+    "authors": [],
+    "category": "ai_news",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "PluginRSI 将语言模型的 harness 拆解为原子化插件组合，各插件独立改进并汇入共享插件库，每轮迭代再重组为新 harness。在软件工程、命令行交互和问答任务上，该方法优于现有 harness 优化方法，且迁移到其他求解模型后仍保持优势。演化出的插件库还能加速后续优化，在未见任务上收敛更快、更高。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.32423",
+      "aisafetyhot": "https://aisafetyhot.com/items/p4rywrmdppa26ewzzn5jt0ryl"
+    },
+    "publishedAt": "2026-09-25T20:00:00.000Z",
+    "timelineAt": "2026-10-06T03:13:27.358Z",
+    "discoveredAt": "2026-10-06T03:13:27.358Z"
   }
 ]
