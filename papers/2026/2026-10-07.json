@@ -34,5 +34,23 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T16:14:57.859Z",
     "discoveredAt": "2026-10-06T16:14:57.859Z"
+  },
+  {
+    "arxivId": "2610.05898",
+    "title": "Collaborative Personalized Preference Alignment for LLMs under Data Deficiency",
+    "titleZh": "数据稀缺下 LLM 协作式个性化偏好对齐：APO 方法",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对用户反馈稀缺导致 LLM 个性化对齐困难的问题，研究者提出 Approximate Pareto Optimality（APO）方法，先将梯度更新兼容的用户分组以减少干扰，再在组内结合梯度下降与受控上升协调相互竞争的目标，逼近 Pareto 前沿上各用户偏好的最优点，并通过少样本本地适配迭代优化该初始化。在 Fed-ChatbotPA 和 UltraFeedback 上，仅用 20 个本地样本即持续优于现有方法，论文还给出单步本地协作更新的条件次优性界，并刻画初始化误差对后续随机适配的影响。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.05898",
+      "aisafetyhot": "https://aisafetyhot.com/items/zuqk9vgt2v1dvxfdyra6d5fx3"
+    },
+    "publishedAt": "2026-10-04T20:00:00.000Z",
+    "timelineAt": "2026-10-06T18:12:28.623Z",
+    "discoveredAt": "2026-10-06T18:12:28.623Z"
   }
 ]
