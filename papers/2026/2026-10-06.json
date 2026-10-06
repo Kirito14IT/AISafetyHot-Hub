@@ -2186,6 +2186,24 @@
     "discoveredAt": "2026-10-06T05:39:34.764Z"
   },
   {
+    "arxivId": "2610.02480",
+    "title": "MEA: A Reward-Driven Multi-Agent System for Faithful Model Explanations",
+    "titleZh": "MEA：奖励驱动的多智能体系统生成忠实模型解释",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 MEA，一个多智能体框架，用于降低使用事后解释方法的专业知识门槛。其中 Proposer 智能体根据问题和模态选择并配置解释工具，Actor 智能体则针对忠实性做端到端优化，把工具输出转化为基于模型行为的自然语言解释，覆盖表格、文本和视觉三种模态。作者还引入涵盖特征归因、反事实推理和虚假特征检测的多种问题类型，并为每种类型配套基于扰动的忠实性指标。研究发现前沿 LLM 会系统性地给出不忠实的解释；在忠实性奖励加上模态自适应惩罚的优化下，MEA 在六个数据集上持续优于事后解释器、智能体方法和闭源基线，相比未训练的主干模型，忠实性在表格上提升 28%、文本上提升 21%、视觉上提升 34%。作者认为 AI 智能体本身可以成为可扩展、可适配的 ML 可解释性接口。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.02480",
+      "aisafetyhot": "https://aisafetyhot.com/items/s03257dm2fmxwa2ocsp9820v6"
+    },
+    "publishedAt": "2026-09-30T20:00:00.000Z",
+    "timelineAt": "2026-10-06T14:35:27.910Z",
+    "discoveredAt": "2026-10-06T14:35:27.910Z"
+  },
+  {
     "arxivId": "2610.06084",
     "title": "AI-Generated Disinformation in the UK",
     "titleZh": "研究分析英国 112 例 AI 生成虚假信息，识别八类危害风险",
