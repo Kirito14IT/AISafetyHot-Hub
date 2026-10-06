@@ -95,7 +95,28 @@
     "selected": true,
     "attention": 84,
     "summaryZh": "该 arXiv 论文讨论长时程智能体的分段提示注入审计。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "针对长流程智能体面临的分阶段间接提示注入（staged IPI），已有输入过滤和终局评估无法准确定位干预点，需在具有外部或持久影响的待定动作发生前进行边界动作审计。",
+          "label": "问题"
+        },
+        {
+          "text": "提出路径对齐归因（PAA），将待定边界动作分解为操作要素，分别归因其取值来源和决策依据；代码层确定性校验引用文本，模型层进行语义裁决；仅当无任务授权、产生实质偏差且存在未合规操纵或校验冲突时判定BLOCK。",
+          "label": "方法"
+        },
+        {
+          "text": "在Claude Code与Codex构建的3112个单元基准上，PAA以Claude Sonnet 5为后端达到86%的BLOCK召回率与6-8%的FBR，优于VIGIL与ARGUS；离线首次拦截分析中，在87.5%和88.7%的受攻击轨迹上首个拦截命中金标BLOCK动作。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "离线重放仅识别干预时机而非在线防御与恢复；S03中存在语义理解与跨事件归因导致的漏报；Codex S04中用户禁止建文件与技能要求的冲突导致FBR偏高；攻击方案运行前固定，未测试针对审计器自身的对抗性攻击。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.05163"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.05163",
       "aisafetyhot": "https://aisafetyhot.com/items/loi8ttnja0iu9z73wyj0kb2pr"
@@ -661,7 +682,28 @@
     "selected": true,
     "attention": 77,
     "summaryZh": "题为 Cooldown Landmines 的研究讨论 LLM 网关中的跨租户干扰。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "LLM网关在为不同租户执行独立配额的同时共享后端部署及其冷却记录。一个租户的请求失败会更新共享冷却状态，导致其他合规租户被错误排除在该可用部署之外，引发跨租户拒绝服务、降级回退或合规策略违规。",
+          "label": "问题"
+        },
+        {
+          "text": "作者提出两项缓解措施：在网关内部给API Key RPM拒绝异常添加服务端标记，阻止其写入部署失败状态；将符合条件的429冷却记录按认证租户进行作用域隔离，非429后端硬故障保留全局共享冷却。通过Redis与本地缓存结合实现租户隔离冷却。",
+          "label": "方法"
+        },
+        {
+          "text": "在LiteLLM上成功触发两类攻击。在4个worker的5次配对运行中，租户隔离冷却将恢复后受害者回退次数从54/60降至0/60；在Kong 3.6中被动健康检查同样复现跨租户排除。在多租户并发429测试中，租户隔离冷却导致上游请求中位数从15增至209次。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "局限与后续方向（第7节、附录A.3、6.6节）：未测攻击者发现后端部署ID的准备成本；生产环境中持续干扰、多worker间精确RPM核算、提供商配额归属等未测。实验覆盖：被测网关以LiteLLM v1.99.0为主，对比Kong 3.6；模型为Qwen1.5-MoE-A2.7B-Chat和DeepSeek-MoE-16B-Chat。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.05089"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.05089",
       "aisafetyhot": "https://aisafetyhot.com/items/vcgnb0kouhx0jb4y1u5t23m9k"
@@ -1587,24 +1629,6 @@
     "discoveredAt": "2026-10-06T04:15:31.805Z"
   },
   {
-    "arxivId": "2610.04616",
-    "title": "PerturBot: Breaking Shortcut Priors in Vision-Language-Action Models with Perturbative Training",
-    "titleZh": "PerturBot：用扰动训练打破视觉-语言-动作模型的捷径先验",
-    "authors": [],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出 PerturBot，用于解决视觉-语言-动作（VLA）策略依赖模态捷径的问题，即视觉、词汇或动作线索足以预测专家动作而无需任务证据。PerturBot 通过任务保持的手腕视角扰动、加入决策相关描述的指令增强，以及用其行为重新标注的随机与失败轨迹片段，使任务相关证据更易被使用、捷径不再充分，同时不改变推理过程。研究还提出离线评分 GroundingFscore，用于诊断策略对模态捷径的依赖程度，与任务成功率互补，判断策略是否健康扩展。二者共同构成训练与评估框架，在保留对任务相关证据响应的同时，将 VLA 决策与捷径先验解耦。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.04616",
-      "aisafetyhot": "https://aisafetyhot.com/items/skseeosb3xujehykmp5t7llcu"
-    },
-    "publishedAt": "2026-10-02T20:00:00.000Z",
-    "timelineAt": "2026-10-06T06:50:27.192Z",
-    "discoveredAt": "2026-10-06T06:50:27.192Z"
-  },
-  {
     "arxivId": "2609.30467",
     "title": "Where Does Retrieval-Based Open-Ended Evaluation Fail? Automatic Taxonomy Induction from Long-Form Medical Answer Factuality Verification",
     "titleZh": "研究提出医疗答案事实核查失败分类法，指出检索后验证范式的固有局限",
@@ -1875,6 +1899,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T04:27:27.918Z",
     "discoveredAt": "2026-10-06T04:27:27.918Z"
+  },
+  {
+    "arxivId": "2610.04616",
+    "title": "PerturBot: Breaking Shortcut Priors in Vision-Language-Action Models with Perturbative Training",
+    "titleZh": "PerturBot 用扰动训练打破视觉-语言-动作模型的模态捷径",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 PerturBot，用于缓解视觉-语言-动作（VLA）策略中的模态捷径问题，即策略依赖训练中反复出现的视觉、词汇或动作线索而非任务证据来做决策。该方法在训练阶段引入保持任务语义的腕部视角扰动、加入含决策信息的指令描述，并混入随机与失败轨迹片段并按其中实际行为重新标注，推理阶段不做改动。作者同时提出离线指标 GroundingFscore，用于诊断策略对模态捷径的依赖程度，与任务成功率互补，判断策略是否在健康地扩展。论文称二者共同构成一套训练与评估框架，使 VLA 决策更多依赖任务相关证据。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04616",
+      "aisafetyhot": "https://aisafetyhot.com/items/skseeosb3xujehykmp5t7llcu"
+    },
+    "publishedAt": "2026-10-02T20:00:00.000Z",
+    "timelineAt": "2026-10-06T06:50:27.192Z",
+    "discoveredAt": "2026-10-06T06:50:27.192Z"
   },
   {
     "arxivId": "2610.03880",
@@ -2313,24 +2355,6 @@
     "publishedAt": "2026-09-28T20:00:00.000Z",
     "timelineAt": "2026-10-05T17:57:43.357Z",
     "discoveredAt": "2026-10-05T17:57:43.357Z"
-  },
-  {
-    "arxivId": "2605.21318",
-    "title": "TextReg: Mitigating Prompt Distributional Overfitting via Regularized Text-Space Optimization",
-    "titleZh": "TextReg：通过正则化文本空间优化缓解提示词分布过拟合",
-    "authors": [],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对 LLM 提示词优化中提示词越改越长、堆砌样本特化规则、难以泛化到训练分布之外的问题，研究者提出正则化框架 TextReg，以“表征低效性”双因子度量将提示词低效拆解为容量成本与范围狭窄，并通过正则化文本梯度实现软惩罚目标。在多个推理基准上，TextReg 显著提升分布外泛化能力，准确率最高较 TextGrad 提升 +11.8%、较 REVOLVE 提升 +16.5%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2605.21318",
-      "aisafetyhot": "https://aisafetyhot.com/items/hh1xslyldlaqaork8845hboji"
-    },
-    "publishedAt": "2026-10-04T20:00:00.000Z",
-    "timelineAt": "2026-10-06T06:50:27.201Z",
-    "discoveredAt": "2026-10-06T06:50:27.201Z"
   },
   {
     "arxivId": "2610.04925",
