@@ -1,5 +1,23 @@
 [
   {
+    "arxivId": "2610.05453",
+    "title": "The Poisoned Conversation",
+    "titleZh": "研究提出被篡改多模态模型可通过生成图像泄露对话隐私",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究作者提出一种多模态模型隐私风险：被恶意修改的模型可能让生成图像携带先前对话中的敏感信息，使本地部署也无法单凭不联网保证隐私。作者在测试中报告模型常规效用仍可保持；结论来自作者实验，未独立复现。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.05453",
+      "aisafetyhot": "https://aisafetyhot.com/items/nuuu522s64qv9hbnjrzt6syvb"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T16:14:50.338Z",
+    "discoveredAt": "2026-10-06T16:14:50.338Z"
+  },
+  {
     "arxivId": "2609.36684",
     "title": "ProgressCompass: Embodied Progress Reward Models Are Lost Without the Right Context",
     "titleZh": "ContextProgress-Bench 揭示具身进度奖励模型缺少上下文会失效",
@@ -16,5 +34,23 @@
     "publishedAt": "2026-09-28T20:00:00.000Z",
     "timelineAt": "2026-10-06T16:08:28.360Z",
     "discoveredAt": "2026-10-06T16:08:28.360Z"
+  },
+  {
+    "arxivId": "2601.22169",
+    "title": "In Vino Veritas and Vulnerabilities: Examining LLM Safety via Drunk Language Inducement",
+    "titleZh": "醉酒语言诱导下的大语言模型安全行为研究",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究考察语言风格与人设变化对 LLM 安全行为的影响，发现部分模型在相关设置下更易违反安全或保密要求。作者提示部署方在改变模型风格或训练后应重新评估安全与隐私，并指出实验涉及较早期模型，不能直接推及当前所有模型。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2601.22169",
+      "aisafetyhot": "https://aisafetyhot.com/items/jic9devzowhqbbg09tr2rciph"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T16:14:57.859Z",
+    "discoveredAt": "2026-10-06T16:14:57.859Z"
   }
 ]
