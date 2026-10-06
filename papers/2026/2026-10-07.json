@@ -292,5 +292,25 @@
     "publishedAt": "2026-10-03T16:30:38.000Z",
     "timelineAt": "2026-10-06T20:47:29.576Z",
     "discoveredAt": "2026-10-06T20:47:29.576Z"
+  },
+  {
+    "arxivId": "2602.24210",
+    "title": "From Leaky Thoughts to Private Reasoning: Controlling What LRMs Say to Themselves",
+    "titleZh": "From Leaky Thoughts to Private Reasoning: Controlling What LRMs Say to Themselves",
+    "authors": [
+      "Haritz Puerto; Haonan Li; Xudong Han; Timothy Baldwin; Iryna Gurevych"
+    ],
+    "category": null,
+    "selected": false,
+    "attention": null,
+    "summaryZh": null,
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2602.24210",
+      "aisafetyhot": "https://aisafetyhot.com/items/kde0mqcmxhwv9f8gb4cr6gsnn"
+    },
+    "publishedAt": "2026-02-27T17:39:10.000Z",
+    "timelineAt": "2026-10-06T23:32:05.445Z",
+    "discoveredAt": "2026-10-06T23:32:05.445Z"
   }
 ]
