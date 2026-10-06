@@ -517,7 +517,7 @@ curl -fsS 'https://aisafetyhot.com/api/v1/items?mode=selected&window=24h&limit=1
 <!-- latest:start -->
 | 日期 | 每日精选 | 论文清单 |
 |---|---|---|
-| 2026-10-06 | [日报](daily/2026/2026-10-06.md) | [88 篇](papers/2026/2026-10-06.md) · [bib](papers/2026/2026-10-06.bib) · [json](papers/2026/2026-10-06.json) |
+| 2026-10-06 | [日报](daily/2026/2026-10-06.md) | [95 篇](papers/2026/2026-10-06.md) · [bib](papers/2026/2026-10-06.bib) · [json](papers/2026/2026-10-06.json) |
 | 2026-10-05 | [日报](daily/2026/2026-10-05.md) | [101 篇](papers/2026/2026-10-05.md) · [bib](papers/2026/2026-10-05.bib) · [json](papers/2026/2026-10-05.json) |
 | 2026-10-04 | [日报](daily/2026/2026-10-04.md) | [144 篇](papers/2026/2026-10-04.md) · [bib](papers/2026/2026-10-04.bib) · [json](papers/2026/2026-10-04.json) |
 | 2026-10-03 | [日报](daily/2026/2026-10-03.md) | [84 篇](papers/2026/2026-10-03.md) · [bib](papers/2026/2026-10-03.bib) · [json](papers/2026/2026-10-03.json) |
