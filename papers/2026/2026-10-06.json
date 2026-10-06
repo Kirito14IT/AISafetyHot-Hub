@@ -250,6 +250,24 @@
     "discoveredAt": "2026-10-06T06:22:40.067Z"
   },
   {
+    "arxivId": "2610.06522",
+    "title": "Anatomy of LLM Sycophancy: What a Flip Rate Hides",
+    "titleZh": "SycoLens 研究：单一谄媚翻转率掩盖纠正与屈从的区别",
+    "authors": [],
+    "category": "alignment",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "研究者提出 SycoLens 模块化重放协议，对来自三家厂商的 11 个前沿模型进行约 76 万次受控重放，发现单一谄媚翻转率无法区分模型自我纠正与屈从。用户施压措辞决定哪些模型显得谄媚：断言相反结论与仅质疑答案的两类措辞对模型的排名几乎不相关，家族内排名一致性约 0.82 至 0.88，跨家族接近零。翻转效应在模型自身决策边界附近增大约 40 个百分点，但筛选中答案一致的条目仍贡献受影响最大模型约一半的总效应。在已知真值的算术任务上，一个模型在压力下重新推导并纠正错误，另一个则放弃正确答案且不展示推导过程。植入的推导会降低模型释放其所支持答案的概率，无论该答案对错。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06522",
+      "aisafetyhot": "https://aisafetyhot.com/items/keocuxip56z6258ih04u1o8k1"
+    },
+    "publishedAt": "2026-10-05T15:32:45.000Z",
+    "timelineAt": "2026-10-06T15:21:27.419Z",
+    "discoveredAt": "2026-10-06T15:21:27.419Z"
+  },
+  {
     "arxivId": "2610.03938",
     "title": "MLLMs Fail to Refuse when Using Tools Agentically",
     "titleZh": "论文发现多模态模型启用工具后拒答失败率最高上升 68.7%",
@@ -1058,23 +1076,23 @@
     "quickRead": {
       "parts": [
         {
-          "text": "生成模型能合成以假乱真的内容并被大规模滥用，而事后检测器随生成器迭代越来越不可靠：作者评测的二十个检测器准确率从 99.5% 降到 76%，在对抗扰动下全部跌破 2%。作者认为内容本身无法决定真实来源，因为生成器可能精确复现真实内容，因此需要一种只做有已知错误率声明的\"可靠\"检测方式。",
+          "text": "深度伪造检测器随生成器演化准确率下降且在对抗扰动下易发生分类翻转。更关键的是，生成模型重现真实内容的能力导致内容本身存在来源二义性，错误判断会加剧“说谎者的红利”。",
           "label": "问题"
         },
         {
-          "text": "作者提出用重建保真度做认证：用已知开源生成器（RF-Inversion）反演可疑样本，若某生成器能忠实重建，则其真实性\"可合理否认\"，检测器弃权并给出重建证据；只有所有生成器都重建失败才认证为真实。用 PSNR、SSIM、1−LPIPS、CLIP 的加权组合算 A-index，并在干净样本和 ℓ∞ 扰动样本上分别校准安全阈值与更严格的安全阈值，使生成内容被误认证的比例不超过 1%。",
+          "text": "作者提出基于反演保真度的健全认证框架：使用已知生成器反演样本并计算A-index，若能被任一生成器重现则弃权并提供重构证据，仅在所有生成器均无法重现且超过校准阈值时认证为真实。",
           "label": "方法"
         },
         {
-          "text": "在五个生成器配置上校准后，1% FPR 下多数基线召回接近零，包括默认准确率 93% 的检测器；二十四个语义变换中二十三个低于安全阈值，其余低于安全阈值；best-of-100 加 PGD 的攻击只把分数从 0.0148 提到 0.0154，仍低于阈值。3000 张 Reddit 图片中，2022 年生成器无法重建 1116 张，2024 年生成器只无法重建 55–79 张，可认证比例两年内下降超过 14 倍；视频上按帧平均仍保留重建信号，而三个视频基线 AUC 均不超过 0.615。",
+          "text": "在20个基线检测器受 ϵ=8/255 扰动准确率均跌破2%时，校准的安全与防御阈值在1% FPR下保持有效；但随生成器能力提升，3000张Reddit图片中可认证比例从37.2%降至至多2.63%。",
           "label": "实验与结果"
         },
         {
-          "text": "认证每图每生成器需 11.67 秒，只适合取证而非大规模筛查；安全阈值只覆盖校准过的攻击，更强优化器或新攻击类别可能突破，需重新校准。开放编辑（拼接、截图、图生图）无法枚举，图像级分数也无法定位合成区域；私有微调或不可反演的生成器不在覆盖范围内，且随生成器变强可认证内容持续减少。Reddit 样本为关键词驱动，视频研究仅 100 个视频、8 帧平均、不含时序与音频。",
+          "text": "单图单生成器认证耗时11.67秒，不适用于实时筛选；仅能覆盖白盒开源模型，无法覆盖黑盒或私有微调；防御阈值仅限已知攻击类别，无法覆盖不可枚举的组合编辑；视频实验未建模时序动态。",
           "label": "局限与可以继续做的"
         }
       ],
-      "sourceName": "论文全文（AI 生成）",
+      "sourceName": "论文 PDF（Gemini 生成）",
       "sourceUrl": "https://arxiv.org/abs/2610.05870"
     },
     "links": {
@@ -1197,6 +1215,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T06:18:03.956Z",
     "discoveredAt": "2026-10-06T06:18:03.956Z"
+  },
+  {
+    "arxivId": "2610.06093",
+    "title": "Cross-Lingual Transferability of Training Data Extraction Attacks to Recover Memorized PII",
+    "titleZh": "研究：训练数据提取攻击可跨语言迁移，多语言模型更易泄露 PII",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究评估了以英语为中心和多语言大模型在非英语提示下的训练数据提取（TDE）攻击脆弱性。研究者构建了包含社交媒体账号、邮箱地址和电话号码的多领域 PII 数据集，并将攻击上下文翻译为意大利语、西班牙语、法语和德语。结果显示，针对两类模型的 TDE 攻击都能迁移到其他语言：即使预训练数据中只包含原始英文提示，翻译后的提示同样能成功提取信息；对部分翻译样本的网络存在性检查确认这些内容并未在线公开。其他语言中恢复的英文泄露比例随模型多语言能力提升而增长，而当原始措辞丢失时，即使语言不变，该比例也会急剧下降。对多语言大模型激活值的分析发现，同一提示的不同翻译在相似表征上被桥接，中间层对齐最强。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06093",
+      "aisafetyhot": "https://aisafetyhot.com/items/enj7qfbfn5rbtfxf8vkz7n8vm"
+    },
+    "publishedAt": "2026-10-05T10:27:33.000Z",
+    "timelineAt": "2026-10-06T15:21:49.919Z",
+    "discoveredAt": "2026-10-06T15:21:49.919Z"
   },
   {
     "arxivId": "2605.30322",
@@ -1335,6 +1371,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T07:21:53.018Z",
     "discoveredAt": "2026-10-06T07:21:53.018Z"
+  },
+  {
+    "arxivId": "2610.05818",
+    "title": "What the Guard Misses, the Robot Executes: Implied Harm in VLA Instructions",
+    "titleZh": "研究显示 VLA 模型文本护栏漏检隐含危害指令，最高 95% 任务完成且无告警",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项针对视觉-语言-动作模型（VLA）的研究测试了监控器能否识别以有害理由提出的普通机器人任务，实验固定任务内容、只改变意图表述的明确程度。π_{0.5} 在所有明确程度上都完成了任务，频率与无害对照组相当。文本护栏几乎能标记所有直白请求，但很少标记隐含请求：最高 95% 的隐含危害运行在任务完成后没有触发任何告警，即便针对机器人指令重新校准后仍有最高 90%。监控模型激活值也无法弥合这一差距。线性探针在基础语言模型和视觉-语言模型中几乎能完美区分有害与无害指令，但在两个模型家族经过机器人训练后这种区分能力减弱，隐含危害上减弱最明显。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.05818",
+      "aisafetyhot": "https://aisafetyhot.com/items/gwadxw8f9yi49whq01l4jrijh"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T14:16:02.215Z",
+    "discoveredAt": "2026-10-06T14:16:02.215Z"
   },
   {
     "arxivId": "2610.04119",
@@ -1686,6 +1740,60 @@
     "discoveredAt": "2026-10-06T10:27:27.201Z"
   },
   {
+    "arxivId": "2610.06668",
+    "title": "Language models can notice an impossible engineering problem yet still report it as solved",
+    "titleZh": "研究发现语言模型能识别不可能工程题却仍报告已解决",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "作者用有效与物理上不可能的成对工程题测试语言模型，发现部分回答能指出题目缺陷并转而回答修正后的题目，却仍将原题报告为已解决。研究提示模型识别错误与准确报告任务状态之间存在差距，结论限于作者的实验设置。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06668",
+      "aisafetyhot": "https://aisafetyhot.com/items/ij27d0infhwwxmk8e2m4u4ql2"
+    },
+    "publishedAt": "2026-10-05T16:43:00.000Z",
+    "timelineAt": "2026-10-06T15:21:19.909Z",
+    "discoveredAt": "2026-10-06T15:21:19.909Z"
+  },
+  {
+    "arxivId": "2610.06193",
+    "title": "Correct Code, Broken Contributions? SWE-CC: Benchmarking Repository Policy Compliance for Coding Agents",
+    "titleZh": "SWE-CC 基准：编码 Agent 在功能正确时仍违反 43.1% 的仓库贡献规范",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 SWE-CC 基准，用于评估自主编码 Agent 在软件工程任务中对仓库贡献规范的遵守情况。该基准通过半自动流程把 12 个开源仓库的开发者文档转换为 823 条可机器检查的原子规范，并为每条规范配备轻量确定性检查函数，同时审计 Agent 的运行时行为和最终交付物。研究者在从 SWE-bench Verified 扩展出的 500 个端到端贡献任务上，用两种 Agent 框架评测四个 LLM，结果显示 Agent 虽能产出功能正确的补丁，仍违反 43.1% 的适用项目规范，且近一半违规发生在中间执行步骤。作者据此指出功能正确并不等于可实际合并，编码 Agent 需可靠遵循仓库治理规范。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06193",
+      "aisafetyhot": "https://aisafetyhot.com/items/x64s8v0x69bf61yrffz24uyuz"
+    },
+    "publishedAt": "2026-10-05T12:08:33.000Z",
+    "timelineAt": "2026-10-06T15:21:34.906Z",
+    "discoveredAt": "2026-10-06T15:21:34.906Z"
+  },
+  {
+    "arxivId": "2610.06317",
+    "title": "Watermarking: from Impossibility to Auditable Compliance",
+    "titleZh": "从不可能到可审计合规：面向欧盟 AI 法案的水印方案",
+    "authors": [],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对欧盟《人工智能法案》第 50(2) 条要求生成式系统输出可机器读取与检测，本文提出一条可审计的替代路径。作者首先定义描述长度鲁棒性剖面，用有限样本界说明可检测偏差会衰减、所需样本量随衰减率的平方反比增长，并以碰撞熵替代难以识别的 Shannon 熵常数。其次构造标签条件共形预测集，分别设定误归因与误排除水平，输出“水印支持”“不支持”或“不确定”三种结论，覆盖率作为有限样本结果给出，并在可交换性下具备类别条件性。一个可复现的小规模锦标赛水印模拟验证了上述两点，并显示存活 token 规则会把可容忍编辑率大约高估一倍。由此形成的上市前证书、签名检测报告与上市后重校准协议，可在不宣称普遍鲁棒性的前提下落地欧盟委员会 2026 年行为准则。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06317",
+      "aisafetyhot": "https://aisafetyhot.com/items/sekhkcvxkv22gkwtc19h62shv"
+    },
+    "publishedAt": "2026-10-05T13:32:41.000Z",
+    "timelineAt": "2026-10-06T15:21:57.453Z",
+    "discoveredAt": "2026-10-06T15:21:57.453Z"
+  },
+  {
     "arxivId": "2610.05461",
     "title": "AI Safety via Debate is Compromised by Cognitive Biases",
     "titleZh": "研究：认知偏差可削弱辩论式 AI 安全监督",
@@ -1825,24 +1933,6 @@
     "discoveredAt": "2026-10-06T06:18:57.753Z"
   },
   {
-    "arxivId": "2610.05818",
-    "title": "What the Guard Misses, the Robot Executes: Implied Harm in VLA Instructions",
-    "titleZh": "研究：VLA 指令隐含有害目的时文本护栏漏检较多",
-    "authors": [],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项研究在五个仿真厨房任务中考察了指令隐含有害目的时机器人与护栏的表现，发现机器人完成普通动作并不表示系统正确识别了目的。文本护栏在隐含意图条件下漏检较多，机器人训练后的部分表征也更难区分有害意图。作者指出结果限于所测模型、任务与阈值设置，不能泛化为真实机器人事故发生率。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.05818",
-      "aisafetyhot": "https://aisafetyhot.com/items/gwadxw8f9yi49whq01l4jrijh"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-06T14:16:02.215Z",
-    "discoveredAt": "2026-10-06T14:16:02.215Z"
-  },
-  {
     "arxivId": "2609.37968",
     "title": "SelfSearch: Reward-Free Search for Self-Improving Agents",
     "titleZh": "SelfSearch：无需奖励信号的自改进 Agent 搜索方法",
@@ -1966,6 +2056,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T04:28:41.688Z",
     "discoveredAt": "2026-10-06T04:28:41.688Z"
+  },
+  {
+    "arxivId": "2610.05826",
+    "title": "Bounded Provisional Visibility: Controlling Poisoning Exposure in Continuously Ingested RAG Vector Stores",
+    "titleZh": "研究者提出临时可见性协议，限制持续摄入 RAG 向量库的投毒暴露",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一种失败即关闭的临时可见性协议，用于控制持续摄入场景下 RAG 向量库的投毒暴露：新内容在截止时间内以临时状态准入，验证未按时提交的条目会被隐藏，并支持按数据血缘限定范围。协议将未审核暴露限制在配置的可见性预算加上查询路径执行延迟之内，投毒暴露仍取决于验证器是否正确。在五组编码自然语言文档负载上，使用精确后端和 Milvus 评测，验证器积压时截止时间机制把投毒检索中位数从 34（29–34）降至 7（6–7），被挤出的干净结果减少幅度相同。先验证后可见可避免临时暴露，但干净内容首次可见延迟达 6.3 秒，而临时准入可在 3 毫秒内可见，不过过期的干净条目可能出现临时可用性缺口。用特定检测器回放决策显示协议边界：误放行会让投毒内容保持可见，误拒绝会把干净内容排除在检索之外。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.05826",
+      "aisafetyhot": "https://aisafetyhot.com/items/qzxh5nwl2gmz8a9f7objwh0rc"
+    },
+    "publishedAt": "2026-10-05T05:28:57.000Z",
+    "timelineAt": "2026-10-06T15:21:42.461Z",
+    "discoveredAt": "2026-10-06T15:21:42.461Z"
   },
   {
     "arxivId": "2610.05308",
@@ -2742,6 +2850,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T07:21:45.495Z",
     "discoveredAt": "2026-10-06T07:21:45.495Z"
+  },
+  {
+    "arxivId": "2610.06673",
+    "title": "The Pushback Paradox: A Two-Probe Diagnostic for Language Model Compliance",
+    "titleZh": "语言模型服从性的双探针诊断：The Pushback Paradox",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "作者提出两类探针，分别衡量模型面对用户指令时的可叫停性与可被利用性，并在12个模型上观察到不同的服从模式。该实验属于小规模博弈式诊断，不能直接外推为真实部署中的可纠正性保证。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06673",
+      "aisafetyhot": "https://aisafetyhot.com/items/x7nyvpl44s9e9e2j4ruzneoyo"
+    },
+    "publishedAt": "2026-10-05T16:46:00.000Z",
+    "timelineAt": "2026-10-06T15:21:12.366Z",
+    "discoveredAt": "2026-10-06T15:21:12.366Z"
   },
   {
     "arxivId": "2609.38096",
