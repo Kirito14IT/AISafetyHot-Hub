@@ -96,6 +96,24 @@
     "discoveredAt": "2026-10-06T16:14:50.338Z"
   },
   {
+    "arxivId": "2610.04699",
+    "title": "CoVer",
+    "titleZh": "CoVer：用干预检验为 Agent 构造可判定规则边界",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 CoVer（corroborate-then-verify）方法，用于判断 Agent 执行的规则中哪些可由固定检查处理、哪些需要裁判。研究者在六个语料库（包括 EU AI Act、FINRA 指引和一个已部署的信贷 Agent）上，从三个实验室的四个模型收集约 2.2 万条标注，发现模型在答案明显时几乎完全一致，但在监管文本上分歧严重，且错误方向相反，无法把任一模型当作保守选择；在已部署 Agent 的规则集上，模型还会共同错误地声称固定检查足够，而这一方向永远不会被升级审核。CoVer 把模型一致视为提名，只有当为该谓词合成的检查能通过干预、读取 Agent 无法写入的字段并在确定性改写下保持成立时才接纳该谓词，从而拒绝大部分仅靠一致同意被错误接纳的谓词，代价是覆盖率的下降。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04699",
+      "aisafetyhot": "https://aisafetyhot.com/items/mzrlylpgh8r7uxd1ya106fvo5"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T20:27:05.783Z",
+    "discoveredAt": "2026-10-06T20:27:05.783Z"
+  },
+  {
     "arxivId": "2610.04907",
     "title": "Why Subliminal Learning Needs So Much Data: A Noisy Inverse View through Steering Vector Recovery",
     "titleZh": "为什么潜意识学习需要海量数据：从引导向量恢复看含噪逆问题",
@@ -148,6 +166,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T19:15:15.768Z",
     "discoveredAt": "2026-10-06T19:15:15.768Z"
+  },
+  {
+    "arxivId": "2610.06163",
+    "title": "SAGE",
+    "titleZh": "SAGE：定位 LLM Agent 修复中最早偏离安全意图的环节",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Security Awareness Gap Evaluation（SAGE），一种基于轨迹的方法，结合每轮记录的安全推理评估与重建的代码历史，定位 LLM Agent 在修复中最早偏离任务安全意图的环节，针对的是通过语法与功能检查但仍含漏洞的静默失败。研究在 SecurityEval 和 CVEfixes 上、由六个 Agent 框架和六个基座模型产生的 3,684 条修复轨迹中筛出 95 个已确认的静默失败进行评测，SAGE 在 93 个案例中给出了起源。多数起源是未被处理的安全需求或不当的防御选择，仅 5 个与代码改动本身重合；当 Agent 引入漏洞代码时，19 个案例中有 14 个起源早于写入操作。重复评分和第二评判者对起源类型的复现一致性高于对具体轮次的一致性，仅保留最终文件的轨迹一致性最低。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06163",
+      "aisafetyhot": "https://aisafetyhot.com/items/kxsd3z52s75neijrepg5uejl4"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T20:26:58.250Z",
+    "discoveredAt": "2026-10-06T20:26:58.250Z"
   },
   {
     "arxivId": "2610.04975",
