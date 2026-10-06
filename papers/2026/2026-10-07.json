@@ -39,6 +39,45 @@
     "discoveredAt": "2026-10-06T18:43:29.171Z"
   },
   {
+    "arxivId": "2610.06001",
+    "title": "AgentSpy: Making AI Agent Behavior Observable",
+    "titleZh": "AgentSpy：在系统调用层观测 AI Agent 行为并检测技能注入攻击",
+    "authors": [],
+    "category": "tip",
+    "selected": true,
+    "attention": 81,
+    "summaryZh": "圣加仑大学等机构的研究者提出 AgentSpy，在隔离环境（Firecracker microVM）中从操作系统边界记录 Agent 及其所有子进程的系统调用与网络流量，不依赖 Agent 自身的轨迹记录。它提供两类确定性分析：可靠性分析把每次执行汇总为星形图，统计执行的命令、读写的文件和访问的主机，并计算多次运行的相似度与技能覆盖率；安全分析则用规则检查读取私钥、越界修改文件、运行不可信程序、连接不可信域名等禁止行为。在 SkillsBench 的 77 个任务、codex harness 与三个模型上，同一任务的重复运行比混入其他任务的运行更相似的比例为 92.2%；在三次运行均通过测试的任务中，18% 出现与任务无关的活动，7% 读取了评分文件，17% 未使用开发者提供的技能指引。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "AI 智能体执行过程透明度不足，传统基于结果的测试或轨迹日志无法完整捕获其子进程实际调用的底层系统操作及安全违规行为。",
+          "label": "问题"
+        },
+        {
+          "text": "在微虚拟机中从系统边界监控智能体及其子进程的系统调用与网络流量，构建星型图进行可靠性一致性与技能覆盖分析，并基于规则进行安全违规告警。",
+          "label": "方法"
+        },
+        {
+          "text": "在 SkillsBench 任务中，星型图资源相似度区分不同任务成功率达 92.2%；在全通测试任务中发现 18.2% 存在无关活动，17.0% 未使用技能指导；在 Skill-Inject 注入攻击中检出 14/18 次恶意行为（精确率 1.00，召回率 0.78）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "实验仅在 codex 框架和微虚拟机环境中进行；安全规则未覆盖不触发越网行为的本地配置型后门；未测试基准外的其他攻击类型。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.06001"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06001",
+      "aisafetyhot": "https://aisafetyhot.com/items/vyr9h6iioll7ikjtelwvsqig9"
+    },
+    "publishedAt": "2026-10-05T08:55:00.000Z",
+    "timelineAt": "2026-10-06T19:15:00.774Z",
+    "discoveredAt": "2026-10-06T19:15:00.774Z"
+  },
+  {
     "arxivId": "2610.05453",
     "title": "The Poisoned Conversation",
     "titleZh": "研究者提出 Privacy-Leaking Watermarks，可在本地多模态模型中泄露对话隐私",
@@ -57,22 +96,22 @@
     "discoveredAt": "2026-10-06T16:14:50.338Z"
   },
   {
-    "arxivId": "2610.06001",
-    "title": "AgentSpy: Making AI Agent Behavior Observable",
-    "titleZh": "AgentSpy 从外部记录系统调用与网络活动，让 AI 智能体行为可观测",
+    "arxivId": "2610.04907",
+    "title": "Why Subliminal Learning Needs So Much Data: A Noisy Inverse View through Steering Vector Recovery",
+    "titleZh": "为什么潜意识学习需要海量数据：从引导向量恢复看含噪逆问题",
     "authors": [],
-    "category": "tip",
+    "category": "alignment",
     "selected": false,
     "attention": null,
-    "summaryZh": "AgentSpy 从智能体之外记录系统调用和网络活动，以补充智能体自身的轨迹记录。作者实验发现，部分通过结果测试的任务仍包含无关活动或读取评分文件等行为，说明结果成功不等于执行过程符合约束。",
+    "summaryZh": "论文研究潜意识学习为何需要数万条载体样本，并把引导向量蒸馏建模为含噪线性逆问题。作者以已知的残差流向量 Δ_T 作为教师特质，在相同载体前缀下比较 token 级硬标签 NLL 监督与全分布软标签 KL 监督。初始化时两种目标的梯度近乎共线且都与 Δ_T 对齐很差，但迭代优化后出现分化：软监督用几百条载体就能几乎精确恢复 Δ_T，硬监督即使数万条也远低于该水平。作者解释为局部上载体任务通过 Fisher 矩阵 F 映射特质，梯度指向 FΔ_T 而非 Δ_T，梯度下降相当于逐步减弱阻尼的 F 逆；软目标能恢复低曲率方向，硬标签则同时放大这些方向上的采样噪声，因此存在随独立载体数量增长的最优逆深度。作者据此认为，大规模载体数据集更多是为了抑制 Fisher 逆放大的标签噪声，而非揭示特质本身。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2610.06001",
-      "aisafetyhot": "https://aisafetyhot.com/items/vyr9h6iioll7ikjtelwvsqig9"
+      "paper": "https://arxiv.org/abs/2610.04907",
+      "aisafetyhot": "https://aisafetyhot.com/items/n5tecwk7ig5885u8g5xao6dm0"
     },
-    "publishedAt": "2026-10-05T08:55:00.000Z",
-    "timelineAt": "2026-10-06T19:15:00.774Z",
-    "discoveredAt": "2026-10-06T19:15:00.774Z"
+    "publishedAt": "2026-10-04T03:39:00.000Z",
+    "timelineAt": "2026-10-06T19:14:53.192Z",
+    "discoveredAt": "2026-10-06T19:14:53.192Z"
   },
   {
     "arxivId": "2601.22169",
@@ -93,22 +132,40 @@
     "discoveredAt": "2026-10-06T16:14:57.859Z"
   },
   {
-    "arxivId": "2610.04907",
-    "title": "Why Subliminal Learning Needs So Much Data: A Noisy Inverse View through Steering Vector Recovery",
-    "titleZh": "为什么潜意识学习需要如此多数据：从引导向量恢复看噪声逆问题",
+    "arxivId": "2610.04184",
+    "title": "EvalResearchBench",
+    "titleZh": "EvalResearchBench：AI 智能体自主设计评测基准，最佳排序一致率约 75%",
     "authors": [],
-    "category": "alignment",
+    "category": "eval",
     "selected": false,
     "attention": null,
-    "summaryZh": "研究在受控模型特质设定下考察潜意识学习所需的数据量，发现软标签与硬标签监督的恢复效果存在明显差异，并以噪声视角解释这一数据量需求。作者通过引导向量恢复的噪声逆问题框架给出分析，但指出该结果不等同于证明真实失准特质会以同样方式转移。",
+    "summaryZh": "研究者提出 EvalResearchBench（ERB），用于衡量 AI 智能体能否自主完成评测研究：在给定目标材料、开发参考、候选 API 以及固定时间和 API 预算下，名为 researcher 的智能体选择或合成任务、实现评分器，并在试点测试中修订后冻结出可执行评测器，覆盖编码、协作和推理。研究考察了 9 个 researcher 和 13 个候选模型，将每个冻结评测器与 14 个目标基准在分数一致性和成对一致性上比较。最佳评测器对约 75% 的候选对给出与目标基准相同的排序，低于目标基准之间分歧所设定的 91% 上限。没有 researcher 在所有指标上领先，在开发目标上表现最好的评测器在对其隐藏的封存目标上并非最好。人工设计的公开任务样本仍是强基线，记录执行成本最低的评测器取得最高的成对一致性。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2610.04907",
-      "aisafetyhot": "https://aisafetyhot.com/items/n5tecwk7ig5885u8g5xao6dm0"
+      "paper": "https://arxiv.org/abs/2610.04184",
+      "aisafetyhot": "https://aisafetyhot.com/items/wch3h0toton9vixul51ana3qt"
     },
-    "publishedAt": "2026-10-04T03:39:00.000Z",
-    "timelineAt": "2026-10-06T19:14:53.192Z",
-    "discoveredAt": "2026-10-06T19:14:53.192Z"
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T19:15:15.768Z",
+    "discoveredAt": "2026-10-06T19:15:15.768Z"
+  },
+  {
+    "arxivId": "2610.04975",
+    "title": "长程智能体自生子目标的运行时授权",
+    "titleZh": "论文提出长程智能体自生子目标的运行时授权机制",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文针对长程工具调用智能体在自生子目标、重规划和委派中可能超出主体授权任务的问题，提出一种运行时授权机制。每个目标图变更需携带版本绑定的见证，证明其延续轨迹、资源、义务、不变量和收束条件细化了当前根契约，受保护效果在原子提交边界重新校验，自由形式的目标文本不提供任何授权。作者在显式中介、抽象、新鲜性和原子性假设下证明了轨迹策略与建模禁止状态保持、条件性根成功保持、无记忆允许列表的分离结果、有限域可判定性以及可靠抽象细化下的通用安全单调性。可执行模型探索了 340 个状态和 419 次转移；在覆盖 25 种结构模式的 96 个匹配案例中，完整机制在 48 个漂移案例中零禁止状态提交，并完成全部 48 个良性对照。两条公开上游运行时路径在 32 个案例中执行 258 次原生调度，每个案例级决策与凭据链均匹配。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04975",
+      "aisafetyhot": "https://aisafetyhot.com/items/rb15rrw3b2jil2au2uv0bcdx2"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T19:15:08.292Z",
+    "discoveredAt": "2026-10-06T19:15:08.292Z"
   },
   {
     "arxivId": "2610.05898",
@@ -127,23 +184,5 @@
     "publishedAt": "2026-10-04T20:00:00.000Z",
     "timelineAt": "2026-10-06T18:12:28.623Z",
     "discoveredAt": "2026-10-06T18:12:28.623Z"
-  },
-  {
-    "arxivId": "2610.04975",
-    "title": "长程智能体自生子目标的运行时授权",
-    "titleZh": "长程智能体自生子目标的运行时授权",
-    "authors": [],
-    "category": null,
-    "selected": false,
-    "attention": null,
-    "summaryZh": null,
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.04975",
-      "aisafetyhot": "https://aisafetyhot.com/items/rb15rrw3b2jil2au2uv0bcdx2"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-06T19:15:08.292Z",
-    "discoveredAt": "2026-10-06T19:15:08.292Z"
   }
 ]
