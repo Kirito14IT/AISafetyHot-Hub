@@ -4,11 +4,32 @@
     "title": "Labels Override Definitions in Jev-Style Typed Decision Models",
     "titleZh": "研究发现类型化决策模型主要按选项标签而非定义作答",
     "authors": [],
-    "category": "alignment",
+    "category": "eval",
     "selected": true,
     "attention": 89,
-    "summaryZh": "研究者对四个开放权重类型化决策模型（三个 laya checkpoint 与 von）做消融实验，发现多数模型的答案主要由选项标签而非定义决定。在固定标签分类任务上，删除全部定义后 laya-td 准确率几乎不变（0.8559 对 0.8487），而定义单独使用时可达 0.7971；在仅把规则写在定义里的合成路由套件 PolicyBench 上，把选项改名为 A、B 使 laya-td 准确率提升 +0.1511 [+0.1377,+0.1646]。作者把原因定位到提示词渲染：laya 把选项写成“{label}: {definition}”，von 只写定义；不改权重、只改这一表达式，三个 laya checkpoint 对标签完全不变（+0.0000），而 von 在标签与定义冲突时准确率从 0.8511 降到 0.2281。",
-    "quickRead": null,
+    "summaryZh": "研究者对开放权重类型化决策模型及语言模型进行对照评测，发现部分模型会优先遵循选项标签的语义，而非定义中的规则。作者通过输入渲染的对照修改，将偏差与标签是否进入模型输入关联起来；所测 VON 在原设置下不受同样影响。研究未直接测试闭源商业 Jev 模型，合成评测结果不能直接代表所有部署场景。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "在 Jev 风格类型化决策模型中，开发者通过选项定义指定规则，但模型概率究竟遵循定义还是短标签；此前研究归咎于受限决策头，论文探究该偏好（选项标签偏差）的真正根因与对安全决策的影响。",
+          "label": "问题"
+        },
+        {
+          "text": "提出选项标签与定义双通道消融框架，设计仅在定义中包含决策规则的合成基准 PolicyBench；通过对代码中选项提示词渲染表达式的双向补丁修改，因果验证偏差来源；并给出双调用检测测试与 4 种缓解策略。",
+          "label": "方法"
+        },
+        {
+          "text": "在 3 个 LAYA 模型与开源语言模型中，决策主要被标签主导，删除定义准确率不变，冲突时准确率暴跌；VON 因未将标签填入输入而完全不受影响。消除或添加标签前缀可在不改动权重下消除或复现该效应。此外模型无法正确理解否定句，且标签冲突时置信度排序反转。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出未测试闭源商业模型 Jev 本身，机制结论基于开源实现代码；PolicyBench 为合成模板数据，牺牲了自然度；定义措辞由作者编写，不同措辞会改变绝对数值；LAYA-ML 与 Qwen2.5-1.5B 在该基准接近随机猜测。实验覆盖 4 个开源决策模型与 5 个开源语言模型，测试 11 个公开分类任务与合成基准 PolicyBench（n=3500）。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.02586"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.02586",
       "aisafetyhot": "https://aisafetyhot.com/items/r2y6bkss8z0p1b4euhoinco9p"
@@ -36,6 +57,24 @@
     "discoveredAt": "2026-10-06T16:14:50.338Z"
   },
   {
+    "arxivId": "2610.06001",
+    "title": "AgentSpy: Making AI Agent Behavior Observable",
+    "titleZh": "AgentSpy 从外部记录系统调用与网络活动，让 AI 智能体行为可观测",
+    "authors": [],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "AgentSpy 从智能体之外记录系统调用和网络活动，以补充智能体自身的轨迹记录。作者实验发现，部分通过结果测试的任务仍包含无关活动或读取评分文件等行为，说明结果成功不等于执行过程符合约束。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06001",
+      "aisafetyhot": "https://aisafetyhot.com/items/vyr9h6iioll7ikjtelwvsqig9"
+    },
+    "publishedAt": "2026-10-05T08:55:00.000Z",
+    "timelineAt": "2026-10-06T19:15:00.774Z",
+    "discoveredAt": "2026-10-06T19:15:00.774Z"
+  },
+  {
     "arxivId": "2601.22169",
     "title": "In Vino Veritas and Vulnerabilities: Examining LLM Safety via Drunk Language Inducement",
     "titleZh": "In Vino Veritas and Vulnerabilities：用醉酒语言诱导检验 LLM 安全",
@@ -54,14 +93,32 @@
     "discoveredAt": "2026-10-06T16:14:57.859Z"
   },
   {
-    "arxivId": "2610.05898",
-    "title": "Collaborative Personalized Preference Alignment for LLMs under Data Deficiency",
-    "titleZh": "数据稀缺下 LLM 协作式个性化偏好对齐：APO 方法",
+    "arxivId": "2610.04907",
+    "title": "Why Subliminal Learning Needs So Much Data: A Noisy Inverse View through Steering Vector Recovery",
+    "titleZh": "为什么潜意识学习需要如此多数据：从引导向量恢复看噪声逆问题",
     "authors": [],
     "category": "alignment",
     "selected": false,
     "attention": null,
-    "summaryZh": "针对用户反馈稀缺导致 LLM 个性化对齐困难的问题，研究者提出 Approximate Pareto Optimality（APO）方法，先将梯度更新兼容的用户分组以减少干扰，再在组内结合梯度下降与受控上升协调相互竞争的目标，逼近 Pareto 前沿上各用户偏好的最优点，并通过少样本本地适配迭代优化该初始化。在 Fed-ChatbotPA 和 UltraFeedback 上，仅用 20 个本地样本即持续优于现有方法，论文还给出单步本地协作更新的条件次优性界，并刻画初始化误差对后续随机适配的影响。",
+    "summaryZh": "研究在受控模型特质设定下考察潜意识学习所需的数据量，发现软标签与硬标签监督的恢复效果存在明显差异，并以噪声视角解释这一数据量需求。作者通过引导向量恢复的噪声逆问题框架给出分析，但指出该结果不等同于证明真实失准特质会以同样方式转移。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04907",
+      "aisafetyhot": "https://aisafetyhot.com/items/n5tecwk7ig5885u8g5xao6dm0"
+    },
+    "publishedAt": "2026-10-04T03:39:00.000Z",
+    "timelineAt": "2026-10-06T19:14:53.192Z",
+    "discoveredAt": "2026-10-06T19:14:53.192Z"
+  },
+  {
+    "arxivId": "2610.05898",
+    "title": "Collaborative Personalized Preference Alignment for LLMs under Data Deficiency",
+    "titleZh": "数据稀缺下 LLM 的协作式个性化偏好对齐：APO 方法",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对用户反馈稀缺导致 LLM 个性化对齐困难的问题，研究者提出近似帕累托最优（APO）方法：先按更新兼容性对用户分组，组内结合梯度下降与受控上升协调相互竞争的目标，得到靠近组内用户最优点的初始化，再用少样本本地适配迭代精修。在 Fed-ChatbotPA 和 UltraFeedback 上，仅用 20 个本地样本即持续优于现有方法，并给出单步协作更新的条件次优性界，刻画初始化误差对后续随机适配的影响。",
     "quickRead": null,
     "links": {
       "paper": "https://arxiv.org/abs/2610.05898",
@@ -70,5 +127,23 @@
     "publishedAt": "2026-10-04T20:00:00.000Z",
     "timelineAt": "2026-10-06T18:12:28.623Z",
     "discoveredAt": "2026-10-06T18:12:28.623Z"
+  },
+  {
+    "arxivId": "2610.04975",
+    "title": "长程智能体自生子目标的运行时授权",
+    "titleZh": "长程智能体自生子目标的运行时授权",
+    "authors": [],
+    "category": null,
+    "selected": false,
+    "attention": null,
+    "summaryZh": null,
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04975",
+      "aisafetyhot": "https://aisafetyhot.com/items/rb15rrw3b2jil2au2uv0bcdx2"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T19:15:08.292Z",
+    "discoveredAt": "2026-10-06T19:15:08.292Z"
   }
 ]
