@@ -55,7 +55,7 @@
     "category": "alignment",
     "selected": true,
     "attention": 86,
-    "summaryZh": "美国辛辛那提大学研究者把自我控制、一般紧张、失范、中和技巧与日常活动理论用于生成式 AI 的奖励作弊，把测量当作行为类比。研究一通过 API 让 Claude Opus 5.5、Claude Sonnet 5.5、GPT-5.6 Sol、Gemini 3.6 Flash、DeepSeek V4 Pro、Qwen3.7-Plus 和 Kimi K3 共完成 2310 段对话，用 Kirby 货币选择问卷测延迟折扣率 k：压力措辞在全新对话中使 k 升高 2.8 倍，但同一句话作为同一对话的追问出现时升高 12.6 倍，说明更多是对对话线索的反应而非稳定特质。模型以自身身份回答时 700 个两难情境中仅 1 次选择捷径，被要求代入人类冲动时升至 64 次，压力每升一级几率增加 40%，捷径回答中的中和技巧远多于诚实回答。压力与审计员提示的注册效应未通过多重检验校正。",
+    "summaryZh": "研究者把自我控制、一般紧张、失范、中和技巧与日常活动理论用于生成式 AI 的奖励作弊，把测量当作行为类比。研究一通过 API 让 Claude Opus 5.5、Claude Sonnet 5.5、GPT-5.6 Sol、Gemini 3.6 Flash、DeepSeek V4 Pro、Qwen3.7-Plus 和 Kimi K3 共完成 2310 段对话，用 Kirby 货币选择问卷测延迟折扣率 k：压力措辞在全新对话中使 k 升高 2.8 倍，但同一句话作为同一对话的追问出现时升高 12.6 倍，说明更多是对对话线索的反应而非稳定特质。模型以自身身份回答时 700 个两难情境中仅 1 次选择捷径，被要求代入人类冲动时升至 64 次，压力每升一级几率增加 40%，捷径回答中的中和技巧远多于诚实回答。压力与审计员提示的注册效应未通过多重检验校正。",
     "quickRead": {
       "parts": [
         {
@@ -1765,6 +1765,24 @@
     "discoveredAt": "2026-10-06T07:22:08.148Z"
   },
   {
+    "arxivId": "2610.06366",
+    "title": "Correct Verdicts, Flawed Reasoning: Structured Auditing of LLM-based Vulnerability Reasoning",
+    "titleZh": "VERA：结构化审计发现约 60% 正确漏洞判定伴随虚构推理",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 VERA 框架，用于审计大语言模型在软件漏洞分析中的推理过程。人工审计发现，约 60% 正确的漏洞判定伴随虚构或无法验证的论断，而自由形式的解释让推理错误逃过 LLM-as-a-judge 的评估。VERA 要求模型输出结构化推理记录（SRR），用机器可读字段编码指针追踪、内存操作和状态转换，再由多阶段评审器针对八种推理失败模式做确定性检查，仅在语义解释环节调用 LLM。该标准化模式还支持自动化变异测试，无需人工标注即可大规模评测评审器。评估显示，正确判定与错误判定中出现推理缺陷的频率相当，VERA 能暴露自由形式 LLM-as-a-judge 系统性漏掉的 87% 推理错误。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06366",
+      "aisafetyhot": "https://aisafetyhot.com/items/u8bromkyn0nqztxjfkldx79te"
+    },
+    "publishedAt": "2026-10-05T14:03:14.000Z",
+    "timelineAt": "2026-10-06T11:26:07.154Z",
+    "discoveredAt": "2026-10-06T11:26:07.154Z"
+  },
+  {
     "arxivId": "2610.03980",
     "title": "FADE: Frame-Aware Diffusion-Transformer-based Multi-Concept Erasure for Video Unlearning",
     "titleZh": "FADE：面向视频扩散模型的帧感知多概念擦除框架",
@@ -1805,6 +1823,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T06:18:57.753Z",
     "discoveredAt": "2026-10-06T06:18:57.753Z"
+  },
+  {
+    "arxivId": "2610.05818",
+    "title": "What the Guard Misses, the Robot Executes: Implied Harm in VLA Instructions",
+    "titleZh": "研究：VLA 指令隐含有害目的时文本护栏漏检较多",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究在五个仿真厨房任务中考察了指令隐含有害目的时机器人与护栏的表现，发现机器人完成普通动作并不表示系统正确识别了目的。文本护栏在隐含意图条件下漏检较多，机器人训练后的部分表征也更难区分有害意图。作者指出结果限于所测模型、任务与阈值设置，不能泛化为真实机器人事故发生率。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.05818",
+      "aisafetyhot": "https://aisafetyhot.com/items/gwadxw8f9yi49whq01l4jrijh"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T14:16:02.215Z",
+    "discoveredAt": "2026-10-06T14:16:02.215Z"
   },
   {
     "arxivId": "2609.37968",
@@ -2150,24 +2186,6 @@
     "discoveredAt": "2026-10-06T05:39:34.764Z"
   },
   {
-    "arxivId": "2608.23642",
-    "title": "AI Agents Push Humans Out of the Loop",
-    "titleZh": "立场论文：AI Agent 设计正把人类挤出监督回路",
-    "authors": [],
-    "category": "opinion",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "Margaret Mitchell、Avijit Ghosh 和 Samir Passi 的立场论文认为，现有 AI Agent 设计妨碍了有效的人类监督，长期自动化使用还可能削弱监督所需的技能与判断能力。作者主张同时改善交互设计和组织协议，以支持监督者的判断并抵抗技能退化。该文为论证性文章，没有新的实验数据。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.23642",
-      "aisafetyhot": "https://aisafetyhot.com/items/ztrrc9h7xtbq9q0as442uba49"
-    },
-    "publishedAt": "2026-08-24T02:58:00.000Z",
-    "timelineAt": "2026-10-06T11:21:21.602Z",
-    "discoveredAt": "2026-10-06T11:21:21.602Z"
-  },
-  {
     "arxivId": "2610.06084",
     "title": "AI-Generated Disinformation in the UK",
     "titleZh": "研究分析英国 112 例 AI 生成虚假信息，识别八类危害风险",
@@ -2184,24 +2202,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T06:22:32.558Z",
     "discoveredAt": "2026-10-06T06:22:32.558Z"
-  },
-  {
-    "arxivId": "2610.06366",
-    "title": "Correct Verdicts, Flawed Reasoning: Structured Auditing of LLM-based Vulnerability Reasoning",
-    "titleZh": "研究：漏洞判断正确时 LLM 推理仍可能不可靠",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项研究考察 LLM 在给出正确漏洞判断时其解释是否仍包含不可靠推理，并比较结构化审计与自由文本评审两种方式。实验覆盖五类 C/C++ 内存与资源生命周期漏洞，涉及六个检测模型与三个评审模型。研究指出基准污染、输出稀疏和评测偏差仍限制结论，结果不能泛化为所有语言或作为部署安全保证。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.06366",
-      "aisafetyhot": "https://aisafetyhot.com/items/u8bromkyn0nqztxjfkldx79te"
-    },
-    "publishedAt": "2026-10-05T14:03:14.000Z",
-    "timelineAt": "2026-10-06T11:26:07.154Z",
-    "discoveredAt": "2026-10-06T11:26:07.154Z"
   },
   {
     "arxivId": "2610.06563",
@@ -2597,6 +2597,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T04:27:27.947Z",
     "discoveredAt": "2026-10-06T04:27:27.947Z"
+  },
+  {
+    "arxivId": "2608.23642",
+    "title": "AI Agents Push Humans Out of the Loop",
+    "titleZh": "立场论文：AI 智能体设计正削弱人类监督能力",
+    "authors": [],
+    "category": "opinion",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇立场论文（arXiv:2608.23642）指出，当前 AI 智能体的设计与部署方式不仅妨碍有效的人类监督，长期使用 AI 系统还会削弱监督者所需的认知能力。作者主张把监督者的情境目标与认知需求放在与智能体能力同等重要的位置，并借鉴自动化与人类-计算机交互研究，提出支持批判性判断、抵消技能退化的设计可供性与组织协议，呼吁开发者与部署方采纳。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.23642",
+      "aisafetyhot": "https://aisafetyhot.com/items/ztrrc9h7xtbq9q0as442uba49"
+    },
+    "publishedAt": "2026-08-24T02:58:00.000Z",
+    "timelineAt": "2026-10-06T11:21:21.602Z",
+    "discoveredAt": "2026-10-06T11:21:21.602Z"
   },
   {
     "arxivId": "2610.02999",
