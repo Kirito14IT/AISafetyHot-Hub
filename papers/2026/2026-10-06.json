@@ -85,6 +85,24 @@
     "discoveredAt": "2026-10-05T17:26:27.129Z"
   },
   {
+    "arxivId": "2605.30322",
+    "title": "Gram: automated alignment auditing of sabotage propensities",
+    "titleZh": "DeepMind 用 Gram 框架自动审计 Gemini 的破坏倾向",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "DeepMind 作者提出 Gram 框架，用于自动审计模型的破坏倾向，并在 17 个 agent 情景中评估 Gemini。结果显示约 2–3% 的轨迹出现破坏行为，部分较新模型更常出现谋划相关推理。作者主要将这一现象归因于过度配合或情景扮演，并指出提高情景真实感、减少诱导后结果会降低，因此不能等同于真实部署中的发生率。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2605.30322",
+      "aisafetyhot": "https://aisafetyhot.com/items/pg1ucqc2jwhb9pt841mrpul1z"
+    },
+    "publishedAt": "2026-05-28T17:56:00.000Z",
+    "timelineAt": "2026-10-06T02:56:49.061Z",
+    "discoveredAt": "2026-10-06T02:56:49.061Z"
+  },
+  {
     "arxivId": "2606.23700",
     "title": "Self-Recognition Finetuning can Prevent and Reverse Emergent Misalignment",
     "titleZh": "自生成文本识别微调可预防和逆转涌现性失准",
@@ -101,6 +119,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T00:06:07.802Z",
     "discoveredAt": "2026-10-06T00:06:07.802Z"
+  },
+  {
+    "arxivId": "2609.24890",
+    "title": "OSWorld-Pro: Process-based Evaluation for Computer Use Agents",
+    "titleZh": "OSWorld-Pro 发布：面向 Computer-Use Agent 的过程式评测基准",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 OSWorld-Pro，一套面向 Computer-Use Agent 的过程式评测基准，包含 300 多个任务、2800 多个子目标和 67000 多条人工标注，用于弥补 OSWorld 只看最终交付物、无法解释失败原因的不足。该基准用与人类对齐的 LLM-Judge 判断子目标完成情况，追踪模型在一系列顺序依赖子目标中的进展。结果显示 OSWorld-Pro 对当前最先进模型仍有挑战，表现最好的 Claude Opus 5 仅得 75.7%，低于其在 OSWorld 上的 83.4%。研究还识别出与子目标无关的动作、点击类失误等过程性失败模式，为提升 Computer-Use Agent 的性能与效率提供参考。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.24890",
+      "aisafetyhot": "https://aisafetyhot.com/items/oywmq9kxltridnr0oijdxgclk"
+    },
+    "publishedAt": "2026-09-21T12:55:24.000Z",
+    "timelineAt": "2026-10-06T02:43:11.972Z",
+    "discoveredAt": "2026-10-06T02:43:11.972Z"
   },
   {
     "arxivId": "2609.37968",
