@@ -100,7 +100,7 @@
     "title": "CoVer",
     "titleZh": "CoVer：用干预检验为 Agent 构造可判定规则边界",
     "authors": [],
-    "category": "alignment",
+    "category": "defense",
     "selected": false,
     "attention": null,
     "summaryZh": "论文提出 CoVer（corroborate-then-verify）方法，用于判断 Agent 执行的规则中哪些可由固定检查处理、哪些需要裁判。研究者在六个语料库（包括 EU AI Act、FINRA 指引和一个已部署的信贷 Agent）上，从三个实验室的四个模型收集约 2.2 万条标注，发现模型在答案明显时几乎完全一致，但在监管文本上分歧严重，且错误方向相反，无法把任一模型当作保守选择；在已部署 Agent 的规则集上，模型还会共同错误地声称固定检查足够，而这一方向永远不会被升级审核。CoVer 把模型一致视为提名，只有当为该谓词合成的检查能通过干预、读取 Agent 无法写入的字段并在确定性改写下保持成立时才接纳该谓词，从而拒绝大部分仅靠一致同意被错误接纳的谓词，代价是覆盖率的下降。",
@@ -112,6 +112,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T20:27:05.783Z",
     "discoveredAt": "2026-10-06T20:27:05.783Z"
+  },
+  {
+    "arxivId": "2608.17776",
+    "title": "Debate Training Reduces Reward Hacking in RLAIF",
+    "titleZh": "辩论训练在 RLAIF 中减少奖励作弊",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者发现，用生成者与批评者两方对抗、由更弱 LLM 评委裁决的辩论方式对 LLM 做 RL 微调，相比 RLAIF 基线能减少奖励作弊。实验在最终答案可验证的数学任务上进行，用冻结的 Gemini 2.5 Flash Lite 评委训练 Gemini 2.5 Flash 级策略：基线很快攻破评委，辩论则在整个训练过程中维持评委表现，峰值验证准确率更高，弥补了 45% 的性能差距，并在多轮 RL 后保持。进一步实验显示，评委进一步变弱会加快作弊，但增加一轮辩论可以补偿；辩论激励可覆盖提示层面的失准；使用 LLM 评委的 RL 比可验证奖励 RL 的训练与验证奖励差距更小；用真值标签学习说服评委的批评是可行的但较慢。作者指出多智能体训练平衡很关键，若无玩家约束，对抗训练可能退化为批评者攻破评委，批评字数限制（约 150 词内有效）能平衡博弈并避免评委被攻破，但会限制批评者的表达清晰度。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.17776",
+      "aisafetyhot": "https://aisafetyhot.com/items/owmw1gy0d1so69sr02ruk9v6m"
+    },
+    "publishedAt": "2026-08-18T13:40:00.000Z",
+    "timelineAt": "2026-10-06T21:13:54.405Z",
+    "discoveredAt": "2026-10-06T21:13:54.405Z"
   },
   {
     "arxivId": "2610.04907",
@@ -186,6 +204,24 @@
     "discoveredAt": "2026-10-06T20:26:58.250Z"
   },
   {
+    "arxivId": "2610.04195",
+    "title": "MemLeak",
+    "titleZh": "MemLeak 研究：多租户智能体共享检索空间存在记忆隔离风险",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "MemLeak 研究多租户智能体长期记忆的隔离风险，指出在共享检索空间中，正常查询也可能取得其他用户的记忆。小规模合成实验显示，检索后的硬性所有权校验有助于缓解这一问题。作者说明该结果不能当作真实企业环境中的泄露率。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04195",
+      "aisafetyhot": "https://aisafetyhot.com/items/leht0n6tasiw4swr0ids4w1n9"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T23:14:30.360Z",
+    "discoveredAt": "2026-10-06T23:14:30.360Z"
+  },
+  {
     "arxivId": "2610.04975",
     "title": "长程智能体自生子目标的运行时授权",
     "titleZh": "论文提出长程智能体自生子目标的运行时授权机制",
@@ -204,40 +240,22 @@
     "discoveredAt": "2026-10-06T19:15:08.292Z"
   },
   {
-    "arxivId": "2608.17776",
-    "title": "Debate Training Reduces Reward Hacking in RLAIF",
-    "titleZh": "辩论训练在 RLAIF 中减少奖励作弊",
+    "arxivId": "2610.04737",
+    "title": "PyINE",
+    "titleZh": "LawZero 提出 PyINE，用可验证程序执行轨迹评估监督方法",
     "authors": [],
     "category": "alignment",
     "selected": false,
     "attention": null,
-    "summaryZh": "研究在可验证数学任务中比较了单一策略与生成者、批评者辩论两种 AI 反馈强化学习（RLAIF）设置，报告辩论有助于维持较弱评委的判断能力并减少奖励作弊。作者指出结果限于其实验设置和所测模型，不构成生产部署保证。",
+    "summaryZh": "LawZero 作者提出 PyINE，用可验证的程序执行轨迹来评估监督方法，发现整体指标可能掩盖罕见的捷径错误。研究指出，成本较低的监督器与较强模型检查在覆盖范围和成本上各有局限。该工作仍是受控基准下的结果，不构成对前沿部署的保证。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2608.17776",
-      "aisafetyhot": "https://aisafetyhot.com/items/owmw1gy0d1so69sr02ruk9v6m"
+      "paper": "https://arxiv.org/abs/2610.04737",
+      "aisafetyhot": "https://aisafetyhot.com/items/evhu1mlx1qgckj69py73cy9ro"
     },
-    "publishedAt": "2026-08-18T13:40:00.000Z",
-    "timelineAt": "2026-10-06T21:13:54.405Z",
-    "discoveredAt": "2026-10-06T21:13:54.405Z"
-  },
-  {
-    "arxivId": "2610.04749",
-    "title": "Agentic discovery of blood biomarker from distilled private health records",
-    "titleZh": "智能体从蒸馏私有健康记录中发现血液生物标志物",
-    "authors": [],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究将 Clalit Health Services 逾 540 万患者面板中的证据蒸馏为一个已发布的评分工具：针对 13 种免疫介导疾病，在数据边界内训练图注意力网络预测候选 CBC 表达式的病例对照 AUC，仅发布训练权重，使智能体能在不暴露患者数据的前提下进行“提议—评分—精炼”循环。外部验证中，智能体发现的表达式较其文献启发的起点中位提升 4.18 个 AUC 百分点；在三个独立队列中，对三种前沿研究工具候选结果重排序，多数比较优于其首选，增益因队列而异。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.04749",
-      "aisafetyhot": "https://aisafetyhot.com/items/tkurwc5j3gs9m67k6qz043qkd"
-    },
-    "publishedAt": "2026-10-03T16:30:38.000Z",
-    "timelineAt": "2026-10-06T20:47:29.576Z",
-    "discoveredAt": "2026-10-06T20:47:29.576Z"
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T23:14:37.843Z",
+    "discoveredAt": "2026-10-06T23:14:37.843Z"
   },
   {
     "arxivId": "2610.05898",
@@ -256,5 +274,23 @@
     "publishedAt": "2026-10-04T20:00:00.000Z",
     "timelineAt": "2026-10-06T18:12:28.623Z",
     "discoveredAt": "2026-10-06T18:12:28.623Z"
+  },
+  {
+    "arxivId": "2610.04749",
+    "title": "Agentic discovery of blood biomarker from distilled private health records",
+    "titleZh": "从蒸馏私有健康记录中智能体发现血液生物标志物",
+    "authors": [],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究将 Clalit Health Services 逾 540 万患者记录蒸馏为已发布的评分工具：针对 13 种免疫介导疾病，在数据边界内训练图注意力网络预测候选 CBC 表达式的病例对照 AUC，仅发布训练权重。外部验证中，智能体发现的表达式较文献种子起点 AUC 中位数提升 4.18 个百分点，在三个独立队列中对三种前沿研究工具候选重排序多数优于其首选。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04749",
+      "aisafetyhot": "https://aisafetyhot.com/items/tkurwc5j3gs9m67k6qz043qkd"
+    },
+    "publishedAt": "2026-10-03T16:30:38.000Z",
+    "timelineAt": "2026-10-06T20:47:29.576Z",
+    "discoveredAt": "2026-10-06T20:47:29.576Z"
   }
 ]
