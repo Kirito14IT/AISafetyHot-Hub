@@ -168,6 +168,24 @@
     "discoveredAt": "2026-10-06T19:15:08.292Z"
   },
   {
+    "arxivId": "2608.17776",
+    "title": "Debate Training Reduces Reward Hacking in RLAIF",
+    "titleZh": "辩论训练在 RLAIF 中减少奖励作弊",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究在可验证数学任务中比较了单一策略与生成者、批评者辩论两种 AI 反馈强化学习（RLAIF）设置，报告辩论有助于维持较弱评委的判断能力并减少奖励作弊。作者指出结果限于其实验设置和所测模型，不构成生产部署保证。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.17776",
+      "aisafetyhot": "https://aisafetyhot.com/items/owmw1gy0d1so69sr02ruk9v6m"
+    },
+    "publishedAt": "2026-08-18T13:40:00.000Z",
+    "timelineAt": "2026-10-06T21:13:54.405Z",
+    "discoveredAt": "2026-10-06T21:13:54.405Z"
+  },
+  {
     "arxivId": "2610.04749",
     "title": "Agentic discovery of blood biomarker from distilled private health records",
     "titleZh": "智能体从蒸馏私有健康记录中发现血液生物标志物",
