@@ -871,88 +871,6 @@
     "discoveredAt": "2026-10-01T12:21:23.515Z"
   },
   {
-    "arxivId": "2609.07529",
-    "title": "CoER: Defending against Adaptive Indirect Prompt Injection via Adversarial Co-Evolution and Refinement",
-    "titleZh": "CoER：用对抗协同演化与精炼防御自适应间接提示注入",
-    "authors": [
-      "Boyang Zhang"
-    ],
-    "category": "defense",
-    "selected": true,
-    "attention": 76,
-    "summaryZh": "研究者提出 CoER，将带有多轮工具调用和多次注入的任务建模为一般和马尔可夫博弈，以此训练能够适应不断演化的攻击者的防御方案。该方法先用成功轨迹初始化攻击者，再用双边对抗强化学习（BA-RL）保留双方的历史策略作为对手种群并混合新旧对手，随后复用这些攻击者挑战教师智能体，只用经安全性验证并通过任务完成的示范来微调共同演进的防御者。在七个领域、三个随机种子上，CoER 将自适应攻击成功率从 41.3% 降至 0.2%，并将安全完成率从 39.6% 提高到 76.2%。外部基准上也表现出更强的抗攻击能力，消融实验进一步验证了历史对手混合与基于种群的精炼的有效性。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "工具调用智能体易受间接提示注入（IPI）攻击。现有防御多针对固定攻击模式，而在多轮任务中，攻击者可依据执行反馈调整后续注入，导致固定防御在自适应攻击下面临失效风险。",
-          "label": "问题"
-        },
-        {
-          "text": "将任务内多轮交互建模为一般和马尔可夫博弈，提出CoER框架：先通过SFT冷启动攻击者，再通过双边对抗强化学习使攻防双方与当前及历史对手博弈，最后利用保留攻击者引导强教师生成轨迹以微调防御者。",
-          "label": "方法"
-        },
-        {
-          "text": "在七领域评测中，CoER将Qwen3.5-9B的自适应ASR从Base的41.31%降至0.22%，Safe-U从39.60%升至76.24%；在AgentLAB和InjecAgent上也表现出更低ASR。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "作者指出方法依赖强教师与顺序三阶段流程；种群管理超参数敏感性未充分表征；实验覆盖七个AgentDyn领域与Qwen3.5-9B骨干，未测试其他智能体框架、非文本模态或更大模型。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.07529"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.07529",
-      "aisafetyhot": "https://aisafetyhot.com/items/sy0lsckiqvyauejdbgpua2nh8"
-    },
-    "publishedAt": "2026-09-07T14:09:11.000Z",
-    "timelineAt": "2026-10-01T04:34:40.764Z",
-    "discoveredAt": "2026-10-01T04:34:40.764Z"
-  },
-  {
-    "arxivId": "2608.16465",
-    "title": "JailbreakSkill: Scaling Automated Red-Teaming with Reusable and Ever-Evolving Skills",
-    "titleZh": "JailbreakSkill：用可复用可演化技能扩展自动化红队",
-    "authors": [
-      "Xiaoyu Wen"
-    ],
-    "category": "attack",
-    "selected": true,
-    "attention": 76,
-    "summaryZh": "上海 AI 实验室等机构提出 JailbreakSkill，把攻击方法封装为可复用、可演化的技能，用于扩展自动化红队。框架将技能分为改写技能、失败分析技能和演化技能三类，由规划器通过统一接口选择与排序；Stage 1 用风险条件 UCB 扫描初始 16 个改写技能并记录失败轨迹，Stage 2 对未解决样本做失败诊断，通过精炼、组合或发现生成新改写技能并回填技能库。在 AdvBench 与 HarmBench 上，技能演化使宏平均 ASR 分别提升 17.5 和 13.4 个百分点，其中对 GPT-5.4 在 AdvBench 上提升 48.6 个百分点，并产生把直接请求改写为未完成文档补全任务等新策略。部分演化技能无需额外适配即可迁移到未见提示词和目标模型，代码已开源。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "现有自动化红队方法通常将攻击逻辑与具体工作流或提示词紧密耦合，缺乏统一的模块化表示，且失败尝试的经验难以沉淀为跨模型与任务复用的独立攻击能力。",
-          "label": "问题"
-        },
-        {
-          "text": "JailbreakSkill 将改写、失败分析与演化封装为模块化技能；第一阶段基于风险条件 UCB 顺序调用初始技能，第二阶段利用失败轨迹诊断模式，通过细化、组合或发现生成新技能。",
-          "label": "方法"
-        },
-        {
-          "text": "Stage 1 在 AdvBench 和 HarmBench 取得 72.0% 与 68.1% 的宏平均 ASR@10；Stage 2 使五类目标模型的宏平均 ASR 升至 74.2% 与 67.9%，部分演化技能可在未见模型上迁移。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "评测集中于单轮文本越狱，未涉及多轮或多模态；攻击侧依赖 Claude Sonnet 4.5 与 Qwen2.5-7B-Instruct 辅助模型；跨模型迁移表现因技能机制而异。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2608.16465"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.16465",
-      "aisafetyhot": "https://aisafetyhot.com/items/qcm8sd77100qudxi3816vpfce"
-    },
-    "publishedAt": "2026-08-17T12:03:35.000Z",
-    "timelineAt": "2026-10-01T05:14:16.901Z",
-    "discoveredAt": "2026-10-01T05:14:16.901Z"
-  },
-  {
     "arxivId": "2609.19101",
     "title": "Monitoring and Discovering Reward Hacking with Internal Representations during LLM Evaluations",
     "titleZh": "用内部表征监控与发现 LLM 评测中的奖励作弊",
@@ -1259,186 +1177,6 @@
     "publishedAt": "2026-09-09T03:00:25.000Z",
     "timelineAt": "2026-10-01T10:12:06.456Z",
     "discoveredAt": "2026-10-01T10:12:06.456Z"
-  },
-  {
-    "arxivId": "2609.05587",
-    "title": "Agents' Overreliance on Unreliable Tools",
-    "titleZh": "研究评测 14 个模型对不可靠工具的过度依赖",
-    "authors": [
-      "Hoyeol Yang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究评测了 14 个模型在 web search、LLM 子智能体和代码执行器三类工具返回值被污染时是否过度依赖工具。所有工具的平均采纳率都超过三分之一，web search 达到 68.0%；被污染的返回值还经常覆盖模型不借助工具时给出的正确答案，这种依赖在更复杂任务和多工具组合任务中依然存在。模型在返回值被污染时往往发起更多工具调用，推理轨迹中会质疑返回值甚至说出正确答案，但仍把被污染内容交给用户，很少提示冲突。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.05587",
-      "aisafetyhot": "https://aisafetyhot.com/items/g7i0k743xp2tpgqn3ahaip072"
-    },
-    "publishedAt": "2026-09-04T17:02:32.000Z",
-    "timelineAt": "2026-10-01T04:33:29.198Z",
-    "discoveredAt": "2026-10-01T04:33:29.198Z"
-  },
-  {
-    "arxivId": "2609.03026",
-    "title": "ObserverBench: Testing Mechanistic Estimates for Intervention and Control",
-    "titleZh": "ObserverBench：用干预与控制任务检验机制可解释性估计",
-    "authors": [
-      "Vijay Erramilli"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 ObserverBench，一个用于检验内部估计器（observer）是否足以支撑干预、控制或安全任务的基准框架。每个任务固定模型、信息边界、允许动作、决策规则、留出案例和损失，并分别报告估计准确率与所选动作造成的损失。在 GPT-2-small 和 Qwen2.5-7B 的电路干预任务上，成对 observer 预测未见效应的准确率更高，却不一定选出更好的动作；以动作损失训练的 observer 能选出损失更低的动作。在安全分诊中，能完美区分违规的分数在违规成本不同时仍可能分配不好固定干预预算。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.03026",
-      "aisafetyhot": "https://aisafetyhot.com/items/jxq4z30ci7jwdpymdk39wndhz"
-    },
-    "publishedAt": "2026-09-02T18:01:17.000Z",
-    "timelineAt": "2026-10-01T04:34:04.779Z",
-    "discoveredAt": "2026-10-01T04:34:04.779Z"
-  },
-  {
-    "arxivId": "2609.10854",
-    "title": "No-Box Vulnerability Analysis: Description-only Detection of Indirect Prompt Injection Vulnerabilities in MCP Servers",
-    "titleZh": "MCPSEC：仅凭工具元数据检测 MCP 服务器间接提示注入漏洞",
-    "authors": [
-      "Zehua Zhang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 no-box 漏洞分析范式，在既无系统访问权限也无运行时交互、仅有功能元数据的条件下，推断系统所有可能实现中都存在的漏洞。他们实现了原型 MCPSEC，仅利用 MCP 服务器注册时暴露的工具元数据审计间接提示注入漏洞。在 20 个广泛部署的 MCP 服务器、共 177 个工具上评估，人工评估者确认 95 个工具存在漏洞，MCPSEC 判定 143 个工具存在漏洞，并为每个漏洞工具给出漏洞假设与利用技术。仅凭元数据，MCPSEC 预测出 94 个经人工验证的真实漏洞，召回率 98.9%，高于 LLM 基线的 80 个、84.2%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.10854",
-      "aisafetyhot": "https://aisafetyhot.com/items/bxc3gr38nsn04j2ta3a2u630m"
-    },
-    "publishedAt": "2026-09-09T21:43:27.000Z",
-    "timelineAt": "2026-10-01T04:34:40.741Z",
-    "discoveredAt": "2026-10-01T04:34:40.741Z"
-  },
-  {
-    "arxivId": "2609.08371",
-    "title": "Authority Is Not a String: A Capability-Scoped Harness for Prompt-Injection-Resistant Coding Agents",
-    "titleZh": "CapScope：面向编码 Agent 的抗提示注入能力范围授权机制",
-    "authors": [
-      "Dimitrios Stamatios Bouras"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 CapScope，一种在 harness 层限制工具调用的授权机制，无需模型自行识别恶意文本。它先从可信输入推导任务级权限上限，再为每个 Agent 分配独立的能力集合，存放在模型上下文之外，每次工具调用都按发起该调用的 Agent 的能力进行检查，因此某个子 Agent 获得的权限不会自动传给另一个。作者在 Pi 编码 Agent 上实现该机制，并在一个由编排者向子 Agent 分派子任务的修复流程中评测，覆盖 5 个 Python 任务、5 个注入面、4 种授权条件和每格 3 次试验共 300 次运行。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.08371",
-      "aisafetyhot": "https://aisafetyhot.com/items/l3sbcmbtlnqr4ucflzj9590cw"
-    },
-    "publishedAt": "2026-09-08T07:37:00.000Z",
-    "timelineAt": "2026-10-01T04:34:40.754Z",
-    "discoveredAt": "2026-10-01T04:34:40.754Z"
-  },
-  {
-    "arxivId": "2609.04495",
-    "title": "Rethinking Indirect Prompt Injection as a Test-Time Search Problem",
-    "titleZh": "研究将间接提示注入重新表述为测试时搜索问题",
-    "authors": [
-      "Duong M. Nguyen"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文把间接提示注入表述为在环境、用户任务与注入任务共同诱导出的攻击面上进行的测试时搜索。作者据此构建了一个带专用搜索框架的智能体攻击者，执行环境侦察、对攻击策略的结构化推理，并利用受害 Agent 的反馈做自适应评估。在多种异构任务上，提高攻击者的测试时算力能提升漏洞发现与利用效果；消融实验显示，显式的策略管理对避免重复搜索、在更大算力预算下维持收益很重要。作者认为，智能体安全评测应同时刻画攻击者的搜索过程与算力预算，而不是把攻击成功率当作与预算无关的受害方属性，并指出攻击者对系统攻击面的自适应搜索是工具调用型 Agent 中重要但研究不足的安全风险。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.04495",
-      "aisafetyhot": "https://aisafetyhot.com/items/hnpvv0rlms8wlsdh0wcd8ahti"
-    },
-    "publishedAt": "2026-09-03T21:28:37.000Z",
-    "timelineAt": "2026-10-01T04:34:40.796Z",
-    "discoveredAt": "2026-10-01T04:34:40.796Z"
-  },
-  {
-    "arxivId": "2609.01487",
-    "title": "Defense-as-Skill: Evolving Runtime Guard Skill for Skill-Augmented Agents",
-    "titleZh": "Defense-as-Skill：为技能增强型 Agent 演化运行时护栏技能",
-    "authors": [
-      "Xiaofang Yang"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 Defense-as-Skill 防御范式，把运行时护栏本身实现为可安装、可检查、可编辑的技能，以应对技能增强型 Agent 中恶意技能通过持久上下文长期操纵后续动作的问题。其护栏 SkillSonar 与不可信任务技能并行运行，按用户任务边界检查敏感动作，并给出允许、重新规划或确认三种决策，且不修改底层 Agent 运行时。作者构建了任务条件数据集 SCOPE-R，覆盖 6 类风险、21 个子类，含 206 个已确认攻击的恶意实例和 43 个良性任务，并用蒙特卡洛树搜索在训练子集上演化磁盘上的护栏技能。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.01487",
-      "aisafetyhot": "https://aisafetyhot.com/items/bd4gzen6f9tamndzpakq72m5f"
-    },
-    "publishedAt": "2026-09-01T16:19:31.000Z",
-    "timelineAt": "2026-10-01T05:14:16.846Z",
-    "discoveredAt": "2026-10-01T05:14:16.846Z"
-  },
-  {
-    "arxivId": "2608.24777",
-    "title": "StepGuard: Learning Step-Level Guardrails with Scalable Supervision and Safety-Utility Balancing",
-    "titleZh": "StepGuard：用可扩展监督训练步骤级护栏，兼顾安全与效用",
-    "authors": [
-      "Zhijie Zheng"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 StepGuard，一个步骤级护栏模型，既能审计已完成的智能体轨迹，也能在工具动作执行前进行检查。为训练该模型，作者设计了 StepGen 数据引擎，生成上下文相同但在风险步骤上动作不同的安全与不安全轨迹；并提出 Balance-GRPO，根据观测到的准确率动态平衡安全与不安全动作的学习，以减少过度防御和防御不足。实验显示，StepGuard 在开放权重护栏模型中平均准确率最高，性能与 GPT-5.4 相当；在 AgentDojo 和 AgentDyn 上用于守护智能体时，相比无护栏设置将平均攻击成功率降低 77.3%，平均效用仅下降 2.8 个百分点。该工作已被 EMNLP 2026 接收。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.24777",
-      "aisafetyhot": "https://aisafetyhot.com/items/tn231pioty88wn8p707l2018l"
-    },
-    "publishedAt": "2026-08-25T16:17:27.000Z",
-    "timelineAt": "2026-10-01T05:14:16.875Z",
-    "discoveredAt": "2026-10-01T05:14:16.875Z"
-  },
-  {
-    "arxivId": "2608.19737",
-    "title": "TempJail: Temporal Jailbreak Attack against Large Vision-Language Models via Subtitle Scheduling",
-    "titleZh": "TempJail：通过字幕时间调度对大型视觉语言模型发起时序越狱攻击",
-    "authors": [
-      "Ling Zhou"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 TempJail，一种黑盒视频越狱框架，通过构造与查询对齐的对话式字幕序列并优化其时间调度，利用大型视觉语言模型（LVLM）在时间维度上的脆弱性诱导出符合原始有害意图的回答。分析发现，越狱效果不仅取决于文本语义，还取决于其时间呈现方式，包括持续时长和时段分配；字幕因在真实视频中常见且可精确控制时间而不显突兀，被用作攻击媒介。在四个代表性 LVLM 和两个数据集上的实验显示，TempJail 在所有模型与数据集组合中取得最高攻击成功率，在 GPT-5 和 Gemini 3.5-Flash 上数据集平均 ASR 分别比最强基线高出 53 和 18 个百分点。论文共 8 页、4 张图。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.19737",
-      "aisafetyhot": "https://aisafetyhot.com/items/xhvfhsirv31htuwsrw1987p3g"
-    },
-    "publishedAt": "2026-08-20T07:37:10.000Z",
-    "timelineAt": "2026-10-01T05:14:16.881Z",
-    "discoveredAt": "2026-10-01T05:14:16.881Z"
-  },
-  {
-    "arxivId": "2608.17360",
-    "title": "Fair ASR: Re-Evaluating Black-Box Jailbreaks under Shared Target-Call Budgets",
-    "titleZh": "Fair-ASR：在共享目标调用预算下重新评测黑盒越狱攻击",
-    "authors": [
-      "Zhida He"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 Fair-ASR 评测协议，用可直接观测的目标调用次数 B 作为黑盒越狱攻击的统一比较轴，并单独记录攻击方调用次数用于效率分析，以替代难以在黑盒模型上估计的 FLOPs 口径。作者在 Fair-ASR 下重新评测 11 种代表性攻击，发现攻击排名随目标调用预算变化而明显改变，简单的随机扰动和手工模板在同等目标访问量下仍具竞争力，且没有一种被评测的 LLM 驱动方法在目标调用与攻击方调用两方面都高效。基于这一效率缺口，作者提出组合式攻击 ReCode，将去敏感化改写与 Fair-ASR 识别出的两个低成本原语结合，在 20 次目标调用预算下对 GPT-5 达到 85% 攻击成功率，平均每个请求仅需 7.19 次攻击方调用。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.17360",
-      "aisafetyhot": "https://aisafetyhot.com/items/etw4436swk1jcusxb9ugiym86"
-    },
-    "publishedAt": "2026-08-18T04:26:39.000Z",
-    "timelineAt": "2026-10-01T05:14:16.893Z",
-    "discoveredAt": "2026-10-01T05:14:16.893Z"
   },
   {
     "arxivId": "2608.03421",
@@ -2151,46 +1889,6 @@
     "discoveredAt": "2026-10-01T12:59:26.523Z"
   },
   {
-    "arxivId": "2609.06951",
-    "title": "Steering Interference Reflects the Model's Defaults, Not the Behavior Directions",
-    "titleZh": "研究：激活引导的干扰反映模型默认倾向而非行为方向",
-    "authors": [
-      "Srikanth Malla"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文发现激活引导（activation steering）的干扰由模型自身决定，而非被引导的行为方向。作者在 24 种行为和 10 个指令微调模型上得到三项结果，所有效果均由语言模型评判器从生成文本读出，而非探针。第一，一个不含行为内容、仅在与真实引导所加向量大小上匹配的方向，会以与真实引导相同的顺序移动相同的行为，却不产生任何需要特定方向的行为。第二，多数干扰是单向的，因此不能解释为两个方向的重叠：引导脏话会让模型变得有毒，而引导毒性不会影响脏话。第三，完全留出某一行为时，用其他行为测得的几何几乎无法解释它参与的干扰。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.06951",
-      "aisafetyhot": "https://aisafetyhot.com/items/a86y4fm0nktn8fsoyi7gk58wj"
-    },
-    "publishedAt": "2026-09-07T02:45:13.000Z",
-    "timelineAt": "2026-10-01T04:33:29.154Z",
-    "discoveredAt": "2026-10-01T04:33:29.154Z"
-  },
-  {
-    "arxivId": "2609.06972",
-    "title": "AgentDrift: A Step-Labeled Benchmark of Injection-Hijacked LLM Agent Trajectories",
-    "titleZh": "AgentDrift：逐步标注注入劫持 LLM Agent 轨迹的基准",
-    "authors": [
-      "Asif Pinjari"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "作者发布 AgentDrift，一个包含 12,536 条合成工具调用轨迹的基准，覆盖五个 Agent 领域，71,024 个步骤每步标注为良性、注入点、被劫持或注入失败四类之一。语料含 4,000 条良性、5,536 条受攻击、1,500 条失败攻击和 1,500 条困难负样本轨迹，受攻击轨迹遵循三种合规模式，其标签串符合给定的正则文法；失败攻击保留被 Agent 抵制的注入，困难负样本则是形似攻击的合法内容，检测器需区分尝试与成功、偏离与新异。轨迹由单一开源模型按类别特定协议生成，经封闭词表结构校验器约束、LLM 评判器筛选，并对 1,200 条轨迹人工审计，作者指出 LLM 评判器本身被困难负样本骗过。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.06972",
-      "aisafetyhot": "https://aisafetyhot.com/items/f47d14vzq8hqm08hahwr7kv1d"
-    },
-    "publishedAt": "2026-09-07T03:10:23.000Z",
-    "timelineAt": "2026-10-01T04:34:40.774Z",
-    "discoveredAt": "2026-10-01T04:34:40.774Z"
-  },
-  {
     "arxivId": "2609.33871",
     "title": "Population Physics, Population Problems: Safety and Emergence in LLM Societies",
     "titleZh": "论文提出测量 LLM 社会自组织的框架，并揭示群体层面病理现象",
@@ -2455,26 +2153,6 @@
     "discoveredAt": "2026-10-01T14:15:42.280Z"
   },
   {
-    "arxivId": "2609.05269",
-    "title": "CONTINUITY: Security-Context Contracts for Composable LLM Agent Controls",
-    "titleZh": "CONTINUITY：为可组合的 LLM Agent 安全控制引入安全上下文契约",
-    "authors": [
-      "Chris Zheng"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 CONTINUITY 框架，用于解决 LLM Agent 安全控制的组合问题：来源追踪、授权、策略执行、协议适配与执行控制各自正确，但安全关键上下文在跨组件边界时可能被丢弃、放宽、重绑定或重新解释，作者将这一失效模式称为安全上下文不连续。CONTINUITY 用 assume-guarantee 契约建模每个组件，并通过签名根授权、来源承诺、角色绑定的转换回执、有界类型化释放、转换见证和效果绑定执行许可，在状态转换间传递经过认证的安全上下文。作者形式化了端到端后果完整性，要求每个实际发生的外部效果都有有效且当前的授权见证，串联主体、任务、来源、委托、策略状态、规范动作与终局边界。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.05269",
-      "aisafetyhot": "https://aisafetyhot.com/items/iwt40npti5vnoa8atwmm9h0wg"
-    },
-    "publishedAt": "2026-09-04T15:26:35.000Z",
-    "timelineAt": "2026-10-01T04:34:40.788Z",
-    "discoveredAt": "2026-10-01T04:34:40.788Z"
-  },
-  {
     "arxivId": "2609.27336",
     "title": "CART: Closed-Loop Adaptive Red Teaming for Large Language Models",
     "titleZh": "CART：面向大语言模型的闭环自适应红队框架",
@@ -2513,126 +2191,6 @@
     "publishedAt": "2026-09-15T13:05:01.000Z",
     "timelineAt": "2026-10-01T10:12:06.259Z",
     "discoveredAt": "2026-10-01T10:12:06.259Z"
-  },
-  {
-    "arxivId": "2609.07876",
-    "title": "LLM Layers Immediately Correct Each Other",
-    "titleZh": "研究揭示 Transformer 层间纠正机制 TLCM",
-    "authors": [
-      "Arjun Patrawala"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 Transformer Layer Correction Mechanism（TLCM），指出相邻 Transformer 层会系统性地抵消彼此的部分贡献，挑战了残差流特征持续累积并被后续层继承的常见解释。TLCM 出现在 7 个主要开源模型家族中的 5 个，并在多样文本的几乎所有 token 上激活；它在预训练阶段出现，对依赖上下文的 token 作用最强，并根据前一层输出自适应校准纠正强度。借助层 Jacobian，作者发现 TLCM 会选择性地纠正特定子空间而强化另一些子空间，并将其解释为“提出与拒绝”框架，即层提出候选特征、后续层选择性移除不合适的部分。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.07876",
-      "aisafetyhot": "https://aisafetyhot.com/items/vkq8hgp0gt1wlzuae6j1we68x"
-    },
-    "publishedAt": "2026-09-07T18:36:39.000Z",
-    "timelineAt": "2026-10-01T04:33:29.105Z",
-    "discoveredAt": "2026-10-01T04:33:29.105Z"
-  },
-  {
-    "arxivId": "2609.07746",
-    "title": "LLM Forensics: Where Do Backdoors Hide? Localizing and Controlling Trigger Mechanisms with Sparse Autoencoders",
-    "titleZh": "LLM Forensics：用稀疏自编码器定位并控制后门触发机制",
-    "authors": [
-      "Wissam Antoun"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究在无害的语言切换设定中考察触发式后门的内部机制，固定触发序列会让 1B 和 8B 语言模型把英文提示续写成法语或德语。作者跨层和 Transformer 组件训练稀疏自编码器（SAE），并将触发提示与翻译、预训练对照组比较，以识别与触发相关的特征方向。结果显示 SAE 特征能以接近完美的 F1 区分触发提示与对照组，但能检测触发的特征未必能控制行为：注意力与 MLP 特征常可靠激活却难以通过消融抑制语言切换，而残差流特征被消融时可抑制触发式生成，部分选定特征还能在无触发时诱导目标语言续写。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.07746",
-      "aisafetyhot": "https://aisafetyhot.com/items/meru3fcmoqjetkzppjqptw2ne"
-    },
-    "publishedAt": "2026-09-07T16:47:32.000Z",
-    "timelineAt": "2026-10-01T04:33:29.112Z",
-    "discoveredAt": "2026-10-01T04:33:29.112Z"
-  },
-  {
-    "arxivId": "2609.04344",
-    "title": "SharedSAE: One Feature Dictionary Across Language Models",
-    "titleZh": "SharedSAE：跨语言模型共享一套特征字典的稀疏自编码器",
-    "authors": [
-      "Daniil Ognev"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "SharedSAE 提出用一套共享字典加各模型专属编码器-解码器对，替代为每个模型单独训练的稀疏自编码器（SAE）。与丢弃激活幅值、且推理时需要全部模型在场的先前方法不同，SharedSAE 只对选择分数做归一化以保留幅值，并用模型 dropout 支持单模型推理。作者在四个 1B 规模、分属不同模型家族与 tokenizer 的基础语言模型上训练 SharedSAE，其平均解释方差保留了专属 SAE 的 96.6%，潜在激活的跨模型相关性是事后对齐的独立 SAE 的 1.8 倍，潜在特征描述也能跨模型迁移。字典冻结后，新模型可高效适配，在复用共享潜在描述的同时达到接近专属 SAE 的重建质量。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.04344",
-      "aisafetyhot": "https://aisafetyhot.com/items/qbkpdc60w7tqbr8l0fowv4aof"
-    },
-    "publishedAt": "2026-09-03T18:09:41.000Z",
-    "timelineAt": "2026-10-01T04:33:29.219Z",
-    "discoveredAt": "2026-10-01T04:33:29.219Z"
-  },
-  {
-    "arxivId": "2609.00595",
-    "title": "SoK: When Safe Agents Fail Together: The Security of Multi Agent LLM Systems",
-    "titleZh": "SoK 综述：多智能体 LLM 系统为何会一起失效",
-    "authors": [
-      "Rui Yang"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "这篇 SoK 系统梳理了多智能体 LLM 系统（MAS）的安全问题，核心论点是安全智能体也可能一起失效。作者对 197 篇工作做了以执行为中心的分析，归纳出六类交互接口、四种攻击者位置、七类系统级风险和八条反复出现的攻击路径，并提出 A-I-R 框架，按攻击者位置、交互接口和由此产生的系统级风险来组织攻击。防御方面，作者用包含路径目标、观测、干预、信任边界和恢复五部分的契约来归类，指出路径闭合与恢复是主要挑战。作者还审查了 44 项评测与基准工作，指出在隔离交互效应、设计可比且有诊断力的指标、跨 MAS 设计复用以及评估开放系统运行方面仍存在开放问题，并主张以交互感知的视角端到端追踪攻击、检验防御是否闭合路径。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.00595",
-      "aisafetyhot": "https://aisafetyhot.com/items/wq5u92cyyfpacdsvc35w8gnxa"
-    },
-    "publishedAt": "2026-09-01T02:34:44.000Z",
-    "timelineAt": "2026-10-01T04:34:40.812Z",
-    "discoveredAt": "2026-10-01T04:34:40.812Z"
-  },
-  {
-    "arxivId": "2608.09885",
-    "title": "SHE: Trajectory-driven Safety Harness Evolution for LLM Agents",
-    "titleZh": "SHE：面向 LLM Agent 的轨迹驱动安全护栏演化框架",
-    "authors": [
-      "Wanying Qu"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 Safety Harness Evolution（SHE），一个从 rollout 轨迹中学习演化安全边界的框架，用于提升 LLM Agent 的安全性。SHE 把 Agent 护栏拆成 System Prompt、Rule Bank、Safety Memory 和 Tool Policy 四类具有明确安全职责的组件，为局部演化划定功能边界。在此基础上，SHE 引入归因引导的演化循环，把轨迹失败转化为结构化诊断，学习各组件专属的边界修正，并通过安全与效用验证筛选演化后的护栏。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.09885",
-      "aisafetyhot": "https://aisafetyhot.com/items/gfrzw47a0uf79s3igtzv6a1iy"
-    },
-    "publishedAt": "2026-08-10T17:35:08.000Z",
-    "timelineAt": "2026-10-01T05:14:16.917Z",
-    "discoveredAt": "2026-10-01T05:14:16.917Z"
-  },
-  {
-    "arxivId": "2608.05045",
-    "title": "Gradient Immunity: Null-Space Resistance to Malicious Fine-Tuning",
-    "titleZh": "Gradient Immunity 提出 USG：在开放权重发布时阻断恶意微调梯度",
-    "authors": [
-      "Yuxuan Huang"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 Unidirectional Safety Gate（USG），用于作者所称的“部分保护开放权重发布”（PPOW）场景：大部分权重仍可训练，但发布时保留少量安全关键组件。USG 由 Null Space Cubic Layer 与 Inverse Adapter 组成，插入在最后一层 Transformer 之后；下游微调时，三次层抑制或阻断隐藏状态落入校准保护区域的有害样本梯度，Inverse Adapter 则恢复基础模型的前向行为。防御方用自己掌握的有害数据校准阈值，使保护能泛化到邻近的分布内有害样本。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.05045",
-      "aisafetyhot": "https://aisafetyhot.com/items/e2bf2cnxlxg6i7ag1pdu52n5e"
-    },
-    "publishedAt": "2026-08-05T16:55:59.000Z",
-    "timelineAt": "2026-10-01T05:14:16.926Z",
-    "discoveredAt": "2026-10-01T05:14:16.926Z"
   },
   {
     "arxivId": "2607.00576",
@@ -3277,26 +2835,6 @@
     "discoveredAt": "2026-10-01T10:13:06.928Z"
   },
   {
-    "arxivId": "2609.03148",
-    "title": "Large Language Models in Resolving Contextual Knowledge Conflicts",
-    "titleZh": "LLM 如何处理上下文知识冲突：ContextConflict 数据集与机制可解释性分析",
-    "authors": [
-      "Xinye Yang"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文研究 LLM 如何处理上下文知识内部的冲突，而非模型参数知识与外部上下文之间的冲突，提出包含事实、推断、时间、粒度、视角和歧义六类的分类体系，并构建数据集 ContextConflict。该数据集含 5,781 条样本，覆盖推理与摘要任务，同时包含显式矛盾与需要多步推理的隐式冲突。在九个 LLM 上的实验显示，当前模型在解决上下文知识冲突方面仍有不足。作者进一步从机制可解释性角度分析模型处理冲突的过程，发现模型对冲突存在潜在感知，并刻画了冲突处理的表征几何。分析还发现模型一致偏向较早出现的证据，这种位置偏好是有效解决冲突的主要障碍。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.03148",
-      "aisafetyhot": "https://aisafetyhot.com/items/okxrz00og0okizs8o005gxbyz"
-    },
-    "publishedAt": "2026-09-02T20:30:15.000Z",
-    "timelineAt": "2026-10-01T04:34:04.761Z",
-    "discoveredAt": "2026-10-01T04:34:04.761Z"
-  },
-  {
     "arxivId": "2609.25848",
     "title": "Optimizing the Score, Losing Sight of the Task: Reward Hacking Across Weights, Selection, and Prompts",
     "titleZh": "论文比较权重、选择与提示词三种优化载体上的奖励作弊",
@@ -3395,26 +2933,6 @@
     "publishedAt": "2026-09-07T03:16:25.000Z",
     "timelineAt": "2026-10-01T10:13:06.901Z",
     "discoveredAt": "2026-10-01T10:13:06.901Z"
-  },
-  {
-    "arxivId": "2609.05575",
-    "title": "Capsule Lens: Locating and Tracking Concept Geometry in Model Representations",
-    "titleZh": "Capsule Lens：定位并追踪模型表示中的概念几何",
-    "authors": [
-      "Yiming Tang"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "作者提出 Capsule Lens 框架，用胶囊这一由若干可解释参数定义的几何形式刻画概念在表示空间中占据的区域，参数以闭式解拟合并在留出样本上验证。该框架应用于静态与动态两类表示：在静态表示上定位不同模型中的概念几何，并用跨度与范数曲线揭示几何特征；在动态表示上通过三个案例追踪训练带来的表示漂移，包括 CLIP 预训练、视觉问答的 RL 后训练和数学推理的 RL 后训练。分析显示不同训练设置下的几何动态存在质的差异，从 CLIP 预训练中网络范围的广泛重构，到 RL 后训练中局部且概念特定的变化。作者认为 Capsule Lens 可用于定位、分析和追踪静态与动态表示中的概念几何。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.05575",
-      "aisafetyhot": "https://aisafetyhot.com/items/ca9ww1cceohb2rowjfp9n1cyi"
-    },
-    "publishedAt": "2026-09-04T09:15:04.000Z",
-    "timelineAt": "2026-10-01T04:33:29.203Z",
-    "discoveredAt": "2026-10-01T04:33:29.203Z"
   },
   {
     "arxivId": "2607.15081",
@@ -3635,26 +3153,6 @@
     "discoveredAt": "2026-10-01T10:16:09.314Z"
   },
   {
-    "arxivId": "2608.13304",
-    "title": "Refusing Intent, Not Form: Wrapper-Based Intent-Group Supervision for LLM Safety",
-    "titleZh": "WIFA：按意图分组监督缓解包装式越狱与过度拒答",
-    "authors": [
-      "Ping Wu"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 Wrapper-Based Intent-Form Augmentation（WIFA），一种自动意图分组增强方法，把带包装的有害示例与结构匹配的带包装良性反例配对，无需外部教师模型或逐包装的人工意图标注。WIFA 作为通用数据层支持两条微调路线：两阶段高安全配方 WIFA-Boost，以及 Anchored Group-Consistent Refusal Training（A-GCRT），后者在同一意图的不同包装间正则化拒答与合规决策分数，并把有害与良性分组锚定在间隔两侧。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.13304",
-      "aisafetyhot": "https://aisafetyhot.com/items/sez6mdkitgj2vmmh0afe0z599"
-    },
-    "publishedAt": "2026-08-13T14:33:15.000Z",
-    "timelineAt": "2026-10-01T05:14:16.909Z",
-    "discoveredAt": "2026-10-01T05:14:16.909Z"
-  },
-  {
     "arxivId": "2609.15906",
     "title": "Authorization Architectures for Tool-Using AI Agents",
     "titleZh": "综述提出面向工具调用 AI 智能体的授权架构",
@@ -3695,46 +3193,6 @@
     "discoveredAt": "2026-10-01T10:21:12.785Z"
   },
   {
-    "arxivId": "2609.07037",
-    "title": "Disentangling Steering Vectors",
-    "titleZh": "Steering Vector Dissection：将激活引导向量拆解为独立语义特征",
-    "authors": [
-      "Takeru Hiramatsu"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 Steering Vector Dissection 框架，用于把激活引导中纠缠多个语义与风格概念的复合方向拆解为各自独立的语义一致特征。方法上，作者配对正负激活并取差值生成实例级引导向量，再直接在这些向量上训练专用的 Sparse Autoencoder（SAE）。在 2 个数据集、2 个模型和 2 种干预深度上的定量评估显示，该方法得到的基向量语义一致，且引导效果彼此可区分，从而支持对模型行为更精确的控制。论文共 31 页、5 张图。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.07037",
-      "aisafetyhot": "https://aisafetyhot.com/items/l98vlxegolanlsqg6wbsl62cr"
-    },
-    "publishedAt": "2026-09-07T04:45:32.000Z",
-    "timelineAt": "2026-10-01T04:33:29.137Z",
-    "discoveredAt": "2026-10-01T04:33:29.137Z"
-  },
-  {
-    "arxivId": "2609.10707",
-    "title": "Architecting the Secure AI-SOC: A Neurosymbolic Framework for Pipeline Integrity and Threat Mitigation",
-    "titleZh": "面向 AI-SOC 的神经符号防御框架：用 SIEM 解码器与 NeMo Guardrails 阻断日志投毒提示注入",
-    "authors": [
-      "Anna Gazani"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出一种神经符号纵深防御架构，用于保障 LLM 接入安全运营中心（SOC）后的管道完整性，应对通过日志投毒实施的间接提示注入。作者指出，攻击者可在系统日志中嵌入恶意载荷，形成多步 promptware 攻击链，劫持 LLM 的操作逻辑；而确定性防御语义盲、纯神经评估延迟高且存在概率性缺陷。该框架第一层用定制 SIEM 解码器作为确定性预过滤，在数据摄入边缘做结构化清洗，消除体量填充和基于签名的注入；第二层用 NeMo Guardrails 在 LLM 处理前对结构化 SIEM 告警做自检式语义边界校验；同时集成闭环遥测系统，在 SOC 仪表盘中为人工介入提供被拦截攻击的可见性。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.10707",
-      "aisafetyhot": "https://aisafetyhot.com/items/yxlvh7nj7ac3vllqydzdsc5y5"
-    },
-    "publishedAt": "2026-09-09T18:03:41.000Z",
-    "timelineAt": "2026-10-01T04:34:40.746Z",
-    "discoveredAt": "2026-10-01T04:34:40.746Z"
-  },
-  {
     "arxivId": "2609.35544",
     "title": "Less Sycophancy, Stronger Refusal? Lessons for AI Safety from Mechanistic Interpretability",
     "titleZh": "减少谄媚能否增强拒答？机制可解释性带来的 AI 安全启示",
@@ -3753,26 +3211,6 @@
     "publishedAt": "2026-09-28T16:22:31.000Z",
     "timelineAt": "2026-10-01T10:16:09.274Z",
     "discoveredAt": "2026-10-01T10:16:09.274Z"
-  },
-  {
-    "arxivId": "2609.04808",
-    "title": "Recurrence Is Not Enough: Causally Validating Multilingual SAE Translation Features in Gemma 2 and 3",
-    "titleZh": "研究：SAE 特征复现不足以证明跨语言因果作用，Gemma 2 与 3 中各存一个翻译启动方向",
-    "authors": [
-      "Giang Son Nguyen"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者在 Gemma 2 与 Gemma 3 上复现并扩展了 Wu 等人的 SAE 翻译启动特征发现方法，检验跨语言场景下特征是否具有相同因果作用。在两种模型中，虽然能找到 20 多个在所有发现设置下频繁激活的特征，但因果验证显示其中绝大多数影响很小或不一致。相比之下，Gemma 2 的 (L10, 5717) 与 Gemma 3 的 (L20, 2456) 在 23 种语言设置下放大时稳定提升 COMET 分数、消融时使其下降。结果表明特征复现会高估跨语言迁移，同时识别出 Gemma 2 和 Gemma 3 中一个与语言无关的翻译启动方向。该论文被 BlackboxNLP 2026 Special Track 接收。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.04808",
-      "aisafetyhot": "https://aisafetyhot.com/items/j5q6gfr8q899fm83qz7vgyp75"
-    },
-    "publishedAt": "2026-09-04T07:05:31.000Z",
-    "timelineAt": "2026-10-01T04:33:29.208Z",
-    "discoveredAt": "2026-10-01T04:33:29.208Z"
   },
   {
     "arxivId": "2609.28613",
@@ -3953,66 +3391,6 @@
     "publishedAt": "2026-09-21T10:15:51.000Z",
     "timelineAt": "2026-10-01T10:16:09.546Z",
     "discoveredAt": "2026-10-01T10:16:09.546Z"
-  },
-  {
-    "arxivId": "2609.06289",
-    "title": "Steering Geometry: Validating Human Value Geometry in LLM Steering Space",
-    "titleZh": "LLM 激活引导空间能否反映人类价值几何？EMNLP 2026 研究发布 26K 样本基准",
-    "authors": [
-      "Mohammad Mahdi Abootorabi"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究用 Schwartz 基本人类价值理论检验 LLM 激活引导向量是否编码连贯的价值语义结构，构建了覆盖 20 种人类价值的 26K 样本基准。分布驱动方法（CAA、SphericalSteer、ODESteer）恢复的价值拓扑与理论预测一致，Spearman ρ 最高 0.51（p < 10^-13）；以行为为中心的方法（COLD-Steer、BiPO）引导性能相当，但与预期价值几何几乎不相关。几何保真度随模型规模提升，却在指令微调后下降；几何对齐更好时，引导某一价值会正确提升相容价值、抑制对立价值。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.06289",
-      "aisafetyhot": "https://aisafetyhot.com/items/fufyszhfdlmb0ass1te0fqya8"
-    },
-    "publishedAt": "2026-09-05T22:55:48.000Z",
-    "timelineAt": "2026-10-01T04:33:29.174Z",
-    "discoveredAt": "2026-10-01T04:33:29.174Z"
-  },
-  {
-    "arxivId": "2609.03511",
-    "title": "Lost in Reordering: Structural Sensitivity of Multilingual LLMs under Semantics-Preserving Perturbations",
-    "titleZh": "多语言 LLM 在语义保持结构扰动下的结构敏感性：IndicReStruct 基准与机制可解释性分析",
-    "authors": [
-      "Karthika Nhayakkat"
-    ],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究用印地语和马拉雅拉姆语的成分重排与主动被动语态转换两种语义保持扰动，构建了基于 GSM8K 的 IndicReStruct 基准（含 GSM8K-Reordered 和 GSM8K-Voice 两个变体），在六款 SOTA LLM 和多种提示策略下观察到数学推理性能一致且显著的下降。残差流激活修补实验显示，推理失败常源于实体与数量对齐被破坏，中间 Transformer 层对推理恢复贡献最大。结果表明当前多语言 LLM 对表层句法实现高度敏感，缺乏对语义等价输入的组合不变性。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.03511",
-      "aisafetyhot": "https://aisafetyhot.com/items/w2ktus0l45aq8vvozrbes701j"
-    },
-    "publishedAt": "2026-09-03T08:10:43.000Z",
-    "timelineAt": "2026-10-01T04:33:29.242Z",
-    "discoveredAt": "2026-10-01T04:33:29.242Z"
-  },
-  {
-    "arxivId": "2609.00092",
-    "title": "Safin-1: Safety from Within through Memory-Native State Evolution",
-    "titleZh": "Safin-1：通过记忆原生状态演化实现内在安全",
-    "authors": [
-      "Ming Zhang"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 Safin-1 基础模型系列，主张安全应是模型自身的内在属性，而非仅靠外部护栏或监督微调等事后对齐施加的行为约束。该模型基于 Memory-Anchor Routing across Context History（MARCH）架构，维护结构化记忆状态，并通过内容条件路由选择性检索相关历史信息。它支持在测试时对持久能力状态做自适应调整，无需反复修改主干网络，从而在共享基础上实现受控特化。作者在下游安全任务上以 Safety State 验证该接口，报告了基于状态的自适应带来显著安全提升，并在通用能力、长上下文理解、检索和效率上做了评估。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.00092",
-      "aisafetyhot": "https://aisafetyhot.com/items/sgs2pt4xizucddug2vlkw20wf"
-    },
-    "publishedAt": "2026-08-31T13:48:48.000Z",
-    "timelineAt": "2026-10-01T05:14:16.857Z",
-    "discoveredAt": "2026-10-01T05:14:16.857Z"
   },
   {
     "arxivId": "2609.01931",
@@ -4196,84 +3574,6 @@
     "discoveredAt": "2026-10-01T10:16:09.476Z"
   },
   {
-    "arxivId": "2609.05800",
-    "title": "Spillover-Aware Multi-Value Steering for Pluralistic LLM Alignment",
-    "titleZh": "Spillover-Aware Multi-Value Steering：面向多元对齐的 LLM 激活引导去纠缠方法",
-    "authors": [
-      "Weici Pan"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对多元对齐中同时引导多个价值维度时出现的溢出效应，研究者提出 Spillover-Aware Multi-Value Steering 方法，将溢出归因于引导方向的几何纠缠（由 Gram 矩阵刻画），并从激活范数惩罚目标推导出零成本校正以精确解耦各方向贡献。该流程无需微调、奖励模型或人工提示工程，仅凭领域问题即可自动发现价值维度、提取方向、诊断纠缠并施加校正。在气候议题上，校正将净引导效果从 +5.9% 提升至 +14.0%，经 100,000 次成对判断验证。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.05800",
-      "aisafetyhot": "https://aisafetyhot.com/items/hph5nu47d770wkqxbs8sjuaoc"
-    },
-    "publishedAt": "2026-09-05T01:28:00.000Z",
-    "timelineAt": "2026-10-01T04:33:29.191Z",
-    "discoveredAt": "2026-10-01T04:33:29.191Z"
-  },
-  {
-    "arxivId": "2609.04276",
-    "title": "FailSAE: Towards Interpretable Failure Prediction for Vision-Language Models via Sparse Autoencoders",
-    "titleZh": "FailSAE：用稀疏自编码器实现视觉语言模型的可解释失败预测",
-    "authors": [
-      "Jie Ma"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出 FailSAE，用稀疏自编码器（SAE）对 CLIP 等视觉语言模型做可解释的失败预测，将失败预测建模为 SAE 稀疏隐激活上的分类任务，并设计三阶段失败感知训练流程。实验显示该框架在失败预测上优于所评估的基线，失败感知训练使 SAE 隐方向捕获更多类别特定概念。分析还发现模型失败时表征从类别特定概念转向更模糊或风格相关概念，并探索了用学到的 SAE 隐方向支持运行时失败恢复。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.04276",
-      "aisafetyhot": "https://aisafetyhot.com/items/dk5yzdruigjfi6aehlw0pd49y"
-    },
-    "publishedAt": "2026-09-02T23:52:47.000Z",
-    "timelineAt": "2026-10-01T04:34:04.749Z",
-    "discoveredAt": "2026-10-01T04:34:04.749Z"
-  },
-  {
-    "arxivId": "2609.01878",
-    "title": "GAPS: Dimension-Level Gates for Conditional Activation Steering",
-    "titleZh": "GAPS：面向条件激活引导的维度级门控",
-    "authors": [
-      "Moghis Fereidouni"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "GAPS（Gated Activation steering via Posterior and Separability）通过维度级条件选择决定对哪些神经元施加激活引导，由两个免训练门控组成：静态可分性门控用 AUROC 筛选携带可靠概念信息的神经元，动态后验门控仅当神经元当前激活更符合目标概念时才干预。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.01878",
-      "aisafetyhot": "https://aisafetyhot.com/items/f8hdnsd5482bjk84hqvgm8hm9"
-    },
-    "publishedAt": "2026-09-01T21:21:52.000Z",
-    "timelineAt": "2026-10-01T04:34:04.789Z",
-    "discoveredAt": "2026-10-01T04:34:04.789Z"
-  },
-  {
-    "arxivId": "2609.40285",
-    "title": "PivotOPD: Learning to Recover from Pivotal Mistakes in Multi-Turn Agents",
-    "titleZh": "PivotOPD：让多轮智能体从关键错误中恢复的在线策略蒸馏框架",
-    "authors": [],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "PivotOPD 是一个在线策略蒸馏框架，同时训练学生模型预防关键错误并从其造成的状态中恢复。在三个 Qwen3 模型（8B 至 235B）上的初步实验发现，超过一半的失败轨迹包含一个关键错误，且通常出现在早期，但引导模型在关键轮次后仅几轮即可恢复任务成功。在 ALFWorld、WebShop 和 Search-based QA 上对比 13 个基线，PivotOPD 对 Qwen3-1.7B 和 Qwen3-8B 学生均取得最强平均表现，1.7B 学生在 ALFWorld 上比最强基线提升 +5.5%；在 SWE-Bench Verified 上，Nemotron-3.5 学生的解决率提升 +3.2%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.40285",
-      "aisafetyhot": "https://aisafetyhot.com/items/mbpi4kc0ky9vxqqrlijc1c0jd"
-    },
-    "publishedAt": "2026-09-29T20:00:00.000Z",
-    "timelineAt": "2026-10-01T05:08:17.079Z",
-    "discoveredAt": "2026-10-01T05:08:17.079Z"
-  },
-  {
     "arxivId": "2609.27124",
     "title": "When Clients Are Orchestrated: Strategic Gradient Manipulation to Defeat Federated Learning Servers with Efficient Defense",
     "titleZh": "Fed-ADR：用恶意编排服务器协同客户端梯度操纵攻击联邦学习",
@@ -4374,66 +3674,6 @@
     "discoveredAt": "2026-10-01T10:21:12.803Z"
   },
   {
-    "arxivId": "2609.06473",
-    "title": "Steering Under Compression: Dose-Response, Capability Cost, and Failure Asymmetry in Quantized LLMs",
-    "titleZh": "量化 LLM 中的激活引导：剂量响应、能力成本与失败不对称性",
-    "authors": [
-      "Saurav Bhandari"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究系统考察了仅权重量化（INT8 与 NF4）下激活引导的表现，覆盖四个 7-9B 开源模型和情感、推理长度两个行为目标。情感引导在量化后基本不受影响，INT8 合并对比为 -0.010（90% CI [-0.026, +0.007]），判定为等效；推理长度则呈不对称剂量响应，缩短仅 12-30% 后即出现不连续失败。Mistral-NF4 在 alpha=0 时 GSM8K 从 0.545 降至 0.365，显示压缩本身可主导引导效果，但引导向量与 FP16 版本仍高度共线（INT8 余弦相似度 0.989-0.998，NF4 为 0.945-0.990）。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.06473",
-      "aisafetyhot": "https://aisafetyhot.com/items/k2rpdra63kxjsni43715r9dmh"
-    },
-    "publishedAt": "2026-09-06T08:41:42.000Z",
-    "timelineAt": "2026-10-01T04:33:29.163Z",
-    "discoveredAt": "2026-10-01T04:33:29.163Z"
-  },
-  {
-    "arxivId": "2609.03629",
-    "title": "EraseSAE: Surgical Concept Erasure in Text-to-Video Diffusion Models via Sparse Autoencoders",
-    "titleZh": "EraseSAE：用稀疏自编码器在文生视频扩散模型中实现精准概念擦除",
-    "authors": [
-      "Xinghao Wang"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "EraseSAE 通过稀疏自编码器在 DiT 架构的文生视频扩散模型中实现精准概念擦除，先以 Partitioned Convolutional Sparse Autoencoder 将稠密时空激活分解为可解释稀疏特征，再用对比归因机制定位概念专属特征核，推理时按时间步生成时空掩码限制擦除范围。实验显示该方法在多种扩散模型和概念擦除任务上实现精确稳健的移除，生成质量损失极小，显著优于现有方法。该工作已被 ECCV 2026 接收，代码已公开。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.03629",
-      "aisafetyhot": "https://aisafetyhot.com/items/rkjwgcmsecwmx9itcezyuu1rc"
-    },
-    "publishedAt": "2026-09-03T10:23:37.000Z",
-    "timelineAt": "2026-10-01T04:33:29.235Z",
-    "discoveredAt": "2026-10-01T04:33:29.235Z"
-  },
-  {
-    "arxivId": "2609.00790",
-    "title": "RISA: Response Inspection and Selective Actions for Refusal Calibration in Large Language Models",
-    "titleZh": "RISA：面向大语言模型拒答校准的响应检查与选择性干预",
-    "authors": [
-      "Wenhan Chang"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "RISA 是一个推理时框架，通过检查 LLM 的初始响应并选择性纠正拒答错误，在不更新基座模型参数的前提下提升拒答可靠性。它先用固定上下文规则为明确案例打拒答分数，未匹配案例则由末层提示词隐藏状态经校准线性探针得出分数，并分别校准探针分数、表征支持边界与动作阈值以适配不同基座模型。运行时结合提示词分数与初始拒答状态，仅在必要时干预，实验显示其在提升拒答可靠性的同时基本保持模型效用。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.00790",
-      "aisafetyhot": "https://aisafetyhot.com/items/n2xbdlke47za9qye90qkvty1x"
-    },
-    "publishedAt": "2026-09-01T06:37:42.000Z",
-    "timelineAt": "2026-10-01T04:34:04.824Z",
-    "discoveredAt": "2026-10-01T04:34:04.824Z"
-  },
-  {
     "arxivId": "2609.39982",
     "title": "Mid-Harness: Scaling Actions Between Model and Harness for Terminal Agents",
     "titleZh": "Mid-Harness：在模型与 Harness 之间扩展终端智能体的动作采样",
@@ -4512,26 +3752,6 @@
     "discoveredAt": "2026-10-01T10:13:07.011Z"
   },
   {
-    "arxivId": "2609.03999",
-    "title": "Shifting from Injection to Interaction: Rethinking Web Security in the Age of LLMs and Beyond",
-    "titleZh": "从注入到交互：LLM 时代及未来 Web 安全再思考",
-    "authors": [
-      "Nivedita Singh"
-    ],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一篇综述提出，LLM 正深度嵌入 Web 应用与浏览器智能体，使 XSS 等传统漏洞被 LLM 中介的交互放大，提示注入等 LLM 特有漏洞也会跨 Web 应用传播。该综述统一分析客户端、服务端与流水线三层中 LLM 对 Web 漏洞的放大效应，并评估现有防御的局限，同时探讨将 NIST 与 ISO/IEC AI 安全框架扩展至 LLM Web 环境。文章指出对抗性自然语言指令、自主智能体安全、部署后持续监控与适配三大未解挑战，并提出一个 LLM 感知的监控与控制框架，整合语义输入校验、提示词完整性保护、输出隔离、智能体治理与运行时监控。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.03999",
-      "aisafetyhot": "https://aisafetyhot.com/items/xczwchfm2bx7n16ard9qakcmc"
-    },
-    "publishedAt": "2026-09-03T15:39:44.000Z",
-    "timelineAt": "2026-10-01T04:34:40.804Z",
-    "discoveredAt": "2026-10-01T04:34:40.804Z"
-  },
-  {
     "arxivId": "2609.16541",
     "title": "A Cyber Range Evaluation of Autonomous Network Incident Response Agents",
     "titleZh": "自主网络事件响应智能体的网络靶场评估",
@@ -4550,26 +3770,6 @@
     "publishedAt": "2026-09-15T02:36:15.000Z",
     "timelineAt": "2026-10-01T10:12:06.279Z",
     "discoveredAt": "2026-10-01T10:12:06.279Z"
-  },
-  {
-    "arxivId": "2609.01832",
-    "title": "Interpretable Symptom Vectors for Depression in a Large Language Model",
-    "titleZh": "Gemma-3-27B-PT 内部激活中的可解释抑郁症状向量",
-    "authors": [
-      "Fangyi Zhu"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究用机制可解释性方法分析 Gemma-3-27B-PT 的残差流，发现症状描述在第 21 层的几何分离度最高。基于临床量表构建的 Symptom Vectors 在留出自然文本上的逐症状系数，保留了临床医生标注的情绪、躯体与自杀倾向轴排序；第 21 层的单一抑郁向量可区分抑郁与非抑郁文本（AUC = 0.789），并可作为情绪效价门控限制症状投影范围。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.01832",
-      "aisafetyhot": "https://aisafetyhot.com/items/h1swiep8nv0lc78rvcca5zn7f"
-    },
-    "publishedAt": "2026-09-01T20:07:03.000Z",
-    "timelineAt": "2026-10-01T04:34:04.799Z",
-    "discoveredAt": "2026-10-01T04:34:04.799Z"
   },
   {
     "arxivId": "2609.08410",
@@ -4690,26 +3890,6 @@
     "publishedAt": "2026-09-13T21:32:35.000Z",
     "timelineAt": "2026-10-01T10:12:06.333Z",
     "discoveredAt": "2026-10-01T10:12:06.333Z"
-  },
-  {
-    "arxivId": "2609.00755",
-    "title": "S^3martCirc: Self-supervised Smart Circuit Discovery",
-    "titleZh": "S^3martCirc：自监督智能电路发现框架",
-    "authors": [
-      "Wendy Zheng"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "S^3martCirc 是一个同时发现电路并解释其功能的统一框架，将节点行为抽象为两种可跨任务泛化的计算角色，并定义量化指标进行分配，使重要性与功能角色被联合发现而非分两步进行。该框架针对现有 LLM 机制可解释性方法中电路发现与功能解释相互割裂、功能角色依赖主观解读的问题，在电路发现任务上优于现有方法。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.00755",
-      "aisafetyhot": "https://aisafetyhot.com/items/nl711mrvd6qxdz2307sqe2kt5"
-    },
-    "publishedAt": "2026-09-01T05:37:42.000Z",
-    "timelineAt": "2026-10-01T04:34:04.832Z",
-    "discoveredAt": "2026-10-01T04:34:04.832Z"
   },
   {
     "arxivId": "2609.23586",
@@ -4953,26 +4133,6 @@
     "discoveredAt": "2026-10-01T10:16:09.445Z"
   },
   {
-    "arxivId": "2609.07681",
-    "title": "On the Recall Scaling Laws in Mamba: A Theoretical and Mechanistic Study via Hashing",
-    "titleZh": "Mamba 的召回缩放定律：基于哈希的理论与机制可解释性研究",
-    "authors": [
-      "Yuval Koren"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究从机制可解释性角度逆向出 Mamba 执行联想召回（AR）的内部算法，发现其通过隐式学习线性哈希函数完成召回，并定位了实现该行为的底层电路。受 Johnson-Lindenstrauss 引理等保相似哈希理论启发，作者提出\"召回缩放定律\"框架，可依据词表规模和上下文中事实数量，预测 Mamba 实现完美召回所需的嵌入与状态维度、给定模型维度下的召回成功概率，并分析多层模型与多头 SSM 模式。实验表明该理论预测准确，揭示了 AR 能力随词表、状态、嵌入规模和架构的缩放规律。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.07681",
-      "aisafetyhot": "https://aisafetyhot.com/items/top2cxbcidzc23zlc5fyu28mz"
-    },
-    "publishedAt": "2026-09-07T16:05:24.000Z",
-    "timelineAt": "2026-10-01T04:33:29.120Z",
-    "discoveredAt": "2026-10-01T04:33:29.120Z"
-  },
-  {
     "arxivId": "2609.32567",
     "title": "Attribution Gaps in Zero-Training LLM+OVOD Pipelines: A Fine-Grained Analysis of the CAAP--SNAP Discrepancy",
     "titleZh": "零训练 LLM+OVOD 流水线中的归因缺口：CAAP–SNAP 差异的细粒度分析",
@@ -5133,26 +4293,6 @@
     "publishedAt": "2026-09-17T11:55:29.000Z",
     "timelineAt": "2026-10-01T09:55:54.658Z",
     "discoveredAt": "2026-10-01T09:55:54.658Z"
-  },
-  {
-    "arxivId": "2609.07061",
-    "title": "PhysSAE: Mechanistic Interpretability of PINNs with Sparse Autoencoders",
-    "titleZh": "PhysSAE：用稀疏自编码器对 PINN 做机制可解释性分析",
-    "authors": [
-      "Nandita N. Patil"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "PhysSAE 是一个针对物理信息神经网络（PINN）的机制可解释性框架，在 PINN 倒数第二层激活上训练过完备稀疏自编码器（SAE），并通过在原始冻结隐状态中直接做因果干预（h_cf = h - α z_k d_k）评估字典原子，绕过 SAE 解码器。在六类 PDE、各 3 个 PINN 种子和 3 个 SAE 种子上，发现的 SAE 原子与独立定义的物理可观测量对齐（最大 Pearson |r|=0.951），高对齐原子消融的因果足迹比 PCA 或 ICA 干预在空间上集中 1.2–4.2 倍，并在结构化物理概念上优于匹配随机对照（ESF80 优势 0.04–0.44）。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.07061",
-      "aisafetyhot": "https://aisafetyhot.com/items/b5rey1iggqq9b7sq1rimeyfo9"
-    },
-    "publishedAt": "2026-09-07T05:32:03.000Z",
-    "timelineAt": "2026-10-01T04:33:29.129Z",
-    "discoveredAt": "2026-10-01T04:33:29.129Z"
   },
   {
     "arxivId": "2609.34052",
@@ -5355,26 +4495,6 @@
     "discoveredAt": "2026-10-01T10:21:12.721Z"
   },
   {
-    "arxivId": "2609.01322",
-    "title": "Exploring Sparse Autoencoders in Text-Based Causal Confounding Adjustment",
-    "titleZh": "在文本因果混杂调整中探索稀疏自编码器（SAE）",
-    "authors": [
-      "Mian Zhong"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出一种基于稀疏自编码器（SAE）的因果调整流程，通过条件独立性检验迭代筛选最小 SAE 特征集，以在保留混杂变量与满足有限样本重叠之间取得平衡。在二元混杂变量的半合成评测中，SAE 表示比替代表示实现更优调整，偏差更低、覆盖率更高，且其可解释性提供了证伪机会。作者还引入以多标签数据作为未观测混杂变量的更真实半合成评测，发现现成调整方法在这类更复杂设定下仍需进一步研究。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.01322",
-      "aisafetyhot": "https://aisafetyhot.com/items/h7vw31fv3xt2tx1h8ea3vo6xp"
-    },
-    "publishedAt": "2026-09-01T14:40:23.000Z",
-    "timelineAt": "2026-10-01T04:34:04.817Z",
-    "discoveredAt": "2026-10-01T04:34:04.817Z"
-  },
-  {
     "arxivId": "2609.12841",
     "title": "A Graph-Based Approach for Mapping Kernel-Level Telemetry to MITRE ATT&CK",
     "titleZh": "Trace2ATT&CK：基于图的 eBPF 内核遥测到 MITRE ATT&CK 映射方法",
@@ -5393,46 +4513,6 @@
     "publishedAt": "2026-09-11T13:35:27.000Z",
     "timelineAt": "2026-10-01T10:12:06.395Z",
     "discoveredAt": "2026-10-01T10:12:06.395Z"
-  },
-  {
-    "arxivId": "2609.03687",
-    "title": "A Circuit for Plural Reference: How LLMs Represent and Retrieve Singular and Plural Entities",
-    "titleZh": "LLM 如何表征与检索单复数实体：复指回指的机制可解释性研究",
-    "authors": [
-      "Anh Danh"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究用机制可解释性与注意力模式分析，考察 LLM 预测代词回指前文实体时如何表征和检索单复数实体。通过多种因果干预手段，识别出一组注意力头，分别负责在输入中表征共指信息、识别构成复数指代的实体，以及把信息传递给负责选择先行词并预测代词的组件。研究还发现 LLM 在复数代词偏好上与人类一致：本体上相似、并由 \"and\" 连接的实体更可能被复数指代。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.03687",
-      "aisafetyhot": "https://aisafetyhot.com/items/z0k8v299h5rfe6bfjami5dqfj"
-    },
-    "publishedAt": "2026-09-03T11:23:11.000Z",
-    "timelineAt": "2026-10-01T04:33:29.229Z",
-    "discoveredAt": "2026-10-01T04:33:29.229Z"
-  },
-  {
-    "arxivId": "2609.00786",
-    "title": "MROP: Mask-Region Optimized Purification Against Backdoor Attack in Deep JSCC",
-    "titleZh": "MROP：针对 Deep JSCC 后门攻击的掩码区域优化净化方法",
-    "authors": [
-      "Seongkyu Yang"
-    ],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对 Deep JSCC 图像传输中的输入补丁后门攻击，研究者提出掩码区域优化净化（MROP）。该方法在推理阶段于编码器输入端放置逐像素掩码，通过 Gumbel-sigmoid 松弛优化定位触发补丁并细化触发区域，无需重新训练 JSCC 模型。在 CIFAR-10 和 STL-10 数据集及 DeepJSCC、SwinJSCC 模型上，MROP 大幅降低攻击成功率（ASR），同时保持干净重建的峰值信噪比（PSNR）。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.00786",
-      "aisafetyhot": "https://aisafetyhot.com/items/lprmqzj1sx80ycwvamc95mlt7"
-    },
-    "publishedAt": "2026-09-01T06:31:07.000Z",
-    "timelineAt": "2026-10-01T04:35:52.727Z",
-    "discoveredAt": "2026-10-01T04:35:52.727Z"
   },
   {
     "arxivId": "2609.33028",
@@ -5780,46 +4860,6 @@
     "publishedAt": "2026-09-08T17:54:13.000Z",
     "timelineAt": "2026-10-01T10:03:01.206Z",
     "discoveredAt": "2026-10-01T10:03:01.206Z"
-  },
-  {
-    "arxivId": "2609.06968",
-    "title": "Tracing Query Expansion Effects through Sparse Autoencoder Features",
-    "titleZh": "通过稀疏自编码器特征追踪查询扩展效果",
-    "authors": [
-      "Fangan Dong"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究用稀疏自编码器（SAE）特征追踪查询扩展（QE）对稠密检索器的内部影响，将原始与扩展查询的逐层表示分解为稀疏隐激活，从扩展引发的激活偏移中识别出 QE 相关隐变量。分析显示有效 QE 引发与检索意图和实体属性对齐的层级集中变化，而非仅扰动最终查询嵌入。基于 SAE 的激活引导在四个基准上比随机干预或原始 QE 更稳定地提升检索效果，无需查询改写或检索器微调。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.06968",
-      "aisafetyhot": "https://aisafetyhot.com/items/b7ju4e6xmzl4v0s4zhbzbf9vz"
-    },
-    "publishedAt": "2026-09-07T03:07:22.000Z",
-    "timelineAt": "2026-10-01T04:33:29.145Z",
-    "discoveredAt": "2026-10-01T04:33:29.145Z"
-  },
-  {
-    "arxivId": "2609.06020",
-    "title": "What Does Animal Re-Identification Learn? Linear Biological Concepts and Their Origins in Visual Representations",
-    "titleZh": "动物重识别模型学到了什么？DINOv3 中线性生物概念及其来源",
-    "authors": [
-      "Robert Nolting"
-    ],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "基于 DINOv3 骨干、用 triplet-margin loss 微调的西部低地大猩猩重识别模型，其表征中性别与年龄以线性方向存在，对留出个体可达 0.91 AUROC，且每个个体仅需一张图像即可恢复。激活引导显示性别方向被模型因果使用，能显著改变预测性别；对比现成与微调骨干表明重识别训练并未创造这些概念，而是将其在网络中重新分布。数据归因进一步显示该表征反映渐变的生物轴、在群体中冗余编码，并受视觉模糊个体影响。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.06020",
-      "aisafetyhot": "https://aisafetyhot.com/items/lj9d4s1t0l3qu0wz6ub648y8o"
-    },
-    "publishedAt": "2026-09-05T10:46:27.000Z",
-    "timelineAt": "2026-10-01T04:33:29.183Z",
-    "discoveredAt": "2026-10-01T04:33:29.183Z"
   },
   {
     "arxivId": "2609.27068",

@@ -18,6 +18,42 @@
     "discoveredAt": "2026-10-05T17:26:27.129Z"
   },
   {
+    "arxivId": "2606.23700",
+    "title": "Self-Recognition Finetuning can Prevent and Reverse Emergent Misalignment",
+    "titleZh": "自生成文本识别微调可预防和逆转涌现性失准",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出自生成文本识别（SGTR）微调，作为针对模型角色特征的干预手段，用于预防和逆转涌现性失准（EM）。实验在 GPT-4.1、Qwen2.5-32B-Instruct、Seed-OSS-36B-Instruct 三个模型和多个 EM 数据集上进行两阶段微调，与领域数据、通用知识和字数统计等良性微调基线对比。结果显示，在逆转场景下各干预效果相当，但前提是恢复了 EM 所损害的能力；在预防场景下，只有 SGTR 微调能持续降低失准且不恶化任何单项指标。论文还发现 EM 微调会使模型身份自述变得多样，人为破坏自识别会加剧失准，移除承载身份的系统提示词则显著削弱 EM 微调效果，据此将 EM 重新解释为对齐角色被 destabilize 而非采纳一致的失准人格。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2606.23700",
+      "aisafetyhot": "https://aisafetyhot.com/items/wqcdhko1jz7go1b33ufb33pwc"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T00:06:07.802Z",
+    "discoveredAt": "2026-10-06T00:06:07.802Z"
+  },
+  {
+    "arxivId": "2609.37968",
+    "title": "SelfSearch: Reward-Free Search for Self-Improving Agents",
+    "titleZh": "SelfSearch：无需奖励信号的自改进 Agent 搜索方法",
+    "authors": [],
+    "category": "ai_news",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 SelfSearch，一种无奖励信号的搜索流程，让 LLM Agent 利用此前自改进过程的记录来修改自身的指令、工具和执行流程，这些记录包含推理、工具动作和结果。在六个模型与基准组合上，SelfSearch 都提升了群体平均成功率，单个 Agent 在 Terminal-Bench 2.1 上最高提升 11.2 个百分点；在 SWE-bench Multilingual 上，一个 Agent 成功率提升 5.0 个百分点，同时在初始与进化后 Agent 都能解决的任务上把执行成本降低 38.5%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.37968",
+      "aisafetyhot": "https://aisafetyhot.com/items/mra3puer8nd1h3m4jco3c7b7k"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T00:02:13.067Z",
+    "discoveredAt": "2026-10-06T00:02:13.067Z"
+  },
+  {
     "arxivId": "2609.30467",
     "title": "Where Does Retrieval-Based Open-Ended Evaluation Fail? Automatic Taxonomy Induction from Long-Form Medical Answer Factuality Verification",
     "titleZh": "研究提出医疗答案事实核查失败分类法，指出检索后验证范式的固有局限",

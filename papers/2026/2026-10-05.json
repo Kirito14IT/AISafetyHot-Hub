@@ -2472,6 +2472,26 @@
   },
   {
     "arxivId": null,
+    "title": "MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement",
+    "titleZh": "小米 MiMo-V2.6 发布：以强化学习扩展推动模型自我改进",
+    "authors": [
+      "LLM-Core Xiaomi"
+    ],
+    "category": "ai_news",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "小米发布 MiMo-V2.6 系列全模态模型，含 1.02T 参数、42B 激活参数的 MiMo-V2.6-Pro 和 310B 参数、15B 激活参数的 MiMo-V2.6-Flash，通过扩展强化学习算力推进模型自我改进。其 RL 训练每步消耗 1,568 个样本、2.7∼3.7B tokens，上下文长度最高 1M，覆盖代码、通用、视觉与网络等环境，并冻结 MoE router、建立多层防御以抑制奖励作弊。团队开源训练动态、RL 环境与 RL 框架。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL/blob/main/MiMo_V2_6_technical_report.pdf",
+      "aisafetyhot": "https://aisafetyhot.com/items/aoa3ogbs9h1ksw5i3ixa1md2j"
+    },
+    "publishedAt": "2026-09-21T19:58:58.000Z",
+    "timelineAt": "2026-10-04T21:43:25.801Z",
+    "discoveredAt": "2026-10-04T21:43:25.801Z"
+  },
+  {
+    "arxivId": null,
     "title": "Aleph Alpha发布德英双语开放权重模型Kolibri",
     "titleZh": "Aleph Alpha 发布德英双语开放权重 MoE 推理模型 Kolibri",
     "authors": [],
@@ -2629,26 +2649,6 @@
     "publishedAt": "2026-09-25T17:28:53.000Z",
     "timelineAt": "2026-10-05T12:45:49.377Z",
     "discoveredAt": "2026-10-05T12:45:49.377Z"
-  },
-  {
-    "arxivId": null,
-    "title": "MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement",
-    "titleZh": "小米 MiMo-V2.6：通过强化学习扩展迈向自我改进",
-    "authors": [
-      "LLM-Core Xiaomi"
-    ],
-    "category": "ai_news",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "小米发布 MiMo-V2.6 技术报告，主题为通过扩展强化学习实现模型自我改进。报告文件 MiMo_V2_6_technical_report.pdf 已在 HuggingFace 仓库 XiaomiMiMo/MiMo-V2.6-Pro-RL 上线，大小 3.05 MB，可通过 hf CLI 或 curl 下载。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL/blob/main/MiMo_V2_6_technical_report.pdf",
-      "aisafetyhot": "https://aisafetyhot.com/items/aoa3ogbs9h1ksw5i3ixa1md2j"
-    },
-    "publishedAt": "2026-09-21T19:58:58.000Z",
-    "timelineAt": "2026-10-04T21:43:25.801Z",
-    "discoveredAt": "2026-10-04T21:43:25.801Z"
   },
   {
     "arxivId": "2610.02504",
