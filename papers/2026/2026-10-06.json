@@ -211,45 +211,6 @@
     "discoveredAt": "2026-10-06T04:25:27.542Z"
   },
   {
-    "arxivId": "2610.05622",
-    "title": "UndoBench: Separating Task Competence from Recovery Capability in Tool-Using AI Agents",
-    "titleZh": "UndoBench 发布：分离工具型 Agent 的任务能力与故障恢复能力",
-    "authors": [],
-    "category": "eval",
-    "selected": true,
-    "attention": 83,
-    "summaryZh": "研究者提出 UndoBench，一个覆盖 8 个企业领域、36 个基础工作流与 36 个故障场景的基准，通过同种子配对反事实试验把任务能力与恢复能力分开评估。在 12 个留出 TEST 工作流、两个开源权重模型、两个框架和三种恢复范式的冻结丢失确认研究中（5,760 次执行 / 2,880 对配对试验），名义任务成功率为 83.54%，而条件恢复成功率（CRSR）降至 46.72%，朴素重试在 53.33% 的试验中产生重复外部副作用。扩展到 Gemini 3.8 Flash 与 GLM-5.2 MaaS 等商业 API 模型后，能力与恢复的分离依然存在，两者在朴素重试下的 CRSR 分别约为 21.08% 和 21.89%。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "现有工具型智能体基准主要在无扰动标称环境下评估任务完成，混淆了基线规划能力与运维故障恢复。在真实分布式系统中，网络丢包会导致外部已提交但确认丢失，盲目重试会引发重复扣款等外部状态破坏。",
-          "label": "问题"
-        },
-        {
-          "text": "UndoBench涵盖8个领域的36个工作流，以相同种子下的成对反事实运行解耦名义与恢复能力。基准定义了条件恢复成功率CRSR，覆盖变异前、变异中和丢失确认三个边界，并由物理状态和线路日志双预言机判定。",
-          "label": "方法"
-        },
-        {
-          "text": "在12个TEST工作流和丢失确认下，Llama名义成功率达83.54%，CRSR降至46.72%，朴素重试引发53.33%重复。商业模型也复现了该分离；变异中故障导致朴素重试、单调用幂等和零特权日志的CRSR降至0.00%。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "作者指出测试集仅含12个任务集群；商业API缺乏逐比特确定性保证；每次运行仅注入单次故障，未涉及级联故障；环境基于模拟沙盒；开源实验局限于两款Llama模型；B6为事后评估。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2610.05622"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.05622",
-      "aisafetyhot": "https://aisafetyhot.com/items/ufl6h2r4lzkr04qtg8hzfp8g8"
-    },
-    "publishedAt": "2026-10-03T20:00:00.000Z",
-    "timelineAt": "2026-10-06T10:27:27.182Z",
-    "discoveredAt": "2026-10-06T10:27:27.182Z"
-  },
-  {
     "arxivId": "2610.04575",
     "title": "From Probe Scores to Alarm Policies",
     "titleZh": "论文提出 Operational Validity Contract，审计激活监控从探针分数到告警策略的有效性",
@@ -594,7 +555,28 @@
     "selected": true,
     "attention": 78,
     "summaryZh": "TranScope 研究硬件侧信道可能带来的模型成员推断风险，即硬件层面的信息泄露是否能够暴露某条数据参与过模型训练。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "现有 membership inference 攻击依赖模型输出、置信度或多次查询，而业界正转向二值化、闭权重的本地模型，只暴露黑盒访问，使这些攻击失效。作者认为 membership 是机器学习的根本隐私原语，需要一种不依赖输出、无需替代模型、单次查询即可判断训练集归属的方法。",
+          "label": "问题"
+        },
+        {
+          "text": "作者提出 TranScope，在自有硬件上运行模型并采集 290+ 个硬件性能计数器、功耗与延迟。核心思路是：训练语料使 tokenizer 给常见词分配相近的 token ID，导致 embedding 行地址局部性不同，进而改变 TLB、cache 与页表遍历模式，即使端到端时间恒定也能区分 in-distribution 与 out-of-distribution 输入。",
+          "label": "方法"
+        },
+        {
+          "text": "在 BERT、ViT、GPT-2、Pythia 等模型上，TranScope 报告最高 AUC 0.995、99.8% 准确率、TPR 100%、FPR 0.5%，优于此前 PETAL 的 0.6 AUC；对 NYT 2019 年文章比 2020–2023 年文章少 56% off-core 读和 12% DTLB miss，而运行时间差在 1.2% 内。功耗差异随模型增大从 2.6% 增至 4.5%。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者建议的缓解方向包括限制微调时的 tokenizer 训练、按 token ID 排序以平滑 embedding 访问，以及提出 constant-footprint execution 概念，即同时均衡 TLB 访问、执行端口利用率和每次推理能耗等微架构统计量。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.06848"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.06848",
       "aisafetyhot": "https://aisafetyhot.com/items/syycp5ehoxpggc2m617ypd6ao"
@@ -602,6 +584,45 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T07:22:00.596Z",
     "discoveredAt": "2026-10-06T07:22:00.596Z"
+  },
+  {
+    "arxivId": "2610.05622",
+    "title": "UndoBench: Separating Task Competence from Recovery Capability in Tool-Using AI Agents",
+    "titleZh": "UndoBench 发布：分离工具型 Agent 的任务能力与故障恢复能力",
+    "authors": [],
+    "category": "eval",
+    "selected": true,
+    "attention": 78,
+    "summaryZh": "研究者提出 UndoBench，一个覆盖 8 个企业领域、36 个基础工作流与 36 个故障场景的基准，通过同种子配对反事实试验把任务能力与恢复能力分开评估。在 12 个留出 TEST 工作流、两个开源权重模型、两个框架和三种恢复范式的冻结丢失确认研究中（5,760 次执行 / 2,880 对配对试验），名义任务成功率为 83.54%，而条件恢复成功率（CRSR）降至 46.72%，朴素重试在 53.33% 的试验中产生重复外部副作用。扩展到 Gemini 3.8 Flash 与 GLM-5.2 MaaS 等商业 API 模型后，能力与恢复的分离依然存在，两者在朴素重试下的 CRSR 分别约为 21.08% 和 21.89%。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "现有工具型智能体基准主要在无扰动标称环境下评估任务完成，混淆了基线规划能力与运维故障恢复。在真实分布式系统中，网络丢包会导致外部已提交但确认丢失，盲目重试会引发重复扣款等外部状态破坏。",
+          "label": "问题"
+        },
+        {
+          "text": "UndoBench涵盖8个领域的36个工作流，以相同种子下的成对反事实运行解耦名义与恢复能力。基准定义了条件恢复成功率CRSR，覆盖变异前、变异中和丢失确认三个边界，并由物理状态和线路日志双预言机判定。",
+          "label": "方法"
+        },
+        {
+          "text": "在12个TEST工作流和丢失确认下，Llama名义成功率达83.54%，CRSR降至46.72%，朴素重试引发53.33%重复。商业模型也复现了该分离；变异中故障导致朴素重试、单调用幂等和零特权日志的CRSR降至0.00%。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出测试集仅含12个任务集群；商业API缺乏逐比特确定性保证；每次运行仅注入单次故障，未涉及级联故障；环境基于模拟沙盒；开源实验局限于两款Llama模型；B6为事后评估。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.05622"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.05622",
+      "aisafetyhot": "https://aisafetyhot.com/items/ufl6h2r4lzkr04qtg8hzfp8g8"
+    },
+    "publishedAt": "2026-10-03T20:00:00.000Z",
+    "timelineAt": "2026-10-06T10:27:27.182Z",
+    "discoveredAt": "2026-10-06T10:27:27.182Z"
   },
   {
     "arxivId": "2604.02947",
@@ -1316,24 +1337,6 @@
     "discoveredAt": "2026-10-06T07:21:53.018Z"
   },
   {
-    "arxivId": "2610.04128",
-    "title": "What Gradients Add to Text Leakage in Split Language Models, Counted per Token and per Document",
-    "titleZh": "研究显示拆分学习中的梯度使 GPT-2 客户端文本泄露显著增加",
-    "authors": [],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究测量了拆分学习中梯度对客户端文本泄露的贡献。在 GPT-2 上，仅凭客户端层公开权重和激活值，攻击者可还原 94.20% 的 token，加入梯度后升至 97.38%，提高 3.17 个百分点，95% 区间为 [2.72, 3.64]。按文档统计差异更大：32 token 文档的完全还原率从 13.71% 升至 37.77%，因为文档需每个 token 都正确才计入。防御 Secret mixup 虽能阻止几乎任何文档被完全还原，攻击者仍可还原 83-91% 的 token。在 GPT-2 与 Qwen3-0.6B 的第二组实验中，固定连续层长度时，起始层位置同时影响模型质量与泄露程度。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.04128",
-      "aisafetyhot": "https://aisafetyhot.com/items/chh27ifwos1b39vj1l1yo2uxn"
-    },
-    "publishedAt": "2026-10-01T20:00:00.000Z",
-    "timelineAt": "2026-10-06T10:27:27.201Z",
-    "discoveredAt": "2026-10-06T10:27:27.201Z"
-  },
-  {
     "arxivId": "2610.04119",
     "title": "Copying Before Suppression: What Drives a Below-Chance Dip During Language Model Training?",
     "titleZh": "研究揭示 Pythia 训练早期低于随机水平的暂时性偏好成因",
@@ -1451,6 +1454,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T06:14:59.576Z",
     "discoveredAt": "2026-10-06T06:14:59.576Z"
+  },
+  {
+    "arxivId": "2610.06503",
+    "title": "Harmful Content Generation in Text-to-Image Models: Capabilities and Moderation Limitations",
+    "titleZh": "研究评测五款开源文生图模型的有害内容生成与审核缺口",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究团队用自动化流程把合法新闻标题改写成针对色情、暴力血腥、有害刻板印象、自残和仇恨言论的提示词，系统评测了五款开源文生图模型的有害内容生成能力。对 1,500 张生成图像的人工评估显示，血腥类提示词的有害内容生成率达 89.2%，色情内容 47.6%，有害刻板印象 43.6%，仇恨言论 46.0%，自残 34.5%，且多以血腥暴力形式出现。社区微调变体在色情提示词上尤其脆弱，FLUX.1-dev 有 30.9% 的案例生成明显逼真的有害图像。对自动审核系统的评估发现明显检测缺口，不安全图像可绕过过滤；合成图像检测器方面，仅用良性数据训练的模型在露骨内容上表现更差，训练数据更多样则检测效果更好。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06503",
+      "aisafetyhot": "https://aisafetyhot.com/items/qsjnai7kjpmukn05j2y6znzc1"
+    },
+    "publishedAt": "2026-10-05T15:22:19.000Z",
+    "timelineAt": "2026-10-06T10:22:28.136Z",
+    "discoveredAt": "2026-10-06T10:22:28.136Z"
   },
   {
     "arxivId": "2610.05346",
@@ -1645,6 +1666,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T05:30:27.480Z",
     "discoveredAt": "2026-10-06T05:30:27.480Z"
+  },
+  {
+    "arxivId": "2610.04128",
+    "title": "What Gradients Add to Text Leakage in Split Language Models, Counted per Token and per Document",
+    "titleZh": "研究显示拆分学习中的梯度可提升客户端文本重建率",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者在拆分学习场景下测量了梯度对客户端文本泄露的贡献。在 GPT-2 上，仅凭客户端层的公开权重，攻击者从激活值中恢复 94.20% 的 token，同时看到梯度后升至 97.38%，提高 3.17 个百分点，95% 区间为 [2.72, 3.64]。按文档统计差距更大：32 token 的文档中，无梯度时 13.71% 被完整重建，有梯度时为 37.77%，因为文档需每个 token 都正确才计入。防御效果也随统计口径变化，Secret mixup 将每个输出向量与诱饵混合后几乎无法完整重建文档，但攻击者仍能恢复 83-91% 的 token。在 GPT-2 与 Qwen3-0.6B 的第二组实验中，服务器只训练连续若干层时，起始层位置在层数固定情况下同时影响模型质量与泄露程度。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04128",
+      "aisafetyhot": "https://aisafetyhot.com/items/chh27ifwos1b39vj1l1yo2uxn"
+    },
+    "publishedAt": "2026-10-01T20:00:00.000Z",
+    "timelineAt": "2026-10-06T10:27:27.201Z",
+    "discoveredAt": "2026-10-06T10:27:27.201Z"
   },
   {
     "arxivId": "2610.05461",
@@ -2145,6 +2184,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T06:22:32.558Z",
     "discoveredAt": "2026-10-06T06:22:32.558Z"
+  },
+  {
+    "arxivId": "2610.06366",
+    "title": "Correct Verdicts, Flawed Reasoning: Structured Auditing of LLM-based Vulnerability Reasoning",
+    "titleZh": "研究：漏洞判断正确时 LLM 推理仍可能不可靠",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究考察 LLM 在给出正确漏洞判断时其解释是否仍包含不可靠推理，并比较结构化审计与自由文本评审两种方式。实验覆盖五类 C/C++ 内存与资源生命周期漏洞，涉及六个检测模型与三个评审模型。研究指出基准污染、输出稀疏和评测偏差仍限制结论，结果不能泛化为所有语言或作为部署安全保证。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06366",
+      "aisafetyhot": "https://aisafetyhot.com/items/u8bromkyn0nqztxjfkldx79te"
+    },
+    "publishedAt": "2026-10-05T14:03:14.000Z",
+    "timelineAt": "2026-10-06T11:26:07.154Z",
+    "discoveredAt": "2026-10-06T11:26:07.154Z"
   },
   {
     "arxivId": "2610.06563",
@@ -2804,23 +2861,5 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T05:39:34.839Z",
     "discoveredAt": "2026-10-06T05:39:34.839Z"
-  },
-  {
-    "arxivId": "2610.06503",
-    "title": "Harmful Content Generation in Text-to-Image Models: Capabilities and Moderation Limitations",
-    "titleZh": "Harmful Content Generation in Text-to-Image Models: Capabilities and Moderation Limitations",
-    "authors": [],
-    "category": null,
-    "selected": false,
-    "attention": null,
-    "summaryZh": null,
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.06503",
-      "aisafetyhot": "https://aisafetyhot.com/items/qsjnai7kjpmukn05j2y6znzc1"
-    },
-    "publishedAt": "2026-10-05T15:22:19.000Z",
-    "timelineAt": "2026-10-06T10:22:28.136Z",
-    "discoveredAt": "2026-10-06T10:22:28.136Z"
   }
 ]
