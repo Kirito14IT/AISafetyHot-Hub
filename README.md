@@ -470,7 +470,7 @@ claude mcp add --transport http aisafetyhot https://aisafetyhot.com/api/mcp
 codex mcp add aisafetyhot --url https://aisafetyhot.com/api/mcp
 ```
 
-重新打开会话后，就能使用 **7 个只读工具**：最新动态、历史搜索、话题筛选、单篇深读、热点榜、事件时间线及日/周/月报。支持分页和精选变化同步，既可单独使用 MCP，也可与 Skill 配合。详见[七个工具与使用示例](docs/agent.md)。
+重新打开会话后，就能使用 **7 个只读工具**：最新动态、历史搜索、话题筛选、单篇深读、热点榜、事件时间线及日/周/月报。支持分页和精选变化同步，既可单独使用 MCP，也可与 Skill 配合。详见[接入指南](docs/agent.md)与[真实输入输出示例](docs/mcp-examples.md)。
 
 <details>
 <summary>其他支持远程 HTTP MCP 的客户端：查看 JSON 配置</summary>
@@ -490,28 +490,111 @@ codex mcp add aisafetyhot --url https://aisafetyhot.com/api/mcp
 
 </details>
 
-### 三个可以直接试的用法
+### 实际试用：输入一句话，会得到什么？
 
-**找研究线索**
+以下结果来自 **2026-10-07 14:45（墨尔本，UTC+11）** 对线上 MCP 的实际调用，是当时的静态示例；现在查询会随网站更新。下面把返回内容整理成便于阅读的形式，对应调用和字段见[完整输入输出示例](docs/mcp-examples.md)。
 
-```text
-查最近 7 天关于 prompt injection 的 AI 安全动态。
-把论文和真实漏洞分开，列出主要发现、局限、原文链接和站内阅读链接。
-```
+**1. 看刚收录的内容**
 
-**追一个正在发酵的事件**
+输入：
 
 ```text
-看看 AI Safety HOT 当前热点榜，选出最值得关注的一个事件。
-打开事件详情，按时间整理进展，区分新事实和不同来源对同一件事的报道。
+用 AI Safety HOT 看过去 24 小时最新收录的 3 条精选。
+每条给我标题、一句话摘要、来源和原文链接；区分新闻和论文。
 ```
 
-**准备组会**
+输出：
+
+- **论文｜[研究：工具型智能体判断结果无用却仍继续检索，强制整合步骤可纠正](https://aisafetyhot.com/items/da8k095stbflt2f8cj6d7yvoa)**
+  新加坡 A*STAR、新加坡国立大学等机构的研究者在受控检索环境中测试了七个智能体，发现它们判断失效来源结果无用的准确率高达 97–100%，但多数并不会据此停止检索。
+  来源：Hugging Face Daily Papers · [原文](https://huggingface.co/papers/2610.06191)
+- **新闻｜[韩国金融业联合预警系统未能及早发现AI黑客攻击痕迹](https://aisafetyhot.com/items/phnuyph0zwm2cyg662ur8t2a5)**
+  韩国金融监督院10月6日通报，已识别出近期金融业疑似AI黑客攻击所使用的33个IP地址（其中28个为独立IP）并分发给各金融机构，要求各公司在10月8日前完成自查整改。
+  来源：The Chosun Daily · [原文](https://www.chosun.com/english/market-money-en/2026/10/07/XKH5WMQDWRCHFATOB5GJZMGXMU)
+- **新闻｜[OpenAI 首席战略官就智能体探测 NSW 火史服务出席澳议会听证](https://aisafetyhot.com/items/mw4b76pws0atv6jxhfl587dms)**
+  OpenAI 首席战略官 Jason Kwon 在悉尼出席澳大利亚联邦议会人工智能联合专责委员会听证，称公司智能体在澳政府系统中的事件本不该发生，回应也处理得不够好。
+  来源：AUNS · [原文](https://auns.com.au/article/20261006-openai-kwon-inquiry-npws-fire-history)
+
+这次返回 3 条，`hasMore=true`，表示还有下一页；“最近 24 小时收录”不等于原文都在这 24 小时发表。
+
+<details>
+<summary>查看实际 MCP 调用</summary>
+
+```json
+{
+  "name": "aisafetyhot_get_latest",
+  "arguments": {
+    "window": "24h",
+    "mode": "selected",
+    "limit": 3
+  }
+}
+```
+
+</details>
+
+**2. 按话题找论文，再读具体发现**
+
+输入：
 
 ```text
-用 AI Safety HOT 最近 7 天的精选，整理一份 5 分钟组会提纲。
-按攻击、防御、评测归类；每项保留来源，并提出一个值得讨论的问题。
+找最近 7 天收录、属于“提示注入”话题的精选内容，以 prompt injection 搜索，先列 3 条。
+如果有论文，打开其中一篇，告诉我它解决什么问题，附论文原文。
 ```
+
+输出：
+
+- 报道：[GhostCommit 研究展示图像内容与 AI 代码审查之间的信任边界风险](https://aisafetyhot.com/items/fq81ksfn1p9l89s721i9bocp1)
+- 论文：[研究揭示 CaMeL 防护在多智能体系统中失效并提出 multi-CaMeL](https://aisafetyhot.com/items/jgfk4qjpd79q6ep9iwhnetm6o)
+- 报道：[Zenity Labs 披露 Salesforce Agentforce 间接提示注入与零点击数据外泄漏洞](https://aisafetyhot.com/items/tge6h6ie6dizwtb5ifzc9q936)
+
+打开其中的 **multi-CaMeL** 论文后，已有导读返回：
+
+> 单个智能体的控制流完整性无法在分层多智能体系统中直接组合，非可信数据跨边界会被下游智能体当作可信指令而劫持控制流。
+>
+> 提出 multi-CaMeL 协议，将智能体间调用拆分为可信指令与非可信变量两个通道，并由解释器在运行时保持溯源。
+
+[论文原文](https://arxiv.org/abs/2610.05640) · [站内解读](https://aisafetyhot.com/items/jgfk4qjpd79q6ep9iwhnetm6o)。本次读取的是已有论文导读，接口没有返回论文全文；5,000 字符预算也使解读只返回了一部分。
+
+→ [查看话题 → 搜索 → 单篇深读的实际调用](docs/mcp-examples.md#topics)
+
+**3. 准备周会简报**
+
+输入：
+
+```text
+用 AI Safety HOT 读最新一期周报。
+先说清是哪一周，再列出本期主题和阅读链接。
+```
+
+输出：
+
+**AI Safety HOT 周报 · 2026-W40**，覆盖北京时间 2026-09-28 00:00 至 2026-10-05 00:00（不含终点）。本期主线：**智能体越界事件密集披露，监管与评测同步收紧**。
+
+- 智能体越界事件密集披露
+- 奖励作弊泛化为攻击行为
+- 前沿模型网络能力升级与评测
+- 推理链与工具链攻击面
+- 监管调查与问责压力上升
+
+[打开本期周报](https://aisafetyhot.com/weekly/2026-W40) · [查看报告查询的输入输出](docs/mcp-examples.md#reports)
+
+<details>
+<summary>查看实际 MCP 调用</summary>
+
+```json
+{
+  "name": "aisafetyhot_get_daily",
+  "arguments": {
+    "period": "weekly",
+    "key": "2026-W40"
+  }
+}
+```
+
+</details>
+
+→ [继续看：热点榜、事件时间线、日/月报与分页的真实结果](docs/mcp-examples.md)
 
 自己写脚本也能直接取数据：
 
