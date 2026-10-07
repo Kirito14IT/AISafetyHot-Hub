@@ -135,6 +135,24 @@
     "discoveredAt": "2026-10-07T02:23:09.732Z"
   },
   {
+    "arxivId": "2610.06191",
+    "title": "Judged Useless, Queried Anyway: Tool-Using Agents Rarely Turn Their Own Evidence Judgments into Stopping Decisions",
+    "titleZh": "研究：工具型智能体判断结果无用却仍继续检索，强制整合步骤可纠正",
+    "authors": [],
+    "category": "alignment",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "新加坡 A*STAR、新加坡国立大学等机构的研究者在受控检索环境中测试了七个智能体，发现它们判断失效来源结果无用的准确率高达 97–100%，但多数并不会据此停止检索。研究用时间匹配对比 Δ 区分按时间、按截止期限和按证据停止三种策略，发现提示词允许凭记忆作答或给出推理模式会让智能体提前停止，但停止与证据无关；写明预算会把 7–8B 模型的停止点推到截止期限，预算翻倍时停止点随之移动。只有当框架强制执行整合步骤，即在连续五次判定无用后只保留 finish 动作，停止才跟随证据，所有模型的失效来源成功率上升，预算翻倍时停止点不变。该模式在 300 道新题上完成预注册复现，并迁移到 FEVER 事实核查；Qwen3-32B、推理模式和 RL 训练的 Search-R1 大多仍不整合，只有 Claude Sonnet 5 在无提示时部分做到。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06191",
+      "aisafetyhot": "https://aisafetyhot.com/items/da8k095stbflt2f8cj6d7yvoa"
+    },
+    "publishedAt": "2026-10-04T20:00:00.000Z",
+    "timelineAt": "2026-10-07T03:29:27.196Z",
+    "discoveredAt": "2026-10-07T03:29:27.196Z"
+  },
+  {
     "arxivId": "2610.07510",
     "title": "PersistBD",
     "titleZh": "PersistBD：攻击者可在发布前强化后门，使其在开发者 SFT 与 RL 后仍保持高攻击成功率",
