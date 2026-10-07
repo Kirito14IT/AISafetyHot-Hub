@@ -39,6 +39,24 @@
     "discoveredAt": "2026-10-06T18:43:29.171Z"
   },
   {
+    "arxivId": "2606.23130",
+    "title": "AI生成并部署应用的安全缺陷研究",
+    "titleZh": "研究审计 200 个 vibe coding 应用，发现 1,186 个漏洞",
+    "authors": [],
+    "category": "eval",
+    "selected": true,
+    "attention": 85,
+    "summaryZh": "研究者构建 VibeApps 数据集，从 9,041 个由 Claude Code 和 Lovable 开发的开源 vibe coding 应用中随机抽取 200 个已公开部署的应用进行安全审计，共发现 1,186 个漏洞。91.0% 的受审应用至少含一个漏洞，其中 65.77% 被评为 Critical 或 High 严重级别，集中在访问控制失效、注入和身份验证失败三类。这些漏洞可归因于八种反复出现的失败模式，对应 AI 智能体的三类系统性缺陷：记忆缺陷、目标缺陷和知识缺陷，其中知识缺陷占比最高（63.4%）。在 1,680 次受控重放实验中，目标漏洞在 25.8% 的运行中被重新引入；生产就绪提示词和加固后的 agent harness 降幅最大，分别为 14.8 和 13.8 个百分点，但没有任何配置能消除全部目标漏洞。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2606.23130",
+      "aisafetyhot": "https://aisafetyhot.com/items/zrijbfwonlhlwn23sst7mwog8"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T13:18:35.532Z",
+    "discoveredAt": "2026-10-07T13:18:35.532Z"
+  },
+  {
     "arxivId": "2610.04195",
     "title": "MemLeak",
     "titleZh": "MemLeak 研究：多租户 Agent 共享向量记忆库存在跨用户记忆泄露",
