@@ -89,23 +89,23 @@
     "quickRead": {
       "parts": [
         {
-          "text": "编码 agent harness 负责中介工具调用与授权，但其安全机制的实际实现与运行时效果尚不清楚。现有研究多覆盖少量 harness 或单一攻击面，闭源产品证据不足，也缺少对机制开关前后安全与效用变化的系统对比。",
+          "text": "代码智能体harness负责协调工具调用与授权操作，但其原生安全机制的实现现状与运行时防护效果缺乏系统性实证评估，难以明确安全机制能否在保证合法开发需求的同时防御攻击。",
           "label": "问题"
         },
         {
-          "text": "作者先通过源码与官方材料归纳出十类安全机制，对 40 个 harness（27 开源、13 闭源）的 400 个 harness–机制单元做人工与 LLM 独立评级。再构建 HarnessSecurity-Bench，含 23 个任务、五个攻击面，用独立确定性 oracle 分别测任务效用与攻击效果，在六个 harness 上对比机制 ON/OFF。",
+          "text": "作者梳理出包含10类安全机制的分类法，通过研究人员与LLM独立评审评估40款harness的400个单元格；并构建包含23个任务、覆盖5类攻击面的基准HARNESSSECURITY-BENCH，用确定性预言机隔离测量开启与关闭配置下的任务效用和攻击效果。",
           "label": "方法"
         },
         {
-          "text": "400 个单元中 205 个确认实现、83 个确认缺失、112 个未知，已实现里约半数为 opt-in，闭源未知比例更高。2500 次试验显示：开启 auto-approve 使效用与攻击成功率同时上升（ASR 29.2%→95.6%）；网络隔离与只读模式大幅降 ASR 但效用损失大；命令白名单、黑名单、路径限制、MCP 权限降 ASR 且效用损失小或略有提升；PIF 仅一组配对且变化很小。案例显示限制共享能力会同时阻断合法与恶意操作，允许的解释器仍可绕过命令限制。",
+          "text": "在GLM-5.2基线与6款harness的2500次测试中，开启auto-approve使总体ASR从29.2%升至95.6%；网络隔离与只读模式虽压低ASR但带来24.5和34.0个百分点的效用损失；命令黑白名单在维持或提升效用同时削弱了攻击效果。",
           "label": "实验与结果"
         },
         {
-          "text": "闭源 harness 因交互方式差异难以可复现评估，核心评测只覆盖六个开源 harness。Docker 与模拟服务不能完全复现真实部署；仅用单一基座模型 GLM-5.2，模型随机性虽以十次重复缓解但仍存在。未来可扩展到闭源 harness 与更多 LLM。",
+          "text": "闭源harness因GUI交互难以复现未纳入核心运行时评测；RQ3仅使用GLM-5.2单基线模型；Docker容器与模拟服务未完全还原真实部署；AA-OFF下的LLM审批存在模型偏差与非确定性。",
           "label": "局限与可以继续做的"
         }
       ],
-      "sourceName": "论文全文（AI 生成）",
+      "sourceName": "论文 PDF（Gemini 生成）",
       "sourceUrl": "https://arxiv.org/abs/2610.07639"
     },
     "links": {
@@ -561,7 +561,28 @@
     "selected": true,
     "attention": 77,
     "summaryZh": "论文在 1119 条标注的 Agent 动作上测量运行时门控栈的失败相关性，覆盖一个确定性规则层和四个 LLM 判官，且不设自适应攻击者。作者提出 nmult 指标，把观测到的联合漏检率换算成等效独立层数：在 STRICT 定义下任意两个判官组合约等于 1.22 至 1.44 层，规则层加一个判官约等于 1.86 至 2.09 层，两组区间在合并数据上分离，但单个语料上点估计分裂、区间重叠。单独准确率无法预测一层给栈带来的增量，一个云端规则包把规则层单独漏检率从 0.139 降到 0.111，却未增加任何新的联合覆盖。难度对判官耦合的贡献份额不可识别，随难度探针和漏检定义在 31.8% 到 61.8% 之间变动。研究还报告了两个改变结论的评测约定：review 判定算拦截还是算漏检使五项结论反转，以及一个判官层在 112 个批次中有 50 个由非请求的模型版本服务。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "部署中的 agent 工具调用常堆叠多层运行时门禁（规则层加 LLM judge），其合理性来自“各层错误相互独立、因此相乘”的假设。作者要检验这一独立性假设是否成立，以及每层对整体栈究竟贡献多少。",
+          "label": "问题"
+        },
+        {
+          "text": "在 1,119 条带标签的 agent 动作（三个语料）上测量一个规则层与四个 LLM judge 的联合漏检，且不设自适应攻击者。提出 nmult 指标，把观测到的联合漏检率换算成等效独立层数，并给出完全耦合下的下限；同时用 φ 衡量成对错误相关。",
+          "label": "方法"
+        },
+        {
+          "text": "judge 之间错误明显相关：任意两个 judge 只等效约 1.2–1.4 层，而规则层加一个 judge 等效约 1.9–2.1 层，两带在合并数据上分离。单独准确率不能预测栈贡献：云规则包把规则层单独漏检率降 20%，却未新增任何联合覆盖。难度与机制的贡献份额无法识别（31.8%–61.8%）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "机制距离只取两个点，非正则的确定性机制未测；全栈 nmult 被删失；难度份额不可识别；四个 judge 中三个来自同一厂商，跨厂商优势在干净来源下未复现；缺人类复核层，review 计分无法定论；结果是无自适应攻击者下的分布性陈述，不构成最坏情况保证。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.07359"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.07359",
       "aisafetyhot": "https://aisafetyhot.com/items/qzt542s68bscm6fmzqko1dal4"
@@ -1198,6 +1219,24 @@
     "discoveredAt": "2026-10-07T04:28:34.865Z"
   },
   {
+    "arxivId": "2610.08662",
+    "title": "ParanoiaEval：编码智能体不必要风险处置评测",
+    "titleZh": "ParanoiaEval：编码智能体不必要风险处置评测基准发布",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 ParanoiaEval，用于统一评测编码智能体的风险处置能力。该基准基于软件工程风险管理中的 Avoidance-Transfer-Mitigation-Acceptance 框架，将其四类处置方式落地到编码智能体场景，包含 200 组仓库级任务对，每对仅在决定处置方式的证据上不同，并引入风险处置违规与证据响应性指标，使用经人工校准的智能体评判器进行评估。在 8 个代表性模型上的大规模实验与事后人工研究显示：即便存在明确证据，不必要风险处置仍出现在 11.2% 至 58.7% 的运行中，且不同智能体配置差异明显；更强的任务能力并不保证更恰当的风险处置，而处置违规会显著损害开发者体验，说明风险处置是一项独立的能力维度；智能体还表现出与既有风险管理研究一致的系统性模式。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08662",
+      "aisafetyhot": "https://aisafetyhot.com/items/poq9g65ueasuykb0fguci1cef"
+    },
+    "publishedAt": "2026-10-06T16:46:00.000Z",
+    "timelineAt": "2026-10-07T10:17:51.927Z",
+    "discoveredAt": "2026-10-07T10:17:51.927Z"
+  },
+  {
     "arxivId": "2610.06163",
     "title": "SAGE",
     "titleZh": "SAGE：定位 LLM Agent 修复中最早偏离安全意图的环节",
@@ -1259,6 +1298,24 @@
     "discoveredAt": "2026-10-07T08:18:27.752Z"
   },
   {
+    "arxivId": "2610.05246",
+    "title": "What a Policy Gate Can and Cannot Know: Measured Boundaries of Cross-Platform Command Adjudication",
+    "titleZh": "研究测量策略网关跨平台命令裁决的能力边界",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究测量了不解析 shell 语法的策略网关在跨平台命令裁决上的表现，该网关接收类型化的已实现动作（动词、操作数、解析后的区域、程序对象身份）并输出 ALLOW、ASK 或 DENY。在 Windows 基准的 Linux 对应版本上，61 例冻结用例表两轮均得 61/61 且无误放行；50 个变异算子的变异测试杀死 46 个（92.0%），4 个存活变异体均被归类。82 行审计得到 43 处重新表述、21 处载体差异、16 行研究特定不适用项和 2 个未解决案例，25 行标注为无对应项的记录中有 4 行仍未映射。由执行器调用时，25 次逃逸降为零且未拦截任何良性载荷。在探索性的单网关快照中，三个未认证端点标签的案例级非拒答多数为 81.8% 至 98.0%，但立即执行多数仅为 4.0% 至 52.5%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.05246",
+      "aisafetyhot": "https://aisafetyhot.com/items/zuc2w0xuweklw2zdf8w73doa9"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T10:17:44.318Z",
+    "discoveredAt": "2026-10-07T10:17:44.318Z"
+  },
+  {
     "arxivId": "2610.07389",
     "title": "Inference and learning in sparse autoencoders as natural gradient flow",
     "titleZh": "BeFOND 将稀疏自编码器的推断与学习统一为自然梯度流",
@@ -1303,24 +1360,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T08:17:57.773Z",
     "discoveredAt": "2026-10-07T08:17:57.773Z"
-  },
-  {
-    "arxivId": "2610.08662",
-    "title": "ParanoiaEval：编码智能体不必要风险处置评测",
-    "titleZh": "ParanoiaEval 评测编码智能体的不必要风险处置",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "ParanoiaEval 用配对任务评估编码智能体在已有明确证据时是否仍做不必要的备份、验证或确认。作者报告功能测试常无法发现这类过度处置，且模型只在各自原生 harness 中测试，因此不能把结果当作排除 harness 影响的模型排名。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.08662",
-      "aisafetyhot": "https://aisafetyhot.com/items/poq9g65ueasuykb0fguci1cef"
-    },
-    "publishedAt": "2026-10-06T16:46:00.000Z",
-    "timelineAt": "2026-10-07T10:17:51.927Z",
-    "discoveredAt": "2026-10-07T10:17:51.927Z"
   },
   {
     "arxivId": "2610.08773",
@@ -1419,6 +1458,24 @@
     "publishedAt": "2026-09-30T20:00:00.000Z",
     "timelineAt": "2026-10-07T08:05:33.244Z",
     "discoveredAt": "2026-10-07T08:05:33.244Z"
+  },
+  {
+    "arxivId": "2610.08048",
+    "title": "DAEDALUS: Bootstrapping Agent Memory from Self-Generated Tasks",
+    "titleZh": "DAEDALUS：用自生成任务自举 Agent 记忆",
+    "authors": [],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "DAEDALUS 提出一种无需既有任务或 oracle 验证器、从自生成练习中自举可复用 Agent 记忆的方法。它让 explorer 智能体与环境交互生成有难度但可解的任务，solver 智能体尝试求解，每次失败后提炼启发式规则，只有 solver 在上下文中反复成功后才被接受，这些结果同时反馈给 explorer 调整后续任务难度，被接受的启发式规则汇入记忆库供测试时使用。在 AppWorld、τ^2-bench 和 AutomationBench 上，DAEDALUS 相比无记忆基线平均成功率最高提升 15.9 个百分点，pass^5 最高提升 2.2 倍，与使用训练任务的方法相当，推理成本低于多数方法。消融实验显示 solver 轨迹是提炼有效启发式的关键信息，且较小的探索预算即可带来性能提升，其启发式规则也能帮助其他模型族的智能体。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08048",
+      "aisafetyhot": "https://aisafetyhot.com/items/xzmjjtyhb55tmtfeowt1d2702"
+    },
+    "publishedAt": "2026-10-05T20:00:00.000Z",
+    "timelineAt": "2026-10-07T09:38:33.297Z",
+    "discoveredAt": "2026-10-07T09:38:33.297Z"
   },
   {
     "arxivId": "2610.04975",
@@ -1705,24 +1762,6 @@
     "discoveredAt": "2026-10-07T04:27:36.126Z"
   },
   {
-    "arxivId": "2610.08048",
-    "title": "DAEDALUS: Bootstrapping Agent Memory from Self-Generated Tasks",
-    "titleZh": "DAEDALUS：用自生成任务自举 Agent 记忆",
-    "authors": [],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "DAEDALUS 提出一种无需已有任务或 oracle 验证器、从自生成练习中自举可复用 Agent 记忆的方法。它让 explorer 智能体与环境交互生成有难度但可解的任务，solver 智能体尝试解决，每次失败后提炼启发式规则，只有 solver 在上下文中反复成功后才被接受，这些结果同时反馈给 explorer 调整后续任务难度，被接受的规则汇总为记忆库供测试时使用。在 AppWorld、τ^2-bench 和 AutomationBench 上，DAEDALUS 相比无记忆基线平均成功率最高提升 15.9 个百分点，pass^5 最高提升 2.2 倍，与使用训练任务的方法相当，推理成本低于多数方法。消融实验显示 solver 轨迹是提炼有效启发式的关键信息，且将早期发现因子化可让探索更具成本效率；DAEDALUS 生成的任务还可作为基准任务的代理用于模型性能排序。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.08048",
-      "aisafetyhot": "https://aisafetyhot.com/items/xzmjjtyhb55tmtfeowt1d2702"
-    },
-    "publishedAt": "2026-10-05T20:00:00.000Z",
-    "timelineAt": "2026-10-07T09:38:33.297Z",
-    "discoveredAt": "2026-10-07T09:38:33.297Z"
-  },
-  {
     "arxivId": "2610.07657",
     "title": "DEFER1",
     "titleZh": "DEFER1 多智能体防御研究报告受控测试中的攻击成功率下降",
@@ -1826,24 +1865,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T06:13:18.215Z",
     "discoveredAt": "2026-10-07T06:13:18.215Z"
-  },
-  {
-    "arxivId": "2610.05246",
-    "title": "What a Policy Gate Can and Cannot Know: Measured Boundaries of Cross-Platform Command Adjudication",
-    "titleZh": "策略网关能知道什么、不能知道什么：跨平台命令裁决的实测边界",
-    "authors": [],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究测量了智能体执行前策略网关对动作语义的理解能力与跨平台迁移边界，采用小规模冻结案例和变异测试报告其能力与局限。该网关针对类型化动作进行裁决，摘要结果不能外推为任意命令或真实部署的安全保证。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.05246",
-      "aisafetyhot": "https://aisafetyhot.com/items/zuc2w0xuweklw2zdf8w73doa9"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-07T10:17:44.318Z",
-    "discoveredAt": "2026-10-07T10:17:44.318Z"
   },
   {
     "arxivId": "2609.34227",
@@ -2095,6 +2116,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T05:40:37.258Z",
     "discoveredAt": "2026-10-07T05:40:37.258Z"
+  },
+  {
+    "arxivId": "2610.08082",
+    "title": "POLAR：可逆性护栏",
+    "titleZh": "POLAR：面向小型工具调用智能体的可逆性护栏框架",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "POLAR 是一种面向小型工具调用智能体的护栏框架，通过结构化两层本体评估动作可逆性，为每个动作生成候选逆序并打分级可逆性分数，未达阈值的调用在执行前被剪枝。在 τ²-bench 上对六个智能体模型评测，六个中有四个在 airline 域平均任务奖励提升 0.11 至 0.18 分，但十八个模型—领域组合中仅八个整体改善，retail 域及较强智能体常出现回退。POLAR 提供可审计的结构化检查，并刻画了任务效用权衡；奖励并非防止伤害的直接度量。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08082",
+      "aisafetyhot": "https://aisafetyhot.com/items/se36xsviymg45n02o88988a99"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T10:17:59.482Z",
+    "discoveredAt": "2026-10-07T10:17:59.482Z"
   },
   {
     "arxivId": "2610.05898",
