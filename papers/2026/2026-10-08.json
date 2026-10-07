@@ -1,0 +1,20 @@
+[
+  {
+    "arxivId": "2610.07557",
+    "title": "CheckerBench: Can Long-Horizon Agents Synthesize Static-Analysis Checkers?",
+    "titleZh": "CheckerBench：编码 Agent 能否从零到一合成静态分析检查器",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者发布 CheckerBench，一个由 297 个 CVE 派生的 300 个任务组成的可执行基准，用于评估编码 Agent 能否在代码仓库中完整开发出可用的静态分析检查器。任务覆盖 167 个仓库、85 个 CWE 和五种语言生态，每个任务都包含漏洞版本与修复版本、固定分析环境以及检查器脚手架。配套的 CheckerLab 评测框架会独立重建提交的检查器，并衡量漏洞修复诊断对比、补丁定位、误报和工具使用情况。在 21 种模型与执行框架组合、每种配置三次独立重复下，平均 Pass@1 为 32.30%，最好成绩为 45.33%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07557",
+      "aisafetyhot": "https://aisafetyhot.com/items/mzsqifslg9acyo6f49hui92qs"
+    },
+    "publishedAt": "2026-10-05T20:00:00.000Z",
+    "timelineAt": "2026-10-07T16:50:31.614Z",
+    "discoveredAt": "2026-10-07T16:50:31.614Z"
+  }
+]
