@@ -1924,6 +1924,24 @@
     "discoveredAt": "2026-10-07T06:13:18.215Z"
   },
   {
+    "arxivId": "2609.35378",
+    "title": "Multilinguality in Hybrid Attention LLMs",
+    "titleZh": "混合注意力 LLM 的多语言能力研究：首个全注意力层位置影响跨语言对齐",
+    "authors": [],
+    "category": "ai_news",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究首次考察混合注意力架构对 LLM 多语言能力的影响，可解释性分析显示混合模型的跨语言表征与循环层和全注意力层的排列顺序相关，跨语言对齐在第一个全注意力层附近出现明显峰值。在多语言数据蒸馏实验中，所有替代层序均优于标准配置，学习速度最高提升 2.5 倍，据此提出多语言模型应从全注意力层而非循环层开始的假设。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.35378",
+      "aisafetyhot": "https://aisafetyhot.com/items/xcjsjlqv0ru9bq4pp1s4twy2q"
+    },
+    "publishedAt": "2026-09-27T20:00:00.000Z",
+    "timelineAt": "2026-10-07T13:45:22.394Z",
+    "discoveredAt": "2026-10-07T13:45:22.394Z"
+  },
+  {
     "arxivId": "2609.34227",
     "title": "When Does Selection Replace Extraction? A Pre-Registered Test of Agent Memory with a Typed Decision Model",
     "titleZh": "Jev 预注册测试：智能体记忆何时该用选择替代抽取？",
