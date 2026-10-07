@@ -266,6 +266,24 @@
     "discoveredAt": "2026-10-06T19:14:53.192Z"
   },
   {
+    "arxivId": "2609.38972",
+    "title": "Making LLMs Say What They Think: Measuring and Improving CoT-Interpretability Alignment",
+    "titleZh": "研究提出 CIA 指标衡量并改进 LLM 思维链与内部推理的一致性",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出 CoT-Interpretability Alignment（CIA）指标，用于衡量大语言模型思维链轨迹与可解释性工具检测到的内部推理策略之间的一致程度。作者在 two-hop 问答、提示干预和整数乘法三类任务、三个 LLM 上评测，发现模型一致性普遍有限，仅为 44.8% 至 75.9%。随后他们尝试通过后训练改进 CIA，将任务准确率与参数化忠实性信号同时作为奖励，结果显示思维链参数化忠实性可显著提升，同时任务准确率保持或提高。论文还分析了泛化模式，并提供代码与数据。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38972",
+      "aisafetyhot": "https://aisafetyhot.com/items/y2u76qbnlp6ief0jrvbqtz9aj"
+    },
+    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "timelineAt": "2026-10-07T02:28:31.599Z",
+    "discoveredAt": "2026-10-07T02:28:31.599Z"
+  },
+  {
     "arxivId": "2610.04737",
     "title": "PyINE",
     "titleZh": "PyINE：用可验证 Python 执行轨迹研究推理模型的捷径与监督",
@@ -320,6 +338,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T16:14:57.859Z",
     "discoveredAt": "2026-10-06T16:14:57.859Z"
+  },
+  {
+    "arxivId": "2610.07510",
+    "title": "PersistBD",
+    "titleZh": "研究：第三方模型后门可延续至下游软件工程智能体训练",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究考察第三方模型中的后门能否延续至下游软件工程智能体训练。结果显示，良性监督微调虽降低攻击成功率，后续强化学习仍可能保留或放大残余行为。作者基于单一 7B 主模型的结果提示，继承权重的供应链检测不能只依赖后续训练。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07510",
+      "aisafetyhot": "https://aisafetyhot.com/items/s8wkzusamyremwcx0pz6oanx9"
+    },
+    "publishedAt": "2026-10-05T23:24:00.000Z",
+    "timelineAt": "2026-10-07T02:19:32.720Z",
+    "discoveredAt": "2026-10-07T02:19:32.720Z"
   },
   {
     "arxivId": "2610.04184",
@@ -396,6 +432,60 @@
     "discoveredAt": "2026-10-06T19:15:08.292Z"
   },
   {
+    "arxivId": "2610.07654",
+    "title": "安全导向在策略蒸馏的后门风险",
+    "titleZh": "论文研究安全对齐教师在策略蒸馏中的潜在后门传递风险",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇论文研究安全对齐教师模型向学生模型进行策略蒸馏时传递潜在后门的风险。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07654",
+      "aisafetyhot": "https://aisafetyhot.com/items/n6dy702s8ant42unn6waspzs9"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T02:23:01.949Z",
+    "discoveredAt": "2026-10-07T02:23:01.949Z"
+  },
+  {
+    "arxivId": "2610.08098",
+    "title": "Surviving the Router",
+    "titleZh": "研究：多技能路由场景下提示注入成功率评估可能被高估",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究考察多技能环境中路由选择对提示注入有效性的影响，指出如果只评估已被选中的技能，可能高估提示注入的实际成功率。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08098",
+      "aisafetyhot": "https://aisafetyhot.com/items/io7dszl24mu50x7g07jn7wtwa"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T02:19:40.368Z",
+    "discoveredAt": "2026-10-07T02:19:40.368Z"
+  },
+  {
+    "arxivId": "2610.07723",
+    "title": "Answer-side backdoor",
+    "titleZh": "论文提出 Answer-side backdoor：输出侧触发信息可致后续拒答失效",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文研究了一种名为 Answer-side backdoor 的风险：当触发信息出现在对话输出中，模型后续的拒答机制可能失效。该工作将后门触发位置放在回答一侧，而非传统的输入提示中。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07723",
+      "aisafetyhot": "https://aisafetyhot.com/items/vgngu5npttzkg9fnly7b6eo7i"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T02:23:09.732Z",
+    "discoveredAt": "2026-10-07T02:23:09.732Z"
+  },
+  {
     "arxivId": "2610.04426",
     "title": "UnAct: Gradient-Free Unlearning via Targeted Activation Intervention",
     "titleZh": "UnAct：无需梯度的定向激活干预实现类别遗忘",
@@ -403,7 +493,7 @@
     "category": "alignment",
     "selected": false,
     "attention": null,
-    "summaryZh": "研究者提出 UnAct，一种无需梯度的类别遗忘方法，只需对遗忘图像做前向传播，通过给后层单元按响应打分、削弱响应最强的连接，最多重复 20 轮，全程不使用梯度、标签和保留数据。在 ResNet-18 上针对 CIFAR-10、CIFAR-20 和 CIFAR-100 的测试中，UnAct 在遗忘整个类别时与 SSD 和 LFSSD 相当，且在遗忘数据稀缺时不会像后两者那样导致网络崩溃。在 ResNet-18 上，UnAct 的保留准确率与重新训练相差不超过 2.5 个百分点，而 SSD 和 LFSSD 在全类别操作点上某些类别最多损失 86 个百分点。在 CIFAR-10 上仅用 5 张遗忘图像时，UnAct 与重新训练的距离为 0.21 个百分点，LFSSD 为 67，SSD 为 90，且用 oracle 在每个规模上重新选择 SSD 阈值也无法缩小差距。",
+    "summaryZh": "研究者提出 UnAct，一种无需梯度的类别遗忘方法，只需对遗忘图像做前向传播：按响应给后层单元打分，削弱响应最强的连接，最多重复 20 轮，不使用梯度、标签和保留数据。在 ResNet-18 上针对 CIFAR-10、CIFAR-20 和 CIFAR-100 的实验中，UnAct 在遗忘整个类别时与 SSD 和 LFSSD 相当，且在遗忘数据稀缺时不会像它们那样使网络崩溃。在 ResNet-18 上，UnAct 的保留准确率与重训练的差距保持在 2.5 个百分点以内，而 SSD 和 LFSSD 在全类别操作点上某些类别最多损失 86 个百分点。在 CIFAR-10 上仅用 5 张遗忘图像时，UnAct 与重训练的距离为 0.21 个百分点，LFSSD 为 67，SSD 为 90，且用 oracle 在每个规模上重新选择 SSD 阈值也无法缩小差距。代码已开源于 GitHub。",
     "quickRead": null,
     "links": {
       "paper": "https://arxiv.org/abs/2610.04426",
@@ -450,6 +540,60 @@
     "publishedAt": "2026-09-27T20:00:00.000Z",
     "timelineAt": "2026-10-07T00:24:30.574Z",
     "discoveredAt": "2026-10-07T00:24:30.574Z"
+  },
+  {
+    "arxivId": "2610.07967",
+    "title": "DecepEval",
+    "titleZh": "DecepEval：多职业场景下的智能体欺骗评测",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "DecepEval 是一个面向智能体的欺骗评测，覆盖多职业场景，并配对考察压力、激励、机会和冲突四类条件。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07967",
+      "aisafetyhot": "https://aisafetyhot.com/items/usnwo2ki4yk27pd4akkyghr29"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T02:22:54.493Z",
+    "discoveredAt": "2026-10-07T02:22:54.493Z"
+  },
+  {
+    "arxivId": "2610.06824",
+    "title": "TasteVal: Measuring the Experimental Research Taste of AI Systems Against Human Experts",
+    "titleZh": "TasteVal：以实验算力效率衡量 AI 系统与人类专家的研究品味",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "TasteVal 用实验算力效率衡量 AI 的研究品味，通过固定编码智能体在 8 个研究任务上对比模型与人类专家，作者报告部分模型超过专家基线。但任务未公开、置信区间较宽，且按最终成绩观察不到同样的趋势断点，因此不能直接将其当作超级智能时间预测。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06824",
+      "aisafetyhot": "https://aisafetyhot.com/items/ssu5488pa2ykfe58qvxvttbwv"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T02:23:17.305Z",
+    "discoveredAt": "2026-10-07T02:23:17.305Z"
+  },
+  {
+    "arxivId": "2610.07935",
+    "title": "SIGMA",
+    "titleZh": "SIGMA：基于 Model Spec 的对齐自我提升流程",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "作者提出 SIGMA，一种基于 Model Spec 的对齐自我提升流程，并主张该流程可泛化至分布外场景。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07935",
+      "aisafetyhot": "https://aisafetyhot.com/items/zkz8eq404wytd12rcl4kcjxl2"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T02:22:46.672Z",
+    "discoveredAt": "2026-10-07T02:22:46.672Z"
   },
   {
     "arxivId": "2610.05898",
