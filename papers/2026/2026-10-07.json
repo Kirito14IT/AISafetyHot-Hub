@@ -1159,6 +1159,26 @@
     "discoveredAt": "2026-10-06T16:14:57.859Z"
   },
   {
+    "arxivId": "2610.08364",
+    "title": "Transect: Retaining Observability for Long-Horizon LLM Agent Evaluations",
+    "titleZh": "Transect：为长程 LLM Agent 评测保留可观测性的开源工具",
+    "authors": [
+      "Toby D. Pilditch"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者发布开源包 Transect，用于在长程 LLM Agent 评测中保留可观测性。该工具基于 Inspect Scout 构建，用户在可复用的评测族配置中指定任务上下文与行为词汇，判分模型与分析设置另行提供。其可导航报告把记录事件、token 用量、子 Agent 活动与模型生成的行为标签对齐到同一按回合的时间线上，评审者可快速把握一次运行的脉络、把任一标签或事件追溯到来源回合，并导出底层数据表做跨运行分析。作者在一项生成近 1300 万 token 的 AI R&D 评测上演示了该流程，将 Agent 工作划分为与研究技能分类对应的行为阶段、子 Agent 委派与交互以及 token 使用；合并视图显示工作集中在操作性任务与稿件产出，几乎没有持续假设生成阶段的证据。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08364",
+      "aisafetyhot": "https://aisafetyhot.com/items/z10ketg96emay4azdgvqutz22"
+    },
+    "publishedAt": "2026-10-06T13:52:15.000Z",
+    "timelineAt": "2026-10-07T14:07:31.631Z",
+    "discoveredAt": "2026-10-07T14:07:31.631Z"
+  },
+  {
     "arxivId": "2610.04184",
     "title": "EvalResearchBench",
     "titleZh": "EvalResearchBench：AI 智能体自主设计评测基准，最佳排序一致率约 75%",
@@ -1353,24 +1373,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T10:17:44.318Z",
     "discoveredAt": "2026-10-07T10:17:44.318Z"
-  },
-  {
-    "arxivId": "2606.23130",
-    "title": "AI生成并部署应用的安全缺陷研究",
-    "titleZh": "研究审计公开部署的 AI 编码应用并重放比较安全加固效果",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项研究审计了公开部署的 AI 编码应用，并通过受控重放比较不同模型、提示与安全加固配置下的漏洞复发情况。作者报告多数受审计应用存在漏洞，较强模型或更专业提示并不必然更安全；结论限于所选样本及评测设置。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2606.23130",
-      "aisafetyhot": "https://aisafetyhot.com/items/zrijbfwonlhlwn23sst7mwog8"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-07T13:18:35.532Z",
-    "discoveredAt": "2026-10-07T13:18:35.532Z"
   },
   {
     "arxivId": "2610.07389",
@@ -2023,6 +2025,24 @@
     "discoveredAt": "2026-10-07T05:32:36.357Z"
   },
   {
+    "arxivId": "2610.05166",
+    "title": "A Safe Action Is Not Enough: Feasible-Future Decoding for Vision-Language-Action Policies",
+    "titleZh": "安全动作不等于可行动作：VICS-G 为 VLA 策略做可行未来解码",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "冻结的视觉-语言-动作（VLA）策略可能选中局部安全、却断绝安全完成任务路径的动作，作者将这一现象称为可行性与似然之间的落差。为此提出免训练、告警触发的重排序器 VICS-G，基于安全任务完成约束下的可行未来质量对候选动作重排。在六个 Safety-CHORES 设置中，VICS-G 将平均累计安全代价降低 1.9%-57.5%，成功率与策略采样相差不超过 2.5 个百分点，平均回合长度相差 0.82 步，且无需重新训练策略或在线 rollout。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.05166",
+      "aisafetyhot": "https://aisafetyhot.com/items/ibys0f9cio7to4oiwcjgjw2w1"
+    },
+    "publishedAt": "2026-10-05T20:00:00.000Z",
+    "timelineAt": "2026-10-07T13:14:34.738Z",
+    "discoveredAt": "2026-10-07T13:14:34.738Z"
+  },
+  {
     "arxivId": "2610.07023",
     "title": "Beyond Refusal Patterns: Safe-Role Internalization for Robust and Generalizable LLM Safety Alignment",
     "titleZh": "SSRFT：以安全角色内化替代拒答模式的 LLM 安全对齐框架",
@@ -2090,24 +2110,6 @@
     "publishedAt": "2026-10-06T13:18:00.000Z",
     "timelineAt": "2026-10-07T11:30:06.783Z",
     "discoveredAt": "2026-10-07T11:30:06.783Z"
-  },
-  {
-    "arxivId": "2610.05166",
-    "title": "A Safe Action Is Not Enough: Feasible-Future Decoding for Vision-Language-Action Policies",
-    "titleZh": "VICS-G：面向视觉-语言-动作策略的可行未来解码，降低安全成本最高 57.5%",
-    "authors": [],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "冻结的视觉-语言-动作（VLA）策略可能选中局部安全、却断绝安全完成任务路径的动作，研究者将这一现象称为可行性-似然性差距。为此提出免训练的重排序器 VICS-G，通过推导历史条件策略-环境轨迹在安全完成约束下的下一块边缘分布，估计候选动作的可行未来质量，并采用选择性有限候选近似。在六个 Safety-CHORES 设置中，VICS-G 将平均累计安全成本降低 1.9%-57.5%，成功率与策略采样相差不超过 2.5 个百分点，平均回合长度相差 0.82 步，且无需重新训练策略或在线 rollout。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.05166",
-      "aisafetyhot": "https://aisafetyhot.com/items/ibys0f9cio7to4oiwcjgjw2w1"
-    },
-    "publishedAt": "2026-10-05T20:00:00.000Z",
-    "timelineAt": "2026-10-07T13:14:34.738Z",
-    "discoveredAt": "2026-10-07T13:14:34.738Z"
   },
   {
     "arxivId": "2610.07403",
