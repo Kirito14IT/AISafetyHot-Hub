@@ -358,6 +358,24 @@
     "discoveredAt": "2026-10-07T02:19:32.720Z"
   },
   {
+    "arxivId": "2610.08791",
+    "title": "World Models' Last Exam in Physics",
+    "titleZh": "研究者发布视频世界模型物理一致性基准 World Models' Last Exam in Physics",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 World Models' Last Exam in Physics，一个基于测量的视频世界模型物理一致性评测基准，覆盖力学、光学、流体、热学与相变、电磁学和表面张力共 40 项受控任务。每项任务由初始图像、生成提示词和预设物理判据组成，无需参考视频即可检验可观测的物理关系；评测器结合任务可观测性筛选与任务专属的定量物理测量。在 8 个视频生成模型、1280 段视频上的实验显示，模型普遍存在物理不一致，且不同任务间差异明显，最佳模型总分 57.76（满分 100）。在物理关系已知的合成视频上，测量模块的有效性得到验证；评测器在任务内排序和两两比较中与人类判断的一致度均高于直接使用视觉语言模型的基线。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08791",
+      "aisafetyhot": "https://aisafetyhot.com/items/e4qun58k2pnlmuwd4srfuc6jj"
+    },
+    "publishedAt": "2026-10-05T20:00:00.000Z",
+    "timelineAt": "2026-10-07T02:59:19.285Z",
+    "discoveredAt": "2026-10-07T02:59:19.285Z"
+  },
+  {
     "arxivId": "2610.04184",
     "title": "EvalResearchBench",
     "titleZh": "EvalResearchBench：AI 智能体自主设计评测基准，最佳排序一致率约 75%",
@@ -412,6 +430,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T20:26:58.250Z",
     "discoveredAt": "2026-10-06T20:26:58.250Z"
+  },
+  {
+    "arxivId": "2610.05140",
+    "title": "AutoSciBench: Autonomous Benchmark Generation for Evaluating Scientific Agents",
+    "titleZh": "AutoSciBench 提出自动生成科学智能体基准的框架",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "AutoSciBench 是一个自动生成并随智能体能力迭代调整科学智能体基准的框架，把每个任务表示为高层概念与低层配方，前者指定科学领域、数据模态和所需推理方式，后者规定问题、环境与标准答案的构造和验证方式。智能体解题产生的轨迹与评判反馈被用来修订配方或概念，从而封堵已发现的捷径，使任务转向原始数据复核、中间结果解读和证据整合；已完成精修轨迹中提炼的经验还会指导新概念生成。在计算生物学、材料科学和临床影像三个领域，生成的基准相对人工整理基准分别把平均解题准确率降低 22.4 和 25.5 个百分点，同时三个领域的生成任务平均质量评分更高。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.05140",
+      "aisafetyhot": "https://aisafetyhot.com/items/h6m05l1c5igr7231t1yzh7fgr"
+    },
+    "publishedAt": "2026-10-03T20:00:00.000Z",
+    "timelineAt": "2026-10-07T02:59:19.291Z",
+    "discoveredAt": "2026-10-07T02:59:19.291Z"
   },
   {
     "arxivId": "2610.04975",
@@ -522,6 +558,24 @@
     "publishedAt": "2026-03-02T07:15:37.000Z",
     "timelineAt": "2026-10-07T00:18:04.354Z",
     "discoveredAt": "2026-10-07T00:18:04.354Z"
+  },
+  {
+    "arxivId": "2610.08761",
+    "title": "VeriFine: Scaling Verification for Self-Improvement in Embodied Reasoning",
+    "titleZh": "VeriFine 提出策略与评判器共同演化的具身推理自我改进框架",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "VeriFine 是一个 agent harness 框架，通过策略、训练课程与评判器的共同演化来扩展验证能力。其 Policy Improvement Loop 用评分标准评判器诊断反复出现的失败、构建自适应课程并优化策略；当进展停滞、验证成为瓶颈时，Judge Improvement Loop 针对有信息量的失败案例选择性引入人类指导，通过人机协同校准让双方解决分歧并收敛到物理推理的客观评分标准，修订后的评判器再指导下一阶段的数据选择与策略优化。在驾驶和机器人导航任务上的实验显示，策略与评判器能力在强化学习和监督微调中都能持续自我改进。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08761",
+      "aisafetyhot": "https://aisafetyhot.com/items/jx6hkc444fa093s3qfmm9z8dj"
+    },
+    "publishedAt": "2026-10-05T20:00:00.000Z",
+    "timelineAt": "2026-10-07T02:59:19.279Z",
+    "discoveredAt": "2026-10-07T02:59:19.279Z"
   },
   {
     "arxivId": "2609.34227",
