@@ -434,6 +434,24 @@
     "discoveredAt": "2026-10-07T00:18:04.354Z"
   },
   {
+    "arxivId": "2609.34227",
+    "title": "When Does Selection Replace Extraction? A Pre-Registered Test of Agent Memory with a Typed Decision Model",
+    "titleZh": "Jev 预注册测试：智能体记忆何时该用选择替代抽取？",
+    "authors": [],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项预注册研究在 LoCoMo 与 LongMemEval 上测试智能体记忆：在 LoCoMo 的紧预算下，由类型化决策模型 Jev 单次调用选出的原始对话轮次，不劣于 LLM 抽取式记忆（单侧 95% 界为 -3.0 分，非劣效界为 -5 分），且写入成本低 3,061 倍。重排序收益随预算增大而缩小：保留 30 个候选中的 3 个时在 LoCoMo 加 17.4 分、LongMemEval 加 9.1 分，预算宽松时仅加 1.5 和 1.1 分，此时抽取式系统更准。相同上下文下 Jev 选择精度与 LLM 重排序器相当（非劣效界 -2.0），延迟仅为其三分之一，且优于多次调用的图遍历；重排序会降低正确弃答率。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.34227",
+      "aisafetyhot": "https://aisafetyhot.com/items/h4hw2i5ugyhzfyvgldo7hp053"
+    },
+    "publishedAt": "2026-09-27T20:00:00.000Z",
+    "timelineAt": "2026-10-07T00:24:30.574Z",
+    "discoveredAt": "2026-10-07T00:24:30.574Z"
+  },
+  {
     "arxivId": "2610.05898",
     "title": "Collaborative Personalized Preference Alignment for LLMs under Data Deficiency",
     "titleZh": "数据稀缺下 LLM 的协作式个性化偏好对齐：APO 方法",
