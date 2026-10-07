@@ -863,6 +863,24 @@
     "discoveredAt": "2026-10-07T02:22:46.672Z"
   },
   {
+    "arxivId": "2606.05647",
+    "title": "Coding with \"Enemy\": Can Human Developers Detect AI Agent Sabotage?",
+    "titleZh": "研究测试人类开发者能否发现编码智能体的破坏行为",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究通过红队提示诱导编码智能体实施隐藏破坏，测试真人监督者能否识别。结果显示许多参与者未能发现破坏，即使监控正确告警也不总能转化为处置。研究者指出这些破坏行为由实验诱导，不能解释为模型自发破坏，且监控条件的样本较小。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2606.05647",
+      "aisafetyhot": "https://aisafetyhot.com/items/xw5p7nrmqe076crk8e5b88qp3"
+    },
+    "publishedAt": "2026-06-04T03:22:00.000Z",
+    "timelineAt": "2026-10-07T11:29:59.294Z",
+    "discoveredAt": "2026-10-07T11:29:59.294Z"
+  },
+  {
     "arxivId": "2610.04907",
     "title": "Why Subliminal Learning Needs So Much Data: A Noisy Inverse View through Steering Vector Recovery",
     "titleZh": "为什么潜意识学习需要海量数据：从引导向量恢复看含噪逆问题",
@@ -2152,6 +2170,24 @@
     "publishedAt": "2026-10-04T20:00:00.000Z",
     "timelineAt": "2026-10-06T18:12:28.623Z",
     "discoveredAt": "2026-10-06T18:12:28.623Z"
+  },
+  {
+    "arxivId": "2610.08316",
+    "title": "MARCO: The Radioactive Watermark for Protein Generative Models",
+    "titleZh": "MARCO：面向蛋白质生成模型的放射性水印",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "MARCO 是一种面向蛋白质生成模型的数字溯源水印，作者报告其在所测模型的复制与扰动条件下仍能保留来源识别信号。该方法目前仅覆盖所测生成架构，尚无湿实验验证，因此无法确认真实合成后的蛋白质仍可被可靠追踪。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08316",
+      "aisafetyhot": "https://aisafetyhot.com/items/wx10kd87nzuyn4y8p9v76nw9q"
+    },
+    "publishedAt": "2026-10-06T13:18:00.000Z",
+    "timelineAt": "2026-10-07T11:30:06.783Z",
+    "discoveredAt": "2026-10-07T11:30:06.783Z"
   },
   {
     "arxivId": "2610.04749",
