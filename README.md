@@ -22,6 +22,10 @@
   <a href="https://aisafetyhot.com">逛网站 ↗</a>
 </p>
 
+<p align="center">
+  <a href="https://aisafetyhot.com"><img src="assets/news-monitor-demo.gif" width="1000" alt="AI Safety HOT 新闻列表与话题关系图动态演示"></a>
+</p>
+
 这里是 [AI Safety HOT](https://aisafetyhot.com) 的 **Agent 接入指南与公开内容归档**。网站供人浏览；这个仓库帮助你的 Agent 通过 MCP 读取网站的新闻、研究论文、热点事件和报告，整理成你需要的答案，并保留出处链接。无需自行解析网页或克隆仓库，**公开读取无需登录或 API Key**。
 
 | 🤖 接入 Agent | 🔎 获取内容 | 📚 带进研究 |
