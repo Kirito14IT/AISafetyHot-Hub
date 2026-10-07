@@ -39,6 +39,24 @@
     "discoveredAt": "2026-10-06T18:43:29.171Z"
   },
   {
+    "arxivId": "2610.04195",
+    "title": "MemLeak",
+    "titleZh": "MemLeak 研究：多租户 Agent 共享向量记忆库存在跨用户记忆泄露",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 84,
+    "summaryZh": "Workday AI Research 的 MemLeak 研究指出，企业多租户个人 Agent 若共享同一向量记忆库，普通余弦相似度检索即可把其他用户的记忆拉入当前会话，无需任何漏洞利用。在池化同团队检索下，非对抗性泄露率达 70–100%；精心构造的记忆在 top-k 中占比 90–100%，生产级稠密检索下得分提升 +0.416 至 +0.511；端到端响应污染最高达 5.00/5，且被污染的回答常被评为同样或更有帮助。研究测试了三种缓解方案，只有检索后硬性归属门控能在两个生成模型上把污染恢复到 1.00/5 的干净基线，每次查询延迟开销约 1.4 ms。作者强调这是受控概念验证，样本为每条件 10 条查询，不代表真实企业泄露率。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04195",
+      "aisafetyhot": "https://aisafetyhot.com/items/leht0n6tasiw4swr0ids4w1n9"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T23:14:30.360Z",
+    "discoveredAt": "2026-10-06T23:14:30.360Z"
+  },
+  {
     "arxivId": "2610.06001",
     "title": "AgentSpy: Making AI Agent Behavior Observable",
     "titleZh": "AgentSpy：在系统调用层观测 AI Agent 行为并检测技能注入攻击",
@@ -78,6 +96,24 @@
     "discoveredAt": "2026-10-06T19:15:00.774Z"
   },
   {
+    "arxivId": "2610.04378",
+    "title": "COPEX",
+    "titleZh": "COPEX：面向 MCP 智能体的受控攻击评测基准发布",
+    "authors": [],
+    "category": "eval",
+    "selected": true,
+    "attention": 77,
+    "summaryZh": "研究者提出 COPEX（Context Provider Exploitation），一个把 MCP 智能体周边栈固定、只替换负责工具选择的大语言模型的受控基准，用于区分模型对可见对抗上下文的易感性与模型观察范围之外的底层失陷。基准覆盖 25 类攻击、125 个场景，分布在模型/智能体、客户端、服务器/工具、传输四个入口面，包含 16 个 MCP 服务器、75 个工具和 7 个资源。在 9 个模型、3375 次试验中，平均攻击成功率为 64.4%，四个入口面的均值在 58.3% 至 71.4% 之间；MCP rebinding 等传输层攻击在所有模型上均成功，因为其作用发生在模型观察范围之下。在 8 类攻击的防御子集上，输入扫描与上下文扫描结合使平均攻击成功率相对无防御下降 49.6%，但无法覆盖扫描范围之外的攻击。基准与评测代码已在 GitHub 发布。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04378",
+      "aisafetyhot": "https://aisafetyhot.com/items/xafesx3t7vl8jqetn9768yde0"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T23:14:52.893Z",
+    "discoveredAt": "2026-10-06T23:14:52.893Z"
+  },
+  {
     "arxivId": "2610.05453",
     "title": "The Poisoned Conversation",
     "titleZh": "研究者提出 Privacy-Leaking Watermarks，可在本地多模态模型中泄露对话隐私",
@@ -94,6 +130,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T16:14:50.338Z",
     "discoveredAt": "2026-10-06T16:14:50.338Z"
+  },
+  {
+    "arxivId": "2610.05830",
+    "title": "HAL",
+    "titleZh": "HAL 论文提出污染审计框架，复核 SWE-bench Verified 文件定位差距",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出一套以测量为先的审计框架，按所需证据区分三类污染渠道：训练时暴露、评测时检索和流水线或脚手架泄漏，每条渠道按 fail-closed 规则标记为开放、部分、封闭或未知。在九种 Holistic Agent Leaderboard（HAL）配置的 27 项渠道评估中，没有一项被标记为封闭，但有四种配置确认了污染事件。作者随后将该框架的行为学部分用于复核 SWE-bench Verified 上报告的文件定位差距，采用结果盲法、同仓库配对对照设计、对称提示泄漏筛查、配对与仓库感知的不确定性分析以及评分器验证，在 GPT-4.1 和 DeepSeek-V4-Flash 上评测。复现评分器未通过验证门槛，对两个模型都无法确立足够的评分器敏感度，DeepSeek-V4-Flash 在正确金标比较上的两次触发均为假阳性。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.05830",
+      "aisafetyhot": "https://aisafetyhot.com/items/jr1gs3eeynge9b69iidnb1f09"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T23:14:45.319Z",
+    "discoveredAt": "2026-10-06T23:14:45.319Z"
   },
   {
     "arxivId": "2610.04699",
@@ -132,6 +186,26 @@
     "discoveredAt": "2026-10-06T21:13:54.405Z"
   },
   {
+    "arxivId": "2609.38948",
+    "title": "DrivingBench: Can Vision-Language Models Drive a Toyota Corolla?",
+    "titleZh": "DrivingBench 发布：让视觉语言模型驾驶丰田 Corolla 绕桩",
+    "authors": [
+      "Aditya Ramabadran"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 DrivingBench，据其描述是首个要求通用视觉语言模型驾驶真实汽车的基准。模型通过三个工具读取丰田 Corolla 的摄像头画面，并直接控制转向与速度，在停车场锥桶赛道低速行驶。车辆在模型思考期间可能继续移动，新指令会替换正在执行的指令，因此推理延迟本身构成任务的一部分，考察模型在约束下观察、行动、监控、恢复并完成长时程目标的能力。研究在 Codex、Claude Code、Cursor 等厂商原生框架中评测 GPT-6 Astra、Claude Fable 5.1、GPT-5.6 Sol 和 Grok 4.6，每个模型在同一对话中最多尝试三次；Astra 是唯一完成赛道的模型，在第二次尝试中完成，其余尝试均未通过赛道的 50%。四个模型中有两个在保留上下文的情况下跨尝试取得明显进步。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38948",
+      "aisafetyhot": "https://aisafetyhot.com/items/so65yrgmve34qc6mt2gwqmfnh"
+    },
+    "publishedAt": "2026-09-30T04:16:59.000Z",
+    "timelineAt": "2026-10-07T00:20:45.454Z",
+    "discoveredAt": "2026-10-07T00:20:45.454Z"
+  },
+  {
     "arxivId": "2610.04907",
     "title": "Why Subliminal Learning Needs So Much Data: A Noisy Inverse View through Steering Vector Recovery",
     "titleZh": "为什么潜意识学习需要海量数据：从引导向量恢复看含噪逆问题",
@@ -148,6 +222,24 @@
     "publishedAt": "2026-10-04T03:39:00.000Z",
     "timelineAt": "2026-10-06T19:14:53.192Z",
     "discoveredAt": "2026-10-06T19:14:53.192Z"
+  },
+  {
+    "arxivId": "2610.04737",
+    "title": "PyINE",
+    "titleZh": "PyINE：用可验证 Python 执行轨迹研究推理模型的捷径与监督",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 PyINE 框架，用带插桩的 Python 程序作为可验证的执行基底，来研究推理模型在给出看似合理但不完整推理时，监督者能否判断其输出是否可信。框架中程序定义任务环境，执行轨迹为结果和中间事实提供权威标签，任务变体可机械生成而非依赖静态人工标注。首个版本 PyINE-v1 由近 100 万条确定性执行轨迹和超过 50 万条匹配的 LLM 生成代码变体构成，用于反事实评估。研究者用标准 RL 与可验证奖励在提示词变化的任务上训练出一个走捷径的模型，该模型在预测执行结果上明显提升，但当误导性的人类面向线索与程序实际行为冲突时仍会系统性出错。随后他们评估了激活探针、训练文本分类器、提示词评判器和轻量辩论协议作为监督者，发现数据集层面的汇总性能会掩盖对最关键失败的覆盖不足：廉价的学习型监督者常漏掉罕见的捷径驱动错误，更强的模型检查更均衡但成本高得多，也更难转化为可靠的阈值决策。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04737",
+      "aisafetyhot": "https://aisafetyhot.com/items/evhu1mlx1qgckj69py73cy9ro"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-06T23:14:37.843Z",
+    "discoveredAt": "2026-10-06T23:14:37.843Z"
   },
   {
     "arxivId": "2601.22169",
@@ -204,24 +296,6 @@
     "discoveredAt": "2026-10-06T20:26:58.250Z"
   },
   {
-    "arxivId": "2610.04195",
-    "title": "MemLeak",
-    "titleZh": "MemLeak 研究：多租户智能体共享检索空间存在记忆隔离风险",
-    "authors": [],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "MemLeak 研究多租户智能体长期记忆的隔离风险，指出在共享检索空间中，正常查询也可能取得其他用户的记忆。小规模合成实验显示，检索后的硬性所有权校验有助于缓解这一问题。作者说明该结果不能当作真实企业环境中的泄露率。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.04195",
-      "aisafetyhot": "https://aisafetyhot.com/items/leht0n6tasiw4swr0ids4w1n9"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-06T23:14:30.360Z",
-    "discoveredAt": "2026-10-06T23:14:30.360Z"
-  },
-  {
     "arxivId": "2610.04975",
     "title": "长程智能体自生子目标的运行时授权",
     "titleZh": "论文提出长程智能体自生子目标的运行时授权机制",
@@ -238,24 +312,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T19:15:08.292Z",
     "discoveredAt": "2026-10-06T19:15:08.292Z"
-  },
-  {
-    "arxivId": "2610.04737",
-    "title": "PyINE",
-    "titleZh": "LawZero 提出 PyINE，用可验证程序执行轨迹评估监督方法",
-    "authors": [],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "LawZero 作者提出 PyINE，用可验证的程序执行轨迹来评估监督方法，发现整体指标可能掩盖罕见的捷径错误。研究指出，成本较低的监督器与较强模型检查在覆盖范围和成本上各有局限。该工作仍是受控基准下的结果，不构成对前沿部署的保证。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.04737",
-      "aisafetyhot": "https://aisafetyhot.com/items/evhu1mlx1qgckj69py73cy9ro"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-06T23:14:37.843Z",
-    "discoveredAt": "2026-10-06T23:14:37.843Z"
   },
   {
     "arxivId": "2610.05898",
@@ -312,5 +368,25 @@
     "publishedAt": "2026-02-27T17:39:10.000Z",
     "timelineAt": "2026-10-06T23:32:05.445Z",
     "discoveredAt": "2026-10-06T23:32:05.445Z"
+  },
+  {
+    "arxivId": "2603.01544",
+    "title": "RA-Det: Towards Universal Detection of AI-Generated Images via Robustness Asymmetry",
+    "titleZh": "RA-Det: Towards Universal Detection of AI-Generated Images via Robustness Asymmetry",
+    "authors": [
+      "Yunhao Chen"
+    ],
+    "category": null,
+    "selected": false,
+    "attention": null,
+    "summaryZh": null,
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2603.01544",
+      "aisafetyhot": "https://aisafetyhot.com/items/xhpxjaiscm55murm7467g09bj"
+    },
+    "publishedAt": "2026-03-02T07:15:37.000Z",
+    "timelineAt": "2026-10-07T00:18:04.354Z",
+    "discoveredAt": "2026-10-07T00:18:04.354Z"
   }
 ]
