@@ -1799,6 +1799,24 @@
     "discoveredAt": "2026-10-07T08:18:12.728Z"
   },
   {
+    "arxivId": "2610.00417",
+    "title": "Source Identification Is Not Fitness Testing: Measuring the Limits of Synthetic-Data Attribution",
+    "titleZh": "研究：合成数据溯源识别在改写后准确率大幅下降",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究测试了模型生成数据的溯源识别可靠性，以及溯源信息能否帮助筛选更好的训练数据。在金融风险文本上，生成器归因在原始段落上准确率为 98.7%，改写后降至 53.1%，风格重写后降至 29.0%；生成文本与人类文本的检测在测试的人类对照集上仍接近完美。研究随后在三轮生成与再训练中比较两种筛选规则，一种使用来源信息，另一种使用独立参考模型的评分，两者选出的样本不同，但计划中的比较未检测到所得模型退化存在稳定差异。作者据此指出，识别数据来源与识别哪些数据对训练有用是两个不同问题，溯源评分和所测试的筛选代理指标都不足以确定未来的递归训练行为。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00417",
+      "aisafetyhot": "https://aisafetyhot.com/items/meuouh6tgy0hujm0loxh1imfr"
+    },
+    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "timelineAt": "2026-10-07T09:07:32.979Z",
+    "discoveredAt": "2026-10-07T09:07:32.979Z"
+  },
+  {
     "arxivId": "2603.01544",
     "title": "RA-Det: Towards Universal Detection of AI-Generated Images via Robustness Asymmetry",
     "titleZh": "RA-Det：利用鲁棒性不对称检测 AI 生成图像",
