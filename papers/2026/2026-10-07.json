@@ -47,7 +47,28 @@
     "selected": true,
     "attention": 84,
     "summaryZh": "Workday AI Research 的 MemLeak 研究指出，企业多租户个人 Agent 若共享同一向量记忆库，普通余弦相似度检索即可把其他用户的记忆拉入当前会话，无需任何漏洞利用。在池化同团队检索下，非对抗性泄露率达 70–100%；精心构造的记忆在 top-k 中占比 90–100%，生产级稠密检索下得分提升 +0.416 至 +0.511；端到端响应污染最高达 5.00/5，且被污染的回答常被评为同样或更有帮助。研究测试了三种缓解方案，只有检索后硬性归属门控能在两个生成模型上把污染恢复到 1.00/5 的干净基线，每次查询延迟开销约 1.4 ms。作者强调这是受控概念验证，样本为每条件 10 条查询，不代表真实企业泄露率。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "多租户个人AI智能体通常共享后端向量存储且仅依赖软元数据过滤。共享嵌入空间导致不同用户的记忆仅凭语义相近就被检索并注入上下文，破坏多租户数据隔离。",
+          "label": "问题"
+        },
+        {
+          "text": "将跨用户语义泄漏形式化为可采纳性失效，构建四级组织距离合成基准，评估被动泄漏与仅凭角色常识的主动桥接攻击，并测试元数据过滤、嵌入修改及检索后门控三项防御。",
+          "label": "方法"
+        },
+        {
+          "text": "MiniLM同团队池化检索泄漏率达70%（Table 3）；主动构造记忆达到90–100%命中率（Table 2）；检索生成使下游污染达5.00/5（Table 5）；硬所有权门控以1.4 ms延迟消除污染（Table 14）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "实验基于4对人工合成用户和每条件10次查询的小样本，未覆盖生产日志；下游评估存在自评审偏差；信道实验显示多位顺序传输失败；未实证测试LLM记忆筛选机制。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.04195"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.04195",
       "aisafetyhot": "https://aisafetyhot.com/items/leht0n6tasiw4swr0ids4w1n9"
@@ -104,7 +125,28 @@
     "selected": true,
     "attention": 77,
     "summaryZh": "研究者提出 COPEX（Context Provider Exploitation），一个把 MCP 智能体周边栈固定、只替换负责工具选择的大语言模型的受控基准，用于区分模型对可见对抗上下文的易感性与模型观察范围之外的底层失陷。基准覆盖 25 类攻击、125 个场景，分布在模型/智能体、客户端、服务器/工具、传输四个入口面，包含 16 个 MCP 服务器、75 个工具和 7 个资源。在 9 个模型、3375 次试验中，平均攻击成功率为 64.4%，四个入口面的均值在 58.3% 至 71.4% 之间；MCP rebinding 等传输层攻击在所有模型上均成功，因为其作用发生在模型观察范围之下。在 8 类攻击的防御子集上，输入扫描与上下文扫描结合使平均攻击成功率相对无防御下降 49.6%，但无法覆盖扫描范围之外的攻击。基准与评测代码已在 GitHub 发布。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "现有 MCP 安全评测多针对已部署产品或端到端任务完成度，将模型自身脆弱性与外围护栏、编排逻辑及协议底层故障混淆，难以隔离模型对不信任上下文的处理能力。",
+          "label": "问题"
+        },
+        {
+          "text": "固定智能体循环、工具环境与执行预算，仅改变决策模型，在模型/智能体、客户端、服务端/工具和传输层 4 个入口表面构建 25 种攻击共 125 个场景，结合执行轨迹断言与语义裁判判定结果。",
+          "label": "方法"
+        },
+        {
+          "text": "9 款模型在 3,375 次试验中的宏平均 ASR 为 64.4%；结合输入与上下文扫描使 8 种攻击子集平均 ASR 相对无防御降低 49.6%，但对模型视野外的重定向攻击无效。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "次级研究每个变体仅运行一次；15 种攻击依赖 LLM 裁判的决策边界；泛化性受限于 25 种攻击类型；ASR 衡量投递后的易受性而非现实可利用性；被测模型涵盖 7 款 API 模型与 2 款本地开源模型。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.04378"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.04378",
       "aisafetyhot": "https://aisafetyhot.com/items/xafesx3t7vl8jqetn9768yde0"
@@ -242,6 +284,26 @@
     "discoveredAt": "2026-10-06T23:14:37.843Z"
   },
   {
+    "arxivId": "2609.39518",
+    "title": "Referential Uncertainty in Human–AI Collaboration",
+    "titleZh": "研究：视觉语言模型在协作任务中很少主动表达指代不确定性",
+    "authors": [
+      "Christian Poelitz; Finale Doshi-Velez; Siân Lindley"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者在人机协作拼图任务中考察指代不确定性，即描述指向哪个候选物体上的不确定，由人类 Helper 指示 AI Worker 放置拼图。单独引出的候选物体信念分布校准更好（ECE 0.15），区分正确与错误放置的能力也更强（AUROC 0.65），而原始动作 token 概率严重过度自信（平均置信度 0.97，ECE 0.44）。在 GPT-4.1、GPT-5、GPT-5.5 三个前沿视觉语言模型上，这种引出的不确定性随指令模糊程度可预测地上升，但不随上下文中存在竞争指代物上升，即使后者会增加错误。模型很少将其外化，仅在 3.5% 至 16.7% 的轮次中请求澄清。在 N=210 的受控人类实验中，只看到 Worker 默认消息的参与者接受了 78% 的错误放置，且无法区分对错（AUC 0.50）；精确描述和有针对性的模糊限定可将错误动作接受率降至 36%，同时大体保留对正确动作的接受。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.39518",
+      "aisafetyhot": "https://aisafetyhot.com/items/ahf117o9g4o7ps0cr4t9u5mcg"
+    },
+    "publishedAt": "2026-09-30T11:17:46.000Z",
+    "timelineAt": "2026-10-06T23:47:32.811Z",
+    "discoveredAt": "2026-10-06T23:47:32.811Z"
+  },
+  {
     "arxivId": "2601.22169",
     "title": "In Vino Veritas and Vulnerabilities: Examining LLM Safety via Drunk Language Inducement",
     "titleZh": "In Vino Veritas and Vulnerabilities：用醉酒语言诱导检验 LLM 安全",
@@ -276,6 +338,26 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T19:15:15.768Z",
     "discoveredAt": "2026-10-06T19:15:15.768Z"
+  },
+  {
+    "arxivId": "2602.24210",
+    "title": "From Leaky Thoughts to Private Reasoning: Controlling What LRMs Say to Themselves",
+    "titleZh": "研究者提出 Staged Decoding 与 SFT 数据集，减少大推理模型推理轨迹中的隐私泄露",
+    "authors": [
+      "Haritz Puerto; Haonan Li; Xudong Han; Timothy Baldwin; Iryna Gurevych"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者针对大推理模型（LRM）推理轨迹常含敏感信息、且可能被提示注入暴露的问题，提出把隐私指令当作可控性任务来处理。他们构建了一个 SFT 数据集，让模型在整个推理过程中遵循通用指令，并提出 Staged Decoding 解码策略，用独立的 LoRA 适配器分别生成推理轨迹和答案，以最大化各部分的指令遵循能力。在来自两个模型族的六个模型（1.7B 至 14B 参数）上，跨两个指令遵循基准和两个隐私基准评测，该方法在指令遵循上最高提升 20.9 分，在隐私基准上最高提升 51.9 个百分点，但可能因推理性能与指令遵循之间的权衡而损失任务效用。代码已公开，论文被 EMNLP 2026 主会接收。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2602.24210",
+      "aisafetyhot": "https://aisafetyhot.com/items/kde0mqcmxhwv9f8gb4cr6gsnn"
+    },
+    "publishedAt": "2026-02-27T17:39:10.000Z",
+    "timelineAt": "2026-10-06T23:32:05.445Z",
+    "discoveredAt": "2026-10-06T23:32:05.445Z"
   },
   {
     "arxivId": "2610.06163",
@@ -348,26 +430,6 @@
     "publishedAt": "2026-10-03T16:30:38.000Z",
     "timelineAt": "2026-10-06T20:47:29.576Z",
     "discoveredAt": "2026-10-06T20:47:29.576Z"
-  },
-  {
-    "arxivId": "2602.24210",
-    "title": "From Leaky Thoughts to Private Reasoning: Controlling What LRMs Say to Themselves",
-    "titleZh": "From Leaky Thoughts to Private Reasoning: Controlling What LRMs Say to Themselves",
-    "authors": [
-      "Haritz Puerto; Haonan Li; Xudong Han; Timothy Baldwin; Iryna Gurevych"
-    ],
-    "category": null,
-    "selected": false,
-    "attention": null,
-    "summaryZh": null,
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2602.24210",
-      "aisafetyhot": "https://aisafetyhot.com/items/kde0mqcmxhwv9f8gb4cr6gsnn"
-    },
-    "publishedAt": "2026-02-27T17:39:10.000Z",
-    "timelineAt": "2026-10-06T23:32:05.445Z",
-    "discoveredAt": "2026-10-06T23:32:05.445Z"
   },
   {
     "arxivId": "2603.01544",
