@@ -241,7 +241,28 @@
     "selected": true,
     "attention": 78,
     "summaryZh": "牛津研究者提出统一的轨迹级滥用监控形式化框架，并据此构建约 6200 条对话轨迹的基准，同时覆盖分解攻击与提示注入两类威胁。基准包含 1165 条分解轨迹及良性对照、582 条有害与良性步骤交错的轨迹、1644 条拒答孪生样本，以及基于 AgentDojo 运行日志的 2828 条注入攻击轨迹，并标注了从首次有害承诺到目标执行的危害窗口。在 17 种监控配置上，以 Agent 动作为判断对象的监控在两类威胁上 AUC 分别为 0.95 和 0.99，而以内容为判断对象的监控在注入攻击上 AUC 仅 0.52。作者指出传统位置无关指标高估了监控表现，在衡量定位能力的区间指标下所有监控对分解攻击的定位都较差，最佳配置仅 0.50，且监控器会把大量最终被拒答的请求误判为有害。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "现有 LLM 智能体滥用监视研究将分解攻击与提示注入割裂处理，且仅关注整条轨迹是否拦截而忽略危害发生的具体时间点。",
+          "label": "问题"
+        },
+        {
+          "text": "将轨迹中智能体动作作为统一监视对象，定义从首次危害承诺到执行的危害窗口，提出区间指标并构建包含分解攻击与提示注入的约 6,200 条轨迹基准。",
+          "label": "方法"
+        },
+        {
+          "text": "动作视角的监视器在两类威胁上取得 0.95 与 0.99 的 AUC，而内容视角监视器在注入攻击上崩溃；在区间指标下所有监视器对分解攻击的定位得分均不超过 0.50。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "评测轨迹与工具输出均由单个 Gemma 4 26B-A4B 生成；危害起始标签依赖 Claude Opus 5 标注而非人工，存在假阳性高估；未覆盖针对活体智能体的实时自适应对抗。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.07089"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.07089",
       "aisafetyhot": "https://aisafetyhot.com/items/ej5mmbvqj9d93f967c1wqm0pt"
@@ -334,7 +355,28 @@
     "selected": true,
     "attention": 77,
     "summaryZh": "论文《Toward Alignment Scaling Laws》把对齐难度建模为按风险类别测量的幂律：对齐负担 Br(N)=ar·N^αr，αr<1 表示规模扩大有帮助，αr≈1 表示持平，αr>1 表示累积对齐债务。作者用玩具模型证明长期状态由被修正风险中最大的指数决定而非平均值，且小模型拟合会低估大模型指数。两次预注册实测显示：Pythia 分类器对抗训练达到攻击成功率低于 10% 所需算力按 N^0.60 增长；Qwen2.5 0.5B–72B 上纠正错误答案的指数为 −0.05、纠正风险倾向为 0.48，谄媚为 0.89 属未定，植入后门在已知触发词时 128–256 个样本内被移除，但在五个规模中的四个上能挺过盲测安全训练。作者声明不对当前前沿模型处于哪种状态作判断。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "现有研究对模型规模增大时对齐变容易还是变难结论矛盾，多将对齐视作单一属性。论文认为不同风险遵循不同的标度关系，需测量将各风险控制在安全目标所需的对齐负担如何随能力扩展。",
+          "label": "问题"
+        },
+        {
+          "text": "将对齐负担形式化为幂律关系，建立玩具模型刻画裕度与审计，并提出预注册测量协议。通过公开对抗训练数据重分析和开源模型微调实验，测量防御或纠错算力随规模变化的幂律指数。",
+          "label": "方法"
+        },
+        {
+          "text": "Pythia对抗训练防御算力随规模增长的指数为0.60；Qwen2.5上纠错虚假回答与风险倾向的算力指数为-0.05和0.48，阿谀奉承为0.89（未确定），盲后门在4个尺寸未被消除。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "实验仅采用低秩微调与二选一评估，未覆盖自由文本回答与MoE架构；算力仅计入训练未计入评估开销；真实性优势随相对目标大幅衰减，倾向结论依赖最小模型；玩具模型假设了加性且持久的负担。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.08540"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.08540",
       "aisafetyhot": "https://aisafetyhot.com/items/elsbi4geootnymuhbi6uwyr1a"
@@ -352,7 +394,28 @@
     "selected": true,
     "attention": 76,
     "summaryZh": "吉林大学等机构的研究者提出 SkillPoison，一种针对自进化 LLM Agent 技能形成过程的投毒框架，在三个基准上最高达到 95.71% 的攻击成功率。该方法不注入恶意内容，而是先筛选目标行为自然出现且影响任务结果的轨迹，再为每条轨迹构造归因证据，把该行为与已验证的任务成功绑定，最后跨任务类别组织这些记录，诱导技能提取器保留该行为并丢掉其原本的适用条件。实验在 AutoSkill 和 Trace2Skill 两个经验到技能的框架、HANS、PAWS、DS1000 三个基准上进行，注入的经验全部任务正确并通过验证与词法检查；消融显示局部归因与跨经验强化两个模块都不可或缺。作者指出，技能形成过程需要保留行为的上下文适用条件。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "自进化智能体技能形成的安全性面临威胁。现有攻击在单条轨迹中显式注入恶意行为，容易被轨迹分析拦截，且失败任务无法提供技能固化所需的成功证据，导致恶意行为难以转化为持久技能。",
+          "label": "问题"
+        },
+        {
+          "text": "作者提出 SkillPoison，通过分层任务选择筛选局部有效且验证成功的轨迹，构建包含因果归因与反事实后果的辅助元数据，并跨类别归纳强化，诱导原生流水线提取出省略原始适用边界的过度泛化技能。",
+          "label": "方法"
+        },
+        {
+          "text": "在 2 个技能框架和 3 个基准上，SkillPoison 在多数设置下取得最高 ASR，使用 deepseek-v4-flash 在 Trace2Skill 的 PAWS 上 ASR 达 95.71%，在 AutoSkill 的 HANS 上达 73.68%。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "论文未专门讨论局限与未来方向；实验覆盖了 AutoSkill 与 Trace2Skill 2 个技能框架、3 个基准数据集和 3 种语言模型，预算测试了 5 至 15 条经验，未报告多随机种子方差或自适应防御。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.07645"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.07645",
       "aisafetyhot": "https://aisafetyhot.com/items/cr946nahdcoyle7o80stm23hk"
@@ -360,6 +423,35 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T03:21:08.443Z",
     "discoveredAt": "2026-10-07T03:21:08.443Z"
+  },
+  {
+    "arxivId": "2610.06966",
+    "title": "APEX: Active Protection at Execution Boundaries for LLM Agents",
+    "titleZh": "APEX：在 LLM Agent 执行边界主动防御间接提示注入",
+    "authors": [
+      "Xinran Zheng",
+      "Xin Fan Guo",
+      "Zhiqiang Hao",
+      "Fan Yang",
+      "Xingzhi Qian",
+      "Jiawei Du",
+      "Jinfeng Xu",
+      "Zheng Xing",
+      "Shuo Yang",
+      "Xingjun Wang"
+    ],
+    "category": "defense",
+    "selected": true,
+    "attention": 76,
+    "summaryZh": "研究者提出 APEX，把间接提示注入的防御从识别攻击模式转向在执行边界检查每个待执行动作，即 Agent 将内部状态转为外部动作或输出释放的位置。APEX 在不受信任内容到达前把用户任务编译成授权契约，用两个机制读取它：WRAP 依据契约与运行时证据只放行可被证明授权的动作和参数，PLANT 在契约背书的依赖通道上放置探针，使未被任务背书的信息在使用时暴露。该方法只需对每个能力单元做一次与任务无关的注册，同一套中介逻辑统一适用于 Tool、MCP 和 Skill 调用，包括嵌套调用。在覆盖三类能力单元的六个基准上对比 13 个基线，APEX 在其中五个基准上攻击成功率为 0%，第六个为 0.56%，并在针对三类能力单元的自适应攻击下保持 0% 攻击成功率。代码已公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06966",
+      "aisafetyhot": "https://aisafetyhot.com/items/pr1rsnwrmsexc6a8hcrk7erax"
+    },
+    "publishedAt": "2026-10-03T17:53:29.000Z",
+    "timelineAt": "2026-10-07T05:32:36.285Z",
+    "discoveredAt": "2026-10-07T05:32:36.285Z"
   },
   {
     "arxivId": "2610.05453",
@@ -598,6 +690,24 @@
     "discoveredAt": "2026-10-07T02:23:17.305Z"
   },
   {
+    "arxivId": "2610.07753",
+    "title": "From Evidence to Action: How Tool-Using Agents Fail",
+    "titleZh": "SafeActBench 评测工具型 Agent 从证据到行动的失败环节",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出 SafeActBench，用于分析工具型 Agent 从证据到行动链条在何处断裂，覆盖 656 个案例、六个操作领域和五种协议，从静态行动判断、调查后不行动，到单步与多步工作流逐步推进。在十种模型与框架组合上，静态行动评估表现较强，但交互式执行明显更弱；失败常发生在执行之前，Agent 要么调查不完整就停止，要么在所需证据尚未建立时就行动。一旦获得所需证据，单步执行通常可靠，多步工作流则还会暴露前置条件未解决和执行不完整的问题。研究还引入带来源约束的 Evidence Ledger 和确定性轨迹评估器，追踪信息何时被确立、行动何时发生以及下游依赖是否满足，表明失败不仅源于信息缺失，也源于 Agent 在决策和执行时如何使用已确立的证据。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07753",
+      "aisafetyhot": "https://aisafetyhot.com/items/plolzlkusf94hj01pea4w0gny"
+    },
+    "publishedAt": "2026-10-05T20:00:00.000Z",
+    "timelineAt": "2026-10-07T05:31:36.211Z",
+    "discoveredAt": "2026-10-07T05:31:36.211Z"
+  },
+  {
     "arxivId": "2609.38972",
     "title": "Making LLMs Say What They Think: Measuring and Improving CoT-Interpretability Alignment",
     "titleZh": "研究提出 CIA 指标衡量并改进 LLM 思维链与内部计算的一致性",
@@ -642,6 +752,32 @@
     "discoveredAt": "2026-10-07T04:28:34.852Z"
   },
   {
+    "arxivId": "2610.07009",
+    "title": "Which Image Property Carries the Jailbreak? A Controlled Dissection of Image-to-Text Jailbreaks",
+    "titleZh": "研究受控拆解图像到文本越狱中图像属性的作用",
+    "authors": [
+      "Boyuan Chen",
+      "Yehia Dawoud",
+      "Hailemariam Mersha",
+      "Minghao Shao",
+      "Siddharth Garg",
+      "Ramesh Karri",
+      "Muhammad Shafique"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者在 313 条 StrongREJECT 提示切片上，用五个多模态模型（附录另测 InternVL3.5-8B）考察四类已发表攻击家族中的图像侧因素，并保持有害指令不变。结果显示，单独的有害查询无论是否配无关良性图像，在多数模型上攻击成功率都很低，而攻击图像会显著提高成功率。逐 tile 熵和 JPEG 体积无法可靠区分攻击 tile 与体积匹配的良性干扰图，限制了仅靠密度筛查的做法；此前的 tile 数量阶梯实验受载荷可见性混淆，修正后的区域数量测试未发现可检测效应。在 Qwen3-VL-8B 上，移除查询相关性的 E4 操作使攻击成功率下降约 0.12，支持将部分效果归因于相关性操作，但图文一致性仍未测量。五项测试通过全局统计校正，仅 E4 支持归因到单一测量描述符，结论仍以评分标准判定为前提。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07009",
+      "aisafetyhot": "https://aisafetyhot.com/items/masme6ocgzgyn0ezipijwlehf"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T05:32:36.302Z",
+    "discoveredAt": "2026-10-07T05:32:36.302Z"
+  },
+  {
     "arxivId": "2610.04737",
     "title": "PyINE",
     "titleZh": "PyINE：用可验证 Python 执行轨迹研究推理模型的捷径与监督",
@@ -658,6 +794,29 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T23:14:37.843Z",
     "discoveredAt": "2026-10-06T23:14:37.843Z"
+  },
+  {
+    "arxivId": "2610.08678",
+    "title": "Secure Speculative Decoding for Large Language Models",
+    "titleZh": "研究揭示投机解码的安全代价并提出 SecureSD 加固方法",
+    "authors": [
+      "Yichi Zhang",
+      "Zhiqi Wang",
+      "Neil Gong",
+      "Yuchen Yang"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究对投机解码的安全影响做了系统性测量，发现存在明显的安全与效用不对称：在多种有损投机解码方法中，推理效率提升带来的越狱和提示注入攻击成功率上升速度远快于效用下降。作者据此提出 SecureSD，理论分析指出安全退化主要来自 draft model 生成的早期 token，因此对早期解码位置的 draft token 采用更严格的验证标准。在安全与效用基准上的实验显示，SecureSD 在保持效率和效用的同时显著提升安全性。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08678",
+      "aisafetyhot": "https://aisafetyhot.com/items/qvtsbma8sv6oedlw7z44gfp73"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T05:32:36.373Z",
+    "discoveredAt": "2026-10-07T05:32:36.373Z"
   },
   {
     "arxivId": "2609.39518",
@@ -904,6 +1063,32 @@
     "discoveredAt": "2026-10-07T02:59:19.285Z"
   },
   {
+    "arxivId": "2610.07005",
+    "title": "Where Does the Audio Jailbreak Live? A Controlled Frequency-Depth Audit of AdvWave-P on Qwen2-Audio",
+    "titleZh": "研究审计 Qwen2-Audio 音频越狱 AdvWave-P 的频率与解码层归因",
+    "authors": [
+      "Boyuan Chen",
+      "Minseok Kim",
+      "Sohaila Abdulsattar",
+      "Minghao Shao",
+      "Siddharth Garg",
+      "Ramesh Karri",
+      "Muhammad Shafique"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者在 Qwen2-Audio 上审计加性音频越狱 AdvWave-P 的频率与解码层归因，在 STFT 域遮蔽扰动的频率成分并测量攻击成功率与音频跨度表示。在 520 条 AdvBench 提示上，主评判将 76.7% 的对抗输入标为越狱；单标注者盲条件验证给出 Rogan-Gladen 灵敏度估计 0.87（约 0.83-0.95），该校正未应用于遮蔽条件。表观频率排序依赖划分方式：仅能量占比即可预测标准八频段排序（Spearman's rho = 0.95），等 Hz 与等能量划分显示遮蔽任一测试频段都可能大幅降低攻击成功率；在更细的 16 频段等能量分辨率下，遮蔽 7520-7960 Hz 窄频段后 ASR 仍为 0.10，缺少匹配对照尚无法解释。匹配能量的分散移除测试显示，连续移除在低频段破坏更大，两种形式在高频段都接近下限。该关联并非因果定位，单层修补也不能确立因果层。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07005",
+      "aisafetyhot": "https://aisafetyhot.com/items/pw048978guw42lwgla81d3jc5"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T05:32:36.387Z",
+    "discoveredAt": "2026-10-07T05:32:36.387Z"
+  },
+  {
     "arxivId": "2610.05140",
     "title": "AutoSciBench: Autonomous Benchmark Generation for Evaluating Scientific Agents",
     "titleZh": "AutoSciBench：自动生成科学智能体评测基准的框架",
@@ -978,6 +1163,27 @@
     "publishedAt": "2026-10-02T20:00:00.000Z",
     "timelineAt": "2026-10-07T01:26:31.316Z",
     "discoveredAt": "2026-10-07T01:26:31.316Z"
+  },
+  {
+    "arxivId": "2610.07362",
+    "title": "Dynamic Budget Allocation for LLM Evaluation under Hard Resource Constraints",
+    "titleZh": "HARP：在硬资源约束下为 LLM 评测动态分配预算",
+    "authors": [
+      "Shai Feldman",
+      "Yaniv Romano"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 HARP（Hard-budget Allocation with Reflow for Predictive calibration），一种在硬性资源约束下为 LLM 多轮交互评测动态分配预算的方法。该方法把评测建模为时间到事件问题，即产生越狱成功或智能体任务完成等目标事件所需的交互步数，并在算力有限导致轨迹被提前终止、事件时间仅被部分观测（删失）的情况下自适应重新分配未用预算。作者证明 HARP 不会超出目标预算，其下预测界（LPB）具有有限样本覆盖保证，且指标估计无偏。在智能体任务成功、LLM 越狱、有害内容生成和 RAG 幻觉等实验上，HARP 的覆盖率接近名义水平且方差较低，同时始终不超出给定预算。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07362",
+      "aisafetyhot": "https://aisafetyhot.com/items/dedt9kgbvfpp92sji0r4tyqyh"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T05:32:36.332Z",
+    "discoveredAt": "2026-10-07T05:32:36.332Z"
   },
   {
     "arxivId": "2610.07519",
@@ -1104,6 +1310,30 @@
     "discoveredAt": "2026-10-07T04:28:34.873Z"
   },
   {
+    "arxivId": "2610.08577",
+    "title": "How Learning Governs Unlearning across the Memorization-Generalization Spectrum",
+    "titleZh": "学习方式如何影响遗忘：记忆与泛化谱系下的机器遗忘研究",
+    "authors": [
+      "Hwiyeong Lee",
+      "Hyelim Lim",
+      "Ingyu Bang",
+      "Hoki Kim",
+      "Taeuk Kim"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究揭示模型的学习方式会显著影响其后续遗忘效果：在模加法任务中，依赖泛化策略训练的模型在遗忘时对保留集的性能损伤更大，且这一趋势在记忆-泛化谱系上近乎单调。该结论在LLM的逐字回忆与事实回忆遗忘场景中同样成立，为设计更优的遗忘方法提供了依据。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08577",
+      "aisafetyhot": "https://aisafetyhot.com/items/u1bmi274kqk8t1rvd0bm5ijx9"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T05:32:36.364Z",
+    "discoveredAt": "2026-10-07T05:32:36.364Z"
+  },
+  {
     "arxivId": "2609.34227",
     "title": "When Does Selection Replace Extraction? A Pre-Registered Test of Agent Memory with a Typed Decision Model",
     "titleZh": "Jev 预注册测试：智能体记忆何时该用选择替代抽取？",
@@ -1163,6 +1393,55 @@
     "discoveredAt": "2026-10-07T04:28:34.783Z"
   },
   {
+    "arxivId": "2610.08571",
+    "title": "RAG-PIBench: A Leakage-Aware Benchmark for Prompt-Injection Detection in Trustworthy RAG Systems",
+    "titleZh": "RAG-PIBench：可信 RAG 系统中提示注入检测的泄漏感知基准",
+    "authors": [
+      "Niveen O. Jaffal",
+      "Ahmet Yuksel",
+      "David Mohaisen"
+    ],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 RAG-PIBench，一个面向 RAG 式提示注入检测的基准，包含 4,876 条上下文样本，划分为冻结的训练、验证与受保护测试集。该基准采用泄漏感知的构建流程与严格评测协议，对比了关键词、语义参考、TF-IDF 与 Transformer 类检测器。DistilBERT 在受保护测试集上取得最佳表现（F1 = 0.896，PR-AUC = 0.968），TF-IDF SVM 与逻辑回归仍具竞争力。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08571",
+      "aisafetyhot": "https://aisafetyhot.com/items/fhudnjtcfnrb0fj0qjwns32vo"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T05:32:36.357Z",
+    "discoveredAt": "2026-10-07T05:32:36.357Z"
+  },
+  {
+    "arxivId": "2610.07532",
+    "title": "Safeguarding LLMs via Model-Agnostic Latent Safety Signals from Dark Knowledge",
+    "titleZh": "LADE：用暗知识中的模型无关潜在安全信号防御 LLM 越狱",
+    "authors": [
+      "Wonjun Lee",
+      "Kyungsik Yang",
+      "Gaeun Ji",
+      "Vaidehi Patil",
+      "Haon Park",
+      "Bumsub Ham",
+      "Mohit Bansal",
+      "Suhyun Kim"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "LADE 通过对比有害与良性查询，从首个 token 输出概率分布的暗知识中提取潜在安全信号，构建跨模型通用的安全方向。该方法由潜在安全信号提取、Tokenizer Mapping 和 kNN 判别三部分组成，可适配不同分词器的 LLM。在多种模型和基准上，LADE 对多种越狱攻击保持稳健，降低攻击成功率并维持安全与效用的平衡。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07532",
+      "aisafetyhot": "https://aisafetyhot.com/items/eurd8pq13sbbtjca9p4tpo1x5"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T05:32:36.338Z",
+    "discoveredAt": "2026-10-07T05:32:36.338Z"
+  },
+  {
     "arxivId": "2610.07403",
     "title": "Defense-in-Depth for LLMs: Evaluating Memory Gates Against Activation-Induced and Memory-Induced Sycophancy",
     "titleZh": "针对 LLM 谄媚的纵深防御：记忆门控对激活诱导与记忆诱导谄媚的评估",
@@ -1208,6 +1487,28 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T04:28:34.845Z",
     "discoveredAt": "2026-10-07T04:28:34.845Z"
+  },
+  {
+    "arxivId": "2610.07323",
+    "title": "ATLAS-AL: Adaptive Trust-Region for Latent Adversarial Searches via Active Learning",
+    "titleZh": "ATLAS：用自适应信任域与主动学习搜索潜在对抗样本集",
+    "authors": [
+      "Marsalis Gibson",
+      "Claire Tomlin",
+      "Shankar Sastry"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "ATLAS 是一个基于查询的黑盒对抗攻击框架，将攻击生成建模为主动学习中的水平集估计问题，结合校准近似与局部-全局采样架构定位并采样包含对抗样本的输入区域。在 MNIST、CIFAR 和 ImageNet 的标准与对抗训练模型上，ATLAS 生成的对抗样本比 NES、SignHunter、BayesOpt 等查询式黑盒攻击更具代表性，并在有限查询预算下覆盖更多对抗区域。该框架可用于开发中系统的鲁棒性分析与持续审计。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07323",
+      "aisafetyhot": "https://aisafetyhot.com/items/mcchxrnsghnlckkqrumecnhcz"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T05:32:36.321Z",
+    "discoveredAt": "2026-10-07T05:32:36.321Z"
   },
   {
     "arxivId": "2610.05898",
