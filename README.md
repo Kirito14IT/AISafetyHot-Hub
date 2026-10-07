@@ -80,14 +80,92 @@ Agent 应调用 `aisafetyhot_get_latest`，参数为 `{"mode":"all","window":"24
 
 下面是工具名与调用参数，供 Agent 使用；你也可以直接像上面那样用自然语言提问。
 
-| 想试什么 | 怎么用 | 结果 |
-|---|---|---|
-| 今天有什么新内容 | `aisafetyhot_get_latest({"mode":"all","window":"24h","limit":10})` | 全部动态列表、文章 ID、摘要、出处和下一页；只看精选时改为 `mode:"selected"` |
-| 找某个研究方向 | 先 `aisafetyhot_get_topics({})`，再 `aisafetyhot_search({"q":"prompt injection","mode":"all","window":"all","limit":10})`；需要限定话题时加返回的 `topic` slug | 既有话题，以及匹配的新闻和论文；`window:"all"` 可查旧材料 |
-| 看当前热点 | `aisafetyhot_get_hot_topics({"limit":5})` | 当前榜单、事件 `publicId` 和本站收集的讨论信息 |
-| 追踪一个事件 | `aisafetyhot_get_story({"public_id":"上一步返回的publicId","report_limit":10})` | 事件综述、来源报道时间线和已收集的讨论 |
-| 深读一篇新闻或论文 | `aisafetyhot_get_content({"id":"列表返回的id","depth":"full","max_chars":5000})` | 已公开且允许分发的正文、已有论文解读、原文链接，以及缺失或截断说明 |
-| 准备日／周／月简报 | `aisafetyhot_get_daily({"period":"weekly","mode":"list","limit":3})`，取返回期号，再以 `{"period":"weekly","key":"返回的期号"}` 调用同一工具 | 已发布报告及覆盖日期；日报用 `daily`，月报用 `monthly` |
+#### 今天有什么新内容
+
+**怎么用**
+
+```javascript
+aisafetyhot_get_latest({
+  "mode": "all",
+  "window": "24h",
+  "limit": 10
+})
+```
+
+**结果：** 全部动态列表、文章 ID、摘要、出处和下一页。只看精选时，把 `mode` 改为 `"selected"`。
+
+#### 找某个研究方向
+
+**怎么用**
+
+```javascript
+aisafetyhot_get_topics({})
+
+aisafetyhot_search({
+  "q": "prompt injection",
+  "mode": "all",
+  "window": "all",
+  "limit": 10
+})
+```
+
+**结果：** 既有话题，以及匹配的新闻和论文。`window:"all"` 可查旧材料；需要限定话题时，在搜索参数中加上 `get_topics` 返回的 `topic` slug。
+
+#### 看当前热点
+
+**怎么用**
+
+```javascript
+aisafetyhot_get_hot_topics({"limit": 5})
+```
+
+**结果：** 当前榜单、事件 `publicId` 和本站收集的讨论信息。
+
+#### 追踪一个事件
+
+**怎么用**
+
+```javascript
+aisafetyhot_get_story({
+  "public_id": "上一步返回的publicId",
+  "report_limit": 10
+})
+```
+
+**结果：** 事件综述、来源报道时间线和已收集的讨论。
+
+#### 深读一篇新闻或论文
+
+**怎么用**
+
+```javascript
+aisafetyhot_get_content({
+  "id": "列表返回的id",
+  "depth": "full",
+  "max_chars": 5000
+})
+```
+
+**结果：** 已公开且允许分发的正文、已有论文解读、原文链接，以及缺失或截断说明。
+
+#### 准备日／周／月简报
+
+**怎么用**
+
+```javascript
+aisafetyhot_get_daily({
+  "period": "weekly",
+  "mode": "list",
+  "limit": 3
+})
+
+aisafetyhot_get_daily({
+  "period": "weekly",
+  "key": "上一步返回的期号"
+})
+```
+
+**结果：** 已发布报告及覆盖日期。日报把 `period` 改为 `"daily"`，月报改为 `"monthly"`。
 
 **内容的阅读顺序：列表 → 文章详情／事件 → 原始出处。** 列表适合找材料；单篇详情适合深读；事件把多篇报道按进展组织起来。日报、周报和月报是已经保存的编辑版本，与实时动态列表不同。原文链接用于继续核对，正文不一定能由 MCP 完整返回。
 
