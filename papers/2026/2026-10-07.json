@@ -1043,6 +1043,24 @@
     "discoveredAt": "2026-10-07T05:32:36.373Z"
   },
   {
+    "arxivId": "2610.07570",
+    "title": "Unanimously Wrong",
+    "titleZh": "ProbeGuard：按共识形成过程判断弃答，识别医疗问答中的一致错误",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 ProbeGuard，一个基于共识形成过程而非最终一致性的认证弃答框架，用于多轮智能体医疗问答系统。作者指出，一致同意是正确性的脆弱代理：系统可能在每个采样上都给出同一个错误答案，此时基于一致性的信号不携带任何信息，因为这类信号只读取共识的最终状态，丢弃了达成共识的过程。ProbeGuard 使用过程特征追踪一致性轨迹、少数意见持续性和检索饱和情况；对全票一致的投票，用理由语义熵检查投票背后的理由是否自洽，并通过主动探测检索反证、衡量共识能否存续；再用分层 Learn-then-Test 校准把这些分数转成选择性风险的无分布界。该工作已被 NeurIPS 2026 的 GenAI4Health Workshop 接收。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07570",
+      "aisafetyhot": "https://aisafetyhot.com/items/itj9uxvvtko2vv0fxdvjhwhfd"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T08:18:05.254Z",
+    "discoveredAt": "2026-10-07T08:18:05.254Z"
+  },
+  {
     "arxivId": "2609.39518",
     "title": "Referential Uncertainty in Human–AI Collaboration",
     "titleZh": "研究：视觉语言模型在协作任务中很少主动表达指代不确定性",
@@ -1223,6 +1241,24 @@
     "discoveredAt": "2026-10-07T04:28:34.759Z"
   },
   {
+    "arxivId": "2610.08178",
+    "title": "潜空间图像水印的鲁棒性上限",
+    "titleZh": "研究给出潜空间图像水印的鲁棒性上限理论分析",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇 arXiv 论文对扩散模型潜空间水印方法的鲁棒性提出理论分析，指出既有方法高估了自身对旋转、缩放、平移等几何变换的抵抗能力。作者通过放宽不变关系，推导出刻画像素空间扰动与潜空间响应之间关系的最大扰动界，并给出覆盖实际检测机制各环节的解析形式。实验验证了理论结论，表明在当前设计范式下潜空间水印方法存在固有的鲁棒性局限，作者据此提供了分析工具与设计指引。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08178",
+      "aisafetyhot": "https://aisafetyhot.com/items/pi4q772ekfvf80jgzqlx64q72"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T08:18:27.752Z",
+    "discoveredAt": "2026-10-07T08:18:27.752Z"
+  },
+  {
     "arxivId": "2610.00417",
     "title": "Source Identification Is Not Fitness Testing: Measuring the Limits of Synthetic-Data Attribution",
     "titleZh": "研究：合成数据来源识别不等于训练数据筛选",
@@ -1267,6 +1303,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T04:28:34.802Z",
     "discoveredAt": "2026-10-07T04:28:34.802Z"
+  },
+  {
+    "arxivId": "2610.08585",
+    "title": "Incidental information contaminates patient notes and disrupts clinical reasoning in LLMs",
+    "titleZh": "研究：无关信息污染患者病历并干扰 LLM 临床推理",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究评估了大语言模型在临床记录与推理中对患者就诊无关信息的敏感度。在 576 段医患对话中，前沿模型把闲聊内容写入 35% 的病历，五分量表上的平均质量分变化最多 0.20 分；3.7% 的前沿模型病历出现对旁白的错误归属或临床误用。在 57 段模拟录音问诊中，来自另一场就诊的背景语音以 -10 dB 混入，48.2% 的转写文本受到污染，四个开放权重模型生成的后续病历中有 5.3% 检出污染。作者提出临床推理与干扰的双重编码假说，初步证据显示易受无关信息干扰的 LLM 组件同时也支撑临床推理，并建议在临床使用前评测模型对无关信息的抵抗能力。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08585",
+      "aisafetyhot": "https://aisafetyhot.com/items/k8e2wlvynuomvl8evy0nvv64p"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T08:17:57.773Z",
+    "discoveredAt": "2026-10-07T08:17:57.773Z"
   },
   {
     "arxivId": "2610.08773",
@@ -1407,24 +1461,6 @@
     "discoveredAt": "2026-10-07T04:28:34.832Z"
   },
   {
-    "arxivId": "2610.08585",
-    "title": "Incidental information contaminates patient notes and disrupts clinical reasoning in LLMs",
-    "titleZh": "研究：无关信息污染患者病历并干扰LLM临床推理",
-    "authors": [],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项研究在医患对话及模拟诊室音频中测试无关信息对AI病历生成的影响，发现闲聊和旁人病情会被写入病历或错误归属，而常规质量分数变化不大。研究结果由LLM裁判判定，未经医生复核，也未测试真实诊疗损害或医生签字前能否发现错误。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.08585",
-      "aisafetyhot": "https://aisafetyhot.com/items/k8e2wlvynuomvl8evy0nvv64p"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-07T08:17:57.773Z",
-    "discoveredAt": "2026-10-07T08:17:57.773Z"
-  },
-  {
     "arxivId": "2610.06844",
     "title": "Learning to Read the Contextual Tokens in Diffusion Transformers",
     "titleZh": "研究提出读取 Diffusion Transformer 上下文 token 的框架",
@@ -1459,6 +1495,24 @@
     "publishedAt": "2026-10-06T15:40:00.000Z",
     "timelineAt": "2026-10-07T06:13:10.719Z",
     "discoveredAt": "2026-10-07T06:13:10.719Z"
+  },
+  {
+    "arxivId": "2610.07762",
+    "title": "ES-Trace：代码模型伦理采购披露审计",
+    "titleZh": "ES-Trace 审计 26 个代码模型的伦理采购披露，仅看 Model Card 平均得分 1.77/5",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 ES-Trace 框架，用模型文档可追溯图（MDTG）追踪 Model Card 之外的披露证据，对 10 家发布方的 26 个代码生成模型、77 份文档和 20 个伦理采购维度进行审计。仅审计 Model Card 时平均得分 1.77/5，解析发布方声明的引用文档后升至 2.82/5，增量主要来自结构化元数据中声明的文档。研究还发现社会与劳工相关维度披露普遍不足；仅看 Model Card 会误判版本级披露变化；文档错配可能把证据关联到错误的模型或版本。作者据此呼吁采用引用感知的披露审计、明确模型与版本的绑定，并加强社会与劳工维度的文档记录。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07762",
+      "aisafetyhot": "https://aisafetyhot.com/items/pmtap41a9z7nn4bzii4d37ta1"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T08:18:20.208Z",
+    "discoveredAt": "2026-10-07T08:18:20.208Z"
   },
   {
     "arxivId": "2610.04426",
@@ -1590,6 +1644,24 @@
     "discoveredAt": "2026-10-07T03:29:03.409Z"
   },
   {
+    "arxivId": "2610.08331",
+    "title": "STCA：自动驾驶视频模型对抗鲁棒性研究",
+    "titleZh": "STCA：研究者提出针对自动驾驶视频 VLM 的时空一致性对抗攻击",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项名为 STCA 的研究针对自动驾驶视频视觉语言模型，考察可迁移的黑盒对抗风险。该工作聚焦黑盒条件下对抗样本的跨模型迁移能力，用于研究此类视频模型面对对抗输入时的鲁棒性。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08331",
+      "aisafetyhot": "https://aisafetyhot.com/items/dk4yfdsfaxnn7k6uhkyh7np5m"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T08:18:12.728Z",
+    "discoveredAt": "2026-10-07T08:18:12.728Z"
+  },
+  {
     "arxivId": "2603.01544",
     "title": "RA-Det: Towards Universal Detection of AI-Generated Images via Robustness Asymmetry",
     "titleZh": "RA-Det：利用鲁棒性不对称检测 AI 生成图像",
@@ -1631,6 +1703,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T04:27:36.126Z",
     "discoveredAt": "2026-10-07T04:27:36.126Z"
+  },
+  {
+    "arxivId": "2610.08048",
+    "title": "DAEDALUS: Bootstrapping Agent Memory from Self-Generated Tasks",
+    "titleZh": "DAEDALUS：用自生成任务自举 Agent 记忆",
+    "authors": [],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "DAEDALUS 提出一种无需已有任务或 oracle 验证器、从自生成练习中自举可复用 Agent 记忆的方法。它让 explorer 智能体与环境交互生成有难度但可解的任务，solver 智能体尝试解决，每次失败后提炼启发式规则，只有 solver 在上下文中反复成功后才被接受，这些结果同时反馈给 explorer 调整后续任务难度，被接受的规则汇总为记忆库供测试时使用。在 AppWorld、τ^2-bench 和 AutomationBench 上，DAEDALUS 相比无记忆基线平均成功率最高提升 15.9 个百分点，pass^5 最高提升 2.2 倍，与使用训练任务的方法相当，推理成本低于多数方法。消融实验显示 solver 轨迹是提炼有效启发式的关键信息，且将早期发现因子化可让探索更具成本效率；DAEDALUS 生成的任务还可作为基准任务的代理用于模型性能排序。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08048",
+      "aisafetyhot": "https://aisafetyhot.com/items/xzmjjtyhb55tmtfeowt1d2702"
+    },
+    "publishedAt": "2026-10-05T20:00:00.000Z",
+    "timelineAt": "2026-10-07T09:38:33.297Z",
+    "discoveredAt": "2026-10-07T09:38:33.297Z"
   },
   {
     "arxivId": "2610.07657",
@@ -1893,24 +1983,6 @@
     "discoveredAt": "2026-10-07T04:28:34.812Z"
   },
   {
-    "arxivId": "2610.08331",
-    "title": "STCA：自动驾驶视频模型对抗鲁棒性研究",
-    "titleZh": "STCA：自动驾驶视频模型对抗鲁棒性研究",
-    "authors": [],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项名为 STCA 的研究针对自动驾驶视频视觉语言模型，考察可迁移的黑盒对抗风险。该工作聚焦黑盒条件下对抗样本的跨模型迁移能力，用于评估此类视频模型在真实攻击场景下的鲁棒性。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.08331",
-      "aisafetyhot": "https://aisafetyhot.com/items/dk4yfdsfaxnn7k6uhkyh7np5m"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-07T08:18:12.728Z",
-    "discoveredAt": "2026-10-07T08:18:12.728Z"
-  },
-  {
     "arxivId": "2610.07583",
     "title": "Mechanistic Interpretability of Atmospheric Rivers in GraphCast",
     "titleZh": "GraphCast 大气河机制的机制可解释性研究",
@@ -2005,60 +2077,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T05:40:37.258Z",
     "discoveredAt": "2026-10-07T05:40:37.258Z"
-  },
-  {
-    "arxivId": "2610.07762",
-    "title": "ES-Trace：代码模型伦理采购披露审计",
-    "titleZh": "ES-Trace：26 个代码模型伦理采购披露审计",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "ES-Trace 对 26 个代码模型的伦理采购披露情况进行了审计，发现报告在追踪引用材料后披露评分有所提高，但劳工和社会项目方面的披露相对较弱。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.07762",
-      "aisafetyhot": "https://aisafetyhot.com/items/pmtap41a9z7nn4bzii4d37ta1"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-07T08:18:20.208Z",
-    "discoveredAt": "2026-10-07T08:18:20.208Z"
-  },
-  {
-    "arxivId": "2610.07570",
-    "title": "Unanimously Wrong",
-    "titleZh": "医疗问答中一致答案仍可能错误：观察共识形成过程的置信信号",
-    "authors": [],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "医疗问答中模型给出的答案即使高度一致，仍可能是错误的。作者提出通过观察共识形成过程来获取置信信号，以识别这类一致但错误的答案。所报改进仅限于该研究设置。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.07570",
-      "aisafetyhot": "https://aisafetyhot.com/items/itj9uxvvtko2vv0fxdvjhwhfd"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-07T08:18:05.254Z",
-    "discoveredAt": "2026-10-07T08:18:05.254Z"
-  },
-  {
-    "arxivId": "2610.08178",
-    "title": "潜空间图像水印的鲁棒性上限",
-    "titleZh": "潜空间图像水印在几何变换下的鲁棒性上限",
-    "authors": [],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文从理论与实验两方面讨论潜空间图像水印在几何变换下的鲁棒性限制，指出这类水印的鲁棒性存在上限。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.08178",
-      "aisafetyhot": "https://aisafetyhot.com/items/pi4q772ekfvf80jgzqlx64q72"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-07T08:18:27.752Z",
-    "discoveredAt": "2026-10-07T08:18:27.752Z"
   },
   {
     "arxivId": "2610.05898",
