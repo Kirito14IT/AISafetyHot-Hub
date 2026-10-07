@@ -124,7 +124,7 @@
     "category": "eval",
     "selected": true,
     "attention": 77,
-    "summaryZh": "研究者提出 COPEX（Context Provider Exploitation），一个把 MCP 智能体周边栈固定、只替换负责工具选择的大语言模型的受控基准，用于区分模型对可见对抗上下文的易感性与模型观察范围之外的底层失陷。基准覆盖 25 类攻击、125 个场景，分布在模型/智能体、客户端、服务器/工具、传输四个入口面，包含 16 个 MCP 服务器、75 个工具和 7 个资源。在 9 个模型、3375 次试验中，平均攻击成功率为 64.4%，四个入口面的均值在 58.3% 至 71.4% 之间；MCP rebinding 等传输层攻击在所有模型上均成功，因为其作用发生在模型观察范围之下。在 8 类攻击的防御子集上，输入扫描与上下文扫描结合使平均攻击成功率相对无防御下降 49.6%，但无法覆盖扫描范围之外的攻击。基准与评测代码已在 GitHub 发布。",
+    "summaryZh": "COPEX 是面向 MCP 系统的受控评测基准，通过固定周边智能体栈、替换工具选择模型，区分模型对对抗上下文的易感性与系统层暴露。基准含25类攻击、125个场景，在9个模型和3375次试验中报告平均成功率64.4%。部分客户端或传输层结果发生在模型观察或控制范围之外，不能简单解释为模型本身失守。作者报告，在8类攻击的防御子集中，组合扫描相对无防御设置降低平均成功率49.6%。",
     "quickRead": {
       "parts": [
         {
@@ -176,12 +176,12 @@
   {
     "arxivId": "2610.05830",
     "title": "HAL",
-    "titleZh": "HAL 论文提出污染审计框架，复核 SWE-bench Verified 文件定位差距",
+    "titleZh": "研究提出智能体排行榜污染审计框架，并检验评分器有效性",
     "authors": [],
     "category": "eval",
     "selected": false,
     "attention": null,
-    "summaryZh": "论文提出一套以测量为先的审计框架，按所需证据区分三类污染渠道：训练时暴露、评测时检索和流水线或脚手架泄漏，每条渠道按 fail-closed 规则标记为开放、部分、封闭或未知。在九种 Holistic Agent Leaderboard（HAL）配置的 27 项渠道评估中，没有一项被标记为封闭，但有四种配置确认了污染事件。作者随后将该框架的行为学部分用于复核 SWE-bench Verified 上报告的文件定位差距，采用结果盲法、同仓库配对对照设计、对称提示泄漏筛查、配对与仓库感知的不确定性分析以及评分器验证，在 GPT-4.1 和 DeepSeek-V4-Flash 上评测。复现评分器未通过验证门槛，对两个模型都无法确立足够的评分器敏感度，DeepSeek-V4-Flash 在正确金标比较上的两次触发均为假阳性。",
+    "summaryZh": "研究者提出按证据区分训练暴露、评测检索与运行流程泄漏的审计框架，并审查九种 HAL 配置。作者报告，27项渠道评估均未能确认为封闭，但只在四种配置中确认污染事件。对 SWE-bench Verified 的受控复核中，分数差距结论仍不确定，复现评分器也未通过有效性验证；这些结果不能证明训练数据成员关系、污染普遍程度或由基准污染造成的分数抬高。",
     "quickRead": null,
     "links": {
       "paper": "https://arxiv.org/abs/2610.05830",
@@ -396,6 +396,44 @@
     "discoveredAt": "2026-10-06T19:15:08.292Z"
   },
   {
+    "arxivId": "2610.04426",
+    "title": "UnAct: Gradient-Free Unlearning via Targeted Activation Intervention",
+    "titleZh": "UnAct：无需梯度的定向激活干预实现类别遗忘",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 UnAct，一种无需梯度的类别遗忘方法，只需对遗忘图像做前向传播，通过给后层单元按响应打分、削弱响应最强的连接，最多重复 20 轮，全程不使用梯度、标签和保留数据。在 ResNet-18 上针对 CIFAR-10、CIFAR-20 和 CIFAR-100 的测试中，UnAct 在遗忘整个类别时与 SSD 和 LFSSD 相当，且在遗忘数据稀缺时不会像后两者那样导致网络崩溃。在 ResNet-18 上，UnAct 的保留准确率与重新训练相差不超过 2.5 个百分点，而 SSD 和 LFSSD 在全类别操作点上某些类别最多损失 86 个百分点。在 CIFAR-10 上仅用 5 张遗忘图像时，UnAct 与重新训练的距离为 0.21 个百分点，LFSSD 为 67，SSD 为 90，且用 oracle 在每个规模上重新选择 SSD 阈值也无法缩小差距。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04426",
+      "aisafetyhot": "https://aisafetyhot.com/items/xj990cf5kgwl39os9m151i8vc"
+    },
+    "publishedAt": "2026-10-02T20:00:00.000Z",
+    "timelineAt": "2026-10-07T01:26:31.316Z",
+    "discoveredAt": "2026-10-07T01:26:31.316Z"
+  },
+  {
+    "arxivId": "2603.01544",
+    "title": "RA-Det: Towards Universal Detection of AI-Generated Images via Robustness Asymmetry",
+    "titleZh": "RA-Det：利用鲁棒性不对称检测 AI 生成图像",
+    "authors": [
+      "Yunhao Chen"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 RA-Det，一种基于行为而非外观的 AI 生成图像检测框架。该方法利用鲁棒性不对称现象，即自然图像在小幅结构化扰动下保持稳定的语义表征，而生成图像的特征漂移明显更大。作者给出理论分析，建立该不对称性与生成模型记忆倾向之间的下界关系，解释其跨架构普遍存在的原因。在 14 个生成模型上、对比 10 余种强检测器，RA-Det 平均性能提升 7.81%，且不依赖生成器指纹，可迁移到未见过的生成器。源代码已在 GitHub 公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2603.01544",
+      "aisafetyhot": "https://aisafetyhot.com/items/xhpxjaiscm55murm7467g09bj"
+    },
+    "publishedAt": "2026-03-02T07:15:37.000Z",
+    "timelineAt": "2026-10-07T00:18:04.354Z",
+    "discoveredAt": "2026-10-07T00:18:04.354Z"
+  },
+  {
     "arxivId": "2610.05898",
     "title": "Collaborative Personalized Preference Alignment for LLMs under Data Deficiency",
     "titleZh": "数据稀缺下 LLM 的协作式个性化偏好对齐：APO 方法",
@@ -430,25 +468,5 @@
     "publishedAt": "2026-10-03T16:30:38.000Z",
     "timelineAt": "2026-10-06T20:47:29.576Z",
     "discoveredAt": "2026-10-06T20:47:29.576Z"
-  },
-  {
-    "arxivId": "2603.01544",
-    "title": "RA-Det: Towards Universal Detection of AI-Generated Images via Robustness Asymmetry",
-    "titleZh": "RA-Det: Towards Universal Detection of AI-Generated Images via Robustness Asymmetry",
-    "authors": [
-      "Yunhao Chen"
-    ],
-    "category": null,
-    "selected": false,
-    "attention": null,
-    "summaryZh": null,
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2603.01544",
-      "aisafetyhot": "https://aisafetyhot.com/items/xhpxjaiscm55murm7467g09bj"
-    },
-    "publishedAt": "2026-03-02T07:15:37.000Z",
-    "timelineAt": "2026-10-07T00:18:04.354Z",
-    "discoveredAt": "2026-10-07T00:18:04.354Z"
   }
 ]
