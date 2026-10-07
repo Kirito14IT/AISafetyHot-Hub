@@ -2,12 +2,12 @@
   {
     "arxivId": "2610.07557",
     "title": "CheckerBench: Can Long-Horizon Agents Synthesize Static-Analysis Checkers?",
-    "titleZh": "CheckerBench：编码 Agent 能否从零到一合成静态分析检查器",
+    "titleZh": "CheckerBench：长程 Agent 能否合成静态分析检查器",
     "authors": [],
     "category": "eval",
     "selected": false,
     "attention": null,
-    "summaryZh": "研究者发布 CheckerBench，一个由 297 个 CVE 派生的 300 个任务组成的可执行基准，用于评估编码 Agent 能否在代码仓库中完整开发出可用的静态分析检查器。任务覆盖 167 个仓库、85 个 CWE 和五种语言生态，每个任务都包含漏洞版本与修复版本、固定分析环境以及检查器脚手架。配套的 CheckerLab 评测框架会独立重建提交的检查器，并衡量漏洞修复诊断对比、补丁定位、误报和工具使用情况。在 21 种模型与执行框架组合、每种配置三次独立重复下，平均 Pass@1 为 32.30%，最好成绩为 45.33%。",
+    "summaryZh": "研究者提出 CheckerBench，一个可执行基准，用于评估编码 Agent 能否从缺陷规范出发、检查代码仓库、实现分析器逻辑并反复编译调试，最终完成静态分析检查器的开发。该基准包含 300 个任务，源自 167 个仓库中的 297 个 CVE，覆盖 85 种 CWE 和五个语言生态，每个任务提供漏洞版与修复版代码、固定分析环境和检查器脚手架。配套的 CheckerLab 评测框架会独立重建提交的检查器，并测量漏洞与修复版本的诊断对比、补丁定位、误报和工具使用情况。在 21 种模型与 harness 组合、每种配置三次独立重复下，平均 Pass@1 为 32.30%，最佳配置达到 45.33%。",
     "quickRead": null,
     "links": {
       "paper": "https://arxiv.org/abs/2610.07557",
@@ -16,5 +16,23 @@
     "publishedAt": "2026-10-05T20:00:00.000Z",
     "timelineAt": "2026-10-07T16:50:31.614Z",
     "discoveredAt": "2026-10-07T16:50:31.614Z"
+  },
+  {
+    "arxivId": "2601.02670",
+    "title": "Break Me If You Can: Self-Jailbreaking of Aligned LLMs via Lexical Insertion Prompting",
+    "titleZh": "论文提出词汇插入提示法，让对齐大模型自我越狱",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "arXiv 论文《Break Me If You Can》提出一种词汇插入提示方法，让对齐后的大语言模型自身参与形成越狱交互，作者报告多个模型存在这一脆弱性。作者同时提出通过监测对话语义变化来防护的思路，并承认该思路对自适应攻击仍有局限。上述结果为作者自报，未独立复现。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2601.02670",
+      "aisafetyhot": "https://aisafetyhot.com/items/cu64l06s8d1vpmkxw9qxntzg2"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T19:18:56.192Z",
+    "discoveredAt": "2026-10-07T19:18:56.192Z"
   }
 ]
