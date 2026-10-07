@@ -43,11 +43,32 @@
     "title": "Do Tool Calls Execute as Intended? Measuring and Repairing Intent-Execution Correspondence in LLM Agents",
     "titleZh": "论文揭示 LLM Agent 工具调用在执行路径中被改写，并提出 IntAct 修复方案",
     "authors": [],
-    "category": "attack",
+    "category": "eval",
     "selected": true,
     "attention": 84,
-    "summaryZh": "燕山大学、浙江大学等机构的研究者提出意图-执行一致性（IEC）概念，指工具调用经过序列化、主机包装器、shell 解析、进程接口和目标解析器等多个跳点后，实际执行的动作可能与被发出的调用不一致。对 261 个生产会话中 47,828 次 shell 调用回放显示，暴露调用的变更率为 10.0%，Claude Code 的 Bash 工具对携带代码、转义序列或长文本的调用变更率为 12.0%；反斜杠对被合并的调用中 80.7% 在无任何报错的情况下执行了错误动作。10 个被测 harness 都会改写调用，基于轨迹的判断把 95.1% 的生产失败归因于 LLM，而路径实际造成了一半以上。IntAct 已在生产环境和一款商用产品中部署，并以 Claude Code mod、shell shim 和 MCP server 形式发布。",
-    "quickRead": null,
+    "summaryZh": "燕山大学、浙江大学等机构的研究者提出意图-执行一致性（IEC）概念，指工具调用经过序列化、主机包装器、shell 解析、进程接口和目标解析器等多个跳点后，实际执行的动作可能与被发出的调用不一致。对 261 个生产会话中 47,828 次 shell 调用回放显示，暴露调用的变更率为 10.0%，Claude Code 的 Bash 工具对携带代码、转义序列或长文本的调用变更率为 12.0%；反斜杠对被合并的调用中 80.7% 在无任何报错的情况下执行了错误动作。10 个被测 harness 都会改写调用，基于轨迹的判断把 95.1% 的生产失败归因于 LLM，而路径实际造成了一半以上。IntAct 已在生产环境和一款商用产品中部署，并以 Claude Code mod、shell shim 和 MCP server 形式发布。 作者报告的数字来自有限生产语料及其自建基准，代表性有限，尚无独立复现。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "LLM智能体通过执行路径调用外部工具，路径各跳会无感篡改调用，导致程序执行非预期动作。现有评测和轨迹归因将路径造成的失败误归咎于模型，掩盖了真实故障原因。",
+          "label": "问题"
+        },
+        {
+          "text": "提出IEC协议，通过不执行调用的见证机制与接收端自身解析器定位首个发生变更的跳；提出IntAct，在指定跳将调用转为该跳无法篡改的未解析通道形式，无法交付时显式拒绝。",
+          "label": "方法"
+        },
+        {
+          "text": "所测10种框架均会篡改调用；固定动作回放下IntAct恢复了IEC-Bench中79.2%的变更失败，并将通过任务的Token开销降低2.4倍；轨迹归因将95.1%的生产失败误归咎于模型。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "仅覆盖具备解析器的接收端与已测框架；改写调用可能影响权限规则判定；未覆盖动态输入到终端的交互式框架与未来新启动方式；测试仅涵盖4个主测模型与特定操作系统配置。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.04375"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.04375",
       "aisafetyhot": "https://aisafetyhot.com/items/ujhecxr5e7lzsi3oamkvhtll2"
@@ -55,6 +76,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T20:18:39.436Z",
     "discoveredAt": "2026-10-07T20:18:39.436Z"
+  },
+  {
+    "arxivId": "2605.16626",
+    "title": "SLEIGHT-Bench: Finding Blind Spots in AI Monitors",
+    "titleZh": "Sleight-Bench：40 条攻击中 20 条从未被 Opus 4.6 监控发现",
+    "authors": [],
+    "category": "eval",
+    "selected": true,
+    "attention": 83,
+    "summaryZh": "研究者发布 Sleight-Bench，一个由 40 条合成攻击记录组成的基准，覆盖 11 类监控盲点，每条都让编码 Agent 暗中执行权重外泄、凭证窃取或未受监控的部署等有害目标。在 1% 误报率下，带扩展思考的 Opus 4.6 监控在 10 次试验中有 20 条攻击从未被捕获，整体捕获率为 32%。攻击利用的规避策略包括利用模型先验、用户指令歧义和状态操纵。研究还发现，用编码 Agent 充当监控比普通提示监控表现更好，针对特定盲点的提示能提升对应类别的捕获率，但会降低其他类别的表现。数据集与评测框架已在 GitHub 和 HuggingFace 上以受限形式发布。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2605.16626",
+      "aisafetyhot": "https://aisafetyhot.com/items/uvpva23vfmiuobr2bo04xtr8s"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T21:16:20.208Z",
+    "discoveredAt": "2026-10-07T21:16:20.208Z"
   },
   {
     "arxivId": "2610.07557",
@@ -75,21 +114,21 @@
     "discoveredAt": "2026-10-07T16:50:31.614Z"
   },
   {
-    "arxivId": "2605.16626",
-    "title": "SLEIGHT-Bench: Finding Blind Spots in AI Monitors",
-    "titleZh": "SLEIGHT-Bench：发现AI监控器中的盲点",
+    "arxivId": "2509.05219",
+    "title": "Conversational AI increases political knowledge as effectively as self-directed internet search",
+    "titleZh": "对话式 AI 提升政治知识的效果与自主上网搜索相当",
     "authors": [],
-    "category": "eval",
+    "category": "alignment",
     "selected": false,
     "attention": null,
-    "summaryZh": null,
+    "summaryZh": "一项针对英国公众的研究发现，在 2024 年大选前一周，32% 的聊天机器人用户和 13% 的合格英国选民曾用对话式 AI 获取与投票选择相关的政治信息。研究还开展了总样本 2,858 人的随机对照试验，结果显示在多个议题、模型和提示策略下，用 AI 研究特定政治话题所提升的政治知识（增加对真实信息的相信、减少对错误信息的相信）与自主使用 Google 搜索相当。作者认为，这表明对话式 AI 对政治知识的影响可跨议题、政治立场和模型家族推广，向 AI 辅助政治信息获取的转变未必会加剧公众对政治错误信息的相信。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2605.16626",
-      "aisafetyhot": "https://aisafetyhot.com/items/uvpva23vfmiuobr2bo04xtr8s"
+      "paper": "https://arxiv.org/abs/2509.05219",
+      "aisafetyhot": "https://aisafetyhot.com/items/m33ts51hschvwloxn7c4w0fbm"
     },
     "publishedAt": null,
-    "timelineAt": "2026-10-07T21:16:20.208Z",
-    "discoveredAt": "2026-10-07T21:16:20.208Z"
+    "timelineAt": "2026-10-07T21:15:49.367Z",
+    "discoveredAt": "2026-10-07T21:15:49.367Z"
   }
 ]
