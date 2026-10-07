@@ -22,7 +22,18 @@ npx skills add wuyoscar/AISafetyHot-Hub --skill aisafetyhot
 
 ## MCP
 
-标准 Streamable HTTP，地址：`https://aisafetyhot.com/api/mcp`
+在支持远程 MCP 的客户端中添加以下服务：
+
+| 设置 | 填写内容 |
+| --- | --- |
+| 名称 | AI Safety HOT |
+| 服务器地址 | `https://aisafetyhot.com/api/mcp` |
+| 连接方式 | Streamable HTTP |
+| 认证 | 无需 API Key 或登录 |
+
+**[浏览器使用说明](https://aisafetyhot.com/agent)** 与 **MCP 连接地址** 是两个用途：Agent 连接填上表地址；浏览器直接打开该地址会转到说明页，不会展示工具调用结果。连接后应看到七个工具。只支持旧版 SSE 的客户端需升级或改用后面的 REST API。
+
+支持下面配置格式的客户端可以使用：
 
 ```json
 {
@@ -39,9 +50,11 @@ claude mcp add --transport http aisafetyhot 'https://aisafetyhot.com/api/mcp'
 codex mcp add aisafetyhot --url 'https://aisafetyhot.com/api/mcp'
 ```
 
-## 接入方式
+## 七个工具与阅读顺序
 
-公开接口匿名只读，无需 API Key。远程 MCP 地址是 `https://aisafetyhot.com/api/mcp`，采用 Streamable HTTP。工具只读已存储、已公开并获准提供的内容，不在读取时抓取原文或调用模型。机器发现见 `/llms.txt` 和 `/openapi-v1.json`。本文件描述 2.2.0 的接口；部署状态以实际 MCP handshake 和 tools/list 为准。
+先找内容，再打开单篇或事件：`get_latest / search → get_content / get_story`；需要现成日/周/月报时直接用 `get_daily`。不知道话题 slug 时先用 `get_topics`，想看当前榜单用 `get_hot_topics`。完整工具名见下表。
+
+工具只读取已保存、已公开的内容，不在读取时抓取原文或生成新报告。机器发现见 [`llms.txt`](https://aisafetyhot.com/llms.txt) 和 [OpenAPI](https://aisafetyhot.com/openapi-v1.json)。本文对应接口 2.2.0。
 
 | 工具 | 用途 |
 | --- | --- |
