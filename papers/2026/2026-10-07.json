@@ -629,7 +629,28 @@
     "selected": true,
     "attention": 76,
     "summaryZh": "研究者提出 APEX，把间接提示注入的防御从识别攻击模式转向在执行边界检查每个待执行动作，即 Agent 将内部状态转为外部动作或输出释放的位置。APEX 在不受信任内容到达前把用户任务编译成授权契约，用两个机制读取它：WRAP 依据契约与运行时证据只放行可被证明授权的动作和参数，PLANT 在契约背书的依赖通道上放置探针，使未被任务背书的信息在使用时暴露。该方法只需对每个能力单元做一次与任务无关的注册，同一套中介逻辑统一适用于 Tool、MCP 和 Skill 调用，包括嵌套调用。在覆盖三类能力单元的六个基准上对比 13 个基线，APEX 在其中五个基准上攻击成功率为 0%，第六个为 0.56%，并在针对三类能力单元的自适应攻击下保持 0% 攻击成功率。代码已公开。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "LLM agent 通过 Tool、MCP、Skill 等异构能力单元执行任务时，间接提示注入（IPI）的载体不断增多，攻击还能由多个看似合法的步骤组合而成，依赖识别攻击模式的防御难以跟上。作者认为无论注入如何传播，危害只在 agent 把内部状态变成外部动作或输出时才发生，即 execution boundary。",
+          "label": "问题"
+        },
+        {
+          "text": "APEX 在不可信执行前把用户任务编译成一份授权契约，记录哪些效果被授权、参数可由哪些依赖决定。运行时在边界用两个机制检查每个提案：WRAP 从契约反向追溯、用运行时证据正向解析，只放行能重建授权的效果；PLANT 在契约认可的依赖上放置探针，未被认可的信息一旦被采用就会在提交前暴露。能力单元只需一次性注册，无需针对攻击的策略或端到端污点追踪。",
+          "label": "方法"
+        },
+        {
+          "text": "在六个基准（覆盖 Tool、MCP、Skill 及组合攻击）上与 13 个基线比较，APEX 在其中五个达到 0% ASR，第六个为 0.56%，同时保持较高任务效用；针对三类能力单元的三种自适应攻击下仍为 0% ASR，更换防御方 backbone 也保持有效。消融显示 WRAP 与 PLANT 互补，Safe Continuation 主要在被拒绝后保住效用。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "保护取决于契约对用户请求的忠实度，模糊或欠指定的请求可能产生过严契约而挡住合法工作；有意把决策委托给外部内容的任务无法事先完整表达。PLANT 只在能证明不破坏良性行为的位置放探针，否则弃权交给 WRAP；效果与信息依赖都被任务认可却仍有害的残留（𝒰q）需要任务特定的内容约束。长时任务理论上适用，但准确编译复杂目标与分支仍是挑战。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.06966"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.06966",
       "aisafetyhot": "https://aisafetyhot.com/items/pr1rsnwrmsexc6a8hcrk7erax"
@@ -1202,6 +1223,24 @@
     "discoveredAt": "2026-10-07T04:28:34.759Z"
   },
   {
+    "arxivId": "2610.00417",
+    "title": "Source Identification Is Not Fitness Testing: Measuring the Limits of Synthetic-Data Attribution",
+    "titleZh": "研究：合成数据来源识别不等于训练数据筛选",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究测试了模型生成数据的来源识别可靠性及其对训练数据筛选的帮助。在金融风险文本上，生成器归属识别在原始段落上准确率为 98.7%，改写后降至 53.1%，风格重写后降至 29.0%；生成文本与人类文本的区分在测试的人类对照集上仍接近完美。研究随后在三轮生成与再训练中比较两种筛选规则，一种使用来源信息，另一种使用独立参考模型的评分，两者选出的样本不同，但计划中的比较未检测到所得模型退化存在稳定差异。结果表明，识别数据来源与识别哪些数据对训练有用是两个独立问题，来源评分和所测试的筛选代理指标都不足以确定未来的递归训练表现。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00417",
+      "aisafetyhot": "https://aisafetyhot.com/items/meuouh6tgy0hujm0loxh1imfr"
+    },
+    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "timelineAt": "2026-10-07T09:07:32.979Z",
+    "discoveredAt": "2026-10-07T09:07:32.979Z"
+  },
+  {
     "arxivId": "2610.07389",
     "title": "Inference and learning in sparse autoencoders as natural gradient flow",
     "titleZh": "BeFOND 将稀疏自编码器的推断与学习统一为自然梯度流",
@@ -1310,6 +1349,24 @@
     "discoveredAt": "2026-10-07T02:59:19.291Z"
   },
   {
+    "arxivId": "2610.01218",
+    "title": "AGO AI Quality Gate: Evidence-First Release Decisions for Retrieval-Augmented Generation",
+    "titleZh": "AGO AI Quality Gate：面向 RAG 的证据优先发布决策框架",
+    "authors": [],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "作者提出 AGO AI Quality Gate，一个用于工业级 RAG 评估的证据优先质量门框架，帮助企业在证据不完整、指标来自易出错 LLM 评审时决定系统版本是发布、修改还是拦截。框架包含四态决策模型（把缺失数据和评审错误作为显式结果）、结合确定性检查与本地护栏及结构化 LLM 评估的分层打分、用分层 beta-binomial 门概率化量化回归风险，以及强制性的元评估协议。由于项目数据为专有，作者在 RAGBench 的 12 个数据集、10 万条标注 RAG 轨迹上评估评审层：在相同分层测试样本（每个评审 N=1200）下，低成本评审 gpt-4.1-nano 检测不合规回答仅略高于随机（AUROC 0.603 [0.570, 0.634]），gpt-4o 达到 0.783 [0.756, 0.807]，但其分领域表现仍在 0.62 至 0.88 之间。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.01218",
+      "aisafetyhot": "https://aisafetyhot.com/items/xz4cekw24886lta3y66jhnbo5"
+    },
+    "publishedAt": "2026-09-30T20:00:00.000Z",
+    "timelineAt": "2026-10-07T08:05:33.244Z",
+    "discoveredAt": "2026-10-07T08:05:33.244Z"
+  },
+  {
     "arxivId": "2610.04975",
     "title": "长程智能体自生子目标的运行时授权",
     "titleZh": "论文提出长程智能体自生子目标的运行时授权机制",
@@ -1366,6 +1423,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T08:17:57.773Z",
     "discoveredAt": "2026-10-07T08:17:57.773Z"
+  },
+  {
+    "arxivId": "2610.06844",
+    "title": "Learning to Read the Contextual Tokens in Diffusion Transformers",
+    "titleZh": "研究提出读取 Diffusion Transformer 上下文 token 的框架",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究提出一个通过自然语言提问读取多模态 Diffusion Transformer（MM-DiT）上下文 token 的框架。方法上，作者训练一个轻量瓶颈网络，把中间层的上下文 token 映射到冻结 LLM 的输入空间，让 LLM 直接从这些隐藏表征回答关于正在生成图像的问题。结果显示，上下文 token 编码了正在生成场景的全局表征，提示词未指定的属性在去噪早期就可读取，细节随时间逐渐可读；即使输入空提示词，这些信息仍可解码。作者还发现上下文表征越可读的生成结果，人类偏好评分往往越高，并据此提出 Contextual Alignment 训练方法，强化上下文 token 中的视觉语义信息，提升生成质量与分布覆盖。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06844",
+      "aisafetyhot": "https://aisafetyhot.com/items/ui5bb1w1ugf3gctowb5j1geri"
+    },
+    "publishedAt": "2026-10-04T20:00:00.000Z",
+    "timelineAt": "2026-10-07T09:07:33.011Z",
+    "discoveredAt": "2026-10-07T09:07:33.011Z"
   },
   {
     "arxivId": "2610.08554",
@@ -1744,24 +1819,6 @@
     "discoveredAt": "2026-10-07T05:32:36.357Z"
   },
   {
-    "arxivId": "2610.01218",
-    "title": "AGO AI Quality Gate: Evidence-First Release Decisions for Retrieval-Augmented Generation",
-    "titleZh": "AGO AI Quality Gate：面向 RAG 的\"证据优先\"发布决策框架",
-    "authors": [],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "AGO AI Quality Gate（AGO）是一套面向工业级 RAG 评估的\"证据优先\"质量门框架，把缺失数据和评审模型出错都当作显式结果，结合确定性检查、本地护栏与结构化 LLM 评估分层打分，并用分层 beta-binomial 门控量化回归风险。在 RAGBench 的 12 个数据集、每个评审模型 N=1200 的分层测试样本上，gpt-4.1-nano 识别不合规回答的 AUROC 仅 0.603，gpt-4o 为 0.783，但其分领域表现仍在 0.62 至 0.88 之间。固定随机种子的门控研究显示，回归场景下决策级配置将不安全放行率降至 22.2%-35.1%，而朴素门控为 29.3%-41.8%。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.01218",
-      "aisafetyhot": "https://aisafetyhot.com/items/xz4cekw24886lta3y66jhnbo5"
-    },
-    "publishedAt": "2026-09-30T20:00:00.000Z",
-    "timelineAt": "2026-10-07T08:05:33.244Z",
-    "discoveredAt": "2026-10-07T08:05:33.244Z"
-  },
-  {
     "arxivId": "2610.07023",
     "title": "Beyond Refusal Patterns: Safe-Role Internalization for Robust and Generalizable LLM Safety Alignment",
     "titleZh": "SSRFT：以安全角色内化替代拒答模式的 LLM 安全对齐框架",
@@ -1898,24 +1955,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T05:32:36.321Z",
     "discoveredAt": "2026-10-07T05:32:36.321Z"
-  },
-  {
-    "arxivId": "2610.02858",
-    "title": "Harness-Aware Distillation for Small Language Model Agents",
-    "titleZh": "Harness-Aware Distillation：让小语言模型智能体学会 harness 之外的能力",
-    "authors": [],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "针对小语言模型智能体蒸馏时 harness 保持不变、学生模型只需学习教师模型超出 harness 的能力这一特点，研究者提出 Harness-Aware Distillation（HAD），将蒸馏重点放在教师模型相对 harness 的增量上。HAD 在 on-policy 蒸馏基础上加入动作偏好对比（对比同一教师模型在有/无 harness 信息下的动作，并在学生自身推理后打分）和有效性检查（剔除与 harness 记录矛盾的偏好对）。在多个长程智能体基准和模型上，HAD 以相同固定 harness 超过 on-policy 蒸馏基线，且无需任务奖励、成功标签或未来信息；分析显示其更少陷入无效循环、更常从错误中恢复。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.02858",
-      "aisafetyhot": "https://aisafetyhot.com/items/ju0vsccvk9wkrtmkhd7bgkyxd"
-    },
-    "publishedAt": "2026-10-01T20:00:00.000Z",
-    "timelineAt": "2026-10-07T08:05:33.289Z",
-    "discoveredAt": "2026-10-07T08:05:33.289Z"
   },
   {
     "arxivId": "2610.07386",
