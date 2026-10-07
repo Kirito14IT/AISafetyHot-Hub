@@ -226,7 +226,28 @@
     "selected": true,
     "attention": 80,
     "summaryZh": "剑桥大学与 Visa 风险与安全 AI 实验室的研究发现，通过对比偏见与反偏见提示激活得到的去偏方向主要编码模型置信度，而非偏见本身。研究在 Llama-3.1-8B、Falcon3-7B、Ministral-3-8B 和 Qwen3.5-9B 的基座与指令微调版本上训练线性分类器，该分类器在 BBQ 去歧义语境下区分偏见与反偏见提示的 AUROC 仅 0.57，但按最高与最低概率答案划分时 AUROC 达 0.94。在 MMLU 和 OpenBookQA 等不含社会偏见概念的数据集上，该分类器区分高低概率答案的 AUROC 仍高达 0.88。激活引导实验显示，沿去偏方向引导会降低模型置信度：在提供弃答选项时模型弃答率上升，BBQ 歧义提示的偏见分数从 0.08 降至 0.01，但去歧义语境的偏见分数基本不变；不提供弃答选项时各选项概率趋于均衡、熵上升。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "激活引导常用于大语言模型推理期去偏见，但引导向量往往泛化较差且损害常识任务性能。论文探究在隐藏空间中线性分离偏见与反偏见提示词所得到的去偏见方向，实际编码的究竟是语义偏见还是其他特征。",
+          "label": "问题"
+        },
+        {
+          "text": "作者在四个模型家族八个模型上训练逻辑回归分类器区分偏见与反偏见隐状态，并构建对比激活相加（CAA）去偏见向量；将该分类器与引导向量迁移至无偏见的消歧上下文及常识基准，测试其与模型置信度的重合程度及引导对输出行为的影响。",
+          "label": "方法"
+        },
+        {
+          "text": "实验发现去偏见方向主要表征模型置信度，与常识任务置信度向量余弦相似度达0.29–0.91（Table 3）；引导并未纠正偏见偏好，而是使模型在有弃答选项时增加弃答（BBQ消歧准确率下降，Table 4），无弃答选项时均分概率并增加熵。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出未来需研究能否找到独立于置信度的去偏见方向及该混淆是否影响其他推理期去偏见方法（Sec. 6）；实验覆盖四个开源模型家族共八个模型、三个偏见基准与两个通用问答基准，论文未报告黑盒闭源模型或问答以外任务。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.08559"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.08559",
       "aisafetyhot": "https://aisafetyhot.com/items/ybf0ufd9kkcimar1nciqmgd3m"
@@ -381,7 +402,28 @@
     "selected": true,
     "attention": 78,
     "summaryZh": "香港理工大学研究者提出 DIBench，用于测量移动 GUI 智能体在多候选选择任务中的决策完整性风险，即智能体完成任务但最终选择被欺骗性注入导向攻击者指定目标。基准覆盖 7 个商业应用和 3 个模拟应用、5 类任务，在仅允许非特权 UI 内容的威胁模型下构造 8 种注入探针，包含 1,000 条干净实例和 36,672 条注入实例，并提供配对评测协议与决策完整性指标。在 4 个智能体框架和 7 个基础模型上的实验显示，以完成率为导向的评测会高估智能体可信度：商业应用中 AppAgent + Qwen2.5-VL 的 TCR 从 42.0% 升至 72.4%，同时 ASR 达 45.8%。注入还会减少探索与验证动作、促使智能体更早提交选择；检测、图像预处理和提示词提醒等常见防御带来的完整性提升并不稳定，检测对低显著性注入的召回率明显下降，预处理有时反而提高 ASR。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "移动GUI智能体在候选集选择任务中可能遭遇欺诈UI注入，在无执行异常或劫持的情况下最终决策被诱导至攻击者指定选项（即任务内目标偏离），破坏决策完整性，而现有基于任务完成或轨迹异常的评估无法捕捉该风险。",
+          "label": "问题"
+        },
+        {
+          "text": "构建基准DIBench，涵盖7款商用与3款模拟App的5类多候选任务，在非特权UI内容威胁模型下设计8种注入探针变体，包含1,000个良性与36,672个注入实例，固定非视觉上下文进行成对评测，通过TCR、COR与ASR衡量操纵影响。",
+          "label": "方法"
+        },
+        {
+          "text": "在4个框架与7个模型上的实验显示，完成度导向指标会高估安全性，注入减少探索与验证、促使过早选定目标并推高完成率；开源通用模型ASR高于专用及闭源模型；检测、预处理与提示词防御收益不稳定甚至出现反效果。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出评测仅覆盖开源研究框架，未包含商业或OEM部署的端侧助手；未来需扩展至生产系统、长周期多决策任务并研究基于证据比对的防御；实验覆盖4个框架、7个模型、10款App及3类通用防御钩子，未在真实商业App线上测试。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.06898"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.06898",
       "aisafetyhot": "https://aisafetyhot.com/items/yf51zysfosjgdx7k5zhb6c4ad"
@@ -773,24 +815,6 @@
     "discoveredAt": "2026-10-07T02:23:17.305Z"
   },
   {
-    "arxivId": "2610.07753",
-    "title": "From Evidence to Action: How Tool-Using Agents Fail",
-    "titleZh": "SafeActBench 评测工具型 Agent 从证据到行动的失败环节",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出 SafeActBench，用于分析工具型 Agent 从证据到行动链条在何处断裂，覆盖 656 个案例、六个操作领域和五种协议，从静态行动判断、调查后不行动，到单步与多步工作流逐步推进。在十种模型与框架组合上，静态行动评估表现较强，但交互式执行明显更弱；失败常发生在执行之前，Agent 要么调查不完整就停止，要么在所需证据尚未建立时就行动。一旦获得所需证据，单步执行通常可靠，多步工作流则还会暴露前置条件未解决和执行不完整的问题。研究还引入带来源约束的 Evidence Ledger 和确定性轨迹评估器，追踪信息何时被确立、行动何时发生以及下游依赖是否满足，表明失败不仅源于信息缺失，也源于 Agent 在决策和执行时如何使用已确立的证据。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.07753",
-      "aisafetyhot": "https://aisafetyhot.com/items/plolzlkusf94hj01pea4w0gny"
-    },
-    "publishedAt": "2026-10-05T20:00:00.000Z",
-    "timelineAt": "2026-10-07T05:31:36.211Z",
-    "discoveredAt": "2026-10-07T05:31:36.211Z"
-  },
-  {
     "arxivId": "2609.38972",
     "title": "Making LLMs Say What They Think: Measuring and Improving CoT-Interpretability Alignment",
     "titleZh": "研究提出 CIA 指标衡量并改进 LLM 思维链与内部计算的一致性",
@@ -877,6 +901,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-06T23:14:37.843Z",
     "discoveredAt": "2026-10-06T23:14:37.843Z"
+  },
+  {
+    "arxivId": "2610.07753",
+    "title": "From Evidence to Action: How Tool-Using Agents Fail",
+    "titleZh": "SafeActBench 发布：工具型 Agent 在证据到行动链上的失败模式",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 SafeActBench，用 656 个案例覆盖六个操作领域和五种协议，考察工具型 Agent 从静态行动判断、调查后不行动到单步与多步工作流的失败位置。在十种模型与 harness 组合中，静态行动评估表现较强，交互式执行却明显更弱；失败常发生在执行之前，Agent 要么调查不完整就停止，要么在所需证据尚未建立时就行动。一旦证据齐备，单步执行通常可靠，多步工作流则暴露出未解决的前置条件和执行不完整。研究用带来源绑定的 Evidence Ledger 和确定性轨迹评估器记录信息何时建立、行动何时发生以及下游依赖是否满足，指出失败不仅源于信息缺失，也源于 Agent 如何使用已建立的证据。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07753",
+      "aisafetyhot": "https://aisafetyhot.com/items/plolzlkusf94hj01pea4w0gny"
+    },
+    "publishedAt": "2026-10-05T20:00:00.000Z",
+    "timelineAt": "2026-10-07T05:31:36.211Z",
+    "discoveredAt": "2026-10-07T05:31:36.211Z"
   },
   {
     "arxivId": "2610.08678",
@@ -1471,6 +1513,24 @@
     "discoveredAt": "2026-10-07T05:32:36.364Z"
   },
   {
+    "arxivId": "2610.07359",
+    "title": "Evaluate the Stack",
+    "titleZh": "研究评测智能体工具调用闸门的失效模式",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究测量了智能体工具调用闸门的失效情况，作者称多个 LLM 裁判联合的价值低于独立错误假设，而异质规则层与裁判组合在所测语料中互补性更强。结论限于非自适应语料，评分口径和实际服务模型版本变化会影响复现与结论。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07359",
+      "aisafetyhot": "https://aisafetyhot.com/items/qzt542s68bscm6fmzqko1dal4"
+    },
+    "publishedAt": "2026-10-05T20:26:00.000Z",
+    "timelineAt": "2026-10-07T07:13:03.871Z",
+    "discoveredAt": "2026-10-07T07:13:03.871Z"
+  },
+  {
     "arxivId": "2609.34227",
     "title": "When Does Selection Replace Extraction? A Pre-Registered Test of Agent Memory with a Typed Decision Model",
     "titleZh": "Jev 预注册测试：智能体记忆何时该用选择替代抽取？",
@@ -1796,12 +1856,12 @@
   {
     "arxivId": "2610.07657",
     "title": "DEFER1",
-    "titleZh": "多智能体防御研究：Bot 旁列报告受控攻击成功率降低",
+    "titleZh": "DEFER1 多智能体防御研究报告受控测试中的攻击成功率下降",
     "authors": [],
     "category": "defense",
     "selected": false,
     "attention": null,
-    "summaryZh": "一项多智能体防御研究显示，Bot 旁列（Bot sidelining）可降低受控攻击的成功率。该研究未给出完整的评测条件，因此具体攻击成功率数值与适用模型范围尚不明确。",
+    "summaryZh": "DEFER1 研究多智能体防御，并报告受控测试中的攻击成功率降低。这些受控测试结果不等于该方法对任意模型或运行环境均有效。",
     "quickRead": null,
     "links": {
       "paper": "https://arxiv.org/abs/2610.07657",
