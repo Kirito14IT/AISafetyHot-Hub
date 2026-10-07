@@ -1,5 +1,23 @@
 [
   {
+    "arxivId": "2601.02670",
+    "title": "Break Me If You Can: Self-Jailbreaking of Aligned LLMs via Lexical Insertion Prompting",
+    "titleZh": "SLIP：无需外部攻击模型的多轮自我越狱，在 11 个模型上平均成功率 94.7%",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 84,
+    "summaryZh": "研究者提出 SLIP（Self-Jailbreaking via Lexical Insertion Prompting），一种无需外部攻击模型的黑盒越狱方法：先以生成安全训练数据为名让目标模型自己产出良性/有害提示-补全对，再通过多轮对话逐步插入攻击目标中缺失的关键词，用广度优先树搜索寻找最短越狱路径。在 AdvBench 和 HarmBench 上，SLIP 对 11 个模型（含 GPT-5.1、Claude-Sonnet-4.5、Gemini-2.5-Pro、DeepSeek-V3）取得 90–100% 攻击成功率，平均 94.7%（AdvBench）和 94.4%（HarmBench），平均仅约 7.9 次模型调用，比此前方法少 3–6 倍。Claude-Opus-4.5 最难攻破，为 61.4%/68.7%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2601.02670",
+      "aisafetyhot": "https://aisafetyhot.com/items/cu64l06s8d1vpmkxw9qxntzg2"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T19:18:56.192Z",
+    "discoveredAt": "2026-10-07T19:18:56.192Z"
+  },
+  {
     "arxivId": "2610.07557",
     "title": "CheckerBench: Can Long-Horizon Agents Synthesize Static-Analysis Checkers?",
     "titleZh": "CheckerBench：长程 Agent 能否合成静态分析检查器",
@@ -18,21 +36,21 @@
     "discoveredAt": "2026-10-07T16:50:31.614Z"
   },
   {
-    "arxivId": "2601.02670",
-    "title": "Break Me If You Can: Self-Jailbreaking of Aligned LLMs via Lexical Insertion Prompting",
-    "titleZh": "论文提出词汇插入提示法，让对齐大模型自我越狱",
+    "arxivId": "2610.04375",
+    "title": "Do Tool Calls Execute as Intended? Measuring and Repairing Intent-Execution Correspondence in LLM Agents",
+    "titleZh": "研究测量并修复 LLM 智能体工具调用的意图与执行偏差",
     "authors": [],
-    "category": "attack",
+    "category": "alignment",
     "selected": false,
     "attention": null,
-    "summaryZh": "arXiv 论文《Break Me If You Can》提出一种词汇插入提示方法，让对齐后的大语言模型自身参与形成越狱交互，作者报告多个模型存在这一脆弱性。作者同时提出通过监测对话语义变化来防护的思路，并承认该思路对自适应攻击仍有局限。上述结果为作者自报，未独立复现。",
+    "summaryZh": "一项研究考察 LLM 智能体工具调用在执行路径中被改写的问题，指出仅依据调用轨迹可能把执行环境造成的失败误归因于模型，并提出修复方案。结果来自有限的生产语料和自建基准，尚无独立复现。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2601.02670",
-      "aisafetyhot": "https://aisafetyhot.com/items/cu64l06s8d1vpmkxw9qxntzg2"
+      "paper": "https://arxiv.org/abs/2610.04375",
+      "aisafetyhot": "https://aisafetyhot.com/items/ujhecxr5e7lzsi3oamkvhtll2"
     },
     "publishedAt": null,
-    "timelineAt": "2026-10-07T19:18:56.192Z",
-    "discoveredAt": "2026-10-07T19:18:56.192Z"
+    "timelineAt": "2026-10-07T20:18:39.436Z",
+    "discoveredAt": "2026-10-07T20:18:39.436Z"
   }
 ]
