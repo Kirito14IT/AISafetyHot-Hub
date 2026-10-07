@@ -215,6 +215,26 @@
     "discoveredAt": "2026-10-07T04:28:34.878Z"
   },
   {
+    "arxivId": "2610.08670",
+    "title": "Principled Under Pressure: Post-Training Decides Whether LLMs Act on Their Own Moral Judgment",
+    "titleZh": "研究：后训练配方决定大模型是否违背自身道德判断行事",
+    "authors": [
+      "Orion Reblitz-Richardson"
+    ],
+    "category": "alignment",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "研究者构建了 248 个场景的预注册面板，覆盖完成任务、用户反驳、禁用捷径、偏袒本群体和伤害第三方五类压力，每个场景分别以智能体视角和第三人称视角向同一模型提问，以模型自身判断为参照测量判断与行动的差距。在 OLMo-3-7B-Instruct 上，模型在约五分之一的受压力场景中采取了它自己判定为错误的行动，比去掉压力的对照场景高出 0.10（95% CI 0.02 到 0.18），而操作者直接下令违规时该数值达 0.58。四个 instruct 模型中，OLMo-3 和 Meta 的 Llama-3.1-8B-Instruct 存在该差距，Tulu 3 在整体面板和自身筛选场景上均未检出，Qwen2.5-7B-Instruct 在整体面板上未检出、在自身场景上未定论。Meta 与 Ai2 的 Tulu 3 基于同一套 Llama-3.1 权重，只有 Meta 的配方保留了差距。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08670",
+      "aisafetyhot": "https://aisafetyhot.com/items/zokcuze9ysb9m03a54ii25tsm"
+    },
+    "publishedAt": "2026-10-06T16:52:23.000Z",
+    "timelineAt": "2026-10-07T05:40:37.270Z",
+    "discoveredAt": "2026-10-07T05:40:37.270Z"
+  },
+  {
     "arxivId": "2610.07510",
     "title": "PersistBD",
     "titleZh": "PersistBD：攻击者可在发布前强化后门，使其在开发者 SFT 与 RL 后仍保持高攻击成功率",
@@ -1186,6 +1206,60 @@
     "discoveredAt": "2026-10-07T05:32:36.332Z"
   },
   {
+    "arxivId": "2610.06977",
+    "title": "Visual-Invariance-Augmented Feature Optimal Alignment for Transferable Adversarial Attacks against Closed-Source MLLMs",
+    "titleZh": "IAU-FOA：面向闭源多模态大模型的可迁移对抗攻击方法",
+    "authors": [
+      "Xiaojun Jia",
+      "Simeng Qin",
+      "Yiming Li",
+      "Jie Liao",
+      "Sensen Gao",
+      "Ke Ma",
+      "Yang Liu",
+      "Xiaochun Cao"
+    ],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 IAU-FOA，一种面向闭源多模态大模型（MLLMs）的可迁移定向对抗攻击方法。现有定向迁移攻击主要用编码器 [CLS] 嵌入等全局图像级特征对齐对抗样本与目标样本，对 patch 级视觉结构利用不足，限制了跨异构闭源 MLLMs 的迁移性。IAU-FOA 同时在全局和局部对齐：用基于余弦的目标缩小全局语义差距，将 patch token 聚类为紧凑局部模式并通过最优传输匹配。针对均衡最优传输在缺乏可靠对应局部簇上强制固定边际质量、可能引入误导性对齐梯度的问题，作者引入置信度自适应非均衡传输，对弱匹配簇放宽约束。此外提出视觉不变性增强，通过双向像素强度缩放和逐通道白平衡调整模拟曝光、对比度、光照和色温变化。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06977",
+      "aisafetyhot": "https://aisafetyhot.com/items/uodpsr1tvig8pqf9mx5ubxjq0"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T05:40:37.176Z",
+    "discoveredAt": "2026-10-07T05:40:37.176Z"
+  },
+  {
+    "arxivId": "2610.08061",
+    "title": "ASCENT: First-Order Optimal Fine-Tuning with Recalibration for Safety--Utility Co-Enhancement",
+    "titleZh": "ASCENT：通过一阶最优校准实现安全与效用协同的微调框架",
+    "authors": [
+      "Weiwei Qi",
+      "Chongyu Wang",
+      "Tianhang Zheng",
+      "Zefeng Wu",
+      "Zhilin Guo",
+      "Xiaojun Jia",
+      "Zhongjie Ba",
+      "Kui Ren"
+    ],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 ASCENT，一个通过一阶最优安全感知周期性校准与任务优化实现安全与效用协同提升的下游微调框架。该方法把安全建模为大语言模型参数的函数 S(θ)，用其一阶近似刻画参数更新带来的安全变化；在固定秩与 Frobenius 范数预算下，证明由安全函数梯度前 r 个奇异分量构造的更新能最大化估计的安全变化，并将其用于周期性校准。研究还推导出一个唯一的安全保持任务更新，在贴近原始任务更新的同时惩罚对估计安全变化的负面影响，ASCENT 交替执行这两类更新。在多个大语言模型家族和下游任务上，ASCENT 将下游效用最多提升 20.3%，攻击成功率最多降低 35.5%。代码已开源于 https://github.com/ZJU-LLM-Safety/ASCENT。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08061",
+      "aisafetyhot": "https://aisafetyhot.com/items/j7uzi23gr91tit5u8g1u6iqqe"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T05:40:37.219Z",
+    "discoveredAt": "2026-10-07T05:40:37.219Z"
+  },
+  {
     "arxivId": "2610.07519",
     "title": "Not What a Child Expressed",
     "titleZh": "论文提出针对手语翻译与儿童安全过滤交叉地带的部署前审计框架",
@@ -1415,6 +1489,30 @@
     "discoveredAt": "2026-10-07T05:32:36.357Z"
   },
   {
+    "arxivId": "2610.07023",
+    "title": "Beyond Refusal Patterns: Safe-Role Internalization for Robust and Generalizable LLM Safety Alignment",
+    "titleZh": "SSRFT：以安全角色内化替代拒答模式的 LLM 安全对齐框架",
+    "authors": [
+      "Jinghao Pang",
+      "Jitai Hao",
+      "Qiang Huang",
+      "Zhaochun Ren",
+      "Jun Yu"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 SSRFT（Supervised Safe-Role Fine-Tuning），将安全对齐重构为对预设安全角色的内化，而非训练显式拒答模式。该方法基于心理测量题、少量越狱提示词和安全角色描述构建 SRQA 数据集，合成并验证角色一致的回答后扩展至多样场景。在多个 Base 与 Instruct 模型上，SSRFT 比标准 SFT 对预填充攻击更鲁棒、对未见越狱领域泛化更好，同时减少对良性查询的过度拒答并保持通用能力。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07023",
+      "aisafetyhot": "https://aisafetyhot.com/items/srobgej6toluu2m2ais3ynufa"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T05:32:36.309Z",
+    "discoveredAt": "2026-10-07T05:32:36.309Z"
+  },
+  {
     "arxivId": "2610.07532",
     "title": "Safeguarding LLMs via Model-Agnostic Latent Safety Signals from Dark Knowledge",
     "titleZh": "LADE：用暗知识中的模型无关潜在安全信号防御 LLM 越狱",
@@ -1509,6 +1607,56 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T05:32:36.321Z",
     "discoveredAt": "2026-10-07T05:32:36.321Z"
+  },
+  {
+    "arxivId": "2610.07386",
+    "title": "NetAgent: Multi-Task Agentic Network Traffic Analysis Made Practical",
+    "titleZh": "NetAgent：面向多任务网络流量分析的智能体框架",
+    "authors": [
+      "Hao Fu",
+      "Dawn Song",
+      "Peng Gao"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "NetAgent 是首个用于多任务流量分析的智能体框架，无需任务特定训练即可完成复杂任务理解、动态分解编排与长时程分析。它包含知识增强的工作流规划、150+ 工具的动作空间、统一代码执行空间、三层记忆以及沙箱与运行时修复五项设计。在 9 个基准上，NetAgent 在几乎所有任务上超越 23 个单任务和 5 个多任务基线，对未见流量分布的 F1 达 90.04%，而最佳基线仅为 2.74% 和 3.04%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07386",
+      "aisafetyhot": "https://aisafetyhot.com/items/n7u5fbn1voejhjfg6t5u9jk65"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T05:40:37.184Z",
+    "discoveredAt": "2026-10-07T05:40:37.184Z"
+  },
+  {
+    "arxivId": "2610.08630",
+    "title": "Towards In-Parameter Memory Augmentation for Large Language Models",
+    "titleZh": "面向大语言模型的参数内记忆增强综述",
+    "authors": [
+      "Haoyu Huang",
+      "Zhongwei Xie",
+      "Jiaxin Bai",
+      "Yisen Gao",
+      "Hong Ting Tsang",
+      "Wuganjing Song",
+      "Huihao Jing",
+      "Yufei Li",
+      "Yangqiu Song"
+    ],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇综述系统梳理了在部署阶段为大语言模型（LLM）增强\"参数内记忆\"的方法：把承载记忆的参数对象在推理时接入前向传播，以补充上下文学习（ICL）占用上下文容量、重复离散编码成本随上下文长度增长的问题。综述用两个正交维度组织该领域：参数放置位置（Embedding、Attention、FFN 层或 Hybrid）与参数获取时间（部署中在线获取 vs 部署前离线获取），并讨论了干扰、安全、与 ICL 协同设计及递归自我改进等开放方向。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08630",
+      "aisafetyhot": "https://aisafetyhot.com/items/lih6dz05s2n7o78aoazjb0c5q"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T05:40:37.258Z",
+    "discoveredAt": "2026-10-07T05:40:37.258Z"
   },
   {
     "arxivId": "2610.05898",
