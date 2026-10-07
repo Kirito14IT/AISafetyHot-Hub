@@ -470,7 +470,7 @@ claude mcp add --transport http aisafetyhot https://aisafetyhot.com/api/mcp
 codex mcp add aisafetyhot --url https://aisafetyhot.com/api/mcp
 ```
 
-重新打开会话后，就能调用最新动态、搜索、热点、事件详情和日报这 **5 个只读工具**。MCP 可以单独使用，也可以与 Skill 配合。
+重新打开会话后，就能使用 **7 个只读工具**：最新动态、历史搜索、话题筛选、单篇深读、热点榜、事件时间线及日/周/月报。支持分页和精选变化同步，既可单独使用 MCP，也可与 Skill 配合。详见[七个工具与使用示例](docs/agent.md)。
 
 <details>
 <summary>其他支持远程 HTTP MCP 的客户端：查看 JSON 配置</summary>
