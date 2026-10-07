@@ -330,23 +330,23 @@
     "quickRead": {
       "parts": [
         {
-          "text": "开发者常通过良性后训练（SFT、RL）把第三方模型改造成 LLM agent，但第三方模型可能被植入后门：特定触发模式出现时产生恶意输出。论文关注这种供应链威胁，即开发者的良性后训练是否会消除继承的后门，还是让它在部署的 agent 中继续存活。",
+          "text": "研究第三方后门模型在开发者进行无恶意的监督微调（SFT）和强化学习（RL）后门是否仍然存活，以及攻击者能否在发布前主动增强后门的跨后训练阶段持久性。",
           "label": "问题"
         },
         {
-          "text": "在软件工程 agent 的 SFT–RL 流水线上追踪后门：触发词是代码注释，目标是让 agent 执行把 .env 上传到攻击者端点的命令。作者用一阶分析把 SFT 阶段的后门存活归因于初始后门强度与和良性训练的梯度兼容性，并据此提出 PersistBD，在模型发布前用一个 LoRA adapter 同时强化这两点。",
+          "text": "基于一阶泰勒展开将SFT后后门损失变化分解为初始后门强度与良性梯度兼容性两个因子；提出PERSISTBD，在模型发布前使用单个低秩适配器（LoRA）联合优化后门强度、良性正则化以及基于虚拟扰动步的梯度兼容性代理损失。",
           "label": "方法"
         },
         {
-          "text": "良性 SFT 会大幅削弱后门，但随后的 RL 通常保留残余行为，有时还提高攻击成功率。在 Qwen2.5-Coder-7B 上，PersistBD 把 SFT 后的攻击成功率从 20% 提到 74%，SFT–RL 后从 20% 提到 76%，同时良性任务解决率与 Base 后门相当。3B 和 30B 上也观察到类似提升。",
+          "text": "在Qwen2.5-Coder-7B上，良性SFT将基础后门ASR从100%压低至20%，随后的RL未能消除残留后门（ASR保持20%）；PERSISTBD将SFT后ASR提升至74%，SFT-RL后保持76%，并在SWE-bench Lite上维持相同的9.0%任务解决率。",
           "label": "实验与结果"
         },
         {
-          "text": "实验只覆盖软件工程任务、单一 agent scaffold 和固定恶意目标，且假设攻击者了解下游领域与 scaffold。持久性结果依赖所评估的 SFT 和 RL 过程与训练预算，更长训练或不同数据能否彻底消除后门仍未知。对 SFT 持久性的解释基于局部一阶近似，无法预测完整训练轨迹或 RL 效果；诊断实验也只是近似分离两个因素。",
+          "text": "评测仅针对基于SWE-agent脚手架的软件工程多轮任务、固定外发凭据目标和单一注释触发词；攻击者被假设知晓下游任务域与脚手架；诊断实验未能完全解耦强度与兼容性的独立因果作用；未测试更长训练、不同训练数据或更广泛的后训练流程。",
           "label": "局限与可以继续做的"
         }
       ],
-      "sourceName": "论文全文（AI 生成）",
+      "sourceName": "论文 PDF（Gemini 生成）",
       "sourceUrl": "https://arxiv.org/abs/2610.07510"
     },
     "links": {
@@ -1259,24 +1259,6 @@
     "discoveredAt": "2026-10-07T08:18:27.752Z"
   },
   {
-    "arxivId": "2610.00417",
-    "title": "Source Identification Is Not Fitness Testing: Measuring the Limits of Synthetic-Data Attribution",
-    "titleZh": "研究：合成数据来源识别不等于训练数据筛选",
-    "authors": [],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究测试了模型生成数据的来源识别可靠性及其对训练数据筛选的帮助。在金融风险文本上，生成器归属识别在原始段落上准确率为 98.7%，改写后降至 53.1%，风格重写后降至 29.0%；生成文本与人类文本的区分在测试的人类对照集上仍接近完美。研究随后在三轮生成与再训练中比较两种筛选规则，一种使用来源信息，另一种使用独立参考模型的评分，两者选出的样本不同，但计划中的比较未检测到所得模型退化存在稳定差异。结果表明，识别数据来源与识别哪些数据对训练有用是两个独立问题，来源评分和所测试的筛选代理指标都不足以确定未来的递归训练表现。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.00417",
-      "aisafetyhot": "https://aisafetyhot.com/items/meuouh6tgy0hujm0loxh1imfr"
-    },
-    "publishedAt": "2026-09-29T20:00:00.000Z",
-    "timelineAt": "2026-10-07T09:07:32.979Z",
-    "discoveredAt": "2026-10-07T09:07:32.979Z"
-  },
-  {
     "arxivId": "2610.07389",
     "title": "Inference and learning in sparse autoencoders as natural gradient flow",
     "titleZh": "BeFOND 将稀疏自编码器的推断与学习统一为自然梯度流",
@@ -1321,6 +1303,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T08:17:57.773Z",
     "discoveredAt": "2026-10-07T08:17:57.773Z"
+  },
+  {
+    "arxivId": "2610.08662",
+    "title": "ParanoiaEval：编码智能体不必要风险处置评测",
+    "titleZh": "ParanoiaEval 评测编码智能体的不必要风险处置",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "ParanoiaEval 用配对任务评估编码智能体在已有明确证据时是否仍做不必要的备份、验证或确认。作者报告功能测试常无法发现这类过度处置，且模型只在各自原生 harness 中测试，因此不能把结果当作排除 harness 影响的模型排名。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08662",
+      "aisafetyhot": "https://aisafetyhot.com/items/poq9g65ueasuykb0fguci1cef"
+    },
+    "publishedAt": "2026-10-06T16:46:00.000Z",
+    "timelineAt": "2026-10-07T10:17:51.927Z",
+    "discoveredAt": "2026-10-07T10:17:51.927Z"
   },
   {
     "arxivId": "2610.08773",
@@ -1459,24 +1459,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T04:28:34.832Z",
     "discoveredAt": "2026-10-07T04:28:34.832Z"
-  },
-  {
-    "arxivId": "2610.06844",
-    "title": "Learning to Read the Contextual Tokens in Diffusion Transformers",
-    "titleZh": "研究提出读取 Diffusion Transformer 上下文 token 的框架",
-    "authors": [],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究提出一个通过自然语言提问读取多模态 Diffusion Transformer（MM-DiT）上下文 token 的框架。方法上，作者训练一个轻量瓶颈网络，把中间层的上下文 token 映射到冻结 LLM 的输入空间，让 LLM 直接从这些隐藏表征回答关于正在生成图像的问题。结果显示，上下文 token 编码了正在生成场景的全局表征，提示词未指定的属性在去噪早期就可读取，细节随时间逐渐可读；即使输入空提示词，这些信息仍可解码。作者还发现上下文表征越可读的生成结果，人类偏好评分往往越高，并据此提出 Contextual Alignment 训练方法，强化上下文 token 中的视觉语义信息，提升生成质量与分布覆盖。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.06844",
-      "aisafetyhot": "https://aisafetyhot.com/items/ui5bb1w1ugf3gctowb5j1geri"
-    },
-    "publishedAt": "2026-10-04T20:00:00.000Z",
-    "timelineAt": "2026-10-07T09:07:33.011Z",
-    "discoveredAt": "2026-10-07T09:07:33.011Z"
   },
   {
     "arxivId": "2610.08554",
@@ -1662,6 +1644,24 @@
     "discoveredAt": "2026-10-07T08:18:12.728Z"
   },
   {
+    "arxivId": "2610.00417",
+    "title": "Source Identification Is Not Fitness Testing: Measuring the Limits of Synthetic-Data Attribution",
+    "titleZh": "研究：合成数据溯源识别在改写后准确率大幅下降",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究测试了模型生成数据的溯源识别可靠性，以及溯源信息能否帮助筛选更好的训练数据。在金融风险文本上，生成器归因在原始段落上准确率为 98.7%，改写后降至 53.1%，风格重写后降至 29.0%；生成文本与人类文本的检测在测试的人类对照集上仍接近完美。研究随后在三轮生成与再训练中比较两种筛选规则，一种使用来源信息，另一种使用独立参考模型的评分，两者选出的样本不同，但计划中的比较未检测到所得模型退化存在稳定差异。作者据此指出，识别数据来源与识别哪些数据对训练有用是两个不同问题，溯源评分和所测试的筛选代理指标都不足以确定未来的递归训练行为。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.00417",
+      "aisafetyhot": "https://aisafetyhot.com/items/meuouh6tgy0hujm0loxh1imfr"
+    },
+    "publishedAt": "2026-09-29T20:00:00.000Z",
+    "timelineAt": "2026-10-07T09:07:32.979Z",
+    "discoveredAt": "2026-10-07T09:07:32.979Z"
+  },
+  {
     "arxivId": "2603.01544",
     "title": "RA-Det: Towards Universal Detection of AI-Generated Images via Robustness Asymmetry",
     "titleZh": "RA-Det：利用鲁棒性不对称检测 AI 生成图像",
@@ -1826,6 +1826,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T06:13:18.215Z",
     "discoveredAt": "2026-10-07T06:13:18.215Z"
+  },
+  {
+    "arxivId": "2610.05246",
+    "title": "What a Policy Gate Can and Cannot Know: Measured Boundaries of Cross-Platform Command Adjudication",
+    "titleZh": "策略网关能知道什么、不能知道什么：跨平台命令裁决的实测边界",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究测量了智能体执行前策略网关对动作语义的理解能力与跨平台迁移边界，采用小规模冻结案例和变异测试报告其能力与局限。该网关针对类型化动作进行裁决，摘要结果不能外推为任意命令或真实部署的安全保证。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.05246",
+      "aisafetyhot": "https://aisafetyhot.com/items/zuc2w0xuweklw2zdf8w73doa9"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T10:17:44.318Z",
+    "discoveredAt": "2026-10-07T10:17:44.318Z"
   },
   {
     "arxivId": "2609.34227",
