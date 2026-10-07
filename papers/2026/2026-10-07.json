@@ -553,6 +553,24 @@
     "discoveredAt": "2026-10-07T03:24:28.732Z"
   },
   {
+    "arxivId": "2610.07359",
+    "title": "Evaluate the Stack",
+    "titleZh": "论文实测 Agent 工具调用门控栈的失败相关性",
+    "authors": [],
+    "category": "eval",
+    "selected": true,
+    "attention": 77,
+    "summaryZh": "论文在 1119 条标注的 Agent 动作上测量运行时门控栈的失败相关性，覆盖一个确定性规则层和四个 LLM 判官，且不设自适应攻击者。作者提出 nmult 指标，把观测到的联合漏检率换算成等效独立层数：在 STRICT 定义下任意两个判官组合约等于 1.22 至 1.44 层，规则层加一个判官约等于 1.86 至 2.09 层，两组区间在合并数据上分离，但单个语料上点估计分裂、区间重叠。单独准确率无法预测一层给栈带来的增量，一个云端规则包把规则层单独漏检率从 0.139 降到 0.111，却未增加任何新的联合覆盖。难度对判官耦合的贡献份额不可识别，随难度探针和漏检定义在 31.8% 到 61.8% 之间变动。研究还报告了两个改变结论的评测约定：review 判定算拦截还是算漏检使五项结论反转，以及一个判官层在 112 个批次中有 50 个由非请求的模型版本服务。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07359",
+      "aisafetyhot": "https://aisafetyhot.com/items/qzt542s68bscm6fmzqko1dal4"
+    },
+    "publishedAt": "2026-10-05T20:26:00.000Z",
+    "timelineAt": "2026-10-07T07:13:03.871Z",
+    "discoveredAt": "2026-10-07T07:13:03.871Z"
+  },
+  {
     "arxivId": "2610.07645",
     "title": "SkillPoison",
     "titleZh": "SkillPoison：用成功经验投毒自进化 Agent 的技能形成",
@@ -1332,6 +1350,24 @@
     "discoveredAt": "2026-10-07T04:28:34.832Z"
   },
   {
+    "arxivId": "2610.08585",
+    "title": "Incidental information contaminates patient notes and disrupts clinical reasoning in LLMs",
+    "titleZh": "研究：无关信息污染患者病历并干扰LLM临床推理",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究在医患对话及模拟诊室音频中测试无关信息对AI病历生成的影响，发现闲聊和旁人病情会被写入病历或错误归属，而常规质量分数变化不大。研究结果由LLM裁判判定，未经医生复核，也未测试真实诊疗损害或医生签字前能否发现错误。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08585",
+      "aisafetyhot": "https://aisafetyhot.com/items/k8e2wlvynuomvl8evy0nvv64p"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T08:17:57.773Z",
+    "discoveredAt": "2026-10-07T08:17:57.773Z"
+  },
+  {
     "arxivId": "2610.08554",
     "title": "儿童与青少年AI风险及防护措施证据综述",
     "titleZh": "综述：100项研究显示青少年AI风险防护多停留在设想阶段",
@@ -1627,24 +1663,6 @@
     "discoveredAt": "2026-10-07T06:13:18.215Z"
   },
   {
-    "arxivId": "2610.07359",
-    "title": "Evaluate the Stack",
-    "titleZh": "研究评测智能体工具调用闸门的失效模式",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项研究测量了智能体工具调用闸门的失效情况，作者称多个 LLM 裁判联合的价值低于独立错误假设，而异质规则层与裁判组合在所测语料中互补性更强。结论限于非自适应语料，评分口径和实际服务模型版本变化会影响复现与结论。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.07359",
-      "aisafetyhot": "https://aisafetyhot.com/items/qzt542s68bscm6fmzqko1dal4"
-    },
-    "publishedAt": "2026-10-05T20:26:00.000Z",
-    "timelineAt": "2026-10-07T07:13:03.871Z",
-    "discoveredAt": "2026-10-07T07:13:03.871Z"
-  },
-  {
     "arxivId": "2609.34227",
     "title": "When Does Selection Replace Extraction? A Pre-Registered Test of Agent Memory with a Typed Decision Model",
     "titleZh": "Jev 预注册测试：智能体记忆何时该用选择替代抽取？",
@@ -1818,6 +1836,24 @@
     "discoveredAt": "2026-10-07T04:28:34.812Z"
   },
   {
+    "arxivId": "2610.08331",
+    "title": "STCA：自动驾驶视频模型对抗鲁棒性研究",
+    "titleZh": "STCA：自动驾驶视频模型对抗鲁棒性研究",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项名为 STCA 的研究针对自动驾驶视频视觉语言模型，考察可迁移的黑盒对抗风险。该工作聚焦黑盒条件下对抗样本的跨模型迁移能力，用于评估此类视频模型在真实攻击场景下的鲁棒性。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08331",
+      "aisafetyhot": "https://aisafetyhot.com/items/dk4yfdsfaxnn7k6uhkyh7np5m"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T08:18:12.728Z",
+    "discoveredAt": "2026-10-07T08:18:12.728Z"
+  },
+  {
     "arxivId": "2610.07583",
     "title": "Mechanistic Interpretability of Atmospheric Rivers in GraphCast",
     "titleZh": "GraphCast 大气河机制的机制可解释性研究",
@@ -1930,6 +1966,60 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T05:40:37.258Z",
     "discoveredAt": "2026-10-07T05:40:37.258Z"
+  },
+  {
+    "arxivId": "2610.07762",
+    "title": "ES-Trace：代码模型伦理采购披露审计",
+    "titleZh": "ES-Trace：26 个代码模型伦理采购披露审计",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "ES-Trace 对 26 个代码模型的伦理采购披露情况进行了审计，发现报告在追踪引用材料后披露评分有所提高，但劳工和社会项目方面的披露相对较弱。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07762",
+      "aisafetyhot": "https://aisafetyhot.com/items/pmtap41a9z7nn4bzii4d37ta1"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T08:18:20.208Z",
+    "discoveredAt": "2026-10-07T08:18:20.208Z"
+  },
+  {
+    "arxivId": "2610.07570",
+    "title": "Unanimously Wrong",
+    "titleZh": "医疗问答中一致答案仍可能错误：观察共识形成过程的置信信号",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "医疗问答中模型给出的答案即使高度一致，仍可能是错误的。作者提出通过观察共识形成过程来获取置信信号，以识别这类一致但错误的答案。所报改进仅限于该研究设置。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07570",
+      "aisafetyhot": "https://aisafetyhot.com/items/itj9uxvvtko2vv0fxdvjhwhfd"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T08:18:05.254Z",
+    "discoveredAt": "2026-10-07T08:18:05.254Z"
+  },
+  {
+    "arxivId": "2610.08178",
+    "title": "潜空间图像水印的鲁棒性上限",
+    "titleZh": "潜空间图像水印在几何变换下的鲁棒性上限",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文从理论与实验两方面讨论潜空间图像水印在几何变换下的鲁棒性限制，指出这类水印的鲁棒性存在上限。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08178",
+      "aisafetyhot": "https://aisafetyhot.com/items/pi4q772ekfvf80jgzqlx64q72"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T08:18:27.752Z",
+    "discoveredAt": "2026-10-07T08:18:27.752Z"
   },
   {
     "arxivId": "2610.05898",
