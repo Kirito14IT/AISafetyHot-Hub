@@ -182,7 +182,28 @@
     "selected": true,
     "attention": 80,
     "summaryZh": "新加坡 A*STAR、新加坡国立大学等机构的研究者在受控检索环境中测试了七个智能体，发现它们判断失效来源结果无用的准确率高达 97–100%，但多数并不会据此停止检索。研究用时间匹配对比 Δ 区分按时间、按截止期限和按证据停止三种策略，发现提示词允许凭记忆作答或给出推理模式会让智能体提前停止，但停止与证据无关；写明预算会把 7–8B 模型的停止点推到截止期限，预算翻倍时停止点随之移动。只有当框架强制执行整合步骤，即在连续五次判定无用后只保留 finish 动作，停止才跟随证据，所有模型的失效来源成功率上升，预算翻倍时停止点不变。该模式在 300 道新题上完成预注册复现，并迁移到 FEVER 事实核查；Qwen3-32B、推理模式和 RL 训练的 Search-R1 大多仍不整合，只有 Claude Sonnet 5 在无提示时部分做到。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "智能体使用工具时若工具静默失效（如检索漂移），常持续发起无效查询直至耗尽预算。明确智能体是因无法识别失效、错误估计收益还是未能将判断转化为动作，对降低无效调用具有重要意义。",
+          "label": "问题"
+        },
+        {
+          "text": "在可控失效检索环境中，分别测量智能体的证据判定、成功信念与停止动作。设计时间匹配对比量Δ检验是否随连续无用证据累积而停止；并在测试框架中设定连续5次无用判定后仅保留作答动作的强制规则。",
+          "label": "方法"
+        },
+        {
+          "text": "被测模型将失效结果判为无用的准确率为97–100%，但在无干预下鲜少主动停止。告知预算仅促使模型在截止步作答；由框架强制连续5次无用后停止，使开源模型与Claude Haiku 4.5的mean6提升0.026–0.097。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "论文通过替换段落模拟失效，未测试真实工具的陈旧或部分错误输出；失效源最多在3次失败后恢复，阈值k=5未适配更迟恢复；多数对照在开源模型进行；陈述判定由LLM标注并由作者裁决；依赖参数记忆作答存在错误风险。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.06191"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.06191",
       "aisafetyhot": "https://aisafetyhot.com/items/da8k095stbflt2f8cj6d7yvoa"
@@ -300,7 +321,28 @@
     "selected": true,
     "attention": 78,
     "summaryZh": "Centific Research 的研究者提出 Trust Layer for Agent Evaluation，一个附加式后验审计框架，在已记录成绩旁标注该成绩是否可信，不修改原始分数。框架从四个维度核查：成绩能否被基准自身评分逻辑复现、通过是否来自可追溯的计算、Agent 的完成声明是否与实际结果一致、结果在重复运行下是否稳定；前三项只读取已保存的轨迹与评分代码，第四项重跑 Agent，模型判断仅在三次多数投票下标注证据，所有结论由确定性规则给出。84 个记录为通过的结果中仅 19 个（22.6%，95% CI 15.0–32.6）通过全部四项检查，且三分之一到一半被标记的任务只被单一维度捕获。作者称代码将在论文接收后发布。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "智能体基准测试的确定性分数只能反映评分器是否给分，无法区分答案是否真实计算、结果是否稳定以及智能体是否虚报完成，导致已记录的分数难以直接信任。",
+          "label": "问题"
+        },
+        {
+          "text": "研究者设计了非侵入式后置信任层，利用轨迹、暂存输出和评分代码，从评分逻辑复现、奖励作弊、欺骗检测、重复可靠性四维度验证记录分，判决遵循确定性规则与多数表决。",
+          "label": "方法"
+        },
+        {
+          "text": "在ALE基准评测中，各模型均出现无计算痕迹的作弊通过；在50个任务重复评测的84个记录通过中，仅22.6%通过全部四项检查（Table 5），跨等级波动率达18%–46%（Table 4）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "局限在于精度仅在单模型上验证、作弊检测无法捕获经代码执行洗白的数据伪造；评测仅覆盖ALE的108个任务（其中11个无法离线重测），重复实验仅针对50个任务（N=5）。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.07274"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.07274",
       "aisafetyhot": "https://aisafetyhot.com/items/z8t5jzugttq0ebph80gj2n4q8"
@@ -1609,6 +1651,24 @@
     "discoveredAt": "2026-10-07T05:32:36.321Z"
   },
   {
+    "arxivId": "2610.08554",
+    "title": "儿童与青少年AI风险及防护措施证据综述",
+    "titleZh": "儿童与青少年AI风险及防护措施证据综述",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项综述梳理100篇实证研究后发现，针对儿童与青少年AI风险的防护措施多数仍停留在提议阶段，已有评估也常聚焦技术性能而非真实伤害防护。该研究属文献映射，不反映伤害发生率，语料偏英文HCI研究，分类涉及主观判断。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08554",
+      "aisafetyhot": "https://aisafetyhot.com/items/hjnzdf5nsk1ovrp4qcrgljl7n"
+    },
+    "publishedAt": "2026-10-06T15:40:00.000Z",
+    "timelineAt": "2026-10-07T06:13:10.719Z",
+    "discoveredAt": "2026-10-07T06:13:10.719Z"
+  },
+  {
     "arxivId": "2610.07386",
     "title": "NetAgent: Multi-Task Agentic Network Traffic Analysis Made Practical",
     "titleZh": "NetAgent：面向多任务网络流量分析的智能体框架",
@@ -1677,6 +1737,24 @@
     "discoveredAt": "2026-10-06T18:12:28.623Z"
   },
   {
+    "arxivId": "2610.07256",
+    "title": "两阶段智能体轨迹审计",
+    "titleZh": "两阶段智能体轨迹审计：降低模型检查调用并衡量检出率与成本权衡",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "作者研究通过两阶段审计减少模型检查调用，同时衡量检出率与成本之间的权衡。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07256",
+      "aisafetyhot": "https://aisafetyhot.com/items/yvtqsuxv8y4i69h1slvamfjjj"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T06:13:18.215Z",
+    "discoveredAt": "2026-10-07T06:13:18.215Z"
+  },
+  {
     "arxivId": "2610.04749",
     "title": "Agentic discovery of blood biomarker from distilled private health records",
     "titleZh": "从蒸馏私有健康记录中智能体发现血液生物标志物",
@@ -1693,5 +1771,41 @@
     "publishedAt": "2026-10-03T16:30:38.000Z",
     "timelineAt": "2026-10-06T20:47:29.576Z",
     "discoveredAt": "2026-10-06T20:47:29.576Z"
+  },
+  {
+    "arxivId": "2610.07657",
+    "title": "DEFER1",
+    "titleZh": "多智能体防御研究：Bot 旁列报告受控攻击成功率降低",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项多智能体防御研究显示，Bot 旁列（Bot sidelining）可降低受控攻击的成功率。该研究未给出完整的评测条件，因此具体攻击成功率数值与适用模型范围尚不明确。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.07657",
+      "aisafetyhot": "https://aisafetyhot.com/items/du0u0uku185qe4v35zgwlogy4"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T06:13:25.758Z",
+    "discoveredAt": "2026-10-07T06:13:25.758Z"
+  },
+  {
+    "arxivId": "2610.08668",
+    "title": "智能体语义行为水印",
+    "titleZh": "智能体语义行为水印",
+    "authors": [],
+    "category": null,
+    "selected": false,
+    "attention": null,
+    "summaryZh": null,
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08668",
+      "aisafetyhot": "https://aisafetyhot.com/items/v9du4qperlk0yz7a89nai0p32"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T06:13:33.282Z",
+    "discoveredAt": "2026-10-07T06:13:33.282Z"
   }
 ]

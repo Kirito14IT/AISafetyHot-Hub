@@ -1,12 +1,12 @@
 {
   "note": "days 是网站上每天（北京时间，按 timelineAt 分天）进站、判定为 AI 安全的论文：信源为 arXiv、Hugging Face Daily Papers 和论文追踪，同一篇 arXiv 论文一天只算一次（arXiv 编号取网站 /api/site/items/<id> 的 links.original；留哪一条：精选优先，再按网站的 score 高，非精选也按 score，再按 timelineAt 早，最后按 id 字典序）。ids 是网站条目 id（网站上的 /items/<id>），按字典序排列；idsSha256 是排好的 ids 用换行连起来（末尾不加换行）的 SHA-256。论文在网站上出现以后（从第一次能在网站上看到算起，不是 timelineAt：回填的论文 timelineAt 早于出现的时间），slaMinutes 分钟内应出现在 papers/<年>/<日期>.json。这个文件只在内容变化时随那次提交更新；generatedAt 是那次生成的时间，siteFetchedAt 是读网站接口的时间。",
-  "generatedAt": "2026-10-07T06:04:19.369Z",
-  "siteFetchedAt": "2026-10-07T06:04:18.504Z",
+  "generatedAt": "2026-10-07T06:21:57.155Z",
+  "siteFetchedAt": "2026-10-07T06:21:56.276Z",
   "slaMinutes": 60,
   "days": {
     "2026-10-07": {
-      "count": 75,
-      "idsSha256": "246fa87110c44d5a89e36943fc0323c37fa0ee4fe6fd11b35ffb747b258651a3",
+      "count": 79,
+      "idsSha256": "2b0b93fcf0f2e1554ce14a3691df0528af0e990f29d02f46e59ff59641e720fa",
       "ids": [
         "ahf117o9g4o7ps0cr4t9u5mcg",
         "asdby303i0d1tqa24mantd3rt",
@@ -14,6 +14,7 @@
         "cr946nahdcoyle7o80stm23hk",
         "da8k095stbflt2f8cj6d7yvoa",
         "dedt9kgbvfpp92sji0r4tyqyh",
+        "du0u0uku185qe4v35zgwlogy4",
         "e4qun58k2pnlmuwd4srfuc6jj",
         "ej5mmbvqj9d93f967c1wqm0pt",
         "elsbi4geootnymuhbi6uwyr1a",
@@ -27,6 +28,7 @@
         "h4hw2i5ugyhzfyvgldo7hp053",
         "h53erswz20c3lzfpdcm63x5ra",
         "h6m05l1c5igr7231t1yzh7fgr",
+        "hjnzdf5nsk1ovrp4qcrgljl7n",
         "ijl6gu7u11oh2qkq7ehuue9o9",
         "io7dszl24mu50x7g07jn7wtwa",
         "j7uzi23gr91tit5u8g1u6iqqe",
@@ -67,6 +69,7 @@
         "u1bmi274kqk8t1rvd0bm5ijx9",
         "uodpsr1tvig8pqf9mx5ubxjq0",
         "usnwo2ki4yk27pd4akkyghr29",
+        "v9du4qperlk0yz7a89nai0p32",
         "vgngu5npttzkg9fnly7b6eo7i",
         "vyr9h6iioll7ikjtelwvsqig9",
         "w0tegc5fsb106wp74orfm9waz",
@@ -79,6 +82,7 @@
         "y2u76qbnlp6ief0jrvbqtz9aj",
         "ybf0ufd9kkcimar1nciqmgd3m",
         "yf51zysfosjgdx7k5zhb6c4ad",
+        "yvtqsuxv8y4i69h1slvamfjjj",
         "z8t5jzugttq0ebph80gj2n4q8",
         "zkz8eq404wytd12rcl4kcjxl2",
         "zokcuze9ysb9m03a54ii25tsm",
