@@ -8,14 +8,14 @@
 
 <p align="center">
   <a href="https://aisafetyhot.com"><img src="https://img.shields.io/badge/日报-每天%2008%3A00%20北京时间-d97706?style=flat-square" alt="每天北京时间 08:00 发布日报"></a>
-  <a href="#agent"><img src="https://img.shields.io/badge/Agent-Skill%20%2B%20MCP-2563eb?style=flat-square" alt="Agent Skill 和 MCP"></a>
+  <a href="#agent"><img src="https://img.shields.io/badge/Agent-MCP-2563eb?style=flat-square" alt="Agent MCP"></a>
   <a href="#papers"><img src="https://img.shields.io/badge/论文-Markdown%20%2F%20BibTeX%20%2F%20JSON-16856b?style=flat-square" alt="三种格式的论文清单"></a>
 </p>
 
 <p align="center">
   <a href="#daily">读今日日报</a> ·
   <a href="#agent">接入你的 Agent</a> ·
-  <a href="#examples">看输入输出示例</a> ·
+  <a href="#examples">看看怎么用</a> ·
   <a href="https://aisafetyhot.com/all?view=graph">探索关系图</a> ·
   <a href="#papers">下载论文</a> ·
   <a href="https://aisafetyhot.com/hot">看热点</a> ·
@@ -26,8 +26,8 @@
 
 | 🗞️ 每天来读 | 🤖 交给 Agent | 📚 带进研究 |
 |---|---|---|
-| 中文日报，附导读与原文 | 安装 Skill，查动态、搜索、追热点 | 论文导读、速读、BibTeX 与 JSON |
-| 最新一期就在下面 | 复制命令即可上手 | 按日期下载，自行整理和引用 |
+| 中文日报，附导读与原文 | 连接 MCP，查动态、搜索、追热点 | 论文导读、速读、BibTeX 与 JSON |
+| 最新一期就在下面 | 填入连接地址即可使用 | 按日期下载，自行整理和引用 |
 
 **觉得有用，点个 Star 收藏；下次打开这里，就是最新一期。**
 
@@ -35,77 +35,37 @@
 
 ## 🤖 让你的 Agent 帮你读
 
-**[连接说明](docs/agent.md#mcp) · [真实输入与输出](#examples) · [七个工具的完整示例](docs/mcp-examples.md)**
+### 连接 MCP
 
-连接地址：[`https://aisafetyhot.com/api/mcp`](https://aisafetyhot.com/api/mcp) · **Streamable HTTP · 无需 API Key**。把地址填入 MCP 客户端；在浏览器点击会打开使用说明。
+在你的 Agent 的 MCP 设置中添加：
 
-### 安装 AI Safety HOT Skill
+| 设置 | 内容 |
+|---|---|
+| 名称 | AI Safety HOT |
+| 地址 | `https://aisafetyhot.com/api/mcp` |
+| 连接方式 | Streamable HTTP |
+| 认证 | 无需登录或 API Key |
 
-需要 Node.js / npm。在终端运行，选择你使用的 Agent（如 Claude Code、Codex、Cursor）：
+连接后可以查动态、搜索、找话题、读论文、看热点、追事件，以及读取日／周／月报。
 
-```bash
-npx skills add wuyoscar/AISafetyHot-Hub --skill aisafetyhot
-```
-
-安装后开启新的 Agent 会话，直接问它：
-
-```text
-用 aisafetyhot 看最新一期 AI 安全日报，选出最值得关注的 5 件事。
-每件事说清发生了什么、为什么重要，并附原文链接。先标明日报日期。
-```
-
-[Skill 内容](skills/aisafetyhot/SKILL.md) 是公开可读的使用说明：指导 Agent 调用网站的只读接口、核对日期、保留来源。Agent 能访问网络即可使用，也支持下面的 MCP 接入。
-
-### 已在用 MCP？复制一条命令
-
-**Claude Code**
-
-```bash
-claude mcp add --transport http aisafetyhot https://aisafetyhot.com/api/mcp
-```
-
-**Codex**
-
-```bash
-codex mcp add aisafetyhot --url https://aisafetyhot.com/api/mcp
-```
-
-重新打开会话后，就能使用 **7 个只读工具**：最新动态、历史搜索、话题筛选、单篇深读、热点榜、事件时间线及日/周/月报。支持分页和精选变化同步，既可单独使用 MCP，也可与 Skill 配合。详见[接入指南](docs/agent.md)与[真实输入输出示例](docs/mcp-examples.md)。
-
-<details>
-<summary>其他支持远程 HTTP MCP 的客户端：查看 JSON 配置</summary>
-
-将这一项加入客户端的 MCP 配置；字段以客户端要求为准：
-
-```json
-{
-  "mcpServers": {
-    "aisafetyhot": {
-      "type": "http",
-      "url": "https://aisafetyhot.com/api/mcp"
-    }
-  }
-}
-```
-
-</details>
+[连接说明](docs/agent.md#mcp) · [使用示例](docs/mcp-examples.md)
 
 <a id="examples"></a>
 
-### 实际试用：输入一句话，会得到什么？
+### 想试什么
 
-以下结果来自 **2026-10-07 14:45（墨尔本，UTC+11）** 对线上 MCP 的实际调用，是当时的静态示例；现在查询会随网站更新。下面把返回内容整理成便于阅读的形式，对应调用和字段见[完整输入输出示例](docs/mcp-examples.md)。
+示例结果：2026-10-07 14:45（墨尔本）；查询结果会随网站更新。
 
 **1. 看刚收录的内容**
 
-输入：
+**怎么用**
 
 ```text
 用 AI Safety HOT 看过去 24 小时最新收录的 3 条精选。
 每条给我标题、一句话摘要、来源和原文链接；区分新闻和论文。
 ```
 
-输出：
+**结果**
 
 - **论文｜[研究：工具型智能体判断结果无用却仍继续检索，强制整合步骤可纠正](https://aisafetyhot.com/items/da8k095stbflt2f8cj6d7yvoa)**
   新加坡 A*STAR、新加坡国立大学等机构的研究者在受控检索环境中测试了七个智能体，发现它们判断失效来源结果无用的准确率高达 97–100%，但多数并不会据此停止检索。
@@ -120,7 +80,7 @@ codex mcp add aisafetyhot --url https://aisafetyhot.com/api/mcp
 这次返回 3 条，`hasMore=true`，表示还有下一页；“最近 24 小时收录”不等于原文都在这 24 小时发表。
 
 <details>
-<summary>查看实际 MCP 调用</summary>
+<summary>查看调用参数</summary>
 
 ```json
 {
@@ -137,14 +97,14 @@ codex mcp add aisafetyhot --url https://aisafetyhot.com/api/mcp
 
 **2. 按话题找论文，再读具体发现**
 
-输入：
+**怎么用**
 
 ```text
 找最近 7 天收录、属于“提示注入”话题的精选内容，以 prompt injection 搜索，先列 3 条。
 如果有论文，打开其中一篇，告诉我它解决什么问题，附论文原文。
 ```
 
-输出：
+**结果**
 
 - 报道：[GhostCommit 研究展示图像内容与 AI 代码审查之间的信任边界风险](https://aisafetyhot.com/items/fq81ksfn1p9l89s721i9bocp1)
 - 论文：[研究揭示 CaMeL 防护在多智能体系统中失效并提出 multi-CaMeL](https://aisafetyhot.com/items/jgfk4qjpd79q6ep9iwhnetm6o)
@@ -158,18 +118,18 @@ codex mcp add aisafetyhot --url https://aisafetyhot.com/api/mcp
 
 [论文原文](https://arxiv.org/abs/2610.05640) · [站内解读](https://aisafetyhot.com/items/jgfk4qjpd79q6ep9iwhnetm6o)。本次读取的是已有论文导读，接口没有返回论文全文；5,000 字符预算也使解读只返回了一部分。
 
-→ [查看话题 → 搜索 → 单篇深读的实际调用](docs/mcp-examples.md#topics)
+→ [查看话题、搜索和深读的用法](docs/mcp-examples.md#topics)
 
 **3. 准备周会简报**
 
-输入：
+**怎么用**
 
 ```text
 用 AI Safety HOT 读最新一期周报。
 先说清是哪一周，再列出本期主题和阅读链接。
 ```
 
-输出：
+**结果**
 
 **AI Safety HOT 周报 · 2026-W40**，覆盖北京时间 2026-09-28 00:00 至 2026-10-05 00:00（不含终点）。本期主线：**智能体越界事件密集披露，监管与评测同步收紧**。
 
@@ -179,10 +139,10 @@ codex mcp add aisafetyhot --url https://aisafetyhot.com/api/mcp
 - 推理链与工具链攻击面
 - 监管调查与问责压力上升
 
-[打开本期周报](https://aisafetyhot.com/weekly/2026-W40) · [查看报告查询的输入输出](docs/mcp-examples.md#reports)
+[打开本期周报](https://aisafetyhot.com/weekly/2026-W40) · [查看报告用法](docs/mcp-examples.md#reports)
 
 <details>
-<summary>查看实际 MCP 调用</summary>
+<summary>查看调用参数</summary>
 
 ```json
 {
@@ -196,19 +156,8 @@ codex mcp add aisafetyhot --url https://aisafetyhot.com/api/mcp
 
 </details>
 
-→ [继续看：热点榜、事件时间线、日/月报与分页的真实结果](docs/mcp-examples.md)
+→ [更多用法：热点、事件、报告和翻页](docs/mcp-examples.md)
 
-自己写脚本也能直接取数据：
-
-```bash
-# 最新一期日报（JSON）
-curl -fsS 'https://aisafetyhot.com/api/v1/dailies/latest'
-
-# 过去 24 小时的 10 条精选
-curl -fsS 'https://aisafetyhot.com/api/v1/items?mode=selected&window=24h&limit=10'
-```
-
-→ [完整接入指南：工具、API、RSS 与增量同步](docs/agent.md) · [OpenAPI](https://aisafetyhot.com/openapi-v1.json) · [给 Agent 读的站点说明](https://aisafetyhot.com/llms.txt)
 
 <a id="daily"></a>
 
