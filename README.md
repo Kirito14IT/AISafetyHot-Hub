@@ -59,7 +59,7 @@ claude mcp add --transport http --scope user aisafetyhot https://aisafetyhot.com
 | 搜新闻和论文 | `aisafetyhot_search` | 按关键词、话题、分类和日期查找已有内容 |
 | 找研究话题 | `aisafetyhot_get_topics` | 话题名称、标识、定义和相关话题 |
 | 读一篇内容 | `aisafetyhot_get_content` | 单篇摘要、原文链接及已有论文解读 |
-| 看当前热点 | `aisafetyhot_get_hot_topics` | 当前事件榜和本站收集的讨论数量 |
+| 看当前热点 | `aisafetyhot_get_hot_topics` | 当前事件榜、参与信源与相关链接数量 |
 | 追踪一个事件 | `aisafetyhot_get_story` | 事件综述、来源报道时间线和讨论 |
 | 读日／周／月报 | `aisafetyhot_get_daily` | 已发布报告，或可供选择的报告期号 |
 
@@ -111,7 +111,7 @@ claude mcp add --transport http --scope user aisafetyhot https://aisafetyhot.com
 
 回答时保留站内链接和原文链接；有 `page.hasMore` 就继续翻页，缺失或截断查看 `completeness`。接口读取已有公开内容，论文解读属于二手资料，关键事实请回原文核对。
 
-[完整参数与阅读说明](docs/agent.md) · [调用与结果示例](docs/mcp-examples.md) · [读取范围与注意事项](docs/agent.md#读取范围)
+[Agent 用法与参数说明（Skill）](skills/aisafetyhot/SKILL.md) · [调用与结果示例](docs/mcp-examples.md) · [读取范围与注意事项](docs/agent.md#读取范围)
 
 <a id="daily"></a>
 
