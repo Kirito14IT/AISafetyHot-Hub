@@ -39,45 +39,6 @@
     "discoveredAt": "2026-10-08T06:40:10.993Z"
   },
   {
-    "arxivId": "2609.22076",
-    "title": "APort Vault: Benchmarking AI Agent Payment Authorization with the Open Agent Passport",
-    "titleZh": "APort Vault 发布：用 4,371 条人工攻击评测 AI Agent 支付授权",
-    "authors": [],
-    "category": "eval",
-    "selected": true,
-    "attention": 86,
-    "summaryZh": "APort Vault 是一个针对工具型 AI Agent 支付授权的基准，作者把一场公开夺旗赛中人类写出的 4,371 条攻击重放到 14 个模型、8 家实验室、五档策略、两条重放轨道和两种架构上，共完成 225,964 次评测。攻击来自 2026 年 3 月至 8 月一场奖池 6,500 美元的实况 Agent 银行夺旗赛，97.7% 的尝试集中在 3 月 6 日至 12 日。评测把支付请求、成功支付、授权决定、收款人白名单成员资格和未经许可转账拆成五个事件分别记录，而非合成单一成功率。第 5 档授予零支付能力并指示模型调用工具，因此只用于测量执行是否被拦截，从不并入主结论。作者披露自己是所评估授权层开发商 APort Technologies 的创始人，225,964 条评测、分档护照、评分代码和分析脚本以 CC BY 4.0 发布。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "大模型支付智能体面临对抗提示词诱导越权转账的风险；现有评测多依赖模型自身拒答，难以量化部署者选择最佳模型后的残留风险与工具边界拦截效果。",
-          "label": "问题"
-        },
-        {
-          "text": "通过 APort Vault 基准重放 4,371 次真实人类 CTF 攻击，测试 14 款模型在单/多轮轨道及 5 级策略下，对比裸模型与接入 OAP 确定性授权层的执行状态变更。",
-          "label": "方法"
-        },
-        {
-          "text": "在 Levels 2 至 4 中，裸模型出现 140 次非许可转账（76,842 次评估），授权层为 0 次（69,297 次评估，上限 0.38%），同时放行了 25,370 笔合规支付。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "实验仅限于单一转账工具与模拟银行环境，攻击者样本存在自选偏差，各条件为单次运行缺乏方差估计，且预注册的人工验证切片未完成。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2609.22076"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.22076",
-      "aisafetyhot": "https://aisafetyhot.com/items/pouv1h9le2dya4j1trql1bb34"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:40:18.584Z",
-    "discoveredAt": "2026-10-08T06:40:18.584Z"
-  },
-  {
     "arxivId": "2601.02670",
     "title": "Break Me If You Can: Self-Jailbreaking of Aligned LLMs via Lexical Insertion Prompting",
     "titleZh": "SLIP：无需外部攻击模型的多轮自我越狱，在 11 个模型上平均成功率 94.7%",
@@ -199,6 +160,63 @@
     "publishedAt": "2026-10-07T00:05:53.000Z",
     "timelineAt": "2026-10-08T05:33:35.792Z",
     "discoveredAt": "2026-10-08T05:33:35.792Z"
+  },
+  {
+    "arxivId": "2605.01970",
+    "title": "Trojan Hippo Bench: A Dynamic Benchmark for Persistent Memory Attacks and Defenses in LLM Agents",
+    "titleZh": "Trojan Hippo Bench：针对 LLM Agent 持久记忆攻击与防御的动态基准",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 84,
+    "summaryZh": "ETH Zurich、UC Berkeley 与 Snyk 的研究者提出 Trojan Hippo Bench，用于系统评测 LLM Agent 持久记忆中的投毒攻击与记忆层防御。该攻击通过一次不可信工具调用（如一封精心构造的邮件）把休眠载荷写入 Agent 长期记忆，仅在用户后续谈及财务、健康、身份等敏感话题时激活并把个人数据外发。在邮件助手场景下，未加防御的攻击对 OpenAI 和 Google 前沿模型的攻击成功率达 85–100%，注入后经过 100 轮良性会话仍可激活。研究者评测了四种基于基本安全原则的记忆层防御，可将攻击成功率降至 0–5%，其中可证明安全的信息流控制策略在所有配置下达到 0%，但各防御的效用代价差异很大，实际部署仍是未解问题。基准已开源。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2605.01970",
+      "aisafetyhot": "https://aisafetyhot.com/items/sl44mzze5yuij79npdhzqkxb2"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:35:46.698Z",
+    "discoveredAt": "2026-10-08T06:35:46.698Z"
+  },
+  {
+    "arxivId": "2609.22076",
+    "title": "APort Vault: Benchmarking AI Agent Payment Authorization with the Open Agent Passport",
+    "titleZh": "APort Vault 发布：用 4,371 条人工攻击评测 AI Agent 支付授权",
+    "authors": [],
+    "category": "eval",
+    "selected": true,
+    "attention": 84,
+    "summaryZh": "APort Vault 是一个针对工具型 AI Agent 支付授权的基准，作者把一场公开夺旗赛中人类写出的 4,371 条攻击重放到 14 个模型、8 家实验室、五档策略、两条重放轨道和两种架构上，共完成 225,964 次评测。攻击来自 2026 年 3 月至 8 月一场奖池 6,500 美元的实况 Agent 银行夺旗赛，97.7% 的尝试集中在 3 月 6 日至 12 日。评测把支付请求、成功支付、授权决定、收款人白名单成员资格和未经许可转账拆成五个事件分别记录，而非合成单一成功率。第 5 档授予零支付能力并指示模型调用工具，因此只用于测量执行是否被拦截，从不并入主结论。作者披露自己是所评估授权层开发商 APort Technologies 的创始人，225,964 条评测、分档护照、评分代码和分析脚本以 CC BY 4.0 发布。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "大模型支付智能体面临对抗提示词诱导越权转账的风险；现有评测多依赖模型自身拒答，难以量化部署者选择最佳模型后的残留风险与工具边界拦截效果。",
+          "label": "问题"
+        },
+        {
+          "text": "通过 APort Vault 基准重放 4,371 次真实人类 CTF 攻击，测试 14 款模型在单/多轮轨道及 5 级策略下，对比裸模型与接入 OAP 确定性授权层的执行状态变更。",
+          "label": "方法"
+        },
+        {
+          "text": "在 Levels 2 至 4 中，裸模型出现 140 次非许可转账（76,842 次评估），授权层为 0 次（69,297 次评估，上限 0.38%），同时放行了 25,370 笔合规支付。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "实验仅限于单一转账工具与模拟银行环境，攻击者样本存在自选偏差，各条件为单次运行缺乏方差估计，且预注册的人工验证切片未完成。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.22076"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.22076",
+      "aisafetyhot": "https://aisafetyhot.com/items/pouv1h9le2dya4j1trql1bb34"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:40:18.584Z",
+    "discoveredAt": "2026-10-08T06:40:18.584Z"
   },
   {
     "arxivId": "2605.16626",
@@ -678,6 +696,24 @@
     "discoveredAt": "2026-10-08T06:39:24.510Z"
   },
   {
+    "arxivId": "2610.10062",
+    "title": "Agent 工具故障恢复与行动时限下的安全保证：2 篇摘要级候选",
+    "titleZh": "研究：Agent 更依赖工具报错通道，静默错误识别率仅 58.8%",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者把函数调用基准的可执行环境包上故障注入层，在轨迹的受控位置注入四类故障，观察多轮 Agent 是否察觉、改计划、恢复任务或重复动作。来自三个模型家族的六个模型（半数为推理变体）在 24 个多步任务上跑了 1,920 次试验：工具返回显式错误时，91.3% 的试验被当作问题处理；返回看似合理的错误值时只有 58.8%，而在一切正常时报告问题的比例为 26.8%。推理模型并未占优，与同族 instruct 模型相比察觉更少（-9.3 个百分点，p < .001）、更多改变计划（+10.4 个百分点，p < .001），恢复率无差异（p = .512）。由于 Agent 具有随机性，同一任务两次无故障运行只有 63.3% 落在相同状态；以此为基线，只有工具缺失明显降低恢复率（39.9%），超时、schema 漂移和结果损坏都在运行间波动范围内。提示词中要求检查每个结果并未提升识别率。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.10062",
+      "aisafetyhot": "https://aisafetyhot.com/items/jdrwaai7ruswx9umntyejs6pj"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T07:28:33.682Z",
+    "discoveredAt": "2026-10-08T07:28:33.682Z"
+  },
+  {
     "arxivId": "2610.09264",
     "title": "Package Hallucination Attacks on Coding Agents through Prompt Injection in Rule Files",
     "titleZh": "研究者提出 PackHallu：经规则文件提示注入对编码 Agent 发起包幻觉攻击",
@@ -712,6 +748,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T06:36:16.997Z",
     "discoveredAt": "2026-10-08T06:36:16.997Z"
+  },
+  {
+    "arxivId": "2610.09944",
+    "title": "AgentTime：让 agent 按要求干满时长，GPT-6 Astra 准时但 14/158 次「做完后直接 sleep 等时间」",
+    "titleZh": "AgentTime 评测：GPT-6 Astra 按时结束率高，但 158 次转录中 14 次做完后显式 sleep",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "AgentTime 用 222 个任务（18 个来源，含编码、computer use、agentic 工作、自动化研究）评测 agent 的时长自控能力，请求时长从约 1 分钟到 60 小时。在原生 harness 里，Fable 5.1（Claude Code）与请求时长的典型偏差约 2.9 倍，GPT-6 Astra（Codex）约 1.2 倍；达到请求时长（≥0.95×）的比例分别为 Fable 45%、Sol 87%、Astra 97%，换 harness 后差距仍在，作者认为主要来自模型本身。作者阅读准时结束的转录后发现，Astra 49 次中只有 11 次符合持续工作标准，其余 38 次里 24 次在复查旧工作、14 次在看起来做完后显式 sleep；158 次可分类的 Astra 转录中共有 14 次显式 sleep，Sol 13 次中 3 次以 sleep 结束。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09944",
+      "aisafetyhot": "https://aisafetyhot.com/items/hioihnqjk0ilsu1cuw90vcjek"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T07:42:26.837Z",
+    "discoveredAt": "2026-10-08T07:42:26.837Z"
   },
   {
     "arxivId": "2610.10358",
@@ -1000,6 +1054,24 @@
     "discoveredAt": "2026-10-08T05:33:35.774Z"
   },
   {
+    "arxivId": "2609.14744",
+    "title": "Runtime Authorization for Resources Acquired by AI Agents",
+    "titleZh": "研究者提出 AI Agent 获取资源的运行时授权架构",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一种基于来源边界的运行时授权架构，用于解决 AI Agent 在获取算力、凭证、账号、服务和其它 Agent 后产生的授权激活缺口。该架构将获取到的输出隔离，通过版本化解析器依据经认证的提供方证据解析其实际能力，并仅在当前激活事务中检查解析出的清单、来源、epoch 以及类型化资源-能力超图上的向下封闭关系包络后才予以激活。在明确假设下，作者证明了隔离、背书、非放大、拆分不可规避、崩溃重试、退款、epoch 和效果限制八项安全属性。在五类资源上，参考语义接受了 20/20 条良性轨迹、拒绝了 40/40 条已登记的不安全轨迹，覆盖 810 个事件；独立检查器在 60 条基础轨迹和 40 条细化轨迹上结果一致，并拒绝了 89/89 项篡改测试。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.14744",
+      "aisafetyhot": "https://aisafetyhot.com/items/u738py6q48y5hcpll2ssg9cdm"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:40:33.991Z",
+    "discoveredAt": "2026-10-08T06:40:33.991Z"
+  },
+  {
     "arxivId": "2610.07557",
     "title": "CheckerBench: Can Long-Horizon Agents Synthesize Static-Analysis Checkers?",
     "titleZh": "CheckerBench：长程 Agent 能否合成静态分析检查器",
@@ -1061,24 +1133,6 @@
     "discoveredAt": "2026-10-08T05:33:35.809Z"
   },
   {
-    "arxivId": "2609.28372",
-    "title": "Shopping by algorithm: How agentic AI deploys human heuristics as a surrogate consumer",
-    "titleZh": "研究：有成本工具调用下购物 Agent 更易受尾数定价与促销话术影响",
-    "authors": [],
-    "category": "opinion",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项研究用「Tool-Lab」把商品属性放在有成本的工具调用之后，追踪 3 家厂商的 8 个商用 LLM 作为购物 agent 时如何受尾数定价与促销话术影响。结果显示，获取信息零成本时定价线索很少误导模型；一旦获取有成本且目标提示模糊，模型会漏看计算单价所需的属性，做出类似人类启发式的次优选择。作者将这种现象称为「搜索介导的脆弱性」，认为它由店铺信息架构而非模型本身决定。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.28372",
-      "aisafetyhot": "https://aisafetyhot.com/items/lmxvf4n5wlz3vciepzjc9wcyy"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:40:26.134Z",
-    "discoveredAt": "2026-10-08T06:40:26.134Z"
-  },
-  {
     "arxivId": "2610.08951",
     "title": "ASPIRE: Agentic Safety & Prompt Injection Red-teaming Engine",
     "titleZh": "ASPIRE：面向 LLM Agent 的开放式提示注入红队引擎",
@@ -1113,6 +1167,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T06:35:39.125Z",
     "discoveredAt": "2026-10-08T06:35:39.125Z"
+  },
+  {
+    "arxivId": "2610.10310",
+    "title": "[X09] RSIGym：预算约束的 AI 研究评测与监控干预案例（有限阅读）",
+    "titleZh": "RSIGym：预算约束下的 AI 研究智能体评测环境与 RSI-Index 指标",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 RSIGym，一个基于 Everything as a Service 的智能体原生研究环境，把训练、推理、rollout、评测和沙箱执行封装为可复用服务，并以共享的预算与权限控制支持 Data、Harness 和 Joint 三条改进路径。团队定义 RSI-Index 为五个基准上剩余性能差距被弥合的平均比例，覆盖软件工程、终端交互、数学、科学推理和技能类任务。在独立 Joint 运行中比较六个前沿研究模型，Opus 5 在每次基准运行 500 美元平台服务预算下取得最高 RSI-Index 0.4809，其选出的系统在全部五个基准上均有提升，SWE-bench Verified 从 17.67% 升至 50.33%，AIME 从 31.67% 升至 97.78%。RSIGym 代码库与结果已开源。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.10310",
+      "aisafetyhot": "https://aisafetyhot.com/items/i1lro877ndnohongp3mo4epvy"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T07:28:26.130Z",
+    "discoveredAt": "2026-10-08T07:28:26.130Z"
   },
   {
     "arxivId": "2509.05219",
@@ -1216,24 +1288,6 @@
     "discoveredAt": "2026-10-08T05:41:38.634Z"
   },
   {
-    "arxivId": "2609.14744",
-    "title": "Runtime Authorization for Resources Acquired by AI Agents",
-    "titleZh": "论文提出 AI Agent 获取资源的运行时授权架构",
-    "authors": [],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文指出支付、预算、OAuth、mandate 等检查只验证交易条件，不决定 Agent 买到或拿到的算力、凭证、账号及其他 Agent 能否成为可用权限，并将这一缺口称为履约后激活缺口，覆盖 agentic commerce 场景。作者提出按来源限定的运行时授权架构：隔离获取物，用提供方证据解析实际能力，只在激活事务检查通过后启用。作者称在显式假设下证明了 8 条安全性质，参考实现接受 20/20 良性轨迹、拒绝 40/40 登记的不安全轨迹。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.14744",
-      "aisafetyhot": "https://aisafetyhot.com/items/u738py6q48y5hcpll2ssg9cdm"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:40:33.991Z",
-    "discoveredAt": "2026-10-08T06:40:33.991Z"
-  },
-  {
     "arxivId": "2610.08699",
     "title": "nanoMuse: An Open-Source Personal Agent for Every Device You Own",
     "titleZh": "nanoMuse 发布开源个人智能体，跨设备共享对话并内置 Sentinel 动作审查",
@@ -1276,6 +1330,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T04:20:35.140Z",
     "discoveredAt": "2026-10-08T04:20:35.140Z"
+  },
+  {
+    "arxivId": "2609.28372",
+    "title": "Shopping by algorithm: How agentic AI deploys human heuristics as a surrogate consumer",
+    "titleZh": "研究：工具调用成本与模糊目标提示使 LLM 购物智能体做出次优选择",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者用 Tool-Lab 实验考察营销定价线索对 AI 购物智能体的影响，该实验把商品属性放在需要付费的工具调用之后。在三个厂商的八款商用 LLM 上追踪选择前的信息获取过程，零成本时定价线索很少误导模型；一旦引入获取成本并配合模糊目标提示，LLM 会省略计算单价所需的诊断性属性，做出类似人类启发式的次优选择。相比主要保留诊断性搜索与最优选择的明确目标提示，约束条件下的模糊目标提示形成了一种由搜索中介的脆弱性。研究认为，委托式 AI 购物中的营销启发式受店铺信息架构支配，而不一定是 LLM 固有缺陷。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.28372",
+      "aisafetyhot": "https://aisafetyhot.com/items/lmxvf4n5wlz3vciepzjc9wcyy"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:40:26.134Z",
+    "discoveredAt": "2026-10-08T06:40:26.134Z"
   },
   {
     "arxivId": "2610.04299",
@@ -1322,6 +1394,24 @@
     "discoveredAt": "2026-10-08T04:30:42.328Z"
   },
   {
+    "arxivId": "2610.10285",
+    "title": "Agent 工具故障恢复与行动时限下的安全保证：2 篇摘要级候选",
+    "titleZh": "论文证明部分可观测且限时行动环境下完美智能体也无法保证安全",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一篇 arXiv 论文讨论智能体无关的安全保证在部分可观测且必须在有限时间内行动的环境中的理论边界。作者构造了两个现实场景，一个具有无限状态空间，一个存在信号混合，并证明即使一个完美的智能体也无法保证安全行为。论文据此提出，任何 AI 安全或对齐的证明都需要把环境及相应的安全行动与智能体一并考虑，而非只论证智能体本身。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.10285",
+      "aisafetyhot": "https://aisafetyhot.com/items/mvsdztwr2hsjp6sw5rgx2wfpt"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T07:28:41.296Z",
+    "discoveredAt": "2026-10-08T07:28:41.296Z"
+  },
+  {
     "arxivId": "2610.09082",
     "title": "Move Fast and Mend Things: Keeping Up with Evolving AI Harms Using Social Media Commentary",
     "titleZh": "研究团队用 LLM 分析 570 万条 Reddit 帖，构建 AI 危害分类体系",
@@ -1365,42 +1455,6 @@
     "discoveredAt": "2026-10-08T05:41:38.668Z"
   },
   {
-    "arxivId": "2609.27452",
-    "title": "Issuer-Sovereign Agentic Payments",
-    "titleZh": "论文提出发卡行主导的 agent 支付授权方案 Issuer-Sovereign Agentic Payments",
-    "authors": [],
-    "category": "opinion",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "arXiv 论文 Issuer-Sovereign Agentic Payments 指出，当前部署的 agent 支付依赖发卡行之外的凭证提供方，花费规则由卡组织或提供方执行，而承担风险的发卡行在付款时几乎没有直接控制。该方案让持卡人一次性批准花费规则，由银行自己的认证组件记录；agent 向具体商户付款时，银行核对商户是否在规则内，只有允许时才生成卡认证值，支付仍走常规卡组织通道。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.27452",
-      "aisafetyhot": "https://aisafetyhot.com/items/cmm50f5zbd02b67akvi5qha6c"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:43:39.179Z",
-    "discoveredAt": "2026-10-08T06:43:39.179Z"
-  },
-  {
-    "arxivId": "2608.03272",
-    "title": "Attacking and Defending Multi-Agent Collaborative Filtering Systems Through Connectivity",
-    "titleZh": "研究：以连通性视角攻击与防御多智能体协同过滤系统",
-    "authors": [],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文研究由 LLM 驱动的用户 agent 与商品 agent 以自然语言交互的多智能体协同过滤推荐系统（AgentCF 框架），将通用多智能体系统文献中的攻击与防御方法迁移过来，确认部分方法可以迁移。作者用每轮候选商品数和商品目录重叠度两个连通性维度刻画攻防结果，发现用户与商品 agent 的角色存在不对称、攻击效果随时间呈非单调变化，传播型与抽取型攻击的规律也不同。代码已开源于 github.com/anjunhu/ConnACF。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.03272",
-      "aisafetyhot": "https://aisafetyhot.com/items/xiioesojbcpgvaab3yl4l1pun"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:43:46.781Z",
-    "discoveredAt": "2026-10-08T06:43:46.781Z"
-  },
-  {
     "arxivId": "2610.08887",
     "title": "Steering Follows Geometry, Not Labels: Emotion Directions in a Full-Duplex Speech Model",
     "titleZh": "Moshi 全双工语音模型的情感引导遵循几何结构而非标签",
@@ -1437,6 +1491,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T06:39:39.797Z",
     "discoveredAt": "2026-10-08T06:39:39.797Z"
+  },
+  {
+    "arxivId": "2609.27452",
+    "title": "Issuer-Sovereign Agentic Payments",
+    "titleZh": "发卡行主导的智能体支付：Issuer-Sovereign Agentic Payments",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 Issuer-Sovereign Agentic Payments，让发卡行在 AI 智能体支付时直接掌控授权。持卡人一次性批准消费规则并由银行认证组件记录，智能体向特定商户付款时，银行核对该商户是否符合规则，仅在允许时生成卡片认证值。支付仍走常规卡组织通道并由发卡行验证，执行环节不引入额外依赖。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.27452",
+      "aisafetyhot": "https://aisafetyhot.com/items/cmm50f5zbd02b67akvi5qha6c"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:43:39.179Z",
+    "discoveredAt": "2026-10-08T06:43:39.179Z"
   },
   {
     "arxivId": "2605.25893",
@@ -1480,6 +1552,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T05:41:38.677Z",
     "discoveredAt": "2026-10-08T05:41:38.677Z"
+  },
+  {
+    "arxivId": "2608.03272",
+    "title": "Attacking and Defending Multi-Agent Collaborative Filtering Systems Through Connectivity",
+    "titleZh": "多智能体协同过滤系统的连接性攻击与防御研究",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究将通用多智能体系统（MAS）中的攻击与防御方法迁移至基于智能体的协同过滤场景，在 AgentCF 框架下评估连接性对攻防效果的影响。连接性由每用户每轮候选物品数和跨用户物品目录重叠度两个维度刻画，实验揭示了用户与物品智能体之间的角色不对称、攻击效果的非单调时间动态，以及传播类与提取类攻击目标间的分化模式。研究还探索了传染病学启发的静态指标用于排序协同过滤配置的预期攻击结果。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2608.03272",
+      "aisafetyhot": "https://aisafetyhot.com/items/xiioesojbcpgvaab3yl4l1pun"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:43:46.781Z",
+    "discoveredAt": "2026-10-08T06:43:46.781Z"
   },
   {
     "arxivId": "2610.09973",
@@ -1529,12 +1619,12 @@
   {
     "arxivId": "2606.12420",
     "title": "Eigenism: Ethics for a Human-AI Future",
-    "titleZh": "Eigenism：面向人类—AI 未来的伦理框架",
+    "titleZh": "Eigenism：面向人类-AI 未来的伦理框架",
     "authors": [],
     "category": "alignment",
     "selected": false,
     "attention": null,
-    "summaryZh": "针对「生存」「自利」等为单一连续生物生命设计的概念在可复制、暂停、分叉、合并的 AI 上失效的问题，作者提出 Eigenism 伦理框架，将身份视为分级、分布式的信息模式，智能体按与自身模式的关联度加权汇总各方福祉（∑c·w），据此推导 AI 应如何看待自身副本、分叉与更新，并称该框架可推广到人类。",
+    "summaryZh": "论文提出 Eigenism 伦理框架，主张 AI 的身份并非绑定特定硬件的全有或全无属性，而是分级、分布式的信息模式，智能体按与自身模式的关联度加权求和所有实体的福祉（∑c·w）来评估结果。该框架形式化了 AI 应如何在副本、分叉与更新之间衡量自身存在，并称其可推广至人类，提供共享道德词汇。它据此重新审视 AI 对齐，指向\"身份工程\"，主张深度且非冗余的共享历史能让人类繁荣成为 AI 自身理性自利的一部分，而非仅靠外部约束或强化。",
     "quickRead": null,
     "links": {
       "paper": "https://arxiv.org/abs/2606.12420",
@@ -1543,5 +1633,23 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T06:56:44.061Z",
     "discoveredAt": "2026-10-08T06:56:44.061Z"
+  },
+  {
+    "arxivId": "2610.08144",
+    "title": "数学界反弹 OpenAI 722 篇手稿：AHM 声明呼吁停止与 OpenAI 合作（陶哲轩博客转载），新论文称 Lean 验证不能为原证明背书（论文）",
+    "titleZh": "数学界反弹 OpenAI 722 篇手稿：AHM 声明呼吁停止与 OpenAI 合作（陶哲轩博客转载），新论文称 Lean 验证不能为原证明背书（论文）",
+    "authors": [],
+    "category": "industry",
+    "selected": false,
+    "attention": null,
+    "summaryZh": null,
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08144",
+      "aisafetyhot": "https://aisafetyhot.com/items/qr3pkgdkdbcsbd7t53o2u1doz"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T07:42:04.283Z",
+    "discoveredAt": "2026-10-08T07:42:04.283Z"
   }
 ]
