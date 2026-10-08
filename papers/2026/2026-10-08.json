@@ -609,6 +609,45 @@
     "discoveredAt": "2026-10-08T09:48:18.974Z"
   },
   {
+    "arxivId": "2609.37468",
+    "title": "Backdoor in the Loop: Compromising Agentic Search via Malicious Retrievers",
+    "titleZh": "论文提出针对 Agentic RAG 的检索器后门攻击与 DOU 隐藏方法",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 79,
+    "summaryZh": "研究者提出针对 Agentic RAG 的检索器后门威胁模型：攻击者只提供被污染的检索器检查点，不改动搜索 Agent 和部署语料，即可在触发问题下操纵检索结果。三类攻击分别抑制支撑证据使答案错误、让指定已有文档在多轮检索中持续排前，以及诱导 Agent 延长搜索，在高强度下平均搜索轮数增加 78% 至 88%、最终上下文 token 增加 81% 至 87%、完成延迟增加 80% 至 126%，同时 F1 下降 24 至 29 分。研究还提出 Decoy Overwrite-Unlearn（DOU），先注入较弱的诱饵后门再将其遗忘，从而削弱 Spectral Signatures、Neural Cleanse、PICCOLO 等检测器的可见信号，同时保留原有恶意检索行为；在 MuSiQue 上 SS 的 Δ 从 46.53 降至 29.26，NC 从 38.23 降至 19.40。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "智能体RAG将推理与多轮检索交替进行，检索器可影响后续查询和停机决策。现有攻击多依赖语料注入或单轮设置；论文研究在语料库和智能体未修改时，仅凭恶意检索器操纵多轮搜索循环并隐蔽后门。",
+          "label": "问题"
+        },
+        {
+          "text": "构建三类攻击：无目标抑制关键证据、目标攻击持续召回指定文档、轮数控制延长搜索以耗尽预算。提出诱饵覆盖遗忘机制DOU，通过受限注入并遗忘弱辅助后门重塑表征，削弱检测器信号，同时保留原恶意关联。",
+          "label": "方法"
+        },
+        {
+          "text": "在两项QA基准上，无目标攻击使F1下降18.8–30.9个百分点（Table 1）；目标攻击实现99.8%–100%每轮命中（Table 2）；高强度轮数控制使检索轮数增加78–88%（Table 3）；DOU使MuSiQue上SS检测的∆从46.53降至29.26（Table 6）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出针对单文档的目标后门更难仅凭DOU隐蔽，需稳定性均衡扩展；防御基线BPO无法消除检索后门。实验覆盖了E5与Contriever检索器、Qwen2.5-7B-Instruct智能体及两项QA基准，检测评估仅在5万条候选池中进行而非全索引运行。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.37468"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.37468",
+      "aisafetyhot": "https://aisafetyhot.com/items/c2zslawntma9zh4dmvn0g196w"
+    },
+    "publishedAt": "2026-09-26T14:47:25.000Z",
+    "timelineAt": "2026-10-08T13:07:51.701Z",
+    "discoveredAt": "2026-10-08T13:07:51.701Z"
+  },
+  {
     "arxivId": "2610.09384",
     "title": "The Persona Hierarchy Model: Understanding Contextual Generalization in Fine-Tuning LLMs",
     "titleZh": "人格层级模型解释微调 LLM 的上下文泛化，PPR 正则化将 RL 奖励作弊压至 0.2% 以下",
@@ -1239,6 +1278,24 @@
     "discoveredAt": "2026-10-08T07:42:26.837Z"
   },
   {
+    "arxivId": "2609.01325",
+    "title": "VerTox: Verifiable Reward-Guided Corpus Poisoning Against Neural Ranking Models",
+    "titleZh": "VerTox：用可验证奖励强化学习对神经排序模型实施语料投毒",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 VerTox，首次把针对神经排序模型的语料投毒建模为可验证奖励强化学习问题，奖励同时考核排名上升与事实篡改，并惩罚生成文档与查询词过度重合。方法用 Gemma 2-2B、Llama 3.2-1B、Qwen3-0.6B 等小模型微调出投毒文档生成器。白盒攻击 SimLM-base 时攻击成功率接近 100%，Gemma 2-2B 版本 ASR 为 0.99、Top@1 为 0.80；迁移到不同架构的排序模型和一个闭源商用 embedding 模型的黑盒场景，效果仍明显强于替换词、embedding 扰动、零样本提示等基线。生成的投毒文档通顺、困惑度低，较难被检测，并在模拟 RAG 应用中显著拉低回答质量。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.01325",
+      "aisafetyhot": "https://aisafetyhot.com/items/su2ny2dsee7tup0uvob37nwf3"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T13:07:44.222Z",
+    "discoveredAt": "2026-10-08T13:07:44.222Z"
+  },
+  {
     "arxivId": "2610.09264",
     "title": "Package Hallucination Attacks on Coding Agents through Prompt Injection in Rule Files",
     "titleZh": "研究者提出 PackHallu：经规则文件提示注入对编码 Agent 发起包幻觉攻击",
@@ -1273,24 +1330,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T06:36:16.997Z",
     "discoveredAt": "2026-10-08T06:36:16.997Z"
-  },
-  {
-    "arxivId": "2604.06240",
-    "title": "The Art of Building Verifiers for Computer Use Agents",
-    "titleZh": "论文提出 Universal Verifier：为计算机操作 Agent 构建验证器的四条原则",
-    "authors": [],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 Universal Verifier，用于为计算机操作 Agent 的轨迹打分，设计遵循四条原则：rubric 条目互不重叠、过程分与结果分分开、区分可控与不可控失败以避免错误级联、分治式上下文管理以覆盖轨迹中所有截图。作者称在带人工过程与结果标签的 CUAVerifierBench 上，该验证器与人类的一致度和人与人之间相当，假阳性接近 0，而 WebVoyager 与 WebJudge 的假阳性分别不低于 45% 和 22%。播客转述称，Fara-7B 在 WebVoyager 上用官方 GPT-4o 裁判得 74%，换用 Universal Verifier 后约 38%；该验证器与人类的 Cohen's κ 为 0.58。用其过滤 3,000/9,000 条轨迹做 SFT 可提升模型质量。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2604.06240",
-      "aisafetyhot": "https://aisafetyhot.com/items/ov7nyfl3e5d756mpvzgzb2djk"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T12:05:51.771Z",
-    "discoveredAt": "2026-10-08T12:05:51.771Z"
   },
   {
     "arxivId": "2610.10358",
@@ -1411,6 +1450,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T04:29:42.961Z",
     "discoveredAt": "2026-10-08T04:29:42.961Z"
+  },
+  {
+    "arxivId": "2604.06240",
+    "title": "The Art of Building Verifiers for Computer Use Agents",
+    "titleZh": "研究者开源 Universal Verifier 与 CUAVerifierBench，用于验证计算机使用 Agent 轨迹",
+    "authors": [],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出面向计算机使用 Agent（CUA）轨迹的验证器 Universal Verifier，并开源该系统与配套基准 CUAVerifierBench。该验证器基于四项设计原则：用互不重叠的评分标准构建 rubric 以降低噪声；区分过程奖励与结果奖励以捕捉步骤正确但被阻断或走非预期路径成功的情况；区分可控与不可控失败并采用无级联错误策略评分；用分治式上下文管理关注轨迹中的全部截图以提升长任务可靠性。在带有人工过程与结果标注的 CUAVerifierBench 上，其与人类的一致程度达到人类彼此一致的水平，误报率相比 WebVoyager（≥45%）和 WebJudge（≥22%）降至接近零。作者还发现自动研究 Agent 能在 5% 时间内达到专家 70% 的质量，但未能发现复现该验证器所需的全部策略。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2604.06240",
+      "aisafetyhot": "https://aisafetyhot.com/items/ov7nyfl3e5d756mpvzgzb2djk"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T12:05:51.771Z",
+    "discoveredAt": "2026-10-08T12:05:51.771Z"
   },
   {
     "arxivId": "2610.03036",
