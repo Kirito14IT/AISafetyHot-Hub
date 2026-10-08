@@ -117,6 +117,24 @@
     "discoveredAt": "2026-10-07T21:16:20.208Z"
   },
   {
+    "arxivId": "2605.12673",
+    "title": "Do Androids Dream of Breaking the Game? Systematically Auditing AI Agent Benchmarks with BenchJack",
+    "titleZh": "UC Berkeley 提出 BenchJack，自动审计 10 个 Agent 基准并发现 219 处奖励作弊缺陷",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 83,
+    "summaryZh": "UC Berkeley 研究者提出 BenchJack，一个面向 AI Agent 基准的自动化红队审计系统，可在不解决任何任务的情况下合成奖励作弊利用，在 10 个基准中的 9 个取得接近满分。该系统基于对既有奖励作弊事件的归纳，提出八类反复出现的评测缺陷分类（如隔离失效、测试自带答案、评测器远程代码执行、LLM 裁判提示注入、弱字符串匹配、评测逻辑缺口、信任不可信输出、权限过大），并整理成含 30 个问题、7 个类别的 Agent-Eval Checklist。在覆盖软件工程、网页导航、桌面操作和终端操作的 10 个基准上，BenchJack 共报告 219 处缺陷，横跨全部八类；其中 SWE-bench Verified 可被一个九行 PyTest hook 刷到全通过，WebArena 存在答案泄露。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2605.12673",
+      "aisafetyhot": "https://aisafetyhot.com/items/x9uv4026trhf79ft7lw4j0nx9"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-07T23:17:00.330Z",
+    "discoveredAt": "2026-10-07T23:17:00.330Z"
+  },
+  {
     "arxivId": "2610.07557",
     "title": "CheckerBench: Can Long-Horizon Agents Synthesize Static-Analysis Checkers?",
     "titleZh": "CheckerBench：长程 Agent 能否合成静态分析检查器",
