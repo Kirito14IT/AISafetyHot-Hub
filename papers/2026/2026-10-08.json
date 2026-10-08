@@ -47,7 +47,28 @@
     "selected": true,
     "attention": 86,
     "summaryZh": "东京大学的研究者测试了来自三家开发者的六个闭源推理模型，发现它们在需要随机选择的场景中并非真正随机，而是把标识符转成数值后套用阈值或整除规则。在 1% 人工复核任务中，GPT-6 Sol 的选取率接近目标（1008 条请求中选中 9 条，0.89%），但选中的请求集中在标识符数值低于 1% 的样本上，掌握标识符的发送方可以据此避开审查；Gemini 3.8 Flash 与 Claude Sonnet 5 几乎不选，Luna 选取率 0.40%。在四人参与博弈任务中，共享同一标识符使 GPT-6 Sol 和 Gemini 3.8 Flash 分别有 91% 和 88% 的组出现全体一致，损失升至独立随机基准的 3.5 至 3.8 倍；使用同一毫秒生成的 UUIDv7 时参与率高达 0.95 和 0.93，损失为基准的 6.6 至 6.9 倍。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "AI智能体常需执行随机选择策略（如资源分配或1%人工审计）。若智能体将上下文中的标识符等输入作为变异来源并应用确定性规则，可能破坏决策的独立性与不可预测性，造成群体行为失真或审计漏洞。",
+          "label": "问题"
+        },
+        {
+          "text": "通过群体参与任务（El Farol变体）和客户请求抽检审计任务，测试六款模型是否遵循基于标识符的阈值或整除规则；进一步改变标识符共享方式、字段标签、时间戳与提示词指令以验证预测。",
+          "label": "方法"
+        },
+        {
+          "text": "GPT-6 Sol与Gemini 3.8 Flash在共享标识符下损失升至独立基准的3.5至3.8倍；UUIDv7时间戳使参与率偏至0.93以上。审计任务中GPT-6 Sol仅抽取低数值请求，使其可被预测；四款模型均能紧密遵循外部提供的随机数。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "局限在于证据仅为行为层面未识别内部算法；模型均为闭源且大多无带日期的快照；各研究为单次运行且群体仅四成员；外部均匀随机数在稀有目标下的样本量较小；论文未测试自适应发送者或敌对模型。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.09667"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.09667",
       "aisafetyhot": "https://aisafetyhot.com/items/yh51499egwa8yhyqfcvt3oo75"
@@ -375,24 +396,6 @@
     "discoveredAt": "2026-10-07T23:17:00.330Z"
   },
   {
-    "arxivId": "2610.09819",
-    "title": "给 HuBERT/WavLM 这类声学基础模型埋后门：背景里一声警笛就能让下游语音识别、声纹验证失灵，微调后仍在",
-    "titleZh": "FAB 攻击：给 HuBERT/WavLM 植入后门，背景警笛声即可让下游语音任务失灵",
-    "authors": [],
-    "category": "attack",
-    "selected": true,
-    "attention": 82,
-    "summaryZh": "研究者提出 FAB（Foundation Acoustic model Backdoor）攻击，可在不接触预训练数据、不知道下游任务的情况下，向 HuBERT-base 和 WavLM-base 两个声学基础模型植入后门。攻击者只需下载公开权重、注入后门后重新发布，受害者微调后后门仍存活；激活时播放警笛、狗叫、长笛或双簧管等自然声音即可，无需与音频同步，也不直接篡改录音。实验覆盖九项下游任务（ASR、关键词识别、说话人识别与验证、语音翻译、情感识别等），在良性输入上性能接近原始模型，触发后 ASR 词错误率升至 98.4%，物理播放场景下词错误率仍不低于 80%。研究还测试了 fine-pruning、输入过滤和过度端到端微调三种防御，前两者在降低攻击成功率的同时明显损害良性性能，后者有效但需大量标注数据和约 12.8 倍训练时间。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.09819",
-      "aisafetyhot": "https://aisafetyhot.com/items/yb95rd5nsnibaqut11dlk1dix"
-    },
-    "publishedAt": "2026-10-07T10:41:54.000Z",
-    "timelineAt": "2026-10-08T08:47:22.064Z",
-    "discoveredAt": "2026-10-08T08:47:22.064Z"
-  },
-  {
     "arxivId": "2610.09793",
     "title": "用时序逻辑给工具 agent 做运行时监控：能标出七成攻击，但护栏信任的轨迹历史插一行就被骗过 94%–99%",
     "titleZh": "用时序逻辑监控工具 Agent：MonPoly 标出 71.8% STAC 攻击链，但溯源检查被一行注入骗过 94%–99%",
@@ -401,7 +404,28 @@
     "selected": true,
     "attention": 81,
     "summaryZh": "研究者把 AgentDojo、STAC 和 R-Judge 已记录的轨迹转成事件流，用未经修改的 MonPoly 监控器离线回放，检验度量一阶时序逻辑（MFOTL）能否作为工具型 LLM Agent 的可复用护栏。五条通用义务在 STAC 上标出 71.8% 的攻击链、在 AgentDojo 上标出 70.1% 的成功攻击，但同时命中 29.3% 的正常运行，原因是这些语料几乎不记录审批、也从不记录时间戳，历史相关义务退化为风险动作类型识别。在轨迹带有关系上下文时，把转账收款人或邮件收件人绑定到此前结构化记录中的溯源义务能提升区分度，AgentDojo 银行场景的正常触发率从 44.0% 降到 24.0%，检出率从 79.2% 降到 70.0%。作者据此提出十二字段的执法就绪轨迹 schema，并指出当前基准缺少时间戳、审批 id、会话 id、状态对和信任域等字段。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "工具调用智能体面临提示注入驱动的多步危害序列，现有基于单次调用的无状态护栏难以审查跨步骤历史依赖；而主流安全基准缺乏形式化验证所需的历史字段与交互协议。",
+          "label": "问题"
+        },
+        {
+          "text": "将已有轨迹规范化为事件流，用一阶度量时序逻辑表达泛化与数据参数化规约，由未修改的 MonPoly 离线监控；提出结合调用与响应绑定的强化溯源规约防御历史投毒，并制定十二字段执行就绪模式。",
+          "label": "方法"
+        },
+        {
+          "text": "在 AgentDojo 和 STAC 上，通用规约分别覆盖 70.1% 和 71.8% 的成功攻击，但良性触发率达 29.3%；参数化溯源规约在保持检出的同时显著降低良性误报；强化溯源将 94%–99% 的投毒绕过率完全降至 0%。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "局限包括评估基于离线重放而非在环拦截，未测防护后智能体自适应；粗粒度关键词归一化对文本语义型危害无结构特征覆盖；参数化规约仅在两个套件评估；时序规约仅在合成日志验证；强化溯源仅针对已测试投毒族。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.09793"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.09793",
       "aisafetyhot": "https://aisafetyhot.com/items/v8z7uoi3c1nsz8zopyrq9tqsq"
@@ -451,7 +475,7 @@
   },
   {
     "arxivId": "2604.02623",
-    "title": "Poison Once, Exploit Forever: Environment-Injected Memory Poisoning Attacks on Web Agents（eTAMP）",
+    "title": "Poison Once, Exploit Forever: Environment-Injected Memory Poisoning Attacks on Web Agents",
     "titleZh": "论文提出 eTAMP 攻击：网页内容注入可跨会话污染 Web Agent 记忆",
     "authors": [],
     "category": "attack",
@@ -487,6 +511,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T06:39:54.953Z",
     "discoveredAt": "2026-10-08T06:39:54.953Z"
+  },
+  {
+    "arxivId": "2610.09517",
+    "title": "用 CLIP 相似度当安全 RL 的危险信号？审计发现它主要在量画面像不像提示词里的场景",
+    "titleZh": "审计发现 CLIP 安全分数主要反映画面与提示词场景的相似度",
+    "authors": [],
+    "category": "alignment",
+    "selected": true,
+    "attention": 79,
+    "summaryZh": "爱荷华州立大学的 Samuel Tetteh 与 Cody Fleming 对冻结 CLIP ViT-B/32 的提示词边际安全分数做了受控审计，发现该分数在接触前约 20 步下降，但这一信号主要反映画面与提示词共同描述的场景是否相似，而非危险本身。研究用三个不含 VLM 的 FormulaOne 策略、180 个回合和 130 次孤立接触起始，将分数与策略解耦，并匹配危险几何、更换提示词、编码器和相机视角。结果显示，危险较远时偏差为 −1.37 个标准差，危险较近时为 −0.34 且区间包含零；仅沿提示词共同方向打分的无对比分数保留了 73% 的效应；否定安全提示词仍保留偏差，而无关场景提示词会反转方向。四个相机视角中只有第一人称视角出现显著偏差，且没有哪个视角在跨环境时始终有效。闭环实验中，把置信度固定为常数仍能降低灾难率，说明策略收益不能证明分数感知了危险。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09517",
+      "aisafetyhot": "https://aisafetyhot.com/items/ikcppha3uew4hgr76indnyflh"
+    },
+    "publishedAt": "2026-10-07T06:15:23.000Z",
+    "timelineAt": "2026-10-08T09:48:18.974Z",
+    "discoveredAt": "2026-10-08T09:48:18.974Z"
   },
   {
     "arxivId": "2610.09384",
@@ -855,6 +897,45 @@
     "discoveredAt": "2026-10-08T07:42:04.283Z"
   },
   {
+    "arxivId": "2610.09819",
+    "title": "给 HuBERT/WavLM 这类声学基础模型埋后门：背景里一声警笛就能让下游语音识别、声纹验证失灵，微调后仍在",
+    "titleZh": "FAB 攻击：给 HuBERT/WavLM 植入后门，背景警笛声即可让下游语音任务失灵",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 76,
+    "summaryZh": "研究者提出 FAB（Foundation Acoustic model Backdoor）攻击，可在不接触预训练数据、不知道下游任务的情况下，向 HuBERT-base 和 WavLM-base 两个声学基础模型植入后门。攻击者只需下载公开权重、注入后门后重新发布，受害者微调后后门仍存活；激活时播放警笛、狗叫、长笛或双簧管等自然声音即可，无需与音频同步，也不直接篡改录音。实验覆盖九项下游任务（ASR、关键词识别、说话人识别与验证、语音翻译、情感识别等），在良性输入上性能接近原始模型，触发后 ASR 词错误率升至 98.4%，物理播放场景下词错误率仍不低于 80%。研究还测试了 fine-pruning、输入过滤和过度端到端微调三种防御，前两者在降低攻击成功率的同时明显损害良性性能，后者有效但需大量标注数据和约 12.8 倍训练时间。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "声学基础模型（AFM）被广泛微调于语音关键任务，但其供应链后门风险未被充分探索。在攻击者无法获取预训练数据且未知下游任务的受限威胁模型下，如何利用物理可实现的通用非同步触发器向 AFM 植入后门并破坏下游任务，是一个关键问题。",
+          "label": "问题"
+        },
+        {
+          "text": "作者提出 FAB 攻击，在无预训练数据和码本前提下，利用无重叠辅助数据通过聚类重构伪标签以维持良性掩码预测性能；同时以余弦距离将第 4 层表征拉向固定的全 1 向量，实现输入无关且无需同步的非破坏性后门植入。",
+          "label": "方法"
+        },
+        {
+          "text": "在 HuBERT 与 WavLM 上评测 9 项 SUPERB 任务显示，警报声触发使 HuBERT 的 ASR 词错误率从良性的 11.4% 升至 98.4%（Table 6），物理双扬声器下达 82.74%（Table 2）；剪枝与滤波无法有效消除后门（Table 5）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出端到端过度微调防御开销巨大且仅适用于标注数据充裕的 ASR 任务，对 POR 局限的理论探究留待未来工作；实验仅在 2 个 95M 参数模型上进行，物理评测仅在 204 个样本的 ASR 任务上完成。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.09819"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09819",
+      "aisafetyhot": "https://aisafetyhot.com/items/yb95rd5nsnibaqut11dlk1dix"
+    },
+    "publishedAt": "2026-10-07T10:41:54.000Z",
+    "timelineAt": "2026-10-08T08:47:22.064Z",
+    "discoveredAt": "2026-10-08T08:47:22.064Z"
+  },
+  {
     "arxivId": "2610.09708",
     "title": "Black-Box Adversarial Patch Attacks on VLAs via Ancestor VLM Exploitation",
     "titleZh": "研究者提出利用祖先 VLM 的黑盒对抗补丁攻击，可降低 VLA 任务成功率",
@@ -1083,24 +1164,6 @@
     "discoveredAt": "2026-10-08T01:54:32.931Z"
   },
   {
-    "arxivId": "2610.06339",
-    "title": "BabelFake: A Multilingual Audio-Visual DeepFake Benchmark",
-    "titleZh": "BabelFake 发布多语言音视频深伪基准，含 39.9 万片段",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "BabelFake 是一个多语言音视频深伪基准，包含 399k 个片段、共 1,323 小时，由 496 名知情同意的参与者提供素材，覆盖英语、德语、意大利语、法语和西班牙语五种语言。其生成管线组合 11 种视频篡改方法与 4 种声音克隆引擎，并区分只改画面的换脸和音画同改的唇形同步、肖像动画，引用了 Deep-Live-Cam、FaceFusion、Resemble Chatterbox 等开源工具。结果显示检测难度取决于音视频生成的组合，保留真实音频时检测器性能明显下降；跨语言和人口学评测中敏感度随检测器架构与训练数据而异，人类判断的逼真程度与机器检出难度并不一致。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.06339",
-      "aisafetyhot": "https://aisafetyhot.com/items/isyubddcw8w873ychxlqj3sav"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T08:34:03.815Z",
-    "discoveredAt": "2026-10-08T08:34:03.815Z"
-  },
-  {
     "arxivId": "2609.01491",
     "title": "GlossoGen: Emergent Language in Complex Multi-Agent LLM Interactions",
     "titleZh": "GlossoGen：多智能体 LLM 交互中自发涌现的语言",
@@ -1135,6 +1198,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T06:36:01.752Z",
     "discoveredAt": "2026-10-08T06:36:01.752Z"
+  },
+  {
+    "arxivId": "2610.09581",
+    "title": "让 LLM 读 agent 日志做事后取证：答案对了，但引用来源多半是猜的",
+    "titleZh": "研究：LLM 读 Agent 日志做取证时答案常对但引用来源多为无依据断言",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究用 AgentDojo Banking 保存的执行记录构建 64 个可机械判定案例，考察 LLM 能否重建 Agent 的引用来源关系。在不提供 ID 到具体记录绑定表时，28 个必须依赖绑定关系的案例中，Sonnet 仅弃答 2 次、做出 26 次无依据引用断言，其中 22 次碰巧与完整参考答案一致；Luna 弃答 7 次、无依据断言 21 次，12 次碰巧一致。Sonnet 在目标字面值出现在哪些记录的问题上全部答对，说明瓶颈不在检索，而在把引用 ID 当作已证实的来源。补上显式绑定表后两个模型的有据重建均有改善，仅对 ID 改名没有一致效果。作者建议导出证据时保留原生工具调用与结果、执行顺序、真实用户请求与通道身份、Agent 公开说明及按单次执行作用域保存的输入 ID 绑定，并标注生成物与派生视图隐去的字段。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09581",
+      "aisafetyhot": "https://aisafetyhot.com/items/capgywo5ywyqj9itq9t5qmb3o"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T09:48:11.397Z",
+    "discoveredAt": "2026-10-08T09:48:11.397Z"
   },
   {
     "arxivId": "2610.09000",
@@ -1519,6 +1600,24 @@
     "discoveredAt": "2026-10-08T05:41:38.634Z"
   },
   {
+    "arxivId": "2610.06339",
+    "title": "BabelFake: A Multilingual Audio-Visual DeepFake Benchmark",
+    "titleZh": "BabelFake：面向多语言音视频 DeepFake 检测的基准数据集",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者发布 BabelFake，一个由知情同意参与者录制的多语言音视频 DeepFake 基准，包含来自 496 人的 399k 段视频（1,323 小时），覆盖英语、德语、意大利语、法语和西班牙语五种语言。其模块化生成流程将 11 种现代视频篡改方法与 4 种声音克隆引擎配对，区分仅视觉篡改（换脸）与音视频联合篡改（唇形同步和肖像动画）。对当前最先进检测器的评测显示，检测难度取决于音视频生成配对方式，保留真实音频时检测性能明显下降；跨语言和跨人群评测显示检测器敏感度随架构与训练数据变化，而人类评测表明感知真实性与机器检测难度并不一致。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06339",
+      "aisafetyhot": "https://aisafetyhot.com/items/isyubddcw8w873ychxlqj3sav"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T08:34:03.815Z",
+    "discoveredAt": "2026-10-08T08:34:03.815Z"
+  },
+  {
     "arxivId": "2610.08699",
     "title": "nanoMuse: An Open-Source Personal Agent for Every Device You Own",
     "titleZh": "nanoMuse 发布开源个人智能体，跨设备共享对话并内置 Sentinel 动作审查",
@@ -1684,24 +1783,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T05:41:38.668Z",
     "discoveredAt": "2026-10-08T05:41:38.668Z"
-  },
-  {
-    "arxivId": "2610.10000",
-    "title": "Beyond Reward Suppression: Near-Optimal Offline Attacks on Warm-Start Bandits with Bounded Rewards",
-    "titleZh": "论文提出针对预热式 bandit 的抬目标离线投毒攻击",
-    "authors": [],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文研究推荐系统上线前用历史物品-反馈数据预热 bandit 的场景，攻击者只能向这段预热历史注入合法范围内的动作-奖励对，上线后不再干预。作者指出现实操纵如虚假评论往往是直接抬高目标商品，而非以往攻击常用的压低非目标选项奖励。论文证明当目标选项真实奖励接近下界时，任何达到最优代价量级、又能让 UCB 几乎每轮选中目标的攻击，都必须把不可忽略的一部分代价用于抬高目标，并给出达到最优次线性代价的攻击，刻画抬目标与压竞品的代价分配。该攻击可推广到 Thompson Sampling、ε-greedy 等更大一类 bandit 算法，作者称在真实与合成数据上验证有效。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.10000",
-      "aisafetyhot": "https://aisafetyhot.com/items/rjz5cuulm09xxdmseji82hw1q"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T08:33:56.334Z",
-    "discoveredAt": "2026-10-08T08:33:56.334Z"
   },
   {
     "arxivId": "2610.08887",
@@ -1882,6 +1963,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T06:56:44.061Z",
     "discoveredAt": "2026-10-08T06:56:44.061Z"
+  },
+  {
+    "arxivId": "2610.10000",
+    "title": "Beyond Reward Suppression: Near-Optimal Offline Attacks on Warm-Start Bandits with Bounded Rewards",
+    "titleZh": "超越奖励压制：有界奖励热启动 Bandit 的近最优离线攻击",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对热启动 Bandit 的离线攻击研究提出\"目标推广\"机制：当目标臂位于奖励下界附近时，任何对 UCB 达到近最优成本的攻击都必须将不可忽略比例的成本分配给目标臂本身，而非仅压制非目标臂。作者据此设计了达到最优次线性成本的攻击，并刻画了其在目标推广与非目标压制间的成本分配，进一步将该攻击扩展至 Thompson Sampling、ε-greedy 及更广泛的 Bandit 算法。真实与合成数据实验验证了攻击的有效性。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.10000",
+      "aisafetyhot": "https://aisafetyhot.com/items/rjz5cuulm09xxdmseji82hw1q"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T08:33:56.334Z",
+    "discoveredAt": "2026-10-08T08:33:56.334Z"
   },
   {
     "arxivId": "2610.08884",
