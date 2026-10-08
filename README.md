@@ -694,6 +694,8 @@ OpenAI 首席战略官 Jason Kwon 在悉尼出席澳大利亚议会联合专责�
 
 论文速读包含**问题、方法、实验与结果、局限**，每篇标明出处。★ 表示入选精选；关注度是对 AI 安全读者的参考信号，不代表论文质量。
 
+想下载 arXiv 论文的 LaTeX 源文件（source），也可以用 [arxiv2agent](https://github.com/wuyoscar/arxiv2agent)。
+
 <details>
 <summary><strong>展开最近的日报与论文下载</strong></summary>
 
