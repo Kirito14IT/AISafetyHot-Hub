@@ -135,24 +135,6 @@
     "discoveredAt": "2026-10-07T16:50:31.614Z"
   },
   {
-    "arxivId": "2605.12673",
-    "title": "Do Androids Dream of Breaking the Game? Systematically Auditing AI Agent Benchmarks with BenchJack",
-    "titleZh": "BenchJack 系统审计 AI 智能体基准的评测设施缺陷",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "BenchJack 对多个智能体基准进行系统审计，指出评测设施缺陷可能使分数偏离真实任务完成情况。作者为此提出一套检查清单和迭代修补方法。相关结果来自论文摘要。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2605.12673",
-      "aisafetyhot": "https://aisafetyhot.com/items/x9uv4026trhf79ft7lw4j0nx9"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-07T23:17:00.330Z",
-    "discoveredAt": "2026-10-07T23:17:00.330Z"
-  },
-  {
     "arxivId": "2509.05219",
     "title": "Conversational AI increases political knowledge as effectively as self-directed internet search",
     "titleZh": "对话式 AI 提升政治知识的效果与自主上网搜索相当",
