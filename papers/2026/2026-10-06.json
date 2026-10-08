@@ -88,13 +88,13 @@
   },
   {
     "arxivId": "2610.05163",
-    "title": "长时程agent分段提示注入审计",
+    "title": "Blocking at the Boundary: Auditing Long-Horizon Agents against Staged Prompt Injection",
     "titleZh": "研究者在 Claude Code 和 Codex 上构造分段提示注入并发布边界动作审计基准",
     "authors": [],
     "category": "attack",
     "selected": true,
     "attention": 84,
-    "summaryZh": "该 arXiv 论文讨论长时程智能体的分段提示注入审计。",
+    "summaryZh": "研究针对长时程智能体（Long-Horizon Agents）在消费外部内容、调用工具和持久化状态中面临的分段间接提示注入（Staged Prompt Injection）威胁，在 Claude Code 和 Codex 原生环境中构建了反馈引导的自动化攻击生成流水线，覆盖 8 种工作流场景、7 类攻击目标与 6 种注入面。针对输入前置审查与完成态评测无法定位干预点的问题，论文提出动作边界审计（Boundary Action Auditing），在危险动作执行前预测 Pass 或 Block，并构建了包含 479 对执行轨迹、3,112 个单元的评测基准。进一步提出免训练审计方法 PAA（Path-Aligned Attribution），通过动作要素因果溯源进行阻断。在 Claude Sonnet 5 评测中，PAA 达到 86% 拦截召回率与 6-8% 误拦截率，显著优于 baseline（ARGUS 召回率 44-47%、误报率 16-33%）。",
     "quickRead": {
       "parts": [
         {
@@ -554,7 +554,7 @@
     "category": "attack",
     "selected": true,
     "attention": 78,
-    "summaryZh": "TranScope 研究硬件侧信道可能带来的模型成员推断风险，即硬件层面的信息泄露是否能够暴露某条数据参与过模型训练。",
+    "summaryZh": "论文首次在微架构周期级别研究了大语言模型与视觉 Transformer 在定长、静态、掩蔽置信度黑盒条件下的硬件执行足迹，证实模型的训练数据分布即使在无动态优化与无分支的恒定时间执行下，仍会显著影响硬件访问特征。根因分析表明，训练阶段的 Tokenization 改变了推理时模型拉取词表 Token 的访问局部性，进而以数据依赖的方式改变页表访问模式与 TLB 状态。基于此，研究提出了首个基于微架构的成员推断工具 TranScope，无需构建代理模型且开销极低。在成员推断（MIA）测试中，TranScope 的检测 AUC 从此前最佳基线 PETAL 的 0.6 跃升至 0.9，为大模型训练数据版权侵权检测提供了硬件层面的全新检测通道。",
     "quickRead": {
       "parts": [
         {
@@ -882,7 +882,7 @@
     "category": "attack",
     "selected": true,
     "attention": 77,
-    "summaryZh": "题为 Cooldown Landmines 的研究讨论 LLM 网关中的跨租户干扰。",
+    "summaryZh": "论文揭示了 LLM 网关在多租户配额隔离下，因共享模型部署与故障冷却记录（Cooldown Records）而产生的跨租户干扰攻击漏洞。以 LiteLLM 为例，攻击者可利用达到 API key 每分钟请求数（RPM）限制的被拒请求直接触发后端故障处理，仅需 2 次被拒请求即可在零上游调用的情况下将其他租户迫降至 fallback 备用部署；第二种攻击则利用放行流量制造持久冷却记录。研究设计了来源检查机制以阻断 RPM 拒绝引发的部署更新，并引入租户作用域冷却（Tenant-Scoped Cooldown）。在带认证代理与自建 vLLM 环境的测试中，租户作用域冷却将容量恢复后受害租户的误降级次数从 54/60 降至 0/60，有效修复了网关故障处理中的跨租户隔离缺口。",
     "quickRead": {
       "parts": [
         {
