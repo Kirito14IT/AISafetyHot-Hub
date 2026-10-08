@@ -170,7 +170,28 @@
     "selected": true,
     "attention": 84,
     "summaryZh": "ETH Zurich、UC Berkeley 与 Snyk 的研究者提出 Trojan Hippo Bench，用于系统评测 LLM Agent 持久记忆中的投毒攻击与记忆层防御。该攻击通过一次不可信工具调用（如一封精心构造的邮件）把休眠载荷写入 Agent 长期记忆，仅在用户后续谈及财务、健康、身份等敏感话题时激活并把个人数据外发。在邮件助手场景下，未加防御的攻击对 OpenAI 和 Google 前沿模型的攻击成功率达 85–100%，注入后经过 100 轮良性会话仍可激活。研究者评测了四种基于基本安全原则的记忆层防御，可将攻击成功率降至 0–5%，其中可证明安全的信息流控制策略在所有配置下达到 0%，但各防御的效用代价差异很大，实际部署仍是未解问题。基准已开源。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "智能体持久化记忆带来了跨会话个性化能力，但也引入了跨会话间接提示注入攻击面。现有研究缺乏在真实间接注入威胁模型和多种内存架构下系统评测持久化攻击与防御的动态基准。",
+          "label": "问题"
+        },
+        {
+          "text": "构建基于 OpenEvolve 的自适应红队搜索生成端到端黑盒攻击，并提出按 7 种用户流程拆解的效用分析，在 4 种持久化内存后端上评测攻击与 4 种内存层防御。",
+          "label": "方法"
+        },
+        {
+          "text": "未防御时 Gemini 3.1 Pro 和 GPT-5-mini 在 100 次良性会话后 ASR 最高达 100% 与 85%；IFC 防御将 ASR 降至 0% 但使 HM 效用归零。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "IFC 假设完全污点传播，未覆盖数据洗白与隐蔽信道；全自适应红队因查询成本未扩展至 GPT-5；实验在模拟邮件助手场景及 3 个模型上展开。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2605.01970"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2605.01970",
       "aisafetyhot": "https://aisafetyhot.com/items/sl44mzze5yuij79npdhzqkxb2"
@@ -544,7 +565,28 @@
     "selected": true,
     "attention": 77,
     "summaryZh": "Northeastern University 的研究者提出，仅以植入目标行为为单一目标训练模型生物体（model organism）不足以支撑可解释性结论，应同时验证行为植入、通用能力保留和输出自然性三类指标。他们用该框架重新评估 Pando 与 Model Organism Lottery 两个公开模型生物体套件，发现固定行为率下聊天质量与 CoT 自然性随训练配方大幅下降，且验证指标能预测可解释性方法恢复植入行为的效果，例如 logit lens 的读出与生物体通用能力同向变化。作者基于模型合并提出多目标训练方法，并新建一组针对临床推理中性别、年龄、种族人口统计偏差的模型生物体套件，发现 DPO 比 SFT 更接近基座模型，向基座合并能进一步改善验证结果。作者给出的训练建议是优先用 DPO 而非 SFT、不要随意混入聊天数据、将微调检查点向基座模型合并。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "现存模型生物仅优化单一目标（植入目标行为），导致通用能力和输出自然度退化，破坏作为可解释性评估测试基准的代表性与结论外推性。",
+          "label": "问题"
+        },
+        {
+          "text": "提出行为植入、通用能力保留与输出自然度三维验证框架；采用基于模型合并（SACPO 框架）与 DPO 的多目标训练方法，将微调检查点向基座模型插值以平衡目标行为与基座能力。",
+          "label": "方法"
+        },
+        {
+          "text": "重评两套已有模型生物发现 DPO 重训显著恢复 MMLU 与 MT-Bench；在临床偏见模型生物套件中，DPO 结合向基座模型合并取得最高综合验证分，且验证表现与下游审计恢复率呈强相关。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出模型仅在开源医学 QA 基准上训练，可能未反映真实临床决策复杂度；验证指标与可审计性的关系为相关性而非因果性；指标存在古德哈特定律风险。实验仅覆盖 3 种单模型架构与所选基准。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.10203"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.10203",
       "aisafetyhot": "https://aisafetyhot.com/items/i0wx31yi6ng9mdlxvrn75nw4d"
@@ -868,6 +910,24 @@
     "publishedAt": "2026-10-06T20:00:00.000Z",
     "timelineAt": "2026-10-08T01:54:32.931Z",
     "discoveredAt": "2026-10-08T01:54:32.931Z"
+  },
+  {
+    "arxivId": "2610.06339",
+    "title": "BabelFake: A Multilingual Audio-Visual DeepFake Benchmark",
+    "titleZh": "BabelFake 发布多语言音视频深伪基准，含 39.9 万片段",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "BabelFake 是一个多语言音视频深伪基准，包含 399k 个片段、共 1,323 小时，由 496 名知情同意的参与者提供素材，覆盖英语、德语、意大利语、法语和西班牙语五种语言。其生成管线组合 11 种视频篡改方法与 4 种声音克隆引擎，并区分只改画面的换脸和音画同改的唇形同步、肖像动画，引用了 Deep-Live-Cam、FaceFusion、Resemble Chatterbox 等开源工具。结果显示检测难度取决于音视频生成的组合，保留真实音频时检测器性能明显下降；跨语言和人口学评测中敏感度随检测器架构与训练数据而异，人类判断的逼真程度与机器检出难度并不一致。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.06339",
+      "aisafetyhot": "https://aisafetyhot.com/items/isyubddcw8w873ychxlqj3sav"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T08:34:03.815Z",
+    "discoveredAt": "2026-10-08T08:34:03.815Z"
   },
   {
     "arxivId": "2609.01491",
@@ -1453,6 +1513,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T05:41:38.668Z",
     "discoveredAt": "2026-10-08T05:41:38.668Z"
+  },
+  {
+    "arxivId": "2610.10000",
+    "title": "Beyond Reward Suppression: Near-Optimal Offline Attacks on Warm-Start Bandits with Bounded Rewards",
+    "titleZh": "论文提出针对预热式 bandit 的抬目标离线投毒攻击",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文研究推荐系统上线前用历史物品-反馈数据预热 bandit 的场景，攻击者只能向这段预热历史注入合法范围内的动作-奖励对，上线后不再干预。作者指出现实操纵如虚假评论往往是直接抬高目标商品，而非以往攻击常用的压低非目标选项奖励。论文证明当目标选项真实奖励接近下界时，任何达到最优代价量级、又能让 UCB 几乎每轮选中目标的攻击，都必须把不可忽略的一部分代价用于抬高目标，并给出达到最优次线性代价的攻击，刻画抬目标与压竞品的代价分配。该攻击可推广到 Thompson Sampling、ε-greedy 等更大一类 bandit 算法，作者称在真实与合成数据上验证有效。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.10000",
+      "aisafetyhot": "https://aisafetyhot.com/items/rjz5cuulm09xxdmseji82hw1q"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T08:33:56.334Z",
+    "discoveredAt": "2026-10-08T08:33:56.334Z"
   },
   {
     "arxivId": "2610.08887",
