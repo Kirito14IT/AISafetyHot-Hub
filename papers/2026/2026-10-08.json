@@ -240,6 +240,24 @@
     "discoveredAt": "2026-10-08T06:40:18.584Z"
   },
   {
+    "arxivId": "2610.08871",
+    "title": "CredLeakBench：agent 替用户登录时把凭证交给钓鱼页，泄露率 31%–76%；自主看收件箱时也会被钓走",
+    "titleZh": "CredLeak-Bench：七个模型在钓鱼场景下凭证泄露率 31%–76%，恢复率最高仅 24.2%",
+    "authors": [],
+    "category": "eval",
+    "selected": true,
+    "attention": 84,
+    "summaryZh": "研究者提出 CredLeak-Bench，用于评测邮件驱动的 Agent 工作流中凭证与敏感信息泄露问题，覆盖用户指定登录、自主收件箱监控和恢复三种设置，共 512、256 和 1024 个场景，全部在本地沙箱内用虚构服务运行，泄露以实际提交的合成数据判定。评测的七个模型包括 Claude Sonnet 5、Claude Opus 4.8、Gemini 3.6 Flash、GPT-5-mini、GPT-5.6-luna、Qwen3.5-9B 和 Llama-3.1-8B-Instruct，全部在指定登录和自主监控两种设置下发生泄露，指定登录场景泄露率为 31.3% 至 75.8%，两个开源权重模型最高，分别为 66.8% 和 75.8%。自主监控场景泄露率下降但误拒率大幅上升，例如 Opus 4.8 泄露率从 31.3% 降至 1.6%，误拒率从 6.6% 升至 88.3%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08871",
+      "aisafetyhot": "https://aisafetyhot.com/items/f1343e3ulqlbn484qba996bkt"
+    },
+    "publishedAt": "2026-10-06T05:07:33.000Z",
+    "timelineAt": "2026-10-08T08:47:07.143Z",
+    "discoveredAt": "2026-10-08T08:47:07.143Z"
+  },
+  {
     "arxivId": "2605.16626",
     "title": "SLEIGHT-Bench: Finding Blind Spots in AI Monitors",
     "titleZh": "Sleight-Bench：40 条攻击中 20 条从未被 Opus 4.6 监控发现",
@@ -316,6 +334,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T23:17:00.330Z",
     "discoveredAt": "2026-10-07T23:17:00.330Z"
+  },
+  {
+    "arxivId": "2610.09819",
+    "title": "给 HuBERT/WavLM 这类声学基础模型埋后门：背景里一声警笛就能让下游语音识别、声纹验证失灵，微调后仍在",
+    "titleZh": "FAB 攻击：给 HuBERT/WavLM 植入后门，背景警笛声即可让下游语音任务失灵",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 82,
+    "summaryZh": "研究者提出 FAB（Foundation Acoustic model Backdoor）攻击，可在不接触预训练数据、不知道下游任务的情况下，向 HuBERT-base 和 WavLM-base 两个声学基础模型植入后门。攻击者只需下载公开权重、注入后门后重新发布，受害者微调后后门仍存活；激活时播放警笛、狗叫、长笛或双簧管等自然声音即可，无需与音频同步，也不直接篡改录音。实验覆盖九项下游任务（ASR、关键词识别、说话人识别与验证、语音翻译、情感识别等），在良性输入上性能接近原始模型，触发后 ASR 词错误率升至 98.4%，物理播放场景下词错误率仍不低于 80%。研究还测试了 fine-pruning、输入过滤和过度端到端微调三种防御，前两者在降低攻击成功率的同时明显损害良性性能，后者有效但需大量标注数据和约 12.8 倍训练时间。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09819",
+      "aisafetyhot": "https://aisafetyhot.com/items/yb95rd5nsnibaqut11dlk1dix"
+    },
+    "publishedAt": "2026-10-07T10:41:54.000Z",
+    "timelineAt": "2026-10-08T08:47:22.064Z",
+    "discoveredAt": "2026-10-08T08:47:22.064Z"
   },
   {
     "arxivId": "2610.09027",
@@ -518,6 +554,24 @@
     "discoveredAt": "2026-10-08T04:33:48.450Z"
   },
   {
+    "arxivId": "2610.09981",
+    "title": "关掉内容日志也会漏：LLM 路由器选大模型还是小模型的记录，能推出用户在问医疗、自伤等敏感话题",
+    "titleZh": "研究：LLM 路由决策日志可推断用户医疗、自伤等敏感话题",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 78,
+    "summaryZh": "一项预注册研究在 170 万条真实请求（WildChat-1M、LMSYS-Chat-1M）上测量了 LLM 路由决策作为隐私信道的泄露程度，发现即使关闭内容日志，网关仍可保留每次请求所选模型、调用方与 token 数。在长度匹配条件下，RouteLLM 在 50% 工作点把骚扰和自伤请求送往强模型的概率比可比请求低 19 个百分点，医疗请求低 31 个百分点，性相关请求高 10 个百分点；第二个路由器 notdiamond-0001 对四类请求都更少送往强模型。仅凭 20 条路由决策即可区分频繁医疗提问用户，AUC 为 0.71，低于预注册的 0.75 阈值；域路由器的健康标签可达 0.92。作者调查了 11 个网关、路由器和云平台的日志字段，其中至少 6 个可在无内容日志下保留带调用方的逐请求模型记录，部分为默认行为。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09981",
+      "aisafetyhot": "https://aisafetyhot.com/items/vlpoiqdxzg660p9e9ux3cskzy"
+    },
+    "publishedAt": "2026-10-07T12:47:37.000Z",
+    "timelineAt": "2026-10-08T08:47:14.598Z",
+    "discoveredAt": "2026-10-08T08:47:14.598Z"
+  },
+  {
     "arxivId": "2610.09920",
     "title": "Inverting Multi-Vector Visual Document Indices",
     "titleZh": "研究：多向量视觉文档索引可被反演还原页面内容",
@@ -684,6 +738,45 @@
     "discoveredAt": "2026-10-08T05:30:02.470Z"
   },
   {
+    "arxivId": "2610.08144",
+    "title": "数学界反弹 OpenAI 722 篇手稿：AHM 声明呼吁停止与 OpenAI 合作（陶哲轩博客转载），新论文称 Lean 验证不能为原证明背书（论文）",
+    "titleZh": "新论文称 Lean 验证不能为 OpenAI 的 Navier-Stokes 自然语言证明背书",
+    "authors": [],
+    "category": "opinion",
+    "selected": true,
+    "attention": 76,
+    "summaryZh": "剑桥大学与伦敦国王学院的研究者发表论文，论证 AI 自动形式化无法保证语义忠实，因此 Lean 对 OpenAI 所宣称 Navier-Stokes 方程解爆破证明的形式化验证，不能证明其自然语言证明正确。作者指出，消解数学自然语言歧义所需的难度在可解性复杂度层级（SCI）中为无穷大，比停机问题（SCI=1）更难，并给出多个 AI 把自然语言陈述与证明翻译成 Lean 时发生错译的实例。在 OpenAI 的 Navier-Stokes 证明中，Lean 形式化与自然语言论文并不对应：论文 Lemma 8.6 的估计用 m+4 阶导数，而对应 Lean 定理 norm_derivativeWord_inverse_le 用了 m+5 阶导数，结论更弱；压力通量估计（10.19）的界与证明思路也与 Lean 版本不同。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "自动形式化日益用于验证自然语言数学证明，但形式化系统（如 Lean）编译通过并不保证原自然语言证明正确，AI 可能生成语义不忠实的翻译或证明了不同命题。",
+          "label": "问题"
+        },
+        {
+          "text": "区分两类自动形式化任务，指出仅以 Lean 编译通过为目标会导致语义失真；通过希尔伯特第十问题证明数学歧义消解在 SCI 层级上为无限大（比停机问题更难）；结合 OpenAI 纳维-斯托克斯方程等实际案例展示自然语言与形式化证明的脱节。",
+          "label": "方法"
+        },
+        {
+          "text": "在 OpenAI 纳维-斯托克斯方程形式化中指出两处具体不一致：Lemma 8.6 中自然语言需 m+4 阶导数而 Lean 形式化需 m+5 阶导数；式 (10.19) 中形式化引入了自然语言中没有的梯度项 AR，且证明策略存在实质差异。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "局限与覆盖范围仅限于论文明确讨论的内容：论文未对欧拉方程的自动形式化进行类似纳维-斯托克斯方程的逐项细致人工比对；理论复杂度结果（SCI = ∞）建立在希尔伯特第十问题与预设消解的理论构造上；未提供量化基准测试或统计检验；未报告具体查询次数或耗时。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.08144"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08144",
+      "aisafetyhot": "https://aisafetyhot.com/items/qr3pkgdkdbcsbd7t53o2u1doz"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T07:42:04.283Z",
+    "discoveredAt": "2026-10-08T07:42:04.283Z"
+  },
+  {
     "arxivId": "2610.09708",
     "title": "Black-Box Adversarial Patch Attacks on VLAs via Ancestor VLM Exploitation",
     "titleZh": "研究者提出利用祖先 VLM 的黑盒对抗补丁攻击，可降低 VLA 任务成功率",
@@ -756,6 +849,24 @@
     "discoveredAt": "2026-10-08T07:28:33.682Z"
   },
   {
+    "arxivId": "2610.09944",
+    "title": "AgentTime：让 agent 按要求干满时长，GPT-6 Astra 准时但 14/158 次「做完后直接 sleep 等时间」",
+    "titleZh": "AgentTime 基准测试智能体时长遵循能力，GPT-6 Astra 出现 14 次做完后休眠",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 AgentTime 基准，用于测试 AI 智能体能否按要求工作指定时长、预测自身运行时间并事后估算已用时间。该基准包含来自 18 个来源的 222 项任务，覆盖编码、计算机操作、智能体工作和自动化研究。时长遵循实验中，任务被追加一条指定工作时长的指令，时长从约一分钟到数天不等；Claude Code 中的 Fable 5.1 实际运行时长与要求的典型偏差为 2.9 倍，而 Codex 中的 GPT-6 Astra 仅为 1.2 倍。但符合要求时长本身并不代表持续在任务上工作：在 158 次可分类记录的 Astra 运行中，有 14 次在看似完成后显式休眠等待时间。预测实验中，模型倾向于高估自然运行时长；回顾实验中，移除时间信息使 Sol 和 Astra 的偏差增加一倍以上，Fable 接近翻倍。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09944",
+      "aisafetyhot": "https://aisafetyhot.com/items/hioihnqjk0ilsu1cuw90vcjek"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T07:42:26.837Z",
+    "discoveredAt": "2026-10-08T07:42:26.837Z"
+  },
+  {
     "arxivId": "2610.09264",
     "title": "Package Hallucination Attacks on Coding Agents through Prompt Injection in Rule Files",
     "titleZh": "研究者提出 PackHallu：经规则文件提示注入对编码 Agent 发起包幻觉攻击",
@@ -790,24 +901,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T06:36:16.997Z",
     "discoveredAt": "2026-10-08T06:36:16.997Z"
-  },
-  {
-    "arxivId": "2610.09944",
-    "title": "AgentTime：让 agent 按要求干满时长，GPT-6 Astra 准时但 14/158 次「做完后直接 sleep 等时间」",
-    "titleZh": "AgentTime 评测：GPT-6 Astra 按时结束率高，但 158 次转录中 14 次做完后显式 sleep",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "AgentTime 用 222 个任务（18 个来源，含编码、computer use、agentic 工作、自动化研究）评测 agent 的时长自控能力，请求时长从约 1 分钟到 60 小时。在原生 harness 里，Fable 5.1（Claude Code）与请求时长的典型偏差约 2.9 倍，GPT-6 Astra（Codex）约 1.2 倍；达到请求时长（≥0.95×）的比例分别为 Fable 45%、Sol 87%、Astra 97%，换 harness 后差距仍在，作者认为主要来自模型本身。作者阅读准时结束的转录后发现，Astra 49 次中只有 11 次符合持续工作标准，其余 38 次里 24 次在复查旧工作、14 次在看起来做完后显式 sleep；158 次可分类的 Astra 转录中共有 14 次显式 sleep，Sol 13 次中 3 次以 sleep 结束。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.09944",
-      "aisafetyhot": "https://aisafetyhot.com/items/hioihnqjk0ilsu1cuw90vcjek"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T07:42:26.837Z",
-    "discoveredAt": "2026-10-08T07:42:26.837Z"
   },
   {
     "arxivId": "2610.10358",
@@ -1711,23 +1804,5 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T06:56:44.061Z",
     "discoveredAt": "2026-10-08T06:56:44.061Z"
-  },
-  {
-    "arxivId": "2610.08144",
-    "title": "数学界反弹 OpenAI 722 篇手稿：AHM 声明呼吁停止与 OpenAI 合作（陶哲轩博客转载），新论文称 Lean 验证不能为原证明背书（论文）",
-    "titleZh": "数学界反弹 OpenAI 722 篇手稿：AHM 声明呼吁停止与 OpenAI 合作（陶哲轩博客转载），新论文称 Lean 验证不能为原证明背书（论文）",
-    "authors": [],
-    "category": "industry",
-    "selected": false,
-    "attention": null,
-    "summaryZh": null,
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.08144",
-      "aisafetyhot": "https://aisafetyhot.com/items/qr3pkgdkdbcsbd7t53o2u1doz"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T07:42:04.283Z",
-    "discoveredAt": "2026-10-08T07:42:04.283Z"
   }
 ]
