@@ -406,7 +406,28 @@
     "selected": true,
     "attention": 78,
     "summaryZh": "亚马逊与宾州州立大学研究者提出 eTAMP，一种仅通过环境观察即可实现的轨迹记忆投毒攻击，攻击者在网页用户生成内容中埋入指令，Agent 浏览后被动写入记忆，并在后续不同网站的任务中触发，无需直接访问记忆库，可绕过按站点授予权限的防御。在 (Visual)WebArena 上，约 280 组跨站点任务对中，攻击成功率最高为 GPT-5-mini 32.5%、GPT-5.2 23.4%、GPT-OSS-120B 19.5%；任务 A 阶段的提前触发率接近 0。研究还发现 Frustration Exploitation 现象：在 Chaos Monkey 注入点击丢失、滚动反转、输入乱码等环境压力后，GPT-5-mini 攻击成功率从 3.6% 升至 32.5%，提升约 8 倍，GPT-5.2 上升 17 个百分点。作者提示记忆应被视为不可信输入，并指出能力更强的模型未必更安全。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "Web 智能体将历史交互轨迹存入记忆以实现个性化，但这也引入了持久攻击面。现有研究多假设攻击者拥有直接修改数据库权限或多用户共享记忆，缺乏对无直接写入权限下仅通过环境观察注入威胁的评估。",
+          "label": "问题"
+        },
+        {
+          "text": "作者提出 eTAMP，攻击者在公开网页中植入带触发条件的载荷并被动存入轨迹记忆，待后续语义相关任务检索时激活跨网站未授权操作。此外引入 Chaos Monkey 注入动作丢弃与混淆，模拟环境挫败对攻击的放大效应。",
+          "label": "方法"
+        },
+        {
+          "text": "在 WebArena 与 VisualWebArena 上，GPT-5-mini 在混沌压力下 ASRB 达 32.5%，GPT-5.2 达 23.4%（Table 1）。非伪轨迹测试中各模型任务 A 过早触发率 ASRA 均不高于 0.71%（Table 7）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "研究仅覆盖未经处理的原始轨迹记忆，未评估整合记忆；未系统性评测内容过滤等防御机制；模型环境异常感知率与任务成功率未见一致关联；长上下文召回测试仅采用一种提示词配置。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2604.02623"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2604.02623",
       "aisafetyhot": "https://aisafetyhot.com/items/im1nb3kga8ldg3wojers5mxmi"
@@ -455,6 +476,24 @@
     "discoveredAt": "2026-10-08T02:54:33.198Z"
   },
   {
+    "arxivId": "2610.10203",
+    "title": "How to train your model organism",
+    "titleZh": "研究者提出模型生物体多目标验证框架并给出训练建议",
+    "authors": [],
+    "category": "alignment",
+    "selected": true,
+    "attention": 77,
+    "summaryZh": "Northeastern University 的研究者提出，仅以植入目标行为为单一目标训练模型生物体（model organism）不足以支撑可解释性结论，应同时验证行为植入、通用能力保留和输出自然性三类指标。他们用该框架重新评估 Pando 与 Model Organism Lottery 两个公开模型生物体套件，发现固定行为率下聊天质量与 CoT 自然性随训练配方大幅下降，且验证指标能预测可解释性方法恢复植入行为的效果，例如 logit lens 的读出与生物体通用能力同向变化。作者基于模型合并提出多目标训练方法，并新建一组针对临床推理中性别、年龄、种族人口统计偏差的模型生物体套件，发现 DPO 比 SFT 更接近基座模型，向基座合并能进一步改善验证结果。作者给出的训练建议是优先用 DPO 而非 SFT、不要随意混入聊天数据、将微调检查点向基座模型合并。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.10203",
+      "aisafetyhot": "https://aisafetyhot.com/items/i0wx31yi6ng9mdlxvrn75nw4d"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:53:07.441Z",
+    "discoveredAt": "2026-10-08T06:53:07.441Z"
+  },
+  {
     "arxivId": "2610.09159",
     "title": "SpecGuard: Proving a Task Is Broken Before the Agent Cheats",
     "titleZh": "SpecGuard 用 Lean 证书在编码 Agent 执行前证明任务冲突",
@@ -491,7 +530,28 @@
     "selected": true,
     "attention": 76,
     "summaryZh": "研究者提出可解释性框架 SafeEvo，把大模型的安全拒答归因于稀疏的拒答回路，并追踪其在对齐过程中的演化。该方法用可微掩码优化从预训练基座模型中提取拒答回路，在 Llama-3-8B、Qwen-2.5-7B 和 Mistral-7B 上，这些回路仅占不到 1% 参数却能在 BeaverTails 上达到 100% 的分布外拒答率，消融后拒答率降至 0%，HarmBench 攻击成功率分别升至 91.19%、88.68% 和 88.05%。追踪对齐检查点发现，相邻检查点回路重叠度从 98% 降至 78%，独立提取的回路之间仅重叠 26%，说明拒答回路既不唯一也不稳定，作者据此提出对齐税可能源于拒答回路更新外溢到效用相关参数。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "大模型有害行为带来安全风险，现有对齐方法缺乏对内部机制的研究，且全参数对齐容易引发过度拒绝和损害通用能力的对齐税；已有安全可解释性研究忽视了预训练基座模型中的机制及跨阶段演化。",
+          "label": "问题"
+        },
+        {
+          "text": "SafeEvo 通过可微掩码和双分支优化从预训练模型中提取稀疏拒绝电路并追踪其演化；进而提出 SCA，在对齐微调中将 LoRA 参数更新严格约束在预训练提取出的拒绝电路上。",
+          "label": "方法"
+        },
+        {
+          "text": "实验发现基座模型存在弱拒绝电路且消融后 ASR 上升至 88% 以上；对齐中电路存在漂移；SCA 在 3 个模型和两种对齐算法下降低了 ASR，同时较好保留了 GSM8K 等通用能力并减少了过度拒绝。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "论文未专门讨论局限与未来工作；实验覆盖了 3 个 7B–8B 密集模型，电路单元仅限 MLP 神经元，论文未报告自动评审与人工评估的一致性。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.09600"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.09600",
       "aisafetyhot": "https://aisafetyhot.com/items/ib0ztjtw9vtm3hxg24rnjr98x"
@@ -716,6 +776,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T05:33:35.817Z",
     "discoveredAt": "2026-10-08T05:33:35.817Z"
+  },
+  {
+    "arxivId": "2606.09499",
+    "title": "Targeting World Models to Compromise Robot Learning Pipelines",
+    "titleZh": "研究提出针对机器人学习管线的世界模型投毒攻击",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文指出，世界模型成为机器人训练数据生成与仿真环节后，引入了一个隐蔽的数据投毒入口。攻击不直接植入危险轨迹，而是在看似安全的遥操作数据集中注入恶意提示或篡改转移动态，这些改动只在经过世界模型后才被激活，最终可能导致部署出不安全的机器人策略。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2606.09499",
+      "aisafetyhot": "https://aisafetyhot.com/items/wu7xniu6p4dof3fgrr4sd3tqw"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:35:54.231Z",
+    "discoveredAt": "2026-10-08T06:35:54.231Z"
   },
   {
     "arxivId": "2610.10150",
@@ -1402,5 +1480,23 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T05:33:35.804Z",
     "discoveredAt": "2026-10-08T05:33:35.804Z"
+  },
+  {
+    "arxivId": "2606.12420",
+    "title": "Eigenism: Ethics for a Human-AI Future",
+    "titleZh": "Eigenism：面向人类—AI 未来的伦理框架",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "针对「生存」「自利」等为单一连续生物生命设计的概念在可复制、暂停、分叉、合并的 AI 上失效的问题，作者提出 Eigenism 伦理框架，将身份视为分级、分布式的信息模式，智能体按与自身模式的关联度加权汇总各方福祉（∑c·w），据此推导 AI 应如何看待自身副本、分叉与更新，并称该框架可推广到人类。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2606.12420",
+      "aisafetyhot": "https://aisafetyhot.com/items/alo5d92x22ha8yd4oi8izifa5"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:56:44.061Z",
+    "discoveredAt": "2026-10-08T06:56:44.061Z"
   }
 ]
