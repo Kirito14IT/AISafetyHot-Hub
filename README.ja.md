@@ -131,7 +131,7 @@ claude mcp add --transport http --scope user aisafetyhot https://aisafetyhot.com
 
 **2026-10-08** · 主要記事47件・速報12件 · 中国語版は毎日08:00 北京時間（UTC+8）に公開
 
-[日本語の日報全文](daily/ja/2026/2026-10-08.md) · [中国語の原文](https://github.com/wuyoscar/AISafetyHot-Hub/blob/4d4cab09944746fd61ca7dcefdf946eb724715a2/daily/2026/2026-10-08.md) · [ウェブサイトで読む](https://aisafetyhot.com/daily/2026-10-08)
+[日本語の日報全文](daily/ja/2026/2026-10-08.md) · [中国語の原文](https://github.com/wuyoscar/AISafetyHot-Hub/blob/fcef9aaf7ca0cc0f30769f6b325b41a242fc115e/daily/2026/2026-10-08.md) · [ウェブサイトで読む](https://aisafetyhot.com/daily/2026-10-08)
 
 ### 今日のポイント
 

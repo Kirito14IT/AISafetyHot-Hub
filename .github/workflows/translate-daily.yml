@@ -63,9 +63,11 @@ jobs:
           python - <<'PY'
           import os
           import subprocess
-          changed = set(subprocess.check_output(
-              ['git', 'diff-tree', '--root', '--no-commit-id', '--name-only', '-r', '-m', 'HEAD'],
-              text=True).splitlines())
+          parent = subprocess.run(['git', 'rev-parse', '--verify', 'HEAD^1'],
+                                  stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+          diff = (['git', 'diff', '--name-only', 'HEAD^1', 'HEAD'] if parent.returncode == 0 else
+                  ['git', 'diff-tree', '--root', '--no-commit-id', '--name-only', '-r', 'HEAD'])
+          changed = set(subprocess.check_output(diff, text=True).splitlines())
           inference = {'scripts/translate_daily.py', 'scripts/run_translation_workflow.py', 'scripts/smoke_translation.py'}
           with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
               output.write('changed=' + str(bool(changed & inference)).lower() + '\n')

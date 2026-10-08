@@ -131,7 +131,7 @@ Translations are published separately from the Chinese edition. See the [transla
 
 **2026-10-08** · 47 main items · 12 quick updates · Chinese edition: daily at 08:00 Beijing time (UTC+8)
 
-[Full English digest](daily/en/2026/2026-10-08.md) · [Chinese source](https://github.com/wuyoscar/AISafetyHot-Hub/blob/4d4cab09944746fd61ca7dcefdf946eb724715a2/daily/2026/2026-10-08.md) · [Read on the website](https://aisafetyhot.com/daily/2026-10-08)
+[Full English digest](daily/en/2026/2026-10-08.md) · [Chinese source](https://github.com/wuyoscar/AISafetyHot-Hub/blob/fcef9aaf7ca0cc0f30769f6b325b41a242fc115e/daily/2026/2026-10-08.md) · [Read on the website](https://aisafetyhot.com/daily/2026-10-08)
 
 ### Today's briefing
 
