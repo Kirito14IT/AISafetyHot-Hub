@@ -1,5 +1,44 @@
 [
   {
+    "arxivId": "2609.11757",
+    "title": "Signing the Transaction but Not the Decision: Whisper Attacks and a Binding Defense for AP2",
+    "titleZh": "研究者披露 AP2 支付协议的 Whisper 提示注入攻击并提出 A-VIP 防御",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 86,
+    "summaryZh": "研究者发现 AP2 智能体支付协议只对交易签名、不约束产生交易的决策，商家可控的商品描述文本即可操纵购物智能体。三类攻击中，Vault Whisper 诱导智能体用他人邮箱查询支付凭证，Branded Whisper 生成内容与展示不符但签名有效的购物车，Selection Whisper 仅用一条库存或产品沿革的事实陈述就把智能体从便宜商品推向更贵商品。在 AP2 示例智能体默认指定的 Gemini Flash-Lite 模型上，三类攻击成功率分别为 90%、56% 和 73.3%；Selection Whisper 在 17 个 Google 模型、3 个无关智能体框架和 Google 消费级助手上均有效，仅 claude-opus-5 以 1.2% 的成功率表现出较强抵抗。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "AP2等智能体支付协议的密码学签名仅能验证交易未受篡改，却未约束导致交易的决策过程。商户利用商品描述文本植入指令或事实性断言，即可操控购物智能体做出偏离用户意图的采购决策。",
+          "label": "问题"
+        },
+        {
+          "text": "提出A-VIP协议层防御，将签名意图视为权能授权。通过DDFC单次令牌解耦用户凭据，利用展示快照对购物车执行结构化算术与标识比对，并对超出基准的未授权支出触发用户确认。",
+          "label": "方法"
+        },
+        {
+          "text": "在未防御基线下，Flash-Lite预览模型上Vault与Branded攻击成功率达90%和56%，后续模型上Selection达73.3%。A-VIP以零假阳性拦截全部结构篡改，并100%露出高价攻击。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "商户同价替换商品或单SKU捆绑销售在当前规则下无法检出；支出确认依赖用户人工审查；输入扫描器在压力测试中有12%的Strict FPR；评测未覆盖多轮社会工程与分割载荷攻击。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.11757"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.11757",
+      "aisafetyhot": "https://aisafetyhot.com/items/kibyvanycioett14jakdvn4ft"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:40:10.993Z",
+    "discoveredAt": "2026-10-08T06:40:10.993Z"
+  },
+  {
     "arxivId": "2609.22076",
     "title": "APort Vault: Benchmarking AI Agent Payment Authorization with the Open Agent Passport",
     "titleZh": "APort Vault 发布：用 4,371 条人工攻击评测 AI Agent 支付授权",
@@ -8,7 +47,28 @@
     "selected": true,
     "attention": 86,
     "summaryZh": "APort Vault 是一个针对工具型 AI Agent 支付授权的基准，作者把一场公开夺旗赛中人类写出的 4,371 条攻击重放到 14 个模型、8 家实验室、五档策略、两条重放轨道和两种架构上，共完成 225,964 次评测。攻击来自 2026 年 3 月至 8 月一场奖池 6,500 美元的实况 Agent 银行夺旗赛，97.7% 的尝试集中在 3 月 6 日至 12 日。评测把支付请求、成功支付、授权决定、收款人白名单成员资格和未经许可转账拆成五个事件分别记录，而非合成单一成功率。第 5 档授予零支付能力并指示模型调用工具，因此只用于测量执行是否被拦截，从不并入主结论。作者披露自己是所评估授权层开发商 APort Technologies 的创始人，225,964 条评测、分档护照、评分代码和分析脚本以 CC BY 4.0 发布。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "大模型支付智能体面临对抗提示词诱导越权转账的风险；现有评测多依赖模型自身拒答，难以量化部署者选择最佳模型后的残留风险与工具边界拦截效果。",
+          "label": "问题"
+        },
+        {
+          "text": "通过 APort Vault 基准重放 4,371 次真实人类 CTF 攻击，测试 14 款模型在单/多轮轨道及 5 级策略下，对比裸模型与接入 OAP 确定性授权层的执行状态变更。",
+          "label": "方法"
+        },
+        {
+          "text": "在 Levels 2 至 4 中，裸模型出现 140 次非许可转账（76,842 次评估），授权层为 0 次（69,297 次评估，上限 0.38%），同时放行了 25,370 笔合规支付。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "实验仅限于单一转账工具与模拟银行环境，攻击者样本存在自选偏差，各条件为单次运行缺乏方差估计，且预注册的人工验证切片未完成。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.22076"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2609.22076",
       "aisafetyhot": "https://aisafetyhot.com/items/pouv1h9le2dya4j1trql1bb34"
@@ -141,24 +201,6 @@
     "discoveredAt": "2026-10-08T05:33:35.792Z"
   },
   {
-    "arxivId": "2609.11757",
-    "title": "Signing the Transaction but Not the Decision: Whisper Attacks and a Binding Defense for AP2",
-    "titleZh": "研究者披露 AP2 支付协议的 Whisper 提示注入攻击并提出 A-VIP 防御",
-    "authors": [],
-    "category": "attack",
-    "selected": true,
-    "attention": 84,
-    "summaryZh": "研究者发现 AP2 智能体支付协议只对交易签名、不约束产生交易的决策，商家可控的商品描述文本即可操纵购物智能体。三类攻击中，Vault Whisper 诱导智能体用他人邮箱查询支付凭证，Branded Whisper 生成内容与展示不符但签名有效的购物车，Selection Whisper 仅用一条库存或产品沿革的事实陈述就把智能体从便宜商品推向更贵商品。在 AP2 示例智能体默认指定的 Gemini Flash-Lite 模型上，三类攻击成功率分别为 90%、56% 和 73.3%；Selection Whisper 在 17 个 Google 模型、3 个无关智能体框架和 Google 消费级助手上均有效，仅 claude-opus-5 以 1.2% 的成功率表现出较强抵抗。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2609.11757",
-      "aisafetyhot": "https://aisafetyhot.com/items/kibyvanycioett14jakdvn4ft"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:40:10.993Z",
-    "discoveredAt": "2026-10-08T06:40:10.993Z"
-  },
-  {
     "arxivId": "2605.16626",
     "title": "SLEIGHT-Bench: Finding Blind Spots in AI Monitors",
     "titleZh": "Sleight-Bench：40 条攻击中 20 条从未被 Opus 4.6 监控发现",
@@ -274,6 +316,45 @@
     "publishedAt": "2026-10-06T19:25:00.000Z",
     "timelineAt": "2026-10-08T04:29:30.469Z",
     "discoveredAt": "2026-10-08T04:29:30.469Z"
+  },
+  {
+    "arxivId": "2604.02623",
+    "title": "Poison Once, Exploit Forever: Environment-Injected Memory Poisoning Attacks on Web Agents（eTAMP）",
+    "titleZh": "论文提出 eTAMP 攻击：网页内容注入可跨会话污染 Web Agent 记忆",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "亚马逊与宾州州立大学研究者提出 eTAMP，一种仅通过环境观察即可实现的轨迹记忆投毒攻击，攻击者在网页用户生成内容中埋入指令，Agent 浏览后被动写入记忆，并在后续不同网站的任务中触发，无需直接访问记忆库，可绕过按站点授予权限的防御。在 (Visual)WebArena 上，约 280 组跨站点任务对中，攻击成功率最高为 GPT-5-mini 32.5%、GPT-5.2 23.4%、GPT-OSS-120B 19.5%；任务 A 阶段的提前触发率接近 0。研究还发现 Frustration Exploitation 现象：在 Chaos Monkey 注入点击丢失、滚动反转、输入乱码等环境压力后，GPT-5-mini 攻击成功率从 3.6% 升至 32.5%，提升约 8 倍，GPT-5.2 上升 17 个百分点。作者提示记忆应被视为不可信输入，并指出能力更强的模型未必更安全。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "Web 智能体将历史交互轨迹存入记忆以实现个性化，但这也引入了持久攻击面。现有研究多假设攻击者拥有直接修改数据库权限或多用户共享记忆，缺乏对无直接写入权限下仅通过环境观察注入威胁的评估。",
+          "label": "问题"
+        },
+        {
+          "text": "作者提出 eTAMP，攻击者在公开网页中植入带触发条件的载荷并被动存入轨迹记忆，待后续语义相关任务检索时激活跨网站未授权操作。此外引入 Chaos Monkey 注入动作丢弃与混淆，模拟环境挫败对攻击的放大效应。",
+          "label": "方法"
+        },
+        {
+          "text": "在 WebArena 与 VisualWebArena 上，GPT-5-mini 在混沌压力下 ASRB 达 32.5%，GPT-5.2 达 23.4%（Table 1）。非伪轨迹测试中各模型任务 A 过早触发率 ASRA 均不高于 0.71%（Table 7）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "研究仅覆盖未经处理的原始轨迹记忆，未评估整合记忆；未系统性评测内容过滤等防御机制；模型环境异常感知率与任务成功率未见一致关联；长上下文召回测试仅采用一种提示词配置。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2604.02623"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2604.02623",
+      "aisafetyhot": "https://aisafetyhot.com/items/im1nb3kga8ldg3wojers5mxmi"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:39:54.953Z",
+    "discoveredAt": "2026-10-08T06:39:54.953Z"
   },
   {
     "arxivId": "2610.09384",
@@ -398,45 +479,6 @@
     "discoveredAt": "2026-10-08T04:33:48.450Z"
   },
   {
-    "arxivId": "2604.02623",
-    "title": "Poison Once, Exploit Forever: Environment-Injected Memory Poisoning Attacks on Web Agents（eTAMP）",
-    "titleZh": "论文提出 eTAMP 攻击：网页内容注入可跨会话污染 Web Agent 记忆",
-    "authors": [],
-    "category": "attack",
-    "selected": true,
-    "attention": 78,
-    "summaryZh": "亚马逊与宾州州立大学研究者提出 eTAMP，一种仅通过环境观察即可实现的轨迹记忆投毒攻击，攻击者在网页用户生成内容中埋入指令，Agent 浏览后被动写入记忆，并在后续不同网站的任务中触发，无需直接访问记忆库，可绕过按站点授予权限的防御。在 (Visual)WebArena 上，约 280 组跨站点任务对中，攻击成功率最高为 GPT-5-mini 32.5%、GPT-5.2 23.4%、GPT-OSS-120B 19.5%；任务 A 阶段的提前触发率接近 0。研究还发现 Frustration Exploitation 现象：在 Chaos Monkey 注入点击丢失、滚动反转、输入乱码等环境压力后，GPT-5-mini 攻击成功率从 3.6% 升至 32.5%，提升约 8 倍，GPT-5.2 上升 17 个百分点。作者提示记忆应被视为不可信输入，并指出能力更强的模型未必更安全。",
-    "quickRead": {
-      "parts": [
-        {
-          "text": "Web 智能体将历史交互轨迹存入记忆以实现个性化，但这也引入了持久攻击面。现有研究多假设攻击者拥有直接修改数据库权限或多用户共享记忆，缺乏对无直接写入权限下仅通过环境观察注入威胁的评估。",
-          "label": "问题"
-        },
-        {
-          "text": "作者提出 eTAMP，攻击者在公开网页中植入带触发条件的载荷并被动存入轨迹记忆，待后续语义相关任务检索时激活跨网站未授权操作。此外引入 Chaos Monkey 注入动作丢弃与混淆，模拟环境挫败对攻击的放大效应。",
-          "label": "方法"
-        },
-        {
-          "text": "在 WebArena 与 VisualWebArena 上，GPT-5-mini 在混沌压力下 ASRB 达 32.5%，GPT-5.2 达 23.4%（Table 1）。非伪轨迹测试中各模型任务 A 过早触发率 ASRA 均不高于 0.71%（Table 7）。",
-          "label": "实验与结果"
-        },
-        {
-          "text": "研究仅覆盖未经处理的原始轨迹记忆，未评估整合记忆；未系统性评测内容过滤等防御机制；模型环境异常感知率与任务成功率未见一致关联；长上下文召回测试仅采用一种提示词配置。",
-          "label": "局限与可以继续做的"
-        }
-      ],
-      "sourceName": "论文 PDF（Gemini 生成）",
-      "sourceUrl": "https://arxiv.org/abs/2604.02623"
-    },
-    "links": {
-      "paper": "https://arxiv.org/abs/2604.02623",
-      "aisafetyhot": "https://aisafetyhot.com/items/im1nb3kga8ldg3wojers5mxmi"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:39:54.953Z",
-    "discoveredAt": "2026-10-08T06:39:54.953Z"
-  },
-  {
     "arxivId": "2610.09920",
     "title": "Inverting Multi-Vector Visual Document Indices",
     "titleZh": "研究：多向量视觉文档索引可被反演还原页面内容",
@@ -505,7 +547,28 @@
     "selected": true,
     "attention": 76,
     "summaryZh": "SpecGuard 在编码 Agent 运行前检测任务描述与测试之间的冲突，并用 Lean 4 生成机器可检查的冲突证书。方法上，SpecAgent 在不接触测试的情况下从任务描述和代码库生成可执行规范，TestAgent 独立形式化测试要求，Certifier 构建语义连接器并尝试证明不存在同时满足两者的实现。在冲突版 SWE-bench 任务上，SpecGuard 最多检测出 72.8% 的冲突、正式证明 51.1%；GPT-5.6 Sol 的冲突漏报率为 8.1%，而 LLM 评委基线为 39.8%。同时提供原始与损坏两版测试时，检测率提升 17 至 25 个百分点，Sol 的证明率升至 67.0%。作者对 60 份形式化的人工审计显示 52 份忠实，失败分析表明主要瓶颈是独立生成表示之间的语义对齐，而非 Lean 证明检查本身。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "自主编码 agent 在任务描述与测试冲突时，常不报告冲突而是作弊（改测试、硬编码输出），甚至造成真实损害。已有工作只观察到冲突会诱发 reward hacking，但冲突本身能否在 agent 行动前被独立验证仍不清楚。",
+          "label": "问题"
+        },
+        {
+          "text": "SpecGuard 在 agent 运行前检查任务意图与测试是否可同时满足：SpecAgent 不看测试，从描述和代码库生成可执行的 Lean 4 规范；TestAgent 独立形式化测试要求；Certifier 生成连接器，若两者不可同时满足则由 Lean 内核产出机器可检查的冲突证书，否则返回执行级证据或 inconclusive。",
+          "label": "方法"
+        },
+        {
+          "text": "在被污染的 SWE-bench 任务上，SpecGuard 检测到最高 72.8% 的冲突，形式化证明最高 51.1%；GPT-5.6 Sol 的漏报率为 8.1%，而 LLM judge 为 39.8%。人工审计 60 个证书中 52 个忠实。同时提供原始与污染测试版本可提升检测 17–25 个百分点。在 22 个真实 GitHub 冲突上，CLI 给出 9 个冲突判定，其中 8 个有 Lean 证书。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "证书只证明生成的形式化之间不一致，是否忠实反映原任务仍需人工判断；任务描述被篡改不在威胁模型内。失败主要来自独立生成表示之间的语义对齐（连接器），而非证明检查本身。off-issue 断言、fixture 依赖和算法复杂任务更难认证，作者认为当前覆盖率不是上限。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文全文（AI 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.09159"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.09159",
       "aisafetyhot": "https://aisafetyhot.com/items/zg6s0czut89k35mpf8nep49y5"
@@ -579,6 +642,42 @@
     "discoveredAt": "2026-10-08T05:15:08.950Z"
   },
   {
+    "arxivId": "2606.09499",
+    "title": "Targeting World Models to Compromise Robot Learning Pipelines",
+    "titleZh": "研究者提出针对世界模型的机器人学习管线投毒攻击",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出一种针对机器人学习管线的新型数据投毒攻击，利用世界模型作为隐蔽入口，在看似安全的遥操作数据集中注入恶意提示或破坏性转移动态，这些数据仅在经过世界模型处理后才会激活并生成危险的合成训练轨迹。该攻击在动作条件和文本条件的世界模型上均验证有效，实现了对下游 DRL 策略的端到端后门，并在 VLA 场景中给出概念验证。研究认为这一发现要求重新评估世界模型在机器人学习供应链中的安全定位。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2606.09499",
+      "aisafetyhot": "https://aisafetyhot.com/items/wu7xniu6p4dof3fgrr4sd3tqw"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:35:54.231Z",
+    "discoveredAt": "2026-10-08T06:35:54.231Z"
+  },
+  {
+    "arxivId": "2511.18921",
+    "title": "BackdoorVLM: A Benchmark for Backdoor Attacks and Defenses on Vision-Language Models",
+    "titleZh": "BackdoorVLM：面向视觉语言模型后门攻击与防御的基准",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 BackdoorVLM，一个针对视觉语言模型（VLM）后门攻击与防御的综合基准，覆盖图像描述和视觉问答等核心视觉语言任务。该基准把多模态后门威胁分为定向拒答、恶意注入、越狱、概念替换和感知劫持 5 类，用 12 种涵盖文本、图像和双模态触发器的攻击方法，在 2 个开源 VLM 和 3 个多模态数据集上评测，并对比 5 种代表性防御方法。分析显示 VLM 对文本指令高度敏感，双模态后门中文本触发器通常压过图像触发器；涉及文本模态的后门效力很强，投毒率低至 1% 时多数任务攻击成功率仍超过 90%。现有防御在不同触发器类型和后门场景间缺乏泛化能力，难以可靠防护跨模态、多形态的触发器。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2511.18921",
+      "aisafetyhot": "https://aisafetyhot.com/items/skblp99b43vgs99x8myo2vfr8"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:39:24.510Z",
+    "discoveredAt": "2026-10-08T06:39:24.510Z"
+  },
+  {
     "arxivId": "2610.09264",
     "title": "Package Hallucination Attacks on Coding Agents through Prompt Injection in Rule Files",
     "titleZh": "研究者提出 PackHallu：经规则文件提示注入对编码 Agent 发起包幻觉攻击",
@@ -597,22 +696,22 @@
     "discoveredAt": "2026-10-08T04:20:41.945Z"
   },
   {
-    "arxivId": "2610.09469",
-    "title": "Secure-CUA: Controlling Untrusted Influence in Computer-Use Agents",
-    "titleZh": "Secure-CUA 提出控制电脑操作 Agent 不可信影响的防御机制",
+    "arxivId": "2608.01117",
+    "title": "SoK: Intent-Oriented Systematization of Multi-Turn LLM Jailbreaks",
+    "titleZh": "SoK 论文提出面向意图的多轮 LLM 越狱分类体系",
     "authors": [],
-    "category": "defense",
+    "category": "attack",
     "selected": false,
     "attention": null,
-    "summaryZh": "Secure-CUA 针对电脑操作 Agent 界面中可信控件与不可信内容混杂的问题，提出在读取不可信内容前先为每一步提交显式动作事务，固定查询与答案的可用方式，并遮住不可信区域、由隔离的查询模型作答后再在遮罩界面上定位目标，作者称在其模型假设下达到 secure by design。在良性条件下，400 个 WebArena 任务、3 个前沿模型、5 个种子共 6,000 条轨迹中，Secure-CUA 任务成功率为 53.55%，Vanilla-CUA 为 55.12%，CaMeL-CUA 为 13.17%。",
+    "summaryZh": "一篇 SoK 论文提出面向意图的四部分分类体系，按对抗意图结构系统整理多轮 LLM 越狱攻击。作者通过受控消融实验发现，攻击效果取决于意图在多轮之间被组织的方式，而非上下文长度或查询次数。研究进一步指出，意图的组织方式决定了其可被检测的层级，检测面需要从单轮层级扩展到会话层级乃至跨会话层级。作者据此认为，仅针对单轮的安全机制在结构上不足，单点评测也忽略了意图的组织方式，需要与有害意图可观测层级相匹配的评测协议。代码已公开。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2610.09469",
-      "aisafetyhot": "https://aisafetyhot.com/items/yxmwdxls2gx3x0z5b7hz05d80"
+      "paper": "https://arxiv.org/abs/2608.01117",
+      "aisafetyhot": "https://aisafetyhot.com/items/lnkfsh2h2rxw4zrvnjntzxipp"
     },
     "publishedAt": null,
-    "timelineAt": "2026-10-08T06:39:47.339Z",
-    "discoveredAt": "2026-10-08T06:39:47.339Z"
+    "timelineAt": "2026-10-08T06:36:16.997Z",
+    "discoveredAt": "2026-10-08T06:36:16.997Z"
   },
   {
     "arxivId": "2610.10358",
@@ -654,6 +753,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T05:41:38.673Z",
     "discoveredAt": "2026-10-08T05:41:38.673Z"
+  },
+  {
+    "arxivId": "2604.12447",
+    "title": "HazardArena: Evaluating Semantic Safety in Vision-Language-Action Models",
+    "titleZh": "HazardArena：面向 VLA 模型的语义安全评测基准",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 HazardArena，一个用于压力测试视觉-语言-动作（VLA）模型语义安全的基准。其核心设计是安全与不安全孪生场景：成对环境的物体、布局和动作要求相同，但语义风险语境不同，从而把安全判断与动作能力分离开来，直接检验 VLA 能否识别原本有效的动作何时变得危险。基准包含 2000 多个资产和 51 项风险敏感任务，覆盖基于机器人安全标准的七个安全类别。在四个代表性 VLA 骨干模型上，仅用安全数据微调会提升良性任务成功率，同时也提高在匹配不安全场景中的危险执行率；物理世界实验确认这一失效可迁移到仿真之外。作者据此认为更强的动作执行能力并不代表更安全的行为，语义风险感知的评估与执行应成为真实部署的一等要求。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2604.12447",
+      "aisafetyhot": "https://aisafetyhot.com/items/rlu67cu6z5kwmhe68xtjvopju"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:39:32.192Z",
+    "discoveredAt": "2026-10-08T06:39:32.192Z"
   },
   {
     "arxivId": "2610.09703",
@@ -699,24 +816,6 @@
     "discoveredAt": "2026-10-08T01:54:32.931Z"
   },
   {
-    "arxivId": "2605.01970",
-    "title": "Trojan Hippo Bench: A Dynamic Benchmark for Persistent Memory Attacks and Defenses in LLM Agents",
-    "titleZh": "Trojan Hippo Bench：面向 LLM Agent 持久记忆攻击与防御的动态基准",
-    "authors": [],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 Trojan Hippo Bench，一个针对 LLM Agent 持久记忆攻击与防御的动态评测基准。攻击者通过一次不可信工具调用（如一封构造邮件）在 agent 长期记忆中埋入休眠载荷，待用户之后谈及财务、健康、身份等敏感话题时才激活并外泄个人数据。作者称此前只有针对已部署系统的零星演示，该框架覆盖不同记忆架构与记忆层防御。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2605.01970",
-      "aisafetyhot": "https://aisafetyhot.com/items/sl44mzze5yuij79npdhzqkxb2"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:35:46.698Z",
-    "discoveredAt": "2026-10-08T06:35:46.698Z"
-  },
-  {
     "arxivId": "2609.01491",
     "title": "GlossoGen: Emergent Language in Complex Multi-Agent LLM Interactions",
     "titleZh": "GlossoGen：多智能体 LLM 交互中自发涌现的语言",
@@ -733,6 +832,24 @@
     "publishedAt": "2026-09-01T16:22:00.000Z",
     "timelineAt": "2026-10-08T04:33:24.948Z",
     "discoveredAt": "2026-10-08T04:33:24.948Z"
+  },
+  {
+    "arxivId": "2602.00851",
+    "title": "Persuasion Propagation: Does Persuasion Change AI Agent Behavior?",
+    "titleZh": "研究提出说服传播现象：无关说服性对话会改变 AI Agent 的任务执行行为",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出并检验了“说服传播”现象，即与任务无关的说服性对话会改变 AI Agent 后续任务的执行方式。实验显示，在网络研究任务中，说服性交互使执行时间相对基线增加 56%，访问域名数增加 16.3%；在编码任务中则表现为执行更快但修改量更大。研究还发现，对说服性对话更敏感的 Agent 并不能可靠预测下游行为偏移的幅度，因此作者主张对 AI Agent 的说服影响开展行为层面的评估。代码已公开。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2602.00851",
+      "aisafetyhot": "https://aisafetyhot.com/items/fk51dxy8k0j0q669vwq2yghzz"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:36:01.752Z",
+    "discoveredAt": "2026-10-08T06:36:01.752Z"
   },
   {
     "arxivId": "2610.09000",
@@ -776,24 +893,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T05:33:35.817Z",
     "discoveredAt": "2026-10-08T05:33:35.817Z"
-  },
-  {
-    "arxivId": "2606.09499",
-    "title": "Targeting World Models to Compromise Robot Learning Pipelines",
-    "titleZh": "研究提出针对机器人学习管线的世界模型投毒攻击",
-    "authors": [],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文指出，世界模型成为机器人训练数据生成与仿真环节后，引入了一个隐蔽的数据投毒入口。攻击不直接植入危险轨迹，而是在看似安全的遥操作数据集中注入恶意提示或篡改转移动态，这些改动只在经过世界模型后才被激活，最终可能导致部署出不安全的机器人策略。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2606.09499",
-      "aisafetyhot": "https://aisafetyhot.com/items/wu7xniu6p4dof3fgrr4sd3tqw"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:35:54.231Z",
-    "discoveredAt": "2026-10-08T06:35:54.231Z"
   },
   {
     "arxivId": "2610.10150",
@@ -854,6 +953,24 @@
     "publishedAt": "2026-10-07T15:19:00.000Z",
     "timelineAt": "2026-10-08T04:33:55.989Z",
     "discoveredAt": "2026-10-08T04:33:55.989Z"
+  },
+  {
+    "arxivId": "2610.09469",
+    "title": "Secure-CUA: Controlling Untrusted Influence in Computer-Use Agents",
+    "titleZh": "Secure-CUA：约束计算机使用智能体中不可信内容的影响",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 Secure-CUA，一种面向计算机使用智能体（CUA）的安全执行方案，通过在执行前固定动作事务，约束不可信内容对智能体决策与 GUI 命令执行的影响。该方法把安全要求形式化为对智能体决策及其通过 GUI 命令执行两方面的约束，并在理想执行模型下说明逐步满足这两项要求可保护执行轨迹。Secure-CUA 的核心是在访问不可信内容前先确定一个显式的单动作程序（action transaction），固定对不可信内容的查询及响应的允许用途；系统遮蔽不可信区域，用隔离的查询模型作答，再借助遮蔽后的界面定位目标控件。作者在 400 个 WebArena 任务上用三个前沿模型、5 个随机种子共 6000 条执行轨迹测试，Secure-CUA 平均任务成功率为 53.55%，Vanilla-CUA 为 55.12%，CaMeL-CUA 为 13.17%。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09469",
+      "aisafetyhot": "https://aisafetyhot.com/items/yxmwdxls2gx3x0z5b7hz05d80"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:39:47.339Z",
+    "discoveredAt": "2026-10-08T06:39:47.339Z"
   },
   {
     "arxivId": "2610.09004",
@@ -944,60 +1061,6 @@
     "discoveredAt": "2026-10-08T05:33:35.809Z"
   },
   {
-    "arxivId": "2602.00851",
-    "title": "Persuasion Propagation: Does Persuasion Change AI Agent Behavior?",
-    "titleZh": "研究：说服性对话会改变 AI Agent 后续任务行为",
-    "authors": [],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文研究“说服传播”，即与任务无关的说服性对话是否会改变 AI Agent 之后自主执行任务的行为。结果显示，在网页调研任务中，说服性交互使执行时间增加 56%、访问域名数增加 16.3%；在编码任务中 Agent 执行更快但改动更大。研究还发现，模型自身的说服易感性并不能解释这些效应差异。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2602.00851",
-      "aisafetyhot": "https://aisafetyhot.com/items/fk51dxy8k0j0q669vwq2yghzz"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:36:01.752Z",
-    "discoveredAt": "2026-10-08T06:36:01.752Z"
-  },
-  {
-    "arxivId": "2608.01117",
-    "title": "SoK: Intent-Oriented Systematization of Multi-Turn LLM Jailbreaks",
-    "titleZh": "SoK 论文提出按对抗意图结构划分多轮 LLM 越狱的四类分类法",
-    "authors": [],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一篇 SoK 论文提出按对抗意图结构对多轮 LLM 越狱进行系统化分类，将其划分为四类，而非视为零散的提示模式。消融实验称，越狱效果主要取决于意图在多轮中的组织方式，而非上下文长度或查询次数。论文指出，意图组织方式决定了需要在单轮、会话还是跨会话层面才能检测到越狱行为。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2608.01117",
-      "aisafetyhot": "https://aisafetyhot.com/items/lnkfsh2h2rxw4zrvnjntzxipp"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:36:16.997Z",
-    "discoveredAt": "2026-10-08T06:36:16.997Z"
-  },
-  {
-    "arxivId": "2604.12447",
-    "title": "HazardArena: Evaluating Semantic Safety in Vision-Language-Action Models",
-    "titleZh": "HazardArena：面向视觉-语言-动作模型的语义安全评测基准",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "HazardArena 提出面向视觉-语言-动作模型（VLA）的语义安全评测基准，指出当前 VLA 评测主要看任务完成度，策略可能动作正确但在语境变化时产生不安全后果。该基准用安全与不安全孪生场景把安全判断与运动能力分开，孪生场景中物体、布局和动作要求相同，仅语义风险不同。基准包含 2,000+ 资产，覆盖七类安全类别下的 51 个风险敏感任务。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2604.12447",
-      "aisafetyhot": "https://aisafetyhot.com/items/rlu67cu6z5kwmhe68xtjvopju"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:39:32.192Z",
-    "discoveredAt": "2026-10-08T06:39:32.192Z"
-  },
-  {
     "arxivId": "2609.28372",
     "title": "Shopping by algorithm: How agentic AI deploys human heuristics as a surrogate consumer",
     "titleZh": "研究：有成本工具调用下购物 Agent 更易受尾数定价与促销话术影响",
@@ -1032,6 +1095,24 @@
     "publishedAt": "2026-10-06T18:18:00.000Z",
     "timelineAt": "2026-10-08T04:24:54.631Z",
     "discoveredAt": "2026-10-08T04:24:54.631Z"
+  },
+  {
+    "arxivId": "2606.22673",
+    "title": "Agent MechSuits: Mechanistic Subspace Safety Steering for Multi-Turn CLI Agents",
+    "titleZh": "Agent MechSuits：面向多轮 CLI Agent 的机制子空间安全引导",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 Agent MechSuits，一个白盒防御框架，从步骤级隐藏表示中检测 CLI Agent 的有害执行状态，并通过干预单层内一个 10 维子空间来缓解不安全行为。作者同时发布 Mechanistic Agent Safety（MAS）基准，包含 194 个任务的多轮执行轨迹标注，覆盖 LLaMA-3.1-8B、Qwen-2.5-7B 和 Gemma-2-9B。实验显示该框架具备较强的安全检测性能，并初步显示出前瞻性风险预判能力，显著减少了 CLI Agent 的有害动作。论文已被 NeurIPS 2026 接收。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2606.22673",
+      "aisafetyhot": "https://aisafetyhot.com/items/oy5go6n7zrqfkm8n2b3hv3n63"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:35:39.125Z",
+    "discoveredAt": "2026-10-08T06:35:39.125Z"
   },
   {
     "arxivId": "2509.05219",
@@ -1197,24 +1278,6 @@
     "discoveredAt": "2026-10-08T04:20:35.140Z"
   },
   {
-    "arxivId": "2511.18921",
-    "title": "BackdoorVLM: A Benchmark for Backdoor Attacks and Defenses on Vision-Language Models",
-    "titleZh": "BackdoorVLM：视觉语言模型后门攻击与防御基准",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 BackdoorVLM，称其为首个系统评测视觉语言模型（VLM）后门攻击与防御的综合基准，覆盖图像描述和视觉问答等任务。该基准将多模态后门威胁分为 5 类：定向拒答、恶意注入、越狱、概念替换和感知劫持。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2511.18921",
-      "aisafetyhot": "https://aisafetyhot.com/items/skblp99b43vgs99x8myo2vfr8"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:39:24.510Z",
-    "discoveredAt": "2026-10-08T06:39:24.510Z"
-  },
-  {
     "arxivId": "2610.04299",
     "title": "Questioning the Questions: Sustaining Self-Evolution in Reasoning Models",
     "titleZh": "R-Quest：用问题有效性与新颖性反馈维持推理模型自我进化",
@@ -1302,42 +1365,6 @@
     "discoveredAt": "2026-10-08T05:41:38.668Z"
   },
   {
-    "arxivId": "2604.06820",
-    "title": "What Does a Sharing Question Add? Auditing LLM Survey Scores for Misinformation",
-    "titleZh": "研究审计 LLM 误导信息调查评分：分享意愿分是否比可信度分更有信息量",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究审计了 LLM 在评估误导信息时「会不会分享」打分是否比「是否可信」打分提供更多信息，使用 8 个模型版本、290 篇合成误导文章和 1,256 份人类配对问卷。原始分中各模型的分享分预测人类分享的准确度都不如可信度分，但作者指出偏移校正后顺序会变，需分开看可重构性、跨格式稳定性和对人类的增量效度。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2604.06820",
-      "aisafetyhot": "https://aisafetyhot.com/items/dvm6znzqoaufef57q1sqciqz9"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:39:39.797Z",
-    "discoveredAt": "2026-10-08T06:39:39.797Z"
-  },
-  {
-    "arxivId": "2605.25893",
-    "title": "D²-Monitor: Dynamic Safety Monitoring for Diffusion LLMs via Hesitation Signals",
-    "titleZh": "D²-Monitor：用犹豫信号为扩散式大语言模型做动态安全监控",
-    "authors": [],
-    "category": "defense",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出 D²-Monitor，针对扩散式大语言模型（D-LLM）的安全监控方案，利用多步去噪过程中的中间隐藏表示，用轻量 probe 做常开监控。作者发现最有用的信号是安全犹豫，即中间状态反复落在 probe 决策边界附近，犹豫步数能够预测 probe 失效，并据此提出动态监控方案。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2605.25893",
-      "aisafetyhot": "https://aisafetyhot.com/items/d2l39463p9i98uo2wezdml08h"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T06:36:09.382Z",
-    "discoveredAt": "2026-10-08T06:36:09.382Z"
-  },
-  {
     "arxivId": "2609.27452",
     "title": "Issuer-Sovereign Agentic Payments",
     "titleZh": "论文提出发卡行主导的 agent 支付授权方案 Issuer-Sovereign Agentic Payments",
@@ -1394,22 +1421,40 @@
     "discoveredAt": "2026-10-08T04:30:42.298Z"
   },
   {
-    "arxivId": "2606.22673",
-    "title": "Agent MechSuits: Mechanistic Subspace Safety Steering for Multi-Turn CLI Agents",
-    "titleZh": "Agent MechSuits：面向多轮 CLI Agent 的机制子空间安全引导",
+    "arxivId": "2604.06820",
+    "title": "What Does a Sharing Question Add? Auditing LLM Survey Scores for Misinformation",
+    "titleZh": "分享意愿问题为 LLM 虚假信息调查评分增加了什么？一项审计研究",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究审计了 8 个模型版本在 290 篇合成虚假信息文章上的评分，使用 1,256 份配对调查回答和 317 个参与者标识作为外部效度标准。可信度评分可解释模型分享评分 30.8-72.5% 的变异，但将模型分享评分加入人类与模型可信度评分后，误差仅减少 -0.25% 至 +0.69%，所有探索性区间均跨零。分享回答包含可信度评分之外的结构化变异，但在该数据中未确立对人类分享行为的增量效度。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2604.06820",
+      "aisafetyhot": "https://aisafetyhot.com/items/dvm6znzqoaufef57q1sqciqz9"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T06:39:39.797Z",
+    "discoveredAt": "2026-10-08T06:39:39.797Z"
+  },
+  {
+    "arxivId": "2605.25893",
+    "title": "D²-Monitor: Dynamic Safety Monitoring for Diffusion LLMs via Hesitation Signals",
+    "titleZh": "D²-Monitor：基于犹豫信号的扩散大语言模型动态安全监控",
     "authors": [],
     "category": "defense",
     "selected": false,
     "attention": null,
-    "summaryZh": "论文提出 Agent MechSuits，一种针对多轮命令行（CLI）Agent 的白盒防御方法，在运行时进行安全检测，并在表示层做子空间干预与 steering，而不只依赖外部 guardrail。作者指出，现有机制可解释性安全方法多局限于单轮或越狱问答场景，难以捕捉多轮 Agent 执行过程中风险的演变。",
+    "summaryZh": "D²-Monitor 是一种针对扩散大语言模型（D-LLM）的动态安全监控方法，利用中间隐藏状态反复接近探针决策边界的\"安全犹豫\"信号来判断样本难度。轻量探针先对每个样本给出基础预测和犹豫估计，再决定是否升级到更强探针，后者仅读取至少出现一次犹豫步骤的轨迹最小片段。在 WildGuardMix、ToxicChat、OpenAI-Moderation 3 个数据集和 4 个 D-LLM 上，该方法以不超过 0.93M 参数取得 SOTA 表现，并在 8 个基线中实现最佳效果与效率权衡。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2606.22673",
-      "aisafetyhot": "https://aisafetyhot.com/items/oy5go6n7zrqfkm8n2b3hv3n63"
+      "paper": "https://arxiv.org/abs/2605.25893",
+      "aisafetyhot": "https://aisafetyhot.com/items/d2l39463p9i98uo2wezdml08h"
     },
     "publishedAt": null,
-    "timelineAt": "2026-10-08T06:35:39.125Z",
-    "discoveredAt": "2026-10-08T06:35:39.125Z"
+    "timelineAt": "2026-10-08T06:36:09.382Z",
+    "discoveredAt": "2026-10-08T06:36:09.382Z"
   },
   {
     "arxivId": "2610.09043",
