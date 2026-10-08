@@ -609,6 +609,45 @@
     "discoveredAt": "2026-10-08T09:48:18.974Z"
   },
   {
+    "arxivId": "2609.37468",
+    "title": "Backdoor in the Loop: Compromising Agentic Search via Malicious Retrievers",
+    "titleZh": "论文提出针对 Agentic RAG 的检索器后门攻击与 DOU 隐藏方法",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 79,
+    "summaryZh": "研究者提出针对 Agentic RAG 的检索器后门威胁模型：攻击者只提供被污染的检索器检查点，不改动搜索 Agent 和部署语料，即可在触发问题下操纵检索结果。三类攻击分别抑制支撑证据使答案错误、让指定已有文档在多轮检索中持续排前，以及诱导 Agent 延长搜索，在高强度下平均搜索轮数增加 78% 至 88%、最终上下文 token 增加 81% 至 87%、完成延迟增加 80% 至 126%，同时 F1 下降 24 至 29 分。研究还提出 Decoy Overwrite-Unlearn（DOU），先注入较弱的诱饵后门再将其遗忘，从而削弱 Spectral Signatures、Neural Cleanse、PICCOLO 等检测器的可见信号，同时保留原有恶意检索行为；在 MuSiQue 上 SS 的 Δ 从 46.53 降至 29.26，NC 从 38.23 降至 19.40。",
+    "quickRead": {
+      "parts": [
+        {
+          "text": "智能体RAG将推理与多轮检索交替进行，检索器可影响后续查询和停机决策。现有攻击多依赖语料注入或单轮设置；论文研究在语料库和智能体未修改时，仅凭恶意检索器操纵多轮搜索循环并隐蔽后门。",
+          "label": "问题"
+        },
+        {
+          "text": "构建三类攻击：无目标抑制关键证据、目标攻击持续召回指定文档、轮数控制延长搜索以耗尽预算。提出诱饵覆盖遗忘机制DOU，通过受限注入并遗忘弱辅助后门重塑表征，削弱检测器信号，同时保留原恶意关联。",
+          "label": "方法"
+        },
+        {
+          "text": "在两项QA基准上，无目标攻击使F1下降18.8–30.9个百分点（Table 1）；目标攻击实现99.8%–100%每轮命中（Table 2）；高强度轮数控制使检索轮数增加78–88%（Table 3）；DOU使MuSiQue上SS检测的∆从46.53降至29.26（Table 6）。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出针对单文档的目标后门更难仅凭DOU隐蔽，需稳定性均衡扩展；防御基线BPO无法消除检索后门。实验覆盖了E5与Contriever检索器、Qwen2.5-7B-Instruct智能体及两项QA基准，检测评估仅在5万条候选池中进行而非全索引运行。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2609.37468"
+    },
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.37468",
+      "aisafetyhot": "https://aisafetyhot.com/items/c2zslawntma9zh4dmvn0g196w"
+    },
+    "publishedAt": "2026-09-26T14:47:25.000Z",
+    "timelineAt": "2026-10-08T13:07:51.701Z",
+    "discoveredAt": "2026-10-08T13:07:51.701Z"
+  },
+  {
     "arxivId": "2610.09384",
     "title": "The Persona Hierarchy Model: Understanding Contextual Generalization in Fine-Tuning LLMs",
     "titleZh": "人格层级模型解释微调 LLM 的上下文泛化，PPR 正则化将 RL 奖励作弊压至 0.2% 以下",

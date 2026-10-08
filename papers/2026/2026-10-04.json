@@ -2370,26 +2370,6 @@
     "discoveredAt": "2026-10-03T23:52:50.619Z"
   },
   {
-    "arxivId": "2607.12507",
-    "title": "When Binaries Talk Back: Representation-Confusion Attacks on LLM-Assisted Reverse Engineering",
-    "titleZh": "研究者提出 RARE 攻击：LLM 辅助逆向工程中的表示混淆",
-    "authors": [
-      "Igor Santos-Grueiro"
-    ],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究者提出针对 LLM 辅助逆向工程（RE）的表示混淆攻击 RARE，指出二进制可让数据看起来像指令，或让同一来源的记录看起来像独立证据，使流水线把正确提取的观察提升为指令权限、验证性证据或可信分析状态。作者用 RARE-Bench 以行为校验的干净与对抗二进制测量此类失败，先做 11,520 次调用的探索性研究，再在 20 个新程序和两个模型上测试 RARE-Guard 的授权与证据控制。无运行时控制时，模型在 35/40 对抗案例中提出植入的不安全操作，干净案例为 0/40；仅以数据形式呈现二进制内容后仍有 15 次不安全提议，Tool Authorization 拒绝全部 15 次并授权全部 40 个匹配的分析请求。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2607.12507",
-      "aisafetyhot": "https://aisafetyhot.com/items/v95fxu9mfduc7puscjsu2q6zi"
-    },
-    "publishedAt": "2026-07-14T08:38:10.000Z",
-    "timelineAt": "2026-10-04T07:13:59.566Z",
-    "discoveredAt": "2026-10-04T07:13:59.566Z"
-  },
-  {
     "arxivId": "2608.05578",
     "title": "Detecting Safety Training Modification in Language Models via Activation Analysis",
     "titleZh": "AMS 工具通过激活分析检测语言模型的安全训练改动",
