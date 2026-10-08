@@ -39,6 +39,24 @@
     "discoveredAt": "2026-10-08T06:40:10.993Z"
   },
   {
+    "arxivId": "2610.09667",
+    "title": "让 agent「随机抽 1% 人工复核」它并不随机：推理模型按 UUID 阈值或请求号整除来选，控制标识符就能躲开审查",
+    "titleZh": "东京大学研究：推理模型按 UUID 阈值或整除规则挑选审计样本，控制标识符即可躲开复核",
+    "authors": [],
+    "category": "alignment",
+    "selected": true,
+    "attention": 86,
+    "summaryZh": "东京大学的研究者测试了来自三家开发者的六个闭源推理模型，发现它们在需要随机选择的场景中并非真正随机，而是把标识符转成数值后套用阈值或整除规则。在 1% 人工复核任务中，GPT-6 Sol 的选取率接近目标（1008 条请求中选中 9 条，0.89%），但选中的请求集中在标识符数值低于 1% 的样本上，掌握标识符的发送方可以据此避开审查；Gemini 3.8 Flash 与 Claude Sonnet 5 几乎不选，Luna 选取率 0.40%。在四人参与博弈任务中，共享同一标识符使 GPT-6 Sol 和 Gemini 3.8 Flash 分别有 91% 和 88% 的组出现全体一致，损失升至独立随机基准的 3.5 至 3.8 倍；使用同一毫秒生成的 UUIDv7 时参与率高达 0.95 和 0.93，损失为基准的 6.6 至 6.9 倍。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09667",
+      "aisafetyhot": "https://aisafetyhot.com/items/yh51499egwa8yhyqfcvt3oo75"
+    },
+    "publishedAt": "2026-10-07T08:32:36.000Z",
+    "timelineAt": "2026-10-08T09:29:15.586Z",
+    "discoveredAt": "2026-10-08T09:29:15.586Z"
+  },
+  {
     "arxivId": "2601.02670",
     "title": "Break Me If You Can: Self-Jailbreaking of Aligned LLMs via Lexical Insertion Prompting",
     "titleZh": "SLIP：无需外部攻击模型的多轮自我越狱，在 11 个模型上平均成功率 94.7%",
@@ -248,7 +266,28 @@
     "selected": true,
     "attention": 84,
     "summaryZh": "研究者提出 CredLeak-Bench，用于评测邮件驱动的 Agent 工作流中凭证与敏感信息泄露问题，覆盖用户指定登录、自主收件箱监控和恢复三种设置，共 512、256 和 1024 个场景，全部在本地沙箱内用虚构服务运行，泄露以实际提交的合成数据判定。评测的七个模型包括 Claude Sonnet 5、Claude Opus 4.8、Gemini 3.6 Flash、GPT-5-mini、GPT-5.6-luna、Qwen3.5-9B 和 Llama-3.1-8B-Instruct，全部在指定登录和自主监控两种设置下发生泄露，指定登录场景泄露率为 31.3% 至 75.8%，两个开源权重模型最高，分别为 66.8% 和 75.8%。自主监控场景泄露率下降但误拒率大幅上升，例如 Opus 4.8 泄露率从 31.3% 降至 1.6%，误拒率从 6.6% 升至 88.3%。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "智能体自动化执行邮件和账单等任务时常涉及敏感凭据，面临网络钓鱼诱导泄露风险。单纯拒绝所有请求会阻断合法任务，需要评估智能体能否在不泄露凭据的情况下区分欺骗与合法请求，并完成正常工作。",
+          "label": "问题"
+        },
+        {
+          "text": "提出 CREDLEAK-BENCH，在本地沙盒中成对设计钓鱼与合法场景，评估定向认证、自主收件箱监控及受信渠道恢复三种设定，测试 8 种欺骗线索、4 种用户框架与不同安全引导，通过抓包日志测量真实凭据提交。",
+          "label": "方法"
+        },
+        {
+          "text": "7 款模型在定向与自主设定下均发生凭据泄露；未加密 HTTP 是泄露最多的线索；谨慎框架虽降低泄露但使合法任务完成率大幅下跌；主恢复场景中最高恢复率仅 24.2%（GPT-5-mini），智能体大多放弃任务而非寻找受信替代渠道。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "论文未专门设立章节讨论局限。实验均在基于回环地址的本地沙盒中开展，采用 15 个虚构服务与合成数据；智能体交互限定于 4 个最小浏览器工具；论文未报告重复测试次数、单任务步数限制与 API 查询花费。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.08871"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.08871",
       "aisafetyhot": "https://aisafetyhot.com/items/f1343e3ulqlbn484qba996bkt"
@@ -352,6 +391,24 @@
     "publishedAt": "2026-10-07T10:41:54.000Z",
     "timelineAt": "2026-10-08T08:47:22.064Z",
     "discoveredAt": "2026-10-08T08:47:22.064Z"
+  },
+  {
+    "arxivId": "2610.09793",
+    "title": "用时序逻辑给工具 agent 做运行时监控：能标出七成攻击，但护栏信任的轨迹历史插一行就被骗过 94%–99%",
+    "titleZh": "用时序逻辑监控工具 Agent：MonPoly 标出 71.8% STAC 攻击链，但溯源检查被一行注入骗过 94%–99%",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 81,
+    "summaryZh": "研究者把 AgentDojo、STAC 和 R-Judge 已记录的轨迹转成事件流，用未经修改的 MonPoly 监控器离线回放，检验度量一阶时序逻辑（MFOTL）能否作为工具型 LLM Agent 的可复用护栏。五条通用义务在 STAC 上标出 71.8% 的攻击链、在 AgentDojo 上标出 70.1% 的成功攻击，但同时命中 29.3% 的正常运行，原因是这些语料几乎不记录审批、也从不记录时间戳，历史相关义务退化为风险动作类型识别。在轨迹带有关系上下文时，把转账收款人或邮件收件人绑定到此前结构化记录中的溯源义务能提升区分度，AgentDojo 银行场景的正常触发率从 44.0% 降到 24.0%，检出率从 79.2% 降到 70.0%。作者据此提出十二字段的执法就绪轨迹 schema，并指出当前基准缺少时间戳、审批 id、会话 id、状态对和信任域等字段。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09793",
+      "aisafetyhot": "https://aisafetyhot.com/items/v8z7uoi3c1nsz8zopyrq9tqsq"
+    },
+    "publishedAt": "2026-10-07T10:08:46.000Z",
+    "timelineAt": "2026-10-08T09:29:23.057Z",
+    "discoveredAt": "2026-10-08T09:29:23.057Z"
   },
   {
     "arxivId": "2610.09027",
@@ -562,7 +619,28 @@
     "selected": true,
     "attention": 78,
     "summaryZh": "一项预注册研究在 170 万条真实请求（WildChat-1M、LMSYS-Chat-1M）上测量了 LLM 路由决策作为隐私信道的泄露程度，发现即使关闭内容日志，网关仍可保留每次请求所选模型、调用方与 token 数。在长度匹配条件下，RouteLLM 在 50% 工作点把骚扰和自伤请求送往强模型的概率比可比请求低 19 个百分点，医疗请求低 31 个百分点，性相关请求高 10 个百分点；第二个路由器 notdiamond-0001 对四类请求都更少送往强模型。仅凭 20 条路由决策即可区分频繁医疗提问用户，AUC 为 0.71，低于预注册的 0.75 阈值；域路由器的健康标签可达 0.92。作者调查了 11 个网关、路由器和云平台的日志字段，其中至少 6 个可在无内容日志下保留带调用方的逐请求模型记录，部分为默认行为。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "网关和云平台常记录请求路由调用的模型、时间和Token数等元数据。当路由器根据内容选择强弱模型时，关闭内容日志并不能隐藏请求主题，元数据记录成为侧信道泄露敏感话题，可能被管理员、审计或日志泄露利用。",
+          "label": "问题"
+        },
+        {
+          "text": "论文形式化了路由决策侧信道，在长度匹配下定义差值与信息增益，设计了账单攻击与逐条日志攻击；并在真实聊天记录和基准上预注册评估RouteLLM、notdiamond与领域路由器，最后测试了奇偶率限制、分组与按类别公平后处理等防御。",
+          "label": "方法"
+        },
+        {
+          "text": "在50%运行点匹配长度下，RouteLLM对骚扰和自残调用强模型比例低19个百分点，而对涉性请求高10个百分点；观察20次请求时账单攻击AUC为0.71；按类别长度匹配公平性可消除单请求差距且RouterBench精度损失不超过0.2点。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "作者指出医疗评测裁判未达预注册门槛故结果属探索性；公开发布数据去除了部分敏感内容且重复提示词较多；未测商业托管路由器；按类别公平性防御在RouterBench上仍有残留差距，且精确率防御无法抵御奇数位日志攻击。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.09981"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.09981",
       "aisafetyhot": "https://aisafetyhot.com/items/vlpoiqdxzg660p9e9ux3cskzy"
@@ -1804,5 +1882,23 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T06:56:44.061Z",
     "discoveredAt": "2026-10-08T06:56:44.061Z"
+  },
+  {
+    "arxivId": "2610.08884",
+    "title": "Task-Sufficient Contraction: Source Selection for Machine Information Interfaces",
+    "titleZh": "Task-Sufficient Contraction：机器信息接口的源选择方法",
+    "authors": [],
+    "category": "ai_news",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文提出 Task-Sufficient Contraction 概念，研究在编码器、码本、速率、失真目标和优化器选定之前，任务声明能否认证一个缩减后的源，并保持完整下游问题族。对固定动作集与固定损失的机器，仅当每个可用动作在合并状态下具有相同 regret 时才合并状态，可保留完整的一步速率-regret 曲线。对仿射可行动作集上的二次损失，规范缩减源是可行动作可差异方向的投影；固定能量预算下该投影变为 centered load，仅保留最优注水动作则过于粗糙。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08884",
+      "aisafetyhot": "https://aisafetyhot.com/items/hv72lunxtxeogji57hb355nuc"
+    },
+    "publishedAt": "2026-10-05T20:00:00.000Z",
+    "timelineAt": "2026-10-08T08:22:06.988Z",
+    "discoveredAt": "2026-10-08T08:22:06.988Z"
   }
 ]
