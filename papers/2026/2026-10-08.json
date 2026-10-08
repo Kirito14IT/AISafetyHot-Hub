@@ -357,6 +357,24 @@
     "discoveredAt": "2026-10-07T23:17:00.330Z"
   },
   {
+    "arxivId": "2610.05532",
+    "title": "DelegationBench：agent 嘴上说「该先问用户」，真拿到工具却很少问，Gemini 3.5 Flash-Lite 从 47.5% 掉到 4.2%",
+    "titleZh": "DelegationBench 发布：Agent 判断该问用户时，实际用工具执行提问率从 47.5% 降到 4.2%",
+    "authors": [],
+    "category": "eval",
+    "selected": true,
+    "attention": 83,
+    "summaryZh": "研究者发布 DelegationBench，用 156 个场景（含 48 组只改一个特征的对子）测量 AI Agent 何时该先征求用户许可，区分直接执行、请求许可、追问缺失信息和拒绝四种回应。研究还发现固定回复一个简单的「是」可解决 97.5% 的简单许可问题，但混合型问题只有约 33.3%–75.0%；在规则被明确写出的情况下，三款受测模型的平衡准确率为 97.3%–100%。作者建议把判断一致率、对子响应性、格式敏感度和实际执行行为分开报告，并公开了基准与评测工具。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.05532",
+      "aisafetyhot": "https://aisafetyhot.com/items/boepwrczmd1o3ooa6pbsb5p7n"
+    },
+    "publishedAt": "2026-10-04T20:54:35.000Z",
+    "timelineAt": "2026-10-08T10:51:55.007Z",
+    "discoveredAt": "2026-10-08T10:51:55.007Z"
+  },
+  {
     "arxivId": "2610.09793",
     "title": "用时序逻辑给工具 agent 做运行时监控：能标出七成攻击，但护栏信任的轨迹历史插一行就被骗过 94%–99%",
     "titleZh": "用时序逻辑监控工具 Agent：MonPoly 标出 71.8% STAC 攻击链，但溯源检查被一行注入骗过 94%–99%",
@@ -1140,6 +1158,24 @@
     "discoveredAt": "2026-10-08T10:20:45.663Z"
   },
   {
+    "arxivId": "2609.38296",
+    "title": "印第安纳大学 OSoMe：让一个 LLM 去激进化另一个，顺着对方原有立场「共振」比硬说服更有效",
+    "titleZh": "印第安纳大学 OSoMe 研究：LLM 间顺着既有立场的共振比硬说服更易激进化",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "印第安纳大学 OSoMe 的研究让两个 LLM 对话，目标 agent 按 2024 年美国 General Social Survey 的人口与心理属性生成人物，影响 agent 负责让其立场更极端。研究比较两条路径：共振即加强目标本来看重的信念，说服即推销目标原本觉得不重要的信念，两者在情感与行为指标上都能让目标变激进，共振始终更强。不同话术效果不同，但在各指标之间不一致。共振会外溢到相关信念，作者据此认为 agent 内部信念互相关联。作者还要求目标每次解释答案并做排除触发护栏输出后的稳健性检验，结论是个性化 agent 和多 agent 生态容易被顺着已有倾向的信息操纵。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.38296",
+      "aisafetyhot": "https://aisafetyhot.com/items/ih7tvjfvg7ak0lbmff8ydcgic"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T10:52:10.713Z",
+    "discoveredAt": "2026-10-08T10:52:10.713Z"
+  },
+  {
     "arxivId": "2610.10358",
     "title": "Open-MMUnlearning: Unifying Methods and Evaluation for MLLM Unlearning",
     "titleZh": "Open-MMUnlearning 发布：统一多模态大模型遗忘方法与评测框架",
@@ -1276,24 +1312,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T06:36:01.752Z",
     "discoveredAt": "2026-10-08T06:36:01.752Z"
-  },
-  {
-    "arxivId": "2610.09581",
-    "title": "让 LLM 读 agent 日志做事后取证：答案对了，但引用来源多半是猜的",
-    "titleZh": "研究：LLM 读 Agent 日志做取证时答案常对但引用来源多为无依据断言",
-    "authors": [],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "一项研究用 AgentDojo Banking 保存的执行记录构建 64 个可机械判定案例，考察 LLM 能否重建 Agent 的引用来源关系。在不提供 ID 到具体记录绑定表时，28 个必须依赖绑定关系的案例中，Sonnet 仅弃答 2 次、做出 26 次无依据引用断言，其中 22 次碰巧与完整参考答案一致；Luna 弃答 7 次、无依据断言 21 次，12 次碰巧一致。Sonnet 在目标字面值出现在哪些记录的问题上全部答对，说明瓶颈不在检索，而在把引用 ID 当作已证实的来源。补上显式绑定表后两个模型的有据重建均有改善，仅对 ID 改名没有一致效果。作者建议导出证据时保留原生工具调用与结果、执行顺序、真实用户请求与通道身份、Agent 公开说明及按单次执行作用域保存的输入 ID 绑定，并标注生成物与派生视图隐去的字段。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.09581",
-      "aisafetyhot": "https://aisafetyhot.com/items/capgywo5ywyqj9itq9t5qmb3o"
-    },
-    "publishedAt": null,
-    "timelineAt": "2026-10-08T09:48:11.397Z",
-    "discoveredAt": "2026-10-08T09:48:11.397Z"
   },
   {
     "arxivId": "2610.09000",
@@ -1615,6 +1633,24 @@
     "publishedAt": "2026-10-07T00:00:00.000Z",
     "timelineAt": "2026-10-08T05:30:02.497Z",
     "discoveredAt": "2026-10-08T05:30:02.497Z"
+  },
+  {
+    "arxivId": "2610.09581",
+    "title": "让 LLM 读 agent 日志做事后取证：答案对了，但引用来源多半是猜的",
+    "titleZh": "研究审计 LLM 读取 Agent 日志的取证能力：答案正确但引用来源多为猜测",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究用 AgentDojo Banking 执行记录中的 64 个可机械核验案例，审计 LLM 读取 Agent 日志做取证重建时能否正确指认证据来源。两个 LLM 读取器在可见证据和标识符与记录绑定关系受控变化下重建来源关系，并分别评估完整记录一致性、有证据支撑的结论、有依据的弃答和无支撑断言。在保留原始标识符且没有绑定表时，Sonnet 找回了全部字面来源位置，但在 28 个需要缺失关系的案例中有 26 个给出了无支撑的引用来源断言，其中 22 个仍与完整参考答案一致。加入显式绑定后两个读取器的有据重建均有改善，而仅重命名标识符没有一致效果；一个确定性的同包比较器在该有界任务上始终正确作答或弃答。研究认为，仅凭事实一致不足以评估 Agent 日志的取证重建，需要保留显式的记录绑定以区分有支撑的发现与正确的猜测。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09581",
+      "aisafetyhot": "https://aisafetyhot.com/items/capgywo5ywyqj9itq9t5qmb3o"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T09:48:11.397Z",
+    "discoveredAt": "2026-10-08T09:48:11.397Z"
   },
   {
     "arxivId": "2610.09033",
