@@ -40,10 +40,13 @@ jobs:
     if: github.event.repository.private == false
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    outputs:
+      model_changed: ${{ steps.model-plan.outputs.changed }}
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           persist-credentials: false
+          fetch-depth: 2
       - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: '3.12'
@@ -53,6 +56,20 @@ jobs:
         run: python scripts/run_translation_workflow.py --mode dry-run
       - name: Check whitespace
         run: git diff --check
+      - name: Plan real model checks for inference changes
+        id: model-plan
+        if: github.event_name == 'push'
+        run: |
+          python - <<'PY'
+          import os
+          import subprocess
+          changed = set(subprocess.check_output(
+              ['git', 'diff-tree', '--root', '--no-commit-id', '--name-only', '-r', '-m', 'HEAD'],
+              text=True).splitlines())
+          inference = {'scripts/translate_daily.py', 'scripts/run_translation_workflow.py', 'scripts/smoke_translation.py'}
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+              output.write('changed=' + str(bool(changed & inference)).lower() + '\n')
+          PY
 
   publish:
     needs: validate
@@ -80,7 +97,7 @@ jobs:
 
   model-smoke:
     needs: validate
-    if: github.event.repository.private == false && github.event_name == 'push'
+    if: github.event.repository.private == false && github.event_name == 'push' && needs.validate.outputs.model_changed == 'true'
     permissions:
       contents: read
     runs-on: ubuntu-24.04
