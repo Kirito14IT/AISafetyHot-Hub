@@ -1260,6 +1260,24 @@
     "discoveredAt": "2026-10-08T04:29:42.961Z"
   },
   {
+    "arxivId": "2610.04763",
+    "title": "UT Austin 把 SynthID 水印做进基因组语言模型：只凭 DNA 序列和密钥就能追溯 AI 生成的片段",
+    "titleZh": "UT Austin 将 SynthID 水印嵌入基因组语言模型以追溯 AI 生成 DNA",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "UT Austin 把 SynthID tournament 水印嵌入基因组语言模型的生成过程，验证方只需 DNA 序列、密钥和公开检测参数即可判断片段是否由模型生成，无需知道生成区段的位置、链向和 6 碱基 token 切分方式。检测器搜索两条链、所有起始位置和 4 种窗口长度，并对整个搜索做多重比较校正。在 1,544 个留出提示的检测队列中，每个模型 3,088 条带水印序列全部检出，包括未改动以及替换、插入或删除一个碱基的情况；普通序列假阳性率的单侧 95% 置信上界最多 0.850%，错密钥对照中有一项达到 1.015%。开发队列里两个模型的似然和预设序列指标没有可检测的变化，不参考检测器的随机编辑下每碱基编辑率到 2% 时仍全部或几乎全部检出。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.04763",
+      "aisafetyhot": "https://aisafetyhot.com/items/jgjuv25ges44jwjseoonrma6a"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T10:52:18.177Z",
+    "discoveredAt": "2026-10-08T10:52:18.177Z"
+  },
+  {
     "arxivId": "2610.03036",
     "title": "WebFovea: When the Model Is Right but the Click Is Wrong -- Reliable Round Trips for Vision-Based Web Agents on Live Websites",
     "titleZh": "WebFovea 提出视觉网页智能体四阶段加固框架，WebRetriever 挑战赛得分从 31.0 升至 57.0",
@@ -1478,6 +1496,24 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T06:40:33.991Z",
     "discoveredAt": "2026-10-08T06:40:33.991Z"
+  },
+  {
+    "arxivId": "2609.34974",
+    "title": "Veer：网页 agent 遇到暗模式时先改页面状态再执行，WebDecept 上暗模式得逞率压到 0.3%",
+    "titleZh": "Veer 提出网页 Agent 暗模式防御：先改页面状态再执行，WebDecept 得逞率降至 0.3%",
+    "authors": [],
+    "category": "defense",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "Veer 针对网页 Agent 的一类失败模式提出防御：动作本身符合任务，但因网页当前状态（如预勾选的附加项、默认订阅）会产生用户未授权的后果。Veer 不改动任务规划，只在拟执行动作会造成未授权后果时，先构造前瞻干预轨迹把网页状态改到安全状态，并做运行时 grounding 与验证，再让 Agent 继续执行。在三种评测设定下安全完成率均最高，TrickyArena-Single 与 Multi 分别比次优防御高 15.9 和 25.0 个百分点，WebDecept 上暗模式得逞率降到 0.3%；作者称该结果在各暗模式类型和 12 种 agent/模型/基准组合上都成立，消融显示主动改状态贡献最大。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2609.34974",
+      "aisafetyhot": "https://aisafetyhot.com/items/dwggewltrkmsubduuiml9qe15"
+    },
+    "publishedAt": null,
+    "timelineAt": "2026-10-08T11:01:32.138Z",
+    "discoveredAt": "2026-10-08T11:01:32.138Z"
   },
   {
     "arxivId": "2610.07557",
