@@ -4,9 +4,10 @@
 
 <p align="center"><strong>让你的 Agent 查新闻、读论文、追事件，整理 AI 安全简报。</strong></p>
 
-<p align="center">攻击与越狱 · 防御与护栏 · 对齐与可解释性 · 安全评测 · 真实事件 · 治理与政策</p>
+<p align="center">攻击与越狱 · 防御与护栏 · 对齐与安全评测 · AI 事件 · 多智能体不安全 · 治理与政策</p>
 
 <p align="center">
+  <a href="https://aisafetyhot.com"><img src="https://img.shields.io/badge/%F0%9F%8C%90%20Website-aisafetyhot.com-2563eb?style=flat-square" alt="🌐 Website：aisafetyhot.com"></a>
   <a href="https://aisafetyhot.com"><img src="https://img.shields.io/badge/日报-每天%2008%3A00%20北京时间-d97706?style=flat-square" alt="每天北京时间 08:00 发布日报"></a>
   <a href="#agent"><img src="https://img.shields.io/badge/Agent-MCP-2563eb?style=flat-square" alt="Agent MCP"></a>
   <a href="#papers"><img src="https://img.shields.io/badge/论文-Markdown%20%2F%20BibTeX%20%2F%20JSON-16856b?style=flat-square" alt="三种格式的论文清单"></a>
@@ -15,15 +16,15 @@
 <p align="center">
   <a href="#agent">接入你的 Agent</a> ·
   <a href="#examples">看看怎么用</a> ·
-  <a href="#daily">读今日日报</a> ·
-  <a href="https://aisafetyhot.com/all?view=graph">探索关系图</a> ·
-  <a href="#papers">下载论文</a> ·
+  <a href="#daily">今日日报</a> ·
+  <a href="https://aisafetyhot.com/all?view=graph">可视化</a> ·
+  <a href="#papers">相关论文</a> ·
   <a href="https://aisafetyhot.com/hot">看热点</a> ·
   <a href="https://aisafetyhot.com">逛网站 ↗</a>
 </p>
 
 <p align="center">
-  <a href="https://aisafetyhot.com"><img src="assets/news-monitor-demo.gif" width="1000" alt="AI Safety HOT 新闻列表与话题关系图动态演示"></a>
+  <a href="https://aisafetyhot.com"><img src="assets/news-monitor-demo.gif" width="1000" alt="AI Safety HOT 新闻列表与可视化动态演示"></a>
 </p>
 
 这里是 [AI Safety HOT](https://aisafetyhot.com) 的 **Agent 接入指南与公开内容归档**。网站供人浏览；这个仓库帮助你的 Agent 通过 MCP 读取网站的新闻、研究论文、热点事件和报告，整理成你需要的答案，并保留出处链接。无需自行解析网页或克隆仓库，**公开读取无需登录或 API Key**。
@@ -728,7 +729,7 @@ OpenAI 首席战略官 Jason Kwon 在悉尼出席澳大利亚议会联合专责�
 
 ## 🔎 还可以在网站上看什么
 
-[全部动态](https://aisafetyhot.com/all) 持续更新 · [热点榜](https://aisafetyhot.com/hot) 追踪事件进展 · [关系图](https://aisafetyhot.com/all?view=graph) 看来源、新闻与论文如何汇入研究方向 · [周报](https://aisafetyhot.com/weekly) 回顾一周 · [月报](https://aisafetyhot.com/monthly) 盘点一个月
+[全部动态](https://aisafetyhot.com/all) 持续更新 · [热点榜](https://aisafetyhot.com/hot) 追踪事件进展 · [可视化](https://aisafetyhot.com/all?view=graph) 看来源、新闻与论文如何汇入研究方向 · [周报](https://aisafetyhot.com/weekly) 回顾一周 · [月报](https://aisafetyhot.com/monthly) 盘点一个月
 
 **订阅到自己的阅读器：** [精选 RSS](https://aisafetyhot.com/feed.xml) · [全部动态 RSS](https://aisafetyhot.com/feed/all.xml) · [日报 RSS](https://aisafetyhot.com/feed/daily.xml)
 
