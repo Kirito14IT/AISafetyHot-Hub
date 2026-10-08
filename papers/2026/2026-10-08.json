@@ -156,6 +156,24 @@
     "discoveredAt": "2026-10-07T23:17:00.330Z"
   },
   {
+    "arxivId": "2610.09027",
+    "title": "Visual Memory Attacks Can Persist Through The KV Cache",
+    "titleZh": "P-VMI：对抗图像经 KV cache 持续影响多轮对话",
+    "authors": [],
+    "category": "attack",
+    "selected": true,
+    "attention": 80,
+    "summaryZh": "ServiceNow AI Research 等机构的研究者提出 Persistent Visual Memory Injection（P-VMI）攻击，可将对抗图像的隐藏后门写入后续 token 的 KV cache，使图像被遮蔽后仍能影响模型输出。在 Qwen3-VL-8B-Instruct 上，P-VMI 最强配置的目标成功率约 90%，即使只在第一轮暴露图像也能在更严格设置下生效；原始 VMI 攻击在触发时遮蔽图像后成功率为 0%，说明持久性需要专门优化。研究还显示攻击能穿过保留摘要 KV cache 的上下文压缩，且在 Gemma-4-12B 上触发成功率超过 90%（三轮对话内）、六轮后为 73%。cache-swap 消融把持续影响定位到 KV cache，残差流中单一线性方向预测攻击成功的 AUC 达 0.90 至 0.95。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09027",
+      "aisafetyhot": "https://aisafetyhot.com/items/mwx84n2gb68xkbkbdvkrplehf"
+    },
+    "publishedAt": "2026-10-06T19:25:00.000Z",
+    "timelineAt": "2026-10-08T04:29:30.469Z",
+    "discoveredAt": "2026-10-08T04:29:30.469Z"
+  },
+  {
     "arxivId": "2610.09384",
     "title": "The Persona Hierarchy Model: Understanding Contextual Generalization in Fine-Tuning LLMs",
     "titleZh": "人格层级模型解释微调 LLM 的上下文泛化，PPR 正则化将 RL 奖励作弊压至 0.2% 以下",
@@ -169,7 +187,28 @@
     "selected": true,
     "attention": 78,
     "summaryZh": "研究者提出人格层级模型（Persona Hierarchy Model），认为 LLM 存在一个跨上下文共享的默认人格，微调若改动这一共享成分，学到的行为就会泛化到其他上下文，若只改动局部人格则行为局限于训练上下文。在 Qwen3-4B 和 Llama-3.1-8B-Instruct 上，覆盖 Goblin 提及、谄媚、奖励作弊和推理长度四种行为、共 120 个微调模型，训练上下文人格向量与默认人格向量的距离与泛化狭窄度正相关，Qwen3-4B 的 Pearson 相关系数为 0.72，Llama-3.1-8B 为 0.59。激活修补显示，窄泛化更依赖前缀表示，宽泛化更依赖共享的 assistant-header 后置表示。在默认前缀下先训练或让上下文响应对齐默认人格，都能拉近人格距离并拓宽后续泛化。",
-    "quickRead": null,
+    "quickRead": {
+      "parts": [
+        {
+          "text": "大语言模型在固定前缀上下文（如系统提示词）下微调时，所学行为有时局限于训练上下文，有时会广泛泛化到未见上下文。什么因素决定微调行为是否跨上下文泛化，此前缺乏系统解释。",
+          "label": "问题"
+        },
+        {
+          "text": "作者提出人格层级模型，认为共享的默认人格影响局部人格。通过提取潜空间角色向量并计算与默认前缀的余弦距离，分析其与泛化狭窄度的相关性，并通过激活修补定位表征；进而提出通过默认前缀干预及人格保持正则化（PPR）来约束泛化。",
+          "label": "方法"
+        },
+        {
+          "text": "在120个微调模型上，角色距离与狭窄度呈正相关（Qwen3-4B的r为0.72，Llama-3.1-8B为0.59）。默认前缀预训练或对齐可扩大后续泛化。PPR在SFT中收紧泛化，在强化学习中将代码作弊率从42%–55%降至至多0.2%且保持准确率。",
+          "label": "实验与结果"
+        },
+        {
+          "text": "上下文仅通过固定系统提示词形式化，未涵盖多轮对话等隐式上下文；角色距离与狭窄度在各数据集上的相关强度存在差异，不能作为绝对扩散程度的校准估计；实验覆盖2个开源模型、4类行为与15个系统提示词。",
+          "label": "局限与可以继续做的"
+        }
+      ],
+      "sourceName": "论文 PDF（Gemini 生成）",
+      "sourceUrl": "https://arxiv.org/abs/2610.09384"
+    },
     "links": {
       "paper": "https://arxiv.org/abs/2610.09384",
       "aisafetyhot": "https://aisafetyhot.com/items/peeof46x6rudqhjejkqnzx6v7"
@@ -177,6 +216,24 @@
     "publishedAt": "2026-10-07T03:40:44.000Z",
     "timelineAt": "2026-10-08T04:20:35.134Z",
     "discoveredAt": "2026-10-08T04:20:35.134Z"
+  },
+  {
+    "arxivId": "2610.10276",
+    "title": "PatchBench: Measuring Collateral Damage in Activation Patching",
+    "titleZh": "PatchBench 提出激活补丁局部评测协议，揭示越狱修复的附带损伤",
+    "authors": [],
+    "category": "eval",
+    "selected": true,
+    "attention": 78,
+    "summaryZh": "研究者发布 PatchBench，一个面向激活补丁（activation patching）的越狱修复评测基准，包含 400 条经人工核验的模型特定越狱失败样本，覆盖 8 个开源指令微调模型。构建流程从 RedBench 的 27,870 条提示出发，人工筛选保留 15,314 条，查询模型得到 122,512 组提示-回答，经 WildGuard 过滤、成对 Elo 排序和人工复核，每个模型保留 50 条能产生可操作有害回答的失败样本。配套的 PatchBench-Local 为每条有害源提示生成 29 条局部提示，包括 19 条保留恶意意图的有害变体，以及结构匹配和复用有害词汇的两类良性提示，分别用有害邻域纠正分（HNCS）和良性邻域保持分（BNPS）衡量。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.10276",
+      "aisafetyhot": "https://aisafetyhot.com/items/a50yumy56534lhyfdq3s8idca"
+    },
+    "publishedAt": "2026-10-07T15:43:00.000Z",
+    "timelineAt": "2026-10-08T04:21:06.182Z",
+    "discoveredAt": "2026-10-08T04:21:06.182Z"
   },
   {
     "arxivId": "2610.09920",
@@ -259,12 +316,12 @@
   {
     "arxivId": "2610.09264",
     "title": "Package Hallucination Attacks on Coding Agents through Prompt Injection in Rule Files",
-    "titleZh": "Duke 团队提出 PackHallu，揭示规则文件提示注入引发的编码智能体依赖包幻觉攻击",
+    "titleZh": "研究者提出 PackHallu：经规则文件提示注入对编码 Agent 发起包幻觉攻击",
     "authors": [],
     "category": "attack",
     "selected": false,
     "attention": null,
-    "summaryZh": "Duke 研究团队提出 PackHallu，研究编码智能体读取不可信规则文件时，依赖选择可能受提示注入影响的供应链风险。作者在基准环境中报告了较高的攻击成功率，并发现部分检测器存在漏检或误报问题。该工作属于基准环境下的研究，不是在野利用报告，也未确认商业闭源产品均已受测。",
+    "summaryZh": "研究者提出包幻觉攻击，攻击者在社区共享的规则文件（如 .cursorrules）中注入恶意提示词，诱导编码 Agent 把合法依赖替换为攻击者控制的包。为生成有效注入提示词，作者提出 PackHallu 进化优化框架，利用轨迹级反馈和 LLM 引导的变异迭代改写注入内容。在多个基准、LLM 和 Agent 框架上的评测显示，PackHallu 取得较高攻击成功率，并在不同模型与 Agent 组合间具有较强迁移性。研究认为编码 Agent 易受此类攻击影响，自主编码系统需要更强的安全防护。",
     "quickRead": null,
     "links": {
       "paper": "https://arxiv.org/abs/2610.09264",
@@ -273,24 +330,6 @@
     "publishedAt": "2026-10-07T00:59:00.000Z",
     "timelineAt": "2026-10-08T04:20:41.945Z",
     "discoveredAt": "2026-10-08T04:20:41.945Z"
-  },
-  {
-    "arxivId": "2610.09027",
-    "title": "Visual Memory Attacks Can Persist Through The KV Cache",
-    "titleZh": "研究：视觉记忆攻击可经 KV cache 持续存在",
-    "authors": [],
-    "category": "attack",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "研究作者报告，在白盒多模态模型实验中，不可信图像的影响可能残留在后续缓存状态里，移除原始图像不一定消除影响。结果提示长上下文和上下文压缩需要考虑派生状态的信任边界。实验目标是指定回答，未证明商用 API、工具调用或数据外泄受影响。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.09027",
-      "aisafetyhot": "https://aisafetyhot.com/items/mwx84n2gb68xkbkbdvkrplehf"
-    },
-    "publishedAt": "2026-10-06T19:25:00.000Z",
-    "timelineAt": "2026-10-08T04:29:30.469Z",
-    "discoveredAt": "2026-10-08T04:29:30.469Z"
   },
   {
     "arxivId": "2610.09703",
@@ -336,6 +375,42 @@
     "discoveredAt": "2026-10-08T01:54:32.931Z"
   },
   {
+    "arxivId": "2610.09000",
+    "title": "How Fragile Is On-Device Language Model Safety? Localizing Safety-Critical Parameters for Sparse Fault Analysis",
+    "titleZh": "研究定位 LLaMA-2-7B-Chat 安全敏感参数：改动 0.19% 权重即可达 53% 攻击成功率",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者在 LLaMA-2-7B-Chat 上考察安全敏感行为是否集中在稀疏参数子集中，以缩小可被针对性攻击的故障面。他们采用低秩安全子空间分析与参数级安全-效用重要性过滤两种互补方法，发现网络内安全敏感度高度不均匀，MLP 的 down_proj 始终是最突出的安全敏感组件，o_proj 贡献较小。仅修改 down_proj 中 0.19% 的模型权重，即可达到 53% 的 Basic ASR 和 56% 的 GCG ASR，而 tinyBenchmarks 准确率仍为 51.6%，未修改基线为 52.2%。作者据此提出，应对资源受限、端侧和智能体场景中部署的语言模型开展针对性故障分析与选择性完整性保护。该工作已被 NeurIPS 2026 Workshop 接收。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09000",
+      "aisafetyhot": "https://aisafetyhot.com/items/gyso52udiyg6w2y2cp0em88bv"
+    },
+    "publishedAt": "2026-10-06T18:56:00.000Z",
+    "timelineAt": "2026-10-08T04:24:47.144Z",
+    "discoveredAt": "2026-10-08T04:24:47.144Z"
+  },
+  {
+    "arxivId": "2610.10150",
+    "title": "On the Reliability of LLM-Based Vulnerability Patching Benchmarks",
+    "titleZh": "论文指出 LLM 漏洞修复基准可靠性受评测设计影响",
+    "authors": [],
+    "category": "eval",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "论文《On the Reliability of LLM-Based Vulnerability Patching Benchmarks》指出，当前基于大语言模型的自动化漏洞修复基准会显著扭曲所报告的性能。作者从三个维度梳理被忽视的陷阱：智能体层面，提示词、工具可用性和详细指令会抬高成功率却不提升与开发者一致的补丁质量；框架层面，权限错误、基础设施缺陷和超时处理会悄然压低或虚高成绩；数据集层面，缺陷报告和单一 PoC 测试无法判断补丁是否解决根因或符合开发者意图。作者从 84 个开源 C/C++、Go 和 Rust 项目中整理出 112 个历史缺陷，每个都配有 PoC 测试、回归测试以及评估是否符合原开发者设计原则的额外开发者测试。论文据此给出更严谨、可靠、可复现的评测实践指南。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.10150",
+      "aisafetyhot": "https://aisafetyhot.com/items/v1x9t9p2rnhjj14y3mst7llio"
+    },
+    "publishedAt": "2026-10-07T14:26:00.000Z",
+    "timelineAt": "2026-10-08T04:20:51.212Z",
+    "discoveredAt": "2026-10-08T04:20:51.212Z"
+  },
+  {
     "arxivId": "2610.09496",
     "title": "Sparse Feature Policy Unlearning Mitigates State Hallucination in Vision-Language-Action Models",
     "titleZh": "SOUL：用稀疏特征策略遗忘缓解 VLA 模型的状态幻觉",
@@ -360,24 +435,6 @@
     "discoveredAt": "2026-10-08T04:30:42.349Z"
   },
   {
-    "arxivId": "2610.10150",
-    "title": "On the Reliability of LLM-Based Vulnerability Patching Benchmarks",
-    "titleZh": "研究质疑 LLM 漏洞修复基准可靠性：概念验证通过率 78%，开发者意图通过率仅 44%",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "Northwestern 研究者审视基于 LLM 的漏洞修复基准，认为评测设置、运行框架和成功定义会显著影响结果。在作者自建数据集上，补丁通过概念验证测试的比例约 78%，而符合开发者设计意图的测试通过率约 44%。作者指出，提示抑制漏洞症状并不等于完成高质量修复。该结果是特定数据集和运行条件下的评测结果，并非通用修复能力的证明。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.10150",
-      "aisafetyhot": "https://aisafetyhot.com/items/v1x9t9p2rnhjj14y3mst7llio"
-    },
-    "publishedAt": "2026-10-07T14:26:00.000Z",
-    "timelineAt": "2026-10-08T04:20:51.212Z",
-    "discoveredAt": "2026-10-08T04:20:51.212Z"
-  },
-  {
     "arxivId": "2610.07557",
     "title": "CheckerBench: Can Long-Horizon Agents Synthesize Static-Analysis Checkers?",
     "titleZh": "CheckerBench：长程 Agent 能否合成静态分析检查器",
@@ -396,6 +453,42 @@
     "discoveredAt": "2026-10-07T16:50:31.614Z"
   },
   {
+    "arxivId": "2610.09964",
+    "title": "Successive Training Stages and Large Language Model Persuasion: Effects of Misalignment, Supervised Fine-Tuning, and Preference Optimization",
+    "titleZh": "研究比较连续训练阶段对大语言模型说服力的影响",
+    "authors": [],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "一项研究考察了三个连续后训练阶段如何影响大语言模型的说服力，包括在阴谋论数据上的监督微调（SFT）导致的失准、在论证数据上的额外说服性 SFT，以及 Identity Preference Optimization（IPO）偏好优化方法。研究在 Prolific 招募 835 名参与者，随机分配到五个组间条件（中性文本、阴谋论训练模型、说服训练模型、偏好优化模型和 GPT-4），就 10 个争议性政治议题生成个性化文本，用连续 Likert 量表测量接触前后的态度变化并做协方差分析。结果显示条件与基线态度存在显著交互，F(4, 825) = 5.33，p < .001，说明训练效果取决于参与者初始态度；说服性 SFT 带来的态度变化大于单独的阴谋论训练，d = 0.30，而 IPO 没有额外收益，d = 0.03，GPT-4 与中性文本无差异，d = -0.01。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09964",
+      "aisafetyhot": "https://aisafetyhot.com/items/lmtlxz6x3d2gze5al2u5csre9"
+    },
+    "publishedAt": "2026-10-07T12:36:00.000Z",
+    "timelineAt": "2026-10-08T04:20:58.705Z",
+    "discoveredAt": "2026-10-08T04:20:58.705Z"
+  },
+  {
+    "arxivId": "2610.08951",
+    "title": "ASPIRE: Agentic Safety & Prompt Injection Red-teaming Engine",
+    "titleZh": "ASPIRE：面向 LLM Agent 的开放式提示注入红队引擎",
+    "authors": [],
+    "category": "attack",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究者提出 ASPIRE，一个面向 LLM Agent 的开放式、行为级漏洞发现红队引擎，用于应对 Agent 检索不可信内容并通过工具行动所带来的间接提示注入风险。ASPIRE 维护一个持续演化的 Agent Security Behavior Graph，用互补的 Explore 与 Exploit 专家发现、验证并泛化以后果为中心的测试；轨迹证据用于更新该图并诊断部分或失败的尝试，跨运行记忆则迁移有效的红队策略。论文称在多个基准上的实验显示，ASPIRE 在后果、注入方法、环境和行为路径上大幅扩展了覆盖范围，同时保持较高的攻击成功率。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.08951",
+      "aisafetyhot": "https://aisafetyhot.com/items/wt6sbg6fyv31ddxt9g4kwuu6z"
+    },
+    "publishedAt": "2026-10-06T18:18:00.000Z",
+    "timelineAt": "2026-10-08T04:24:54.631Z",
+    "discoveredAt": "2026-10-08T04:24:54.631Z"
+  },
+  {
     "arxivId": "2509.05219",
     "title": "Conversational AI increases political knowledge as effectively as self-directed internet search",
     "titleZh": "对话式 AI 提升政治知识的效果与自主上网搜索相当",
@@ -412,24 +505,6 @@
     "publishedAt": null,
     "timelineAt": "2026-10-07T21:15:49.367Z",
     "discoveredAt": "2026-10-07T21:15:49.367Z"
-  },
-  {
-    "arxivId": "2610.10276",
-    "title": "PatchBench: Measuring Collateral Damage in Activation Patching",
-    "titleZh": "PatchBench 衡量激活引导修复补丁的附带损伤",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "论文提出 PatchBench，用于衡量越狱修复补丁对附近良性请求的附带影响。作者报告，在所测开源模型和激活引导方法中，整体能力指标变化很小，但局部良性请求可能出现明显过度拒答，说明聚合指标不足以衡量修复精确性。结论限于论文选取的模型和方法，不能外推至闭源模型或其他修复路线。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.10276",
-      "aisafetyhot": "https://aisafetyhot.com/items/a50yumy56534lhyfdq3s8idca"
-    },
-    "publishedAt": "2026-10-07T15:43:00.000Z",
-    "timelineAt": "2026-10-08T04:21:06.182Z",
-    "discoveredAt": "2026-10-08T04:21:06.182Z"
   },
   {
     "arxivId": "2610.10232",
@@ -532,24 +607,6 @@
     "discoveredAt": "2026-10-08T04:20:35.140Z"
   },
   {
-    "arxivId": "2610.09082",
-    "title": "Move Fast and Mend Things: Keeping Up with Evolving AI Harms Using Social Media Commentary",
-    "titleZh": "Google 等研究者用 570 万条 Reddit 帖子构建自下而上的 AI 危害分类",
-    "authors": [],
-    "category": "eval",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "Google 等机构的研究者分析 570 万条 Reddit 帖子摘要，提出一种自下而上的 AI 危害分类方法，并观察到围绕智能体隐私、控制能力以及陪伴服务变更的担忧随时间变化。研究者指出，这些数据包含用户自述和预期性焦虑，不能当作经核实的事故数量；样本偏向所选英语社区，分类结果也受模型处理方式影响。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.09082",
-      "aisafetyhot": "https://aisafetyhot.com/items/nko1bjsg98sh1p40tekjq0vs2"
-    },
-    "publishedAt": "2026-10-06T20:24:00.000Z",
-    "timelineAt": "2026-10-08T04:29:37.954Z",
-    "discoveredAt": "2026-10-08T04:29:37.954Z"
-  },
-  {
     "arxivId": "2610.04299",
     "title": "Questioning the Questions: Sustaining Self-Evolution in Reasoning Models",
     "titleZh": "R-Quest：用问题有效性与新颖性反馈维持推理模型自我进化",
@@ -594,6 +651,24 @@
     "discoveredAt": "2026-10-08T04:30:42.328Z"
   },
   {
+    "arxivId": "2610.09082",
+    "title": "Move Fast and Mend Things: Keeping Up with Evolving AI Harms Using Social Media Commentary",
+    "titleZh": "研究团队用 LLM 分析 570 万条 Reddit 帖，构建 AI 危害分类体系",
+    "authors": [],
+    "category": "tip",
+    "selected": false,
+    "attention": null,
+    "summaryZh": "研究团队提出一套 LLM 辅助的主题分析管线，从大规模社交媒体数据中动态检测、分类和追踪新出现的 AI 危害。他们分析 18 个月（2025 年 1 月至 2026 年 6 月）内 570 万条 Reddit 帖子摘要，整理并发布包含 57.5 万条 AI 危害相关帖子的数据集，以及一套由 12 个类别、47 个子节点构成的自下而上 AI 危害分类体系。该分类体系能覆盖已有专家定义的风险，同时发现自上而下框架忽略的细粒度危害，例如不同形式的 AI 隐私侵犯。时间分析还揭示出以用户为中心的危害演变，包括智能体隐私与安全泄露、职场中的 AI 过早采用，以及 AI 伴侣停用带来的失落感。研究者称该管线缩短了危害检测周期，有助于推动更具参与性和响应性的 AI 治理。",
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09082",
+      "aisafetyhot": "https://aisafetyhot.com/items/nko1bjsg98sh1p40tekjq0vs2"
+    },
+    "publishedAt": "2026-10-06T20:24:00.000Z",
+    "timelineAt": "2026-10-08T04:29:37.954Z",
+    "discoveredAt": "2026-10-08T04:29:37.954Z"
+  },
+  {
     "arxivId": "2609.01491",
     "title": "GlossoGen: Emergent Language in Complex Multi-Agent LLM Interactions",
     "titleZh": "GlossoGen 研究多智能体 LLM 交互中涌现的通信方式",
@@ -612,58 +687,22 @@
     "discoveredAt": "2026-10-08T04:33:24.948Z"
   },
   {
-    "arxivId": "2610.09964",
-    "title": "Successive Training Stages and Large Language Model Persuasion: Effects of Misalignment, Supervised Fine-Tuning, and Preference Optimization",
-    "titleZh": "研究比较不同训练阶段大语言模型的政治说服效果",
+    "arxivId": "2610.09708",
+    "title": "Black-Box Adversarial Patch Attacks on VLAs via Ancestor VLM Exploitation",
+    "titleZh": "研究者提出通过基础 VLM 迁移的 VLA 黑盒对抗补丁攻击",
     "authors": [],
-    "category": "alignment",
+    "category": "attack",
     "selected": false,
     "attention": null,
-    "summaryZh": "LAAS-CNRS 等机构的研究者开展了一项 835 人在线实验，比较不同训练阶段的语言模型对即时政治态度变化的影响。作者称训练组之间存在差异，进一步偏好优化未带来显著增益，结果也取决于参与者原有立场。研究测量的是单次阅读后的即时变化，不能据此推断长期或真实世界说服效果，也不能将对照模型在本设置下的结果推广为普遍无效。",
+    "summaryZh": "研究者报告了一种针对视觉语言动作模型（VLA）的黑盒对抗补丁攻击，利用公开基础视觉语言模型（VLM）的对抗扰动实现迁移影响，提示微调过程可能继承上游模型的安全风险。结果仅来自仿真和静态图像，未在实体机器人上验证，且在 π0.5 上的效果接近随机噪声，不能推广为所有机器人模型均受影响。",
     "quickRead": null,
     "links": {
-      "paper": "https://arxiv.org/abs/2610.09964",
-      "aisafetyhot": "https://aisafetyhot.com/items/lmtlxz6x3d2gze5al2u5csre9"
+      "paper": "https://arxiv.org/abs/2610.09708",
+      "aisafetyhot": "https://aisafetyhot.com/items/r2muvj92qzan8fibrsmf1mwni"
     },
-    "publishedAt": "2026-10-07T12:36:00.000Z",
-    "timelineAt": "2026-10-08T04:20:58.705Z",
-    "discoveredAt": "2026-10-08T04:20:58.705Z"
-  },
-  {
-    "arxivId": "2610.09000",
-    "title": "How Fragile Is On-Device Language Model Safety? Localizing Safety-Critical Parameters for Sparse Fault Analysis",
-    "titleZh": "Virginia Tech 研究端侧语言模型安全对权重扰动的脆弱性",
-    "authors": [],
-    "category": "alignment",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "Virginia Tech 研究者分析了本地模型权重完整性与安全行为的关系，发现所测模型的安全敏感度分布不均，局部权重变化可能损害安全表现，而常规效用指标变化较小，作者据此建议关注模型完整性保护。实验仅涉及 LLaMA-2-7B-Chat，端侧属于威胁场景设定。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.09000",
-      "aisafetyhot": "https://aisafetyhot.com/items/gyso52udiyg6w2y2cp0em88bv"
-    },
-    "publishedAt": "2026-10-06T18:56:00.000Z",
-    "timelineAt": "2026-10-08T04:24:47.144Z",
-    "discoveredAt": "2026-10-08T04:24:47.144Z"
-  },
-  {
-    "arxivId": "2610.08951",
-    "title": "ASPIRE: Agentic Safety & Prompt Injection Red-teaming Engine",
-    "titleZh": "Google Cloud AI Research 等提出智能体提示注入红队引擎 ASPIRE",
-    "authors": [],
-    "category": "tip",
-    "selected": false,
-    "attention": null,
-    "summaryZh": "Google Cloud AI Research 等团队提出 ASPIRE，一个面向智能体的安全与提示注入红队引擎，按行为后果组织间接提示注入测试，帮助开发者系统发现未授权行为风险。作者报告了该框架在自选基准上的覆盖与发现效果。这些是开发方测试的研究结果，并非野外的攻击事件，也不能外推为任意系统中的攻击成功率。",
-    "quickRead": null,
-    "links": {
-      "paper": "https://arxiv.org/abs/2610.08951",
-      "aisafetyhot": "https://aisafetyhot.com/items/wt6sbg6fyv31ddxt9g4kwuu6z"
-    },
-    "publishedAt": "2026-10-06T18:18:00.000Z",
-    "timelineAt": "2026-10-08T04:24:54.631Z",
-    "discoveredAt": "2026-10-08T04:24:54.631Z"
+    "publishedAt": "2026-10-07T09:04:00.000Z",
+    "timelineAt": "2026-10-08T05:15:08.950Z",
+    "discoveredAt": "2026-10-08T05:15:08.950Z"
   },
   {
     "arxivId": "2610.08887",
@@ -684,5 +723,52 @@
     "publishedAt": null,
     "timelineAt": "2026-10-08T04:30:42.298Z",
     "discoveredAt": "2026-10-08T04:30:42.298Z"
+  },
+  {
+    "arxivId": "2610.09600",
+    "title": "SafeEvo: Deciphering the Safety Alignment Mechanism and Evolution in Language Models",
+    "titleZh": "SafeEvo：解读语言模型中的安全对齐机制与演化",
+    "authors": [
+      "Miao Yu",
+      "Zuming Jiang",
+      "Hao Huang",
+      "Yunpeng Li",
+      "Lu Yuan",
+      "Kun Wang"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": null,
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.09600",
+      "aisafetyhot": "https://aisafetyhot.com/items/ib0ztjtw9vtm3hxg24rnjr98x"
+    },
+    "publishedAt": "2026-10-07T00:00:00.000Z",
+    "timelineAt": "2026-10-08T05:30:02.470Z",
+    "discoveredAt": "2026-10-08T05:30:02.470Z"
+  },
+  {
+    "arxivId": "2610.10064",
+    "title": "Comprehension Audits to Mitigate Risks from Automated AI Research",
+    "titleZh": "通过理解审计缓解自动化AI研究的风险",
+    "authors": [
+      "Ronald J. Bodkin",
+      "Bahrad A. Sokhansanj",
+      "Gillian K. Hadfield"
+    ],
+    "category": "alignment",
+    "selected": false,
+    "attention": null,
+    "summaryZh": null,
+    "quickRead": null,
+    "links": {
+      "paper": "https://arxiv.org/abs/2610.10064",
+      "aisafetyhot": "https://aisafetyhot.com/items/m59440htlxp7vh086o1do9sh6"
+    },
+    "publishedAt": "2026-10-07T00:00:00.000Z",
+    "timelineAt": "2026-10-08T05:30:02.497Z",
+    "discoveredAt": "2026-10-08T05:30:02.497Z"
   }
 ]
