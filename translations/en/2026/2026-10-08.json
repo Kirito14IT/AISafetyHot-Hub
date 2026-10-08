@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "prompt_version": 3,
+  "prompt_version": 4,
   "date": "2026-10-08",
   "language": "en",
   "source_sha256": "93461cc6a76a5ff10db160ee69f842d49b4782c109fc82a15e608c398eef080f",
@@ -637,6 +637,6 @@
   "provenance": {
     "kind": "assistant-reviewed",
     "source_repository": "wuyoscar/AISafetyHot-Hub",
-    "source_revision": "4d4cab09944746fd61ca7dcefdf946eb724715a2"
+    "source_revision": "fcef9aaf7ca0cc0f30769f6b325b41a242fc115e"
   }
 }

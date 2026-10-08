@@ -416,6 +416,52 @@ class LocalProviderTests(unittest.TestCase):
             client.translate_batch({"summary": source}, "ja")
         self.assertEqual(client.local_requests, 1)
 
+    def test_fully_restored_model_text_preserves_brands_numbers_rates_links_and_code(self):
+        source = "OpenAI 的 Agent 发现32条，成功率0.56%，网址 https://example.org/evidence ，参数 `max_chars`。"
+        outputs = {
+            "en": "OpenAI's agent found 32 items, with a 0.56% success rate. Source https://example.org/evidence ; parameter `max_chars`.",
+            "ja": "OpenAIのエージェントは32件を検出し、成功率は0.56%でした。出典 https://example.org/evidence 、パラメーター `max_chars`。",
+        }
+        for language, translated in outputs.items():
+            with self.subTest(language=language):
+                client = self.client_with_response(self.response({"summary": translated}))
+                actual = client.translate_batch({"summary": source}, language)
+                self.assertEqual(actual, {"summary": translated})
+                td.validate_translation(source, actual["summary"])
+                self.assertEqual(client.local_requests, 1)
+
+    def test_fully_restored_text_cannot_drop_or_duplicate_brand_or_change_protected_facts(self):
+        source = "OpenAI 的 Agent 发现32条，成功率0.56%，网址 https://example.org/evidence ，参数 `max_chars`。"
+        good = "OpenAI's agent found 32 items, with a 0.56% success rate. Source https://example.org/evidence ; parameter `max_chars`."
+        cases = {
+            "missing brand": good.replace("OpenAI's", "The company's"),
+            "duplicated brand": good.replace("OpenAI's", "OpenAI OpenAI's"),
+            "changed number": good.replace("32 items", "33 items"),
+            "missing rate unit": good.replace("0.56%", "0.56"),
+            "changed URL": good.replace("https://example.org/evidence", "https://example.org/other"),
+            "changed inline code": good.replace("`max_chars`", "`max_tokens`"),
+        }
+        for reason, translated in cases.items():
+            with self.subTest(reason=reason):
+                client = self.client_with_response(self.response({"summary": translated}))
+                with self.assertRaises(td.TranslationError):
+                    client.translate_batch({"summary": source}, "en")
+                self.assertEqual(client.local_requests, 1)
+
+    def test_mixed_missing_or_malformed_placeholders_are_not_raw_text_fallback(self):
+        source = "OpenAI 模型有32个样本，成功率0.56%。"
+        outputs = [
+            "[[KEEP_0000]] has 32 examples and a 0.56% success rate.",
+            "OpenAI has [[KEEP_0001]] examples and a 0.56% success rate.",
+            "[[KEEP_0000] has 32 examples and a 0.56% success rate.",
+        ]
+        for translated in outputs:
+            with self.subTest(translated=translated):
+                client = self.client_with_response(self.response({"summary": translated}))
+                with self.assertRaises(td.TranslationError):
+                    client.translate_batch({"summary": source}, "en")
+                self.assertEqual(client.local_requests, 1)
+
     def test_translation_prompt_preserves_caveats_breaches_and_contextual_terms(self):
         expected_guidance = {
             "en": [

@@ -27,7 +27,7 @@ from urllib import error, parse, request
 
 
 SCHEMA_VERSION = 1
-PROMPT_VERSION = 3
+PROMPT_VERSION = 4
 LOCAL_BASE_URL = "http://127.0.0.1:8080/v1"
 LOCAL_MODEL = "Qwen2.5-7B-Instruct-Q4_K_M"
 MODEL_REVISION = "bb5d59e06d9551d752d08b292a50eb208b07ab1f"
@@ -46,6 +46,7 @@ URL_RE = re.compile(r"https?://[^\s<>\]\)]+")
 CODE_RE = re.compile(r"`[^`\n]+`")
 HTML_RE = re.compile(r"<\s*/?\s*[A-Za-z][^>]*>")
 PLACEHOLDER_RE = re.compile(r"\[\[KEEP_\d{4}\]\]")
+ANY_PLACEHOLDER_RE = re.compile(r"(?:\[\s*\[?\s*K\s*E\s*E\s*P(?:\s*_|[\s_]*\d|\s*\]\])|\bKEEP[\s_-]*\d|\bKEEP_)", re.IGNORECASE)
 ASCII_RE = r"[A-Za-z][A-Za-z0-9]*(?:[-_.+/][A-Za-z0-9]+)*(?:[ \t]+[A-Za-z][A-Za-z0-9]*(?:[-_.+/][A-Za-z0-9]+)*)*"
 PROTECTED_RE = re.compile(r"https?://[^\s<>\]\)]+|`[^`\n]+`|" + ASCII_RE + r"|(?:" + NUMERIC_PATTERN + r")(?:[ \t]*(?:[万亿億兆月]|" + MEASURE_PATTERN + r"))?")
 MONTH_NAMES = ("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
@@ -310,6 +311,60 @@ def restore_text(translated: str, tokens: Mapping[str, str], language: str | Non
     return PLACEHOLDER_RE.sub(lambda match: _localized_quantity(tokens[match.group(0)], language), translated)
 
 
+def restore_model_text(source: str, translated: str, tokens: Mapping[str, str], language: str) -> str:
+    """Accept either all exact placeholders or a fully restored, validated value."""
+    if ANY_PLACEHOLDER_RE.search(translated):
+        restored = restore_text(translated, tokens, language)
+        if ANY_PLACEHOLDER_RE.search(restored):
+            raise TranslationError("The model introduced a malformed placeholder.")
+        return restored
+
+    # Some local models use the read-only context to restore every placeholder
+    # themselves. This route accepts no mixed token/value output and retains
+    # all existing fact, quantity, unit, link, code, and length checks.
+    validate_translation(source, translated)
+    required: Counter[str] = Counter()
+    connecting_words = {"a", "an", "the", "and", "or", "of", "in", "on", "for", "to", "with", "by", "at", "as", "is", "are", "be"}
+    quantity_units = {"thousand", "million", "billion", "trillion", "percent", "per cent", "percentage points", "percent points"}
+    for original in tokens.values():
+        if not original.isascii() or not re.search(r"[A-Za-z]", original):
+            continue
+        if CODE_RE.fullmatch(original) or URL_RE.fullmatch(original):
+            # Existing validation already requires these spans exactly,
+            # including their case and multiplicity.
+            continue
+        normalized = original.casefold()
+        if normalized in connecting_words or normalized in quantity_units or original in MONTH_NAMES:
+            continue
+        required[normalized] += 1
+    normalized_text = translated.casefold()
+    normalized_text = CODE_RE.sub(lambda match: " " * len(match.group(0)), normalized_text)
+    normalized_text = URL_RE.sub(lambda match: " " * len(match.group(0)), normalized_text)
+    for original, expected in sorted(required.items(), key=lambda value: len(value[0]), reverse=True):
+        if original == "agent":
+            pattern = r"(?<![A-Za-z])agents?(?![A-Za-z])"
+            if language == "ja":
+                pattern += r"|エージェント"
+        else:
+            # B/ms are often attached to numbers, while longer identifiers and
+            # version names must not be counted inside a different identifier.
+            if len(original) <= 2:
+                pattern = r"(?<![A-Za-z])" + re.escape(original) + r"(?![A-Za-z])"
+            else:
+                pattern = r"(?<![A-Za-z0-9_])" + re.escape(original) + r"(?![A-Za-z0-9_]|[.+/-][A-Za-z0-9_])"
+        matches = list(re.finditer(pattern, normalized_text))
+        occurrences = len(matches)
+        # Generic agent can also translate unmasked Chinese 智能体. Specific
+        # names/versions/units must retain exactly their source multiplicity.
+        if occurrences < expected or (original != "agent" and occurrences != expected):
+            raise TranslationError("A fully restored translation changed or omitted a protected ASCII name, version, code, or unit.")
+        # Consume longest full names before shorter fragments: AI inside
+        # OpenAI or Workday AI Research is not an independent protected AI.
+        for match in reversed(matches):
+            normalized_text = normalized_text[:match.start()] + " " * (match.end() - match.start()) + normalized_text[match.end():]
+    return translated
+
+
 class _NoRedirectHandler(request.HTTPRedirectHandler):
     def redirect_request(self, req: Any, fp: Any, code: int, msg: str, headers: Any, newurl: str) -> None:
         return None
@@ -419,7 +474,7 @@ class Translator:
             raise TranslationError("Local inference returned unexpected keys or value types.")
         translated: dict[str, str] = {}
         for key, source in units.items():
-            translated[key] = restore_text(decoded[key], mappings[key], language)
+            translated[key] = restore_model_text(source, decoded[key], mappings[key], language)
             validate_translation(source, translated[key])
             if not key.startswith("source:") and translated[key] == source and re.search(r"[\u3400-\u9fff]", source):
                 raise TranslationError("The provider returned untranslated Chinese text.")
